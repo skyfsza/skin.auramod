@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <variable name="catlabel">
+        <value condition="!Skin.HasSetting(DisableCatlabel)">$LOCALIZE[31162]</value>
+        <value condition="Skin.HasSetting(DisableCatlabel)">$LOCALIZE[31421]</value>
+   </variable>
+
+   <include name="widget_logo_tv">
+	<control type="image">
+	<texture background="true">http://localhost:52307/getartwork&amp;title=INFO[ListItem.TvShowTitle]&amp;type=clearlogo&amp;mediatype=tvshow</texture>
+	</control>
+   </include>
+   <include name="widget_logo_movie">
+	<control type="image">
+	<texture background="true">http://localhost:52307/getpvrthumb&amp;title=$ESCINFO[ListItem.Label]&amp;type=clearlogo&amp;mediatype=movies</texture>
+	</control>
+   </include>
+    <variable name="WidgetBannerVar">
+        <value condition="!String.IsEmpty(ListItem.Art(tvshow.banner))">$INFO[ListItem.Art(tvshow.banner)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
+    </variable>
+
+     <variable name="PVRInfoThumb">
+        <value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.ClearLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.ClearLogo)]</value>
+        <value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.ClearArt))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.ClearArt)]</value>
+        <value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Landscape))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Landscape)]</value>
+        <value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Fanart))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Fanart)]</value>
+        <value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
+    </variable>
+    <variable name="Image_OSD_Artwork">
+        <value condition="!String.IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
+        <value condition="!String.IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
+        <value>$INFO[VideoPlayer.Cover]</value>
+    </variable>
+</includes>

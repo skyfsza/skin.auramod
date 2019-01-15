@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<includes>
+
+    <include name="Home">
+        <control type="group">
+            <left>0</left>
+            <include>Animation_MusicVis_Left</include>
+            <control type="group">
+                <include>Animation_Home_Textbar_Slideover</include>
+                <control type="group">
+                    <left>home_left</left>
+                    <width>320</width>
+                    <include>Home_Textbar_Texture</include>
+                    <include>Home_Textbar_Items</include>
+                    <include>Home_Textbar_Bottomline</include>
+                </control>
+            </control>
+
+            <control type="group">
+                <animation effect="slide" start="0" end="301" time="300" tween="sine" easing="inout" condition="Control.HasFocus(302) + Skin.HasSetting(IconOnlyMode)">Conditional</animation>
+                <control type="group">
+                    <left>-320</left>
+                    <width>320</width>
+                    <control type="group">
+                        <right>-8</right>
+                        <include>Home_Textbar_Texture</include>
+                    </control>
+
+<!--
+                    <control type="panel" id="30222">
+		    <orientation>vertical</orientation>
+                <animation effect="slide" start="2900,480" end="2900,520" time="350" tween="sine" easing="in">Focus</animation>
+                        <visible>Window.IsVisible(Home)</visible>
+                        <onclick>SetFocus(300)</onclick>
+			<ondown>3000</ondown>
+			<onup>300</onup>
+                        <onleft>300</onleft>
+                        <include>Home_SubMenu_Items</include>
+                        <include>Home_SubMenu_Layout_icon</include>
+                    </control>
+
+                    <control type="panel" id="302">
+                        <visible>Window.IsVisible(Home)</visible>
+                        <onclick>SetFocus(300)</onclick>
+                        <include>Home_OnClick</include>
+                        <include>Home_OnFocus</include>
+                        <onleft>300</onleft>
+                        <onright>300</onright>
+                        <include>Home_SubMenu_Items</include>
+                        <include condition="Skin.HasSetting(IconOnlyMode)">Home_SubMenu_Layout</include>
+                        <include condition="!Skin.HasSetting(IconOnlyMode)">Home_SubMenu_Layout_icon</include>
+                    </control>
+
+-->
+                    <control type="list" id="302">
+                        <visible>Window.IsVisible(Home)</visible>
+                        <onclick>SetFocus(300)</onclick>
+                        <include>Home_OnClick</include>
+                        <include>Home_OnFocus</include>
+                        <onright>300</onright>
+                        <include>Home_SubMenu_Layout</include>
+                        <include>Home_SubMenu_Items</include>
+                    </control>
+                    <include>Home_Textbar_Bottomline</include>
+                    <control type="group">
+                        <top>view_top</top>
+                        <animation effect="slide" end="0,home_icon" condition="Integer.IsGreater(Container(302).NumItems,0)">Conditional</animation>
+                        <animation effect="slide" end="0,home_icon" condition="Integer.IsGreater(Container(302).NumItems,1)">Conditional</animation>
+                        <animation effect="slide" end="0,home_icon" condition="Integer.IsGreater(Container(302).NumItems,2)">Conditional</animation>
+                        <animation effect="slide" end="0,home_icon" condition="Integer.IsGreater(Container(302).NumItems,3)">Conditional</animation>
+                        <animation effect="slide" end="0,home_icon" condition="Integer.IsGreater(Container(302).NumItems,4)">Conditional</animation>
+                        <animation effect="slide" end="0,home_icon" condition="Integer.IsGreater(Container(302).NumItems,5)">Conditional</animation>
+                        <animation effect="slide" end="0,home_icon" condition="Integer.IsGreater(Container(302).NumItems,6)">Conditional</animation>
+                        <animation effect="slide" end="0,home_icon" condition="Integer.IsGreater(Container(302).NumItems,7)">Conditional</animation>
+                        <animation effect="slide" end="0,home_icon" condition="Integer.IsGreater(Container(302).NumItems,8)">Conditional</animation>
+                        <animation effect="slide" end="0,home_icon" condition="Integer.IsGreater(Container(302).NumItems,9)">Conditional</animation>
+                        <animation effect="slide" end="0,home_icon" condition="Integer.IsGreater(Container(302).NumItems,10)">Conditional</animation>
+                        <animation effect="slide" end="0,home_icon" condition="Integer.IsGreater(Container(302).NumItems,11)">Conditional</animation>
+                        <include>Home_Separator</include>
+                    </control>
+                </control>
+                <control type="group">
+                    <left>0</left>
+                    <width>home_icon</width>
+                    
+                    <include>Home_Iconbar_Texture</include>
+                    <control type="list" id="300">
+                        <include>Defs_InfoDialog_Visible</include>
+                        <include condition="![Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">Home_OnClick</include>
+                        <include>Home_OnFocus</include>
+<!--
+                        <onleft condition="Window.IsVisible(Home) + [!Skin.HasSetting(DisableSubMenu) | String.IsEqual(Container(300).ListItem.Property(widget),Weather)] + !Window.IsVisible(script-globalsearch-main.xml) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)">302</onleft>
+-->
+			<onleft condition="!Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)">30222</onleft>
+			<onleft condition="Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)">302</onleft>
+
+                        <onleft condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">9602</onleft>
+                        <onright condition="Window.IsVisible(script-globalsearch-main.xml)">9500</onright>
+                        <onright condition="Window.IsVisible(Home)">SetFocus(3000)</onright>
+                        <onright condition="Window.IsVisible(SettingsProfile.xml)">4</onright>
+                        <onright condition="Window.IsVisible(SettingsCategory.xml)">3</onright>
+                        <onright condition="Window.IsVisible(SkinSettings.xml)">9100</onright>
+                        <onright condition="Window.IsVisible(SettingsSystemInfo.xml)">50</onright>
+            <onleft>300</onleft>
+
+                        <onright condition="[Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">50</onright>
+                        <onright condition="Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">9500</onright>
+
+                        
+
+                        <include condition="![Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">Home_MainMenu_Layout</include>
+                        <include condition="[Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">Home_VideoInfo_Layout</include>
+
+                        <include condition="Window.IsVisible(Home) + !Window.IsVisible(script-globalsearch-main.xml)">Home_MainMenu_Items</include>
+                        <include condition="[Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">Home_MainMenu_OptionsItems</include>
+                        <include condition="Window.IsVisible(MyPlaylist.xml) + !Window.IsVisible(script-globalsearch-main.xml)">Home_MainMenu_PlaylistItems</include>
+                        <include condition="[Window.IsVisible(SettingsSystemInfo.xml) | Window.IsVisible(Settings.xml) | Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(SkinSettings.xml) | Window.IsVisible(SettingsProfile.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">Home_MainMenu_SettingsItems</include>
+                        <include condition="[Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">Home_MainMenu_NextAired</include>
+                        <include condition="Window.IsVisible(script-globalsearch-main.xml)">Home_MainMenu_GlobalSearch</include>
+                    </control>
+                    <control type="group">
+                        <top>view_top</top>
+                        <include>Home_Separator</include>
+                    </control>
+                </control>
+            </control>
+        </control>
+        <include>Object_PlotOverlay</include>
+    </include>
+
+    <include name="Home_Textbar_Bottomline">
+        <control type="image">
+            <bottom>0</bottom>
+            <height>2</height>
+            <right>6</right>
+            <include>Animation_FadeOut_Delay</include>
+            <texture colordiffuse="darkline_separator">common/white.png</texture>
+            <visible>[[Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904) | Control.HasFocus(300)] + Integer.IsGreater(Container(300).NumItems,11)] | [Control.HasFocus(302) + Integer.IsGreater(Container(302).NumItems,11)]</visible>
+        </control>
+    </include>
+    <include name="Home_MainMenu_GlobalSearch">
+        <content>
+            <item>
+                <icon>special://skin/extras/icons/search.png</icon>
+                <label>$LOCALIZE[137]</label>
+                <onclick>SendClick(198)</onclick>
+            </item>
+        </content>
+    </include>
+
+
+    <include name="Home_Separator">
+        <param name="visible" default="true" />
+        <definition>
+            <control type="group">
+		<visible>Skin.HasSetting(IconOnlyMode) + [Control.HasFocus(300) | Control.HasFocus(302) | Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904)]</visible>
+                <height>home_icon</height>
+                <control type="group">
+                    <visible>$PARAM[visible]</visible>
+                    <include>Animation_FadeOut_Delay</include>
+                    <control type="image">
+                        <width>100%</width>
+                        <height>1</height>
+                        <top>0</top>
+                        <texture colordiffuse="darkline_separator">common/white.png</texture>
+                    </control>
+                    <control type="image">
+                        <width>100%</width>
+                        <height>1</height>
+                        <top>1</top>
+                        <texture colordiffuse="highlight_bottombar">common/white.png</texture>
+                    </control>
+                </control>
+            </control>
+        </definition>
+    </include>
+
+    <include name="Home_Textbar_Item">
+        <control type="group">
+            <height>home_icon</height>
+            <visible>!String.IsEmpty(Container(300).ListItemPosition($PARAM[id]).Label) | !String.IsEmpty(Container(300).ListItemPosition($PARAM[id]).Icon)</visible>
+            <control type="group">
+                <visible>[Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904) | Control.HasFocus(300)]</visible>
+                <include>Animation_FadeOut_Delay</include>
+                <control type="image">
+                    <visible>String.IsEqual(Container(300).ListItemPosition($PARAM[id]).Label,Container(300).ListItem.Label)</visible>
+                    <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
+                    <visible>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904)]</visible>
+                </control>
+                <control type="image">
+                    <visible>String.IsEqual(Container(300).ListItemPosition($PARAM[id]).Label,Container(300).ListItem.Label)</visible>
+                    <visible>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904)]</visible>
+                </control>
+                <include content="Home_Separator">
+                    <param name="visible" value="[Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904) | Control.HasFocus(300)]" />
+                </include>
+                <control type="image">
+                    <visible>String.IsEqual(Container(300).ListItemPosition($PARAM[id]).Label,Container(300).ListItem.Label)</visible>
+                    <left>8</left>
+                    <width>home_icon</width>
+                    <texture colordiffuse="Selected">common/home-indicator.png</texture>
+                    <visible>Skin.HasSetting(SubmenuIndicator)</visible>
+                    <visible>Window.IsVisible(Home)</visible>
+                    <visible>[Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904) | Control.HasFocus(300)]</visible>
+                    <visible>Skin.HasSetting(IconOnlyMode)</visible>
+                    <visible>!Skin.HasSetting(DisableSubMenu)</visible>
+                    <visible>Integer.IsGreater(Container(302).NumItems,0)</visible>
+                </control>
+            </control>
+            <include content="Home_Textbar_Item_Label" condition="![Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)]">
+                <param name="id" value="$PARAM[id]" />
+                <param name="font" value="font_mainmenu" />
+            </include>
+            <include content="Home_Textbar_Item_Label" condition="[Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)]">
+                <param name="id" value="$PARAM[id]" />
+                <param name="font" value="font_submenu" />
+            </include>
+        </control>
+    </include>
+
+    <include name="Home_Textbar_Item_Label">
+        <param name="font" default="font_mainmenu" />
+        <definition>
+            <control type="group">
+                <control type="label">
+                    <left>30</left>
+                    <font>$PARAM[font]</font>
+                    <textcolor>dialog_fg_100</textcolor>
+                    <label>$INFO[Container(300).ListItemPosition($PARAM[id]).Label]</label>
+                    <visible>!String.IsEqual(Container(300).ListItemPosition($PARAM[id]).Label,Container(300).ListItem.Label) | Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904)</visible>
+                </control>
+                <control type="label">
+                    <left>30</left>
+                    <right>40</right>
+                    <font>$PARAM[font]_bold</font>
+                    <align>left</align>
+                    <textcolor>Selected</textcolor>
+                    <label>$INFO[Container(300).ListItemPosition($PARAM[id]).Label]</label>
+                    <visible>String.IsEqual(Container(300).ListItemPosition($PARAM[id]).Label,Container(300).ListItem.Label) + ![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904)]</visible>
+                </control>
+            </control>
+        </definition>
+    </include>
+
+    <include name="Home_Textbar_Items">
+        <control type="group">
+            <height>topbar_height</height>
+            <control type="button" id="3904">
+                <left>-89</left>
+                <height>100%</height>
+                <width>400</width>
+            </control>
+            <control type="grouplist">
+                <centertop>50%</centertop>
+                <height>home_icon</height>
+                <orientation>horizontal</orientation>
+                <align>center</align>
+                <itemgap>12</itemgap>
+                <visible>Skin.HasSetting(IconOnlyMode)</visible>
+                <control type="group">
+                    <width>home_icon</width>
+                    <height>home_icon</height>
+                    <control type="button" id="3901">
+                        <onleft>3903</onleft>
+                        <onright>3902</onright>
+                        <ondown>SetFocus(300,0)</ondown>
+                        <onup>SetFocus(300,12)</onup>
+                        <left>6</left>
+                        <right>6</right>
+                        <top>6</top>
+                        <bottom>6</bottom>
+                        <texturefocus colordiffuse="$VAR[ColorHighlight]">common/circle.png</texturefocus>
+                        <texturenofocus />
+                        <onclick>Dialog.Close(all,force)</onclick>
+                        <onclick>RunScript(script.globalsearch)</onclick>
+                    </control>
+                    <control type="image">
+                        <texture colordiffuse="Selected">special://skin/extras/icons/search.png</texture>
+                        <visible>Control.HasFocus(3901)</visible>
+                    </control>
+                    <control type="image">
+                        <texture colordiffuse="dialog_fg_70">special://skin/extras/icons/search.png</texture>
+                        <visible>!Control.HasFocus(3901)</visible>
+                    </control>
+                </control>
+                <control type="group">
+	            <visible>Skin.HasSetting(IconOnlyMode) + [Control.HasFocus(300) | Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904)]</visible>
+                    <width>home_icon</width>
+                    <height>home_icon</height>
+                    <control type="button" id="3902">
+                        <onleft>3901</onleft>
+                        <onright>3903</onright>
+                        <ondown>SetFocus(300,0)</ondown>
+                        <onup>SetFocus(300,12)</onup>
+                        <left>6</left>
+                        <right>6</right>
+                        <top>6</top>
+                        <bottom>6</bottom>
+                        <texturefocus colordiffuse="$VAR[ColorHighlight]">common/circle.png</texturefocus>
+                        <texturenofocus />
+                        <onclick>Dialog.Close(all,force)</onclick>
+                        <onclick condition="Window.IsVisible(Home)">ActivateWindow(Settings)</onclick>
+                        <onclick condition="!Window.IsVisible(Home)">ActivateWindow(Home)</onclick>
+                    </control>
+                    <control type="image">
+                        <texture colordiffuse="Selected">special://skin/extras/icons/settings.png</texture>
+                        <visible>Control.HasFocus(3902)</visible>
+                        <visible>Window.IsVisible(Home)</visible>
+                    </control>
+                    <control type="image">
+                        <texture colordiffuse="dialog_fg_70">special://skin/extras/icons/settings.png</texture>
+                        <visible>!Control.HasFocus(3902)</visible>
+                        <visible>Window.IsVisible(Home)</visible>
+                    </control>
+                    <control type="image">
+                        <texture colordiffuse="Selected">special://skin/extras/icons/home.png</texture>
+                        <visible>Control.HasFocus(3902)</visible>
+                        <visible>!Window.IsVisible(Home)</visible>
+                    </control>
+                    <control type="image">
+                        <texture colordiffuse="dialog_fg_70">special://skin/extras/icons/home.png</texture>
+                        <visible>!Control.HasFocus(3902)</visible>
+                        <visible>!Window.IsVisible(Home)</visible>
+                    </control>
+                </control>
+                <control type="group">
+                    <width>home_icon</width>
+                    <height>home_icon</height>
+                    <control type="button" id="3903">
+                        <onleft>3902</onleft>
+                        <onright>3901</onright>
+                        <ondown>SetFocus(300,0)</ondown>
+                        <onup>SetFocus(300,12)</onup>
+                        <onclick>ActivateWindow(shutdownmenu)</onclick>
+                        <left>6</left>
+                        <right>6</right>
+                        <top>6</top>
+                        <bottom>6</bottom>
+                        <texturefocus colordiffuse="$VAR[ColorHighlight]">common/circle.png</texturefocus>
+                        <texturenofocus />
+                    </control>
+                    <control type="image">
+                        <texture colordiffuse="Selected">special://skin/extras/icons/power.png</texture>
+                        <visible>Control.HasFocus(3903)</visible>
+                    </control>
+                    <control type="image">
+                        <texture colordiffuse="dialog_fg_70">special://skin/extras/icons/power.png</texture>
+                        <visible>!Control.HasFocus(3903)</visible>
+                    </control>
+                </control>
+            </control>
+        </control>
+        <control type="grouplist">
+            <top>view_top</top>
+            <right>6</right>
+            <left>0</left>
+            <orientation>vertical</orientation>
+            <itemgap>0</itemgap>
+            <visible>Skin.HasSetting(IconOnlyMode) + [Control.HasFocus(300) | Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904)]</visible>
+            <include content="Home_Textbar_Item">
+                <param name="id" value="0" />
+            </include>
+            <include content="Home_Textbar_Item">
+                <param name="id" value="1" />
+            </include>
+            <include content="Home_Textbar_Item">
+                <param name="id" value="2" />
+            </include>
+            <include content="Home_Textbar_Item">
+                <param name="id" value="3" />
+            </include>
+            <include content="Home_Textbar_Item">
+                <param name="id" value="4" />
+            </include>
+            <include content="Home_Textbar_Item">
+                <param name="id" value="5" />
+            </include>
+            <include content="Home_Textbar_Item">
+                <param name="id" value="6" />
+            </include>
+            <include content="Home_Textbar_Item">
+                <param name="id" value="7" />
+            </include>
+            <include content="Home_Textbar_Item">
+                <param name="id" value="8" />
+            </include>
+            <include content="Home_Textbar_Item">
+                <param name="id" value="9" />
+            </include>
+            <include content="Home_Textbar_Item">
+                <param name="id" value="10" />
+            </include>
+            <include content="Home_Textbar_Item">
+                <param name="id" value="11" />
+            </include>
+            <include content="Home_Separator">
+                <param name="visible" value="[Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904) | Control.HasFocus(302)]" />
+            </include>
+        </control>
+    </include>
+
+    <include name="Home_SwitchFocusButton">
+        <control type="button">
+            <visible allowhiddenfocus="true">false</visible>
+            <width>1</width>
+            <height>1</height>
+            <onfocus condition="$EXP[Home_SwitchFocusButton_Expression] + Container(300).Position(0)">SetFocus(3002)</onfocus>
+            <onfocus condition="$EXP[Home_SwitchFocusButton_Expression] + Container(300).Position(1)">SetFocus(13002)</onfocus>
+            <onfocus condition="$EXP[Home_SwitchFocusButton_Expression] + Container(300).Position(2)">SetFocus(23002)</onfocus>
+            <onfocus condition="$EXP[Home_SwitchFocusButton_Expression] + Container(300).Position(3)">SetFocus(33002)</onfocus>
+            <onfocus condition="$EXP[Home_SwitchFocusButton_Expression] + Container(300).Position(4)">SetFocus(43002)</onfocus>
+            <onfocus condition="$EXP[Home_SwitchFocusButton_Expression] + Container(300).Position(5)">SetFocus(53002)</onfocus>
+            <onfocus condition="$EXP[Home_SwitchFocusButton_Expression] + Container(300).Position(6)">SetFocus(63002)</onfocus>
+            <onfocus condition="$EXP[Home_SwitchFocusButton_Expression] + Container(300).Position(7)">SetFocus(73002)</onfocus>
+            <onfocus condition="$EXP[Home_SwitchFocusButton_Expression] + Container(300).Position(8)">SetFocus(83002)</onfocus>
+            <onfocus condition="$EXP[Home_SwitchFocusButton_Expression] + Container(300).Position(9)">SetFocus(93002)</onfocus>
+            <onfocus condition="$EXP[Home_SwitchFocusButton_Expression] + Container(300).Position(10)">SetFocus(103002)</onfocus>
+            <onfocus condition="$EXP[Home_SwitchFocusButton_Expression] + Container(300).Position(11)">SetFocus(113002)</onfocus>
+            <onfocus condition="$EXP[Home_SwitchFocusButton_Expression]">SetFocus(300)</onfocus>
+        </control>
+    </include>
+
+    <expression name="Home_SwitchFocusButton_Expression">!Window.Next(programs) + !Window.Next(pictures) + !Window.Next(filemanager) + !Window.Next(settings) + !Window.Next(systeminfo) + !Window.Next(testpattern) + !Window.Next(screencalibration) + !Window.Next(SettingsCategory.xml) + !Window.Next(MyVideoNav.xml) + !Window.Next(MyMusicNav.xml) + !Window.Next(MyPlaylist.xml) + !Window.Next(loginscreen) + !Window.Next(profiles) + !Window.Next(skinsetting) + !Window.Next(addonbrowser) + !Window.Next(eventlog) + !Window.Next(favourites) + !Window.Next(MyPVRChannels.xml) + !Window.Next(MyPVRRecordings.xml) + !Window.Next(MyPVRTimers.xml) + !Window.Next(MyPVRSearch.xml) + !Window.Next(MyPVRGuide.xml) + !Window.Next(MyGames.xml) + !Window.Next(VideoFullScreen.xml) + !Window.Next(MyWeather.xml) + !Window.Next(SlideShow.xml) + !Window.Next(Startup.xml) + !Window.Next(MusicVisualisation.xml)</expression>
+
+    <include name="Home_MainMenu_Layout">
+        <animation effect="slide" time="200" end="-60,0" condition="!Control.HasFocus(300) + !Control.HasFocus(302) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
+        <top>view_top</top>
+        <width>440</width>
+        <!-- <height>890</height> -->
+        <preloaditems>2</preloaditems>
+        <orientation>vertical</orientation>
+        <scrolltime>0</scrolltime>
+        <itemlayout height="home_icon" width="240">
+            <control type="group">
+                <top>home_icon</top>
+                <width>home_icon</width>
+                <include>Home_Separator</include>
+            </control>
+            <control type="image">
+                <width>home_icon</width>
+                <texture colordiffuse="main_fg_30">$INFO[ListItem.Icon]</texture>
+            </control>
+
+            <control type="group">
+                <left>home_icon</left>
+                <width>6</width>
+                <visible>[![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904) | Control.HasFocus(300)] + [!Window.IsVisible(Home) + String.IsEqual(ListItem.Property(path),Window(Home).Property(MenuIconFocus))] + Skin.HasSetting(IconOnlyMode)]</visible>
+                <include>Animation_FadeIn_Delay</include>
+                <control type="image">
+                    <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
+                </control>
+                <control type="group">
+                    <include>Home_Separator</include>
+                </control>
+                <control type="group">
+                    <top>home_icon</top>
+                    <include>Home_Separator</include>
+                </control>
+            </control>
+            <control type="image">
+                <width>home_icon</width>
+                <texture colordiffuse="main_fg_100">$INFO[ListItem.Icon]</texture>
+                <visible>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904) | Control.HasFocus(300)] + [!Window.IsVisible(Home) + String.IsEqual(ListItem.Property(path),Window(Home).Property(MenuIconFocus))]</visible>
+            </control>
+        </itemlayout>
+        <focusedlayout height="home_icon" width="240">
+            <include condition="Skin.HasSetting(HomeWidgetsUnified) + Window.IsVisible(Home)">Home_SwitchFocusButton</include>
+            <control type="group">
+                <width>home_icon</width>
+                <top>home_icon</top>
+                <include>Home_Separator</include>
+            </control>
+            <control type="image">
+                <width>home_icon</width>
+                <texture colordiffuse="Selected">common/home-indicator.png</texture>
+                <visible>Skin.HasSetting(SubmenuIndicator)</visible>
+                <visible>Window.IsVisible(Home)</visible>
+                <visible>Control.HasFocus(300)</visible>
+                <visible>Integer.IsGreater(Container(302).NumItems,0)</visible>
+                <visible>!Skin.HasSetting(DisableSubMenu)</visible>
+                <visible>!Skin.HasSetting(IconOnlyMode)</visible>
+            </control>
+            <control type="group">
+                <width>6</width>
+                <visible>[![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904) |Control.HasFocus(300)] + [Window.IsVisible(Home) | [!Window.IsVisible(Home) + String.IsEqual(ListItem.Property(path),Window(Home).Property(MenuIconFocus))]] + Skin.HasSetting(IconOnlyMode)] | [[Control.HasFocus(300) | Control.HasFocus(302)] + !Skin.HasSetting(IconOnlyMode)]</visible>
+                <control type="image"> <!--Hightlight right focus icon-->
+                    <texture colordiffuse="red">common/white.png</texture>
+                </control>
+                <control type="group">
+                    <include>Home_Separator</include>
+                </control>
+                <control type="group">
+                    <top>home_icon</top>
+                    <include>Home_Separator</include>
+                </control>
+            </control>
+        <control type="group">
+                <width>800</width>
+           <control type="label">
+                <visible>[![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904) |Control.HasFocus(300)] + [Window.IsVisible(Home) | [!Window.IsVisible(Home) + String.IsEqual(ListItem.Property(path),Window(Home).Property(MenuIconFocus))]] + Skin.HasSetting(IconOnlyMode)] | [[Control.HasFocus(300) | Control.HasFocus(302)] + !Skin.HasSetting(IconOnlyMode)]</visible>
+                <visible>Control.HasFocus(300)</visible>
+                <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)</visible>
+                <left>80</left>
+                <top>15</top>
+                <height>40</height>
+                <label>$INFO[ListItem.Label]</label>
+                <textcolor>grey</textcolor>
+                <shadowcolor>black</shadowcolor>
+                <font>netflix_heading_small</font>
+                <width>700</width>
+           </control>
+       </control>
+
+
+            <control type="image">
+                <width>home_icon</width>
+                <texture colordiffuse="main_fg_100">$INFO[ListItem.Icon]</texture>
+                <visible>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904) | Control.HasFocus(300)] + [Window.IsVisible(Home) | [!Window.IsVisible(Home) + String.IsEqual(ListItem.Property(path),Window(Home).Property(MenuIconFocus))]]</visible>
+            </control>
+           <control type="image">
+                  <visible>!Skin.HasSetting(DisableNetflixHomeSidemenuHide) + ![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904) | Control.HasFocus(300)] + [Window.IsVisible(Home) | [!Window.IsVisible(Home) + String.IsEqual(ListItem.Property(path),Window(Home).Property(MenuIconFocus))]]</visible>
+                <width>6</width>
+                <texture colordiffuse="red">common/white.png</texture>
+           </control>
+
+            <control type="image">
+                <width>home_icon</width>
+                <texture colordiffuse="main_fg_30">$INFO[ListItem.Icon]</texture>
+                <visible>Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904) | [!Control.HasFocus(300) + !Window.IsVisible(Home) + !String.IsEqual(ListItem.Property(path),Window(Home).Property(MenuIconFocus))]</visible>
+            </control>
+            <control type="image">
+                <width>home_icon</width>
+                <texture colordiffuse="main_fg_100">$INFO[ListItem.Icon]</texture>
+                <visible>Control.HasFocus(300)</visible>
+                <include>Animation_FocusBounce_Home</include>
+            </control>
+            
+        </focusedlayout>
+    </include>
+
+    <include name="Home_VideoInfo_Layout">
+        <top>view_top</top>
+        <!-- <height>890</height> -->
+        <width>240</width>
+        <preloaditems>2</preloaditems>
+        <orientation>vertical</orientation>
+        <scrolltime>0</scrolltime>
+        <itemlayout height="home_icon" width="240">
+            <control type="group">
+                <width>home_icon</width>
+                <top>home_icon</top>
+                <include>Home_Separator</include>
+            </control>
+            <control type="image">
+                <width>home_icon</width>
+                <texture colordiffuse="main_fg_30">$INFO[ListItem.Icon]</texture>
+            </control>
+        </itemlayout>
+        <focusedlayout height="home_icon" width="240">
+            <control type="group">
+                <width>home_icon</width>
+                <top>home_icon</top>
+                <include>Home_Separator</include>
+            </control>
+            <control type="group">
+                <left>home_icon</left>
+                <width>6</width>
+                <visible>[[Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904) | Control.HasFocus(300)] + !Skin.HasSetting(IconOnlyMode)]</visible>
+                <include>Animation_FadeIn</include>
+                <control type="image">
+                    <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
+                </control>
+                <control type="group">
+                    <include>Home_Separator</include>
+                </control>
+                <control type="group">
+                    <top>home_icon</top>
+                    <include>Home_Separator</include>
+                </control>
+            </control>
+            <control type="image">
+                <width>home_icon</width>
+                <texture colordiffuse="main_fg_30">$INFO[ListItem.Icon]</texture>
+                <visible>![Control.HasFocus(300)]</visible>
+            </control>
+            <control type="image">
+                <width>home_icon</width>
+                <texture colordiffuse="main_fg_100">$INFO[ListItem.Icon]</texture>
+                <visible>[Control.HasFocus(300)]</visible>
+                <include>Animation_FocusBounce_Home</include>
+            </control>
+        </focusedlayout>
+    </include>
+
+    <include name="Home_MainMenu_Items">
+        <content><include>skinshortcuts-mainmenu</include></content>
+    </include>
+
+    <include name="Home_SubMenu_Layout_icon">
+        <top>view_top</top>
+	<height>500</height>
+        <width>1950</width>
+	<left>-2600</left>
+        <preloaditems>2</preloaditems>
+        <orientation>vertical</orientation>
+	<itemgap>15</itemgap>
+        <focusposition>1</focusposition>
+            
+            <itemlayout width="182" height="130" condition="!Skin.HasSetting(SubmenuLabel)">
+                <include>Widget_Submenu_ItemLayout</include>
+            </itemlayout>
+
+            <focusedlayout width="182" height="130" condition="!Skin.HasSetting(SubmenuLabel)">
+                <include content="Widget_Submenu_FocusedLayout">
+                    <param name="id" value="30222" />
+                </include>
+            </focusedlayout>
+            <itemlayout width="284.44" height="160" condition="Skin.HasSetting(SubmenuLabel)">
+                <include>Widget_Submenu_ItemLayout</include>
+            </itemlayout>
+            <focusedlayout width="284.44" height="160" condition="Skin.HasSetting(SubmenuLabel)">
+                <include content="Widget_Submenu_FocusedLayout">
+                    <param name="id" value="30222" />
+                </include>
+            </focusedlayout>
+    </include>
+
+
+
+
+    <include name="Home_SubMenu_Layout">
+        <top>view_top</top>
+        <width>310</width>
+        <right>0</right>
+        <preloaditems>2</preloaditems>
+        <orientation>vertical</orientation>
+        <focusposition>1</focusposition>
+           <visible>[Control.HasFocus(300) | Control.HasFocus(302) | Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904)]</visible>
+
+        <itemlayout height="home_icon" width="310">
+            <include>Home_Separator</include>
+            <control type="label">
+                <left>24</left>
+                <font>font_submenu</font>
+                <align>right</align>
+                <right>24</right>
+                <textcolor>dialog_fg_100</textcolor>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+        </itemlayout>
+        <focusedlayout height="home_icon" width="310">
+            <control type="image">
+		<visible>Control.HasFocus(302)</visible>
+                <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
+            </control>
+            <control type="image">
+		<visible>Control.HasFocus(302)</visible>
+                <texture colordiffuse="$VAR[ColorHighlight2]">common/gradient-diffuse-horizontal.png</texture>
+            </control>
+            <include>Home_Separator</include>
+            <control type="label">
+                <left>24</left>
+                <right>24</right>
+                <font>font_submenu_bold</font>
+                <align>right</align>
+                <textcolor>Selected</textcolor>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+        </focusedlayout>
+    </include>
+
+    <include name="Home_SubMenu_Items">
+        <content><include>skinshortcuts-submenu</include></content>
+    </include>
+
+    <include name="Home_Textbar_Texture">
+	<control type="group">
+           <visible>Skin.HasSetting(DisableMenuVertIcon) +  [Control.HasFocus(300) | Control.HasFocus(302) | Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904)]</visible>
+           <animation effect="fade" time="400">Hidden</animation>
+            <animation effect="fade" time="400" delay="50">Visible</animation>
+
+        <control type="image">
+            <texture>common/gradient-solid-horizontal.png</texture>
+            <include>Defs_DarkShadow</include>
+        </control>
+        <control type="image">
+            <right>6</right>
+            <texture colordiffuse="dimgrey">common/white.png</texture>
+        </control>
+        <control type="image">
+            <right>6</right>
+            <texture colordiffuse="$VAR[ColorOverlay]">common/white.png</texture>
+            <animation effect="fade" start="100" end="5" condition="true">Conditional</animation>
+            <visible>!String.IsEmpty(Skin.String(overlaycolor.name))</visible>
+            <visible>String.IsEqual(Skin.CurrentColourTheme,Dark Dialogs)</visible>
+        </control>
+        <control type="image">
+	 
+            <width>1</width>
+            <right>4</right>
+            <texture colordiffuse="highlight_bottombar">common/white.png</texture>
+        </control>
+        <control type="image"> 
+            <width>1</width>
+            <right>5</right>
+            <texture colordiffuse="darkline_separator">common/white.png</texture>
+        </control>
+	</control>
+    </include>
+
+
+    <include name="Home_Iconbar_Texture">
+	<control type="group">
+	    <visible>Skin.HasSetting(DisableMenuVertIcon) +  [Control.HasFocus(300) | Control.HasFocus(302) | Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904)]</visible>
+            <animation effect="fade" time="200" delay="200">Hidden</animation>
+
+        <control type="image">
+	    <width>130</width>
+            <texture>common/gradient-solid-horizontal.png</texture>
+            <include>Defs_DarkShadow</include>
+        </control>
+        
+        <control type="image">
+            <width>1</width>
+            <left>-1</left>
+            <texture colordiffuse="highlight_bottombar">common/white.png</texture>
+        </control>
+        <control type="image">
+            <width>1</width>
+            <right>0</right>
+            <texture colordiffuse="darkline_separator">common/white.png</texture>
+        </control>
+	</control>
+    </include>
+
+    <include name="Home_OnClick">
+
+        <onclick>ClearProperty(MenuFocus,Home)</onclick>
+
+        <!-- Set Menu Indicator -->
+        <onclick>$INFO[ListItem.Property(path)]</onclick>
+
+        <onback condition="Window.IsVisible(SkinSettings.xml)">SetFocus(9100)</onback>
+        <onback condition="Window.IsVisible(SkinSettings.xml)">Close</onback>
+        <onback condition="Window.IsVisible(SettingsCategory.xml)">SetFocus(3)</onback>
+        <onback condition="Window.IsVisible(SettingsCategory.xml)">Close</onback>
+        
+    </include>
+
+    <include name="Home_OnFocus">
+        <onup condition="Control.IsVisible(3902)">3902</onup>
+        <ondown condition="Control.IsVisible(3902)">3902</ondown>
+        <onup condition="!Control.IsVisible(3902)">300</onup>
+        <ondown condition="!Control.IsVisible(3902)">300</ondown>
+        <onunfocus>ClearProperty(MenuFocus,Home)</onunfocus>
+        <onfocus>SetProperty(MenuFocus,1,Home)</onfocus>
+        <onfocus>ClearProperty(WidgetFocus,Home)</onfocus>
+        <onfocus>ClearProperty(WidgetLoading,Home)</onfocus>
+        <onfocus>AlarmClock(SetLoad,SetProperty(WidgetLoading,1,Home),00:00,silent)</onfocus>
+    </include>
+</includes>

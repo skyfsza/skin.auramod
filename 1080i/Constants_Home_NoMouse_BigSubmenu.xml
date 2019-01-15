@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <constant name="widget_spacer_top">320</constant>
+    <constant name="widget_spacer_bottom">-200</constant>
+    <constant name="widget_submenu_spacer">390</constant>
+    <constant name="widget_submenu_big_spacer">420</constant>
+    <constant name="widget_poster_spacer">640</constant>
+    <constant name="widget_gap">-640</constant>
+    <constant name="widget_top">435</constant>
+    <constant name="widget_gap_netflix">-640</constant>
+    <constant name="widget_top_netflix">440</constant>
+
+
+    <!-- Details -->
+    <!-- widget_spacer_top/bottom is the space from the top/bottom of screen for first/last widget -->
+    <!-- widget_poster_spacer controls the gap from the bottom of screen when moving downwards | add desired gap_value to widget height -->
+    <!-- widget_top is gap from top when moving upwards -->
+    <!-- widget_gap controls gap between widgets | widget_top plus gap_value plus 60 equals zero gap (default is minus 140) -->
+</includes>

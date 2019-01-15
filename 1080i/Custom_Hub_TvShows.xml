@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Titan-->
+<window type="window" id="3017">
+    <defaultcontrol always="true">4000</defaultcontrol>
+    <onload>AlarmClock(focusWidgets,SetFocus(77777),00:00,silent)</onload>
+    <onload>SetProperty(netflixview,active,Home)</onload>
+    <onunload condition="!String.Contains(Skin.String(HomeLayout),netflix)">ClearProperty(netflixview, Home)</onunload>
+    <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
+    <controls>
+        <include>Object_Home_Netflix_Hub</include>
+	</controls>
+</window>
