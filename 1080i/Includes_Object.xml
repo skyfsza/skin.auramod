@@ -442,8 +442,8 @@
           <wrapmultiline>true</wrapmultiline>
         </control>
         <control type="label">
+	<visible>[!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222)] + Skin.HasSetting(DisableNetflixLowSpotlight) + [[String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(55445))] | ![String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | !String.IsEmpty(ListItem.ChannelName)] | !Skin.HasSetting(DisableClearlogo)]</visible>
           <height min="60" max="251">auto</height>
-          <visible>Skin.HasSetting(DisableNetflixLowSpotlight) + [String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)] + [[!Control.HasFocus(300) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(55445))] | !Skin.HasSetting(DisableClearlogo)]</visible>
           <label>$VAR[video_heading]</label>
           <textcolor>grey</textcolor>
           <shadowcolor>black</shadowcolor>
@@ -453,8 +453,8 @@
           <wrapmultiline>true</wrapmultiline>
         </control>
         <control type="label">
+	<visible>[!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222)] + !Skin.HasSetting(DisableNetflixLowSpotlight) + [[String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(55445))] | ![String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | !String.IsEmpty(ListItem.ChannelName)] | !Skin.HasSetting(DisableClearlogo)]</visible>
           <height min="60" max="251">auto</height>
-          <visible>!Skin.HasSetting(DisableNetflixLowSpotlight) + [String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)] + [[!Control.HasFocus(300) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(55445))] | !Skin.HasSetting(DisableClearlogo)]</visible>
           <label>$VAR[video_heading]</label>
           <textcolor>grey</textcolor>
           <shadowcolor>black</shadowcolor>
@@ -469,6 +469,7 @@
         <top>251</top>
         <height>500</height>
         <orientation>vertical</orientation>
+	<visible>!String.IsEqual(Container(300).ListItem.Property(widget),Settings) | !String.IsEqual(Container(300).ListItem.Property(widget),Weather)</visible>
         <control type="label" id="78631">
           <left>60</left>
           <height>30</height>
@@ -503,7 +504,7 @@
           <autoscroll>0</autoscroll>
         </control>
         <control type="group">
-          <visible>!Skin.HasSetting(DisableNetflixLowSpotlight) + [!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)]</visible>
+          <visible>!Skin.HasSetting(DisableNetflixLowSpotlight) + [String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | !String.IsEmpty(ListItem.ChannelName)] + [!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)]</visible>
           <height>30</height>
           <control type="image">
             <width>70</width>
@@ -521,7 +522,7 @@
           </control>
         </control>
         <control type="group">
-          <visible>Skin.HasSetting(DisableNetflixLowSpotlight) + [!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)]</visible>
+          <visible>Skin.HasSetting(DisableNetflixLowSpotlight) + [String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | !String.IsEmpty(ListItem.ChannelName)] +  [!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)]</visible>
           <height>30</height>
           <control type="image">
             <width>70</width>
