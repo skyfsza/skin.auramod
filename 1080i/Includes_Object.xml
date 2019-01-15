@@ -378,8 +378,8 @@
 
 
   <include name="Object_Home_Netflix_Alt">
-    <control type="group">
       <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)</visible>
+    <control type="group">
       <control type="group">
         <visible>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed)</visible>
         <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
