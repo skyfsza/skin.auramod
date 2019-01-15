@@ -51,7 +51,7 @@
                             <onclick condition="Skin.HasSetting(DisableNetflixHomeDefault)">Skin.ToggleSetting(DisableAuraHomeLayout)</onclick>
                             <onclick condition="Skin.HasSetting(DisableNetflixHomeMixed)">Skin.ToggleSetting(DisableAuraHomeLayout)</onclick>
 
-<!--                            <onclick condition="Skin.HasSetting(HideSubmenuWidget)">Skin.ToggleSetting(HideSubmenuWidget)</onclick> -->
+                            <onclick condition="Skin.HasSetting(HideSubmenuWidget)">Skin.ToggleSetting(HideSubmenuWidget)</onclick> 
 
                             <onclick condition="Skin.HasSetting(DisableNetflixHome)">Skin.ToggleSetting(DisableNetflixHome)</onclick>
                             <onclick condition="Skin.HasSetting(DisableNetflixHomeDefault)">Skin.ToggleSetting(DisableNetflixHomeDefault)</onclick>
@@ -79,7 +79,7 @@
                             <onclick condition="Skin.HasSetting(DisableNetflixHomeAlt)">Skin.ToggleSetting(DisableNetflixHomeAlt)</onclick>
                             <onclick condition="Skin.HasSetting(DisableNetflixHomeMixed)">Skin.ToggleSetting(DisableNetflixHomeMixed)</onclick>
 
-<!--                            <onclick condition="!Skin.HasSetting(HideSubmenuWidget)">Skin.ToggleSetting(HideSubmenuWidget)</onclick> -->
+                            <onclick condition="!Skin.HasSetting(HideSubmenuWidget)">Skin.ToggleSetting(HideSubmenuWidget)</onclick> 
 
                             <onclick condition="Skin.HasSetting(DisableWidgetPlot)">Skin.ToggleSetting(DisableWidgetPlot)</onclick>
                             <onclick condition="Skin.HasSetting(DisableWidgetIMDB)">Skin.ToggleSetting(DisableWidgetIMDB)</onclick>
@@ -108,7 +108,7 @@
                             <onclick condition="Skin.HasSetting(DisableNetflixHomeDefault)">Skin.ToggleSetting(DisableNetflixHomeDefault)</onclick>
                             <onclick condition="Skin.HasSetting(DisableNetflixHomeMixed)">Skin.ToggleSetting(DisableNetflixHomeMixed)</onclick>
 
-<!--                            <onclick condition="!Skin.HasSetting(HideSubmenuWidget)">Skin.ToggleSetting(HideSubmenuWidget)</onclick> -->
+                            <onclick condition="!Skin.HasSetting(HideSubmenuWidget)">Skin.ToggleSetting(HideSubmenuWidget)</onclick> 
 
                             <onclick condition="Skin.HasSetting(DisableWidgetPlot)">Skin.ToggleSetting(DisableWidgetPlot)</onclick>
                             <onclick condition="Skin.HasSetting(DisableWidgetIMDB)">Skin.ToggleSetting(DisableWidgetIMDB)</onclick>
@@ -137,7 +137,7 @@
                             <onclick condition="Skin.HasSetting(DisableNetflixHomeAlt)">Skin.ToggleSetting(DisableNetflixHomeAlt)</onclick>
                             <onclick condition="Skin.HasSetting(DisableNetflixHomeDefault)">Skin.ToggleSetting(DisableNetflixHomeDefault)</onclick>
 
-<!--                            <onclick condition="!Skin.HasSetting(HideSubmenuWidget)">Skin.ToggleSetting(HideSubmenuWidget)</onclick> -->
+                            <onclick condition="!Skin.HasSetting(HideSubmenuWidget)">Skin.ToggleSetting(HideSubmenuWidget)</onclick> 
 
                             <onclick condition="Skin.HasSetting(DisableWidgetPlot)">Skin.ToggleSetting(DisableWidgetPlot)</onclick>
                             <onclick condition="Skin.HasSetting(DisableWidgetIMDB)">Skin.ToggleSetting(DisableWidgetIMDB)</onclick>

@@ -65,6 +65,7 @@
             <include>Dimensions_Fullscreen</include>
             <texture colordiffuse="Background">common/white.png</texture>
         </control>
+	<include>Global_Overlay</include>
         <control type="videowindow">
             <visible>Skin.HasSetting(global.showvideo)</visible>
             <visible>Player.HasVideo</visible>
@@ -170,7 +171,6 @@
 
     <include name="Global_Home_Topbar_Image_Dim">
         <control type="image">
-	   <width>100%</width>
             <height>1080</height>
             <texture>common/vignette-top.png</texture>
             <visible>!$EXP[Exp_Info_Visible]</visible>

@@ -391,7 +391,7 @@
         <control type="group">
           <top>-30</top>
           <visible>Player.HasVideo</visible>
-          <include>Global_Videowindow</include>
+          <include>Global_Background</include>
         </control>
       </control>
       <control type="group">
@@ -1724,6 +1724,7 @@
       </include>
     </control>
   </include>
+
   <include name="Object_UpDownInfoArrows">
     <param name="id" default="9000" />
     <param name="hasprevious" default="true" />
@@ -3110,13 +3111,13 @@
     <param name="landscapewideposter" default="false" />
     <param name="posterdetails" default="false" />
     <param name="widgetlive" default="false" />
-    <param name="landscapetrakt" default="false" />
+    <param name="landscapenetflix" default="false" />
     <param name="category" default="false" />
     <definition>
       <!-- START New Mod Widgets -->
       <itemlayout width="558.22" height="314.6" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31430]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
         <include content="Widget_Items_ItemLayout">
-          <param name="landscapetrakt" value="true" />
+          <param name="landscapenetflix" value="true" />
           <param name="genres" value="$PARAM[genres]" />
           <param name="studios" value="$PARAM[studios]" />
           <param name="text" value="$PARAM[text]" />
@@ -3178,7 +3179,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </itemlayout>
-      <itemlayout width="606.67" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <itemlayout width="574.22" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
         <include content="Widget_Items_ItemLayout">
           <param name="landscape" value="true" />
           <param name="genres" value="$PARAM[genres]" />
@@ -3198,7 +3199,7 @@
       <focusedlayout width="558.22" height="314.6" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31430]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
-          <param name="landscapetrakt" value="true" />
+          <param name="landscapenetflix" value="true" />
           <param name="genres" value="$PARAM[genres]" />
           <param name="studios" value="$PARAM[studios]" />
           <param name="text" value="$PARAM[text]" />
@@ -3285,7 +3286,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="606.67" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <focusedlayout width="574.22" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="landscape" value="true" />
@@ -3324,13 +3325,13 @@
     <param name="landscapewideposter" default="false" />
     <param name="posterdetails" default="false" />
     <param name="widgetlive" default="false" />
-    <param name="landscapetrakt" default="false" />
+    <param name="landscapenetflix" default="false" />
     <param name="category" default="false" />
     <definition>
       <!-- START New Mod Widgets -->
-      <itemlayout width="widget_landscapetrakt_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31430]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <itemlayout width="widget_landscapenetflix_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31430]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
         <include content="Widget_Items_ItemLayout">
-          <param name="landscapetrakt" value="true" />
+          <param name="landscapenetflix" value="true" />
           <param name="genres" value="$PARAM[genres]" />
           <param name="studios" value="$PARAM[studios]" />
           <param name="text" value="$PARAM[text]" />
@@ -3409,10 +3410,10 @@
         </include>
       </itemlayout>
       <!-- START Focused New Mods Widgets -->
-      <focusedlayout width="widget_landscapetrakt_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31430]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <focusedlayout width="widget_landscapenetflix_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31430]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
-          <param name="landscapetrakt" value="true" />
+          <param name="landscapenetflix" value="true" />
           <param name="genres" value="$PARAM[genres]" />
           <param name="studios" value="$PARAM[studios]" />
           <param name="text" value="$PARAM[text]" />
@@ -3538,7 +3539,7 @@
     <param name="landscapewideposter" default="false" />
     <param name="posterdetails" default="false" />
     <param name="widgetlive" default="false" />
-    <param name="landscapetrakt" default="false" />
+    <param name="landscapenetflix" default="false" />
     <param name="category" default="false" />
     <definition>
       <!--          <animation effect="slide" start="0" end="0,-400" time="0" condition="String.IsEqual(ListItem.DBType,episode)">Conditional</animation> -->
@@ -3548,7 +3549,8 @@
         <animation effect="slide" end="0,100" time="200" condition="!Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222)">Conditional</animation>
         <posy>710</posy>
         <left>-10</left>
-        <onup>SetFocus(30222)</onup>
+        <onup condition="Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(30222)</onup>
+        <onup condition="!Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(300)</onup>
         <onleft>300</onleft>
         <ondown>431</ondown>
         <orientation>vertical</orientation>
@@ -3593,7 +3595,7 @@
     <param name="landscapewideposter" default="false" />
     <param name="posterdetails" default="false" />
     <param name="widgetlive" default="false" />
-    <param name="landscapetrakt" default="false" />
+    <param name="landscapenetflix" default="false" />
     <param name="category" default="false" />
     <definition>
       <control type="grouplist" id="330">
@@ -3602,7 +3604,8 @@
         <animation effect="slide" end="0,160" time="200" condition="!Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222)">Conditional</animation>
         <posy>630</posy>
         <left>-10</left>
-        <onup>SetFocus(30222)</onup>
+        <onup condition="Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(30222)</onup>
+        <onup condition="!Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(300)</onup>
         <onleft>300</onleft>
         <ondown>431</ondown>
         <orientation>vertical</orientation>

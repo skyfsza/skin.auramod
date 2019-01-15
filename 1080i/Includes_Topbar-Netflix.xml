@@ -803,7 +803,6 @@
                             <width>auto</width>
                             <font>font_topbar</font>
                             <textcolor>main_fg_100</textcolor>
-                            <label>$VAR[Label_Header_Content]</label>
                             <visible>!Control.HasFocus(300)</visible>
                         </control>
                         <control type="label">

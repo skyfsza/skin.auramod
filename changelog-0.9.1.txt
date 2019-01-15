@@ -1,0 +1,8 @@
+v0.9.1
+- Add diffuse to now playing video background on home
+- Add onup action to PVR Guide to open Channel Groups dialog
+- Fix size of Landscape and LandscapeWide widgets for Netflix home styles.
+- Rename LandscapeTrakt widget to LandscapeNetflix 
+- Fix submenu widget bug when no sumenu items set.
+- Added option for Simple Style view for low spotlight information position.
+- Adjusted spotlight infomation alignment when side menu auto-hide enabled

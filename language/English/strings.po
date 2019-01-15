@@ -2053,7 +2053,7 @@ msgstr "Default action for trailers"
 
 #: /1080i/Includes_View.xml
 msgctxt "#31430"
-msgid "LandscapeTrakt"
+msgid "LandscapeNetflix"
 msgstr ""
 
 #: /1080i/SkinSettings.xml

@@ -1,0 +1,19 @@
+01/13/2018
+- Add watched overlay for addon widgets
+- Tweaks to Clearlogo + Fanart loading.
+- Tweaks to Netflix alignment 
+- Category widget type,  genre icons
+
+01/10/2018 #2
+- New Netflix Categories widget method
+- Option to choose Multi-row or Single for Netflix Categories widget.
+
+
+01/10/2018
+- Change Netflix Alt + Menu background image to use Auramod Global Background. Transparency / overlay / vignette can now be adjusted via Settings --> Effects.
+- Add default default spotlight image for categories in Netflix mode.
+- Re-enable Netflix side  menu auto hide
+- Change Netflix mode Main Menu label size / location.
+- New Submenu layout for Netflix IconOnly menu.
+- Re-design of Skin Settings.
+- Option to choose Home Style, Menu layout and Widget size.

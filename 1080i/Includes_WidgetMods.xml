@@ -29,7 +29,7 @@
    </include>
 
 
-  <include name="Widget_Items_LandscapeTrakt">
+  <include name="Widget_Items_LandscapeNetflix">
     <control type="group">
       <control type="image">
         <texture fallback="DefaultAddonVideo.png" diffuse="diffuse/widgetlandscape.png" background="true">$VAR[Image_Fanart]</texture>

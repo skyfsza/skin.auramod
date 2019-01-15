@@ -750,7 +750,6 @@
                                 <visible>Container.Content(movies) | Container.Content(episodes)</visible>
                             </control>
                             <control type="label">
-				<visible>!Container.Content(seasons)</visible>
                                 <animation effect="slide" condition="![Container.Content(movies) | Container.Content(episodes)]" end="-73">Conditional</animation>
                                 <left>73</left>
                                 <width>auto</width>
