@@ -209,6 +209,7 @@
                     <visible>Integer.IsGreater(Container(302).NumItems,0)</visible>
                 </control>
             </control>
+
             <include content="Home_Textbar_Item_Label" condition="![Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)]">
                 <param name="id" value="$PARAM[id]" />
                 <param name="font" value="font_mainmenu" />
@@ -358,6 +359,8 @@
             <left>0</left>
             <orientation>vertical</orientation>
             <itemgap>0</itemgap>
+        <include condition="!Skin.HasSetting(IconOnlyMode) | [!Control.HasFocus(300) + Skin.HasSetting(IconOnlyMode)]">IconOnly_Height</include>
+
             <visible>Skin.HasSetting(IconOnlyMode) + [Control.HasFocus(300) | Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904)]</visible>
             <include content="Home_Textbar_Item">
                 <param name="id" value="0" />
@@ -424,11 +427,16 @@
 
     <expression name="Home_SwitchFocusButton_Expression">!Window.Next(programs) + !Window.Next(pictures) + !Window.Next(filemanager) + !Window.Next(settings) + !Window.Next(systeminfo) + !Window.Next(testpattern) + !Window.Next(screencalibration) + !Window.Next(SettingsCategory.xml) + !Window.Next(MyVideoNav.xml) + !Window.Next(MyMusicNav.xml) + !Window.Next(MyPlaylist.xml) + !Window.Next(loginscreen) + !Window.Next(profiles) + !Window.Next(skinsetting) + !Window.Next(addonbrowser) + !Window.Next(eventlog) + !Window.Next(favourites) + !Window.Next(MyPVRChannels.xml) + !Window.Next(MyPVRRecordings.xml) + !Window.Next(MyPVRTimers.xml) + !Window.Next(MyPVRSearch.xml) + !Window.Next(MyPVRGuide.xml) + !Window.Next(MyGames.xml) + !Window.Next(VideoFullScreen.xml) + !Window.Next(MyWeather.xml) + !Window.Next(SlideShow.xml) + !Window.Next(Startup.xml) + !Window.Next(MusicVisualisation.xml)</expression>
 
+
+    <include name="IconOnly_Height">
+    <height>470</height>
+    </include>
+
     <include name="Home_MainMenu_Layout">
         <animation effect="slide" time="200" end="-60,0" condition="!Control.HasFocus(300) + !Control.HasFocus(302) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
         <top>view_top</top>
         <width>440</width>
-        <!-- <height>890</height> -->
+	<include condition="!Skin.HasSetting(IconOnlyMode) | [!Control.HasFocus(300) + Skin.HasSetting(IconOnlyMode)]">IconOnly_Height</include>
         <preloaditems>2</preloaditems>
         <orientation>vertical</orientation>
         <scrolltime>0</scrolltime>

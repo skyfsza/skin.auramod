@@ -32,7 +32,7 @@
   <include name="Widget_Items_LandscapeNetflix">
     <control type="group">
       <control type="image">
-        <texture fallback="DefaultAddonVideo.png" diffuse="diffuse/widgetlandscape.png" background="true">$VAR[Image_Fanart]</texture>
+        <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$VAR[Image_Fanart]</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
       </control>
 
@@ -100,7 +100,7 @@
       <control type="image">
 	<width>100%</width>
 	<height>100%</height>
-        <texture background="true" diffuse="diffuse/widgetlandscape.png" fallback="DefaultAddonVideo.png">$VAR[Image_Fanart]</texture>
+        <texture background="true" diffuse="diffuse/widgetlandscape.png" fallback="DefaultFanartFallback.jpg">$VAR[Image_Fanart]</texture>
         <aspectratio scalediffuse="false">stretch</aspectratio>
       </control>
       <control type="image">

@@ -604,7 +604,7 @@
         <width>1980</width>
         <top>$PARAM[top]</top>
         <height>$PARAM[height]</height>
-        <preloaditems>2</preloaditems>
+        <preloaditems>4</preloaditems>
         <onfocus>SetProperty(WidgetFocus,1,Home)</onfocus>
         <onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[id],Home)</onfocus>
         <include content="Widget_Movement" condition="!Skin.HasSetting(SubmenuLabel)">

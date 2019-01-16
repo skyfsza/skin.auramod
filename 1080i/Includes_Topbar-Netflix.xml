@@ -103,7 +103,7 @@
     <include name="Topbar">
 	<control type="group">
 	<visible>!Player.HasVideo + Control.HasFocus(300) + [!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(55) | Control.IsVisible(56)]]</visible>
-       	    <top>0</top>
+       	    <top>-5</top>
             <left>0</left>
             <right>0</right>
             <height>100</height>

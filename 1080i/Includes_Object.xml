@@ -253,7 +253,20 @@
         <height>100%</height>
         <texture background="true" colordiffuse="FF000000" flipy="true">common/background_diffuse.png</texture>
       </control>
-      <control type="image">
+      <control type="label">
+       <visible>String.IsEmpty(Control.GetLabel(5675))</visible>
+       <top>25</top>
+	<left>40</left>
+       <label>$VAR[video_heading]</label>
+       <textcolor>grey</textcolor>
+       <shadowcolor>black</shadowcolor>
+       <font>netflix_heading_small</font>
+       <width min="200" max="300">auto</width>
+       <height min="50" max="150">auto</height>
+       <align>left</align>
+       <wrapmultiline>true</wrapmultiline>
+      </control>
+      <control type="image" id="5675">
         <left>40</left>
         <top>-5</top>
         <height>151</height>
@@ -395,18 +408,26 @@
         </control>
       </control>
       <control type="group">
+          <left>10</left>
+          <right>0</right>
         <visible>Skin.HasSetting(DisableNetflixSubmenuBG) + Control.HasFocus(300)</visible>
         <include>Global_Background</include>
       </control>
       <control type="group">
+          <left>10</left>
+          <right>0</right>
         <visible>Skin.HasSetting(DisableNetflixSubmenuBG) + Control.HasFocus(302)</visible>
         <include>Global_Background</include>
       </control>
       <control type="group">
+          <left>10</left>
+          <right>0</right>
         <visible>Skin.HasSetting(DisableNetflixSubmenuBG) + Control.HasFocus(30222)</visible>
         <include>Global_Background</include>
       </control>
       <control type="group">
+          <left>10</left>
+          <right>0</right>
         <visible>Skin.HasSetting(DisableNetflixSubmenuBG) + Control.HasFocus(3001)</visible>
         <include>Global_Background</include>
       </control>
@@ -431,15 +452,17 @@
         </control>
 	<!-- Fall back Title -->
         <control type="label">
-          <height min="60" max="251">auto</height>
           <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + Control.HasFocus(30222) + Control.HasFocus(3001) + ![String.IsEqual(ListItem.DBType,episode) | Container.Content(livetv) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)]</visible>
           <label>$VAR[video_heading]</label>
-          <textcolor>grey</textcolor>
-          <shadowcolor>black</shadowcolor>
-          <font>netflix_heading</font>
-          <width min="200" max="400">auto</width>
-          <align>center</align>
-          <wrapmultiline>true</wrapmultiline>
+                  <top>25</top>
+                  <label>$VAR[video_heading]</label>
+                  <textcolor>grey</textcolor>
+                  <shadowcolor>black</shadowcolor>
+                  <font>netflix_heading</font>
+                  <width min="200" max="600">auto</width>
+                  <height min="50" max="200">auto</height>
+                  <align>left</align>
+                  <wrapmultiline>true</wrapmultiline>
         </control>
         <control type="label">
 	<visible>[!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222)] + Skin.HasSetting(DisableNetflixLowSpotlight) + [[String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(55445))] | ![String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | !String.IsEmpty(ListItem.ChannelName)] | !Skin.HasSetting(DisableClearlogo)]</visible>
@@ -454,14 +477,16 @@
         </control>
         <control type="label">
 	<visible>[!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222)] + !Skin.HasSetting(DisableNetflixLowSpotlight) + [[String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(55445))] | ![String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | !String.IsEmpty(ListItem.ChannelName)] | !Skin.HasSetting(DisableClearlogo)]</visible>
-          <height min="60" max="251">auto</height>
           <label>$VAR[video_heading]</label>
-          <textcolor>grey</textcolor>
-          <shadowcolor>black</shadowcolor>
-          <font>netflix_heading</font>
-          <width min="200" max="400">auto</width>
-          <align>center</align>
-          <wrapmultiline>true</wrapmultiline>
+                  <top>25</top>
+                  <label>$VAR[video_heading]</label>
+                  <textcolor>grey</textcolor>
+                  <shadowcolor>black</shadowcolor>
+                  <font>netflix_heading</font>
+                  <width min="200" max="600">auto</width>
+                  <height min="50" max="200">auto</height>
+                  <align>left</align>
+                  <wrapmultiline>true</wrapmultiline>
         </control>
       </control>
       <!-- Tagline, Plot, Infoline -->
@@ -469,7 +494,6 @@
         <top>251</top>
         <height>500</height>
         <orientation>vertical</orientation>
-	<visible>!String.IsEqual(Container(300).ListItem.Property(widget),Settings) | !String.IsEqual(Container(300).ListItem.Property(widget),Weather)</visible>
         <control type="label" id="78631">
           <left>60</left>
           <height>30</height>
@@ -503,8 +527,12 @@
           <font>widget_trakt_title</font>
           <autoscroll>0</autoscroll>
         </control>
+	<control type="label">
+	<height>5</height>
+	</control>
         <control type="group">
           <visible>!Skin.HasSetting(DisableNetflixLowSpotlight) + [String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | !String.IsEmpty(ListItem.ChannelName)] + [!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)]</visible>
+	
           <height>30</height>
           <control type="image">
             <width>70</width>
@@ -519,6 +547,7 @@
             <label>$VAR[NetflixDetailsSpin]</label>
             <textcolor>dimgrey</textcolor>
             <font>font_tiny</font>
+	    <scroll>true</scroll>
           </control>
         </control>
         <control type="group">
@@ -537,6 +566,7 @@
             <label>$VAR[NetflixDetailsSpin]</label>
             <textcolor>dimgrey</textcolor>
             <font>font_tiny</font>
+	    <scroll>true</scroll>
           </control>
         </control>
       </control>
@@ -669,31 +699,28 @@
                 </control>
                 <control type="label">
                   <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)] + [[!Control.HasFocus(300) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(55443))] | !Skin.HasSetting(DisableClearlogo)]</visible>
-                  <left>0</left>
                   <top>25</top>
-                  <right>$PARAM[titleright]</right>
                   <label>$VAR[video_heading]</label>
                   <textcolor>grey</textcolor>
                   <shadowcolor>black</shadowcolor>
                   <font>netflix_heading</font>
-                  <width min="200" max="400">auto</width>
-                  <align>center</align>
+                  <width min="200" max="600">auto</width>
+                  <height min="50" max="200">auto</height>
+                  <align>left</align>
                   <wrapmultiline>true</wrapmultiline>
                 </control>
                 <control type="label">
                   <visible>[Control.HasFocus(300) + !Skin.HasSetting(DisableNetflixHomeSidemenu)] | Control.HasFocus(3001) | ![String.IsEqual(ListItem.DBType,episode) | Container.Content(livetv) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)]</visible>
                   <visible>![Control.HasFocus(300) + Skin.HasSetting(DisableNetflixHomeSidemenu)]</visible>
                   <visible>!Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(300)</visible>
-                  <height>251</height>
-                  <width>650</width>
-                  <left>0</left>
-                  <right>$PARAM[titleright]</right>
                   <label>$VAR[video_heading]</label>
                   <textcolor>grey</textcolor>
                   <shadowcolor>black</shadowcolor>
                   <font>netflix_heading</font>
-                  <width min="200" max="700">auto</width>
-                  <scroll>true</scroll>
+                  <width min="200" max="600">auto</width>
+                  <height min="50" max="200">auto</height>
+                  <align>left</align>
+                  <wrapmultiline>true</wrapmultiline>
                 </control>
               </control>
               <!-- Add Star Rating + Video info to spotlight -->
@@ -926,18 +953,17 @@
                  </control>
 -->
         <control type="label">
-          <visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(554445))</visible>
-          <left>0</left>
-          <right>$PARAM[titleright]</right>
-          <top>-250</top>
-          <right>$PARAM[titleright]</right>
+       		   <visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(554445))</visible>
+	          <top>-250</top>
+                  <label>$VAR[video_heading]</label>
+                  <textcolor>grey</textcolor>
+                  <shadowcolor>black</shadowcolor>
+                  <font>netflix_heading</font>
+                  <width min="200" max="600">auto</width>
+                  <height min="50" max="200">auto</height>
+                  <align>left</align>
+                  <wrapmultiline>true</wrapmultiline>
           <label>$VAR[video_heading]</label>
-          <textcolor>grey</textcolor>
-          <shadowcolor>black</shadowcolor>
-          <font>netflix_heading</font>
-          <width min="200" max="500">auto</width>
-          <align>center</align>
-          <wrapmultiline>true</wrapmultiline>
         </control>
         <control type="grouplist">
           <top>-20</top>
