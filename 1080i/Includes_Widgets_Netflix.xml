@@ -604,7 +604,7 @@
         <width>1980</width>
         <top>$PARAM[top]</top>
         <height>$PARAM[height]</height>
-        <preloaditems>4</preloaditems>
+        <preloaditems>2</preloaditems>
         <onfocus>SetProperty(WidgetFocus,1,Home)</onfocus>
         <onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[id],Home)</onfocus>
         <include content="Widget_Movement" condition="!Skin.HasSetting(SubmenuLabel)">
@@ -1146,7 +1146,7 @@
         <param name="poster" default="false" />
         <definition>
             <control type="image">
-                <texture background="true" diffuse="diffuse/widgetposter.png">$VAR[Image_Poster]</texture>
+                <texture background="true" diffuse="diffuse/widgetposter.png" fallback="DefaultFanartFallback.jpg">$VAR[Image_Poster]</texture>
                 <aspectratio scalediffuse="false">scale</aspectratio>
                 <visible>!String.IsEmpty(ListItem.Art(poster)) | [!String.IsEmpty(ListItem.Art(tvshow.poster)) + !String.IsEqual(ListItem.DBType,episode)] | $PARAM[poster]</visible>
             </control>

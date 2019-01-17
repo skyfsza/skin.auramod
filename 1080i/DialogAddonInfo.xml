@@ -226,6 +226,13 @@
             <include>Defs_Hidden_Button</include>
             <visible>Control.IsEnabled(12)</visible>
         </control>
+        <control type="button" id ="10">
+            <label>$LOCALIZE[39024]</label>
+            <include>Defs_Hidden_Button</include>
+            <visible>Control.IsEnabled(10)</visible>
+        </control>
+
+
         <control type="radiobutton" id ="13">
             <radioposx>200</radioposx>
             <align>left</align>

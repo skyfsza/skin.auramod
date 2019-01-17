@@ -1544,9 +1544,6 @@
                                 <radioposx>15</radioposx>
                                 <radiowidth>23</radiowidth>
                                 <radioheight>23</radioheight>
-                                <!-- Set InfoDialog as BaseWindow if NOT clicked via SendClick -->
-                                <onclick condition="!Control.IsVisible(93)">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
-                                <onclick>close</onclick>
                             </control>
                            <!-- Resume -->
                             <control type="radiobutton" id="9">

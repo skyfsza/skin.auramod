@@ -273,7 +273,7 @@
         <width>380</width>
         <aligny>top</aligny>
         <align>left</align>
-        <texture background="true">$VAR[Widget_ClearLogo]</texture>
+        <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
       </control>
       <control type="group">
         <top>155</top>
@@ -688,7 +688,7 @@
               <!-- Add Clearlogo / Label -->
               <control type="group">
                 <height min="60" max="251">auto</height>
-                <control type="image" id="55443">
+                <control type="image" id="55446">
                   <left>0</left>
                   <right>$PARAM[titleright]</right>
                   <height>251</height>
@@ -698,7 +698,8 @@
                   <visible>Skin.HasSetting(DisableClearlogo) + [String.IsEqual(ListItem.DBType,episode) | Container.Content(livetv) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)]</visible>
                 </control>
                 <control type="label">
-                  <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)] + [[!Control.HasFocus(300) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(55443))] | !Skin.HasSetting(DisableClearlogo)]</visible>
+
+                 <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)] + [[!Control.HasFocus(300) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(55446))] | !Skin.HasSetting(DisableClearlogo)]</visible> 
                   <top>25</top>
                   <label>$VAR[video_heading]</label>
                   <textcolor>grey</textcolor>
@@ -925,7 +926,7 @@
         <orientation>vertical</orientation>
         <usecontrolcoords>true</usecontrolcoords>
         <itemgap>0</itemgap>
-        <control type="image" id="554445">
+        <control type="image" id="554449">
           <visible>!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(55) | Control.IsVisible(56) | Window.IsVisible(DialogVideoInfo.xml)]</visible>
           <left>0</left>
           <right>$PARAM[titleright]</right>
@@ -935,25 +936,10 @@
           <width>650</width>
           <aligny>top</aligny>
           <align>left</align>
-          <texture background="true">$VAR[Image_ClearLogo]</texture>
+          <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
         </control>
-        <!--
-                 <control type="image" id="554446">
-                    <visible>!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(55) | Control.IsVisible(56) | Window.IsVisible(DialogVideoInfo.xml)]</visible>
-                    <left>0</left>
-                    <right>$PARAM[titleright]</right>
-                    <top>-5</top>
-                    <bottom>0</bottom>
-                    <height>200</height>
-                    <width>550</width>
-                    <aligny>top</aligny>
-                    <align>left</align>
-                    <texture background="true">$VAR[Image_Banner]</texture>
-                    <aspectratio>keep</aspectratio>
-                 </control>
--->
         <control type="label">
-       		   <visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(554445))</visible>
+       		  <visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(554449))</visible>
 	          <top>-250</top>
                   <label>$VAR[video_heading]</label>
                   <textcolor>grey</textcolor>
@@ -2971,7 +2957,7 @@
           </control>
           <control type="group">
             <height min="155" max="251">auto</height>
-            <control type="image" id="55443">
+            <control type="image" id="55447">
               <left>60</left>
               <right>$PARAM[titleright]</right>
               <height>251</height>
@@ -2980,7 +2966,7 @@
               <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
             </control>
             <control type="label">
-              <visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(55443))</visible>
+              <visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(55447))</visible>
               <top>60</top>
               <left>60</left>
               <right>$PARAM[titleright]</right>

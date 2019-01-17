@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+    <include name="Defs_Shadow_Opaque">
+        <left>-24</left>
+        <right>-24</right>
+        <top>-24</top>
+        <bottom>-24</bottom>
+        <bordersize>24</bordersize>
+        <!-- <bordertexture border="32" colordiffuse="PosterBack">common/shadow-24.png</bordertexture> -->
+        <bordertexture border="32">common/trans-shadow-24.png</bordertexture>
+    </include>
     <include name="Defs_DarkShadow">
         <left>-24</left>
         <right>-24</right>

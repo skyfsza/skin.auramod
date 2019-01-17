@@ -2,7 +2,7 @@
 <includes>
 	<include name="View_PVRGuide_WithInfo">
         <control type="group" id="50">
-	    <left>10</left>
+	    <left>-10</left>
             <control type="group">
                 <visible>Control.IsVisible(10)</visible>
                 <include>Animation_Right</include>
@@ -26,7 +26,7 @@
                 <control type="epggrid" id="10" description="EPG">
                     <left>10</left>
                     <bottom>0</bottom>
-                    <width>1894</width>
+                    <width>1980</width>
                     <height>592</height>
                     <onleft>28</onleft>
                     <viewtype label="19069">list</viewtype>

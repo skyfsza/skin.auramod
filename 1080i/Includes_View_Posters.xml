@@ -154,6 +154,7 @@
 		<include condition="Skin.HasSetting(DisableNetflixView)">View_Pad</include>
                 <include condition="!Skin.HasSetting(DisableNetflixView)">View_Pad_Netflix</include>
                 <control type="fixedlist" id="55">
+		<animation effect="slide" end="0,40" condition="!Skin.HasSetting(DisableNetflixView)">Conditonal</animation>
                     <bottom>-55</bottom>
                     <right>-70</right>
                     <left>-70</left>
@@ -204,6 +205,7 @@
                 <include condition="Skin.HasSetting(DisableNetflixView)">View_Pad</include>
                 <include condition="!Skin.HasSetting(DisableNetflixView)">View_Pad_Netflix</include>
                 <control type="fixedlist" id="56">
+		<animation effect="slide" end="0,20" condition="!Skin.HasSetting(DisableNetflixView)">Conditonal</animation>
                     <bottom>-55</bottom>
                     <right>-70</right>
                     <left>-70</left>
@@ -537,7 +539,7 @@
                         <height>380</height>
                         <include>View_Posters_Itemlayout_Artwork</include>
                     </control>
-                    <include condition="$PARAM[text] + !Skin.HasSetting(DisableViewText)">View_Posters_Text</include>
+                    <include condition="$PARAM[text] + !Skin.HasSetting(DisableViewText) + Skin.HasSetting(DisableNetflixView)">View_Posters_Text</include>
                 </control>
             </itemlayout>
             <focusedlayout width="260" height="480" condition="$PARAM[posters]">
@@ -556,7 +558,7 @@
                             <include>View_Selectbox</include>
                         </control>
                     </control>
-                    <include condition="$PARAM[text] + !Skin.HasSetting(DisableViewText)">View_Posters_Text</include>
+                    <include condition="$PARAM[text] + !Skin.HasSetting(DisableViewText) + Skin.HasSetting(DisableNetflixView)">View_Posters_Text</include>
                 </control>
             </focusedlayout>
             <itemlayout width="400" condition="$PARAM[posters_big]">
@@ -608,7 +610,7 @@
                         <height>350</height>
                         <include>View_Landscape_Artwork</include>
                     </control>
-                    <include condition="$PARAM[text] + !Skin.HasSetting(DisableViewText)">View_Landscape_Text</include>
+                    <include condition="$PARAM[text] + !Skin.HasSetting(DisableViewText) + Skin.HasSetting(DisableNetflixView)">View_Landscape_Text</include>
                 </control>
             </itemlayout>
             <focusedlayout width="606.66" height="480" condition="$PARAM[landscape]">
@@ -627,7 +629,7 @@
                             <include>View_Selectbox</include>
                         </control>
                     </control>
-                    <include condition="$PARAM[text] + !Skin.HasSetting(DisableViewText)">View_Landscape_Text</include>
+                    <include condition="$PARAM[text] + !Skin.HasSetting(DisableViewText) + Skin.HasSetting(DisableNetflixView)">View_Landscape_Text</include>
                 </control>
             </focusedlayout>
             <itemlayout width="455" height="315" condition="$PARAM[landscape_small]">
@@ -1458,7 +1460,6 @@
     </include>
     <include name="View_Posters_Text">
         <control type="label">
-	    <visible>Skin.HasSetting(DisableNetflixView)</visible>
             <label>$INFO[ListItem.Label]</label>
             <align>center</align>
             <aligny>top</aligny>
@@ -1469,7 +1470,6 @@
             <top>385</top>
         </control>
         <control type="label">
-	    <visible>Skin.HasSetting(DisableNetflixView)</visible>
             <label>$INFO[ListItem.Year]</label>
             <align>center</align>
             <aligny>top</aligny>
@@ -1480,7 +1480,7 @@
             <top>415</top>
         </control>
         <control type="label">
-            <visible>!Skin.HasSetting(DisableNetflixView) + [Container.Content(seasons) | Container.Content(episodes)]</visible>
+            <visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
             <label>$INFO[ListItem.Label]</label>
             <align>center</align>
             <aligny>top</aligny>
@@ -1491,7 +1491,7 @@
             <top>385</top>
         </control>
         <control type="label">
-            <visible>!Skin.HasSetting(DisableNetflixView) + [Container.Content(seasons) | Container.Content(episodes)]</visible>
+            <visible>[Container.Content(seasons) | Container.Content(episodes)]</visible>
             <label>$INFO[ListItem.Year]</label>
             <align>center</align>
             <aligny>top</aligny>

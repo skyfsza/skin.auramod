@@ -418,6 +418,14 @@
                 <visible>Control.IsEnabled(8)</visible>
                 <visible>!Skin.HasSetting(global.kioskmode)</visible>
             </item>
+            <!-- Dependancies -->
+            <item>
+                <label>$INFO[Control.GetLabel(10)]</label>
+                <icon>special://skin/extras/icons/chart.png</icon>
+                <onclick>SetFocus(10)</onclick>
+                <onclick>Select</onclick>
+                <visible>Control.IsEnabled(10)</visible>
+            </item>
             <!-- settings -->
             <item>
                 <label>$INFO[Control.GetLabel(9)]</label>
