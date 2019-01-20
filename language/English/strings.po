@@ -2190,11 +2190,16 @@ msgstrsgstr
 
 #: /1080i/SkinSettings.xml
 msgctxt "#31458"
-msgid "Enable Clearlogos on Home"
+msgid "Enable Clearlogos on Widgets"
 msgstrsgstr
 
 #: /1080i/SkinSettings.xml
 msgctxt "#31459"
 msgid "Enable Low Spotlight Info"
+msgstrsgstr
+
+#: /1080i/SkinSettings.xml
+msgctxt "#31460"
+msgid "Enable webservice artwork lookups (high performance system recommended)"
 msgstrsgstr
 

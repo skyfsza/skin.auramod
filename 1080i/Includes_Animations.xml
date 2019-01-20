@@ -19,7 +19,7 @@
                 <control type="button">
                         <visible>false</visible>
                         <!-- <onfocus>RunScript(script.skin.helper.service,action=fileexists,file=$INFO[listitem.path,,theme.mp3],winprop=osttheme_avail)</onfocus> -->
-                        <onfocus condition="!Player.HasVideo + !String.IsEmpty(Window(home).Property(trailer_trailerwillplaying))">AlarmClock(trailer_delay,PlayMedia($INFO[ListItem.Trailer],false,1),00:06,silent)</onfocus>
+                        <onfocus condition="!Player.HasVideo">AlarmClock(trailer_delay,PlayMedia($INFO[ListItem.Trailer],false,1),00:06,silent)</onfocus>
                         <onfocus condition="!Player.HasVideo">SetProperty(trailer_trailerwillplaying,true,home)</onfocus>
                         <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunfocus>
                         <onunfocus condition="Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">PlayerControl(Stop)</onunfocus>
@@ -30,7 +30,8 @@
 
             <include name="trailer_down">
                 <!-- play yt trailer if scraped empty -->
-                <ondown condition="!Player.HasVideo">PlayMedia($INFO[ListItem.Trailer],false,1)</ondown>
+                <ondown condition="!Player.HasVideo + !String.IsEmpty(ListItem.Trailer)">PlayMedia($INFO[ListItem.Trailer],false,1)</ondown>  
+<!--		<ondown condition="!Player.HasVideo">RunScript(script.skin.helper.service,action=playtraileryoutube,MODE=windowed,title=$INFO[ListItem.TvShowTitle])</ondown> -->
                 <!-- get fullscreen , <tab>FullScreen</tab> -->
                 <ondown condition="Player.HasVideo">fullscreen</ondown>
 	        <onup condition="Player.HasVideo">Stop</onup>

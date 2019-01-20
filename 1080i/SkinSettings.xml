@@ -259,14 +259,13 @@
                             <onclick>Skin.ToggleSetting(SkinHelper.EnableExtendedArt)</onclick>
                             <selected>Skin.HasSetting(SkinHelper.EnableExtendedArt)</selected>
                         </control>
-                        <control type="radiobutton" id="9622" description="Enable Clearlogo on Home">
+                        <control type="radiobutton" id="9659" description="Enable webservice artwork lookups">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31458]</label>
-                            <selected>Skin.HasSetting(DisableClearlogo)</selected>
-                            <onclick>Skin.ToggleSetting(DisableClearlogo)</onclick>
+                            <label>$LOCALIZE[31460]</label>
+                            <onclick>Skin.ToggleSetting(DisableWebserviceClearlogo)</onclick>
+                            <selected>Skin.HasSetting(DisableWebserviceClearlogo)</selected>
                         </control>
-
                         <!-- ========== -->
                         <!-- Background -->
                         <!-- ========== -->
@@ -758,6 +757,13 @@
                             <label>$LOCALIZE[31419]</label>
                             <selected>Skin.HasSetting(DisableBanners)</selected>
                             <onclick>Skin.ToggleSetting(DisableBanners)</onclick>
+                        </control>
+                        <control type="radiobutton" id="9622" description="Enable Clearlogo on Widgets">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>$LOCALIZE[31458]</label>
+                            <selected>Skin.HasSetting(DisableClearlogo)</selected>
+                            <onclick>Skin.ToggleSetting(DisableClearlogo)</onclick>
                         </control>
                         <control type="button" id="9656" description="Widget Status bar ">
 		            <textcolor>main_fg_100</textcolor>

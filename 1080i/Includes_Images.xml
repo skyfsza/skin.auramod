@@ -86,9 +86,9 @@
     <variable name="NetflixHome_ClearLogo">
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
-        <value condition="String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + [String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)]">http://localhost:52307/getpvrthumb&amp;title=$ESCINFO[ListItem.TvShowTitle]&amp;type=clearlogo&amp;mediatype=tvshow&amp;year=$INFO[ListItem.Year]</value>
-        <value condition="String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEqual(ListItem.DBType,movie)">http://localhost:52307/getpvrthumb&amp;title=$ESCINFO[ListItem.Title]&amp;type=clearlogo&amp;mediatype=movie&amp;year=$INFO[ListItem.Year]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</value>
+	<value condition="Skin.HasSetting(DisableWebserviceClearlogo) + [String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)]">http://localhost:52307/getpvrthumb&amp;title=$ESCINFO[ListItem.TvShowTitle]&amp;type=clearlogo&amp;mediatype=tvshow&amp;year=$INFO[ListItem.Year]</value>
+        <value condition="Skin.HasSetting(DisableWebserviceClearlogo) + String.IsEqual(ListItem.DBType,movie)">http://localhost:52307/getpvrthumb&amp;title=$ESCINFO[ListItem.Title]&amp;type=clearlogo&amp;mediatype=movie&amp;year=$INFO[ListItem.Year]</value>
     </variable>
 
     <variable name="Image_DiscArt">

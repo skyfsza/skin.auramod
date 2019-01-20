@@ -290,7 +290,7 @@
                 <right>10</right>
                 <width>48</width>
                 <height>48</height>
-                <texture colordiffuse="dddddddd" border="10">$VAR[Image_Overlay_Corner]</texture>
+                <texture colordiffuse="red" border="10">$VAR[Image_Overlay_Corner]</texture>
             </control>
             <control type="image">
                 <top>11</top>
