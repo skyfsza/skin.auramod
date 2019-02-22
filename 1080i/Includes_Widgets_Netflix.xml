@@ -1303,6 +1303,7 @@
                     <include>View_Selectbox</include>
                 </control>
             </control>
+
             <control type="group">
                 <visible>!Control.HasFocus($PARAM[id])</visible>
                 <include content="Widget_Items_ItemLayout">

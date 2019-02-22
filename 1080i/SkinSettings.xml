@@ -1,7 +1,7 @@
 <window>
     <defaultcontrol always="true">300</defaultcontrol>
     <include>Defs_Settings_OnLoad</include>
-    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;mode=single&amp;group=mainmenu|powermenu)</onunload>
+    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;mode=single&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104)</onunload>
     <onunload condition="System.HasAddon(script.colorbox)">SetProperty(NINE_manual_set,"var=main,set=$INFO[Skin.String(colorbox_main)]|var=comp,set=$INFO[Skin.String(colorbox_comp)]|var=quality,set=$INFO[Skin.String(colorbox_quality)]|var=blursize,set=$INFO[Skin.String(colorbox_blursize)]|var=bitsize,set=$INFO[Skin.String(colorbox_bitsize)]|var=pixelsize,set=$INFO[Skin.String(colorbox_pixelsize)]|var=black,set=$INFO[Skin.String(colorbox_black)]|var=white,set=$INFO[Skin.String(colorbox_white)]|var=blend,set=$INFO[Skin.String(colorbox_blend)]|var=desat,set=$INFO[Skin.String(colorbox_desat)]",home)</onunload> 
     <onload condition="String.IsEmpty(Window.Property(CurrentFocus))">SetProperty(CurrentFocus,$NUMBER[9001])</onload>
     <controls>
@@ -109,6 +109,14 @@
                             <width>450</width>
                             <include>Defs_Settings_Button</include>
                             <label>$LOCALIZE[31423]</label>
+                        </control>
+                         <control type="togglebutton" id="9014" description="Hubs">
+                            <onfocus>SetProperty(CurrentFocus,$NUMBER[9014])</onfocus>
+                            <usealttexture>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(300)] + !Control.HasFocus(302) + Integer.IsEqual(Window.Property(CurrentFocus),9014)</usealttexture>
+                            <alttexturenofocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturenofocus>
+                            <width>450</width>
+                            <include>Defs_Settings_Button</include>
+                            <label>Hubs</label>
                         </control>
                         <control type="togglebutton" id="9002" description="Background">
                             <onfocus>SetProperty(CurrentFocus,$NUMBER[9002])</onfocus>
@@ -266,6 +274,36 @@
                             <onclick>Skin.ToggleSetting(DisableWebserviceClearlogo)</onclick>
                             <selected>Skin.HasSetting(DisableWebserviceClearlogo)</selected>
                         </control>
+
+                        <!-- ========== -->
+                        <!-- --Hubs---- -->
+                        <!-- ========== -->
+
+                        <control type="button" id="9660" description="Configure Movie Hub 1">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Movie Categories Hub 1</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1101)</onclick>
+                        </control>
+                        <control type="button" id="9661" description="Configure Movie Hub 2">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Movie Categories Hub 2</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1102)</onclick>
+                        </control>
+                        <control type="button" id="9662" description="Configure TV Hub 1">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure TV Categories Hub 1</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1103)</onclick>
+                        </control>
+                        <control type="button" id="9663" description="Configure TV Hub 2">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure TV Categories Hub 2</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1104)</onclick>
+                        </control>
+
                         <!-- ========== -->
                         <!-- Background -->
                         <!-- ========== -->
@@ -962,6 +1000,13 @@
                             <selected>Skin.HasSetting(DisableOSDInfo)</selected>
                             <onclick>Skin.ToggleSetting(DisableOSDInfo)</onclick>
                             <onclick>Skin.Reset(ShowInfoPaused)</onclick>
+                        </control>
+                        <control type="radiobutton" id="9722" description="Show detailed info on controls">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9007)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Show detailed info on controls</label>
+                            <selected>Skin.HasSetting(ShowInfoControls)</selected>
+                            <onclick>Skin.ToggleSetting(ShowInfoControls)</onclick>
                         </control>
                         <control type="radiobutton" id="9704" description="Show clearart">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9007)</visible>

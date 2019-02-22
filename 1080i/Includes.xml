@@ -3,6 +3,7 @@
 <includes>
 
     <include file="Defaults.xml" />
+    <include file="Includes_SerenHub.xml" />
     <include file="DialogVideoInfo-Includes.xml" />
     <include file="Includes_ImagesMods.xml" />
     <include file="Includes_PVRInfoMods.xml" />

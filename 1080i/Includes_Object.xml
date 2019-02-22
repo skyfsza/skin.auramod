@@ -244,7 +244,7 @@
         <left>0</left>
         <width>100%</width>
         <height>100%</height>
-        <texture bakground="true">$VAR[Image_Fanart]</texture>
+        <texture bakground="true">$VAR[Spotlight_Fanart]</texture>
       </control>
       <control type="image">
         <top>-40</top>
@@ -465,7 +465,7 @@
                   <wrapmultiline>true</wrapmultiline>
         </control>
         <control type="label">
-	<visible>[!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222)] + Skin.HasSetting(DisableNetflixLowSpotlight) + [[String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(55445))] | ![String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | !String.IsEmpty(ListItem.ChannelName)]]</visible>
+	<visible>[!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222)] + Skin.HasSetting(DisableNetflixLowSpotlight) + [String.IsEmpty(Control.GetLabel(55445))] | ![String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | !String.IsEmpty(ListItem.ChannelName)]</visible>
           <height min="60" max="251">auto</height>
           <label>$VAR[video_heading]</label>
           <textcolor>grey</textcolor>
@@ -596,7 +596,7 @@
           <height>800</height>
           <left>500</left>
           <top>0</top>
-          <texture background="true" diffuse="Right Corner.png">$VAR[Image_Fanart]</texture>
+          <texture background="true" diffuse="Right Corner.png">$VAR[Spotlight_Fanart]</texture>
           <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
         </control>
         <control type="image">
@@ -608,7 +608,7 @@
           <left>500</left>
           <top>0</top>
           <bottom>5</bottom>
-          <texture background="true" diffuse="Right Corner.png">$VAR[Image_Fanart]</texture>
+          <texture background="true" diffuse="Right Corner.png">$VAR[Spotlight_Fanart]</texture>
           <aspectratio scalediffuse="false" aligny="top">keep</aspectratio>
         </control>
         <control type="image">
@@ -698,8 +698,7 @@
                   <visible>[String.IsEqual(ListItem.DBType,episode) | Container.Content(livetv) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)]</visible>
                 </control>
                 <control type="label">
-
-                 <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)] + [[!Control.HasFocus(300) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(55446))]]</visible> 
+                 <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)] + [[!Control.HasFocus(300) + String.IsEmpty(Control.GetLabel(55446))]]</visible> 
                   <top>25</top>
                   <label>$VAR[video_heading]</label>
                   <textcolor>grey</textcolor>
@@ -893,7 +892,7 @@
           <right>0</right>
           <top>-45</top>
           <bottom>5</bottom>
-          <texture background="true" diffuse="Right Corner.png">$VAR[Image_Fanart]</texture>
+          <texture background="true" diffuse="Right Corner.png">$VAR[Spotlight_Fanart]</texture>
           <aspectratio scalediffuse="false" aligny="top">scale</aspectratio>
         </control>
         <control type="group">
@@ -926,7 +925,7 @@
         <orientation>vertical</orientation>
         <usecontrolcoords>true</usecontrolcoords>
         <itemgap>0</itemgap>
-        <control type="image" id="554449">
+        <control type="image" id="554450">
           <visible>!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(55) | Control.IsVisible(56) | Window.IsVisible(DialogVideoInfo.xml)]</visible>
           <left>0</left>
           <right>$PARAM[titleright]</right>
@@ -939,7 +938,7 @@
           <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
         </control>
         <control type="label">
-       		  <visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(554449))</visible>
+	        <visible>String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEqual(ListItem.Art(clearlogo),0)</visible>
 	          <top>-250</top>
                   <label>$VAR[video_heading]</label>
                   <textcolor>grey</textcolor>
@@ -3644,19 +3643,5 @@
     </definition>
   </include>
 
-
-  <include name="HiddenHomeMenuButton">
-    <control type="button">
-      <visible>false</visible>
-      <onfocus>$VAR[SetWidgetContainer]</onfocus>
-      <onunfocus>ClearProperty(SkinHelper.WidgetContainer)</onunfocus>
-    </control>
-  </include>
-  <variable name="SetWidgetContainer">
-    <!-- check important -->
-    <value condition="Control.IsVisible(13002)">SetProperty(Skinhelper.WidgetContainer,13002,Home)</value>
-    <value condition="Control.IsVisible(13003)">SetProperty(Skinhelper.WidgetContainer,13003,Home)</value>
-    <value condition="Control.IsVisible(13004)">SetProperty(Skinhelper.WidgetContainer,13004,Home)</value>
-    <value condition="Control.IsVisible(13005)">SetProperty(Skinhelper.WidgetContainer,13005,Home)</value>
-  </variable>
+                        
 </includes>

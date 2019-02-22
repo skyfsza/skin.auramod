@@ -1,19 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+   <variable name="movie_list_background">
+	<value condition="String.Contains(ListItem.Label,Academy Awards Nominees)">special://skin/media/exuary/movielist/dunkirk.jpg</value>
+	<value condition="String.Contains(ListItem.Label,Academy Awards Best)">special://skin/media/exuary/movielist/thegodfather.jpg</value>
+	<value condition="String.Contains(ListItem.Label,Golden Globe)">special://skin//media/exuary/movielist/shapeofwater.jpg</value>
+	<value condition="String.Contains(ListItem.Label,Top 250 Movies)">special://skin/media/exuary/movielist/shawshank.jpg</value>
+	<value condition="String.Contains(ListItem.Label,Top 250 of 2018)">special://skin/media/exuary/movielist/thedarknight.jpg</value>
+	<value condition="String.Contains(ListItem.Label,Best of 2018)">special://skin/media/exuary/movielist/blackpanther.jpg</value>
+   </variable>
+   <variable name="tv_list_background">
+        <value condition="String.Contains(ListItem.Label,IMDB)">special://skin/media/exuary/tvlist/sopranos.jpg</value>
+        <value condition="String.Contains(ListItem.Label,Rolling Stone)">special://skin/media/exuary/tvlist/bandofbrothers.jpg</value>
+        <value condition="String.Contains(ListItem.Label,Popular)">special://skin/media/exuary/tvlist/breakingbad.jpg</value>
+        <value condition="String.Contains(ListItem.Label,US TV)">special://skin/media/exuary/tvlist/suits.jpg</value>
+        <value condition="String.Contains(ListItem.Label,UK TV)">special://skin/media/exuary/tvlist/bodyguard.jpg</value>
+        <value condition="String.Contains(ListItem.Label,Genres)">special://skin/media/exuary/tvlist/genres-background.jpg</value>
+   </variable> 
+   <variable name="Spotlight_Fanart">
+        <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
+        <value>$INFO[ListItem.Icon]</value>
+   </variable> 
    <variable name="Image_Fanart">
-        <value condition="!String.IsEmpty(ListItem.Art(thumb)) + !String.IsEmpty(ListItem.TvShowTitle) + Window.IsVisible(MyPlaylist.xml)">$INFO[ListItem.Art(thumb)]</value>
-        <value condition="Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !String.IsEmpty(ListItem.Art(animatedfanart)) + ![Container.Content(videos) | Container.Content(episodes)] + !Window.IsVisible(home)">$INFO[ListItem.Art(animatedfanart)]</value>
-        <value condition="!String.IsEmpty(ListItem.Art(season.landscape)) + [[!Container.Content(videos) + !Container.Content(episodes)] | !String.IsEmpty(ListItem.Property(PlayAll))] + !Window.IsVisible(home)">$INFO[ListItem.Art(season.landscape)]</value>
-        <value condition="!String.IsEmpty(ListItem.Art(tvshow.landscape)) + [[!Container.Content(videos) + !Container.Content(episodes)] | !String.IsEmpty(ListItem.Property(PlayAll))] + !Window.IsVisible(home)">$INFO[ListItem.Art(tvshow.landscape)]</value>
-        <value condition="!String.IsEmpty(ListItem.Art(landscape)) + [[!Container.Content(videos) + !Container.Content(episodes)] | !String.IsEmpty(ListItem.Property(PlayAll))] + !Window.IsVisible(home)">$INFO[ListItem.Art(landscape)]</value>
-        <value condition="!String.IsEmpty(ListItem.Art(fanart)) + [[!Container.Content(videos) + !Container.Content(episodes)] | !String.IsEmpty(ListItem.Property(PlayAll))] + !Window.IsVisible(home)">$INFO[ListItem.Art(fanart)]</value>
-        <value condition="!String.IsEmpty(ListItem.Art(fanart)) + Window.IsVisible(home) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome) | !String.IsEmpty(ListItem.Property(airday))]">$INFO[ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(landscape)) + String.IsEqual(ListItem.Art(landscape),0)">$INFO[ListItem.Art(fanart)]</value>
-        <value condition="!Window.IsVisible(Home) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
-        <value condition="!Window.IsVisible(Home) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
-        <value condition="!Skin.HasSetting(PreferFanartHome) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
-        <value condition="Skin.HasSetting(PreferFanartHome) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBType,episode)] + Skin.HasSetting(PreferFanartHome) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBType,episode)] + !Skin.HasSetting(PreferFanartHome) + !String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+        <value condition="!Container.Content(episodes) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
+        <value condition="!Container.Content(seasons) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
         <value>$INFO[ListItem.Icon]</value>
     </variable>
@@ -74,21 +89,15 @@
     <variable name="Image_ClearLogo">
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</value>
     </variable>
     <variable name="Widget_ClearLogo">
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
-<value condition="String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)">http://localhost:52307/getpvrthumb&amp;title=$ESCINFO[ListItem.TvShowTitle]&amp;type=clearlogo&amp;mediatype=tvshow&amp;year=$INFO[ListItem.Year]</value>
-        <value condition="String.IsEqual(ListItem.DBType,movie)">http://localhost:52307/getpvrthumb&amp;title=$ESCINFO[ListItem.Title]&amp;type=clearlogo&amp;mediatype=movie&amp;year=$INFO[ListItem.Year]</value>
     </variable>
 
     <variable name="NetflixHome_ClearLogo">
-        <value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
-        <value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</value>
-	<value condition="Skin.HasSetting(DisableWebserviceClearlogo) + [String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)]">http://localhost:52307/getpvrthumb&amp;title=$ESCINFO[ListItem.TvShowTitle]&amp;type=clearlogo&amp;mediatype=tvshow&amp;year=$INFO[ListItem.Year]</value>
-        <value condition="Skin.HasSetting(DisableWebserviceClearlogo) + String.IsEqual(ListItem.DBType,movie)">http://localhost:52307/getpvrthumb&amp;title=$ESCINFO[ListItem.Title]&amp;type=clearlogo&amp;mediatype=movie&amp;year=$INFO[ListItem.Year]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + !String.IsEqual(ListItem.Art(tvshow.clearlogo),0)">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEqual(ListItem.Art(clearlogo),0)">$INFO[ListItem.Art(clearlogo)]</value>
     </variable>
 
     <variable name="Image_DiscArt">

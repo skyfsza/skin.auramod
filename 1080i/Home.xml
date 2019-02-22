@@ -2,7 +2,7 @@
 <!-- Foundation -->
 <window id="0">
     <defaultcontrol always="true">4000</defaultcontrol>
-    <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;mode=single&amp;group=mainmenu|powermenu)</onload>
+    <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;mode=single&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104)</onload>
     <onload condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs)">Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
     <onload condition="!Skin.HasSetting(SkinHelper.EnableMusicArt)">Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
     <onload>ClearProperty(HomeFocus,Home)</onload>
@@ -54,6 +54,7 @@
             <onfocus condition="String.IsEmpty(Skin.String(MenuPos)) + !String.IsEmpty(Window(Home).Property(WidgetFocus))">SetFocus(3000)</onfocus>
         </control>
 
+<!--
         <control type="scrollbar" id="9060">
             <top>0</top>
             <right>0</right>
@@ -69,7 +70,7 @@
             <include>Animation_FadeOut</include>
             <include>Defs_InfoDialog_Visible</include>
         </control>
-
+-->
         <!-- Splash -->
         <control type="image" description="Background">
             <include>Dimensions_Fullscreen</include>

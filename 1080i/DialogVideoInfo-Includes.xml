@@ -1018,7 +1018,6 @@
         	</control>
 
             <control type="group">
-                <visible>!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
             <control type="grouplist" id="9000">
                     <pagecontrol>9560</pagecontrol>
                     <itemgap>0</itemgap>
@@ -1043,7 +1042,7 @@
                     <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
                  </control>
                    <control type="label">
-                    <visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(55443))</visible>
+                    <visible>String.IsEmpty(Control.GetLabel(55443))</visible>
 		    <top>60</top>
                     <left>10</left>
                     <right>$PARAM[titleright]</right>
@@ -1521,7 +1520,6 @@
                                 </focusedlayout>
                                 <content sortorder="ascending" sortby="playcount" limit="1">$VAR[InfoDialogNextUpContent]</content>
                             </control>
-
                             <!-- Play -->
                             <control type="radiobutton" id="8">
                                 <visible>!Control.IsVisible(9) + !Control.IsVisible(93)</visible>
@@ -1685,6 +1683,29 @@
 				<radioposy>0</radioposy>
 				<radiowidth>42</radiowidth>
 			</control>
+   <control type="radiobutton" id="6">
+                                <visible>Control.IsEnabled(6)</visible>
+                                <width>550</width>
+                                <height>65</height>
+                                <aligny>top</aligny>
+                                <align>left</align>
+                                <textoffsetx>50</textoffsetx>
+                                <textoffsety>10</textoffsety>
+                                <font>font_medium</font>
+                                <textcolor>dimgrey</textcolor>
+                                <focusedcolor>grey</focusedcolor>
+                                <label>184</label>
+                               <texturefocus colordiffuse="grey">netflix/border_netflix.png</texturefocus>
+                                <texturenofocus></texturenofocus>
+                                <textureradioonfocus colordiffuse="red">netflix/play.png</textureradioonfocus>
+                                <textureradioofffocus colordiffuse="red">netflix/play.png</textureradioofffocus>
+                                <textureradioonnofocus colordiffuse="dimgrey">netflix/play.png</textureradioonnofocus>
+                                <textureradiooffnofocus colordiffuse="dimgrey">netflix/play.png</textureradiooffnofocus>
+                                <radioposx>15</radioposx>
+                                <radioposy>0</radioposy>
+                                <radiowidth>25</radiowidth>
+                                <radioheight>25</radioheight>
+                            </control>
                             <!-- Extended Info -->
                             <control type="radiobutton" id="115">
                                 <!-- localize -->
@@ -1829,11 +1850,6 @@
             </control>
         </control>
 
-        <control type="button" id ="8">
-            <description>Play</description>
-            <label>$LOCALIZE[208]</label>
-            <include>Defs_Hidden_Button</include>
-        </control>
 
         <control type="button" id="11">
             <description>Trailer button</description>

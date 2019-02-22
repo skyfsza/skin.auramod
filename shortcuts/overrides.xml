@@ -19,6 +19,11 @@
 
     <!-- For Power Menu -->
     <groupoverride group="powermenu" condition="Window.IsActive(DialogButtonMenu.xml)">Close</groupoverride>
+    <!-- For Custom Hub -->
+    <groupoverride group="x1101" condition="Window.IsActive(Custom_MenuHub_Movie1.xml)">Close</groupoverride>
+    <groupoverride group="x1102" condition="Window.IsActive(Custom_MenuHub_Movie2.xml)">Close</groupoverride>
+    <groupoverride group="x1103" condition="Window.IsActive(Custom_MenuHub_TV1.xml)">Close</groupoverride>
+    <groupoverride group="x1104" condition="Window.IsActive(Custom_MenuHub_TV2.xml)">Close</groupoverride>
 
     <!-- Icon Overrides -->
     <icon labelID="tvhub">special://skin/extras/icons/tv.png</icon>
@@ -392,6 +397,11 @@
             <content>common</content>
             <shortcut label="$LOCALIZE[33060]" type="$LOCALIZE[31018]" icon="special://skin/extras/icons/power.png">ActivateWindow(shutdownmenu)</shortcut>
             <shortcut label="$LOCALIZE[31017]" type="32010">||BROWSE||script.skin.helper.service/?action=smartshortcuts</shortcut>
+            <shortcut label="Movie Categories Hub 1" grouping="32029" icon="special://skin/extras/icons/film.png">ActivateWindow(1101,return)</shortcut>
+            <shortcut label="Movie Categories  Hub 2" grouping="32029" icon="special://skin/extras/icons/film.png">ActivateWindow(1102,return)</shortcut>
+            <shortcut label="TV Categories Hub 1" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(1103,return)</shortcut>
+            <shortcut label="TV Categories Hub 2" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(1104,return)</shortcut>
+
         </node>
         <node label="32030">
             <content>video</content>

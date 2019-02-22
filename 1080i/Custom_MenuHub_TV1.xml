@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Titan-->
+<window type="dialog" id="1103">
+  <defaultcontrol always="true">4000</defaultcontrol>
+  <onload>AlarmClock(focusWidgets,SetFocus(9967),00:00,silent)</onload>
+  <controls>
+        <include>Global_Overlay</include>
+
+    <control type="group">
+            <centerleft>50%</centerleft>
+            <centertop>50%</centertop>
+            <width>1380</width>
+            <height>920</height>
+            <include>Animation_FadeIn_Slide</include>
+            <control type="image">
+                <include condition="!Skin.HasSetting(DisableShadows)">Defs_Shadow_24</include>
+                <texture border="16" colordiffuse="ff101010">common/rounded-dialog.png</texture>
+            </control>
+
+
+      <control type="label">
+        <top>-850</top>
+	<left>600</left>
+        <width>300</width>
+        <font>font_medium_bold</font>
+        <textcolor>white</textcolor>
+        <label>TV Show Lists</label>
+      </control>
+      <control type="group">
+        <top>0</top>
+            <left>5</left>
+
+            <control type="panel" id="9967">
+                <top>60</top>
+                <width>1620</width>
+                <height>840</height>
+                <onleft condition="Window.IsVisible(Home)">300</onleft>
+                <onright condition="Window.IsVisible(Home)">9967</onright>
+                <onup condition="Window.IsVisible(Home)">300</onup>
+                <ondown condition="Window.IsVisible(Home)">431</ondown>
+                <onback condition="Window.IsVisible(Home)">300</onback>
+                <orientation>vertical</orientation>
+
+                <itemlayout width="455" height="283.33">
+                    <include>Defs_PosterBack</include>
+                    <control type="image">
+                        <bordersize>10</bordersize>
+                        <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
+                    </control>
+
+                    <control type="group">
+                        <left>10</left>
+                        <right>0</right>
+                        <bottom>10</bottom>
+                        <top>10</top>
+                        <control type="image">
+                            <width>100%</width>
+                            <height>100%</height>
+                            <aspectratio aligny="center">scale</aspectratio>
+                            <texture colordiffuse="PosterFront_70" background="true">$INFO[ListItem.Property(background)]</texture>
+                        </control>
+                        <control type="image">
+                            <width>100%</width>
+                            <height>100%</height>
+                            <aspectratio aligny="center">scale</aspectratio>
+                            <texture colordiffuse="99000000" background="true">diffuse/landscape.png</texture>
+                        </control>
+                        <control type="image">
+			    <top>10</top>
+                            <bottom>100</bottom>
+                            <width>250</width>
+                            <centerleft>50%</centerleft>
+                            <aspectratio aligny="center">keep</aspectratio>
+                            <texture colordiffuse="PosterFront_70" background="true">$INFO[ListItem.Icon]</texture>
+                        </control>
+                        <control type="group">
+                            <height>120</height>
+                            <bottom>10</bottom>
+                            <left>10</left>
+                            <right>10</right>
+                            <control type="textbox">
+                                 <width>300</width>
+                                <bottom>-20</bottom>
+                                <left>60</left>
+                                <height>100</height>
+                                <font>font_small_bold</font>
+                                <align>center</align>
+                                <autoscroll>false</autoscroll>
+                                <textcolor>PosterFront_70</textcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                               <wrapmultiline>true</wrapmultiline>
+                            </control>
+                        </control>
+                    </control>
+               </itemlayout>
+                <focusedlayout width="455" height="283.33">
+                    <control type="group">
+                        <include>Defs_PosterBack</include>
+                        <control type="image">
+                            <bordersize>10</bordersize>
+                            <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
+                        </control>
+                        <include>Animation_FocusBounce_Small</include>
+                        <control type="group">
+                            <left>10</left>
+                            <right>0</right>
+                            <bottom>10</bottom>
+                            <top>10</top>
+                        <control type="image">
+                            <width>100%</width>
+                            <height>100%</height>
+                            <aspectratio aligny="center">scale</aspectratio>
+                            <texture colordiffuse="PosterFront_70" background="true">$INFO[Container(9967).ListItem.Property(background)]</texture>
+                        </control>
+                        <control type="image">
+                            <width>100%</width>
+                            <height>100%</height>
+                            <aspectratio aligny="center">scale</aspectratio>
+                            <texture colordiffuse="99000000" background="true">diffuse/landscape.png</texture>
+                        </control>
+                            <control type="image">
+			    	<top>10</top>
+                                <bottom>100</bottom>
+                                <width>250</width>
+                                <centerleft>50%</centerleft>
+                                <aspectratio aligny="center">keep</aspectratio>
+                                <texture colordiffuse="PosterFront" background="true">$INFO[ListItem.Icon]</texture>
+                            </control>
+                            <control type="group">
+                                <height>120</height>
+                                <bottom>10</bottom>
+                                <left>10</left>
+                                <right>10</right>
+                            <control type="textbox">
+                                 <width>300</width>
+                                <bottom>-20</bottom>
+                                <left>60</left>
+                                <height>100</height>
+                                <font>font_small_bold</font>
+                                <align>center</align>
+                                <autoscroll>false</autoscroll>
+                                <textcolor>PosterFront_70</textcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                               <wrapmultiline>true</wrapmultiline>
+                            </control>
+                            </control>
+
+                        </control>
+                        <!-- Highlight -->
+                        <control type="group">
+                            <include>View_Selectbox</include>
+                        </control>
+                    </control>
+
+                </focusedlayout>
+
+                <content>
+      <include>skinshortcuts-group-x1103</include>
+                </content>
+		</control>
+      </control>
+    </control>
+  </controls>
+</window>

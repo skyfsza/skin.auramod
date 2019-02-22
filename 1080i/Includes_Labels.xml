@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-
+    <variable name="PlayOrResumeLabel">
+        <value condition="ListItem.IsResumable">$LOCALIZE[13404]</value>
+        <value>$LOCALIZE[208]</value>
+    </variable>
     <variable name="NetflixDetailsSpin">
         <value condition="Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards))">[I]$INFO[Window(Home).Property(SkinHelper.ListItem.Awards)][/I]</value>
         <value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))">[I]Staring $INFO[Window(Home).Property(SkinHelper.ListItem.CastListing)][/I]</value>

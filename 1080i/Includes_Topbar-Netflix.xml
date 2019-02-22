@@ -151,7 +151,6 @@
                     <effect type="slide" end="0,-20" time="180" tween="sine" delay="80" />
                 </animation>
                 <control type="group">
-		    <visible>!Player.HasVideo</visible>
                     <height>view_pad</height>
                     <visible allowhiddenfocus="true">!$EXP[Exp_HideFurniture]</visible>
                     <include>Animation_FadeInOut</include>
