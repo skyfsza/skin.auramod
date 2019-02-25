@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="2003">
-    <defaultcontrol always="true">9005</defaultcontrol>
+    <defaultcontrol always="true">9570</defaultcontrol>
     <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">Action(close)</onload>
     <onload condition="![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">Action(close)</onload>
     <onload condition="![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onload>

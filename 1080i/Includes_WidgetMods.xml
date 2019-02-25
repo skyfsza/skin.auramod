@@ -83,7 +83,7 @@
           <height>45%</height>
           <aspectratio>keep</aspectratio>
           <texture background="true">$VAR[Widget_ClearLogo]</texture>
-          <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo)</visible>
+          <visible>[!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo)] + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
         </control>
     </control>
 
@@ -98,21 +98,9 @@
         <texture background="true" diffuse="diffuse/widgetlandscape.png" fallback="DefaultFanartFallback.jpg">$VAR[Image_Fanart]</texture>
         <aspectratio scalediffuse="false">stretch</aspectratio>
       </control>
-<!--
-      <control type="image">
-        <bottom>30</bottom>
-        <top>170</top>
-        <left>120</left>
-        <right>120</right>
-        <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
-        <texture background="true" diffuse="diffuse/widgetlandscape.png">$INFO[ListItem.Art(clearlogo)]</texture>
-        <visible>!Skin.HasSetting(DisableFakeLandscapeArt) + !String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome)]</visible>
-      </control>
--->
      <control type="group">
-       <visible>Skin.HasSetting(DisableNetflixHome) + String.IsEqual(ListItem.DBType,episode)</visible>
+       <visible>String.IsEqual(ListItem.DBType,episode)</visible>
       <control type="image">
-       <visible>Skin.HasSetting(DisableNetflixHome)</visible>
         <left>0</left>
         <bottom>40</bottom>
         <height>45</height>
@@ -141,7 +129,7 @@
           <aspectratio>keep</aspectratio>
           <animation effect="slide" start="0" end="0,40" time="0" condition="String.IsEmpty(ListItem.Episode) | Skin.HasSetting(WidgetLabels)">Conditional</animation>
           <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
-          <visible>!String.IsEqual(ListItem.DBType,tvshow) + Skin.HasSetting(DisableClearlogo)</visible>
+          <visible>!String.IsEqual(ListItem.DBType,tvshow) + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
         </control>
       </control>
         <!-- Add Banner to landscape Image -->

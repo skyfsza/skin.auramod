@@ -801,7 +801,7 @@
 -->
               <control type="group">
                 <animation effect="slide" end="0,-90" condition="![String.IsEqual(ListItem.DBType,episode) | Container.Content(livetv) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)]">Conditional</animation>
-                <height min="20" max="180">auto</height>
+                <height min="20" max="190">auto</height>
                 <control type="textbox">
                   <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)</visible>
                   <visible>!Skin.HasSetting(DisableNetflixView)</visible>

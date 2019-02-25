@@ -36,7 +36,7 @@
                     <showonepage>false</showonepage>
                     <orientation>vertical</orientation>
                     <texturesliderbackground colordiffuse="main_fg_12">common/white.png</texturesliderbackground>
-                    <texturesliderbar colordiffuse="dimgray">common/white.png</texturesliderbar>
+                    <texturesliderbar colordiffuse="main_fg_30">common/white.png</texturesliderbar>
                     <texturesliderbarfocus colordiffuse="$VAR[ColorHighlight]">common/white.png</texturesliderbarfocus>
                     <animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(9560) + !Container.Scrolling">Conditional</animation>
                     <include>Animation_FadeIn</include>
@@ -248,7 +248,7 @@
                     <control type="group">
                         <left>view_pad</left>
                         <right>view_pad</right>
-                        <height>485</height>
+                        <height>455</height>
                         <top>-15</top>
                         <visible>!Skin.HasSetting(VideoInfo.CastList)</visible>
                         <visible>!String.IsEqual(ListItem.DBType,musicvideo)</visible>
@@ -287,7 +287,7 @@
                                 <aligny>center</aligny>
                                 <width>auto</width>
                                 <height>100%</height>
-                                <label>$INFO[Container(50).ListItem.Label]$INFO[Container(50).ListItem.Label2, [COLOR=dimgray]$LOCALIZE[20347][/COLOR] ,]</label>
+                                <label>$INFO[Container(50).ListItem.Label]$INFO[Container(50).ListItem.Label2, [COLOR=main_fg_30]$LOCALIZE[20347][/COLOR] ,]</label>
                                 <visible>Control.HasFocus(50)</visible>
                             </control>
 
@@ -364,7 +364,7 @@
                                 <param name="id" value="9550" />
                                 <param name="ondown" value="9501" />
                                 <param name="label" value="$LOCALIZE[206]" />
-                                <param name="content" value="plugin://script.skin.helper.service/?action=getcast&amp;episode=$INFO[ListItem.Label]&amp;castaction=extendedinfo" />
+                                <param name="content" value="plugin://script.skin.helper.service/?action=getcast&amp;tvshow=$INFO[ListItem.TvShowTitle]&amp;castaction=extendedinfo" />
                                 <param name="infolabel" value="true" />
                                 <param name="pad" value="0" />
                                 <param name="top" value="0" />
@@ -400,7 +400,7 @@
                     </include>
 
                     <!-- Similar Movies 9502 -->
-                    <include content="Object_VideoInfo_CastList" condition="String.IsEqual(ListItem.DBType,movie) + Library.HasContent(movies)">
+                    <include content="Object_VideoInfo_CastList" condition="String.IsEqual(ListItem.DBType,movie)">
                         <param name="onup" value="9501" />
                         <param name="id" value="9502" />
                         <param name="ondown" value="9503" />
@@ -413,7 +413,7 @@
                     </include>
 
                     <!-- Similar TvShows 9502 -->
-                    <include content="Object_VideoInfo_CastList" condition="!String.IsEqual(ListItem.DBType,movie) + Library.HasContent(tvshows)">
+                    <include content="Object_VideoInfo_CastList" condition="!String.IsEqual(ListItem.DBType,movie)">
                         <param name="onup" value="9501" />
                         <param name="id" value="9502" />
                         <param name="ondown" value="9503" />
@@ -610,7 +610,7 @@
                             <textcolor>main_fg_100</textcolor>
                             <aligny>center</aligny>
                             <width max="1200">auto</width>
-                            <label>$INFO[ListItem.Director,[COLOR=dimgray]$LOCALIZE[20339]   [/COLOR],]</label>
+                            <label>$INFO[ListItem.Director,[COLOR=main_fg_30]$LOCALIZE[20339]   [/COLOR],]</label>
                             <visible>!String.IsEmpty(ListItem.Director)</visible>
                         </control>
                     </control>
@@ -1169,13 +1169,13 @@
                      <param name="directory" value="color" />
                      <param name="align" value="left" />
                      <param name="width" value="$PARAM[width]" />
-                     <param name="rottentomatoes" value="$PARAM[rottentomatoes]" />
+                     <param name="rottentomatoes" value="true" />
                      <param name="imdbvotes" value="false" />
                      <param name="usermeter" value="false" />
                      <param name="imdb" value="$PARAM[imdb]" />
                      <param name="tmdb" value="$PARAM[tmdb]" />
-                     <param name="metacritic" value="$PARAM[metacritic]" />
-                     <param name="oscars" value="$PARAM[oscars]" />
+                     <param name="metacritic" value="true" />
+                     <param name="oscars" value="true" />
                      <param name="top250" value="false" />
                      <param name="plot" value="false" />
                      </include>
@@ -1188,6 +1188,7 @@
 			 <control type="group">
                             <width>1200</width>
                             <height>40</height>
+			    <visible>!String.IsEmpty($INFO[Window(Home).Property(SkinHelper.ListItem.CastListing)])</visible>
                             <control type="image">
                                 <width>30</width>
                                 <height>30</height>
@@ -1415,17 +1416,15 @@
                                 <info>ListItem.PercentPlayed</info>
                             </control>
                         </control>
-                        <control type="grouplist" id="8000">
+                        <control type="grouplist" id="9570">
 			    <left>-5</left>
-                           <defaultcontrol>8000</defaultcontrol>
+                           <defaultcontrol>9570</defaultcontrol>
                             <orientation>vertical</orientation>
                             <width>550</width>
                             <height>450</height>
                             <itemgap>0</itemgap>
-                            <onleft condition="String.IsEqual(Window.Property(AdditionalInfo),cast)">SetFocus(351)</onleft>
-                            <onleft condition="String.IsEqual(Window.Property(AdditionalInfo),similar)">SetFocus(352)</onleft>
-                            <onup>8000</onup>
-                            <ondown>8000</ondown>
+                            <onup>9570</onup>
+                            <ondown>9570</ondown>
 			    <onleft>SetProperty(BaseWindow,InfoDialog,Home)</onleft>
 			    <onleft>9601</onleft>
                             <pagecontrol>60</pagecontrol>
@@ -1441,7 +1440,6 @@
                                 <!-- Set InfoDialog as BaseWindow -->
                                 <onclick>SetProperty(BaseWindow,InfoDialog,Home)</onclick>
                                 <onclick>close</onclick>
-                                <!-- <onclick>PlayMedia($ESCINFO[Container(5050).ListItem.FileNameAndPath],resume)</onclick> -->
 				<onclick>PlayMedia($INFO[listitem.path]$INFO[listitem.filename],resume)</onclick>
 				<itemlayout width="550" height="65">
                                     <!-- play logo -->
@@ -1596,7 +1594,6 @@
                                 <onclick>SetProperty(BaseWindow,InfoDialog,Home)</onclick>
                                 <onclick>close</onclick>
                                 <onclick condition="!Control.IsVisible(5050)">SendClick(8)</onclick>
-                                                                <!-- <onclick condition="!Control.IsVisible(5050)">PlayMedia($INFO[listitem.path]$INFO[listitem.filename])</onclick>-->
                                 <!-- currently works only if FILE FOLDERS structured with seasons folders -->
                                 <onclick condition="Control.IsVisible(5050)">PlayMedia($ESCINFO[Container(5050).ListItem.Path],isdir,playoffset=$VAR[NextUpEpisodeMinusOne])</onclick>
                             </control>
@@ -1962,12 +1959,13 @@
             <visible>[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,musicvideo) | String.IsEqual(ListItem.DBType,episode)] + [system.hasaddon(script.artwork.downloader) | system.hasaddon(script.artwork.beef)]</visible>
         </control>
 
+<!--
         <control type="button" id ="6">
             <description>Refresh</description>
             <label>184</label>
             <include>Defs_Hidden_Button</include>
         </control>
-
+-->
         <control type="button" id ="7">
             <description>Userrating</description>
             <include>Defs_Hidden_Button</include>
