@@ -517,9 +517,9 @@
         <value condition="!String.IsEmpty(ListItem.AddonDescription)">$INFO[ListItem.AddonDescription]</value>
         <value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))">$INFO[Window(Home).Property(SkinHelper.ListItem.Plot)]</value>
-        
     </variable>
     <variable name="Label_Netflix_Tagline">
+        <value condition="String.IsEqual(ListItem.DBType,season)">$INFO[ListItem.Label]</value>
         <value condition="!String.IsEmpty(ListItem.Tagline)">[I]$INFO[ListItem.Tagline][/I]</value>
         <value condition="!String.IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
         <value condition="!String.IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>

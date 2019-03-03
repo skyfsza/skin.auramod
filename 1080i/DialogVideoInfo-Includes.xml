@@ -248,8 +248,8 @@
                     <control type="group">
                         <left>view_pad</left>
                         <right>view_pad</right>
-                        <height>455</height>
-                        <top>-15</top>
+                        <height>465</height>
+                        <top>-25</top>
                         <visible>!Skin.HasSetting(VideoInfo.CastList)</visible>
                         <visible>!String.IsEqual(ListItem.DBType,musicvideo)</visible>
                         <visible>Integer.IsGreater(Container(50).NumItems,0) | Container(50).IsUpdating</visible>
@@ -1421,7 +1421,7 @@
                            <defaultcontrol>9570</defaultcontrol>
                             <orientation>vertical</orientation>
                             <width>550</width>
-                            <height>450</height>
+                            <height>200</height>
                             <itemgap>0</itemgap>
                             <onup>9570</onup>
                             <ondown>9570</ondown>
@@ -1627,6 +1627,8 @@
                                 <onclick>close</onclick>
                                 <!-- activate ALL EPISODES view -->
                                 <onclick condition="String.IsEmpty(ListItem.DBID)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
+                                <onclick condition="!String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
+
                             </control>
 
 			<!-- Trailer-->
@@ -1692,16 +1694,16 @@
                                 <textcolor>dimgrey</textcolor>
                                 <focusedcolor>grey</focusedcolor>
                                 <label>184</label>
-                               <texturefocus colordiffuse="grey">netflix/border_netflix.png</texturefocus>
+                                <texturefocus colordiffuse="grey">netflix/border_netflix.png</texturefocus>
                                 <texturenofocus></texturenofocus>
-                                <textureradioonfocus colordiffuse="red">netflix/play.png</textureradioonfocus>
-                                <textureradioofffocus colordiffuse="red">netflix/play.png</textureradioofffocus>
-                                <textureradioonnofocus colordiffuse="dimgrey">netflix/play.png</textureradioonnofocus>
-                                <textureradiooffnofocus colordiffuse="dimgrey">netflix/play.png</textureradiooffnofocus>
-                                <radioposx>15</radioposx>
-                                <radioposy>0</radioposy>
-                                <radiowidth>25</radiowidth>
-                                <radioheight>25</radioheight>
+                                <textureradioonfocus colordiffuse="red">netflix/sinchronize.png</textureradioonfocus>
+                                <textureradioofffocus colordiffuse="red">netflix/sinchronize.png</textureradioofffocus>
+                                <textureradioonnofocus colordiffuse="dimgrey">netflix/sinchronize.png</textureradioonnofocus>
+                                <textureradiooffnofocus colordiffuse="dimgrey">netflix/sinchronize.png</textureradiooffnofocus>
+                                <radioposx>10</radioposx>
+                                <radioposy>20</radioposy>
+                                <radiowidth>30</radiowidth>
+                                <radioheight>30</radioheight>
                             </control>
                             <!-- Extended Info -->
                             <control type="radiobutton" id="115">

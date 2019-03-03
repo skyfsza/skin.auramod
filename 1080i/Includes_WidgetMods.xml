@@ -128,8 +128,8 @@
           <height>45%</height>
           <aspectratio>keep</aspectratio>
           <animation effect="slide" start="0" end="0,40" time="0" condition="String.IsEmpty(ListItem.Episode) | Skin.HasSetting(WidgetLabels)">Conditional</animation>
-          <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
-          <visible>!String.IsEqual(ListItem.DBType,tvshow) + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
+          <texture background="true">$VAR[Widget_ClearLogo]</texture>
+          <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
         </control>
       </control>
         <!-- Add Banner to landscape Image -->

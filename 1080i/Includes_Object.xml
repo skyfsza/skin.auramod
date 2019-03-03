@@ -505,7 +505,7 @@
           <font>font_small</font>
         </control>
         <control type="textbox">
-          <height min="50" max="125">auto</height>
+          <height min="50" max="122">auto</height>
           <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)</visible>
           <visible>Skin.HasSetting(DisableNetflixLowSpotlight)</visible>
           <label fallback="19055">$VAR[Label_Plot]</label>
@@ -516,7 +516,7 @@
           <autoscroll>0</autoscroll>
         </control>
         <control type="textbox">
-          <height min="50" max="125">auto</height>
+          <height min="50" max="122">auto</height>
           <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)</visible>
           <visible>!Skin.HasSetting(DisableNetflixLowSpotlight)</visible>
           <label fallback="19055">$VAR[Label_Plot]</label>
@@ -801,7 +801,7 @@
 -->
               <control type="group">
                 <animation effect="slide" end="0,-90" condition="![String.IsEqual(ListItem.DBType,episode) | Container.Content(livetv) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)]">Conditional</animation>
-                <height min="20" max="190">auto</height>
+                <height min="20" max="185">auto</height>
                 <control type="textbox">
                   <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)</visible>
                   <visible>!Skin.HasSetting(DisableNetflixView)</visible>
@@ -3142,7 +3142,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </itemlayout>
-      <itemlayout width="574.22" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31411]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <itemlayout width="630" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31411]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
         <include content="Widget_Items_ItemLayout">
           <param name="landscapewide" value="true" />
           <param name="genres" value="$PARAM[genres]" />
@@ -3190,7 +3190,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </itemlayout>
-      <itemlayout width="574.22" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <itemlayout width="606.67" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
         <include content="Widget_Items_ItemLayout">
           <param name="landscape" value="true" />
           <param name="genres" value="$PARAM[genres]" />
@@ -3225,7 +3225,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="574.22" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31411]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <focusedlayout width="630" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31411]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="landscapewide" value="true" />
@@ -3234,7 +3234,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="574.22" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31414]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + Control.HasFocus($PARAM[id])">
+      <focusedlayout width="640" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31414]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + Control.HasFocus($PARAM[id])">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="landscapewide" value="true" />
@@ -3297,7 +3297,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="574.22" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <focusedlayout width="606.67" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="landscape" value="true" />
@@ -3557,8 +3557,8 @@
       <control type="grouplist" id="330">
         <animation effect="slide" end="0,100" time="200" condition="Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222) + !Integer.IsGreater(Container(30222).NumItems,6)">Conditional</animation>
         <animation effect="slide" end="0,250" time="200" condition="Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222) + Integer.IsGreater(Container(30222).NumItems,6)">Conditional</animation>
-        <animation effect="slide" end="0,100" time="200" condition="!Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222)">Conditional</animation>
-        <posy>710</posy>
+        <animation effect="slide" end="0,120" time="200" condition="!Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222)">Conditional</animation>
+        <posy>670</posy>
         <left>-10</left>
         <onup condition="Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(30222)</onup>
         <onup condition="!Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(300)</onup>

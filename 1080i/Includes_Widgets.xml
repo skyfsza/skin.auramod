@@ -616,7 +616,7 @@
 		<!-- Add TvShow Title to widget bar only at Show level  -->
                 <control type="label">
                     <textcolor>$VAR[ColorHighlight2]</textcolor>
-                    <label>$INFO[Container($PARAM[id]).ListItem.Label,| , |]</label>
+                    <label>$INFO[Container($PARAM[id]).ListItem.Label,|  ]</label>
                     <include>Statusbar_Menubar_Items</include>
                     <visible>Control.HasFocus($PARAM[id])</visible>
 		    <visible>Skin.HasSetting(DisableWidgetTitle)</visible>
@@ -739,7 +739,7 @@
             </include>
 	
 	<!-- START New Mod Widgets -->
-	    <itemlayout width="500" height="350" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31430]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+	    <itemlayout width="622.22" height="350" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31430]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
                 <include content="Widget_Items_ItemLayout">
                     <param name="landscapenetflix" value="true" />
                     <param name="genres" value="$PARAM[genres]" />
@@ -797,7 +797,7 @@
                     <param name="text" value="$PARAM[text]" />
                 </include>
             </itemlayout>
-            <itemlayout width="606.67" height="widget_poster_height" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+            <itemlayout width="622.22" height="widget_poster_height" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
                 <include content="Widget_Items_ItemLayout">
                     <param name="landscape" value="true" />
                     <param name="genres" value="$PARAM[genres]" />
@@ -817,7 +817,7 @@
 
 	<!-- START Focused New Mods Widgets -->
 
-	    <focusedlayout width="500" height="350" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31430]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+	    <focusedlayout width="622.22" height="350" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31430]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
                 <include content="Widget_Items_FocusedLayout">
                     <param name="id" value="$PARAM[id]" />
                     <param name="landscapenetflix" value="true" />
@@ -901,7 +901,7 @@
                     <param name="text" value="$PARAM[text]" />
                 </include>
             </focusedlayout>
-            <focusedlayout width="606.67" height="widget_poster_height" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+            <focusedlayout width="622.22" height="widget_poster_height" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
                 <include content="Widget_Items_FocusedLayout">
                     <param name="id" value="$PARAM[id]" />
                     <param name="landscape" value="true" />
@@ -1300,8 +1300,9 @@
                 <left>120</left>
                 <right>120</right>
                 <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
-                <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Image_ClearLogo]</texture>
-                <visible>!Skin.HasSetting(DisableFakeLandscapeArt) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + !String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome)]</visible>
+                <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
+          <visible>!Skin.HasSetting(DisableBanners) + !String.IsEqual(ListItem.DBType,tvshow) + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
+<!--                <visible>!Skin.HasSetting(DisableFakeLandscapeArt) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + !String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome)]</visible> -->
             </control>
             <control type="group">
                 <height>70</height>

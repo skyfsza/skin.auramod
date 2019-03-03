@@ -20,8 +20,8 @@
     <constant name="widget_square_width_netflix_small">210</constant>
     <constant name="widget_poster_height">400</constant>
     <constant name="widget_poster_width">290</constant>
-    <constant name="widget_poster_width_netflix">221</constant>
-    <constant name="widget_poster_height_netflix">323</constant>
+    <constant name="widget_poster_width_netflix">250</constant>
+    <constant name="widget_poster_height_netflix">360</constant>
 <!--    <constant name="widget_poster_height_netflix">380</constant> -->
     <constant name="widget_poster_width_netflix_small">170</constant>
     <constant name="widget_poster_height_netflix_small">210</constant>

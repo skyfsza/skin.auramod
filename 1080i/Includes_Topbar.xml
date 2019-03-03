@@ -788,6 +788,7 @@
                     <visible allowhiddenfocus="true">!$EXP[Exp_HideFurniture]</visible>
                     <!-- Left Info -->
                     <control type="grouplist">
+                        <top>60</top>
                         <itemgap>0</itemgap>
                         <left>view_pad</left>
                         <align>left</align>
@@ -813,6 +814,7 @@
                 
                     <!-- Right Info -->
                     <control type="grouplist">
+			<top>60</top>
                         <right>view_pad</right>
                         <align>right</align>
                         <orientation>horizontal</orientation>

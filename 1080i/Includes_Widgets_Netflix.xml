@@ -490,7 +490,7 @@
     </include>
     <include name="Widget_Items_Submenu_Height"><height>140</height></include>
     <include name="Widget_Items_Submenu_Big_Height"><height>widget_submenu_big_spacer</height></include>
-    <include name="Widget_Items_menu_Big_Height"><height>335</height></include>
+    <include name="Widget_Items_menu_Big_Height"><height>365</height></include>
     <include name="Widget_Items_menu_Small_Height"><height>210</height></include>
 
     <include name="Widget_Label">
@@ -1164,8 +1164,9 @@
                 <left>120</left>
                 <right>120</right>
                 <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
-                <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Image_ClearLogo]</texture>
-                <visible>!Skin.HasSetting(DisableFakeLandscapeArt) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + !String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome)]</visible>
+                <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
+          <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
+<!--                <visible>!Skin.HasSetting(DisableFakeLandscapeArt) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + !String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome)]</visible> -->
             </control>
             <control type="group">
                 <height>70</height>
