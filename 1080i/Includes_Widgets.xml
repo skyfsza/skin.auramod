@@ -621,7 +621,17 @@
                     <visible>Control.HasFocus($PARAM[id])</visible>
 		    <visible>Skin.HasSetting(DisableWidgetTitle)</visible>
                 </control>
+
 <!-- Add Ratings -->
+                      <control type="label">
+                        <label>Aired: $INFO[ListItem.Premiered(dd MMM yyyy)]</label>
+                        <textcolor>$VAR[ColorHighlight2]</textcolor>
+                        <font>font_tiny_bold</font>
+                    <include>Statusbar_Menubar_Items</include>
+
+                        <visible>Control.HasFocus($PARAM[id])</visible>
+                        <visible>String.IsEqual(ListItem.DBType,episode) + Skin.HasSetting(DisableWidgetAirdate)</visible>
+                      </control>
 		<control type="grouplist">
 		    <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(302) + Skin.HasSetting(DisableWidgetIMDB)</visible>
                     <bottom>5</bottom>

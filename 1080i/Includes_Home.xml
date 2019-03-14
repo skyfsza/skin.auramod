@@ -508,7 +508,7 @@
                 <width>800</width>
            <control type="label">
                 <visible>[![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904) |Control.HasFocus(300)] + [Window.IsVisible(Home) | [!Window.IsVisible(Home) + String.IsEqual(ListItem.Property(path),Window(Home).Property(MenuIconFocus))]] + Skin.HasSetting(IconOnlyMode)] | [[Control.HasFocus(300) | Control.HasFocus(302)] + !Skin.HasSetting(IconOnlyMode)]</visible>
-                <visible>Control.HasFocus(300)</visible>
+                <visible>Control.HasFocus(300) + !Skin.HasSetting(DisableNetflixVertLabel)</visible>
                 <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)</visible>
                 <left>80</left>
                 <top>15</top>

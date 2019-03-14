@@ -435,9 +435,9 @@
     <control type="group">
       <animation effect="slide" end="-90,0" condition="!Skin.HasSetting(DisableNetflixLargeWidget) + !Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
       <animation effect="slide" end="-90,0" condition="Skin.HasSetting(DisableNetflixSmallWidget) + !Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
-      <animation effect="slide" end="-90,200" condition="!Skin.HasSetting(DisableNetflixLargeWidget) + Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
+      <animation effect="slide" end="-90,170" condition="!Skin.HasSetting(DisableNetflixLargeWidget) + Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
       <animation effect="slide" end="-90,90" condition="Skin.HasSetting(DisableNetflixSmallWidget) + Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
-      <animation effect="slide" end="0,200" condition="!Skin.HasSetting(DisableNetflixLargeWidget) + Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + !Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
+      <animation effect="slide" end="0,170" condition="!Skin.HasSetting(DisableNetflixLargeWidget) + Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + !Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
       <animation effect="slide" end="0,90" condition="Skin.HasSetting(DisableNetflixSmallWidget) + Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + !Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
       <top>40</top>
       <left>160</left>

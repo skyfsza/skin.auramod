@@ -1,0 +1,58 @@
+v0.9.8
+- Add Episode Airdate option for Aura home Widget bar
+- Add option to remove main menu Label for Netflix Home Vertical Icon menu.
+- EIS video info fix
+- Change Netflix Spotlight title font
+
+v0.9.7
+- Fix bug with video info "More Episodes" button for library based widgets
+- Fix bug with Netflix Showcase not displaying TV Show "specials" labels
+- Increase Widget size for Netflix Large widget mode
+- Adjust widget sizes for Aura Home widgets
+
+v0.9.6
+- Fix bug with Aura stock Video Info
+- Fix bug with Netflix video info scrolling
+- Fix bug with Aura mode LandscapeNetflix widget artwork
+- Fix bug with "double" clearlogo showing on LandscapeWide / LandscapeNetflix widgets
+- Add Episode number overlay to LandscapeWide / LandscapeNetflix wigets in Aura mode
+
+v0.9.5
+- Add category navigation hubs
+- Removed Skinhelper + Webservice from skin due to speed issues.
+- Fixed Video Info button scroll bug
+- Added Refresh button to Video Info for library content
+
+
+v0.9.4
+- Fix width of Small style landscapenetflix widget.
+- Removed default SkinHelper Webservice lookups for clearlogo
+- Added Settings option to enable Webservice lookups.
+- Moved Setting to disable Clearlogo on landscape widgets back to Widgets menu.
+
+v0.9.3
+- Add new Leia "Dependencies" button to DialogAddonInfo.
+- Fix Netflix Video info bug when playing / openning certain addons from Home.
+- Fix Netflix Video Info bug that closes previous window after clicking play button.
+- Clearlogo tweaks
+- Removed Info text from below landscape widget in Netflix View 
+- Lowered lanscape and poster widgets in Netfix View
+
+
+v0.9.2
+- Change Netflix Home + View fall back label alignment to avoid overlap on long Titles.
+- Set height limit on Side Icon bar to avoid overlap when more than 6 Main menu items.
+- Removed gap from Netflix view top menu bar.
+- Change fall back image for widgets.
+- Move "Enable Clearlogo on Home" to Settings -> Home menu. 
+- Netflix Video info trailer full screen will now stop when back is pressed.
+- Add info ticker to Simple view info panel
+
+v0.9.1
+- Add diffuse to now playing video background on home.
+- Add onup action to PVR Guide to open Channel Groups dialog.
+- Fix size of Landscape and LandscapeWide widgets for Netflix home styles.
+- Rename LandscapeTrakt widget to LandscapeNetflix.
+- Fix submenu widget bug when no sumenu items set.
+- Added option for Simple Style view for low spotlight information position.
+- Adjusted spotlight infomation alignment when side menu auto-hide enabled.

@@ -835,6 +835,15 @@
                             <selected>Skin.HasSetting(DisableWidgetTitle)</selected>
                             <onclick>Skin.ToggleSetting(DisableWidgetTitle)</onclick>
                         </control>
+                        <control type="radiobutton" id="9629" description="Enable Widget Bar Episode Airdate ">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Enable Episode Airdate on Widget Bar</label>
+                            <visible>!Skin.HasSetting(DisableNetflixHome)</visible>
+                            <enable>!Skin.HasSetting(DisableNetflixHome)</enable>
+                            <selected>Skin.HasSetting(DisableWidgetAirdate)</selected>
+                            <onclick>Skin.ToggleSetting(DisableWidgetAirdate)</onclick>
+                        </control>
 			<control type="radiobutton" id="9624" description="Enable Widget Bar Plot Info">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
@@ -974,6 +983,15 @@
                             <enable>Skin.HasSetting(DisableNetflixHome)</enable>
                             <selected>Skin.HasSetting(DisableNetflixSubmenuBG)</selected>
                             <onclick>Skin.ToggleSetting(DisableNetflixSubmenuBG)</onclick>
+                        </control>
+                        <control type="radiobutton" id="9637" description="Disable Main Menu Label">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Disable Main Menu Label</label>
+                            <visible>!Skin.HasSetting(DisableMenuVertIcon)</visible>
+                            <enable>!Skin.HasSetting(DisableMenuVertIcon)</enable>
+                            <selected>Skin.HasSetting(DisableNetflixVertLabel)</selected>
+                            <onclick>Skin.ToggleSetting(DisableNetflixVertLabel)</onclick>
                         </control>
                         <!-- ================= -->
                         <!-- Video / Music OSD -->
