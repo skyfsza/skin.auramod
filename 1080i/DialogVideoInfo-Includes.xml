@@ -989,6 +989,7 @@
 
 <include name="DialogVideoInfo_Netflix">
 	<!-- trailer video preview -->
+
 	<control type="group">
 		<top>0</top>
 		<width>100%</width>
@@ -1013,7 +1014,7 @@
                     <width>100%</width>
                     <height>100%</height>
                     <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>
-                    <texture background="true" diffuse="overlay/gradient_overlay_info.png">$VAR[Image_Fanart]</texture>
+                    <texture background="true" diffuse="overlay/gradient_overlay_info.png">$VAR[Spotlight_Fanart]</texture>
                     <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
         	</control>
 
@@ -1188,7 +1189,7 @@
 			 <control type="group">
                             <width>1200</width>
                             <height>40</height>
-			    <visible>!String.IsEmpty($INFO[Window(Home).Property(SkinHelper.ListItem.CastListing)])</visible>
+		            <visible>!String.IsEmpty(ListItem.Cast) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))</visible>
                             <control type="image">
                                 <width>30</width>
                                 <height>30</height>
@@ -1197,12 +1198,12 @@
                             </control>
                             <control type="label">
 				<left>55</left>
+				<height>30</height>
                                 <width>700</width>
                                 <font>Netflix_Info_main</font>
-                                <align>left</align>
-                                <label>[CAPITALIZE]$LOCALIZE[206]: [/CAPITALIZE]$INFO[Window(Home).Property(SkinHelper.ListItem.CastListing)]</label>
+				<label>$VAR[cast_list]</label>
                                 <textcolor>dimgray</textcolor>
-                                <scroll>false</scroll>
+                                <autoscroll>true</autoscroll>
                             </control>
                         </control>
 		      <!-- director -->
@@ -1633,7 +1634,7 @@
 
 			<!-- Trailer-->
                             <control type="radiobutton" id="103">
-				<visible>[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]</visible>
+				<visible>!Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]</visible>
 				<width>550</width>
                                 <height>65</height>
                                 <aligny>center</aligny>
@@ -1647,6 +1648,32 @@
 				<onclick condition="!Player.HasVideo + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]">PlayMedia($INFO[ListItem.Trailer],1)</onclick>						
 				<onclick condition="Player.HasVideo">FullScreen</onclick>
 				<onclick condition="Player.HasVideo">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
+                                <onclick condition="Player.HasVideo">SetProperty(TrailerPlaying,fullscreen,home)</onclick>
+                                <texturefocus colordiffuse="dimgrey">netflix/border_netflix.png</texturefocus>
+                                <texturenofocus></texturenofocus>
+                                <textureradioonfocus colordiffuse="red">dialogs/videoinfo/tvstudio-icon.png</textureradioonfocus>
+                                <textureradioofffocus colordiffuse="red">dialogs/videoinfo/tvstudio-icon.png</textureradioofffocus>
+                                <textureradioonnofocus colordiffuse="dimgrey">dialogs/videoinfo/tvstudio-icon.png</textureradioonnofocus>
+                                <textureradiooffnofocus colordiffuse="dimgrey">dialogs/videoinfo/tvstudio-icon.png</textureradiooffnofocus>
+                                <radioposx>5</radioposx>
+                                <radioposy>0</radioposy>
+                                <radiowidth>42</radiowidth>
+                                <radioheight>37</radioheight>
+                            </control>
+                            <control type="radiobutton" id="104">
+                                <visible>Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]</visible>
+                                <width>550</width>
+                                <height>65</height>
+                                <aligny>center</aligny>
+                                <align>left</align>
+                                <textoffsetx>50</textoffsetx>
+                                <textoffsety>8</textoffsety>
+                                <font>font_medium</font>
+                                <textcolor>dimgrey</textcolor>
+                                <focusedcolor>grey</focusedcolor>
+                                <label>Fullscreen</label>
+                                <onclick condition="Player.HasVideo">FullScreen</onclick>
+                                <onclick condition="Player.HasVideo">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
                                 <onclick condition="Player.HasVideo">SetProperty(TrailerPlaying,fullscreen,home)</onclick>
                                 <texturefocus colordiffuse="dimgrey">netflix/border_netflix.png</texturefocus>
                                 <texturenofocus></texturenofocus>

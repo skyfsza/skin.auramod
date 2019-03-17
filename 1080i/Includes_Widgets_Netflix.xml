@@ -1103,6 +1103,17 @@
                     <aspectratio scalediffuse="false">scale</aspectratio>
 		    <visible>String.Contains(ListItem.DBType,episode) | String.Contains(ListItem.DBType,tvshow) | String.Contains(ListItem.DBType,season) | String.Contains(ListItem.DBType,movie)</visible> 
                 </control>
+            <control type="image">
+		<width>70%</width>
+		<height>70%</height>
+		<bottom>10</bottom>
+		<centerleft>50%</centerleft>
+                <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
+                <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
+          <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
+		    <visible>String.Contains(ListItem.DBType,episode) | String.Contains(ListItem.DBType,tvshow) | String.Contains(ListItem.DBType,season) | String.Contains(ListItem.DBType,movie)</visible> 
+            </control>
+
                 <control type="image">
                     <top>0</top>
                     <left>0</left>

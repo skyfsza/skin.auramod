@@ -452,10 +452,9 @@
         </control>
 	<!-- Fall back Title -->
         <control type="label">
-          <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + Control.HasFocus(30222) + Control.HasFocus(3001) + ![String.IsEqual(ListItem.DBType,episode) | Container.Content(livetv) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)]</visible>
-          <label>$VAR[video_heading]</label>
+	  <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001) + !String.IsEqual(ListItem.DBType,episode) + !String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(ListItem.DBType,tvshow) + !String.IsEqual(ListItem.DBType,season) + String.IsEmpty(ListItem.ChannelName)</visible>
                   <top>25</top>
-                  <label>$VAR[video_heading]</label>
+                  <label>$INFO[ListItem.Label]</label>
                   <textcolor>grey</textcolor>
                   <shadowcolor>black</shadowcolor>
                   <font>netflix_heading</font>
@@ -465,7 +464,8 @@
                   <wrapmultiline>true</wrapmultiline>
         </control>
         <control type="label">
-	<visible>[!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222)] + Skin.HasSetting(DisableNetflixLowSpotlight) + [String.IsEmpty(Control.GetLabel(55445))] | ![String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | !String.IsEmpty(ListItem.ChannelName)]</visible>
+	<visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222)</visible>
+	<visible>Skin.HasSetting(DisableNetflixLowSpotlight) + [String.IsEmpty(Control.GetLabel(55445))] | ![String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | !String.IsEmpty(ListItem.ChannelName)]</visible>
           <height min="60" max="251">auto</height>
           <label>$VAR[video_heading]</label>
           <textcolor>grey</textcolor>
@@ -476,7 +476,8 @@
           <wrapmultiline>true</wrapmultiline>
         </control>
         <control type="label">
-	<visible>[!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222)] + !Skin.HasSetting(DisableNetflixLowSpotlight) + [[String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(55445))] | ![String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | !String.IsEmpty(ListItem.ChannelName)]]</visible>
+	<visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222)</visible>
+	<visible>!Skin.HasSetting(DisableNetflixLowSpotlight) + [[String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(55445))] | ![String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | !String.IsEmpty(ListItem.ChannelName)]]</visible>
           <label>$VAR[video_heading]</label>
                   <top>25</top>
                   <label>$VAR[video_heading]</label>
@@ -664,7 +665,7 @@
             <height>100%</height>
           </control>
           <control type="image">
-            <animation effect="slide" start="0" end="225,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,1.78)">Conditional</animation>
+            <animation effect="slide" start="0" end="100,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,1.78)">Conditional</animation>
             <animation effect="slide" start="0" end="225,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,0.00)">Conditional</animation>
             <animation effect="slide" start="0" end="30,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)">Conditional</animation>
             <texture colordiffuse="ff000000" border="40">netflix/netflix_corner.png</texture>
@@ -3555,9 +3556,9 @@
     <definition>
       <!--          <animation effect="slide" start="0" end="0,-400" time="0" condition="String.IsEqual(ListItem.DBType,episode)">Conditional</animation> -->
       <control type="grouplist" id="330">
-        <animation effect="slide" end="0,100" time="200" condition="Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222) + !Integer.IsGreater(Container(30222).NumItems,6)">Conditional</animation>
-        <animation effect="slide" end="0,250" time="200" condition="Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222) + Integer.IsGreater(Container(30222).NumItems,6)">Conditional</animation>
-        <animation effect="slide" end="0,120" time="200" condition="!Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222)">Conditional</animation>
+        <animation effect="slide" end="0,140" time="200" condition="Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222) + !Integer.IsGreater(Container(30222).NumItems,6)">Conditional</animation>
+        <animation effect="slide" end="0,290" time="200" condition="Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222) + Integer.IsGreater(Container(30222).NumItems,6)">Conditional</animation>
+        <animation effect="slide" end="0,140" time="200" condition="!Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222)">Conditional</animation>
         <posy>670</posy>
         <left>-10</left>
         <onup condition="Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(30222)</onup>
@@ -3610,9 +3611,9 @@
     <param name="category" default="false" />
     <definition>
       <control type="grouplist" id="330">
-        <animation effect="slide" end="0,160" time="200" condition="Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222) + !Integer.IsGreater(Container(30222).NumItems,6)">Conditional</animation>
-        <animation effect="slide" end="0,320" time="200" condition="Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222) + Integer.IsGreater(Container(30222).NumItems,6)">Conditional</animation>
-        <animation effect="slide" end="0,160" time="200" condition="!Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222)">Conditional</animation>
+        <animation effect="slide" end="0,180" time="200" condition="Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222) + !Integer.IsGreater(Container(30222).NumItems,6)">Conditional</animation>
+        <animation effect="slide" end="0,340" time="200" condition="Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222) + Integer.IsGreater(Container(30222).NumItems,6)">Conditional</animation>
+        <animation effect="slide" end="0,180" time="200" condition="!Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222)">Conditional</animation>
         <posy>630</posy>
         <left>-10</left>
         <onup condition="Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(30222)</onup>

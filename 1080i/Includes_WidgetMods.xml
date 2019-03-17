@@ -303,7 +303,7 @@
         <height>40</height>
         <font>font_posterdetails_label</font>
         <textcolor>$VAR[ColorHighlight2]</textcolor>
-        <width min="150" max="430">auto</width>
+        <width min="150" max="470">auto</width>
         <scroll>true</scroll>
         <label>$VAR[Label_Widget]</label>
       </control>
@@ -313,9 +313,10 @@
         <right>30</right>
         <top>60</top>
         <height>60</height>
+	<width>490</width>
         <font>font_posterdetail_small</font>
         <textcolor>main_fg_100</textcolor>
-        <label>[COLOR=$VAR[ColorHighlight]]Year: [/COLOR][B]$INFO[ListItem.Year][COLOR=$VAR[ColorHighlight]][/B]  Length: [/COLOR][B]$VAR[Label_Duration][/B][COLOR=$VAR[ColorHighlight]]  Ends: [/COLOR][B]$INFO[ListItem.EndTime][/B]</label> 
+        <label>$VAR[date_aired]  Length: [/COLOR][B]$VAR[Label_Duration][/B][COLOR=$VAR[ColorHighlight]]  Ends: [/COLOR][B]$INFO[ListItem.EndTime][/B]</label> 
 <!--        <label>$VAR[Label_ShowCase_InfoLine]</label> -->
       </control>
 	<control type="textbox">

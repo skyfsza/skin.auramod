@@ -29,10 +29,17 @@
     <value condition="Skin.HasSetting(DisableNetflixHomeAlt)">$LOCALIZE[31438]</value>
     <value condition="Skin.HasSetting(DisableNetflixHomeMixed)">$LOCALIZE[31440]</value>
     </variable>
-
+    <variable name="cast_list">
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))">$INFO[Window(Home).Property(SkinHelper.ListItem.CastListing)]</value>
+        <value condition="!String.IsEmpty(ListItem.Cast)">$INFO[ListItem.Cast]</value>
+    </variable>
     <variable name="video_heading">
         <value condition="!String.IsEmpty(ListItem.TvShowTitle)">$INFO[ListItem.TvShowTitle]</value>
 	<value>$INFO[ListItem.Label]</value>
+    </variable>
+    <variable name="date_aired">
+        <value condition="String.IsEqual(ListItem.DBType,episode)">[COLOR=$VAR[ColorHighlight]]Aired: [/COLOR][B]$INFO[ListItem.Premiered(dd MMM yyyy)][COLOR=$VAR[ColorHighlight]][/B]</value>
+        <value>[COLOR=$VAR[ColorHighlight]]Year: [/COLOR][B]$INFO[ListItem.Year][COLOR=$VAR[ColorHighlight]][/B]</value>
     </variable>
     <variable name="Label_OSD_Time">
         <value condition="PVR.IsPlayingTV + !String.IsEmpty(PVR.EpgEventElapsedTime)">$INFO[PVR.EpgEventElapsedTime]</value>

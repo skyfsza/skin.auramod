@@ -32,8 +32,8 @@
 
             <control type="panel" id="9967">
                 <top>60</top>
-                <width>1620</width>
-                <height>840</height>
+                <width>1380</width>
+                <height>900</height>
                 <onleft condition="Window.IsVisible(Home)">300</onleft>
                 <onright condition="Window.IsVisible(Home)">9967</onright>
                 <onup condition="Window.IsVisible(Home)">300</onup>
@@ -80,7 +80,7 @@
                             <right>10</right>
                             <control type="textbox">
                                  <width>300</width>
-                                <bottom>-20</bottom>
+                                <bottom>-10</bottom>
                                 <left>60</left>
                                 <height>100</height>
                                 <font>font_small_bold</font>
@@ -133,7 +133,7 @@
                                 <right>10</right>
                             <control type="textbox">
                                  <width>300</width>
-                                <bottom>-20</bottom>
+                                <bottom>-10</bottom>
                                 <left>60</left>
                                 <height>100</height>
                                 <font>font_small_bold</font>

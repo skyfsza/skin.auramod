@@ -32,14 +32,14 @@
 
             <control type="panel" id="9967">
                 <top>60</top>
-                <width>1820</width>
-                <height>920</height>
+                <width>1380</width>
+                <height>900</height>
                 <onleft condition="Window.IsVisible(Home)">300</onleft>
                 <onright condition="Window.IsVisible(Home)">9967</onright>
                 <onup condition="Window.IsVisible(Home)">300</onup>
                 <ondown condition="Window.IsVisible(Home)">431</ondown>
                 <onback condition="Window.IsVisible(Home)">300</onback>
-                <orientation>horizontal</orientation>
+                <orientation>vertical</orientation>
 
                 <itemlayout width="455" height="283.33">
                     <include>Defs_PosterBack</include>
@@ -81,7 +81,7 @@
                             <right>10</right>
                             <control type="textbox">
                                  <width>300</width>
-                                <bottom>-20</bottom>
+                                <bottom>-10</bottom>
                                 <left>60</left>
                                 <height>100</height>
                                 <font>font_small_bold</font>
@@ -134,7 +134,7 @@
                                 <right>10</right>
                             <control type="textbox">
                                  <width>300</width>
-                                <bottom>-20</bottom>
+                                <bottom>-10</bottom>
                                 <left>60</left>
                                 <height>100</height>
                                 <font>font_small_bold</font>

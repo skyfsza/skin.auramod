@@ -112,7 +112,7 @@ msgstr ""
 
 #: /1080i/script-globalsearch-main.xml
 msgctxt "#31020"
-msgid "mins"
+msgid "m"
 msgstr ""
 
 #: /1080i/SkinSettings.xml
@@ -2199,7 +2199,12 @@ msgid "Enable Low Spotlight Info"
 msgstrsgstr
 
 #: /1080i/SkinSettings.xml
-msgctxt "#31460"
-msgid "Enable webservice artwork lookups (high performance system recommended)"
+msgctxt "#31461"
+msgid "Enable Video Info Trailer auto-play"
+msgstrsgstr
+
+#: /1080i/SkinSettings.xml
+msgctxt "#31462"
+msgid "Disable Main Menu Label"
 msgstrsgstr
 
