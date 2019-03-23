@@ -939,7 +939,9 @@
           <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
         </control>
         <control type="label">
-	        <visible>String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEqual(ListItem.Art(clearlogo),0)</visible>
+<!--	        <visible>String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEqual(ListItem.Art(clearlogo),0)</visible> -->
+                  <visible>String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
+
 	          <top>-250</top>
                   <label>$VAR[video_heading]</label>
                   <textcolor>grey</textcolor>
@@ -975,7 +977,7 @@
               <top>25</top>
               <width>auto</width>
               <height>40</height>
-              <label>$INFO[ListItem.Year]</label>
+              <label>$VAR[simple_date_aired]</label>
               <textcolor>white</textcolor>
               <font>font_tiny_bold</font>
             </control>
@@ -3125,33 +3127,19 @@
     <param name="widgetlive" default="false" />
     <param name="landscapenetflix" default="false" />
     <param name="category" default="false" />
+    <param name="postercondition" default="false" />
+    <param name="landscapecondition" default="false" />
+    <param name="landscapewidecondition" default="false" />
+    <param name="landscapewidepostercondition" default="false" />
+    <param name="landscapenetflixcondition" default="false" />
+    <param name="posterdetailscondition" default="false" />
+    <param name="widgetlivecondition" default="false" />
+    <param name="categorycondition" default="false" />
+    <param name="squarecondition" default="false" />
+    <param name="genrecondition" default="false" />
+
     <definition>
-      <!-- START New Mod Widgets -->
-      <itemlayout width="558.22" height="314.6" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31430]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
-        <include content="Widget_Items_ItemLayout">
-          <param name="landscapenetflix" value="true" />
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </itemlayout>
-      <itemlayout width="366" height="210" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31443]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
-        <include content="Widget_Items_ItemLayout">
-          <param name="category" value="true" />
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </itemlayout>
-      <itemlayout width="630" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31411]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
-        <include content="Widget_Items_ItemLayout">
-          <param name="landscapewide" value="true" />
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </itemlayout>
-      <itemlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31414]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <itemlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="$PARAM[postercondition]">
         <include content="Widget_Items_ItemLayout">
           <param name="poster" value="true" />
           <param name="genres" value="$PARAM[genres]" />
@@ -3159,47 +3147,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </itemlayout>
-      <itemlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31418]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
-        <include content="Widget_Items_ItemLayout">
-          <param name="poster" value="true" />
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </itemlayout>
-      <itemlayout width="380" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31412]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
-        <include content="Widget_Items_ItemLayout">
-          <param name="widgetlive" value="true" />
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </itemlayout>
-      <!-- END New Mod Widgets =-->
-      <itemlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="String.IsEmpty($PARAM[aspect]) | $PARAM[studios] | $PARAM[genres] | $PARAM[text]">
-        <include content="Widget_Items_ItemLayout">
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </itemlayout>
-      <itemlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[20021]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
-        <include content="Widget_Items_ItemLayout">
-          <param name="poster" value="true" />
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </itemlayout>
-      <itemlayout width="606.67" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
-        <include content="Widget_Items_ItemLayout">
-          <param name="landscape" value="true" />
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </itemlayout>
-      <itemlayout width="widget_square_width_netflix" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31263]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <itemlayout width="widget_square_width_netflix" height="widget_poster_height_netflix" condition="$PARAM[squarecondition]">
         <include content="Widget_Items_ItemLayout">
           <param name="square" value="true" />
           <param name="genres" value="$PARAM[genres]" />
@@ -3207,8 +3155,71 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </itemlayout>
-      <!-- START Focused New Mods Widgets -->
-      <focusedlayout width="558.22" height="314.6" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31430]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <itemlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="$PARAM[genrecondition]">
+        <include content="Widget_Items_ItemLayout">
+          <param name="genres" value="true" />
+          <param name="genres" value="$PARAM[genres]" />
+          <param name="studios" value="$PARAM[studios]" />
+          <param name="text" value="$PARAM[text]" />
+        </include>
+      </itemlayout>
+      <itemlayout width="558.22" height="314.6" condition="$PARAM[landscapenetflixcondition]">
+        <include content="Widget_Items_ItemLayout">
+          <param name="landscapenetflix" value="true" />
+          <param name="genres" value="$PARAM[genres]" />
+          <param name="studios" value="$PARAM[studios]" />
+          <param name="text" value="$PARAM[text]" />
+        </include>
+      </itemlayout>
+      <itemlayout width="366" height="210" condition="$PARAM[categorycondition]">
+        <include content="Widget_Items_ItemLayout">
+          <param name="category" value="true" />
+          <param name="genres" value="$PARAM[genres]" />
+          <param name="studios" value="$PARAM[studios]" />
+          <param name="text" value="$PARAM[text]" />
+        </include>
+      </itemlayout>
+      <itemlayout width="630" height="widget_poster_height_netflix" condition="$PARAM[landscapewidecondition]">
+        <include content="Widget_Items_ItemLayout">
+          <param name="landscapewide" value="true" />
+          <param name="genres" value="$PARAM[genres]" />
+          <param name="studios" value="$PARAM[studios]" />
+          <param name="text" value="$PARAM[text]" />
+        </include>
+      </itemlayout>
+      <itemlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="$PARAM[landscapewidepostercondition]">
+        <include content="Widget_Items_ItemLayout">
+          <param name="poster" value="true" />
+          <param name="genres" value="$PARAM[genres]" />
+          <param name="studios" value="$PARAM[studios]" />
+          <param name="text" value="$PARAM[text]" />
+        </include>
+      </itemlayout>
+      <itemlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="$PARAM[posterdetailscondition]">
+        <include content="Widget_Items_ItemLayout">
+          <param name="poster" value="true" />
+          <param name="genres" value="$PARAM[genres]" />
+          <param name="studios" value="$PARAM[studios]" />
+          <param name="text" value="$PARAM[text]" />
+        </include>
+      </itemlayout>
+      <itemlayout width="380" height="widget_poster_height_netflix" condition="$PARAM[widgetlivecondition]">
+        <include content="Widget_Items_ItemLayout">
+          <param name="widgetlive" value="true" />
+          <param name="genres" value="$PARAM[genres]" />
+          <param name="studios" value="$PARAM[studios]" />
+          <param name="text" value="$PARAM[text]" />
+        </include>
+      </itemlayout>
+      <itemlayout width="606.67" height="widget_poster_height_netflix" condition="$PARAM[landscapecondition]">
+        <include content="Widget_Items_ItemLayout">
+          <param name="landscape" value="true" />
+          <param name="genres" value="$PARAM[genres]" />
+          <param name="studios" value="$PARAM[studios]" />
+          <param name="text" value="$PARAM[text]" />
+        </include>
+      </itemlayout>
+      <focusedlayout width="558.22" height="314.6" condition="$PARAM[landscapenetflixcondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="landscapenetflix" value="true" />
@@ -3217,7 +3228,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="366" height="210" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31443]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <focusedlayout width="366" height="210" condition="$PARAM[categorycondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="category" value="true" />
@@ -3226,7 +3237,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="630" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31411]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <focusedlayout width="630" height="widget_poster_height_netflix" condition="$PARAM[landscapewidecondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="landscapewide" value="true" />
@@ -3235,7 +3246,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="640" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31414]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + Control.HasFocus($PARAM[id])">
+      <focusedlayout width="640" height="widget_poster_height_netflix" condition="$PARAM[landscapewidepostercondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="landscapewide" value="true" />
@@ -3244,7 +3255,8 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31414]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !Control.HasFocus($PARAM[id])">
+<!--
+      <focusedlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="$PARAM[landscapewidepostercondition] + !Control.HasFocus($PARAM[id])">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="poster" value="true" />
@@ -3253,7 +3265,8 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="800" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31418]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + Control.HasFocus($PARAM[id])">
+-->
+      <focusedlayout width="800" height="widget_poster_height_netflix" condition="$PARAM[posterdetailscondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="posterdetails" value="true" />
@@ -3262,7 +3275,8 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31418]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !Control.HasFocus($PARAM[id])">
+<!--
+      <focusedlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="$PARAM[posterdetailscondition] + !Control.HasFocus($PARAM[id])">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="poster" value="true" />
@@ -3271,7 +3285,8 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="380" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31412]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+-->
+      <focusedlayout width="380" height="widget_poster_height_netflix" condition="$PARAM[widgetlivecondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="widgetlive" value="true" />
@@ -3280,16 +3295,16 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <!-- END  Focused New Mods Widgets -->
-      <focusedlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="String.IsEmpty($PARAM[aspect]) | $PARAM[studios] | $PARAM[genres] | $PARAM[text]">
+      <focusedlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="$PARAM[genrecondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
+          <param name="genres" value="true" />
           <param name="genres" value="$PARAM[genres]" />
           <param name="studios" value="$PARAM[studios]" />
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[20021]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <focusedlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="$PARAM[postercondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="poster" value="true" />
@@ -3298,7 +3313,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="606.67" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <focusedlayout width="606.67" height="widget_poster_height_netflix" condition="$PARAM[landscapecondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="landscape" value="true" />
@@ -3307,7 +3322,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="widget_square_width_netflix" height="widget_poster_height_netflix" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31263]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <focusedlayout width="widget_square_width_netflix" height="widget_poster_height_netflix" condition="$PARAM[squarecondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="square" value="true" />
@@ -3318,7 +3333,6 @@
       </focusedlayout>
     </definition>
   </include>
-
 
   <include name="Widget_Items_Small">
     <param name="submenu" default="false" />
@@ -3339,33 +3353,19 @@
     <param name="widgetlive" default="false" />
     <param name="landscapenetflix" default="false" />
     <param name="category" default="false" />
+    <param name="postercondition" default="false" />
+    <param name="landscapecondition" default="false" />
+    <param name="landscapewidecondition" default="false" />
+    <param name="landscapewidepostercondition" default="false" />
+    <param name="landscapenetflixcondition" default="false" />
+    <param name="posterdetailscondition" default="false" />
+    <param name="widgetlivecondition" default="false" />
+    <param name="categorycondition" default="false" />
+    <param name="squarecondition" default="false" />
+    <param name="genrecondition" default="false" />
+
     <definition>
-      <!-- START New Mod Widgets -->
-      <itemlayout width="widget_landscapenetflix_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31430]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
-        <include content="Widget_Items_ItemLayout">
-          <param name="landscapenetflix" value="true" />
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </itemlayout>
-      <itemlayout width="366" height="210" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31443]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
-        <include content="Widget_Items_ItemLayout">
-          <param name="category" value="true" />
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </itemlayout>
-      <itemlayout width="widget_landscapewide_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31411]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
-        <include content="Widget_Items_ItemLayout">
-          <param name="landscapewide" value="true" />
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </itemlayout>
-      <itemlayout width="widget_poster_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31414]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <itemlayout width="widget_poster_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[postercondition]">
         <include content="Widget_Items_ItemLayout">
           <param name="poster" value="true" />
           <param name="genres" value="$PARAM[genres]" />
@@ -3373,47 +3373,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </itemlayout>
-      <itemlayout width="widget_poster_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31418]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
-        <include content="Widget_Items_ItemLayout">
-          <param name="poster" value="true" />
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </itemlayout>
-      <itemlayout width="380" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31412]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
-        <include content="Widget_Items_ItemLayout">
-          <param name="widgetlive" value="true" />
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </itemlayout>
-      <!-- END New Mod Widgets =-->
-      <itemlayout width="widget_poster_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEmpty($PARAM[aspect]) | $PARAM[studios] | $PARAM[genres] | $PARAM[text]">
-        <include content="Widget_Items_ItemLayout">
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </itemlayout>
-      <itemlayout width="widget_poster_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[20021]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
-        <include content="Widget_Items_ItemLayout">
-          <param name="poster" value="true" />
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </itemlayout>
-      <itemlayout width="widget_landscape_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
-        <include content="Widget_Items_ItemLayout">
-          <param name="landscape" value="true" />
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </itemlayout>
-      <itemlayout width="widget_square_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31263]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <itemlayout width="widget_square_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[squarecondition]">
         <include content="Widget_Items_ItemLayout">
           <param name="square" value="true" />
           <param name="genres" value="$PARAM[genres]" />
@@ -3421,8 +3381,71 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </itemlayout>
-      <!-- START Focused New Mods Widgets -->
-      <focusedlayout width="widget_landscapenetflix_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31430]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <itemlayout width="widget_poster_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[genrecondition]">
+        <include content="Widget_Items_ItemLayout">
+          <param name="genres" value="true" />
+          <param name="genres" value="$PARAM[genres]" />
+          <param name="studios" value="$PARAM[studios]" />
+          <param name="text" value="$PARAM[text]" />
+        </include>
+      </itemlayout>
+      <itemlayout width="widget_landscapenetflix_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[landscapenetflixcondition]">
+        <include content="Widget_Items_ItemLayout">
+          <param name="landscapenetflix" value="true" />
+          <param name="genres" value="$PARAM[genres]" />
+          <param name="studios" value="$PARAM[studios]" />
+          <param name="text" value="$PARAM[text]" />
+        </include>
+      </itemlayout>
+      <itemlayout width="366" height="210" condition="$PARAM[categorycondition]">
+        <include content="Widget_Items_ItemLayout">
+          <param name="category" value="true" />
+          <param name="genres" value="$PARAM[genres]" />
+          <param name="studios" value="$PARAM[studios]" />
+          <param name="text" value="$PARAM[text]" />
+        </include>
+      </itemlayout>
+      <itemlayout width="widget_landscapewide_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[landscapwidecondition]">
+        <include content="Widget_Items_ItemLayout">
+          <param name="landscapewide" value="true" />
+          <param name="genres" value="$PARAM[genres]" />
+          <param name="studios" value="$PARAM[studios]" />
+          <param name="text" value="$PARAM[text]" />
+        </include>
+      </itemlayout>
+      <itemlayout width="widget_poster_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[landscapwidepostercondition]">
+        <include content="Widget_Items_ItemLayout">
+          <param name="poster" value="true" />
+          <param name="genres" value="$PARAM[genres]" />
+          <param name="studios" value="$PARAM[studios]" />
+          <param name="text" value="$PARAM[text]" />
+        </include>
+      </itemlayout>
+      <itemlayout width="widget_poster_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[posterdetailscondition]">
+        <include content="Widget_Items_ItemLayout">
+          <param name="poster" value="true" />
+          <param name="genres" value="$PARAM[genres]" />
+          <param name="studios" value="$PARAM[studios]" />
+          <param name="text" value="$PARAM[text]" />
+        </include>
+      </itemlayout>
+      <itemlayout width="380" height="widget_poster_height_netflix_small" condition="$PARAM[widgetlivecondition]">
+        <include content="Widget_Items_ItemLayout">
+          <param name="widgetlive" value="true" />
+          <param name="genres" value="$PARAM[genres]" />
+          <param name="studios" value="$PARAM[studios]" />
+          <param name="text" value="$PARAM[text]" />
+        </include>
+      </itemlayout>
+      <itemlayout width="widget_landscape_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[landscapecondition]">
+        <include content="Widget_Items_ItemLayout">
+          <param name="landscape" value="true" />
+          <param name="genres" value="$PARAM[genres]" />
+          <param name="studios" value="$PARAM[studios]" />
+          <param name="text" value="$PARAM[text]" />
+        </include>
+      </itemlayout>
+      <focusedlayout width="widget_landscapenetflix_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[landscapenetflixcondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="landscapenetflix" value="true" />
@@ -3431,7 +3454,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="366" height="210" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31443]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <focusedlayout width="366" height="210" condition="$PARAM[categorycondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="category" value="true" />
@@ -3440,7 +3463,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="widget_landscapewide_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31411]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <focusedlayout width="widget_landscapewide_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[landscapewidecondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="landscapewide" value="true" />
@@ -3449,7 +3472,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="widget_landscapewide_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31414]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + Control.HasFocus($PARAM[id])">
+      <focusedlayout width="widget_landscapewide_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[landscapewidepostercondition] + Control.HasFocus($PARAM[id])">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="landscapewide" value="true" />
@@ -3458,7 +3481,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="widget_poster_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31414]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !Control.HasFocus($PARAM[id])">
+      <focusedlayout width="widget_poster_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[landscapewidepostercondition] + !Control.HasFocus($PARAM[id])">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="poster" value="true" />
@@ -3467,7 +3490,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="600" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31418]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + Control.HasFocus($PARAM[id])">
+      <focusedlayout width="800" height="widget_poster_height_netflix_small" condition="$PARAM[posterdetailscondition] + Control.HasFocus($PARAM[id])">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="posterdetails" value="true" />
@@ -3476,7 +3499,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="widget_poster_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31418]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !Control.HasFocus($PARAM[id])">
+      <focusedlayout width="widget_poster_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[posterdetailscondition] + !Control.HasFocus($PARAM[id])">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="poster" value="true" />
@@ -3485,7 +3508,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="380" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31412]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <focusedlayout width="380" height="widget_poster_height_netflix_small" condition="$PARAM[widgetlivecondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="widgetlive" value="true" />
@@ -3494,16 +3517,16 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <!-- END  Focused New Mods Widgets -->
-      <focusedlayout width="widget_poster_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEmpty($PARAM[aspect]) | $PARAM[studios] | $PARAM[genres] | $PARAM[text]">
+      <focusedlayout width="widget_poster_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[genrecondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
+          <param name="genres" value="true" />
           <param name="genres" value="$PARAM[genres]" />
           <param name="studios" value="$PARAM[studios]" />
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="widget_poster_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[20021]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <focusedlayout width="widget_poster_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[postercondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="poster" value="true" />
@@ -3512,7 +3535,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="widget_landscape_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <focusedlayout width="widget_landscape_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[landscapecondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="landscape" value="true" />
@@ -3521,7 +3544,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="widget_square_width_netflix_small" height="widget_poster_height_netflix_small" condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31263]) + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">
+      <focusedlayout width="widget_square_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[squarecondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="square" value="true" />
@@ -3532,6 +3555,7 @@
       </focusedlayout>
     </definition>
   </include>
+
 
 
   <include name="Widgets_Grouplist_Large">
@@ -3577,6 +3601,8 @@
           <param name="label" value="$VAR[catlabel]" />
           <param name="visible" value="String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)" />
         </include>
+        <include>skinshortcuts-template-vertical-submenu</include>
+<!--
         <include>skinshortcuts-template-widget3002</include>
         <include>skinshortcuts-template-widget3003</include>
         <include>skinshortcuts-template-widget3004</include>
@@ -3585,6 +3611,7 @@
         <include>skinshortcuts-template-widget3007</include>
         <include>skinshortcuts-template-widget3008</include>
         <include>skinshortcuts-template-widget3009</include>
+-->
       </control>
     </definition>
   </include>
@@ -3632,6 +3659,8 @@
           <param name="label" value="$VAR[catlabel]" />
           <param name="visible" value="String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)" />
         </include>
+        <include>skinshortcuts-template-vertical-submenu</include>
+<!--
         <include>skinshortcuts-template-widget3002</include>
         <include>skinshortcuts-template-widget3003</include>
         <include>skinshortcuts-template-widget3004</include>
@@ -3640,6 +3669,7 @@
         <include>skinshortcuts-template-widget3007</include>
         <include>skinshortcuts-template-widget3008</include>
         <include>skinshortcuts-template-widget3009</include>
+-->
       </control>
     </definition>
   </include>

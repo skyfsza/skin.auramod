@@ -326,6 +326,64 @@
     <thumbnail label="years.png">special://skin/extras/icons/years.png</thumbnail>
     <thumbnail label="youtube.png">special://skin/extras/icons/youtube.png</thumbnail>
 
+    <!-- WIDGET SETTINGS -->
+    <!-- Properties -->
+    <!-- Widget Aspect -->
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-poster.png">Poster</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-square.png">Square</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscape.png">Landscape</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapewide.png">LandscapeWide</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapewideposter.png">LandscapePoster</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapenetflix.png">LandscapeSmall</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-posterdetails.png">PosterDetails</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-widgetlive.png">WidgetLive</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-category.png">Category</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-genres.png">Genre</property>
+    <propertySettings property="widgetAspect" buttonID="9901" title="Widget Aspect Ratio" />
+
+    <!-- Widget Target -->
+    <property property="widgetTarget">videos</property>
+    <property property="widgetTarget">music</property>
+    <property property="widgetTarget">pictures</property>
+    <property property="widgetTarget">programs</property>
+    <propertySettings property="widgetTarget" buttonID="9902" title="Widget Content Type" />
+
+    <!-- Widget Sort -->
+    <property property="widgetSortby">name</property>
+    <property property="widgetSortby">random</property>
+    <property property="widgetSortby">dateadded</property>
+    <property property="widgetSortby">lastplayed</property>
+    <property property="widgetSortby">playcount</property>
+    <property property="widgetSortby">year</property>
+    <property property="widgetSortby">rating</property>
+    <property property="widgetSortby">userrating</property>
+    <property property="widgetSortby">votes</property>
+    <property property="widgetSortby">genre</property>
+    <property property="widgetSortby">country</property>
+    <property property="widgetSortby">studio</property>
+    <property property="widgetSortby">playlistorder</property>
+    <property property="widgetSortby">episodenumber</property>
+    <property property="widgetSortby">season</property>
+    <property property="widgetSortby">numberofepisodes</property>
+    <property property="widgetSortby">numberofwatchedepisodes</property>
+    <property property="widgetSortby">tvshowstatus</property>
+    <property property="widgetSortby">tvshowtitle</property>
+    <property property="widgetSortby">file</property>
+    <property property="widgetSortby">title</property>
+    <property property="widgetSortby">tracknumber</property>
+    <property property="widgetSortby">time</property>
+    <property property="widgetSortby">artist</property>
+    <property property="widgetSortby">album</property>
+    <property property="widgetSortby">lastupdated</property>
+    <property property="widgetSortby">lastused</property>
+    
+    <propertySettings property="widgetSortby" buttonID="9903" title="Widget Sort Method" />
+
+    <!-- Widget Direction -->
+    <property property="widgetSortorder">ascending</property>
+    <property property="widgetSortorder">descending</property>
+    <propertySettings property="widgetSortorder" buttonID="9904" title="Widget Sort Direction" />
+
     <!-- DEFAULT WIDGETS -->
     <!-- Movies -->
     <propertydefault labelID="20342" property="backgroundName">special://skin/extras/backgrounds/movies-mainmenu-bg.jpg</propertydefault>
@@ -401,7 +459,11 @@
             <shortcut label="Movie Categories  Hub 2" grouping="32029" icon="special://skin/extras/icons/film.png">ActivateWindow(1102,return)</shortcut>
             <shortcut label="TV Categories Hub 1" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(1103,return)</shortcut>
             <shortcut label="TV Categories Hub 2" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(1104,return)</shortcut>
-
+            <shortcut label="Media Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3730,return)</shortcut>
+            <shortcut label="Netflix Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3810,return)</shortcut>
+            <shortcut label="Netflix Hub 2" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3820,return)</shortcut>
+            <shortcut label="Aura Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3910,return)</shortcut>
+            <shortcut label="Aura Hub 2" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3920,return)</shortcut>
         </node>
         <node label="32030">
             <content>video</content>

@@ -41,6 +41,11 @@
         <value condition="String.IsEqual(ListItem.DBType,episode)">[COLOR=$VAR[ColorHighlight]]Aired: [/COLOR][B]$INFO[ListItem.Premiered(dd MMM yyyy)][COLOR=$VAR[ColorHighlight]][/B]</value>
         <value>[COLOR=$VAR[ColorHighlight]]Year: [/COLOR][B]$INFO[ListItem.Year][COLOR=$VAR[ColorHighlight]][/B]</value>
     </variable>
+    <variable name="simple_date_aired">
+        <value condition="String.IsEqual(ListItem.DBType,episode)">[B]$INFO[ListItem.Premiered(dd MMM yyyy)][/B]</value>
+        <value>[B]$INFO[ListItem.Year][/B]</value>
+    </variable>
+
     <variable name="Label_OSD_Time">
         <value condition="PVR.IsPlayingTV + !String.IsEmpty(PVR.EpgEventElapsedTime)">$INFO[PVR.EpgEventElapsedTime]</value>
         <value>$INFO[Player.Time]</value>

@@ -2208,3 +2208,13 @@ msgctxt "#31462"
 msgid "Disable Main Menu Label"
 msgstrsgstr
 
+#: /1080i/SkinSettings.xml
+msgctxt "#31463"
+msgid "Menu Hubs"
+msgstrsgstr
+
+#: /1080i/SkinSettings.xml
+msgctxt "#31464"
+msgid "Media Hubs"
+msgstrsgstr
+

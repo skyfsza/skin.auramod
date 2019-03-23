@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+  <include name="Object_Home_Netflix_Hub">
+    <control type="group">
+      <control type="grouplist" id="77777">
+        <posx>10</posx>
+        <top>590</top>
+        <itemgap>0</itemgap>
+        <width>100%</width>
+        <pagecontrol>9060</pagecontrol>
+        <include condition="Window.IsActive(3017)">netflix_items_tvshows</include>
+        <onfocus>SetFocus(51)</onfocus>
+      </control>
+    </control>
+  </include>
+  <include name="Object_Home_Media_Hub">
+    <control type="group">
+      <control type="grouplist" id="323231">
+        <itemgap>0</itemgap>
+        <include>Object_Home_Media_Hub_mainmenu</include>
+      </control>
+    </control>
+  </include>
+
+
+ <include name="widget_tvlists">
+            <control type="panel" id="570">
+               <left>140</left>
+		<onup>520</onup>
+                <width>1980</width>
+                <height>980</height>
+                <orientation>vertical</orientation>
+                <itemlayout width="558.22" height="314.6">
+                    <include>Defs_PosterBack</include>
+                    <control type="image">
+                        <bordersize>10</bordersize>
+                        <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
+                    </control>
+
+                    <control type="group">
+                        <left>10</left>
+                        <right>0</right>
+                        <bottom>10</bottom>
+                        <top>10</top>
+                        <control type="image">
+                            <width>100%</width>
+                            <height>100%</height>
+                            <aspectratio aligny="center">scale</aspectratio>
+                            <texture colordiffuse="PosterFront_70" background="true">$INFO[ListItem.Property(background)]</texture>
+                        </control>
+                        <control type="image">
+                            <width>100%</width>
+                            <height>100%</height>
+                            <aspectratio aligny="center">scale</aspectratio>
+                            <texture colordiffuse="99000000" background="true">diffuse/landscape.png</texture>
+                        </control>
+                        <control type="image">
+			    <top>10</top>
+                            <bottom>100</bottom>
+                            <width>250</width>
+                            <centerleft>50%</centerleft>
+                            <aspectratio aligny="center">keep</aspectratio>
+                            <texture colordiffuse="PosterFront_70" background="true">$INFO[ListItem.Icon]</texture>
+                        </control>
+                       <control type="group">
+                                <height>120</height>
+                                <bottom>30</bottom>
+                                <left>10</left>
+                                <right>10</right>
+                            <control type="textbox">
+                                <width>300</width>
+                                <bottom>-20</bottom>
+                                <centerleft>50%</centerleft>
+                                <height>100</height>
+                                <font>font_small_bold</font>
+                                <align>center</align>
+                                <autoscroll>false</autoscroll>
+                                <textcolor>PosterFront_70</textcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                               <wrapmultiline>true</wrapmultiline>
+                            </control>
+                            </control>
+                    </control>
+               </itemlayout>
+                <focusedlayout width="558.22" height="314.6">
+                    <control type="group">
+                        <include>Defs_PosterBack</include>
+                        <control type="image">
+                            <bordersize>10</bordersize>
+                            <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
+                        </control>
+                        <include>Animation_FocusBounce_Small</include>
+                        <control type="group">
+                            <left>10</left>
+                            <right>0</right>
+                            <bottom>10</bottom>
+                            <top>10</top>
+                        <control type="image">
+                            <width>100%</width>
+                            <height>100%</height>
+                            <aspectratio aligny="center">scale</aspectratio>
+                            <texture colordiffuse="PosterFront_70" background="true">$INFO[Container(9967).ListItem.Property(background)]</texture>
+                        </control>
+                        <control type="image">
+                            <width>100%</width>
+                            <height>100%</height>
+                            <aspectratio aligny="center">scale</aspectratio>
+                            <texture colordiffuse="99000000" background="true">diffuse/landscape.png</texture>
+                        </control>
+                            <control type="image">
+			    	<top>10</top>
+                                <bottom>100</bottom>
+                                <width>250</width>
+                                <centerleft>50%</centerleft>
+                                <aspectratio aligny="center">keep</aspectratio>
+                                <texture colordiffuse="PosterFront" background="true">$INFO[ListItem.Icon]</texture>
+                            </control>
+                            <control type="group">
+                                <height>120</height>
+                                <bottom>30</bottom>
+                                <left>10</left>
+                                <right>10</right>
+                            <control type="textbox">
+                                <width>300</width>
+                                <bottom>-20</bottom>
+                            	<centerleft>50%</centerleft>
+                                <height>100</height>
+                                <font>font_small_bold</font>
+                                <align>center</align>
+                                <autoscroll>false</autoscroll>
+                                <textcolor>PosterFront_70</textcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                               <wrapmultiline>true</wrapmultiline>
+                            </control>
+                            </control>
+
+                        </control>
+                        <!-- Highlight -->
+                        <control type="group">
+                            <include>View_Selectbox</include>
+                        </control>
+                    </control>
+
+                </focusedlayout>
+
+                <content>
+      <include>skinshortcuts-group-x1103</include>
+                </content>
+		</control>
+
+ </include>
+
+ <include name="widget_movielists">
+            <control type="panel" id="560">
+                <left>140</left>
+		<onup>510</onup>
+                <width>1980</width>
+                <height>980</height>
+                <orientation>vertical</orientation>
+                <itemlayout width="558.22" height="314.6">
+                    <include>Defs_PosterBack</include>
+                    <control type="image">
+                        <bordersize>10</bordersize>
+                        <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
+                    </control>
+
+                    <control type="group">
+                        <left>10</left>
+                        <right>0</right>
+                        <bottom>10</bottom>
+                        <top>10</top>
+                        <control type="image">
+                            <width>100%</width>
+                            <height>100%</height>
+                            <aspectratio aligny="center">scale</aspectratio>
+                            <texture colordiffuse="PosterFront_70" background="true">$INFO[ListItem.Property(background)]</texture>
+                        </control>
+                        <control type="image">
+                            <width>100%</width>
+                            <height>100%</height>
+                            <aspectratio aligny="center">scale</aspectratio>
+                            <texture colordiffuse="99000000" background="true">diffuse/landscape.png</texture>
+                        </control>
+                        <control type="image">
+			    <top>10</top>
+                            <bottom>100</bottom>
+                            <width>250</width>
+                            <centerleft>50%</centerleft>
+                            <aspectratio aligny="center">keep</aspectratio>
+                            <texture colordiffuse="PosterFront_70" background="true">$INFO[ListItem.Icon]</texture>
+                        </control>
+                        <control type="group">
+                            <height>120</height>
+                            <bottom>10</bottom>
+                            <left>10</left>
+                            <right>10</right>
+                            <control type="textbox">
+                                 <width>300</width>
+                                <bottom>-20</bottom>
+                            <centerleft>50%</centerleft>
+                                <height>100</height>
+                                <font>font_small_bold</font>
+                                <align>center</align>
+                                <autoscroll>false</autoscroll>
+                                <textcolor>PosterFront_70</textcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                               <wrapmultiline>true</wrapmultiline>
+                            </control>
+                        </control>
+                    </control>
+               </itemlayout>
+                <focusedlayout width="558.22" height="314.6">
+                    <control type="group">
+                        <include>Defs_PosterBack</include>
+                        <control type="image">
+                            <bordersize>10</bordersize>
+                            <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
+                        </control>
+                        <include>Animation_FocusBounce_Small</include>
+                        <control type="group">
+                            <left>10</left>
+                            <right>0</right>
+                            <bottom>10</bottom>
+                            <top>10</top>
+                        <control type="image">
+                            <width>100%</width>
+                            <height>100%</height>
+                            <aspectratio aligny="center">scale</aspectratio>
+                            <texture colordiffuse="PosterFront_70" background="true">$INFO[Container(9967).ListItem.Property(background)]</texture>
+                        </control>
+                        <control type="image">
+                            <width>100%</width>
+                            <height>100%</height>
+                            <aspectratio aligny="center">scale</aspectratio>
+                            <texture colordiffuse="99000000" background="true">diffuse/landscape.png</texture>
+                        </control>
+                            <control type="image">
+			    	<top>10</top>
+                                <bottom>100</bottom>
+                                <width>250</width>
+                                <centerleft>50%</centerleft>
+                                <aspectratio aligny="center">keep</aspectratio>
+                                <texture colordiffuse="PosterFront" background="true">$INFO[ListItem.Icon]</texture>
+                            </control>
+                            <control type="group">
+                                <height>120</height>
+                                <bottom>10</bottom>
+                                <left>10</left>
+                                <right>10</right>
+                            <control type="textbox">
+                                 <width>300</width>
+                                <bottom>-20</bottom>
+                            	<centerleft>50%</centerleft>
+                                <height>100</height>
+                                <font>font_small_bold</font>
+                                <align>center</align>
+                                <autoscroll>false</autoscroll>
+                                <textcolor>PosterFront_70</textcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                               <wrapmultiline>true</wrapmultiline>
+                            </control>
+                            </control>
+
+                        </control>
+                        <!-- Highlight -->
+                        <control type="group">
+                            <include>View_Selectbox</include>
+                        </control>
+                    </control>
+
+                </focusedlayout>
+
+                <content>
+      <include>skinshortcuts-group-x1101</include>
+                </content>
+		</control>
+
+ </include>
+
+  <include name="widget_510">
+    <param name="submenu" default="false" />
+    <param name="aspect" default="" />
+    <param name="widgetaspect" default="" />
+    <param name="sortby" default="" />
+    <param name="sortorder" default="" />
+    <param name="top" default="0" />
+    <param name="height" default="460" />
+    <definition>
+      <control type="label" id="$PARAM[id]3">
+        <top>-40</top>
+        <width>100%</width>
+        <height>40</height>
+        <align>left</align>
+        <font>Reg28</font>
+        <textoffsetx>65</textoffsetx>
+        <textcolor>white</textcolor>
+        <label>$INFO[Skin.String($PARAM[skinsetting].label)]</label>
+        <texturenofocus></texturenofocus>
+        <visible>Skin.String($PARAM[skinsetting].label) + Skin.HasSetting(LockHubWidgets)</visible>
+      </control>
+      <control type="button" id="$PARAM[id]4">
+        <ondown condition="Control.HasFocus(5104)">510</ondown>
+        <ondown condition="Control.HasFocus(5204)">520</ondown>
+        <onup condition="Control.HasFocus(5104)">51</onup>
+        <onup condition="Control.HasFocus(5204)">52</onup>
+        <top>10</top>
+        <width min="200" max="900">auto</width>
+        <height>40</height>
+        <align>left</align>
+        <font>Reg32</font>
+        <textoffsetx>65</textoffsetx>
+        <label>[B]Click to Change:[/B] $INFO[Skin.String($PARAM[skinsetting].label)]</label>
+        <textcolor>white</textcolor>
+        <texturefocus colordiffuse="white">netflix/border_netflix.png</texturefocus>
+        <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
+        <texturenofocus></texturenofocus>
+        <visible>Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
+      </control>
+      <control type="multiimage" id="$PARAM[id]6">
+        <top>50</top>
+        <left>65</left>
+        <width>100%</width>
+        <height>80</height>
+        <aspectratio align="left">keep</aspectratio>
+        <imagepath>busy_spinner/</imagepath>
+        <timeperimage>100</timeperimage>
+        <colordiffuse>dimgrey</colordiffuse>
+        <fadetime>0</fadetime>
+        <visible>Skin.String($PARAM[skinsetting].label) + Container($PARAM[id]).IsUpdating</visible>
+      </control>
+        <animation effect="slide" end="0,300" condition="Control.HasFocus(5555)">Conditional</animation>
+
+      <control type="fixedlist" id="$PARAM[id]">
+        <animation effect="slide" end="0,100" condition="[Control.HasFocus(51) | Control.HasFocus(5104)] + !Skin.HasSetting(LockHubWidgets)">Conditional</animation>
+        <animation effect="slide" end="0,100" condition="[Control.HasFocus(52) | Control.HasFocus(5204)] + !Skin.HasSetting(LockHubWidgets)">Conditional</animation>
+	<ondown condition="Control.HasFocus(510)">560</ondown>
+	<ondown condition="Control.HasFocus(520)">570</ondown>
+        <onup condition="Control.HasFocus(510)">51</onup>
+        <onup condition="Control.HasFocus(520)">52</onup>
+        <orientation>horizontal</orientation>
+	<left>-40</left>
+        <width>1980</width>
+        <height>980</height>
+        <preloaditems>2</preloaditems>
+        <include content="Widget_Common">
+          <param name="top" value="$PARAM[top]" />
+          <param name="height" value="$PARAM[height]" />
+          <param name="id" value="$PARAM[id]" />
+          <param name="aspect" value="$PARAM[aspect]" />
+          <param name="widgetAspect" value="$PARAM[widgetAspect]" />
+          <param name="submenu" value="$PARAM[submenu]" />
+        </include>
+        <itemlayout width="385" height="980">
+          <control type="group">
+            <left>60</left>
+            <right>-60</right>
+            <top>0</top>
+            <bottom>-0</bottom>
+            <include>Defs_PosterBack</include>
+            <control type="group">
+              <top>10</top>
+              <right>10</right>
+              <bottom>10</bottom>
+              <left>10</left>
+	      <control type="image">
+                <texture background="true" diffuse="diffuse/widgetposter.png" fallback="DefaultFanartFallback.jpg">$VAR[Image_Poster]</texture>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+            </control>
+
+            </control>
+            <include>View_WatchedOverlay</include>
+            <control type="image">
+              <bordersize>10</bordersize>
+              <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
+            </control>
+          </control>
+        </itemlayout>
+        <focusedlayout width="385" height="980" condition="!Control.HasFocus($PARAM[id])">
+          <control type="group">
+            <left>60</left>
+            <right>-60</right>
+            <top>0</top>
+            <bottom>-0</bottom>
+            <include>Defs_PosterBack</include>
+            <control type="group">
+              <top>10</top>
+              <right>10</right>
+              <bottom>10</bottom>
+              <left>10</left>
+              <control type="image">
+                <texture background="true" diffuse="diffuse/widgetposter.png" fallback="DefaultFanartFallback.jpg">$VAR[Image_Poster]</texture>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+            </control>
+            </control>
+            <include>View_WatchedOverlay</include>
+            <control type="image">
+              <bordersize>10</bordersize>
+              <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
+            </control>
+          </control>
+        </focusedlayout>
+
+        <focusedlayout width="1550" height="980" condition="Control.HasFocus($PARAM[id])">
+          <control type="group">
+            <left>60</left>
+            <right>-60</right>
+            <top>0</top>
+            <bottom>-0</bottom>
+            <include>Defs_PosterBack</include>
+            <control type="group">
+              <top>10</top>
+              <right>10</right>
+              <bottom>10</bottom>
+              <left>10</left>
+    <control type="group">
+<!--        <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation> 
+          <control type="videowindow">
+	   <visible>Player.HasVideo</visible>
+            <width>100%</width>
+            <height>100%</height>
+          </control>
+-->
+      <control type="image">
+          <fadetime>500</fadetime>
+        <width>100%</width>
+        <height>100%</height>
+        <texture background="true" diffuse="diffuse/widgetlandscape.png" fallback="DefaultFanartFallback.jpg">$VAR[Spotlight_Fanart]</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+      </control>
+        <control type="image">
+          <width>100%</width>
+          <height>100%</height>
+          <texture colordiffuse="99000000" border="10" flipy="true">diffuse/landscape.png</texture>
+        </control>
+        <control type="image">
+          <width>100%</width>
+          <height>100%</height>
+          <texture colordiffuse="49000000" border="10" flipy="true">diffuse/landscape.png</texture>
+        </control>
+              <control type="group">
+                <visible>Control.HasFocus(510) | Control.HasFocus(520)</visible>
+                <height min="60" max="251">auto</height>
+                <animation effect="fade" time="0">VisibleChange</animation>
+                <control type="image" id="55450">
+                  <top>150</top>
+                  <left>250</left>
+                  <right>$PARAM[titleright]</right>
+                  <height>550</height>
+                  <width>330</width>
+                  <aligny>top</aligny>
+                  <texture background="true">$INFO[ListItem.Art(poster)]</texture>
+                </control>
+              </control>
+          <control type="group">
+            <height min="100" max="595">auto</height>
+            <left>40</left>
+<!--
+        <control type="image">
+	  <left>-40</left>
+	  <top>620</top>
+	  <width>700</width>
+	  <height>220</height>
+          <texture colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
+        </control>
+-->
+              <control type="group">
+                <top>350</top>
+                <left>600</left>
+<!--
+                 <control type="image" id="554439">
+                 <top>-200</top>
+                    <left>0</left>
+                    <right>$PARAM[titleright]</right>
+                    <height>125.5</height>
+                    <width>325</width>
+                    <aligny>top</aligny>
+                    <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
+                 </control>
+-->
+                <control type="textbox">
+		  <top>-200</top>
+                  <label>$VAR[video_heading]</label>
+                  <textcolor>grey</textcolor>
+                  <shadowcolor>black</shadowcolor>
+                  <font>netflix_heading_small</font>
+                  <width>500</width>
+                  <wrapmultiline>true</wrapmultiline>
+                  <align>left</align>
+                </control>
+                <control type="group">
+                  <height>20</height>
+                  <visible>String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow)</visible>
+                  <control type="label" id="78631">
+		    <top>-90</top>
+<!--		    <label>$VAR[Label_ShowCase_InfoLine] $VAR[Label_Info_NextAired_Details]</label> 
+		    <label>$INFO[Window(Home).Property(SkinHelper.ListItem.LastEpisode.Airday)] at $INFO[Window(Home).Property(SkinHelper.ListItem.LastEpisode.Airtime) on $INFO[ListItem.Studio]</label>
+-->
+        <label>$VAR[date_aired]  Length: [/COLOR][B]$VAR[Label_Duration][/B][COLOR=$VAR[ColorHighlight]]  Ends: [/COLOR][B]$INFO[ListItem.EndTime][/B]</label>
+                    <width>650</width>
+                    <textcolor>grey</textcolor>
+                    <font>font_small</font>
+                  </control>
+                  <control type="label">
+                    <top>-10</top>
+<!--                <label>$VAR[Label_ShowCase_InfoLine] $VAR[Label_Info_NextAired_Details]</label>
+                    <label>$INFO[Window(Home).Property(SkinHelper.ListItem.LastEpisode.Airday)] at $INFO[Window(Home).Property(SkinHelper.ListItem.LastEpisode.Airtime) on $INFO[ListItem.Studio]</label>
+-->
+	            <label>[COLOR=$VAR[ColorHighlight]]Genre: [/COLOR]$INFO[ListItem.Genre]</label>
+                    <width>650</width>
+                    <textcolor>grey</textcolor>
+                    <font>font_small</font>
+		    <scroll>false</scroll>
+                  </control>
+                </control>
+                <control type="group">
+		<visible>!String.IsEmpty(ListItem.Plot)</visible>
+                  <top>50</top>
+                  <height min="20" max="300">auto</height>
+                  <control type="textbox">
+                    <label fallback="19055">$VAR[Label_Plot]</label>
+                    <width>570</width>
+                    <textcolor>grey</textcolor>
+                    <font>widget_trakt_title</font>
+                    <autoscroll>0</autoscroll>
+                  </control>
+                </control>
+              </control>
+              </control>
+ 
+
+
+      </control>
+            </control>
+            <include>View_WatchedOverlay</include>
+            <control type="group">
+              <visible>Control.HasFocus($PARAM[id])</visible>
+            </control>
+          </control>
+        </focusedlayout>
+        <content target="$INFO[Skin.String($PARAM[skinsetting].target)]">$INFO[Skin.String($PARAM[skinsetting].path)]</content>
+        <visible>Skin.String($PARAM[skinsetting].path)</visible>
+      </control>
+    </definition>
+  </include>
+
+
+
+  <include name="Object_Home_Media_Hub_mainmenu">
+    <control type="group">
+      <height>100</height>
+
+        <control type="group">
+            <left>0</left>
+            <right>0</right>
+        <control type="image">
+            <bottom>-24</bottom>
+            <height>24</height>
+            <width>100%</width>
+            <texture flipy="false">common/shadow-line-24px.png</texture>
+        </control>
+        <control type="image">
+            <bottom>0</bottom>
+            <top>0</top>
+            <texture colordiffuse="white">common/gradient-solid.png</texture>
+        </control>
+        </control>
+
+
+<!--
+        <control type="image">
+          <width>100%</width>
+	  <height>80</height>
+          <texture colordiffuse="80696969" border="10" flipy="true">diffuse/halfbox.png</texture>
+        </control>
+   --> 
+      <control type="grouplist" id="323232">
+        <left>350</left>
+        <top>20</top>
+        <orientation>horizontal</orientation>
+        <control type="button" id="51">
+        <ondown condition="!Skin.HasSetting(LockHubWidgets)">5104</ondown>
+        <ondown condition="Skin.HasSetting(LockHubWidgets)">511</ondown>
+          <width>250</width>
+          <height>65</height>
+          <aligny>center</aligny>
+          <align>left</align>
+          <font>font_tiny_bold</font>
+          <textcolor>dimgrey</textcolor>
+          <focusedcolor>red</focusedcolor>
+          <label>Discover Movies</label>
+        </control>
+        <control type="button" id="52">
+        <ondown condition="!Skin.HasSetting(LockHubWidgets)">5204</ondown>
+        <ondown condition="Skin.HasSetting(LockHubWidgets)">521</ondown>
+          <width>370</width>
+          <height>65</height>
+          <aligny>center</aligny>
+          <align>left</align>
+          <font>font_tiny_bold</font>
+          <textcolor>dimgrey</textcolor>
+          <focusedcolor>red</focusedcolor>
+          <label>Discover TV</label>
+        </control>
+        <control type="button" id="53">
+        <ondown condition="!Skin.HasSetting(LockHubWidgets)">5304</ondown>
+        <ondown condition="Skin.HasSetting(LockHubWidgets)">531</ondown>
+          <width>180</width>
+          <height>65</height>
+          <aligny>center</aligny>
+          <align>right</align>
+          <font>font_tiny_bold</font>
+          <textcolor>dimgrey</textcolor>
+          <focusedcolor>red</focusedcolor>
+          <label>My Movies</label>
+          <onclick>close</onclick>
+        </control>
+        <control type="radiobutton" id="54">
+        <ondown condition="!Skin.HasSetting(LockHubWidgets)">5404</ondown>
+        <ondown condition="Skin.HasSetting(LockHubWidgets)">541</ondown>
+          <width>150</width>
+          <height>65</height>
+          <aligny>center</aligny>
+          <align>right</align>
+          <font>font_tiny_bold</font>
+          <textcolor>dimgrey</textcolor>
+          <focusedcolor>red</focusedcolor>
+          <label>My TV</label>
+          <onclick>close</onclick>
+        </control>
+      </control>
+      <control type="group">
+        <control type="image">
+          <top>100</top>
+          <width>100%</width>
+          <height>250</height>
+          <aspectratio>scale</aspectratio>
+          <texture background="true">special://skin/extras/backgrounds/movies-mainmenu-bg.jpg</texture>
+<!--
+          <visible>Control.HasFocus(51) | Control.HasFocus(52) | Control.HasFocus(53) | Control.HasFocus(54) | Control.HasFocus(5555)</visible>
+-->
+
+	<visible>Control.HasFocus(5555)</visible>
+        </control>
+        <control type="image">
+          <top>100</top>
+          <width>100%</width>
+          <height>250</height>
+          <texture colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
+        </control>
+        <control type="image">
+          <top>100</top>
+          <width>100%</width>
+          <height>250</height>
+          <texture colordiffuse="60000000" border="10" flipy="true">diffuse/halfbox.png</texture>
+        </control>
+      </control>
+
+     <control type="group">
+        <top>100</top>
+        <width>100%</width>
+        <height>1080</height>
+        <include>Global_Background</include>
+        <visible>![Control.HasFocus(51) | Control.HasFocus(52) | Control.HasFocus(53) | Control.HasFocus(54) | Control.HasFocus(5555)]</visible>
+        <visible>![Control.HasFocus(5104) | Control.HasFocus(5204) | Control.HasFocus(5304) | Control.HasFocus(5404) | Control.HasFocus(5555)] | Control.HasFocus(5604)</visible>
+	<visible>!Control.HasFocus(510) + !Control.HasFocus(520) + !Control.HasFocus(560) + !Control.HasFocus(570)</visible>
+      </control>
+     <control type="group">
+        <top>100</top>
+        <width>100%</width>
+        <height>1080</height>
+	<control type="image">
+	<texture>$INFO[ListItem.Property(background)]</texture>
+	</control>
+        <visible>Control.HasFocus(560) | Control.HasFocus(570)</visible>
+      </control>
+      <control type="group">
+        <visible>![Control.HasFocus(51) | Control.HasFocus(52) | Control.HasFocus(53) | Control.HasFocus(54) | Control.HasFocus(5555)]</visible>
+        <visible>![Control.HasFocus(5104) | Control.HasFocus(5204) | Control.HasFocus(5304) | Control.HasFocus(5404) | Control.HasFocus(5555) | Control.HasFocus(5604)]</visible>
+	<visible>!Control.HasFocus(510) + !Control.HasFocus(560) + !Control.HasFocus(520) + !Control.HasFocus(570)</visible>
+        <top>20</top>
+        <left>-20</left>
+        <height>500</height>
+        <control type="grouplist" id="9900">
+          <pagecontrol>9560</pagecontrol>
+          <itemgap>0</itemgap>
+          <usecontrolcoords>true</usecontrolcoords>
+          <orientation>vertical</orientation>
+          <control type="group">
+            <height min="100" max="595">auto</height>
+            <left>50</left>
+            <control type="grouplist">
+              <itemgap>0</itemgap>
+              <usecontrolcoords>true</usecontrolcoords>
+              <orientation>vertical</orientation>
+              <control type="group">
+                <height min="60" max="251">auto</height>
+                <control type="image" id="55449">
+                  <top>100</top>
+                  <left>50</left>
+                  <right>$PARAM[titleright]</right>
+                  <height>200</height>
+                  <width>520</width>
+                  <aligny>top</aligny>
+                  <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
+                </control>
+                <control type="label">
+                  <visible>String.IsEmpty(Control.GetLabel(55449))</visible>
+                  <left>50</left>
+                  <top>140</top>
+                  <right>$PARAM[titleright]</right>
+                  <label>$VAR[video_heading]</label>
+                  <textcolor>grey</textcolor>
+                  <shadowcolor>black</shadowcolor>
+                  <font>netflix_heading</font>
+                  <width min="200" max="400">auto</width>
+                  <align>center</align>
+                  <wrapmultiline>true</wrapmultiline>
+                </control>
+              </control>
+              <control type="group">
+                <top>65</top>
+                <left>50</left>
+                <control type="group">
+                  <animation effect="slide" end="0,-40" condition="String.IsEmpty(Control.GetLabel(55449))">Conditional</animation>
+                  <height>30</height>
+                  <visible>String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow)</visible>
+                  <control type="label" id="78631">
+                    <label fallback="19055">[B]$VAR[Label_Netflix_Tagline][/B]</label>
+                    <width>750</width>
+                    <textcolor>main_fg_100</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <font>font_small</font>
+                  </control>
+                </control>
+                <control type="group">
+                  <top>45</top>
+                  <height min="20" max="125">auto</height>
+                  <control type="textbox">
+                    <animation effect="slide" end="0,-40" condition="String.IsEmpty(Control.GetLabel(55449))">Conditional</animation>
+                    <label fallback="19055">$VAR[Label_Plot]</label>
+                    <width>500</width>
+                    <textcolor>dimgrey</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <font>widget_trakt_title</font>
+                    <autoscroll>0</autoscroll>
+                  </control>
+                </control>
+              </control>
+            </control>
+          </control>
+        </control>
+      </control>
+
+
+      <!-- Discover Movies -->
+     <control type="group">
+      <control type="grouplist" id="511">
+      <scrolltime tween="sine" easing="out">600</scrolltime>
+	<itemgap>40</itemgap>
+	<height>980</height>
+	<top>100</top>
+	<movement>2</movement>
+	<orientation>vertical</orientation>
+        <left>-20</left>
+	<ondown condition="Skin.HasSetting(LockHubWidgets)">5104</ondown>
+<!--        <ondown condition="Control.HasFocus(5104) + Skin.HasSetting(LockHubWidgets)">5604</ondown> -->
+        <onup condition="Control.HasFocus(5104) + Skin.HasSetting(LockHubWidgets)">51</onup>
+        <control type="group" id="51111">
+          <visible>Control.HasFocus(51) | Control.HasFocus(510) | Control.HasFocus(5104) | Control.HasFocus(560) | Control.HasFocus(5604)</visible>
+	  <height>980</height>
+          <include condition="true" content="widget_510" name="widget_510">
+            <param name="id" value="510" />
+            <param name="aspect" value="LandscapeWidePoster" />
+            <param name="skinsetting" value="netflixhub-tvshows-510" />
+          </include>
+        </control>
+        <animation effect="slide" end="0,20" condition="Control.HasFocus(560)">Conditional</animation>  
+        <control type="group" id="51112">
+          <visible>Control.HasFocus(51) | Control.HasFocus(510) | Control.HasFocus(5104) | Control.HasFocus(560) | Control.HasFocus(5604)</visible>
+	  <height>980</height>
+	  <include>widget_movielists</include>
+        </control>
+      </control>
+<!--
+              <control type="group">
+		<visible>Control.HasFocus(510)</visible>
+                <height min="60" max="251">auto</height>
+                <animation effect="fade" time="0">VisibleChange</animation>
+                <control type="image" id="55450">
+                  <top>460</top>
+                  <left>60</left>
+                  <right>$PARAM[titleright]</right>
+                  <height>200</height>
+                  <width>520</width>
+                  <aligny>top</aligny>
+                  <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
+                </control>                
+                <control type="label">
+                  <visible>String.IsEmpty(Control.GetLabel(55450))</visible>
+                  <left>60</left>
+                  <top>560</top>
+                  <right>$PARAM[titleright]</right>
+                  <label>$VAR[video_heading]</label>
+                  <textcolor>grey</textcolor>
+                  <shadowcolor>black</shadowcolor>
+                  <font>netflix_heading</font>
+                  <width min="200" max="400">auto</width>
+                  <align>center</align>
+                  <wrapmultiline>true</wrapmultiline>
+                </control>
+              </control>
+-->
+      </control>
+
+      <!-- Discover TV -->
+     <control type="group">
+      <control type="grouplist" id="521">
+      <scrolltime tween="sine" easing="out">600</scrolltime>
+	<itemgap>40</itemgap>
+	<height>980</height>
+	<top>100</top>
+	<movement>2</movement>
+	<orientation>vertical</orientation>
+        <left>-20</left>
+        <ondown condition="Skin.HasSetting(LockHubWidgets)">5204</ondown>
+        <onup condition="Control.HasFocus(5204) + Skin.HasSetting(LockHubWidgets)">52</onup>
+        <control type="group" id="52111">
+          <visible>Control.HasFocus(52) | Control.HasFocus(520) | Control.HasFocus(5204) | Control.HasFocus(570) | Control.HasFocus(5704)</visible>
+	  <height>980</height>
+          <include condition="true" content="widget_510" name="widget_510">
+            <param name="id" value="520" />
+            <param name="aspect" value="LandscapeWidePoster" />
+            <param name="skinsetting" value="netflixhub-tvshows-520" />
+          </include>
+        </control>
+        <animation effect="slide" end="0,20" condition="Control.HasFocus(570)">Conditional</animation>  
+        <control type="group" id="52112">
+          <visible>Control.HasFocus(52) | Control.HasFocus(520) | Control.HasFocus(5204) | Control.HasFocus(570) | Control.HasFocus(5704)</visible>
+	  <height>980</height>
+	  <include>widget_tvlists</include>
+        </control>
+      </control>
+<!--
+              <control type="group">
+                <visible>Control.HasFocus(520)</visible>
+                <height min="60" max="251">auto</height>
+                <animation effect="fade" time="0">VisibleChange</animation>
+                <control type="image" id="55450">
+                  <top>420</top>
+                  <left>60</left>
+                  <right>$PARAM[titleright]</right>
+                  <height>200</height>
+                  <width>520</width>
+                  <aligny>top</aligny>
+                  <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
+                </control>
+                <control type="label">
+                  <visible>String.IsEmpty(Control.GetLabel(55450))</visible>
+                  <left>60</left>
+                  <top>520</top>
+                  <right>$PARAM[titleright]</right>
+                  <label>$VAR[video_heading]</label>
+                  <textcolor>grey</textcolor>
+                  <shadowcolor>black</shadowcolor>
+                  <font>netflix_heading</font>
+                  <width min="200" max="400">auto</width>
+                  <align>center</align>
+                  <wrapmultiline>true</wrapmultiline>
+                </control>
+              </control>
+-->
+      </control>
+
+
+      <!-- My Movies -->
+      <control type="group" id="531">
+        <ondown condition="Control.HasFocus(5304)">530</ondown>
+	<onup>53</onup>
+        <animation effect="slide" end="0,200" condition="Control.HasFocus(530)">Conditional</animation>
+        <top>400</top>
+	<height>100%</height>
+        <control type="group">
+          <visible>Control.HasFocus(53) | Control.HasFocus(530) | Control.HasFocus(5304)</visible>
+          <visible allowhiddenfocus="true">!Control.HasFocus(51) + !Control.HasFocus(52) + !Control.HasFocus(54)</visible>
+          <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+            <param name="id" value="530" />
+            <param name="aspect" value="LandscapeWidePoster" />
+            <param name="skinsetting" value="netflixhub-tvshows-530" />
+          </include>
+        </control>
+      </control>
+      <!-- My TV -->
+      <control type="group" id="541">
+        <onup>54</onup>
+        <ondown condition="Skin.HasSetting(LockHubWidgets)">5404</ondown>
+        <onup condition="Control.HasFocus(5204) + Skin.HasSetting(LockHubWidgets)">54</onup>
+        <ondown condition="Control.HasFocus(5404)">540</ondown>
+        <animation effect="slide" end="0,200" condition="Control.HasFocus(540)">Conditional</animation>
+        <top>400</top>
+        <control type="group">
+          <visible>Control.HasFocus(54) | Control.HasFocus(540) | Control.HasFocus(5404)</visible>
+          <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+            <param name="id" value="540" />
+            <param name="aspect" value="LandscapeWidePoster" />
+            <param name="skinsetting" value="netflixhub-tvshows-540" />
+          </include>
+        </control>
+      </control>
+      <control type="image">
+        <top>-15</top>
+        <left>800</left>
+        <width>190</width>
+        <height>190</height>
+        <aspectratio>scale</aspectratio>
+        <texture background="true" colordiffuse="red">special://skin/extras/icons/trakttv.png</texture>
+      </control>
+    </control>
+  </include>
+
+
+  <include name="netflix_customhub_fixed">
+    <param name="submenu" default="false" />
+    <param name="aspect" default="" />
+    <param name="style" default="" />
+    <param name="widgetaspect" default="" />
+    <param name="sortby" default="" />
+    <param name="sortorder" default="" />
+    <param name="top" default="0" />
+    <param name="height" default="460" />
+    <definition>
+      <control type="label" id="$PARAM[id]3">
+        <top>-40</top>
+        <width>100%</width>
+        <height>40</height>
+        <align>left</align>
+        <font>Reg28</font>
+        <textoffsetx>65</textoffsetx>
+        <textcolor>white</textcolor>
+        <label>$INFO[Skin.String($PARAM[skinsetting].label)]</label>
+        <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+        <texturenofocus></texturenofocus>
+        <visible>Skin.String($PARAM[skinsetting].label) + Skin.HasSetting(LockHubWidgets)</visible>
+      </control>
+      <control type="button" id="$PARAM[id]4">
+        <ondown condition="Control.HasFocus(6104)">610</ondown>
+        <ondown condition="Control.HasFocus(6204)">620</ondown>
+        <ondown condition="Control.HasFocus(6304)">630</ondown>
+        <ondown condition="Control.HasFocus(6404)">640</ondown>
+        <top>-40</top>
+        <width min="200" max="900">auto</width>
+        <height>40</height>
+        <align>left</align>
+        <font>Reg32</font>
+        <textoffsetx>65</textoffsetx>
+        <label>[B]Click to Change:[/B] $INFO[Skin.String($PARAM[skinsetting].label)]</label>
+        <textcolor>white</textcolor>
+        <texturefocus colordiffuse="white">netflix/border_netflix.png</texturefocus>
+        <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
+        <texturenofocus></texturenofocus>
+        <visible>Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
+      </control>
+      <control type="button" id="$PARAM[id]5">
+        <top>-40</top>
+        <width min="200" max="900">auto</width>
+        <height>40</height>
+        <align>left</align>
+        <font>Reg32</font>
+        <textoffsetx>5</textoffsetx>
+        <label>- No Widget Set - Click to select Widget</label>
+        <texturefocus colordiffuse="dimgrey">netflix/border_netflix.png</texturefocus>
+        <textcolor>white</textcolor>
+        <shadowcolor>white</shadowcolor>
+        <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
+        <texturenofocus></texturenofocus>
+        <visible>!Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
+      </control>
+      <control type="multiimage" id="$PARAM[id]6">
+        <top>50</top>
+        <left>65</left>
+        <width>100%</width>
+        <height>80</height>
+        <aspectratio align="left">keep</aspectratio>
+        <imagepath>busy_spinner/</imagepath>
+        <timeperimage>100</timeperimage>
+        <colordiffuse>dimgrey</colordiffuse>
+        <fadetime>0</fadetime>
+        <visible>Skin.String($PARAM[skinsetting].label) + !Integer.IsGreater(Container($PARAM[id]).NumItems,0) + Container($PARAM[id]).IsUpdating</visible>
+      </control>
+      <control type="fixedlist" id="$PARAM[id]">
+        <left>0</left>
+        <movement>2</movement>
+        <width>1980</width>
+	<height>350</height>
+        <oninfo>RunScript(script.skin.helper.service,action=showinfo)</oninfo>
+        <orientation>horizontal</orientation>
+        <preloaditems>2</preloaditems>
+        <include content="Widget_Common">
+          <param name="top" value="$PARAM[top]" />
+          <param name="height" value="$PARAM[height]" />
+          <param name="id" value="$PARAM[id]" />
+          <param name="aspect" value="$PARAM[aspect]" />
+          <param name="widgetAspect" value="$PARAM[widgetAspect]" />
+          <param name="submenu" value="$PARAM[submenu]" />
+        </include>
+        <itemlayout width="610" height="343.13">
+          <include content="Widget_Items_ItemLayout">
+            <param name="landscapewide" value="true" />
+            <param name="genres" value="$PARAM[genres]" />
+            <param name="studios" value="$PARAM[studios]" />
+            <param name="text" value="$PARAM[text]" />
+          </include>
+        </itemlayout>
+        <focusedlayout width="610" height="343.13">
+          <include content="Widget_Items_FocusedLayout">
+            <param name="id" value="$PARAM[id]" />
+            <param name="landscapewide" value="true" />
+            <param name="genres" value="$PARAM[genres]" />
+            <param name="studios" value="$PARAM[studios]" />
+            <param name="text" value="$PARAM[text]" />
+          </include>
+        </focusedlayout>
+        <itemlayout width="260" height="420">
+          <include content="Widget_Items_ItemLayout">
+            <param name="poster" value="true" />
+            <param name="genres" value="$PARAM[genres]" />
+            <param name="studios" value="$PARAM[studios]" />
+            <param name="text" value="$PARAM[text]" />
+          </include>
+        </itemlayout>
+        <focusedlayout width="260" height="420">
+          <include content="Widget_Items_FocusedLayout">
+            <param name="id" value="$PARAM[id]" />
+            <param name="poster" value="true" />
+            <param name="genres" value="$PARAM[genres]" />
+            <param name="studios" value="$PARAM[studios]" />
+            <param name="text" value="$PARAM[text]" />
+          </include>
+        </focusedlayout>
+        <content target="$INFO[Skin.String($PARAM[skinsetting].target)]">$INFO[Skin.String($PARAM[skinsetting].path)]</content>
+        <visible>Skin.String($PARAM[skinsetting].path)</visible>
+      </control>
+    </definition>
+  </include>
+
+<include name="widget_poster">
+        <itemlayout width="260" height="420">
+          <include content="Widget_Items_ItemLayout">
+            <param name="poster" value="true" />
+            <param name="genres" value="$PARAM[genres]" />
+            <param name="studios" value="$PARAM[studios]" />
+            <param name="text" value="$PARAM[text]" />
+          </include>
+        </itemlayout>
+        <focusedlayout width="260" height="420">
+          <include content="Widget_Items_FocusedLayout">
+            <param name="id" value="$PARAM[id]" />
+            <param name="poster" value="true" />
+            <param name="genres" value="$PARAM[genres]" />
+            <param name="studios" value="$PARAM[studios]" />
+            <param name="text" value="$PARAM[text]" />
+          </include>
+        </focusedlayout>
+</include>
+<include name="widget_landscapewide">
+        <itemlayout width="610" height="343.13">
+          <include content="Widget_Items_ItemLayout">
+            <param name="landscapewide" value="true" />
+            <param name="genres" value="$PARAM[genres]" />
+            <param name="studios" value="$PARAM[studios]" />
+            <param name="text" value="$PARAM[text]" />
+          </include>
+        </itemlayout>
+        <focusedlayout width="610" height="343.13">
+          <include content="Widget_Items_FocusedLayout">
+            <param name="id" value="$PARAM[id]" />
+            <param name="landscapewide" value="true" />
+            <param name="genres" value="$PARAM[genres]" />
+            <param name="studios" value="$PARAM[studios]" />
+            <param name="text" value="$PARAM[text]" />
+          </include>
+        </focusedlayout>
+</include>
+
+  <include name="netflix_customhub_item">
+    <param name="submenu" default="false" />
+    <param name="aspect" default="" />
+    <param name="widgetaspect" default="" />
+    <param name="sortby" default="" />
+    <param name="sortorder" default="" />
+    <param name="top" default="0" />
+    <param name="height" default="460" />
+    <definition>
+      <control type="label" id="$PARAM[id]3">
+        <top>-40</top>
+        <width>100%</width>
+        <height>40</height>
+        <align>left</align>
+        <font>Reg28</font>
+        <textoffsetx>65</textoffsetx>
+        <textcolor>white</textcolor>
+        <label>$INFO[Skin.String($PARAM[skinsetting].label)]</label>
+        <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
+        <texturenofocus></texturenofocus>
+        <visible>Skin.String($PARAM[skinsetting].label) + Skin.HasSetting(LockHubWidgets)</visible>
+      </control>
+      <control type="button" id="$PARAM[id]4">
+        <ondown condition="Control.HasFocus(5104)">510</ondown>
+        <ondown condition="Control.HasFocus(5204)">520</ondown>
+        <ondown condition="Control.HasFocus(5304)">530</ondown>
+        <ondown condition="Control.HasFocus(5404)">540</ondown>
+	<onup condition="Control.HasFocus(5104)">51</onup>
+	<onup condition="Control.HasFocus(5604)">5104</onup>
+	<onup condition="Control.HasFocus(5204)">52</onup>
+	<onup condition="Control.HasFocus(5304)">53</onup>
+	<onup condition="Control.HasFocus(5404)">54</onup>
+        <top>-40</top>
+        <width min="200" max="900">auto</width>
+        <height>40</height>
+        <align>left</align>
+        <font>Reg32</font>
+        <textoffsetx>65</textoffsetx>
+        <label>[B]Click to Change:[/B] $INFO[Skin.String($PARAM[skinsetting].label)]</label>
+        <textcolor>white</textcolor>
+        <texturefocus colordiffuse="white">netflix/border_netflix.png</texturefocus>
+        <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
+        <texturenofocus></texturenofocus>
+        <visible>Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
+      </control>
+      <control type="button" id="$PARAM[id]5">
+        <top>-40</top>
+        <width min="200" max="900">auto</width>
+        <height>40</height>
+        <align>left</align>
+        <font>Reg32</font>
+        <textoffsetx>5</textoffsetx>
+        <label>- No Widget Set - Click to select Widget</label>
+        <texturefocus colordiffuse="dimgrey">netflix/border_netflix.png</texturefocus>
+        <textcolor>white</textcolor>
+        <shadowcolor>white</shadowcolor>
+        <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
+        <texturenofocus></texturenofocus>
+        <visible>!Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
+      </control>
+      <control type="multiimage" id="$PARAM[id]6">
+        <top>50</top>
+        <left>65</left>
+        <width>100%</width>
+        <height>80</height>
+        <aspectratio align="left">keep</aspectratio>
+        <imagepath>busy_spinner/</imagepath>
+        <timeperimage>100</timeperimage>
+        <colordiffuse>dimgrey</colordiffuse>
+        <fadetime>0</fadetime>
+        <visible>Skin.String($PARAM[skinsetting].label) + !Integer.IsGreater(Container($PARAM[id]).NumItems,0) + Container($PARAM[id]).IsUpdating</visible>
+      </control>
+        <animation effect="slide" end="0,-250" condition="Control.HasFocus(53)">Conditional</animation>
+        <animation effect="slide" end="0,-250" condition="Control.HasFocus(54)">Conditional</animation>
+      <control type="panel" id="$PARAM[id]">
+        <left>0</left>
+        <movement>2</movement>
+        <width>1980</width>
+        <height>680</height>
+        <oninfo>RunScript(script.skin.helper.service,action=showinfo)</oninfo>
+        <orientation>vertical</orientation>
+        <onup condition="Control.HasFocus(510) | Control.HasFocus(5104)">5555</onup>
+        <onup condition="Control.HasFocus(520) | Control.HasFocus(5204)">52</onup>
+        <onup condition="Control.HasFocus(530) | Control.HasFocus(5304)">53</onup>
+        <onup condition="Control.HasFocus(540) | Control.HasFocus(5404)">54</onup>
+        <onup condition="Control.HasFocus(560) | Control.HasFocus(5604)">510</onup>
+        <preloaditems>2</preloaditems>
+        <!--
+            <include content="Widget_TVHub">
+                <param name="id" value="$PARAM[id]" />
+                <param name="height" value="420" />
+                <param name="aspect" value="$PARAM[aspect]" />
+                <param name="target" value="Videos" />
+            </include>
+-->
+        <include content="Widget_Common">
+          <param name="top" value="$PARAM[top]" />
+          <param name="height" value="$PARAM[height]" />
+          <param name="id" value="$PARAM[id]" />
+          <param name="aspect" value="$PARAM[aspect]" />
+          <param name="widgetAspect" value="$PARAM[widgetAspect]" />
+          <param name="submenu" value="$PARAM[submenu]" />
+        </include>
+        <itemlayout width="610" height="343.13">
+          <include content="Widget_Items_ItemLayout">
+            <param name="landscapewide" value="true" />
+            <param name="genres" value="$PARAM[genres]" />
+            <param name="studios" value="$PARAM[studios]" />
+            <param name="text" value="$PARAM[text]" />
+          </include>
+        </itemlayout>
+        <focusedlayout width="610" height="343.13">
+          <include content="Widget_Items_FocusedLayout">
+            <param name="id" value="$PARAM[id]" />
+            <param name="landscapewide" value="true" />
+            <param name="genres" value="$PARAM[genres]" />
+            <param name="studios" value="$PARAM[studios]" />
+            <param name="text" value="$PARAM[text]" />
+          </include>
+        </focusedlayout>
+        <itemlayout width="260" height="420">
+          <include content="Widget_Items_ItemLayout">
+            <param name="poster" value="true" />
+            <param name="genres" value="$PARAM[genres]" />
+            <param name="studios" value="$PARAM[studios]" />
+            <param name="text" value="$PARAM[text]" />
+          </include>
+        </itemlayout>
+        <focusedlayout width="260" height="420">
+          <include content="Widget_Items_FocusedLayout">
+            <param name="id" value="$PARAM[id]" />
+            <param name="poster" value="true" />
+            <param name="genres" value="$PARAM[genres]" />
+            <param name="studios" value="$PARAM[studios]" />
+            <param name="text" value="$PARAM[text]" />
+          </include>
+        </focusedlayout>
+        <content target="$INFO[Skin.String($PARAM[skinsetting].target)]">$INFO[Skin.String($PARAM[skinsetting].path)]</content>
+        <visible>Skin.String($PARAM[skinsetting].path)</visible>
+      </control>
+    </definition>
+  </include>
+
+
+
+  <include name="netflix_items_tvshows">
+    <param name="submenu" default="false" />
+    <param name="aspect" default="" />
+    <param name="widgetaspect" default="" />
+    <param name="sortby" default="" />
+    <param name="sortorder" default="" />
+    <param name="top" default="0" />
+    <param name="height" default="460" />
+    <definition>
+      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <param name="id" value="510" />
+        <param name="widgetaspect" value="Poster" />
+        <param name="skinsetting" value="netflixhub-tvshows-510" />
+      </include>
+      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <param name="id" value="520" />
+        <param name="widgetaspect" value="LandscapeWidePoster" />
+        <param name="skinsetting" value="netflixhub-tvshows-520" />
+      </include>
+      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <param name="id" value="530" />
+        <param name="widgetaspect" value="LandscapeWidePoster" />
+        <param name="skinsetting" value="netflixhub-tvshows-530" />
+      </include>
+      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <param name="id" value="540" />
+        <param name="aspect" value="Poster" />
+        <param name="skinsetting" value="netflixhub-tvshows-540" />
+      </include>
+      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+        <param name="id" value="550" />
+        <param name="aspect" value="LandscapeWidePoster" />
+        <param name="skinsetting" value="netflixhub-tvshows-550" />
+      </include>
+    </definition>
+  </include>
+
+  <include name="netflix_items_hub">
+    <param name="submenu" default="false" />
+    <param name="aspect" default="" />
+    <param name="widgetaspect" default="" />
+    <param name="sortby" default="" />
+    <param name="sortorder" default="" />
+    <param name="top" default="0" />
+    <param name="height" default="460" />
+    <definition>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="610" />
+        <param name="widgetaspect" value="Poster" />
+        <param name="skinsetting" value="netflixhub-tvshows-610" />
+      </include>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="620" />
+        <param name="widgetaspect" value="LandscapeWidePoster" />
+        <param name="skinsetting" value="netflixhub-tvshows-620" />
+      </include>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="630" />
+        <param name="widgetaspect" value="LandscapeWidePoster" />
+        <param name="skinsetting" value="netflixhub-tvshows-630" />
+      </include>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="640" />
+        <param name="aspect" value="Poster" />
+        <param name="skinsetting" value="netflixhub-tvshows-640" />
+      </include>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="650" />
+        <param name="aspect" value="LandscapeWidePoster" />
+        <param name="skinsetting" value="netflixhub-tvshows-650" />
+      </include>
+    </definition>
+  </include>
+
+
+</includes>

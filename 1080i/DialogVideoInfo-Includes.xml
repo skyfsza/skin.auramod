@@ -1051,8 +1051,8 @@
                     <textcolor>grey</textcolor>
                     <shadowcolor>black</shadowcolor>
                     <font>netflix_heading</font>
-                    <width min="200" max="400">auto</width>
-                    <align>center</align>
+                    <width min="200" max="600">auto</width>
+                    <align>left</align>
                     <wrapmultiline>true</wrapmultiline>
                   </control>
                </control>

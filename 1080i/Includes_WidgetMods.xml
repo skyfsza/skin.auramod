@@ -37,7 +37,7 @@
       </control>
 
      <control type="group">
-       <visible>String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(DisableNetflixSmallWidget)</visible>
+       <visible>String.IsEqual(ListItem.DBType,episode) + [[Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixSmallWidget)] | !Skin.HasSetting(DisableAuraHomeLayout)]</visible>
       <control type="image">
         <left>0</left>
 	<bottom>40</bottom>
@@ -57,7 +57,7 @@
      </control>
 
      <control type="group">
-       <visible>String.IsEqual(ListItem.DBType,episode) + Skin.HasSetting(DisableNetflixSmallWidget)</visible>
+       <visible>String.IsEqual(ListItem.DBType,episode) + [Skin.HasSetting(DisableAuraHomeLayout) + Skin.HasSetting(DisableNetflixSmallWidget)]</visible>
       <control type="image">
         <left>0</left>
         <bottom>20</bottom>

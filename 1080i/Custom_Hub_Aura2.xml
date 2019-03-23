@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Titan-->
+<window type="window" id="3920">
+    <defaultcontrol always="true">4000</defaultcontrol>
+    <onload>AlarmClock(focusWidgets,SetFocus(323233),00:00,silent)</onload>
+    <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
+    <controls>
+<include>Global_Background</include>
+  <control type="grouplist" id="323233">
+	<posy>50</posy>
+     <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="810" />
+        <param name="widgetaspect" value="Poster" />
+        <param name="skinsetting" value="netflixhub-tvshows-810" />
+      </include>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="820" />
+        <param name="widgetaspect" value="LandscapeWidePoster" />
+        <param name="skinsetting" value="netflixhub-tvshows-820" />
+      </include>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="830" />
+        <param name="widgetaspect" value="LandscapeWidePoster" />
+        <param name="skinsetting" value="netflixhub-tvshows-830" />
+      </include>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="840" />
+        <param name="aspect" value="Poster" />
+        <param name="skinsetting" value="netflixhub-tvshows-840" />
+      </include>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="850" />
+        <param name="aspect" value="LandscapeWidePoster" />
+        <param name="skinsetting" value="netflixhub-tvshows-850" />
+      </include>
+
+      </control>
+
+   </controls>
+</window>
