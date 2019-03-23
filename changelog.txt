@@ -1,6 +1,9 @@
+v0.9.11
+- Rework of Aura Mode widget sizes.
+- Bug fixes / tweaks
+
 v0.9.10
 - Rebuild of skin widget configuration method (will require you to readd all your widgets)
-- Rework of Aura Mode widget sizes.
 - Add beta / testing Media Hubs
 - Bug fixes / tweaks
 
