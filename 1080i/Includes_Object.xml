@@ -435,11 +435,11 @@
     <control type="group">
       <animation effect="slide" end="-90,0" condition="!Skin.HasSetting(DisableNetflixLargeWidget) + !Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
       <animation effect="slide" end="-90,0" condition="Skin.HasSetting(DisableNetflixSmallWidget) + !Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
-      <animation effect="slide" end="-90,170" condition="!Skin.HasSetting(DisableNetflixLargeWidget) + Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
-      <animation effect="slide" end="-90,90" condition="Skin.HasSetting(DisableNetflixSmallWidget) + Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
-      <animation effect="slide" end="0,170" condition="!Skin.HasSetting(DisableNetflixLargeWidget) + Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + !Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
-      <animation effect="slide" end="0,90" condition="Skin.HasSetting(DisableNetflixSmallWidget) + Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + !Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
-      <top>40</top>
+      <animation effect="slide" end="-90,100" condition="!Skin.HasSetting(DisableNetflixLargeWidget) + Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
+      <animation effect="slide" end="-90,50" condition="Skin.HasSetting(DisableNetflixSmallWidget) + Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
+      <animation effect="slide" end="0,100" condition="!Skin.HasSetting(DisableNetflixLargeWidget) + Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + !Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
+      <animation effect="slide" end="0,50" condition="Skin.HasSetting(DisableNetflixSmallWidget) + Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + !Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
+      <top>30</top>
       <left>160</left>
      <!-- Clearlogo -->
       <control type="group">
@@ -470,29 +470,34 @@
           <label>$VAR[video_heading]</label>
           <textcolor>grey</textcolor>
           <shadowcolor>black</shadowcolor>
-          <font>netflix_heading</font>
-          <width min="200" max="700">auto</width>
+          <font>netflix_heading_small</font>
+          <width min="200" max="500">auto</width>
+          <height min="50" max="280">auto</height>
           <align>left</align>
           <wrapmultiline>true</wrapmultiline>
+	 <autoscroll>true</autoscroll>
+	<scroll>true</scroll>
         </control>
         <control type="label">
 	<visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222)</visible>
 	<visible>!Skin.HasSetting(DisableNetflixLowSpotlight) + [[String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(Control.GetLabel(55445))] | ![String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | !String.IsEmpty(ListItem.ChannelName)]]</visible>
           <label>$VAR[video_heading]</label>
-                  <top>25</top>
+                  <top>0</top>
                   <label>$VAR[video_heading]</label>
                   <textcolor>grey</textcolor>
                   <shadowcolor>black</shadowcolor>
-                  <font>netflix_heading</font>
-                  <width min="200" max="600">auto</width>
-                  <height min="50" max="200">auto</height>
+                  <font>netflix_heading_small</font>
+                  <width min="200" max="500">auto</width>
+                  <height min="50" max="280">auto</height>
                   <align>left</align>
                   <wrapmultiline>true</wrapmultiline>
+	 <autoscroll>true</autoscroll>
+	<scroll>true</scroll>
         </control>
       </control>
       <!-- Tagline, Plot, Infoline -->
       <control type="grouplist">
-        <top>251</top>
+        <top>271</top>
         <height>500</height>
         <orientation>vertical</orientation>
         <control type="label" id="78631">
@@ -504,6 +509,16 @@
           <textcolor>main_fg_100</textcolor>
           <shadowcolor>black</shadowcolor>
           <font>font_small</font>
+        </control>
+        <control type="label">
+          <left>60</left>
+          <height>45</height>
+          <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+          <label fallback="19055">[I]Aired $INFO[ListItem.Premiered(DDD MMM yyyy)] on $INFO[ListItem.Studio][/I]</label>
+          <width>750</width>
+          <textcolor>main_fg_100</textcolor>
+          <shadowcolor>black</shadowcolor>
+          <font>font_tiny</font>
         </control>
         <control type="textbox">
           <height min="50" max="122">auto</height>
@@ -3405,7 +3420,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </itemlayout>
-      <itemlayout width="widget_landscapewide_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[landscapwidecondition]">
+      <itemlayout width="widget_landscapewide_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[landscapewidecondition]">
         <include content="Widget_Items_ItemLayout">
           <param name="landscapewide" value="true" />
           <param name="genres" value="$PARAM[genres]" />
@@ -3413,7 +3428,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </itemlayout>
-      <itemlayout width="widget_poster_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[landscapwidepostercondition]">
+      <itemlayout width="widget_poster_width_netflix_small" height="widget_poster_height_netflix_small" condition="$PARAM[landscapewidepostercondition]">
         <include content="Widget_Items_ItemLayout">
           <param name="poster" value="true" />
           <param name="genres" value="$PARAM[genres]" />

@@ -4,7 +4,7 @@
     <constant name="widget_spacer_bottom">-200</constant>
     <constant name="widget_submenu_spacer">390</constant>
     <constant name="widget_submenu_big_spacer">420</constant>
-    <constant name="widget_poster_spacer">640</constant>
+    <constant name="widget_poster_spacer">660</constant>
     <constant name="widget_gap">-640</constant>
     <constant name="widget_top">435</constant>
     <constant name="widget_gap_netflix">-640</constant>

@@ -18,8 +18,8 @@
     <constant name="view_left">680</constant>
     <constant name="widget_square_width_netflix">323</constant>
     <constant name="widget_square_width_netflix_small">210</constant>
-    <constant name="widget_poster_height">400</constant>
-    <constant name="widget_poster_width">290</constant>
+    <constant name="widget_poster_height">420</constant>
+    <constant name="widget_poster_width">295</constant>
     <constant name="widget_poster_width_netflix">250</constant>
     <constant name="widget_poster_height_netflix">360</constant>
 <!--    <constant name="widget_poster_height_netflix">380</constant> -->
@@ -28,6 +28,12 @@
     <constant name="widget_landscapenetflix_width_netflix_small">373.33</constant>
     <constant name="widget_landscapewide_width_netflix_small">420</constant>
     <constant name="widget_landscape_width_netflix_small">380</constant>
-
+    <constant name="widget_landscapenetflix_width_netflix_small">373.33</constant>
+    <constant name="widget_landscapewide_width_netflix_small">420</constant>
+    <constant name="widget_landscape_width">675.56</constant>
+    <constant name="widget_landscape_height">380</constant>
+    <constant name="widget_landscapewide_width">746.67</constant>
+    <constant name="widget_landscapenetflix_width">558.22</constant>
+    <constant name="widget_landscapenetflix_height">314.6</constant>
     <constant name="sidepad">80</constant>    
 </includes>
