@@ -24,7 +24,7 @@
             <onback condition="!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious">Control.Move($PARAM[id],1)</onback>
             <onback condition="Integer.IsEqual(Container($PARAM[id]).Position,0) + !Container($PARAM[id]).HasPrevious">SetFocus(302)</onback>
             <onback condition="Integer.IsEqual(Container($PARAM[id]).Position,0) + !Container($PARAM[id]).HasPrevious">SetFocus(300)</onback>
-	    <scrolltime tween="sine" easing="out">300</scrolltime>
+	    <scrolltime tween="sine" easing="out">500</scrolltime>
         </definition>
     </include>
 

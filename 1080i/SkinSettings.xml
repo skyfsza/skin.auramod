@@ -923,28 +923,6 @@
                         <!-- =============-->
                         <!-- Netflix View--->
                         <!-- =============-->
-<!--
-                        <control type="radiobutton" id="9627" description="Enable Netflix Home">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31431]</label>
-                            <selected>Skin.HasSetting(DisableNetflixHome)</selected>
-                            <onclick>Skin.ToggleSetting(DisableNetflixHome)</onclick>
-                            <onclick condition="Skin.HasSetting(DisableNetflixView)">Skin.ToggleSetting(DisableNetflixView)</onclick>
-			    <onclick condition="Skin.HasSetting(DisableWidgetPlot)">Skin.ToggleSetting(DisableWidgetPlot)</onclick> 
-			    <onclick condition="Skin.HasSetting(DisableWidgetIMDB)">Skin.ToggleSetting(DisableWidgetIMDB)</onclick> 
-			    <onclick condition="Skin.HasSetting(IconOnlyMode)">Skin.ToggleSetting(IconOnlyMode)</onclick> 
-			    <onclick condition="Skin.HasSetting(DisableNetflixVideoInfo)">Skin.ToggleSetting(DisableNetflixVideoInfo)</onclick> 
-			    <onclick condition="Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Skin.ToggleSetting(DisableNetflixHomeSidemenuHide)</onclick> 
-			    <onclick condition="Skin.HasSetting(DisableWidgetTitle)">Skin.ToggleSetting(DisableWidgetTitle)</onclick> 
-			    <onclick condition="!Skin.HasSetting(DisableOverlayColor)">Skin.ToggleSetting(DisableOverlayColor)</onclick> 
-			    <onclick condition="!Skin.HasSetting(WidgetLabels)">Skin.ToggleSetting(WidgetLabels)</onclick> 
-			    <onclick condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Skin.ToggleSetting(DisableNetflixHomeSidemenu)</onclick> 
-                            <onclick condition="!Skin.HasSetting(DisableNetflixHomeAlt)">Skin.ToggleSetting(DisableNetflixHomeDefault)</onclick>
-                            <onclick condition="!Skin.HasSetting(DisableNetflixHomeMixed)">Skin.ToggleSetting(DisableNetflixHomeDefault)</onclick>
-                            <onclick>ReloadSkin()</onclick>
-                        </control>
--->
                         <control type="button" id="9632" description="Choose Menu layout">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013) + Skin.HasSetting(DisableNetflixHome)</visible>
                             <include>Defs_Settings_Button</include>
@@ -980,16 +958,6 @@
                             <onclick>Skin.ToggleSetting(DisableNetflixVideoInfo)</onclick>
                             <onclick condition="Skin.HasSetting(EnableVideoInfoAutoplay)">Skin.ToggleSetting(EnableVideoInfoAutoplay)</onclick>
                         </control>
-<!--
-                        <control type="radiobutton" id="9633" description="Enable IconOnly SideMenu">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31434]</label>
-                            <enable>Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableNetflixHomeSidemenu)</enable>
-                            <selected>!Skin.HasSetting(IconOnlyMode)</selected>
-                            <onclick>Skin.ToggleSetting(IconOnlyMode)</onclick>
-                        </control>
--->
                         <control type="radiobutton" id="9634" description="Enable Sidemenu auto-hide">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1035,6 +1003,16 @@
                             <selected>Skin.HasSetting(EnableVideoInfoAutoplay)</selected>
                             <onclick>Skin.ToggleSetting(EnableVideoInfoAutoplay)</onclick>
                         </control>
+                        <control type="radiobutton" id="9639" description="Down key starts trailer in Netflix Showcase Views">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>$LOCALIZE[31466]</label>
+                            <visible>!Skin.HasSetting(DisableNetflixView)</visible>
+                            <enable>!Skin.HasSetting(DisableNetflixView)</enable>
+                            <selected>Skin.HasSetting(EnableTrailerOnDown)</selected>
+                            <onclick>Skin.ToggleSetting(EnableTrailerOnDown)</onclick>
+                        </control>
+
                         <!-- ================= -->
                         <!-- Video / Music OSD -->
                         <!-- ================= -->

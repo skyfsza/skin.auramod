@@ -2218,3 +2218,13 @@ msgctxt "#31464"
 msgid "Media Hubs"
 msgstrsgstr
 
+#: /1080i/Includes_View_List.xml
+msgctxt "#31465"
+msgid "List"
+msgstr ""
+
+#: /1080i/SkinSettings.xml
+msgctxt "#31466"
+msgid "Down key starts trailer in Netflix Showcase Views"
+msgstr ""
+

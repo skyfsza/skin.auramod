@@ -30,11 +30,12 @@
 
             <include name="trailer_down">
                 <!-- play yt trailer if scraped empty -->
-                <ondown condition="!Player.HasVideo + !String.IsEmpty(ListItem.Trailer)">PlayMedia($INFO[ListItem.Trailer],false,1)</ondown>  
+                <ondown condition="Skin.HasSetting(EnableTrailerOnDown) + !Player.HasVideo + !String.IsEmpty(ListItem.Trailer)">PlayMedia($INFO[ListItem.Trailer],false,1)</ondown>  
+		<ondown condition="!Skin.HasSetting(EnableTrailerOnDown)">9601</ondown>
 <!--		<ondown condition="!Player.HasVideo">RunScript(script.skin.helper.service,action=playtraileryoutube,MODE=windowed,title=$INFO[ListItem.TvShowTitle])</ondown> -->
                 <!-- get fullscreen , <tab>FullScreen</tab> -->
-                <ondown condition="Player.HasVideo">fullscreen</ondown>
-	        <onup condition="Player.HasVideo">Stop</onup>
+                <ondown condition="Skin.HasSetting(EnableTrailerOnDown) + Player.HasVideo">fullscreen</ondown>
+	        <onup condition="Skin.HasSetting(EnableTrailerOnDown) + Player.HasVideo">Stop</onup>
         </include>
 
     <include name="Animation_FocusBounce">

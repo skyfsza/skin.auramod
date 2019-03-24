@@ -1050,7 +1050,7 @@
                     <label>$VAR[video_heading]</label>
                     <textcolor>grey</textcolor>
                     <shadowcolor>black</shadowcolor>
-                    <font>netflix_heading</font>
+                    <font>netflix_heading_small</font>
                     <width min="200" max="600">auto</width>
                     <align>left</align>
                     <wrapmultiline>true</wrapmultiline>

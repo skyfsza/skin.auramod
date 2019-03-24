@@ -894,7 +894,7 @@
             <height>100%</height>
           </control>
           <control type="image">
-            <animation effect="slide" start="0" end="225,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,1.78)">Conditional</animation>
+            <animation effect="slide" start="0" end="100,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,1.78)">Conditional</animation>
             <animation effect="slide" start="0" end="225,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,0.00)">Conditional</animation>
             <animation effect="slide" start="0" end="30,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)">Conditional</animation>
             <texture colordiffuse="ff000000" border="40">netflix/netflix_corner.png</texture>
@@ -2993,7 +2993,7 @@
               <textcolor>grey</textcolor>
               <shadowcolor>black</shadowcolor>
               <font>netflix_heading</font>
-              <width min="200" max="400">auto</width>
+              <width min="200" max="700">auto</width>
               <align>center</align>
               <wrapmultiline>true</wrapmultiline>
             </control>
