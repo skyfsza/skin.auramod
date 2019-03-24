@@ -318,6 +318,7 @@
         <textcolor>main_fg_100</textcolor>
         <label>$VAR[date_aired]  Length: [/COLOR][B]$VAR[Label_Duration][/B][COLOR=$VAR[ColorHighlight]]  Ends: [/COLOR][B]$INFO[ListItem.EndTime][/B]</label> 
 <!--        <label>$VAR[Label_ShowCase_InfoLine]</label> -->
+	<visible>!String.IsEqual(ListItem.Label,See More...)</visible> 
       </control>
 	<control type="textbox">
         <left>280</left>
@@ -330,6 +331,7 @@
         <font>font_posterdetail_small</font>
         <textcolor>main_fg_100</textcolor>
         <label>[COLOR=$VAR[ColorHighlight]]Genre: [/COLOR]$INFO[ListItem.Genre]</label>
+	<visible>!String.IsEqual(ListItem.Label,See More...)</visible> 
       </control>
       <control type="textbox">
         <height>225</height>

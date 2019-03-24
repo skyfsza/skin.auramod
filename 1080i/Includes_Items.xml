@@ -461,7 +461,8 @@
                 <label>$INFO[Container.Viewmode,$LOCALIZE[582]: ,]</label>
                 <icon>special://skin/extras/icons/viewmode.png</icon>
                 <include>Items_LockUnlock</include>
-                <onclick>Container.NextViewMode</onclick>
+                <onclick>XBMC.RunScript(script.skin.helper.service,action=SETVIEW)</onclick>
+                <onclick>ActivateWindow(busydialog)</onclick>
                 <visible>Control.IsEnabled(2)</visible>
                 <visible>Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyPrograms.xml)</visible>
                 <visible>!Skin.HasSetting(global.kioskmode)</visible>

@@ -1,0 +1,13 @@
+<views>
+    <view id="List" value="50" languageid="31465" type="all" />
+    <view id="Info List" value="501" languageid="31164" type="all" />
+    <view id="Media Info" value="500" languageid="31298" type="all" />
+    <view id="Episode List" value="502" languageid="31385" type="all" />
+    <view id="Landscape Showcase" value="56" languageid="31361" type="all" />
+    <view id="Poster Showcase" value="55" languageid="31040" type="all" />
+    <view id="Banner Wall" value="54" languageid="31370" type="all" />
+    <view id="Big Posters" value="58" languageid="31363" type="all" />
+    <view id="Poster Wall" value="51" languageid="31358" type="all" />
+    <view id="Square Wall" value="52" languageid="31360" type="all" />
+    <view id="LoveFilm" value="59" languageid="31231" type="all" />
+</views>
