@@ -86,6 +86,8 @@
                     
                     <include>Home_Iconbar_Texture</include>
                     <control type="list" id="300">
+			        <include>Global_Overlay</include>
+
                         <include>Defs_InfoDialog_Visible</include>
                         <include condition="![Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">Home_OnClick</include>
                         <include>Home_OnFocus</include>
@@ -768,4 +770,97 @@
         <onfocus>ClearProperty(WidgetLoading,Home)</onfocus>
         <onfocus>AlarmClock(SetLoad,SetProperty(WidgetLoading,1,Home),00:00,silent)</onfocus>
     </include>
+
+<!--
+   <include name="Home_MainMenu_SettingsItems">
+        <content>
+            <item id="1">
+                <label>14206</label>
+                <icon>special://skin/extras/icons/skinsettings.png</icon>
+                <onclick>ReplaceWindow(InterfaceSettings)</onclick>
+                <property name="path">ReplaceWindow(InterfaceSettings)</property>
+                <property name="altpath">ActivateWindow(InterfaceSettings)</property>
+            </item>
+            <item id="4">
+                <label>166</label>
+                <icon>special://skin/extras/icons/paintbrush.png</icon>
+                <onclick>ReplaceWindow(SkinSettings)</onclick>
+                <property name="path">ReplaceWindow(SkinSettings)</property>
+                <property name="altpath">ActivateWindow(SkinSettings)</property>
+            </item>
+            <item id="2">
+                <label>14211</label>
+                <icon>special://skin/extras/icons/tags.png</icon>
+                <onclick>ReplaceWindow(MediaSettings)</onclick>
+                <property name="path">ReplaceWindow(MediaSettings)</property>
+                <property name="altpath">ActivateWindow(MediaSettings)</property>
+            </item>
+            <item id="3">
+                <label>14200</label>
+                <icon>special://skin/extras/icons/equalizer.png</icon>
+                <onclick>ReplaceWindow(PlayerSettings)</onclick>
+                <property name="path">ReplaceWindow(PlayerSettings)</property>
+                <property name="altpath">ActivateWindow(PlayerSettings)</property>
+            </item>
+            <item id="5">
+                <label>13000</label>
+                <icon>special://skin/extras/icons/configure.png</icon>
+                <onclick>ReplaceWindow(SystemSettings)</onclick>
+                <property name="path">ReplaceWindow(SystemSettings)</property>
+                <property name="altpath">ActivateWindow(SystemSettings)</property>
+            </item>
+            <item id="6">
+                <label>14036</label>
+                <icon>special://skin/extras/icons/network.png</icon>
+                <onclick>ReplaceWindow(servicesettings)</onclick>
+                <property name="path">ReplaceWindow(servicesettings)</property>
+                <property name="altpath">ActivateWindow(servicesettings)</property>
+            </item>
+            <item id="10">
+                <label>$LOCALIZE[31294]</label>
+                <icon>special://skin/extras/icons/livetv.png</icon>
+                <onclick>ReplaceWindow(pvrsettings)</onclick>
+                <property name="path">ReplaceWindow(pvrsettings)</property>
+                <property name="altpath">ActivateWindow(pvrsettings)</property>
+            </item>
+            <item id="9">
+                <label>130</label>
+                <icon>special://skin/extras/icons/sysinfo.png</icon>
+                <onclick>ReplaceWindow(systeminfo)</onclick>
+                <property name="path">ReplaceWindow(systeminfo)</property>
+                <property name="altpath">ActivateWindow(systeminfo)</property>
+            </item>
+            <item id="7">
+                <label>13200</label>
+                <icon>special://skin/extras/icons/actor.png</icon>
+                <onclick>ReplaceWindow(Profiles)</onclick>
+                <property name="path">ReplaceWindow(Profiles)</property>
+                <property name="altpath">ActivateWindow(Profiles)</property>
+            </item>
+            <item id="8">
+                <label>24001</label>
+                <icon>special://skin/extras/icons/addon.png</icon>
+                <onclick>ActivateWindow(AddonBrowser)</onclick>
+                <property name="path">ActivateWindow(AddonBrowser)</property>
+                <property name="altpath">ActivateWindow(AddonBrowser)</property>
+            </item>
+            <item id="11">
+                <label>7</label>
+                <icon>special://skin/extras/icons/files.png</icon>
+                <onclick>ActivateWindow(filemanager)</onclick>
+                <property name="path">ActivateWindow(filemanager)</property>
+                <property name="altpath">ActivateWindow(filemanager)</property>
+            </item>
+            <item id="13">
+                <label>$INFO[Control.GetLabel(20)]</label>
+                <icon>special://skin/extras/icons/settings.png</icon>
+                <onclick>SettingsLevelChange</onclick>
+                <property name="path">SettingsLevelChange</property>
+                <property name="altpath">SettingsLevelChange</property>
+                <visible>Window.IsVisible(SettingsCategory.xml)</visible>
+            </item>
+        </content>
+    </include>
+-->
+
 </includes>

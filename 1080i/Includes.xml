@@ -4,6 +4,7 @@
 
     <include file="Defaults.xml" />
     <include file="Includes_MediaHub.xml" />
+    <include file="DialogButtonMenu-Includes.xml" />
     <include file="DialogVideoInfo-Includes.xml" />
     <include file="Includes_ImagesMods.xml" />
     <include file="Includes_PVRInfoMods.xml" />

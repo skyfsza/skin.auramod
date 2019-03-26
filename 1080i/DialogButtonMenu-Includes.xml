@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+<include name="powermenu-new">
+		<control type="group">
+			<top>5</top>
+			<control type="group">
+				<visible>Container(1).HasFocus(1)</visible>
+				<animation type="visible">
+					<effect type="slide" start="0,-80" end="0" tween="Cubic" easing="out" time="200"/>
+				</animation>
+				<animation type="WindowOpen">
+					<effect type="slide" start="0,-80" end="0" delay="900" tween="Cubic" easing="out" time="200"/>
+				</animation>
+				<control type="image">
+					<left>50</left>
+					<top>100</top>
+					<width>500</width>
+					<height>340</height>
+					<texture colordiffuse="darkgrey" border="9">common/Card_bg_white.png</texture>
+				</control>
+
+				<control type="list" id="2">
+					<description>Control Area</description>
+					<left>50</left>
+					<top>100</top>
+					<width>500</width>
+					<height>350</height>
+					<onup>1</onup>
+					<onleft>Control.Move(1,-1)</onleft>
+					<onright>Control.Move(1,1)</onright>
+					<onleft>1</onleft>
+					<onright>1</onright>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>vertical</orientation>
+					<itemlayout width="500" height="80">
+						<control type="label">
+							<left>40</left>
+							<height>100</height>
+							<font>Font-Condensed-S30-B</font>
+							<align>left</align>
+							<textcolor>white</textcolor>
+							<label>$INFO[ListItem.Label]</label> 
+						</control>
+					</itemlayout>
+					<focusedlayout width="500" height="80">
+						<control type="image">
+							<height>100</height>
+							<texture colordiffuse="ffB71C1C" border="9">common/Card_bg_white.png</texture>
+							<visible>Control.HasFocus(2)</visible>
+						</control>
+						<control type="label">
+							<left>40</left>
+							<height>100</height>
+							<font>Font-Condensed-S30-B</font>
+							<align>left</align>
+							<textcolor>white</textcolor>
+							<label>$INFO[ListItem.Label]</label> 
+							<visible>!Control.HasFocus(2)</visible>
+						</control>
+						<control type="label">
+							<left>40</left>
+							<height>100</height>
+							<font>Font-Condensed-S30-B</font>
+							<align>left</align>
+							<textcolor>white</textcolor>
+							<label>$INFO[ListItem.Label]</label> 
+							<visible>Control.HasFocus(2)</visible>
+						</control>
+					</focusedlayout>
+					<content>
+						<item>
+							<label>Addons</label>
+							<onclick>Dialog.Close(all,true)</onclick>
+							<onclick>ActivateWindow(addonbrowser)</onclick>
+							<thumb>dialogs/charms/charm_home.png</thumb>
+						</item>
+						<item>
+							<label>$LOCALIZE[3]</label>
+							<onclick>Dialog.Close(all,true)</onclick>
+							<onclick>ActivateWindow(videos)</onclick>
+							<thumb>home/tv.png</thumb>
+						</item>
+						<item>
+							<label>Programs</label>
+							<onclick>Dialog.Close(all,true)</onclick>
+							<onclick>ActivateWindow(programs)</onclick>
+							<thumb>home/music.png</thumb>
+						</item>
+						<item>
+							<label>Favourites</label>
+							<onclick>Dialog.Close(all,true)</onclick>
+							<onclick>ActivateWindow(favourites)</onclick>
+						</item>
+					</content>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container(1).HasFocus(3) + !Skin.HasSetting(oldshutdownmenu)</visible>
+				<animation type="Visible">
+					<effect type="slide" start="0,-80" end="0" tween="Cubic" easing="out" time="200"/>
+				</animation>
+				<animation type="WindowOpen">
+					<effect type="slide" start="0,-80" end="0" delay="900" tween="Cubic" easing="out" time="200"/>
+				</animation>
+				<control type="image">
+					<left>260</left>
+					<top>100</top>
+					<width>500</width>
+					<height>340</height>
+					<texture colordiffuse="darkgrey" border="9">common/Card_bg_white.png</texture>
+				</control>
+				<control type="list" id="6">
+					<left>260</left>
+					<top>100</top>
+					<width>500</width>
+					<height>350</height>
+					<onup>1</onup>
+					<onleft>Control.Move(1,-1)</onleft>
+					<onright>Control.Move(1,1)</onright>
+					<onleft>1</onleft>
+					<onright>1</onright>
+					<orientation>vertical</orientation>
+					<itemlayout width="500" height="80">
+						<control type="label">
+							<left>40</left>
+							<height>100</height>
+							<font>Font-Condensed-S30-B</font>
+							<align>left</align>
+							<textcolor>white</textcolor>
+							<label>$INFO[ListItem.Label]</label> 
+						</control>
+					</itemlayout>
+					<focusedlayout width="500" height="80">
+						<control type="image">
+							<height>100</height>
+							<texture colordiffuse="ffB71C1C" border="9">common/Card_bg_white.png</texture>
+							<visible>Control.HasFocus(6)</visible>
+						</control>
+						<control type="label">
+							<left>40</left>
+							<height>100</height>
+							<font>Font-Condensed-S30-B</font>
+							<align>left</align>
+							<textcolor>white</textcolor>
+							<label>$INFO[ListItem.Label]</label> 
+							<visible>!Control.HasFocus(6)</visible>
+						</control>
+						<control type="label">
+							<left>40</left>
+							<height>100</height>
+							<font>Font-Condensed-S30-B</font>
+							<align>left</align>
+							<textcolor>white</textcolor>
+							<label>$INFO[ListItem.Label]</label> 
+							<visible>Control.HasFocus(6)</visible>
+						</control>
+					</focusedlayout>
+					<content>
+                        <include>skinshortcuts-group-powermenu</include>
+
+					</content>
+				</control>
+			</control>
+
+			<control type="group">
+				<animation type="WindowOpen">
+					<effect type="slide" start="2000" end="0,0" center="100" tween="Cubic" easing="inout" time="1000"/>
+				</animation>
+				<!-- Main Bar -->
+				<control type="image">
+					<left>50</left>
+					<top>15</top>
+					<width>95%</width>
+					<height>100</height>
+					<texture colordiffuse="darkgrey" border="9">common/Card_bg_white.png</texture>
+				</control>
+
+				<control type="list" id="1">
+					<left>50</left>
+					<top>15</top>
+					<width>800</width>
+					<height>100</height>
+					<scrolltime>0</scrolltime>
+					<viewtype>list</viewtype>
+					<ondown condition="Container(1).HasFocus(1)">Control.SetFocus(2,0)</ondown>
+					<ondown condition="Container(1).HasFocus(2)">Control.SetFocus(4,0)</ondown>
+					<ondown condition="Container(1).HasFocus(3)">Control.SetFocus(6,0)</ondown>
+					<defaultcontrol>1</defaultcontrol>
+					<orientation>horizontal</orientation>
+					<animation type="WindowOpen">
+						<effect type="fade" start="0" end="100" delay="300" tween="Cubic" easing="inout" time="500"/>
+					</animation>	
+					<itemlayout width="210" height="100">
+						<control type="image">
+							<width>80</width>
+							<height>100</height>
+							<texture colordiffuse="white">$INFO[ListItem.Icon]</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+						<control type="label">
+							<left>90</left>
+							<width>200</width>
+							<height>100</height>
+							<font>font_small</font>
+							<align>left</align>
+							<textcolor>white</textcolor>
+							<label>$INFO[ListItem.Label]</label> 
+						</control>
+					</itemlayout>
+					<focusedlayout width="210" height="100">
+						<control type="image">
+							<width>210</width>
+							<height>100</height>
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="90" end="100" time="200" tween="cubic" easing="inout"/>
+								<effect type="fade" center="auto" start="0" end="200" time="200" tween="cubic" easing="inout"/>
+							</animation>
+							<texture colordiffuse="ffB71C1C" border="9">common/Card_bg_white.png</texture>
+						</control>
+						<control type="image">
+							<width>80</width>
+							<height>100</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+						<control type="label">
+							<left>90</left>
+							<width>200</width>
+							<height>100</height>
+							<font>Tile</font>
+							<align>left</align>
+							<textcolor>FFFFFFFF</textcolor>
+							<label>$INFO[ListItem.Label]</label> 
+						</control>
+					</focusedlayout>
+					<content>
+						<item id="1">
+							<label>Home</label>
+							<onclick>Dialog.Close(all,true)</onclick>
+							<onclick>ActivateWindow(Home)</onclick>
+							<thumb>dialogs/charms/charm_home.png</thumb>
+						</item>
+						<item id="3">
+							<label>$LOCALIZE[33060]</label>
+							<thumb>dialogs/charms/charm_shutdown.png</thumb>
+						</item>
+					</content>
+				</control>
+			</control>
+		</control>
+
+		<!--> Logo <!-->
+		<include>Logo</include>
+</include>
+
+<include name="powermenu-standard">
+        <include>Global_Overlay</include>
+        <control type="group">
+            <include>Animation_FadeIn_SlideUp</include>
+            <control type="group">
+                <visible>Integer.IsGreater(Container(3110).NumItems,7)</visible>
+                <height>662</height>
+                <include>Defs_Powermenu_Group</include>
+                <include>Defs_Options_Texture</include>
+            </control>
+            <control type="group">
+                <visible>Integer.IsEqual(Container(3110).NumItems,7)</visible>
+                <height>592</height>
+                <include>Defs_Powermenu_Group</include>
+                <include>Defs_Options_Texture</include>
+            </control>
+            <control type="group">
+                <visible>Integer.IsEqual(Container(3110).NumItems,6)</visible>
+                <height>522</height>
+                <include>Defs_Powermenu_Group</include>
+                <include>Defs_Options_Texture</include>
+            </control>
+            <control type="group">
+                <visible>Integer.IsEqual(Container(3110).NumItems,5)</visible>
+                <height>452</height>
+                <include>Defs_Powermenu_Group</include>
+                <include>Defs_Options_Texture</include>
+            </control>
+            <control type="group">
+                <visible>Integer.IsEqual(Container(3110).NumItems,4)</visible>
+                <height>382</height>
+                <include>Defs_Powermenu_Group</include>
+                <include>Defs_Options_Texture</include>
+            </control>
+            <control type="group">
+                <visible>Integer.IsEqual(Container(3110).NumItems,3)</visible>
+                <height>312</height>
+                <include>Defs_Powermenu_Group</include>
+                <include>Defs_Options_Texture</include>
+            </control>
+            <control type="group">
+                <visible>Integer.IsEqual(Container(3110).NumItems,2)</visible>
+                <height>242</height>
+                <include>Defs_Powermenu_Group</include>
+                <include>Defs_Options_Texture</include>
+            </control>
+            <control type="group">
+                <visible>Integer.IsEqual(Container(3110).NumItems,1)</visible>
+                <height>172</height>
+                <include>Defs_Powermenu_Group</include>
+                <include>Defs_Options_Texture</include>
+            </control>
+            <control type="group">
+                <animation effect="slide" end="0,35" condition="true">Conditional</animation>
+                <animation effect="slide" end="0,35" condition="Integer.IsLess(Container(3110).NumItems,8)">Conditional</animation>
+                <animation effect="slide" end="0,35" condition="Integer.IsLess(Container(3110).NumItems,7)">Conditional</animation>
+                <animation effect="slide" end="0,35" condition="Integer.IsLess(Container(3110).NumItems,6)">Conditional</animation>
+                <animation effect="slide" end="0,35" condition="Integer.IsLess(Container(3110).NumItems,5)">Conditional</animation>
+                <animation effect="slide" end="0,35" condition="Integer.IsLess(Container(3110).NumItems,4)">Conditional</animation>
+                <animation effect="slide" end="0,35" condition="Integer.IsLess(Container(3110).NumItems,3)">Conditional</animation>
+                <animation effect="slide" end="0,35" condition="Integer.IsLess(Container(3110).NumItems,2)">Conditional</animation>
+                <include>Defs_Powermenu_Group</include>
+                <control type="label">
+                    <top>-64</top>
+                    <width>458</width>
+                    <height>80</height>
+                    <left>8</left>
+                    <textcolor>dialog_fg_70</textcolor>
+                    <font>font_small_bold</font>
+                    <label>$LOCALIZE[31072]</label>
+                    <align>left</align>
+                    <textoffsetx>30</textoffsetx>
+                </control>
+                <control type="image">
+                    <top>-56</top>
+                    <width>458</width>
+                    <height>64</height>
+                    <left>-8</left>
+                    <aspectratio align="right">keep</aspectratio>
+                    <texture colordiffuse="dialog_fg_70">special://skin/extras/icons/kodi.png</texture>
+                </control>
+                <control type="list" id="3110">
+                    <onleft>Back</onleft>
+                    <onright>Back</onright>
+                    <include>Defs_Options_Grouplist</include>
+                    <itemlayout width="450" height="70">
+                        <control type="label">
+                            <font>font_tiny</font>
+                            <align>left</align>
+                            <left>30</left>
+                            <aligny>center</aligny>
+                            <textcolor>dialog_fg_70</textcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout width="450" height="70">
+                        <control type="image">
+                            <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
+                        </control>
+                        <control type="image">
+                            <texture colordiffuse="$VAR[ColorHighlight2]">common/gradient-diffuse-horizontal.png</texture>
+                        </control>
+                        <control type="label">
+                            <font>font_tiny</font>
+                            <align>left</align>
+                            <left>30</left>
+                            <aligny>center</aligny>
+                            <textcolor>Selected</textcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                    </focusedlayout>
+                    <content><include>skinshortcuts-group-powermenu</include></content>
+                </control>
+            </control>
+        </control>
+</include>
+
+</includes>

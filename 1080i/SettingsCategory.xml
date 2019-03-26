@@ -5,8 +5,27 @@
     <include>Defs_Settings_OnLoad</include>
     <onunload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(startup.init)</onunload>
     <controls>
+  <control type="group">
+            <left>0</left>
+            <centertop>50%</centertop>
+            <width>450</width>
+            <height>1200</height>
+            <control type="image">
+                <include condition="!Skin.HasSetting(DisableShadows)">Defs_Shadow_24</include>
+                <texture border="16" colordiffuse="dialog_bg_100">common/rounded-dialog.png</texture>
+            </control>
+            </control>
 
-        <include>Global_Background</include>
+          <control type="group">
+            <left>450</left>
+            <centertop>50%</centertop>
+            <width>100%</width>
+            <height>1200</height>
+            <control type="image">
+                <include condition="!Skin.HasSetting(DisableShadows)">Defs_Shadow_24</include>
+                <texture border="16" colordiffuse="dimgrey">common/rounded-dialog.png</texture>
+            </control>
+            </control>
         <include>Topbar</include>
         
         <!-- GroupList -->
@@ -16,11 +35,11 @@
                 <control type="label">
                     <left>view_pad</left>
                     <height>80</height>
-                    <label>$INFO[System.AddonVersion(skin.aura),Aura ,]</label>
+                    <label>$INFO[System.AddonVersion(skin.auramod),Auramod ,]</label>
                     <font>font_button</font>
                     <textcolor>main_fg_30</textcolor>
                 </control>
-
+        
                 <control type="group">
                     <top>80</top>
                     <height>800</height>
@@ -135,6 +154,7 @@
                         <height>64</height>
                         <font>font_tiny</font>
                         <textcolor>main_fg_70</textcolor>
+			<width>380</width>
                     </control>
                 </control>
             </control>

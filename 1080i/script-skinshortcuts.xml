@@ -4,8 +4,9 @@
     <onload condition="!Skin.HasSetting(WidgetsInit)">AlarmClock(Clickit,Action(Close),00:01,silent)</onload>
     <onunload condition="!Skin.HasSetting(WidgetsInit)">Skin.ToggleSetting(WidgetsInit)</onunload>
     <controls>
-        <include>Global_Overlay</include>
 
+        <include>Global_Background</include>
+        <include>Global_Overlay</include>
         <control type="group">
             <visible>!Skin.HasSetting(WidgetsInit)</visible>
             <include>Global_Overlay</include>

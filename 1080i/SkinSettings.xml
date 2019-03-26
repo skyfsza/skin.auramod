@@ -14,10 +14,32 @@
                 <control type="label">
                     <left>view_pad</left>
                     <height>80</height>
-                    <label>$INFO[System.AddonVersion(skin.aura),Aura ,]</label>
+                    <label>$INFO[System.AddonVersion(skin.auramod),Auramod ,]</label>
                     <font>font_button</font>
                     <textcolor>main_fg_30</textcolor>
                 </control>
+
+          <control type="group">
+            <left>0</left>
+            <centertop>50%</centertop>
+            <width>450</width>
+            <height>1200</height>
+            <control type="image">
+                <include condition="!Skin.HasSetting(DisableShadows)">Defs_Shadow_24</include>
+                <texture border="16" colordiffuse="dialog_bg_100">common/rounded-dialog.png</texture>
+            </control>
+            </control>
+
+          <control type="group">
+            <left>450</left>
+            <centertop>50%</centertop>
+            <width>100%</width>
+            <height>1200</height>
+            <control type="image">
+                <include condition="!Skin.HasSetting(DisableShadows)">Defs_Shadow_24</include>
+                <texture border="16" colordiffuse="dimgrey">common/rounded-dialog.png</texture>
+            </control>
+            </control>
 
                 <control type="group">
                     <top>80</top>
@@ -267,15 +289,13 @@
                             <onclick>Skin.ToggleSetting(SkinHelper.EnableExtendedArt)</onclick>
                             <selected>Skin.HasSetting(SkinHelper.EnableExtendedArt)</selected>
                         </control>
-<!--
-                        <control type="radiobutton" id="9659" description="Enable webservice artwork lookups">
+                        <control type="radiobutton" id="9659" description="Enable Power Menu bar">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31460]</label>
-                            <onclick>Skin.ToggleSetting(DisableWebserviceClearlogo)</onclick>
-                            <selected>Skin.HasSetting(DisableWebserviceClearlogo)</selected>
+                            <label>Enable Power Menu Bar Style</label>
+                            <onclick>Skin.ToggleSetting(EnablePowerMenuBar)</onclick>
+                            <selected>Skin.HasSetting(EnablePowerMenuBar)</selected>
                         </control>
--->
                         <!-- ========== -->
                         <!-- --Hubs---- -->
                         <!-- ========== -->
@@ -923,6 +943,13 @@
                         <!-- =============-->
                         <!-- Netflix View--->
                         <!-- =============-->
+                        <control type="button" id="9636" description="Choose Netflix Widget Style">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013) + Skin.HasSetting(DisableNetflixHome)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>$LOCALIZE[31452]</label>
+                            <label2>$VAR[netflix_widget_style_selected]</label2>
+                            <onclick>ActivateWindow(1126)</onclick>
+                        </control>
                         <control type="button" id="9632" description="Choose Menu layout">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013) + Skin.HasSetting(DisableNetflixHome)</visible>
                             <include>Defs_Settings_Button</include>
@@ -932,12 +959,32 @@
                             <enable>Skin.HasSetting(DisableNetflixHome)</enable>
                             <onclick>ActivateWindow(1125)</onclick>
                         </control>
-                        <control type="button" id="9636" description="Choose Netflix Widget Style">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013) + Skin.HasSetting(DisableNetflixHome)</visible>
+                        <control type="radiobutton" id="9634" description="Enable Sidemenu auto-hide">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31452]</label>
-			    <label2>$VAR[netflix_widget_style_selected]</label2>
-                            <onclick>ActivateWindow(1126)</onclick>
+                            <label> - $LOCALIZE[31437]</label>
+                            <visible>Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableNetflixHomeSidemenu)</visible>
+                            <enable>Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableNetflixHomeSidemenu)</enable>
+                            <selected>Skin.HasSetting(DisableNetflixHomeSidemenuHide)</selected>
+                            <onclick>Skin.ToggleSetting(DisableNetflixHomeSidemenuHide)</onclick>
+                        </control>
+                        <control type="radiobutton" id="9635" description="Enable Sumenu Background Image">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label> - $LOCALIZE[31439]</label>
+                            <visible>Skin.HasSetting(DisableNetflixHome)</visible>
+                            <enable>Skin.HasSetting(DisableNetflixHome)</enable>
+                            <selected>Skin.HasSetting(DisableNetflixSubmenuBG)</selected>
+                            <onclick>Skin.ToggleSetting(DisableNetflixSubmenuBG)</onclick>
+                        </control>
+                        <control type="radiobutton" id="9637" description="Disable Main Menu Label">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label> - $LOCALIZE[31462]</label>
+                            <visible>Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableMenuVertIcon)</visible>
+                            <enable>Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableMenuVertIcon)</enable>
+                            <selected>Skin.HasSetting(DisableNetflixVertLabel)</selected>
+                            <onclick>Skin.ToggleSetting(DisableNetflixVertLabel)</onclick>
                         </control>
 			<control type="radiobutton" id="9630" description="Enable Netflix Views">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
@@ -958,15 +1005,6 @@
                             <onclick>Skin.ToggleSetting(DisableNetflixVideoInfo)</onclick>
                             <onclick condition="Skin.HasSetting(EnableVideoInfoAutoplay)">Skin.ToggleSetting(EnableVideoInfoAutoplay)</onclick>
                         </control>
-                        <control type="radiobutton" id="9634" description="Enable Sidemenu auto-hide">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31437]</label>
-                            <visible>Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableNetflixHomeSidemenu)</visible>
-                            <enable>Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableNetflixHomeSidemenu)</enable>
-                            <selected>Skin.HasSetting(DisableNetflixHomeSidemenuHide)</selected>
-                            <onclick>Skin.ToggleSetting(DisableNetflixHomeSidemenuHide)</onclick>
-                        </control>
                         <control type="radiobutton" id="9658" description="Enable Low Spotlight Info">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
                             <include>Defs_Settings_Button</include>
@@ -976,23 +1014,14 @@
                             <selected>Skin.HasSetting(DisableNetflixLowSpotlight)</selected>
                             <onclick>Skin.ToggleSetting(DisableNetflixLowSpotlight)</onclick>
                         </control>
-                        <control type="radiobutton" id="9635" description="Enable Sumenu Background Image">
+                        <control type="radiobutton" id="9640" description="Show full Spotlight info for Episodes">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31439]</label>
-                            <visible>Skin.HasSetting(DisableNetflixHome)</visible>
-                            <enable>Skin.HasSetting(DisableNetflixHome)</enable>
-                            <selected>Skin.HasSetting(DisableNetflixSubmenuBG)</selected>
-                            <onclick>Skin.ToggleSetting(DisableNetflixSubmenuBG)</onclick>
-                        </control>
-                        <control type="radiobutton" id="9637" description="Disable Main Menu Label">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31462]</label>
-                            <visible>Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableMenuVertIcon)</visible>
-                            <enable>Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableMenuVertIcon)</enable>
-                            <selected>Skin.HasSetting(DisableNetflixVertLabel)</selected>
-                            <onclick>Skin.ToggleSetting(DisableNetflixVertLabel)</onclick>
+                            <label>Show full Spotlight info for Episodes</label>
+                            <visible>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed)</visible>
+                            <enable>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed)</enable>
+                            <selected>Skin.HasSetting(EnableFullEpInfo)</selected>
+                            <onclick>Skin.ToggleSetting(EnableFullEpInfo)</onclick>
                         </control>
                         <control type="radiobutton" id="9638" description="Enable Video Info Trailer auto-play">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>

@@ -463,7 +463,7 @@
                 </control>
             </control>
             <control type="fixedlist" id="$PARAM[id]">
-		<movement>2</movement>
+		<movement>1</movement>
                 <include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
                 <include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
                 <include condition="!$PARAM[submenu] + !Skin.HasSetting(DisableNetflixLargeWidget)">Widget_Items_menu_Big_Height</include>
@@ -510,7 +510,7 @@
     <include name="Widget_Items_Submenu_Height"><height>140</height></include>
     <include name="Widget_Items_Submenu_Big_Height"><height>widget_submenu_big_spacer</height></include>
     <include name="Widget_Items_menu_Big_Height"><height>365</height></include>
-    <include name="Widget_Items_menu_Small_Height"><height>210</height></include>
+    <include name="Widget_Items_menu_Small_Height"><height>240</height></include>
 
     <include name="Widget_Label">
         <definition>
@@ -519,7 +519,6 @@
                 <height>40</height>
                 <orientation>horizontal</orientation>
                 <usecontrolcoords>true</usecontrolcoords>
-                <itemgap>16</itemgap>
                 <control type="image">
                     <width>16</width>
                     <height>100%</height>
@@ -528,6 +527,7 @@
 		    <visible>!Control.HasFocus($PARAM[submenu]) + !Skin.HasSetting(DisableCatlabel)</visible>
                 </control>
                 <control type="label">
+		    <font>font_medium_bold</font>
                     <left>2</left>
                     <textcolor>main_fg_100</textcolor>
                     <label>$PARAM[label]</label>
