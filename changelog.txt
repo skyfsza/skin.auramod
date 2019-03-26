@@ -4,8 +4,7 @@ v0.9.12
 - Design tweak to Settings
 - Design tweaks to Netflix Home + Showcase infoline
 - Option to remove plot + info from Netflix Simple home spotlight. 
-
-
+- Fix for Clearlogos SkinHelper based widgets. 
 
 v0.9.11
 - Change Library view selector to dialog.

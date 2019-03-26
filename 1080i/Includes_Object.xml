@@ -489,7 +489,7 @@
         <control type="label" id="78631">
           <left>60</left>
           <height>30</height>
-          <visible>String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | [String.IsEqual(ListItem.DBType,episode) + Skin.HasSetting(EnableFullEpInfo)]</visible>
+          <visible>String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | [String.IsEqual(ListItem.DBType,episode) |  Skin.HasSetting(EnableFullEpInfo)]</visible>
           <label fallback="19055">[B]$VAR[Label_Netflix_Tagline][/B]</label>
           <width>750</width>
           <textcolor>white</textcolor>
@@ -538,7 +538,7 @@
 	<!-- Plot  -->
         <control type="textbox">
           <height min="50" max="122">auto</height>
-          <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001) + [String.IsEqual(ListItem.DBType,episode) + Skin.HasSetting(EnableFullEpInfo)]</visible>
+          <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | [String.IsEqual(ListItem.DBType,episode) + Skin.HasSetting(EnableFullEpInfo)]]</visible>
           <visible>!Skin.HasSetting(DisableNetflixLowSpotlight)</visible>
           <label fallback="19055">$VAR[Label_Plot]</label>
           <align>left</align>
