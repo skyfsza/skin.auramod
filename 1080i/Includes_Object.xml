@@ -406,7 +406,6 @@
       </control>
       <control type="group">
         <left>10</left>
-        <right>0</right>
         <visible>Skin.HasSetting(DisableNetflixSubmenuBG) + Control.HasFocus(300)</visible>
         <include>Global_Background</include>
       </control>
@@ -414,10 +413,6 @@
         <left>10</left>
         <right>0</right>
         <visible>Skin.HasSetting(DisableNetflixSubmenuBG) + Control.HasFocus(302)</visible>
-        <include>Global_Background</include>
-      </control>
-      <control type="group">
-        <visible>Skin.HasSetting(DisableNetflixSubmenuBG) + Control.HasFocus(30222)</visible>
         <include>Global_Background</include>
       </control>
       <control type="group">
@@ -489,7 +484,7 @@
         <control type="label" id="78631">
           <left>60</left>
           <height>30</height>
-          <visible>String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | [String.IsEqual(ListItem.DBType,episode) |  Skin.HasSetting(EnableFullEpInfo)]</visible>
+          <visible>String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | [String.IsEqual(ListItem.DBType,episode) +  Skin.HasSetting(EnableFullEpInfo)]</visible>
           <label fallback="19055">[B]$VAR[Label_Netflix_Tagline][/B]</label>
           <width>750</width>
           <textcolor>white</textcolor>
