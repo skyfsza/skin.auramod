@@ -4,8 +4,6 @@
   <defaultcontrol always="true">4000</defaultcontrol>
   <onload>AlarmClock(focusWidgets,SetFocus(9967),00:00,silent)</onload>
   <controls>
-        <include>Global_Overlay</include>
-
     <control type="group">
             <centerleft>50%</centerleft>
             <centertop>50%</centertop>

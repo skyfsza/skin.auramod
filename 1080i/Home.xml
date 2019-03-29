@@ -31,7 +31,6 @@
             </focusedlayout>
             <content>$INFO[Container(300).ListItem.Property(backgroundPlaylist)]</content>
         </control>
-
         <include condition="!Skin.HasSetting(DisableNetflixHome)">Global_Background</include>
         <include>Widgets</include>
         <include condition="!Skin.HasSetting(DisableNetflixHome)">Topbar</include> 

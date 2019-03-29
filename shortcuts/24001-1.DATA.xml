@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<label>1037</label>
+		<label2>Videos</label2>
+		<icon>special://skin/extras/icons/video-addons.png</icon>
+		<thumb />
+		<action>addons://sources/video/</action>
+	</shortcut>
+	<shortcut>
+		<label>10001</label>
+		<label2>Programs</label2>
+		<icon>special://skin/extras/icons/addons.png</icon>
+		<thumb />
+		<action>addons://sources/executable/</action>
+	</shortcut>
+	<shortcut>
+		<label>1038</label>
+		<label2>Music</label2>
+		<icon>special://skin/extras/icons/songs.png</icon>
+		<thumb />
+		<action>addons://sources/audio/</action>
+	</shortcut>
+	<shortcut>
+		<label>1039</label>
+		<label2>Pictures</label2>
+		<icon>DefaultAddonPicture.png</icon>
+		<thumb />
+		<action>addons://sources/image/</action>
+	</shortcut>
+</shortcuts>

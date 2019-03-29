@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+    <variable name="moviespotlightpath">
+     <value condition="Window.IsActive(Home) + !String.IsEmpty(Skin.String(spotlightmovies.path))">$INFO[Skin.String(spotlightmovies.path)]</value>
+     <value condition="Window.IsActive(Home) + String.IsEmpty(Skin.String(spotlightmovies.path))">plugin://script.extendedinfo?info=upcomingmovies</value>
+    </variable>
+    <variable name="tvshowspotlightpath">
+     <value condition="Window.IsActive(Home) + !String.IsEmpty(Skin.String(spotlighttvshows.path))">$INFO[Skin.String(spotlighttvshows.path)]</value>
+     <value condition="Window.IsActive(Home) + String.IsEmpty(Skin.String(spotlighttvshows.path))">plugin://script.extendedinfo?info=topratedtvshows</value>
+    </variable> 
     <variable name="PlayOrResumeLabel">
         <value condition="ListItem.IsResumable">$LOCALIZE[13404]</value>
         <value>$LOCALIZE[208]</value>
@@ -11,6 +19,11 @@
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(ListItem.Director)">[I]Directed by $INFO[ListItem.Director][/I]</value>
         <value condition="!String.IsEmpty(ListItem.Genre)">[I]$INFO[ListItem.Genre][/I]</value>
     </variable>
+
+
+   <variable name="home_simple_episode">
+	<value>[I]Continue Watching[/I] [CR][COLOR=$VAR[ColorHighlight]]S$INFO[ListItem.Season] E$INFO[ListItem.Episode] - $INFO[ListItem.Title][/COLOR]</value>
+   </variable>   
 
     <variable name="netflix_widget_style_selected">
     <value condition="!Skin.HasSetting(DisableNetflixLargeWidget)">$LOCALIZE[31453]</value>
@@ -505,7 +518,7 @@
         <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)">$INFO[Window.Property(plot)]</value>
         <value condition="Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)">$INFO[Window.Property(biography)]</value>
         <value condition="!String.IsEmpty(ListItem.AddonDescription) | !String.IsEmpty(ListItem.AddonDisclaimer) | !String.IsEmpty(ListItem.AddonNews)">$INFO[ListItem.AddonDisclaimer,[B]$LOCALIZE[24052][/B][CR],[CR][CR]]$INFO[ListItem.AddonDescription,[B]$LOCALIZE[21821][/B][CR],[CR][CR]]$INFO[ListItem.AddonNews,[B]$LOCALIZE[31303][/B][CR],[CR][CR]]</value>
-        <value condition="!String.IsEmpty(ListItem.Plot)">[COLOR=white]$INFO[ListItem.Tagline,[B],[/B][CR]][/COLOR]$INFO[ListItem.Artist,[B],[/B][CR]]$INFO[ListItem.Plot]</value>
+        <value condition="!String.IsEmpty(ListItem.Plot)">[COLOR=white]$VAR[Label_Netflix_Tagline][CR][/COLOR]$INFO[ListItem.Artist,[B],[/B][CR]]$INFO[ListItem.Plot]</value>
         <value condition="Window.IsVisible(Home) + [!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.AddonDescription)) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.AddonDisclaimer)) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.AddonNews))]">$INFO[Window(Home).Property(SkinHelper.ListItem.AddonDisclaimer),[B]$LOCALIZE[24052][/B][CR],[CR][CR]]$INFO[Window(Home).Property(SkinHelper.ListItem.AddonDescription),[B]$LOCALIZE[21821][/B][CR],[CR][CR]]$INFO[Window(Home).Property(SkinHelper.ListItem.AddonNews),[B]$LOCALIZE[31303][/B][CR],[CR][CR]]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))">$INFO[Window(Home).Property(SkinHelper.ListItem.Tagline),[B],[/B][CR]]$INFO[Window(Home).Property(SkinHelper.ListItem.Artist),[B],[/B][CR]]$INFO[Window(Home).Property(SkinHelper.ListItem.Plot)]</value>
         <value>$INFO[ListItem.Tagline,[B],[/B][CR]]$INFO[ListItem.Artist,[B],[/B][CR]]$VAR[Label_Plot]</value>

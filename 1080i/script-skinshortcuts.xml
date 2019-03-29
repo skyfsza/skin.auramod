@@ -392,15 +392,13 @@
                     <visible>String.EndsWith(Window.Property(groupname),.1)</visible>
                     <include>Dialog_Standard_Right_Buttons</include>
                 </control>
-<!--
                 <control type="radiobutton" id="9905" description="Widget Spotlight">
                     <width>100%</width>
                     <label>Enable Spotlight</label>
-                    <label2>$INFO[Container(211).ListItem.Property(widgetspotlight)]</label2>
                     <height>66</height>
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <include>Dialog_Standard_ListButton</include>
-                    <radioposx>630</radioposx>
+                    <radioposx>830</radioposx>
                     <selected>String.IsEqual(Container(211).ListItem.Property(widgetspotlight),true)</selected>
                     <onclick>SetProperty(customProperty,widgetspotlight)</onclick>
                     <onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetspotlight),true)">SetProperty(customValue,true)</onclick>
@@ -410,7 +408,16 @@
                     <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
                     <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + Skin.HasSetting(DisableNetflixHome)</visible>
                 </control>
--->
+                <control type="button" id="9906" description="Choose Spotlight">
+                   <width>100%</width>
+                    <height>66</height>
+                    <label>Choose Spotlight</label>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + String.IsEqual(Container(211).ListItem.Property(widgetspotlight),true)</visible>
+                    <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
+                    <label2>$INFO[Container(211).ListItem.Property(widgetSpotlighttype)]</label2>
+                    <align>left</align>
+                    <include>Dialog_Standard_Right_Buttons</include>
+                </control>
                 <control type="button" id="310" description="Background">
                     <width>100%</width>
                     <height>66</height>

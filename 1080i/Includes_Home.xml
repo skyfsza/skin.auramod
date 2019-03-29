@@ -99,8 +99,16 @@
 			<onleft condition="Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)">302</onleft>
 
                         <onleft condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">9602</onleft>
+
+			<onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widget),Settings)">3000</onright>			
                         <onright condition="Window.IsVisible(script-globalsearch-main.xml)">9500</onright>
-                        <onright condition="Window.IsVisible(Home)">SetFocus(3000)</onright>
+                        <onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + Integer.IsGreater(Container(30222).NumItems,0)">30222</onright>
+                        <onright condition="Window.IsVisible(Home) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + Integer.IsGreater(Container(30222).NumItems,0)">330</onright>
+                        <onright condition="Window.IsVisible(Home) + !Integer.IsGreater(Container(30222).NumItems,0)">3000</onright>
+                        <onright condition="Window.IsVisible(Home) + !Integer.IsGreater(Container(330).NumItems,0) + Integer.IsGreater(Container(1505).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),TVShows)">SetFocus(1505)</onright>
+                        <onright condition="Window.IsVisible(Home) + !Integer.IsGreater(Container(330).NumItems,0) + Integer.IsGreater(Container(1506).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),Movies)">SetFocus(1506)</onright>
+
+
                         <onright condition="Window.IsVisible(SettingsProfile.xml)">4</onright>
                         <onright condition="Window.IsVisible(SettingsCategory.xml)">3</onright>
                         <onright condition="Window.IsVisible(SkinSettings.xml)">9100</onright>
@@ -506,6 +514,7 @@
                     <include>Home_Separator</include>
                 </control>
             </control>
+<!--
         <control type="group">
                 <width>800</width>
            <control type="label">
@@ -522,7 +531,7 @@
                 <width>700</width>
            </control>
        </control>
-
+-->
 
             <control type="image">
                 <width>home_icon</width>
@@ -722,16 +731,74 @@
 
 
     <include name="Home_Iconbar_Texture">
+	<!-- Focused -->
 	<control type="group">
-	    <visible>Skin.HasSetting(DisableMenuVertIcon) +  [Control.HasFocus(300) | Control.HasFocus(302) | Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904)]</visible>
+	    <visible>!Skin.HasSetting(DisableMenuVertIcon) +  [Control.HasFocus(300) | Control.HasFocus(302) | Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904)]</visible>
+            <animation effect="fade" start="100" end="0" time="800" delay="20">Hidden</animation>
+            <animation effect="fade" start="30" end="100" time="800" delay="20">Visible</animation>
+            <control type="group">
+                <posy>0</posy>
+                <posx>0</posx>
+                <width>385</width>
+                <height>100%</height>
+                <control type="image">
+                    <left>0</left>
+                    <width>70</width>
+                    <height>100%</height>
+                    <colordiffuse>89000000</colordiffuse>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">common/white.png</texture>
+                </control>
+                <control type="image">
+                    <left>71</left>
+                    <height>100%</height>
+                    <width>0.5</width>
+                    <colordiffuse>dimgray</colordiffuse>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">diffuse/gradient_seperator.png</texture>
+                </control>
+            </control>
+	</control>
+
+	<!-- Unfocused -->
+        <control type="group">
+            <visible>!Skin.HasSetting(DisableNetflixHomeSidemenuHide) + ![Control.HasFocus(300) | Control.HasFocus(302) | Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904)]</visible>
+            <control type="group">
+                <posy>0</posy>
+                <posx>0</posx>
+                <width>385</width>
+                <height>100%</height>
+                <control type="image">
+                    <left>0</left>
+                    <width>70</width>
+                    <height>100%</height>
+                    <colordiffuse>29000000</colordiffuse>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">common/white.png</texture>
+                </control>
+                <control type="image">
+		    <top>-70</top>
+                    <left>71</left>
+                    <height>100%</height>
+                    <width>0.5</width>
+                    <colordiffuse>dimgray</colordiffuse>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">diffuse/gradient_seperator.png</texture>
+                </control>
+            </control>
+	</control>
+	
+	<!-- Full Vertical Menu -->
+        <control type="group">
+            <visible>Skin.HasSetting(DisableMenuVertIcon) +  [Control.HasFocus(300) | Control.HasFocus(302) | Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904)]</visible>
             <animation effect="fade" time="200" delay="200">Hidden</animation>
 
         <control type="image">
-	    <width>130</width>
+            <width>130</width>
             <texture>common/gradient-solid-horizontal.png</texture>
             <include>Defs_DarkShadow</include>
         </control>
-        
+
         <control type="image">
             <width>1</width>
             <left>-1</left>
@@ -742,8 +809,10 @@
             <right>0</right>
             <texture colordiffuse="darkline_separator">common/white.png</texture>
         </control>
-	</control>
+      </control>
+
     </include>
+
 
     <include name="Home_OnClick">
 

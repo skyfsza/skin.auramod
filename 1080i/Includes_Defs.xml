@@ -17,7 +17,10 @@
         <bordersize>24</bordersize>
         <bordertexture border="24">common/dark-shadow-24.png</bordertexture>
     </include>
-
+        <variable name="YoutubeBackground">
+                <value condition="Skin.HasSetting(darkmode)">ffDEDEDE</value>
+                <value>ff212121</value>
+        </variable>
     <variable name="Defs_PictureBack_DBID">
         <value condition="String.EndsWith(ListItem.DBID,0)">$NUMBER[0]</value>
         <value condition="String.EndsWith(ListItem.DBID,1)">$NUMBER[1]</value>

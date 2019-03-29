@@ -1,3 +1,8 @@
+v0.9.13 
+- Add netflix style Icon menu bar overlay
+- Add studio logo to Netflix view Spotlight.
+- Bug fixes / tweaks 
+
 v0.9.12
 - Add Fanart background to Library views.
 - Add New Power Menu design option

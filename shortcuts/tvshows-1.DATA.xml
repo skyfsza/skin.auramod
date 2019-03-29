@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<label>Top rated TV shows</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://DefaultFolder.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://script.extendedinfo?info=topratedtvshows",return)</action>
+	</shortcut>
+</shortcuts>

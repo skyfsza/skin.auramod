@@ -17,9 +17,9 @@
     </include>
   <include name="AutoTrailerButton">
                 <control type="button">
-                        <visible>false</visible>
+                <visible allowhiddenfocus="true">false</visible>
                         <!-- <onfocus>RunScript(script.skin.helper.service,action=fileexists,file=$INFO[listitem.path,,theme.mp3],winprop=osttheme_avail)</onfocus> -->
-                        <onfocus condition="!Player.HasVideo">AlarmClock(trailer_delay,PlayMedia($INFO[ListItem.Trailer],false,1),00:06,silent)</onfocus>
+                        <onfocus condition="!Player.HasVideo">AlarmClock(trailer_delay,PlayMedia($INFO[ListItem.Trailer],false,1),00:04,silent)</onfocus>
                         <onfocus condition="!Player.HasVideo">SetProperty(trailer_trailerwillplaying,true,home)</onfocus>
                         <onunfocus condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunfocus>
                         <onunfocus condition="Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)]">PlayerControl(Stop)</onunfocus>

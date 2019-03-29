@@ -140,6 +140,8 @@
                     <randomize>true</randomize>
                     <include condition="!Window.IsVisible(SettingsCategory.xml) + !Window.IsVisible(SkinSettings.xml) + !Window.IsVisible(SettingsProfile.xml) + !Window.IsVisible(SettingsSystemInfo.xml)">Global_FadeTime_600</include>
                     <aspectratio>scale</aspectratio>
+		    <fadetime>2000</fadetime>
+                    <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>
                     <imagepath background="true">$VAR[Global_Background_Image]</imagepath>
                 </control>
             </control>

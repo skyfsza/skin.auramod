@@ -328,6 +328,13 @@
 
     <!-- WIDGET SETTINGS -->
     <!-- Properties -->
+
+
+    <!-- Widget Spotlight -->
+    <property property="widgetSpotlighttype">Movies</property>
+    <property property="widgetSpotlighttype">TVShows</property>
+    <propertySettings property="widgetSpotlighttype" showNone="false" buttonID="9906" title="Spotlight Widget" />
+
     <!-- Widget Aspect -->
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-poster.png">Poster</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-square.png">Square</property>
@@ -339,7 +346,7 @@
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-widgetlive.png">WidgetLive</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-category.png">Category</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-genres.png">Genre</property>
-    <propertySettings property="widgetAspect" buttonID="9901" title="Widget Aspect Ratio" />
+    <propertySettings property="widgetAspect" showNone="false" buttonID="9901" title="Widget Aspect Ratio" />
 
     <!-- Widget Target -->
     <property property="widgetTarget">videos</property>
@@ -399,6 +406,8 @@
     <propertydefault labelID="20342" property="widgetAspect.Widget3">$LOCALIZE[31038]</propertydefault>
     <propertydefault labelID="20342" property="widgetPath.Widget3">plugin://script.extendedinfo?info=topratedmovies</propertydefault>
     <propertydefault labelID="20342" property="widgetTarget.Widget3">videos</propertydefault>
+    <propertydefault labelID="20342" property="widgetSpotlighttype">Movies</propertydefault>
+    <propertydefault labelID="20342" property="widgetspotlight">true</propertydefault>
 
 
     <!-- TvShows -->
@@ -416,6 +425,8 @@
     <propertydefault labelID="tvshows" property="widgetAspect.Widget3">$LOCALIZE[31038]</propertydefault>
     <propertydefault labelID="tvshows" property="widgetPath.Widget3">plugin://script.extendedinfo?info=topratedtvshows</propertydefault>
     <propertydefault labelID="tvshows" property="widgetTarget.Widget3">videos</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetSpotlighttype">TVShows</propertydefault>
+    <propertydefault labelID="tvshows" property="widgetspotlight">true</propertydefault>
 
     <!-- Music -->
     <widgetdefaultnode labelID="2" label="359" path="musicdb://recentlyaddedalbums/" target="music">RecentAlbums</widgetdefaultnode>
@@ -459,7 +470,6 @@
             <shortcut label="Movie Categories  Hub 2" grouping="32029" icon="special://skin/extras/icons/film.png">ActivateWindow(1102,return)</shortcut>
             <shortcut label="TV Categories Hub 1" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(1103,return)</shortcut>
             <shortcut label="TV Categories Hub 2" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(1104,return)</shortcut>
-            <shortcut label="Media Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3730,return)</shortcut>
             <shortcut label="Netflix Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3810,return)</shortcut>
             <shortcut label="Netflix Hub 2" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3820,return)</shortcut>
             <shortcut label="Aura Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3910,return)</shortcut>

@@ -13,12 +13,25 @@
             <size>34</size>
         </font>
         <font>
+            <name>font_widgetbar_bold</name>
+            <filename>RobotoCondensed-Bold.ttf</filename>
+            <size>34</size>
+        </font>
+        <font>
             <name>netflix_heading_small</name>
             <filename>lyrics/BOXING.ttf</filename>
             <aspect>1.3</aspect>
             <style>lowercase</style>
             <linespacing>0.9</linespacing>
             <size>44</size>
+        </font>
+        <font>
+            <name>spotlight_heading</name>
+            <filename>lyrics/BOXING.ttf</filename>
+            <aspect>1.3</aspect>
+            <style>lowercase</style>
+            <linespacing>0.9</linespacing>
+            <size>50</size>
         </font>
 	<font>
             <name>netflix_heading</name>

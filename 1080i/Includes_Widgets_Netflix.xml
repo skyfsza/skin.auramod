@@ -50,7 +50,6 @@
                         <effect type="slide" end="0,20" time="180" tween="sine" delay="80" />
                     </animation>
                     <control type="group" id="3000">
-
                         <left>0</left>
                         <top>0</top>
                         <bottom>0</bottom>
@@ -63,6 +62,25 @@
                        <control type="group">
                         <include condition="Skin.HasSetting(DisableNetflixHomeMixed) + Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableNetflixHomeAlt)">Object_Home_Netflix_Mixed</include>
                     </control>
+
+	<control type="group">
+       	 	<include>Spotlight_Movies_Widget</include>
+        	<include>Spotlight_Tvshows_Widget</include>
+           <control type="group">
+        	<left>150</left>
+        	<top>430</top> 
+        	<animation effect="slide" end="0,-10" time="10" condition="String.IsEmpty(Container(1505).ListItem.Art(clearlogo)">Conditional</animation>
+        	<include>Spotlight_Tvshows_buttons</include>
+            </control>
+           <control type="group">
+        	<left>150</left>
+        	<top>430</top>
+        	<animation effect="slide" end="0,-10" time="10" condition="String.IsEmpty(Container(1506).ListItem.Art(clearlogo)">Conditional</animation>
+        	<include>Spotlight_Movies_buttons</include>
+           </control>
+       </control>
+	
+	<include>main_menu_title</include>
 
         <include condition="!Skin.HasSetting(DisableNetflixLargeWidget)" content="Widgets_Grouplist_Large">
                 <param name="top" value="$PARAM[top]" />
@@ -463,7 +481,7 @@
                 </control>
             </control>
             <control type="fixedlist" id="$PARAM[id]">
-		<movement>1</movement>
+		<movement>2</movement>
                 <include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
                 <include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
                 <include condition="!$PARAM[submenu] + !Skin.HasSetting(DisableNetflixLargeWidget)">Widget_Items_menu_Big_Height</include>
@@ -519,6 +537,7 @@
                 <height>40</height>
                 <orientation>horizontal</orientation>
                 <usecontrolcoords>true</usecontrolcoords>
+                <itemgap>16</itemgap>
                 <control type="image">
                     <width>16</width>
                     <height>100%</height>
@@ -527,7 +546,7 @@
 		    <visible>!Control.HasFocus($PARAM[submenu]) + !Skin.HasSetting(DisableCatlabel)</visible>
                 </control>
                 <control type="label">
-		    <font>font_medium_bold</font>
+		    <font>font_widgetbar_bold</font>
                     <left>2</left>
                     <textcolor>main_fg_100</textcolor>
                     <label>$PARAM[label]</label>

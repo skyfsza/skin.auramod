@@ -132,13 +132,13 @@
                             <include>Defs_Settings_Button</include>
                             <label>$LOCALIZE[31423]</label>
                         </control>
-                         <control type="togglebutton" id="9014" description="Hubs">
+                         <control type="togglebutton" id="9014" description="Hubs & Spotlight">
                             <onfocus>SetProperty(CurrentFocus,$NUMBER[9014])</onfocus>
                             <usealttexture>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(300)] + !Control.HasFocus(302) + Integer.IsEqual(Window.Property(CurrentFocus),9014)</usealttexture>
                             <alttexturenofocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturenofocus>
                             <width>450</width>
                             <include>Defs_Settings_Button</include>
-                            <label>Hubs</label>
+                            <label>Hubs & Spotlight</label>
                         </control>
                         <control type="togglebutton" id="9002" description="Background">
                             <onfocus>SetProperty(CurrentFocus,$NUMBER[9002])</onfocus>
@@ -299,6 +299,40 @@
                         <!-- ========== -->
                         <!-- --Hubs---- -->
                         <!-- ========== -->
+                        <control type="button" id="9667" description="Spotlight Widgets">
+                            <textcolor>main_fg_100</textcolor>
+                            <disabledcolor>main_fg_12</disabledcolor>
+                            <height>80</height>
+                            <textoffsetx>view_pad</textoffsetx>
+                            <textureup flipy="true" colordiffuse="panel_fg_30">buttons/spin-down.png</textureup>
+                            <texturedown colordiffuse="panel_fg_30">buttons/spin-down.png</texturedown>
+                            <textureupfocus flipy="true" colordiffuse="panel_fg_100">buttons/spin-down.png</textureupfocus>
+                            <texturedownfocus colordiffuse="panel_fg_100">buttons/spin-down.png</texturedownfocus>
+                            <textureradiofocus colordiffuse="panel_fg_70">buttons/radio-on.png</textureradiofocus>
+                            <textureradionofocus colordiffuse="panel_fg_12">buttons/radio-off.png</textureradionofocus>
+                            <texturefocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</texturefocus>
+                            <alttexturefocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturefocus>
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <label>[B]Spotlight Widgets[/B]</label>
+                        </control>
+                        <control type="button" id="9668" description="Choose Movies Spotlight">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Choose Movies Spotlight</label>
+                            <label2>$INFO[Skin.String(spotlightmovies.label)]</label2>
+			    <onclick condition="String.IsEmpty(Skin.String(spotlightmovies.label))">RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=spotlightmovies.label&amp;skinWidgetTarget=spotlightmovies.target&amp;skinWidgetPath=spotlightmovies.path)</onclick>
+		            <onclick condition="!String.IsEmpty(Skin.String(spotlightmovies.label))">Skin.Reset(spotlightmovies.label)</onclick>
+		            <onclick condition="!String.IsEmpty(Skin.String(spotlightmovies.path))">Skin.Reset(spotlightmovies.path)</onclick>
+                        </control>
+                        <control type="button" id="9669" description="Choose TV Shows Spotlight">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Choose TV Shows Spotlight</label>
+                            <label2>$INFO[Skin.String(spotlighttvshows.label)]</label2>
+                            <onclick condition="String.IsEmpty(Skin.String(spotlighttvshows.label))">RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=spotlighttvshows.label&amp;skinWidgetTarget=spotlighttvshows.target&amp;skinWidgetPath=spotlighttvshows.path)</onclick>
+                            <onclick condition="!String.IsEmpty(Skin.String(spotlighttvshows.label))">Skin.Reset(spotlighttvshows.label)</onclick>
+                            <onclick condition="!String.IsEmpty(Skin.String(spotlighttvshows.path))">Skin.Reset(spotlighttvshows.path)</onclick>
+                        </control>
                         <control type="button" id="9664" description="Menu Hubs ">
                             <textcolor>main_fg_100</textcolor>
                             <disabledcolor>main_fg_12</disabledcolor>
@@ -1018,8 +1052,8 @@
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
                             <include>Defs_Settings_Button</include>
                             <label>Show full Spotlight info for Episodes</label>
-                            <visible>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed)</visible>
-                            <enable>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed)</enable>
+                            <visible>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed) | Skin.HasSetting(DisableNetflixHome</visible>
+                            <enable>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed) | Skin.HasSetting(DisableNetflixHome</enable>
                             <selected>Skin.HasSetting(EnableFullEpInfo)</selected>
                             <onclick>Skin.ToggleSetting(EnableFullEpInfo)</onclick>
                         </control>

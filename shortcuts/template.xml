@@ -227,7 +227,7 @@
     <submenuOther include="vertical-submenu" container="302" level="1">
         <condition tag="property" attribute="name|list" />
         <property name="widgetAspect" tag="property" attribute="name|widgetAspect" />
-        <property name="widgetAspect">Landscape</property>
+        <property name="widgetAspect">Poster</property>
         <property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
         <property name="widgetTarget">videos</property>
         <property name="widgetName" tag="label" />
