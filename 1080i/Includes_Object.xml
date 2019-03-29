@@ -3740,6 +3740,7 @@
     <definition>
       <control type="grouplist" id="330">
         <animation effect="slide" end="-20,0" time="0" condition="Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
+        <animation effect="slide" end="10,0" time="0" condition="!Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
         <animation effect="slide" end="0,140" time="300" condition="Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222) + !Integer.IsGreater(Container(30222).NumItems,6)">Conditional</animation>
         <animation effect="slide" end="0,290" time="300" condition="Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222) + Integer.IsGreater(Container(30222).NumItems,6)">Conditional</animation>
         <animation effect="slide" end="0,200" time="300" condition="ControlGroup(505).HasFocus | ControlGroup(506).HasFocus | Control.HasFocus(1505) | Control.HasFocus(1506)">Conditional</animation>
