@@ -1986,7 +1986,7 @@ msgstr ""
 
 #: /1080i/SkinSettings.xml
 msgctxt "#31416"
-msgid "Main Menu Focus Label Color"
+msgid "Main Label Color"
 msgstr ""
 
 #: /1080i/SkinSettings.xml

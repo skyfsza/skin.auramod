@@ -1,3 +1,13 @@
+v0.9.14
+- Fix bug putting watched overlay image on Posters in Showcase view.
+- Update widget aligment in Netflix mode with menu auto hide enabled.
+- Add progress bar to Info Spotlight in Netflix mode.
+- Add skin level default select action - TV Show + Movies - Info, Episodes - Play 
+- Add beta Genre Hub 
+- Fix hub selection when "Lock hubs" is unselected.
+- Remove Category widget panel option in Netflix Mode
+- Bug fixes / tweaks
+
 v0.9.13 
 - Add netflix style Icon menu bar overlay
 - Add studio logo to Netflix view Spotlight.

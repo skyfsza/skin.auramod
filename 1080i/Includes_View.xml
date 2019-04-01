@@ -309,6 +309,7 @@
                 <align>center</align>
                 <textcolor>white</textcolor>
                 <label>$INFO[ListItem.Property(UnWatchedEpisodes)]</label>
+                <include>View_UnwatchedEpisodes_Visible</include>
             </control>
         </control>
     </include>

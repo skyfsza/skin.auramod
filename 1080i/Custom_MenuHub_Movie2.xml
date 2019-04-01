@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Titan-->
 <window type="dialog" id="1102">
   <defaultcontrol always="true">4000</defaultcontrol>
   <onload>AlarmClock(focusWidgets,SetFocus(9967),00:00,silent)</onload>
   <controls>
-        <include>Global_Overlay</include>
+   <control type="group">
+     <animation type="WindowOpen">
+             <effect type="slide" start="0,1000" end="0" center="auto" tween="Cubic" easing="inout" time="200"/>
+             <effect type="zoom" start="80" end="100" center="auto" tween="Cubic" easing="inout" time="500"/>
+     </animation>
+     <animation type="WindowClose">
+             <effect type="slide" start="0" end="0,1000" center="auto" delay="500"  tween="Cubic" easing="inout" time="500"/>
+             <effect type="zoom" start="100" end="80" center="auto" delay="500"  tween="Cubic" easing="inout" time="200"/>
+     </animation>
 
-    <control type="group">
+     <control type="group">
             <centerleft>50%</centerleft>
             <centertop>50%</centertop>
             <width>1380</width>
@@ -24,7 +31,7 @@
         <width>300</width>
         <font>font_medium_bold</font>
         <textcolor>white</textcolor>
-        <label>Movie Lists</label>
+        <label>TV Show Lists</label>
       </control>
       <control type="group">
         <top>0</top>
@@ -33,7 +40,7 @@
             <control type="panel" id="9967">
                 <top>60</top>
                 <width>1380</width>
-                <height>900</height>
+                <height>870</height>
                 <onleft condition="Window.IsVisible(Home)">300</onleft>
                 <onright condition="Window.IsVisible(Home)">9967</onright>
                 <onup condition="Window.IsVisible(Home)">300</onup>
@@ -64,7 +71,6 @@
                             <height>100%</height>
                             <aspectratio aligny="center">scale</aspectratio>
                             <texture colordiffuse="99000000" background="true">diffuse/landscape.png</texture>
-			    <visible>!String.Contains(ListItem.Label,Latest) + !String.Contains(ListItem.Label,Trending) + !String.Contains(ListItem.Label,Recommended)</visible>
                         </control>
                         <control type="image">
 			    <top>10</top>
@@ -161,5 +167,6 @@
 		</control>
       </control>
     </control>
+   </control>
   </controls>
 </window>

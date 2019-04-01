@@ -466,14 +466,16 @@
             <content>common</content>
             <shortcut label="$LOCALIZE[33060]" type="$LOCALIZE[31018]" icon="special://skin/extras/icons/power.png">ActivateWindow(shutdownmenu)</shortcut>
             <shortcut label="$LOCALIZE[31017]" type="32010">||BROWSE||script.skin.helper.service/?action=smartshortcuts</shortcut>
-            <shortcut label="Movie Categories Hub 1" grouping="32029" icon="special://skin/extras/icons/film.png">ActivateWindow(1101,return)</shortcut>
-            <shortcut label="Movie Categories  Hub 2" grouping="32029" icon="special://skin/extras/icons/film.png">ActivateWindow(1102,return)</shortcut>
-            <shortcut label="TV Categories Hub 1" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(1103,return)</shortcut>
-            <shortcut label="TV Categories Hub 2" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(1104,return)</shortcut>
+            <shortcut label="Movie Categories Hub 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1101,return)</shortcut>
+            <shortcut label="Movie Categories  Hub 2" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1102,return)</shortcut>
+            <shortcut label="TV Categories Hub 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1103,return)</shortcut>
+            <shortcut label="TV Categories Hub 2" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1104,return)</shortcut>
+            <shortcut label="Media Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3730,return)</shortcut>
+            <shortcut label="Genres Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(4010,return)</shortcut>
             <shortcut label="Netflix Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3810,return)</shortcut>
-            <shortcut label="Netflix Hub 2" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3820,return)</shortcut>
+            <shortcut label="Netflix Hub 2" grouping="32029" icon="special://skin/extras/icons/film.png">ActivateWindow(3820,return)</shortcut>
             <shortcut label="Aura Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3910,return)</shortcut>
-            <shortcut label="Aura Hub 2" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3920,return)</shortcut>
+            <shortcut label="Aura Hub 2" grouping="32029" icon="special://skin/extras/icons/film.png">ActivateWindow(3920,return)</shortcut>
         </node>
         <node label="32030">
             <content>video</content>

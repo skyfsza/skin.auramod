@@ -257,7 +257,7 @@
                             <label>31416</label>
                             <label2>$INFO[Skin.String(mainmenutcolor.name)]</label2>
                             <onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
-                            <onclick>RunScript(script.skin.helper.colorpicker,skinstring=mainmenutcolor.name)</onclick>
+                            <onclick>RunScript(script.skin.helper.colorpicker,skinstring=mainmenutcolor.name,)</onclick>
                         </control>
                         <control type="radiobutton" id="9102" description="Touch / Mouse enabled widgets">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
@@ -295,6 +295,13 @@
                             <label>Enable Power Menu Bar Style</label>
                             <onclick>Skin.ToggleSetting(EnablePowerMenuBar)</onclick>
                             <selected>Skin.HasSetting(EnablePowerMenuBar)</selected>
+                        </control>
+                        <control type="radiobutton" id="9670" description="Default Select Action Show Information">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Default Select Action - Show Information</label>
+                            <onclick>Skin.ToggleSetting(EnableShowInfo)</onclick>
+                            <selected>!Skin.HasSetting(EnableShowInfo)</selected>
                         </control>
                         <!-- ========== -->
                         <!-- --Hubs---- -->
@@ -798,6 +805,7 @@
                             <selected>!Skin.HasSetting(HideSubmenuWidget)</selected>
                             <onclick>Skin.ToggleSetting(HideSubmenuWidget)</onclick>
                         </control>
+<!--
                          <control type="radiobutton" id="9157" description="Enable multi-row Categories Widget">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011) + Skin.HasSetting(DisableNetflixHome) + Skin.HasSetting(SubmenuLabel)</visible>
                             <include>Defs_Settings_Button</include>
@@ -805,6 +813,7 @@
                             <selected>Skin.HasSetting(SubmenuWidgetPanel)</selected>
                             <onclick>Skin.ToggleSetting(SubmenuWidgetPanel)</onclick>
                         </control>
+-->
                         <control type="radiobutton" id="9105" description="Enable Large Category Widget">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>

@@ -8,9 +8,11 @@
     <onload>ClearProperty(HomeFocus,Home)</onload>
     <onload>AlarmClock(SkinSplashStarted,SetProperty(SkinSplashStarted,1,home),00:01,silent,false)</onload>
     <onload>ClearProperty(WidgetLoading,Home)</onload>
-    <onload>AlarmClock(SetLoad,SetProperty(WidgetLoading,1,Home),00:00,silent)</onload>
+    <onload>AlarmClock(SetLoad,SetProperty(WidgetLoading,1,Home),00:00,silent)</onload> 
+    <onload condition="Integer.IsGreater(Container(1505).NumItems,0)">Control.Move(1505,1)</onload>
+    <onload condition="Integer.IsGreater(Container(1506).NumItems,0)">Control.Move(1506,1)</onload>
     <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
-
+   
 
     <controls>
         <control type="list" id="9988">
@@ -53,7 +55,6 @@
             <onfocus condition="String.IsEmpty(Skin.String(MenuPos)) + !String.IsEmpty(Window(Home).Property(WidgetFocus))">SetFocus(3000)</onfocus>
         </control>
 
-<!--
         <control type="scrollbar" id="9060">
             <top>0</top>
             <right>0</right>
@@ -69,7 +70,6 @@
             <include>Animation_FadeOut</include>
             <include>Defs_InfoDialog_Visible</include>
         </control>
--->
         <!-- Splash -->
         <control type="image" description="Background">
             <include>Dimensions_Fullscreen</include>

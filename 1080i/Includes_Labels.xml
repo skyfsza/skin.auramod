@@ -8,6 +8,14 @@
      <value condition="Window.IsActive(Home) + !String.IsEmpty(Skin.String(spotlighttvshows.path))">$INFO[Skin.String(spotlighttvshows.path)]</value>
      <value condition="Window.IsActive(Home) + String.IsEmpty(Skin.String(spotlighttvshows.path))">plugin://script.extendedinfo?info=topratedtvshows</value>
     </variable> 
+    <variable name="DetailsSpinImage">
+        <value condition="Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards))">awards</value>
+        <value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))">star</value>
+        <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250),0)">awards</value>
+        <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(ListItem.Director)">director</value>
+        <value condition="!String.IsEmpty(ListItem.Genre)">genre</value>
+    </variable>
+
     <variable name="PlayOrResumeLabel">
         <value condition="ListItem.IsResumable">$LOCALIZE[13404]</value>
         <value>$LOCALIZE[208]</value>
@@ -22,7 +30,7 @@
 
 
    <variable name="home_simple_episode">
-	<value>[I]Continue Watching[/I] [CR][COLOR=$VAR[ColorHighlight]]S$INFO[ListItem.Season] E$INFO[ListItem.Episode] - $INFO[ListItem.Title][/COLOR]</value>
+	<value>[I]Continue Watching[/I] [CR][COLOR=$INFO[Skin.String(mainmenutcolor.name)]]S$INFO[ListItem.Season] E$INFO[ListItem.Episode] - $INFO[ListItem.Title][/COLOR]</value>
    </variable>   
 
     <variable name="netflix_widget_style_selected">

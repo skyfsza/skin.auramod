@@ -734,8 +734,8 @@
 	<!-- Focused -->
 	<control type="group">
 	    <visible>!Skin.HasSetting(DisableMenuVertIcon) +  [Control.HasFocus(300) | Control.HasFocus(302) | Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904)]</visible>
-            <animation effect="fade" start="100" end="0" time="800" delay="20">Hidden</animation>
-            <animation effect="fade" start="30" end="100" time="800" delay="20">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="800" delay="20" condition="!Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Hidden</animation>
+            <animation effect="fade" start="30" end="100" time="800" delay="20" condition="!Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Visible</animation>
             <control type="group">
                 <posy>0</posy>
                 <posx>0</posx>

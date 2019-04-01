@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+    <variable name="DefMovieDBMoviesContent">
+        <value condition="String.IsEqual(Window(1104).Property(content),1)">plugin://script.extendedinfo?info=topratedmovies</value>
+        <value condition="String.IsEqual(Window(1104).Property(content),2)">plugin://script.extendedinfo?info=popularmovies</value>
+        <value condition="String.IsEqual(Window(1104).Property(content),3)">plugin://script.extendedinfo?info=upcomingmovies</value>
+        <value>plugin://script.extendedinfo?info=incinemamovies</value>
+    </variable>
     <include name="Defs_Shadow_Opaque">
         <left>-24</left>
         <right>-24</right>

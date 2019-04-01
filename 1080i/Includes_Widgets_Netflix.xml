@@ -486,7 +486,7 @@
                 <include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
                 <include condition="!$PARAM[submenu] + !Skin.HasSetting(DisableNetflixLargeWidget)">Widget_Items_menu_Big_Height</include>
                 <include condition="!$PARAM[submenu] + Skin.HasSetting(DisableNetflixSmallWidget)">Widget_Items_menu_Small_Height</include>
-
+		<onclick condition="!Skin.HasSetting(EnableShowInfo) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]">Action(Info)</onclick>
                 <visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | Container(300).OnNext | Container(300).OnPrevious | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
                 <include content="Widget_Items" condition="!$PARAM[submenu]">
                     <param name="id" value="$PARAM[id]" />
@@ -882,19 +882,6 @@
                         <visible>Skin.HasSetting(SubmenuLabel)</visible> <!-- small cat widget off-->
                         <visible>!Skin.HasSetting(DisableBigCat)</visible> <!-- cat text on -->
                     </control>
-<!--
-		    <control type="label">
-                        <bottom>25</bottom>
-                        <height>30</height>
-                        <align>center</align>
-                        <font>font_tiny</font>
-                        <textcolor>PosterFront_70</textcolor>
-                        <label>$INFO[ListItem.Label]</label>
-                        <scroll>false</scroll>
-                        <visible>Skin.HasSetting(SubmenuLabel)</visible>
-                        <visible>Skin.HasSetting(DisableBigCat)</visible>
-                    </control>
--->
                     <control type="image">
                         <bordersize>10</bordersize>
                         <aspectratio scalediffuse="false">keep</aspectratio>
@@ -960,21 +947,6 @@
                         <visible>Skin.HasSetting(SubmenuLabel)</visible> <!-- small cat widget off-->
                         <visible>!Skin.HasSetting(DisableBigCat)</visible> <!-- cat text on -->
                     </control>
-<!--
-		    <control type="label">
-                        <bottom>25</bottom>
-                        <height>30</height>
-                        <align>center</align>
-                        <font>font_tiny</font>
-                        <textcolor>PosterFront_70</textcolor>
-                        <right>30</right>
-                        <left>30</left>
-                        <label>$INFO[ListItem.Label]</label>
-                        <scroll>false</scroll>
-                        <visible>Skin.HasSetting(SubmenuLabel)</visible>
-                        <visible>Skin.HasSetting(DisableBigCat)</visible>
-                    </control>
--->
                     <control type="image">
                         <bordersize>10</bordersize>
                         <aspectratio scalediffuse="false">keep</aspectratio>
@@ -1233,10 +1205,14 @@
 
     <include name="Widget_Items_Landscape">
         <control type="group">
+
+	    <!-- Fanart Background -->
             <control type="image">
                 <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Image_Fanart]</texture>
                 <aspectratio scalediffuse="false">scale</aspectratio>
             </control>
+
+	    <!-- Clearlogo -->
             <control type="image">
                 <bottom>30</bottom>
                 <top>170</top>
@@ -1245,8 +1221,19 @@
                 <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
                 <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
           <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
-<!--                <visible>!Skin.HasSetting(DisableFakeLandscapeArt) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + !String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome)]</visible> -->
             </control>
+
+        <!-- Add Clearlogo to landscape Image -->
+        <control type="image">
+          <bottom>-10</bottom>
+          <right>10</right>
+          <width>45%</width>
+          <height>45%</height>
+          <aspectratio>keep</aspectratio>
+          <texture background="true">$VAR[Widget_ClearLogo]</texture>
+          <visible>Skin.HasSetting(DisableNetflixSmallWidget) + [!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo)] + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
+        </control>
+
             <control type="group">
                 <height>70</height>
                 <bottom>0</bottom>
