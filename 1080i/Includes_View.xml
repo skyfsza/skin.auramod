@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-    <include name="View_ViewIDs"><views>50,51,52,53,503,54,55,56,57,58,59,500,501,502</views></include>
+    <include name="View_ViewIDs"><views>50,51,52,53,503,54,55,56,57,58,59,500,501,502,509</views></include>
 
     <include name="View_Group">
         <top>view_pad</top>
@@ -48,6 +48,7 @@
                 <control type="group">
                     <include condition="![Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml)]">View_List</include>
                     <include condition="![Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml)]">View_Posters</include>
+                    <include condition="![Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml)]">View_Posters_PanelLayout</include>
                     <include condition="[Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml)]">View_List_PVR</include>
                 </control>
             </control>

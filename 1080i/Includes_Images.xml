@@ -48,7 +48,12 @@
 	<value condition="String.Contains(ListItem.Label,Movies)">special://skin/extras/backgrounds/movies-mainmenu-bg.jpg</value>	
 	<value condition="String.Contains(ListItem.Label,Add-ons)">special://skin/extras/backgrounds/addons-mainmenu-bg.jpg</value>	
 	<value condition="String.Contains(ListItem.Label,live)">special://skin/extras/backgrounds/live-tv-mainmenu-bg.jpg</value>	
-	<value>$VAR[Global_Background_Image_Var]</value>
+        <value condition="String.Contains(Container(300).ListItem.Label,Shows)">special://skin/extras/backgrounds/tv-shows-mainmenu-bg.jpg</value>
+        <value condition="String.Contains(Container(300).ListItem.Label,Movies)">special://skin/extras/backgrounds/movies-mainmenu-bg.jpg</value>
+        <value condition="String.Contains(Container(300).ListItem.Label,Add-ons)">special://skin/extras/backgrounds/addons-mainmenu-bg.jpg</value>
+        <value condition="String.Contains(Container(300).ListItem.Label,live)">special://skin/extras/backgrounds/live-tv-mainmenu-bg.jpg</value>
+	<value>special://skin/extras/backgrounds/tv-shows-mainmenu-bg.jpg</value>
+<!--	<value>$VAR[Global_Background_Image_Var]</value> -->
     </variable>
     <variable name="Image_OSD_Artwork">
         <value condition="!String.IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>

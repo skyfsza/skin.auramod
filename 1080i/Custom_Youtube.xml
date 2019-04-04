@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="1110">
-	<backgroundcolor>$VAR[YoutubeBackground]</backgroundcolor>
+	<backgroundcolor>ff212121</backgroundcolor>
 	<defaultcontrol always="true">11</defaultcontrol>
-	<onload>Skin.SetString(snapwindow, 1110)</onload>
-	<onload>Skin.SetString(snapico, home/snap/youtube.jpg,0)</onload>
-	<onload>Skin.SetString(snapname,Youtube)</onload>
+	<onload>SetFocus(11)</onload>
 	<controls>
 		<control type="group">
 			<animation type="WindowOpen">
@@ -49,7 +47,7 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<textoffsetx>5</textoffsetx>
-					<label>$LOCALIZE[31076]</label>    
+					<label>Trending</label>    
 				</control>
 
 				<control type="fixedlist" id="11">
@@ -164,7 +162,7 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<textoffsetx>5</textoffsetx>
-					<label>$LOCALIZE[31077]</label>    
+					<label>Live</label>    
 				</control>
 
 				<control type="fixedlist" id="22">
@@ -211,14 +209,14 @@
 							<control type="image">
 								<width>550</width>
 								<height>380</height>
-								<texture colordiffuse="FF000000">views/white_100.png</texture>
+								<texture colordiffuse="FF000000">common/white.png</texture>
 								<aspectratio>scale</aspectratio>
 								<visible>Control.HasFocus(22)</visible>
 							</control>
 							<control type="image">
 								<width>550</width>
 								<height>380</height>
-								<texture colordiffuse="blue">views/white_100.png</texture>
+								<texture colordiffuse="blue">common/white.png</texture>
 								<aspectratio>scale</aspectratio>
 								<visible>Control.HasFocus(22)</visible>
 							</control>
@@ -275,11 +273,11 @@
 					<width>820</width>
 					<height>25</height>
 					<font>spotifytitle</font>
-					<textcolor>$VAR[White]</textcolor>
+					<textcolor>dimgrey</textcolor>
 					<align>left</align>
 					<aligny>center</aligny>
 					<textoffsetx>5</textoffsetx>
-					<label>$LOCALIZE[31078]</label>    
+					<label>Subscriptions</label>    
 				</control>
 
 				<control type="fixedlist" id="33">
@@ -326,14 +324,14 @@
 							<control type="image">
 								<width>320</width>
 								<height>380</height>
-								<texture colordiffuse="FF000000">views/white_100.png</texture>
+								<texture colordiffuse="FF000000">common/white.png</texture>
 								<aspectratio>scale</aspectratio>
 								<visible>Control.HasFocus(33)</visible>
 							</control>
 							<control type="image">
 								<width>320</width>
 								<height>380</height>
-								<texture colordiffuse="blue">views/white_100.png</texture>
+								<texture colordiffuse="blue">common/white.png</texture>
 								<aspectratio>scale</aspectratio>
 								<visible>Control.HasFocus(33)</visible>
 							</control>
@@ -390,11 +388,11 @@
 					<width>820</width>
 					<height>25</height>
 					<font>spotifytitle</font>
-					<textcolor>$VAR[White]</textcolor>
+					<textcolor>dimgrey</textcolor>
 					<align>left</align>
 					<aligny>center</aligny>
 					<textoffsetx>5</textoffsetx>
-					<label>$LOCALIZE[31079]</label>    
+					<label>Recommended</label>    
 				</control>
 
 				<control type="fixedlist" id="44">
@@ -441,14 +439,14 @@
 							<control type="image">
 								<width>550</width>
 								<height>380</height>
-								<texture colordiffuse="FF000000">views/white_100.png</texture>
+								<texture colordiffuse="FF000000">common/white.png</texture>
 								<aspectratio>scale</aspectratio>
 								<visible>Control.HasFocus(44)</visible>
 							</control>
 							<control type="image">
 								<width>550</width>
 								<height>380</height>
-								<texture colordiffuse="blue">views/white_100.png</texture>
+								<texture colordiffuse="blue">common/white.png</texture>
 								<aspectratio>scale</aspectratio>
 								<visible>Control.HasFocus(44)</visible>
 							</control>
@@ -505,11 +503,11 @@
 					<width>820</width>
 					<height>25</height>
 					<font>spotifytitle</font>
-					<textcolor>$VAR[White]</textcolor>
+					<textcolor>dimgrey</textcolor>
 					<align>left</align>
 					<aligny>center</aligny>
 					<textoffsetx>5</textoffsetx>
-					<label>$LOCALIZE[31080]</label>    
+					<label>History</label>    
 				</control>
 
 				<control type="fixedlist" id="55">
@@ -556,14 +554,14 @@
 							<control type="image">
 								<width>550</width>
 								<height>380</height>
-								<texture colordiffuse="FF000000">views/white_100.png</texture>
+								<texture colordiffuse="FF000000">common/white.png</texture>
 								<aspectratio>scale</aspectratio>
 								<visible>Control.HasFocus(55)</visible>
 							</control>
 							<control type="image">
 								<width>550</width>
 								<height>380</height>
-								<texture colordiffuse="blue">views/white_100.png</texture>
+								<texture colordiffuse="blue">common/white.png</texture>
 								<aspectratio>scale</aspectratio>
 								<visible>Control.HasFocus(55)</visible>
 							</control>
@@ -620,7 +618,7 @@
 				<top>-300%</top>
 				<width>200%</width>
 				<height>300%</height>
-				<texture colordiffuse="$VAR[YoutubeBackground]">color_white.png</texture>
+				<texture colordiffuse="$VAR[YoutubeBackground]">common/white.png</texture>
 			</control>
 			<control type="image">
 				<include>FullscreenDimensions</include>
@@ -684,7 +682,7 @@
 						<height>40</height>
 						<label>$INFO[ListItem.Label]</label>
 						<font>Tile</font>
-						<textcolor>$VAR[FocusedColor]</textcolor>
+						<textcolor>white</textcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 						<scroll>true</scroll>

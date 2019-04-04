@@ -464,7 +464,7 @@
                 </control>
             </control>
             <control type="fixedlist" id="$PARAM[id]">
-		<movement>2</movement>
+		<movement>1</movement>
                 <top>widget_top</top>
                 <include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
                 <include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>

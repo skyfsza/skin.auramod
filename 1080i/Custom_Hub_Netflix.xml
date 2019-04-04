@@ -9,6 +9,7 @@
     <onunload condition="Player.HasVideo">Stop</onunload>
     <controls>
 	<include>Object_Home_Netflix</include>
+	
   <control type="grouplist" id="323233">
 	<posy>670</posy>
       <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">

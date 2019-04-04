@@ -418,6 +418,32 @@
                     <align>left</align>
                     <include>Dialog_Standard_Right_Buttons</include>
                 </control>
+                <control type="radiobutton" id="9907" description="Menu Hub as Widget">
+                    <width>100%</width>
+                    <label>Enable MenuHub as Widget</label>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
+                    <include>Dialog_Standard_ListButton</include>
+                    <radioposx>830</radioposx>
+                    <selected>String.IsEqual(Container(211).ListItem.Property(widgethub),true)</selected>
+                    <onclick>SetProperty(customProperty,widgethub)</onclick>
+                    <onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgethub),true)">SetProperty(customValue,true)</onclick>
+                    <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgethub),true)">SetProperty(customValue,false)</onclick>
+                    <onclick>SendClick(404)</onclick>
+                    <align>left</align>
+                    <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + Skin.HasSetting(DisableNetflixHome)</visible>
+                </control>
+                <control type="button" id="9908" description="Choose MenuHub">
+                   <width>100%</width>
+                    <height>66</height>
+                    <label>Choose Spotlight</label>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + String.IsEqual(Container(211).ListItem.Property(widgethub),true)</visible>
+                    <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
+                    <label2>$INFO[Container(211).ListItem.Property(widgethubselect)]</label2>
+                    <align>left</align>
+                    <include>Dialog_Standard_Right_Buttons</include>
+                </control>
                 <control type="button" id="310" description="Background">
                     <width>100%</width>
                     <height>66</height>

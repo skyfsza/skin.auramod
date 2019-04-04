@@ -335,6 +335,11 @@
     <property property="widgetSpotlighttype">TVShows</property>
     <propertySettings property="widgetSpotlighttype" showNone="false" buttonID="9906" title="Spotlight Widget" />
 
+    <!-- Widget Hub -->
+    <property property="widgethubselect">MoviesMenuHub1</property>
+    <property property="widgethubselect">TVMenuHub1</property>
+    <propertySettings property="widgethubselect" showNone="false" buttonID="9908" title="Widget Hub" />
+
     <!-- Widget Aspect -->
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-poster.png">Poster</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-square.png">Square</property>

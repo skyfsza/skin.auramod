@@ -8,6 +8,8 @@
      <value condition="Window.IsActive(Home) + !String.IsEmpty(Skin.String(spotlighttvshows.path))">$INFO[Skin.String(spotlighttvshows.path)]</value>
      <value condition="Window.IsActive(Home) + String.IsEmpty(Skin.String(spotlighttvshows.path))">plugin://script.extendedinfo?info=topratedtvshows</value>
     </variable> 
+
+    <!-- Spotlight Info @cartmandos -->
     <variable name="DetailsSpinImage">
         <value condition="Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards))">awards</value>
         <value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))">star</value>
@@ -20,6 +22,7 @@
         <value condition="ListItem.IsResumable">$LOCALIZE[13404]</value>
         <value>$LOCALIZE[208]</value>
     </variable>
+   <!-- Spotlight buttons @cartmandos -->
     <variable name="NetflixDetailsSpin">
         <value condition="Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards))">[I]$INFO[Window(Home).Property(SkinHelper.ListItem.Awards)][/I]</value>
         <value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))">[I]Staring $INFO[Window(Home).Property(SkinHelper.ListItem.CastListing)][/I]</value>

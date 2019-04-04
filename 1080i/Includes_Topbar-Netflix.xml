@@ -102,7 +102,7 @@
 
     <include name="Topbar">
 	<control type="group">
-	<visible>!Player.HasVideo + Control.HasFocus(300) + [!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(55) | Control.IsVisible(56)]]</visible>
+	<visible>!Player.HasVideo + Control.HasFocus(300) + [!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(509)]]</visible>
        	    <top>-5</top>
             <left>0</left>
             <right>0</right>
@@ -119,26 +119,6 @@
             <texture>common/gradient-solid.png</texture>
         </control>
 	</control>
-<!--
-   <control type="group">
-        <visible>Skin.HasSetting(DisableNetflixHome) + [Control.HasFocus(300) |  Control.HasFocus(302)]</visible>
-            <top>0</top>
-            <left>0</left>
-            <right>0</right>
-            <height>100</height>
-        <control type="image">
-            <bottom>-24</bottom>
-            <height>24</height>
-            <width>100%</width>
-            <texture flipy="false">common/shadow-line-24px.png</texture>
-        </control>
-        <control type="image">
-            <bottom>0</bottom>
-            <top>0</top>
-            <texture>common/gradient-solid.png</texture>
-        </control>
-        </control>
--->
         <control type="group">
             <visible>!$EXP[Exp_Info_Visible]</visible>
             <visible allowhiddenfocus="true">!Control.HasFocus(9602)</visible>
@@ -177,7 +157,7 @@
                             <visible>Skin.HasSetting(MouseMode) + ![Window.IsVisible(script-globalsearch.xml) | Window.IsVisible(Home)]</visible>
                         </control>
                         <control type="label">
-			    <visible>![!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(502) | Control.IsVisible(55) | Control.IsVisible(56)]]  + !Window.IsVisible(MyPVRChannels.xml) + !Window.IsVisible(MyPVRGuide.xml)</visible>
+			    <visible>![!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(502) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(509)]]  + !Window.IsVisible(MyPVRChannels.xml) + !Window.IsVisible(MyPVRGuide.xml)</visible>
                             <top>0</top>
                             <width max="1140">auto</width>
                             <font>font_topbar</font>

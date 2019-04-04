@@ -69,13 +69,13 @@
            <control type="group">
         	<left>150</left>
         	<top>430</top> 
-        	<animation effect="slide" end="0,-10" time="10" condition="String.IsEmpty(Container(1505).ListItem.Art(clearlogo)">Conditional</animation>
+        	<animation effect="slide" end="0,-10" time="10" condition="String.IsEmpty(Container(1505).ListItem.Art(clearlogo))">Conditional</animation>
         	<include>Spotlight_Tvshows_buttons</include>
             </control>
            <control type="group">
         	<left>150</left>
         	<top>430</top>
-        	<animation effect="slide" end="0,-10" time="10" condition="String.IsEmpty(Container(1506).ListItem.Art(clearlogo)">Conditional</animation>
+        	<animation effect="slide" end="0,-10" time="10" condition="String.IsEmpty(Container(1506).ListItem.Art(clearlogo))">Conditional</animation>
         	<include>Spotlight_Movies_buttons</include>
            </control>
        </control>
@@ -481,7 +481,7 @@
                 </control>
             </control>
             <control type="fixedlist" id="$PARAM[id]">
-		<movement>2</movement>
+		<movement>1</movement>
                 <include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
                 <include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
                 <include condition="!$PARAM[submenu] + !Skin.HasSetting(DisableNetflixLargeWidget)">Widget_Items_menu_Big_Height</include>

@@ -257,6 +257,7 @@
     </control>
   </include>
 
+   <!-- Widget hub @cartmandos -->
   <include name="widget_510">
     <param name="submenu" default="false" />
     <param name="aspect" default="" />
@@ -267,6 +268,7 @@
     <param name="top" default="0" />
     <param name="height" default="460" />
     <definition>
+    <control type="group">
       <control type="label" id="$PARAM[id]3">
         <top>-40</top>
         <width>100%</width>
@@ -382,6 +384,7 @@
             </control>
           </control>
         </itemlayout>
+-->
         <focusedlayout width="385" height="980" condition="!Control.HasFocus($PARAM[id])">
           <control type="group">
             <left>60</left>
@@ -406,7 +409,8 @@
             </control>
           </control>
         </focusedlayout>
-        <focusedlayout width="1550" height="980" condition="Control.HasFocus($PARAM[id])">
+-->
+        <focusedlayout width="1550" height="980">
           <control type="group">
             <left>60</left>
             <right>-60</right>
@@ -510,6 +514,7 @@
         <content target="$INFO[Skin.String($PARAM[skinsetting].target)]">$INFO[Skin.String($PARAM[skinsetting].path)]</content>
         <visible>Skin.String($PARAM[skinsetting].path)</visible>
       </control>
+</control>
     </definition>
   </include>
 
@@ -687,8 +692,13 @@
           </control>
         </control>
       </control>
+	<include>media_hub_control</include>
+      </control>
+</include>
 
+<include name="media_hub_control">
       <!-- Discover Movies -->
+    <control type="group">
       <control type="group">
         <control type="grouplist" id="511">
           <scrolltime tween="sine" easing="out">600</scrolltime>
@@ -782,7 +792,7 @@
       </control>
     </control>
   </include>
-
+  <!-- Widget hub @cartmandos -->
   <include name="netflix_customhub_fixed">
     <param name="submenu" default="false" />
     <param name="aspect" default="" />
@@ -973,7 +983,7 @@
       </include>
     </focusedlayout>
   </include>
-
+ <!-- Widget hub @cartmandos -->
   <include name="netflix_customhub_item">
     <param name="skinsetting" default="" />
     <param name="submenu" default="false" />
@@ -1132,5 +1142,7 @@
       </control>
     </definition>
   </include>
-
+ <include name="menuhub_height_one"><height>290</height></include>
+ <include name="menuhub_height_two"><height>600</height></include>
+ <include name="menuhub_height_three"><height>870</height></include>
 </includes>

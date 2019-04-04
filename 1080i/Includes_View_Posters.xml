@@ -7,8 +7,9 @@
             <include condition="Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(AddonBrowser.xml)">View_Posters_SquareWall</include>
             <include condition="!Skin.HasSetting(DisableViewMode.BannerWall) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml)]">View_Posters_BannerWall</include>
             <include condition="!Skin.HasSetting(DisableViewMode.PosterShowcase) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml)]">View_Posters_Showcase</include>
-            <include condition="!Skin.HasSetting(DisableViewMode.LandscapeShowcase) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_LandscapeShowcase</include>
             <include condition="!Skin.HasSetting(DisableViewMode.SquareShowcase) + [Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyPrograms.xml)]">View_Posters_SquareShowcase</include>
+            <include condition="!Skin.HasSetting(DisableViewMode.LandscapeShowcase) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_LandscapeShowcase</include>
+            <include condition="!Skin.HasSetting(DisableViewMode.LandscapeShowcase) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_LandscapeShowcasePanel</include>
             <include condition="!Skin.HasSetting(DisableViewMode.BigPosters) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml)]">View_Posters_BigPosters</include>
             <include condition="!Skin.HasSetting(DisableViewMode.Lovefilm) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_Lovefilm</include>
             <include condition="!Skin.HasSetting(DisableViewMode.EpisodeList) + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_EpisodeList</include>
@@ -197,6 +198,58 @@
 
         </control>
     </include>
+
+    <include name="View_Posters_LandscapeShowcasePanel">
+        <control type="group">
+            <visible>Control.IsVisible(509)</visible>
+            <control type="group">
+                <include condition="Skin.HasSetting(DisableNetflixView)">View_Pad</include>
+                <include condition="!Skin.HasSetting(DisableNetflixView)">View_Pad_Netflix</include>
+                <control type="panel" id="509">
+		<animation effect="slide" end="0,20" condition="!Skin.HasSetting(DisableNetflixView)">Conditonal</animation>
+                    <bottom>-25</bottom>
+                    <right>-70</right>
+                    <left>-70</left>
+                    <height>470</height>
+                    <focusposition>0</focusposition>
+                    <movement>2</movement>
+                    <viewtype label="$LOCALIZE[31467]">showcase panel</viewtype>
+                    <include>View_Movement_Vertical</include>
+                    <pagecontrol>60</pagecontrol>
+                    <onleft>509</onleft>
+                    <onright>509</onright>
+                    <include condition="!Skin.HasSetting(DisableNetflixView)">trailer_down</include>
+                    <include content="View_Forced">
+                        <param name="string" value="$LOCALIZE[31467]" />
+                    </include>
+                    <visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(videos) | Container.Content(artists) | $EXP[Exp_IsPluginAdvancedLauncher]</visible>
+                    <include>View_NotTheseWindows</include>
+                    <include content="View_Posters_PanelLayout">
+                        <param name="id" value="509" />
+                        <param name="orientation" value="horizontal" />
+                        <param name="landscape" default="true" />
+                    </include>
+                </control>
+                <include content="Object_Info" condition="Skin.HasSetting(DisableNetflixView)">
+                    <param name="id" value="509" />
+                    <param name="width" value="1654" />
+                    <param name="discart" value="true" />
+                    <param name="hdsd_flag" value="true" />
+                    <param name="plot_height" value="170" />
+                </include>
+                <include content="Object_Info_Netflix" condition="!Skin.HasSetting(DisableNetflixView)">
+                    <param name="id" value="509" />
+                    <param name="width" value="1654" />
+                    <param name="discart" value="true" />
+                    <param name="hdsd_flag" value="true" />
+                    <param name="plot_height" value="170" />
+                </include>
+            </control>
+
+        </control>
+    </include>
+
+
 
     <include name="View_Posters_LandscapeShowcase">
         <control type="group">
@@ -504,6 +557,56 @@
             </control>
         </control>
     </include>
+
+    <include name="View_Posters_PanelLayout">
+        <param name="id" default="509" />
+        <param name="setfanart" default="false" />
+        <param name="orientation" default="vertical" />
+        <param name="top_offset" default="0" />
+        <param name="bottom_offset" default="0" />
+        <param name="submenu" default="false" />
+        <param name="text" default="true" />
+        <definition>
+            <focusposition>3</focusposition>
+            <movement>3</movement>
+            <orientation>vertical</orientation>
+            <include>View_Movement_Horizontal</include>
+            <preloaditems>2</preloaditems>
+            <scrolltime tween="quadratic">400</scrolltime>
+            <itemlayout width="373.33" height="210" condition="$PARAM[landscape]">
+                <control type="group">
+                    <left>view_pad</left>
+                    <right>-view_pad</right>
+                    <top>$PARAM[top_offset]</top>
+                    <bottom>$PARAM[bottom_offset]</bottom>
+                    <control type="group">
+                        <include>View_Landscape_Artwork</include>
+                    </control>
+                    <include condition="$PARAM[text] + !Skin.HasSetting(DisableViewText) + Skin.HasSetting(DisableNetflixView)">View_Landscape_Text</include>
+                </control>
+            </itemlayout>
+            <focusedlayout width="373.33" height="210" condition="$PARAM[landscape]">
+                <control type="group">
+                    <top>$PARAM[top_offset]</top>
+                    <bottom>$PARAM[bottom_offset]</bottom>
+                    <left>view_pad</left>
+                    <right>-view_pad</right>
+                    <include>Animation_FocusBounce</include>
+                    <control type="group">
+                        <include>View_Landscape_Artwork</include>
+                        <!-- Highlight -->
+                        <control type="group">
+                            <visible>Control.HasFocus($PARAM[id])</visible>
+                            <include>View_Selectbox</include>
+                        </control>
+                    </control>
+                    <include condition="$PARAM[text] + !Skin.HasSetting(DisableViewText) + Skin.HasSetting(DisableNetflixView)">View_Landscape_Text</include>
+                </control>
+            </focusedlayout>
+        </definition>
+    </include>
+
+ 
 
     <include name="View_Posters_Layout">
         <param name="id" default="51" />

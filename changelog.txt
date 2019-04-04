@@ -1,3 +1,10 @@
+v0.9.15
+- Fix Clearart alignment issue on Video OSD. 
+- Fix Hubs tweaks / fixes.
+- Add new Panel Showcase view.
+- Add ability to use Menu Hub as a home widget.
+- Bug fixes / tweaks
+
 v0.9.14
 - Fix bug putting watched overlay image on Posters in Showcase view.
 - Update widget aligment in Netflix mode with menu auto hide enabled.
