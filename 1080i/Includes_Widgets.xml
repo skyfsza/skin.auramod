@@ -474,6 +474,7 @@
                 <include condition="$PARAM[genrecondition]">Widget_Items_genre_Big_Height</include>
                 <include condition="$PARAM[landscapecondition]">Widget_Items_Landscape_Big_Height</include>
                 <include condition="$PARAM[postercondition]">Widget_Items_Poster_Big</include>
+                <include condition="$PARAM[posterdetailscondition]">Widget_Items_Poster_Big</include>
                 <include condition="$PARAM[squarecondition]">Widget_Items_Poster_Big</include>
                 <include condition="$PARAM[widgetlivecondition]">Widget_Items_Landscape_Big_Height</include>
                 <include condition="$PARAM[categorycondition]">Widget_Items_Category_Big_Height</include>
@@ -891,6 +892,24 @@
                 </include>
             </itemlayout>
 
+           <focusedlayout width="800" height="widget_poster_height" condition="$PARAM[posterdetailscondition] + Control.HasFocus($PARAM[id])">
+                <include content="Widget_Items_FocusedLayout">
+                    <param name="id" value="$PARAM[id]" />
+                    <param name="posterdetails" value="true" />
+                    <param name="genres" value="$PARAM[genres]" />
+                    <param name="studios" value="$PARAM[studios]" />
+                    <param name="text" value="$PARAM[text]" />
+                </include>
+            </focusedlayout>
+                   <focusedlayout width="widget_poster_width" height="widget_poster_height" condition="$PARAM[posterdetailscondition] + !Control.HasFocus($PARAM[id])">
+                <include content="Widget_Items_FocusedLayout">
+                    <param name="id" value="$PARAM[id]" />
+                    <param name="poster" value="true" />
+                    <param name="genres" value="$PARAM[genres]" />
+                    <param name="studios" value="$PARAM[studios]" />
+                    <param name="text" value="$PARAM[text]" />
+                </include>
+            </focusedlayout>
             <focusedlayout width="widget_poster_width" height="widget_poster_height" condition="$PARAM[postercondition]">
                 <include content="Widget_Items_FocusedLayout">
                     <param name="id" value="$PARAM[id]" />
@@ -945,24 +964,6 @@
                     <param name="text" value="$PARAM[text]" />
                 </include>
             </focusedlayout>
-	   <focusedlayout width="800" height="widget_poster_height" condition="$PARAM[posterdetailscondition] + Control.HasFocus($PARAM[id])">
-                <include content="Widget_Items_FocusedLayout">
-                    <param name="id" value="$PARAM[id]" />
-                    <param name="posterdetails" value="true" />
-                    <param name="genres" value="$PARAM[genres]" />
-                    <param name="studios" value="$PARAM[studios]" />
-                    <param name="text" value="$PARAM[text]" />
-                </include>
-            </focusedlayout>
-	           <focusedlayout width="widget_poster_width" height="widget_poster_height" condition="$PARAM[posterdetailscondition] + !Control.HasFocus($PARAM[id])">
-                <include content="Widget_Items_FocusedLayout">
-                    <param name="id" value="$PARAM[id]" />
-                    <param name="poster" value="true" />
-                    <param name="genres" value="$PARAM[genres]" />
-                    <param name="studios" value="$PARAM[studios]" />
-                    <param name="text" value="$PARAM[text]" />
-                </include>
-            </focusedlayout> 
 	  <focusedlayout width="380" height="widget_landscape_height" condition="$PARAM[widgetlivecondition]">
                 <include content="Widget_Items_FocusedLayout">
                     <param name="id" value="$PARAM[id]" />
