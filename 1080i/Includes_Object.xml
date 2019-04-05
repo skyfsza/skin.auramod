@@ -3335,10 +3335,10 @@
           <onleft condition="!Control.IsVisible(3000) + !Control.IsVisible(9000)">50</onleft>
           <onright condition="!Control.IsVisible(3000) + !Control.IsVisible(9000)">50</onright>
           <ondown condition="!Control.IsVisible(3000) + !Control.IsVisible(9000)">50</ondown>
-	  <onleft condition="Control.IsVisible(9601)">Close</onleft>
-	  <onright condition="Control.IsVisible(9601)">Close</onright>
-	  <ondown condition="Control.IsVisible(9601)">Close</ondown>
-	  <onup condition="Control.IsVisible(9601)">Close</onup>
+	  <onup condition="Window.IsVisible(DialogVideoInfo.xml)">SetFocus(9570)</onup>
+	  <ondown condition="Window.IsVisible(DialogVideoInfo.xml)">SetFocus(9570)</ondown>
+	  <onleft condition="Window.IsVisible(DialogVideoInfo.xml)">SetFocus(9570)</onleft>
+	  <onright condition="Window.IsVisible(DialogVideoInfo.xml)">SetFocus(9570)</onright>
           <showonepage>true</showonepage>
           <width>8</width>
           <orientation>vertical</orientation>
