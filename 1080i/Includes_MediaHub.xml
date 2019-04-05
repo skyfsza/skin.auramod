@@ -257,7 +257,6 @@
     </control>
   </include>
 
-   <!-- Widget hub @cartmandos -->
   <include name="widget_510">
     <param name="submenu" default="false" />
     <param name="aspect" default="" />
@@ -279,48 +278,7 @@
         <textcolor>white</textcolor>
         <label>$INFO[Skin.String($PARAM[skinsetting].label)]</label>
         <texturenofocus></texturenofocus>
-        <visible>Skin.String($PARAM[skinsetting].label) + Skin.HasSetting(LockHubWidgets)</visible>
-      </control>
-
-      <control type="button" id="$PARAM[id]4">
-        <animation effect="slide" end="0,40" condition="Control.HasFocus(51) | Control.HasFocus(52) | Control.HasFocus(5104) | Control.HasFocus(5204)">Conditional</animation>
-        <ondown condition="Control.HasFocus(5104)">511</ondown>
-        <ondown condition="Control.HasFocus(5204)">521</ondown>
-        <onup condition="Control.HasFocus(5104)">51</onup>
-        <onup condition="Control.HasFocus(5204)">52</onup>
-        <top>10</top>
-        <width min="200" max="900">auto</width>
-        <height>40</height>
-        <align>left</align>
-        <font>Reg32</font>
-        <textoffsetx>65</textoffsetx>
-        <label>[B]Click to Change:[/B] $INFO[Skin.String($PARAM[skinsetting].label)]</label>
-        <textcolor>white</textcolor>
-        <texturefocus colordiffuse="white">netflix/border_netflix.png</texturefocus>
-        <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
-        <texturenofocus></texturenofocus>
-        <visible>Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
-      </control>
-
-      <control type="button" id="$PARAM[id]5">
-        <animation effect="slide" end="0,40" condition="Control.HasFocus(51) | Control.HasFocus(52) | Control.HasFocus(5105) | Control.HasFocus(5205)">Conditional</animation>
-        <ondown condition="Control.HasFocus(5105)">511</ondown>
-        <onup condition="Control.HasFocus(5105)">51</onup>
-        <ondown condition="Control.HasFocus(5205)">521</ondown>
-        <onup condition="Control.HasFocus(5205)">52</onup>
-        <top>10</top>
-        <width min="200" max="900">auto</width>
-        <height>40</height>
-        <align>left</align>
-        <font>Reg32</font>
-        <textoffsetx>65</textoffsetx>
-        <label>- No Widget Set - Click to select Widget</label>
-        <texturefocus colordiffuse="dimgrey">netflix/border_netflix.png</texturefocus>
-        <textcolor>white</textcolor>
-        <shadowcolor>white</shadowcolor>
-        <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
-        <texturenofocus></texturenofocus>
-        <visible>!Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
+        <visible>Skin.String($PARAM[skinsetting].label)</visible>
       </control>
 
       <control type="multiimage" id="$PARAM[id]6">
@@ -384,7 +342,6 @@
             </control>
           </control>
         </itemlayout>
--->
         <focusedlayout width="385" height="980" condition="!Control.HasFocus($PARAM[id])">
           <control type="group">
             <left>60</left>
@@ -409,7 +366,6 @@
             </control>
           </control>
         </focusedlayout>
--->
         <focusedlayout width="1550" height="980">
           <control type="group">
             <left>60</left>
@@ -792,7 +748,7 @@
       </control>
     </control>
   </include>
-  <!-- Widget hub @cartmandos -->
+
   <include name="netflix_customhub_fixed">
     <param name="submenu" default="false" />
     <param name="aspect" default="" />
@@ -816,59 +772,6 @@
         <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
         <texturenofocus></texturenofocus>
         <visible>Skin.String($PARAM[skinsetting].label) + Skin.HasSetting(LockHubWidgets)</visible>
-      </control>
-
-      <control type="button" id="$PARAM[id]4">
-        <animation effect="slide" end="0,40" condition="Control.HasFocus(51) | Control.HasFocus(52) | Control.HasFocus(52) | Control.HasFocus(53) |  Control.HasFocus(5104) | Control.HasFocus(5204) | Control.HasFocus(5204) |  Control.HasFocus(5304) |  Control.HasFocus(5404)">Conditional</animation>
-        <ondown condition="Control.HasFocus(5104)">511</ondown>
-        <ondown condition="Control.HasFocus(5204)">521</ondown>
-        <onup condition="Control.HasFocus(5104)">51</onup>
-        <onup condition="Control.HasFocus(5204)">52</onup>
-        <ondown condition="Control.HasFocus(5304)">531</ondown>
-        <ondown condition="Control.HasFocus(5404)">541</ondown>
-        <onup condition="Control.HasFocus(3104)">53</onup>
-        <onup condition="Control.HasFocus(5404)">54</onup>
-
-        <onleft>$PARAM[onleft]</onleft>
-        <ondown>$PARAM[id]</ondown>
-        <top>10</top>
-        <width min="200" max="900">auto</width>
-        <height>40</height>
-        <align>left</align>
-        <font>Reg32</font>
-        <textoffsetx>65</textoffsetx>
-        <label>[B]Click to Change:[/B] $INFO[Skin.String($PARAM[skinsetting].label)]</label>
-        <textcolor>white</textcolor>
-        <texturefocus colordiffuse="white">netflix/border_netflix.png</texturefocus>
-        <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
-        <texturenofocus></texturenofocus>
-        <visible>Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
-      </control>
-
-      <control type="button" id="$PARAM[id]5">
-        <animation effect="slide" end="0,40" condition="Control.HasFocus(51) | Control.HasFocus(52) | Control.HasFocus(53) | Control.HasFocus(54) | Control.HasFocus(52) | Control.HasFocus(5105) | Control.HasFocus(5205) |  Control.HasFocus(5305) |  Control.HasFocus(5405)">Conditional</animation>
-        <ondown condition="Control.HasFocus(5105)">511</ondown>
-        <ondown condition="Control.HasFocus(5205)">521</ondown>
-        <onup condition="Control.HasFocus(5105)">51</onup>
-        <onup condition="Control.HasFocus(5205)">52</onup>
-        <ondown condition="Control.HasFocus(5305)">531</ondown>
-        <ondown condition="Control.HasFocus(5405)">541</ondown>
-        <onup condition="Control.HasFocus(3105)">53</onup>
-        <onup condition="Control.HasFocus(5405)">54</onup>
-        <onleft>$PARAM[onleft]</onleft>
-        <ondown>$PARAM[id]</ondown>
-        <top>0</top>
-        <width min="200" max="900">auto</width>
-        <height>40</height>
-        <align>left</align>
-        <font>Reg32</font>
-        <textoffsetx>65</textoffsetx>
-        <label>- No Widget Set - Click to select Widget</label>
-        <textcolor>white</textcolor>
-        <texturefocus colordiffuse="white">netflix/border_netflix.png</texturefocus>
-        <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
-        <texturenofocus></texturenofocus>
-        <visible>!Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
       </control>
 
       <control type="multiimage" id="$PARAM[id]6">
@@ -983,7 +886,7 @@
       </include>
     </focusedlayout>
   </include>
- <!-- Widget hub @cartmandos -->
+
   <include name="netflix_customhub_item">
     <param name="skinsetting" default="" />
     <param name="submenu" default="false" />
@@ -1011,60 +914,6 @@
         <shadowcolor>$INFO[Skin.String(ViewDetailsTextShadowColor)]</shadowcolor>
         <texturenofocus></texturenofocus>
         <visible>Skin.String($PARAM[skinsetting].label) + Skin.HasSetting(LockHubWidgets)</visible>
-      </control>
-
-      <control type="button" id="$PARAM[id]4">
-        <animation effect="slide" end="0,20" condition="Control.HasFocus(51) | Control.HasFocus(52) | Control.HasFocus(53) | Control.HasFocus(54) |  Control.HasFocus(5104) | Control.HasFocus(5204) |  Control.HasFocus(5304) |  Control.HasFocus(5404)">Conditional</animation>
-        <ondown condition="Control.HasFocus(5104)">511</ondown>
-        <ondown condition="Control.HasFocus(5204)">521</ondown>
-        <ondown condition="Control.HasFocus(5304)">531</ondown>
-        <ondown condition="Control.HasFocus(5404)">541</ondown>
-        <onup condition="Control.HasFocus(5104)">51</onup>
-        <onup condition="Control.HasFocus(5204)">52</onup>
-        <onup condition="Control.HasFocus(5304)">53</onup>
-        <onup condition="Control.HasFocus(5404)">54</onup>
-        <onleft>$PARAM[onleft]</onleft>
-        <ondown>$PARAM[id]</ondown>
-	<left>30</left>
-        <top>-40</top>
-        <width min="200" max="900">auto</width>
-        <height>40</height>
-        <align>left</align>
-        <font>Reg32</font>
-        <textoffsetx>65</textoffsetx>
-        <label>[B]Click to Change:[/B] $INFO[Skin.String($PARAM[skinsetting].label)]</label>
-        <textcolor>white</textcolor>
-        <texturefocus colordiffuse="white">netflix/border_netflix.png</texturefocus>
-        <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
-        <texturenofocus></texturenofocus>
-        <visible>Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
-      </control>
-
-      <control type="button" id="$PARAM[id]5">
-        <animation effect="slide" end="0,20" condition="Control.HasFocus(51) | Control.HasFocus(52) | Control.HasFocus(53) | Control.HasFocus(54) |  Control.HasFocus(5105) | Control.HasFocus(5205) |  Control.HasFocus(5305) |  Control.HasFocus(5405)">Conditional</animation> 
-        <ondown condition="Control.HasFocus(5105)">511</ondown>
-        <ondown condition="Control.HasFocus(5205)">521</ondown>
-        <onup condition="Control.HasFocus(5105)">51</onup>
-        <onup condition="Control.HasFocus(5205)">52</onup>
-        <ondown condition="Control.HasFocus(5305)">531</ondown>
-        <ondown condition="Control.HasFocus(5405)">541</ondown>
-        <onup condition="Control.HasFocus(5405)">53</onup>
-        <onup condition="Control.HasFocus(5405)">54</onup>
-        <onleft condition="!String.IsEmpty($PARAM)">$PARAM[onleft]</onleft>
-        <ondown condition="!String.IsEmpty($PARAM)">$PARAM[onleft]</ondown>
-	<left>30</left>
-        <top>-40</top>
-        <width min="200" max="900">auto</width>
-        <height>40</height>
-        <align>left</align>
-        <font>Reg32</font>
-        <textoffsetx>65</textoffsetx>
-        <label>- No Widget Set - Click to select Widget</label>
-        <textcolor>white</textcolor>
-        <texturefocus colordiffuse="white">netflix/border_netflix.png</texturefocus>
-        <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=$PARAM[skinsetting].label&amp;skinWidgetTarget=$PARAM[skinsetting].target&amp;skinWidgetPath=$PARAM[skinsetting].path)</onclick>
-        <texturenofocus></texturenofocus>
-        <visible>!Skin.String($PARAM[skinsetting].label) + !Skin.HasSetting(LockHubWidgets)</visible>
       </control>
 
       <control type="multiimage" id="$PARAM[id]6">
@@ -1142,7 +991,4 @@
       </control>
     </definition>
   </include>
- <include name="menuhub_height_one"><height>290</height></include>
- <include name="menuhub_height_two"><height>600</height></include>
- <include name="menuhub_height_three"><height>870</height></include>
 </includes>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window type="dialog" id="1060">
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <!-- <onunload>AlarmClock(reloadskin,ReloadSkin(),00:00,silent,false)</onunload> -->
+    <controls>
+        <include>Global_Overlay</include>
+        <control type="group">
+            <include content="Dialog_Standard_Group">
+                <param name="width" value="1000" />
+                <param name="height" value="516" />
+            </include>
+
+            <control type="label">
+                <description>Header Label</description>
+                <label>Choose Widgets</label>
+                <include>Dialog_Standard_Header</include>
+            </control>
+
+            <control type="grouplist" id="9000">
+                <description>Control Area</description>
+                <width>900</width>
+                <top>100</top>
+                <height>600</height>
+                <orientation>vertical</orientation>
+                <usecontrolcoords>true</usecontrolcoords>
+                       <control type="button" id="9001" description="Configure Widget 1">
+                            <include>Defs_Settings_Button</include>
+                            <label>Discover TV Widget</label>
+			    <label2>$INFO[Skin.String(mediahub-510.label)]</label2>
+                            <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=mediahub-510.label&amp;skinWidgetTarget=mediahub-510.target&amp;skinWidgetPath=mediahub-510.path)</onclick>
+                        </control>
+
+                       <control type="button" id="9002" description="Configure Widget 2">
+                            <include>Defs_Settings_Button</include>
+                            <label>Discover Movies Widget</label>
+                            <label2>$INFO[Skin.String(mediahub-520.label)]</label2>
+                            <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=mediahub-520.label&amp;skinWidgetTarget=mediahub-520.target&amp;skinWidgetPath=mediahub-520.path)</onclick>
+                        </control>
+                       <control type="button" id="9003" description="Configure Widget 3">
+                            <include>Defs_Settings_Button</include>
+                            <label>My TV Widget</label>
+                            <label2>$INFO[Skin.String(mediahub-530.label)]</label2>
+                            <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=mediahub-530.label&amp;skinWidgetTarget=mediahub-530.target&amp;skinWidgetPath=mediahub-530.path)</onclick>
+                        </control>
+                       <control type="button" id="9008" description="Configure Widget 8">
+                            <include>Defs_Settings_Button</include>
+                            <label>My Movies Widget</label>
+                            <label2>$INFO[Skin.String(mediahub-540.label)]</label2>
+                            <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=mediahub-540.label&amp;skinWidgetTarget=mediahub-540.target&amp;skinWidgetPath=mediahub-540.path)</onclick>
+                        </control>
+           </control>
+
+        </control>
+    </controls>
+</window>

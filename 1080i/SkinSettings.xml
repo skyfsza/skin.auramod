@@ -1,7 +1,7 @@
 <window>
     <defaultcontrol always="true">300</defaultcontrol>
     <include>Defs_Settings_OnLoad</include>
-    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104)</onunload>
+    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=3&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104)</onunload>
     <onunload condition="System.HasAddon(script.colorbox)">SetProperty(NINE_manual_set,"var=main,set=$INFO[Skin.String(colorbox_main)]|var=comp,set=$INFO[Skin.String(colorbox_comp)]|var=quality,set=$INFO[Skin.String(colorbox_quality)]|var=blursize,set=$INFO[Skin.String(colorbox_blursize)]|var=bitsize,set=$INFO[Skin.String(colorbox_bitsize)]|var=pixelsize,set=$INFO[Skin.String(colorbox_pixelsize)]|var=black,set=$INFO[Skin.String(colorbox_black)]|var=white,set=$INFO[Skin.String(colorbox_white)]|var=blend,set=$INFO[Skin.String(colorbox_blend)]|var=desat,set=$INFO[Skin.String(colorbox_desat)]",home)</onunload> 
     <onload condition="String.IsEmpty(Window.Property(CurrentFocus))">SetProperty(CurrentFocus,$NUMBER[9001])</onload>
     <controls>
@@ -396,12 +396,41 @@
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <label>[B]$LOCALIZE[31464][/B]</label>
                         </control>
-                        <control type="radiobutton" id="9666" description="Lock Hub Widgets">
+                      <control type="button" id="9676" description="Configure Media Hub">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31444]</label>
-                            <selected>Skin.HasSetting(LockHubWidgets)</selected>
-                            <onclick>Skin.ToggleSetting(LockHubWidgets)</onclick>
+                            <label>Configure Media Hub</label>
+                            <onclick>ActivateWindow(1060)</onclick>
+                        </control>
+                      <control type="button" id="9675" description="Configure Movie Genres Hub">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Movie Genres Hub</label>
+                            <onclick>ActivateWindow(1050)</onclick>
+                        </control>
+                        <control type="button" id="9671" description="Configure Aura Hub 1">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Aura Hub 1</label>
+                            <onclick>ActivateWindow(1030)</onclick>
+                        </control>
+                      <control type="button" id="9672" description="Configure Aura Hub 2">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Aura Hub 2</label>
+                            <onclick>ActivateWindow(1041)</onclick>
+                        </control>
+                      <control type="button" id="9673" description="Configure Netflix Hub 1">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Netflix Hub 1</label>
+                            <onclick>ActivateWindow(1030)</onclick>
+                        </control>
+                      <control type="button" id="9674" description="Configure Netflix Hub 2">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Netflix Hub 2</label>
+                            <onclick>ActivateWindow(1031)</onclick>
                         </control>
 
                         <!-- ========== -->
