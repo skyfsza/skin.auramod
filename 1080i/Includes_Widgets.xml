@@ -685,9 +685,9 @@
                       </control>
 		<control type="grouplist">
 		    <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(302) + Skin.HasSetting(DisableWidgetIMDB)</visible>
-                    <bottom>5</bottom>
-                    <height>30</height>
-               <include content="Object_Ratings_Content">
+                    <bottom>10</bottom>
+                    <height>40</height>
+               <include content="Object_Ratings">
                     <param name="directory" value="color" />
                     <param name="align" value="left" />
                     <param name="width" value="1400" />

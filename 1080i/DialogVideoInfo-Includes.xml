@@ -972,6 +972,7 @@
         <itemgap>0</itemgap>
         <usecontrolcoords>true</usecontrolcoords>
         <orientation>vertical</orientation>
+	<height>1500</height>
         <left>10</left>
         <control type="group">
           <height min="155" max="251">auto</height>
@@ -1014,7 +1015,7 @@
           </control>
         </control>
         <control type="group">
-          <height>200</height>
+	<height>150</height>
           <control type="textbox">
             <label fallback="19055">$VAR[Label_Plot]</label>
             <width>750</width>
@@ -1023,31 +1024,35 @@
             <font>widget_trakt_title</font>
           </control>
         </control>
-        <control type="group">
-          <height>40</height>
-          <animation effect="slide" end="-1700,0" time="0" condition="Window.IsVisible(DialogVideoInfo.xml)">Conditional</animation>
-          <include content="Object_Ratings" condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(Home.xml) | Window.IsVisible(script-globalsearch.xml)">
-            <param name="directory" value="color" />
-            <param name="align" value="right" />
-            <param name="rottentomatoes" value="true" />
-            <param name="imdbvotes" value="false" />
-            <param name="usermeter" value="false" />
-            <param name="imdb" value="$PARAM[imdb]" />
-            <param name="tmdb" value="$PARAM[tmdb]" />
-            <param name="metacritic" value="true" />
-            <param name="oscars" value="true" />
-            <param name="top250" value="false" />
-            <param name="plot" value="false" />
-          </include>
-        </control>
+              <control type="group">
+                <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(3001)</visible>
+		<top>10</top>
+                <height>50</height>
+                <right>990</right>	        
+                <include content="Object_Ratings" condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(Home.xml) | Window.IsVisible(script-globalsearch.xml)">
+                  <param name="directory" value="color" />
+                  <param name="align" value="left" />
+                  <param name="width" value="$PARAM[width]" />
+                  <param name="rottentomatoes" value="true" />
+                  <param name="imdbvotes" value="false" />
+                  <param name="usermeter" value="false" />
+                  <param name="imdb" value="$PARAM[imdb]" />
+                  <param name="tmdb" value="$PARAM[tmdb]" />
+                  <param name="metacritic" value="true" />
+                  <param name="oscars" value="true" />
+                  <param name="top250" value="false" />
+                  <param name="plot" value="false" />
+                  <param name="studio" value="false" />
+                </include>
+              </control>
         <control type="group">
           <control type="grouplist">
             <orientation>vertical</orientation>
             <top>20</top>
-            <height>500</height>
+            <height>300</height>
             <control type="group">
               <width>1200</width>
-              <height>40</height>
+              <height min="30" max="50">auto</height>
               <visible>!String.IsEmpty(ListItem.Cast) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))</visible>
               <control type="image">
                 <width>30</width>
@@ -1057,12 +1062,13 @@
               </control>
               <control type="label">
                 <left>55</left>
-                <height>30</height>
                 <width>700</width>
+              <height min="30" max="50">auto</height>
                 <font>Netflix_Info_main</font>
                 <label>$VAR[cast_list]</label>
                 <textcolor>dimgray</textcolor>
                 <autoscroll>true</autoscroll>
+                <wrapmultiline>true</wrapmultiline>
               </control>
             </control>
             <!-- director -->
@@ -1075,7 +1081,7 @@
                 <width>45</width>
                 <height>45</height>
                 <colordiffuse>dimgray</colordiffuse>
-                <texture>dialogs/videoinfo/director-icon.png</texture>
+                <texture>special://skin/extras/icons/director.png</texture>
               </control>
               <control type="label">
                 <height>40</height>
@@ -1145,20 +1151,22 @@
             <onright>9601</onright>
             <top>220</top>
             <height>200</height>
-            <width>550</width>
+            <width>650</width>
             <!-- Play -->
             <control type="radiobutton" id="8">
               <include name="netflix_button" content="netflix_button">
                 <param name="icon" value="play" />
               </include>
               <visible>!ListItem.IsResumable + !Control.IsVisible(33)</visible>
-              <label>208</label>
+              <label>Play  $VAR[videoinfo_play_label]</label>
             </control>
             <!-- Resume -->
             <control type="radiobutton" id="9">
               <include name="netflix_button" content="netflix_button">
                 <param name="icon" value="play" />
               </include>
+              <radiowidth>25</radiowidth>
+              <radioheight>28</radioheight>
               <visible>ListItem.IsResumable</visible>
               <label>Resume</label>
               <!-- Set InfoDialog as BaseWindow -->
@@ -1174,6 +1182,8 @@
               <include name="netflix_button" content="netflix_button">
                 <param name="icon" value="more_episodes" />
               </include>
+              <radiowidth>25</radiowidth>
+              <radioheight>28</radioheight>
               <visible>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)</visible>
               <label>More Episodes</label>
               <onclick>SetProperty(BaseWindow,InfoDialog,Home)</onclick>
@@ -1184,8 +1194,10 @@
             <!-- Trailer-->
             <control type="radiobutton" id="34">
               <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="tvstudio-icon" />
+                <param name="icon" value="director" />
               </include>
+              <radiowidth>35</radiowidth>
+              <radioheight>38</radioheight>
               <visible>!Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]</visible>
               <label>Trailer</label>
               <onclick condition="!Player.HasVideo + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]">PlayMedia($INFO[ListItem.Trailer],1)</onclick>
@@ -1198,6 +1210,8 @@
               <include name="netflix_button" content="netflix_button">
                 <param name="icon" value="tvstudio-icon" />
               </include>
+              <radiowidth>25</radiowidth>
+              <radioheight>28</radioheight>
               <visible>Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]</visible>
               <label>Fullscreen</label>
               <onclick condition="Player.HasVideo">FullScreen</onclick>
@@ -1209,6 +1223,8 @@
               <include name="netflix_button" content="netflix_button">
                 <param name="icon" value="stop" />
               </include>
+              <radiowidth>25</radiowidth>
+              <radioheight>28</radioheight>
               <label>Stop</label>
               <visible>Player.HasVideo</visible>
               <onclick>Stop</onclick>
@@ -1218,6 +1234,8 @@
               <include name="netflix_button" content="netflix_button">
                 <param name="icon" value="info" />
               </include>
+              <radiowidth>25</radiowidth>
+              <radioheight>28</radioheight>
               <label>More Info</label>
               <onclick condition="String.IsEqual(ListItem.DBType,movie)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onclick>
               <onclick condition="String.IsEqual(ListItem.DBType,tvshow)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.TvShowTitle])</onclick>
@@ -1238,16 +1256,16 @@
   <include name="netflix_button">
     <param name="icon" default="" />
     <definition>
-      <width>550</width>
+      <width>750</width>
       <height>65</height>
       <aligny>center</aligny>
       <align>left</align>
-      <textoffsetx>50</textoffsetx>
+      <textoffsetx>60</textoffsetx>
       <textoffsety>8</textoffsety>
       <font>font_medium</font>
-      <textcolor>dimgrey</textcolor>
-      <focusedcolor>grey</focusedcolor>
-      <texturefocus colordiffuse="grey">netflix/border_netflix.png</texturefocus>
+      <textcolor>grey</textcolor>
+      <focusedcolor>black</focusedcolor>
+      <texturefocus colordiffuse="white">diffuse/landscape.png</texturefocus>
       <texturenofocus></texturenofocus>
       <textureradioonfocus colordiffuse="red">netflix/$PARAM[icon].png</textureradioonfocus>
       <textureradioofffocus colordiffuse="red">netflix/$PARAM[icon].png</textureradioofffocus>
@@ -1255,8 +1273,6 @@
       <textureradiooffnofocus colordiffuse="dimgrey">netflix/$PARAM[icon].png</textureradiooffnofocus>
       <radioposy>0</radioposy>
       <radioposx>13</radioposx>
-      <radiowidth>25</radiowidth>
-      <radioheight>28</radioheight>
     </definition>
   </include>
   <include name="resume_progress">

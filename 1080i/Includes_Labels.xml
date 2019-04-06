@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+	
+    <variable name="videoinfo_play_label">
+    <value condition="String.IsEqual(ListItem.DBType,episode)">Season $INFO[ListItem.Season]: Episode $INFO[ListItem.Episode]</value>
+    </variable>
+
     <variable name="moviespotlightpath">
      <value condition="Window.IsActive(Home) + !String.IsEmpty(Skin.String(spotlightmovies.path))">$INFO[Skin.String(spotlightmovies.path)]</value>
      <value condition="Window.IsActive(Home) + String.IsEmpty(Skin.String(spotlightmovies.path))">plugin://script.extendedinfo?info=upcomingmovies</value>
@@ -18,10 +23,6 @@
         <value condition="!String.IsEmpty(ListItem.Genre)">genre</value>
     </variable>
 
-    <variable name="PlayOrResumeLabel">
-        <value condition="ListItem.IsResumable">$LOCALIZE[13404]</value>
-        <value>$LOCALIZE[208]</value>
-    </variable>
    <!-- Spotlight buttons @cartmandos -->
     <variable name="NetflixDetailsSpin">
         <value condition="Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards))">[I]$INFO[Window(Home).Property(SkinHelper.ListItem.Awards)][/I]</value>
