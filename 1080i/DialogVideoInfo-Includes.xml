@@ -1155,7 +1155,7 @@
               <label>208</label>
             </control>
             <!-- Resume -->
-            <control type="radiobutton" id="32">
+            <control type="radiobutton" id="9">
               <include name="netflix_button" content="netflix_button">
                 <param name="icon" value="play" />
               </include>
@@ -1166,7 +1166,7 @@
               <onclick>close</onclick>
             </control>
             <control type="group" id="332">
-              <visible>Control.IsVisible(32)</visible>
+              <visible>Control.IsVisible(9)</visible>
               <include>resume_progress</include>
             </control>
             <!--More episodes-->
