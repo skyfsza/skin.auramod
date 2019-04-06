@@ -1147,7 +1147,7 @@
             <height>200</height>
             <width>550</width>
             <!-- Play -->
-            <control type="radiobutton" id="31">
+            <control type="radiobutton" id="8">
               <include name="netflix_button" content="netflix_button">
                 <param name="icon" value="play" />
               </include>
