@@ -408,29 +408,35 @@
                             <label>Configure Movie Genres Hub</label>
                             <onclick>ActivateWindow(1050)</onclick>
                         </control>
-                        <control type="button" id="9671" description="Configure Aura Hub 1">
+                     <control type="button" id="9677" description="Configure TV Genres Hub">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Configure Aura Hub 1</label>
-                            <onclick>ActivateWindow(1030)</onclick>
+                            <label>Configure TV Genres Hub</label>
+                            <onclick>ActivateWindow(1051)</onclick>
+                        </control>
+                        <control type="button" id="9671" description="Configure Movie Aura Hub">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Movie Aura Hub</label>
+                            <onclick>ActivateWindow(1040)</onclick>
+                        </control>
+                      <control type="button" id="9674" description="Configure Movie Netflix Hub">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Movie Netflix Hub</label>
+                            <onclick>ActivateWindow(1031)</onclick>
                         </control>
                       <control type="button" id="9672" description="Configure Aura Hub 2">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Configure Aura Hub 2</label>
+                            <label>Configure TV Aura Hub</label>
                             <onclick>ActivateWindow(1041)</onclick>
                         </control>
-                      <control type="button" id="9673" description="Configure Netflix Hub 1">
+                      <control type="button" id="9673" description="Configure TV Netflix Hub">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Configure Netflix Hub 1</label>
+                            <label>Configure TV Netflix Hub</label>
                             <onclick>ActivateWindow(1030)</onclick>
-                        </control>
-                      <control type="button" id="9674" description="Configure Netflix Hub 2">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Configure Netflix Hub 2</label>
-                            <onclick>ActivateWindow(1031)</onclick>
                         </control>
 
                         <!-- ========== -->

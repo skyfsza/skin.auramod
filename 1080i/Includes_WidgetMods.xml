@@ -99,6 +99,7 @@
         <aspectratio scalediffuse="false">stretch</aspectratio>
       </control>
      <control type="group">
+	<animation effect="slide" end="0,20" time="0" condition="Skin.HasSetting(DisableNetflixSmallWidget)">Conditional</animation>
        <visible>String.IsEqual(ListItem.DBType,episode)</visible>
       <control type="image">
         <left>0</left>

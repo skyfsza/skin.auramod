@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="window" id="3820">
+  <defaultcontrol always="true">4000</defaultcontrol>
+  <onload>AlarmClock(focusWidgets,SetFocus(323233),00:00,silent)</onload>
+  <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
+  <onunload condition="Player.HasVideo">Stop</onunload>
+  <controls>
+    <left>20</left>
+    <include>Object_Home_Netflix</include>
+    <control type="grouplist" id="323233">
+      <left>-30</left>
+      <scrolltime tween="linear">400</scrolltime>
+      <posy>670</posy>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="410" />
+        <param name="widgetaspect" value="Poster" />
+        <param name="skinsetting" value="movienetflixhub-410" />
+      </include>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="420" />
+        <param name="widgetaspect" value="LandscapeWidePoster" />
+        <param name="skinsetting" value="movienetflixhub-420" />
+      </include>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="430" />
+        <param name="widgetaspect" value="LandscapeWidePoster" />
+        <param name="skinsetting" value="movienetflixhub-430" />
+      </include>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="440" />
+        <param name="aspect" value="Poster" />
+        <param name="skinsetting" value="movienetflixhub-440" />
+      </include>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="450" />
+        <param name="aspect" value="LandscapeWidePoster" />
+        <param name="skinsetting" value="movienetflixhub-450" />
+      </include>
+    </control>
+  </controls>
+</window>

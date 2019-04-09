@@ -11,6 +11,8 @@
 
   <include name="widget_tvlists">
     <control type="panel" id="570">
+        <scrolltime tween="linear">400</scrolltime>
+
       <left>140</left>
       <width>1980</width>
       <height>980</height>
@@ -33,6 +35,7 @@
             <width>100%</width>
             <height>100%</height>
             <aspectratio aligny="center">scale</aspectratio>
+	    <fadetime>1500</fadetime>
             <texture colordiffuse="PosterFront_70" background="true">$INFO[ListItem.Property(background)]</texture>
           </control>
           <control type="image">
@@ -86,6 +89,7 @@
               <width>100%</width>
               <height>100%</height>
               <aspectratio aligny="center">scale</aspectratio>
+	      <fadetime>1500</fadetime>
               <texture colordiffuse="PosterFront_70" background="true">$INFO[Container(9967).ListItem.Property(background)]</texture>
             </control>
             <control type="image">
@@ -135,6 +139,8 @@
 
   <include name="widget_movielists">
     <control type="panel" id="560">
+        <scrolltime tween="linear">400</scrolltime>
+
       <animation effect="slide" end="0,80" condition="[Control.HasFocus(51) | Control.HasFocus(5105) | Control.HasFocus(5104)] + !Skin.HasSetting(LockHubWidgets)">Conditional</animation>
       <left>140</left>
       <onup condition="!Integer.IsGreater(Container(510).NumItems,0)">51</onup>
@@ -366,8 +372,10 @@
             </control>
           </control>
         </focusedlayout>
-        <focusedlayout width="1550" height="980">
+        <focusedlayout width="1550" height="980" condition="Control.HasFocus($PARAM[id])">
           <control type="group">
+           <scrolltime tween="linear">400</scrolltime>
+	    <visible>Control.HasFocus($PARAM[id])</visible>
             <left>60</left>
             <right>-60</right>
             <top>0</top>
@@ -400,7 +408,7 @@
                   <visible>Control.HasFocus(510) | Control.HasFocus(520)</visible>
                   <height min="60" max="251">auto</height>
                   <animation effect="fade" time="0">VisibleChange</animation>
-                  <control type="image" id="55450">
+                  <control type="image">
                     <top>150</top>
                     <left>250</left>
                     <right>$PARAM[titleright]</right>
@@ -429,7 +437,7 @@
                     <control type="group">
                       <height>20</height>
                       <visible>String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow)</visible>
-                      <control type="label" id="78631">
+                      <control type="label">
                         <top>-90</top>
                         <label>$VAR[date_aired] Length: [/COLOR][B]$VAR[Label_Duration][/B][COLOR=$VAR[ColorHighlight]] Ends: [/COLOR][B]$INFO[ListItem.EndTime][/B]</label>
                         <width>650</width>
@@ -462,9 +470,6 @@
               </control>
             </control>
             <include>View_WatchedOverlay</include>
-            <control type="group">
-              <visible>Control.HasFocus($PARAM[id])</visible>
-            </control>
           </control>
         </focusedlayout>
         <content target="$INFO[Skin.String($PARAM[skinsetting].target)]">$INFO[Skin.String($PARAM[skinsetting].path)]</content>
@@ -513,6 +518,7 @@
           <ondown condition="!Skin.String(mediahub-520.label) + !Skin.HasSetting(LockHubWidgets)">5205</ondown>
           <ondown condition="Skin.String(mediahub-530.label) + !Skin.HasSetting(LockHubWidgets)">5204</ondown>
           <ondown condition="Skin.HasSetting(LockHubWidgets)">521</ondown>
+	  <onback>Action(Close)</onback>
           <width>370</width>
           <height>65</height>
           <aligny>center</aligny>
@@ -712,14 +718,19 @@
       <!-- My Movies -->
       <control type="group" id="531">
         <animation effect="slide" end="0,50" condition="Control.HasFocus(53)">Conditional</animation>
-        <animation effect="slide" end="0,610" time="500" condition="Control.HasFocus(530)">Conditional</animation>
+        <animation effect="slide" end="0,560" time="500" condition="Control.HasFocus(530)">Conditional</animation>
         <top>100</top>
         <control type="group">
           <visible>Control.HasFocus(53) | Control.HasFocus(530) | Control.HasFocus(5303) |  Control.HasFocus(5304) | Control.HasFocus(5305) | Control.HasFocus(5306)</visible>
           <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
             <param name="id" value="530" />
-            <param name="aspect" value="LandscapeWidePoster" />
+            <param name="aspect" value="poster" />
             <param name="skinsetting" value="mediahub-530" />
+            <param name="widgetheight" value="420" />
+            <param name="widgetwidth" value="295" />
+            <param name="panelheight" value="430" />
+            <param name="controltype" value="fixedlist" />
+            <param name="orientation" value="horizontal" />
           </include>
         </control>
       </control>
@@ -728,13 +739,16 @@
         <onup>54</onup>
         <top>100</top>
         <animation effect="slide" end="0,50" condition="Control.HasFocus(54)">Conditional</animation>
-        <animation effect="slide" end="0,610" time="500" condition="Control.HasFocus(540)">Conditional</animation>
+        <animation effect="slide" end="0,500" time="500" condition="Control.HasFocus(540)">Conditional</animation>
         <control type="group">
           <visible>Control.HasFocus(54) | Control.HasFocus(540) | Control.HasFocus(5403) | Control.HasFocus(5404) | Control.HasFocus(5405)</visible>
           <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
             <param name="id" value="540" />
-            <param name="aspect" value="LandscapeWidePoster" />
+            <param name="aspect" value="landscapenetflix" />
             <param name="skinsetting" value="mediahub-540" />
+	    <param name="widgetheight" value="240" />
+	    <param name="widgetwidth" value="426.67" />
+	    <param name="panelheight" value="490" />
           </include>
         </control>
       </control>
@@ -786,8 +800,6 @@
         <fadetime>0</fadetime>
         <visible>Skin.String($PARAM[skinsetting].label) + !Integer.IsGreater(Container($PARAM[id]).NumItems,0) + Container($PARAM[id]).IsUpdating</visible>
       </control>
-
-
       <control type="fixedlist" id="$PARAM[id]">
         <onclick condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie) | Container.Content(movies) | Container.Content(tvshows)]">Action(Info)        </onclick>
         <left>0</left>
@@ -797,6 +809,7 @@
         <oninfo>RunScript(script.skin.helper.service,action=showinfo)</oninfo>
         <orientation>horizontal</orientation>
         <preloaditems>2</preloaditems>
+        <scrolltime tween="linear">400</scrolltime>
         <onup condition="Control.HasFocus(510)">51</onup>
         <onup condition="Control.HasFocus(520)">52</onup>
         <onup condition="Control.HasFocus(530)">53</onup>
@@ -890,7 +903,7 @@
   <include name="netflix_customhub_item">
     <param name="skinsetting" default="" />
     <param name="submenu" default="false" />
-    <param name="aspect" default="" />
+    <param name="aspect" default="landscapewide" />
     <param name="widgetaspect" default="" />
     <param name="sortby" default="" />
     <param name="sortorder" default="" />
@@ -901,6 +914,8 @@
     <param name="onleft" default="" />
     <param name="panelwidth" default="1980" />
     <param name="panelheight" default="680" />
+    <param name="controltype" default="panel" />
+    <param name="orientation" default="vertical" />
     <definition>
       <control type="label" id="$PARAM[id]3">
         <top>-40</top>
@@ -929,20 +944,20 @@
         <visible>Skin.String($PARAM[skinsetting].label) + !Integer.IsGreater(Container($PARAM[id]).NumItems,0) + Container($PARAM[id]).IsUpdating</visible>
       </control>
 
-      <control type="panel" id="$PARAM[id]">
+      <control type="$PARAM[controltype]" id="$PARAM[id]">
+        <scrolltime tween="linear">400</scrolltime>
         <left>0</left>
         <movement>2</movement>
         <width>$PARAM[panelwidth]</width>
         <height>$PARAM[panelheight]</height>
-        <oninfo>RunScript(script.skin.helper.service,action=showinfo)</oninfo>
-        <orientation>vertical</orientation>
+        <orientation>$PARAM[orientation]</orientation>
+        <scrolltime tween="linear">400</scrolltime>
         <onup condition="Control.HasFocus(510)">51</onup>
         <onup condition="Control.HasFocus(520)">52</onup>
         <onup condition="Control.HasFocus(530)">53</onup>
         <onup condition="Control.HasFocus(540)">54</onup>
         <onclick condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie) | Container.Content(movies) | Container.Content(tvshows)]">Action(Info)</onclick>
         <onleft>$PARAM[onleft]</onleft>
-        <ondown>$PARAM[onleft]</ondown>
         <preloaditems>2</preloaditems>
         <include content="Widget_Common">
           <param name="top" value="$PARAM[top]" />
@@ -954,7 +969,7 @@
         </include>
         <itemlayout width="$PARAM[widgetwidth]" height="$PARAM[widgetheight]">
           <include content="Widget_Items_ItemLayout">
-            <param name="landscapewide" value="true" />
+            <param name="$PARAM[aspect]" value="true" />
             <param name="genres" value="$PARAM[genres]" />
             <param name="studios" value="$PARAM[studios]" />
             <param name="text" value="$PARAM[text]" />
@@ -963,12 +978,13 @@
         <focusedlayout width="$PARAM[widgetwidth]" height="$PARAM[widgetheight]">
           <include content="Widget_Items_FocusedLayout">
             <param name="id" value="$PARAM[id]" />
-            <param name="landscapewide" value="true" />
+            <param name="$PARAM[aspect]" value="true" />
             <param name="genres" value="$PARAM[genres]" />
             <param name="studios" value="$PARAM[studios]" />
             <param name="text" value="$PARAM[text]" />
           </include>
         </focusedlayout>
+<!--
         <itemlayout width="260" height="420">
           <include content="Widget_Items_ItemLayout">
             <param name="poster" value="true" />
@@ -986,7 +1002,8 @@
             <param name="text" value="$PARAM[text]" />
           </include>
         </focusedlayout>
-        <content target="$INFO[Skin.String($PARAM[skinsetting].target)]">$INFO[Skin.String($PARAM[skinsetting].path)]</content>
+-->
+        <content target="$INFO[Skin.String($PARAM[skinsetting].target)]" sortby="year" sortorder="descending">$INFO[Skin.String($PARAM[skinsetting].path)]</content>
         <visible>Skin.String($PARAM[skinsetting].path)</visible>
       </control>
     </definition>

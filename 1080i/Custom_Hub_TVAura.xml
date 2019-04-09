@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="window" id="3910">
+  <defaultcontrol always="true">4000</defaultcontrol>
+  <onload>AlarmClock(focusWidgets,SetFocus(323233),00:00,silent)</onload>
+  <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
+  <controls>
+    <include>Global_Background</include>
+    <control type="grouplist" id="323233">
+      <posy>50</posy>
+      <scrolltime tween="linear">400</scrolltime>
+      <include content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="710" />
+        <param name="aspect" value="$LOCALIZE[31262]" />
+        <param name="skinsetting" value="tvaurahub-710" />
+      </include>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="720" />
+        <param name="aspect" value="LandscapeWidePoster" />
+        <param name="skinsetting" value="tvaurahub-720" />
+      </include>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="730" />
+        <param name="aspect" value="LandscapeWidePoster" />
+        <param name="skinsetting" value="tvaurahub-730" />
+      </include>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="740" />
+        <param name="aspect" value="Poster" />
+        <param name="skinsetting" value="tvaurahub-740" />
+      </include>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="750" />
+        <param name="aspect" value="LandscapeWidePoster" />
+        <param name="skinsetting" value="tvaurahub-750" />
+      </include>
+    </control>
+  </controls>
+</window>

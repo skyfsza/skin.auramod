@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	
+    <variable name="show_count">
+    <value condition="!String.IsEmpty(ListItem.Property(WatchedEpisodes)">$INFO[ListItem.Property(WatchedEpisodes)]</value>
+    <value condition="String.IsEmpty(ListItem.Property(WatchedEpisodes) + !String.IsEmpty(ListItem.Property(TotalEpisodes)">$INFO[ListItem.Property(TotalEpisodes)]</value>
+    </variable>
+    <variable name="total_seasons">
+    <value condition="String.IsEqual(ListItem.Property(TotalSeasons),1)">$INFO[ListItem.Property(TotalSeasons)] Season</value>
+    <value condition="!String.IsEqual(ListItem.Property(TotalSeasons),0) + !String.IsEqual(ListItem.Property(TotalSeasons),1)">$INFO[ListItem.Property(TotalSeasons)] Seasons</value>
+    </variable>
     <variable name="videoinfo_play_label">
     <value condition="String.IsEqual(ListItem.DBType,episode)">Season $INFO[ListItem.Season]: Episode $INFO[ListItem.Episode]</value>
     </variable>

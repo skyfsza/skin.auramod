@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
-<window type="dialog" id="1060">
+<window type="dialog" id="1041">
     <defaultcontrol always="true">9000</defaultcontrol>
     <!-- <onunload>AlarmClock(reloadskin,ReloadSkin(),00:00,silent,false)</onunload> -->
     <controls>
@@ -26,28 +26,28 @@
                 <usecontrolcoords>true</usecontrolcoords>
                        <control type="button" id="9001" description="Configure Widget 1">
                             <include>Defs_Settings_Button</include>
-                            <label>Discover Movies Widget</label>
-			    <label2>$INFO[Skin.String(mediahub-510.label)]</label2>
-                            <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=mediahub-510.label&amp;skinWidgetTarget=mediahub-510.target&amp;skinWidgetPath=mediahub-510.path)</onclick>
+                            <label>Set Widget 1</label>
+			    <label2>$INFO[Skin.String(tvaurahub-710.label)]</label2>
+                            <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=tvaurahub-710.label&amp;skinWidgetTarget=tvaurahub-710.target&amp;skinWidgetPath=tvaurahub-710.path)</onclick>
                         </control>
 
                        <control type="button" id="9002" description="Configure Widget 2">
                             <include>Defs_Settings_Button</include>
-                            <label>Discover TV Widget</label>
-                            <label2>$INFO[Skin.String(mediahub-520.label)]</label2>
-                            <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=mediahub-520.label&amp;skinWidgetTarget=mediahub-520.target&amp;skinWidgetPath=mediahub-520.path)</onclick>
+                            <label>Set Widget 2</label>
+                            <label2>$INFO[Skin.String(tvaurahub-720.label)]</label2>
+                            <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=tvaurahub-720.label&amp;skinWidgetTarget=tvaurahub-720.target&amp;skinWidgetPath=tvaurahub-720.path)</onclick>
                         </control>
                        <control type="button" id="9003" description="Configure Widget 3">
                             <include>Defs_Settings_Button</include>
-                            <label>My Movies Widget</label>
-                            <label2>$INFO[Skin.String(mediahub-530.label)]</label2>
-                            <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=mediahub-530.label&amp;skinWidgetTarget=mediahub-530.target&amp;skinWidgetPath=mediahub-530.path)</onclick>
+                            <label>Set Widget 3</label>
+                            <label2>$INFO[Skin.String(tvaurahub-730.label)]</label2>
+                            <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=tvaurahub-730.label&amp;skinWidgetTarget=tvaurahub-730.target&amp;skinWidgetPath=tvaurahub-730.path)</onclick>
                         </control>
-                       <control type="button" id="9008" description="Configure Widget 8">
+                       <control type="button" id="9007" description="Configure Widget 7">
                             <include>Defs_Settings_Button</include>
-                            <label>My TV Widget</label>
-                            <label2>$INFO[Skin.String(mediahub-540.label)]</label2>
-                            <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=mediahub-540.label&amp;skinWidgetTarget=mediahub-540.target&amp;skinWidgetPath=mediahub-540.path)</onclick>
+                            <label>Set Widget 4</label>
+                            <label2>$INFO[Skin.String(tvaurahub-770.label)]</label2>
+                            <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=tvaurahub-770.label&amp;skinWidgetTarget=tvaurahub-770.target&amp;skinWidgetPath=tvaurahub-770.path)</onclick>
                         </control>
            </control>
 

@@ -1,3 +1,9 @@
+v0.9.16
+- Remove Titan Mod code from Hubs and Video Info
+- Clean up hub code and config method
+- Add TV Genres Hub
+- Bug tweaks / fixes
+
 v0.9.15
 - Fix Clearart alignment issue on Video OSD. 
 - Fix Hubs tweaks / fixes.

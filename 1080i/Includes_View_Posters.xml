@@ -155,6 +155,7 @@
 		<include condition="Skin.HasSetting(DisableNetflixView)">View_Pad</include>
                 <include condition="!Skin.HasSetting(DisableNetflixView)">View_Pad_Netflix</include>
                 <control type="fixedlist" id="55">
+                <onclick condition="!Skin.HasSetting(EnableShowInfo) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]">Action(Info)</onclick>
 		<animation effect="slide" end="0,40" condition="!Skin.HasSetting(DisableNetflixView)">Conditonal</animation>
                     <bottom>-55</bottom>
                     <right>-70</right>
@@ -258,6 +259,7 @@
                 <include condition="Skin.HasSetting(DisableNetflixView)">View_Pad</include>
                 <include condition="!Skin.HasSetting(DisableNetflixView)">View_Pad_Netflix</include>
                 <control type="fixedlist" id="56">
+                <onclick condition="!Skin.HasSetting(EnableShowInfo) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]">Action(Info)</onclick>
 		<animation effect="slide" end="0,20" condition="!Skin.HasSetting(DisableNetflixView)">Conditonal</animation>
                     <bottom>-55</bottom>
                     <right>-70</right>
