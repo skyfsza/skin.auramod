@@ -1224,11 +1224,11 @@
             <!-- Fullscreen -->
             <control type="radiobutton" id="35">
               <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="tvstudio-icon" />
+                <param name="icon" value="fullscreen" />
               </include>
-              <radiowidth>25</radiowidth>
-              <radioheight>28</radioheight>
-              <radioposx>13</radioposx>
+              <radiowidth>45</radiowidth>
+              <radioheight>48</radioheight>
+              <radioposx>2</radioposx>
               <visible>Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]</visible>
               <label>Fullscreen</label>
               <onclick condition="Player.HasVideo">FullScreen</onclick>
@@ -1240,9 +1240,9 @@
               <include name="netflix_button" content="netflix_button">
                 <param name="icon" value="stop" />
               </include>
-              <radiowidth>25</radiowidth>
-              <radioheight>28</radioheight>
-              <radioposx>13</radioposx>
+              <radiowidth>45</radiowidth>
+              <radioheight>48</radioheight>
+              <radioposx>2</radioposx>
               <label>Stop</label>
               <visible>Player.HasVideo</visible>
               <onclick>Stop</onclick>

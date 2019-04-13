@@ -644,7 +644,10 @@
                         <height>380</height>
                         <include>View_Posters_Itemlayout_Artwork</include>
                     </control>
-                    <include condition="$PARAM[text] + !Skin.HasSetting(DisableViewText) + Skin.HasSetting(DisableNetflixView)">View_Posters_Text</include>
+		   <control type="group">
+		    <visible>$PARAM[text] + !Skin.HasSetting(DisableViewText) + [Skin.HasSetting(DisableNetflixView) | [!Skin.HasSetting(DisableNetflixView) + !Control.HasFocus(55) + !Control.HasFocus(56) + !Control.HasFocus(502) + !Control.HasFocus(509) + !Control.HasFocus(300)]]</visible>
+                    <include condition="$PARAM[text] + !Skin.HasSetting(DisableViewText)">View_Posters_Text</include>
+                </control>
                 </control>
             </itemlayout>
             <focusedlayout width="260" height="480" condition="$PARAM[posters]">
@@ -663,7 +666,10 @@
                             <include>View_Selectbox</include>
                         </control>
                     </control>
-                    <include condition="$PARAM[text] + !Skin.HasSetting(DisableViewText) + Skin.HasSetting(DisableNetflixView)">View_Posters_Text</include>
+                  <control type="group">
+                    <visible>$PARAM[text] + !Skin.HasSetting(DisableViewText) + [Skin.HasSetting(DisableNetflixView) | [!Skin.HasSetting(DisableNetflixView) + !Control.HasFocus(55) + !Control.HasFocus(56) + !Control.HasFocus(502) + !Control.HasFocus(509) + !Control.HasFocus(300)]]</visible>
+                    <include condition="$PARAM[text] + !Skin.HasSetting(DisableViewText)">View_Posters_Text</include>
+                </control>
                 </control>
             </focusedlayout>
             <itemlayout width="400" condition="$PARAM[posters_big]">

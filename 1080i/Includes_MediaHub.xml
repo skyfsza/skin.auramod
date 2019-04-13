@@ -298,7 +298,7 @@
         <timeperimage>100</timeperimage>
         <colordiffuse>dimgrey</colordiffuse>
         <fadetime>0</fadetime>
-        <visible>Skin.String($PARAM[skinsetting].label) + Container($PARAM[id]).IsUpdating</visible>
+        <visible>Skin.String($PARAM[skinsetting].label) + Container($PARAM[id]).IsUpdating + !Integer.IsGreater(Container($PARAM[id]).NumItems,0)</visible>
       </control>
 
       <control type="fixedlist" id="$PARAM[id]">
@@ -556,13 +556,27 @@
           <label>My TV</label>
           <onclick>close</onclick>
         </control>
+        <control type="radiobutton" id="55">
+          <ondown condition="!Skin.String(mediahub-550.label) + !Skin.HasSetting(LockHubWidgets)">5505</ondown>
+          <ondown condition="!Skin.HasSetting(LockHubWidgets)">5504</ondown>
+          <ondown condition="Skin.HasSetting(LockHubWidgets)">551</ondown>
+          <width>180</width>
+          <height>65</height>
+          <aligny>center</aligny>
+          <align>right</align>
+          <font>font_tiny_bold</font>
+          <textcolor>dimgrey</textcolor>
+          <focusedcolor>red</focusedcolor>
+          <label>My Apps</label>
+          <onclick>close</onclick>
+        </control>
       </control>
       <control type="group">
         <top>100</top>
         <width>100%</width>
         <height>1080</height>
         <include>Global_Background</include>
-        <visible>![Control.HasFocus(51) | Control.HasFocus(52) | Control.HasFocus(53) | Control.HasFocus(54)]</visible>
+        <visible>![Control.HasFocus(51) | Control.HasFocus(52) | Control.HasFocus(53) | Control.HasFocus(54) | Control.HasFocus(55)]</visible>
         <visible>![Control.HasFocus(5104) | Control.HasFocus(5204) | Control.HasFocus(5304) | Control.HasFocus(5404) | Control.HasFocus(5555) | Control.HasFocus(5604)]</visible>
         <visible>![Control.HasFocus(5105) | Control.HasFocus(5205) | Control.HasFocus(5305) | Control.HasFocus(5404) | Control.HasFocus(5555) | Control.HasFocus(5605)]</visible>
         <visible>!Control.HasFocus(510) + !Control.HasFocus(520) + !Control.HasFocus(560) + !Control.HasFocus(570)</visible>
@@ -581,6 +595,7 @@
         <visible>![Control.HasFocus(5104) | Control.HasFocus(5204) | Control.HasFocus(5304) | Control.HasFocus(5404) | Control.HasFocus(5555) | Control.HasFocus(5604)]</visible>
         <visible>![Control.HasFocus(5105) | Control.HasFocus(5205) | Control.HasFocus(5305) | Control.HasFocus(5404) | Control.HasFocus(5555)] | Control.HasFocus(5605)</visible>
         <visible>!Control.HasFocus(510) + !Control.HasFocus(560) + !Control.HasFocus(520) + !Control.HasFocus(570)</visible>
+	<visible>!ControlGroup(551).HasFocus + !Control.HasFocus(55)</visible>
         <top>20</top>
         <left>-20</left>
         <height>500</height>
@@ -752,6 +767,36 @@
           </include>
         </control>
       </control>
+      <!-- My Apps -->
+      <control type="group" id="551">
+        <onup>55</onup>
+        <posy>200</posy>
+        <control type="grouplist">
+	  <orientation>vertical</orientation>
+          <onup>55</onup>
+	  <height>800</height>
+          <visible>Control.HasFocus(55) | Control.HasFocus(550) | Control.HasFocus(5503) | Control.HasFocus(5504) | Control.HasFocus(5505) | ControlGroup(551).HasFocus</visible>
+          <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+            <param name="id" value="550" />
+            <param name="aspect" value="square" />
+            <param name="skinsetting" value="mediahub-550" />
+            <param name="widgetheight" value="250" />
+            <param name="widgetwidth" value="250" />
+            <param name="panelheight" value="250" />
+            <param name="orientation" value="horizontal" />
+          </include>
+          <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+            <param name="id" value="580" />
+            <param name="aspect" value="square" />
+            <param name="skinsetting" value="mediahub-580" />
+            <param name="widgetheight" value="250" />
+            <param name="widgetwidth" value="250" />
+            <param name="panelheight" value="250" />
+            <param name="orientation" value="horizontal" />
+          </include>
+        </control>
+      </control>
+
       <control type="image">
         <top>-15</top>
         <left>800</left>

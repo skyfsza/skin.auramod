@@ -941,7 +941,7 @@
         <animation effect="slide" end="400,-10" time="500" condition="Window.IsActive(4010)">Conditional</animation>
         <animation effect="slide" end="400,-10" time="500" condition="Window.IsActive(4020)">Conditional</animation>
         <animation effect="slide" end="440,0" time="500" condition="Window.IsActive(3810) | Window.IsActive(3820)">Conditional</animation>
-        <top>600</top>
+        <top>590</top>
 	<height>184</height>
         <right>480</right>
         <include content="Object_Ratings">
@@ -979,9 +979,9 @@
             <height>100%</height>
           </control>
           <control type="image">
-            <animation effect="slide" start="0" end="100,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,1.78)">Conditional</animation>
-            <animation effect="slide" start="0" end="225,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,0.00)">Conditional</animation>
-            <animation effect="slide" start="0" end="30,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)">Conditional</animation>
+            <animation effect="slide" start="0" end="100,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,1.78)">Conditional</animation>
+            <animation effect="slide" start="0" end="225,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,0.00)">Conditional</animation>
+            <animation effect="slide" start="0" end="30,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)">Conditional</animation>
             <texture colordiffuse="ff000000" border="40">netflix/netflix_corner.png</texture>
           </control>
         </control>
@@ -1524,7 +1524,7 @@
         <param name="id" value="$PARAM[id]" />
       </include>
     </focusedlayout>
-    <itemlayout width="373.33" height="210" condition="Skin.HasSetting(SubmenuLabel)">
+    <itemlayout width="373.33" height="200" condition="Skin.HasSetting(SubmenuLabel)">
         <include content="Widget_Hub_ItemLayout">
           <param name="category" value="true" />
           <param name="genres" value="$PARAM[genres]" />
@@ -1532,7 +1532,7 @@
           <param name="text" value="$PARAM[text]" />
 	</include>
     </itemlayout>
-    <focusedlayout width="373.33" height="210" condition="Skin.HasSetting(SubmenuLabel)">
+    <focusedlayout width="373.33" height="200" condition="Skin.HasSetting(SubmenuLabel)">
         <include content="Widget_Hub_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="category" value="true" />
@@ -2890,10 +2890,13 @@
           <scroll>true</scroll>
         </control>
       <control type="image" id="34121">
+	<animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(Control.GetLabel(34121))">Conditional</animation>
 	<top>0</top>
+	<aligny>top</aligny>
         <texture colordiffuse="main_fg_100">$INFO[ListItem.Studio,resource://resource.images.studios.white/,.png]</texture>
-        <height>54</height>
-        <width>54</width>
+	<aspectratio>keep</aspectratio>
+        <height>74</height>
+        <width>94</width>
 	<visible>!String.IsEmpty(Control.GetLabel(34121))</visible>
       </control>
       </control>
@@ -4056,7 +4059,6 @@
     </definition>
   </include>
 
-
   <include name="Widgets_Grouplist_small">
     <param name="submenu" default="false" />
     <param name="aspect" default="" />
@@ -4078,11 +4080,10 @@
     <param name="category" default="false" />
     <definition>
       <control type="grouplist" id="330">
-        <posy>630</posy>
+       <posy>630</posy>
         <animation effect="slide" end="-40,0" delay="0" time="150" condition="!Control.HasFocus(300) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
 
         <animation effect="slide" end="0,200" time="300" delay="150" condition="[Control.HasFocus(300) + [Integer.IsGreater(Container(1505).NumItems,0) | Integer.IsGreater(Container(1506).NumItems,0)] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)] | [!Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222) | Control.HasFocus(3022) | Control.HasFocus(30221)] | [ControlGroup(505).HasFocus | ControlGroup(506).HasFocus | Control.HasFocus(1505) | Control.HasFocus(1506)]">Conditional</animation>
-
 
         <onup condition="Integer.IsGreater(Container(3022).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),MoviesMenuHub1)">SetFocus(3022)</onup>
         <onup condition="Integer.IsGreater(Container(30221).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),TVMenuHub1)">SetFocus(30221)</onup>
@@ -4090,7 +4091,6 @@
         <onup condition="Integer.IsGreater(Container(30222).NumItems,0) + !String.IsEqual(Container(300).ListItem.Property(widgethub),true) | [String.IsEqual(Container(300).ListItem.Property(widgethub),true) + !Integer.IsGreater(Container(30221).NumItems,0)]">SetFocus(30222)</onup>
         <onup condition="!Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(300)</onup>
         <onleft>300</onleft>
-        <ondown>431</ondown>
         <left>30</left>
         <orientation>vertical</orientation>
         <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)</visible>
@@ -4239,7 +4239,7 @@
             </control>
 	     <!-- Season Count -->
               <control type="label">
-                <width>105</width>
+                <width>115</width>
                 <textcolor>white</textcolor>
                 <align>center</align>
                 <font>widget_trakt_title2</font>

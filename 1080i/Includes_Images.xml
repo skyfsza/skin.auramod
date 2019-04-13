@@ -170,6 +170,7 @@
         <value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,66)">indicator/inprogress-75.png</value>
         <value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,33)">indicator/inprogress-50.png</value>
         <value condition="ListItem.IsResumable">indicator/inprogress-25.png</value>
+        <value condition="Integer.IsGreater(ListItem.Property(TotalEpisodes),0) + Integer.IsLess(ListItem.Property(UnWatchedEpisodes),1) + [Container.Content(tvshows) | Container.Content(seasons)]">indicator/checkmark-fo.png</value>
         <value condition="Integer.IsGreater(ListItem.PlayCount,0)">indicator/checkmark-fo.png</value>
         <value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png)">indicator/checkmark.png</value>
         <value condition="[Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml)]+ !String.IsEmpty(ListItem.DBID)">indicator/library.png</value>
@@ -180,19 +181,20 @@
         <value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,66)">indicator/inprogress-75.png</value>
         <value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,33)">indicator/inprogress-50.png</value>
         <value condition="ListItem.IsResumable">indicator/inprogress-25.png</value>
+        <value condition="Integer.IsGreater(ListItem.Property(TotalEpisodes),0) + Integer.IsLess(ListItem.Property(UnWatchedEpisodes),1) + [Container.Content(tvshows) | Container.Content(seasons)]">indicator/checkmark-fo.png</value>
         <value condition="Integer.IsGreater(ListItem.PlayCount,0)">indicator/checkmark-fo.png</value>
         <value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png)">indicator/checkmark-fo.png</value>
         <value condition="[Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml)]+ !String.IsEmpty(ListItem.DBID)">indicator/library.png</value>
         <value condition="ListItem.IsCollection">indicator/movieset.png</value>
     </variable>
     <variable name="Image_Overlay_Corner">
-        <value condition="[Window.IsVisible(Home.xml) | Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml)] + !String.IsEmpty(ListItem.DBID)">indicator/corner.png</value>
         <value condition="ListItem.IsPlaying">indicator/corner.png</value>
         <value condition="ListItem.IsResumable">indicator/corner.png</value>
         <value condition="Integer.IsGreater(ListItem.PlayCount,0)">indicator/corner.png</value>
         <value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png)">indicator/corner.png</value>
         <value condition="ListItem.IsCollection">indicator/corner.png</value>
         <value condition="Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + [Container.Content(tvshows) | Container.Content(seasons) | Window.IsVisible(Home)]">indicator/corner.png</value>
+        <value condition="Integer.IsGreater(ListItem.Property(TotalEpisodes),0) + Integer.IsLess(ListItem.Property(UnWatchedEpisodes),1) + [Container.Content(tvshows) | Container.Content(seasons)]">indicator/corner.png</value>
     </variable>
 
     <variable name="Image_Poster">

@@ -11,30 +11,44 @@
       <left>-30</left>
       <scrolltime tween="linear">400</scrolltime>
       <posy>670</posy>
-      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
         <param name="id" value="410" />
-        <param name="widgetaspect" value="Poster" />
+        <param name="widgetaspect" value="landscapewide" />
         <param name="skinsetting" value="movienetflixhub-410" />
+        <param name="controltype" value="fixedlist" />
+        <param name="orientation" value="horizontal" />
+        <param name="panelheight" value="widget_poster_height_netflix" />
       </include>
-      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
         <param name="id" value="420" />
-        <param name="widgetaspect" value="LandscapeWidePoster" />
+        <param name="widgetaspect" value="landscapewide" />
         <param name="skinsetting" value="movienetflixhub-420" />
+        <param name="controltype" value="fixedlist" />
+        <param name="orientation" value="horizontal" />
+        <param name="panelheight" value="widget_poster_height_netflix" />
       </include>
-      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
         <param name="id" value="430" />
-        <param name="widgetaspect" value="LandscapeWidePoster" />
+        <param name="widgetaspect" value="landscapewide" />
         <param name="skinsetting" value="movienetflixhub-430" />
+        <param name="controltype" value="fixedlist" />
+        <param name="orientation" value="horizontal" />
+        <param name="panelheight" value="widget_poster_height_netflix" />
       </include>
-      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
         <param name="id" value="440" />
-        <param name="aspect" value="Poster" />
+        <param name="widgetaspect" value="Poster" />
         <param name="skinsetting" value="movienetflixhub-440" />
+        <param name="controltype" value="fixedlist" />
+        <param name="orientation" value="horizontal" />
+        <param name="panelheight" value="widget_poster_height_netflix" />
       </include>
-      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
         <param name="id" value="450" />
-        <param name="aspect" value="LandscapeWidePoster" />
+        <param name="widgetaspect" value="landscapewide" />
         <param name="skinsetting" value="movienetflixhub-450" />
+        <param name="controltype" value="fixedlist" />
+        <param name="orientation" value="horizontal" />
       </include>
     </control>
   </controls>

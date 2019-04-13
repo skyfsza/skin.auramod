@@ -8,6 +8,27 @@
     <control type="grouplist" id="323233">
       <posy>50</posy>
       <scrolltime tween="linear">400</scrolltime>
+
+    <control type="group">
+       <visible>String.IsEmpty(Skin.String(movieaurahub-810.label) + String.IsEmpty(Skin.String(movieaurahub-820.label) + String.IsEmpty(Skin.String(movieaurahub-830.label) + String.IsEmpty(Skin.String(movieaurahub-840.label)</visible>
+      <top>400</top>
+      <left>400</left>
+     <control type="button">
+      <width>750</width>
+      <height>65</height>
+      <aligny>center</aligny>
+      <align>center</align>
+      <font>font_medium</font>
+      <textcolor>grey</textcolor>
+      <focusedcolor>black</focusedcolor>
+      <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
+      <texturenofocus colordiffuse="grey">diffuse/landscape.png</texturenofocus>
+      <label>Click to Configure Widgets</label>
+      <onclick>ActivateWindow(1040)</onclick>
+      </control>
+    </control> 
+
+
       <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
         <param name="id" value="810" />
         <param name="widgetaspect" value="Poster" />

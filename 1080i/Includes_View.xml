@@ -25,6 +25,10 @@
         <control type="group">
             <visible allowhiddenfocus="true">!$EXP[Exp_HideFurniture]</visible>
             <include>Animation_FadeInOut</include>
+	   <control type="group">
+	    <include>Global_Background</include>
+	    <visible>!Skin.HasSetting(DisableNetflixView) + [!Control.HasFocus(55) + !Control.HasFocus(56) + !Control.HasFocus(502) + !Control.HasFocus(509) + !Control.HasFocus(300)]</visible>
+	    </control>
             <control type="group">
                 <include>View_Group</include>
                 <include>Animation_Left</include>
@@ -48,7 +52,6 @@
                 <control type="group">
                     <include condition="![Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml)]">View_List</include>
                     <include condition="![Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml)]">View_Posters</include>
-                    <include condition="![Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml)]">View_Posters_PanelLayout</include>
                     <include condition="[Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml)]">View_List_PVR</include>
                 </control>
             </control>

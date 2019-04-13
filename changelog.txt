@@ -1,3 +1,9 @@
+v0.9.17
+- Increase Studio logo size
+- Add widget labels + background image to non Showcase views.
+- Fix watch markers disapearing in library views.
+- Bug fixes / tweaks.
+
 v0.9.16
 - Remove Titan Mod code from Hubs and Video Info
 - Clean up hub code and config method

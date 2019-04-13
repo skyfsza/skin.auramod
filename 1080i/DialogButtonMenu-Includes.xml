@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+<!-- Credit to @PXCL skin -->
 <include name="powermenu-new">
 		<control type="group">
 			<top>5</top>

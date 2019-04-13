@@ -171,7 +171,7 @@
     <!-- Widgets -->
     <control type="group">
       <visible>Control.HasFocus(1) | Control.HasFocus(11) | Control.HasFocus(114) | Control.HasFocus(115) | Control.HasFocus(116)</visible>
-      <posy>600</posy>
+      <posy>610</posy>
       <left>221</left>
       <animation effect="slide" start="0,-400" end="0,-400" time="0" condition="Control.HasFocus(1)">Conditional</animation>
       <animation effect="slide" start="0,0" end="0,400" time="500" condition="Control.HasFocus(11)">Conditional</animation>
