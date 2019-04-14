@@ -527,7 +527,7 @@
     <include name="Widget_Items_genre_Big_Height"><height>widget_poster_spacer</height></include>
     <include name="Widget_Items_Landscape_Big_Height"><height>595</height></include>
     <include name="Widget_Items_Category_Big_Height"><height>450</height></include>
-    <include name="Widget_Items_Poster_Big"><height>640</height></include>
+    <include name="Widget_Items_Poster_Big"><height>670</height></include>
 
     <include name="WidgetSubmenu">
         <param name="submenu" default="false" />
