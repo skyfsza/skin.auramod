@@ -1,3 +1,6 @@
+v0.9.20
+- Fix Auramod widget alignment when Small cat widgets enabled.
+
 v0.9.18
 - Fix Aura mode Poster alignment issue.
 

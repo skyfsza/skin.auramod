@@ -468,16 +468,26 @@
                 <top>widget_top</top>
                 <include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
                 <include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
-                <include condition="$PARAM[landscapewidepostercondition]">Widget_Items_Poster_Big</include>
-                <include condition="$PARAM[landscapenetflixcondition]">Widget_Items_Landscapesmall_Big_Height</include>
-                <include condition="$PARAM[landscapewidecondition]">Widget_Items_Poster_Big</include>
-                <include condition="$PARAM[genrecondition]">Widget_Items_genre_Big_Height</include>
-                <include condition="$PARAM[landscapecondition]">Widget_Items_Landscape_Big_Height</include>
-                <include condition="$PARAM[postercondition]">Widget_Items_Poster_Big</include>
-                <include condition="$PARAM[posterdetailscondition]">Widget_Items_Poster_Big</include>
-                <include condition="$PARAM[squarecondition]">Widget_Items_Poster_Big</include>
-                <include condition="$PARAM[widgetlivecondition]">Widget_Items_Landscape_Big_Height</include>
-                <include condition="$PARAM[categorycondition]">Widget_Items_Category_Big_Height</include>
+                <include condition="$PARAM[landscapewidepostercondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Poster_Big</include>
+                <include condition="$PARAM[landscapewidepostercondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Poster_Big_small</include>
+                <include condition="$PARAM[landscapenetflixcondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Landscapesmall_Big_Height</include>
+                <include condition="$PARAM[landscapenetflixcondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Landscapesmall_Big_Height_small</include>
+                <include condition="$PARAM[landscapewidecondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Poster_Big</include>
+                <include condition="$PARAM[landscapewidecondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Poster_Big_small</include>
+                <include condition="$PARAM[genrecondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_genre_Big_Height</include>
+                <include condition="$PARAM[genrecondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_genre_Big_Height_small</include>
+                <include condition="$PARAM[landscapecondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Landscape_Big_Height</include>
+                <include condition="$PARAM[landscapecondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Landscape_Big_Height_small</include>
+                <include condition="$PARAM[postercondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Poster_Big</include>
+                <include condition="$PARAM[postercondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Poster_Big_small</include>
+                <include condition="$PARAM[posterdetailscondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Poster_Big</include>
+                <include condition="$PARAM[posterdetailscondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Poster_Big_small</include>
+                <include condition="$PARAM[squarecondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Poster_Big</include>
+                <include condition="$PARAM[squarecondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Poster_Big_small</include>
+                <include condition="$PARAM[widgetlivecondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Landscape_Big_Height</include>
+                <include condition="$PARAM[widgetlivecondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Landscape_Big_Height_small</include>
+                <include condition="$PARAM[categorycondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Category_Big_Height</include>
+                <include condition="$PARAM[categorycondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Category_Big_Height_small</include>
                 <onclick condition="!Skin.HasSetting(EnableShowInfo) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]">Action(Info)</onclick>
 
                 <visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | Container(300).OnNext | Container(300).OnPrevious | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
@@ -528,6 +538,11 @@
     <include name="Widget_Items_Landscape_Big_Height"><height>595</height></include>
     <include name="Widget_Items_Category_Big_Height"><height>450</height></include>
     <include name="Widget_Items_Poster_Big"><height>640</height></include>
+    <include name="Widget_Items_Poster_Big_small"><height>670</height></include>
+    <include name="Widget_Items_Landscapesmall_Big_Height_small"><height>570</height></include>
+    <include name="Widget_Items_genre_Big_Height_small"><height>690</height></include>
+    <include name="Widget_Items_Landscape_Big_Height_small"><height>625</height></include>
+    <include name="Widget_Items_Category_Big_Height_small"><height>480</height></include>
 
     <include name="WidgetSubmenu">
         <param name="submenu" default="false" />
