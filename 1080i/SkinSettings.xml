@@ -1096,8 +1096,8 @@
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
                             <include>Defs_Settings_Button</include>
                             <label>Show full Spotlight info for Episodes</label>
-                            <visible>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed) | Skin.HasSetting(DisableNetflixHome</visible>
-                            <enable>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed) | Skin.HasSetting(DisableNetflixHome</enable>
+                            <visible>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed) | Skin.HasSetting(DisableNetflixHome)</visible>
+                            <enable>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed) | Skin.HasSetting(DisableNetflixHome)</enable>
                             <selected>Skin.HasSetting(EnableFullEpInfo)</selected>
                             <onclick>Skin.ToggleSetting(EnableFullEpInfo)</onclick>
                         </control>

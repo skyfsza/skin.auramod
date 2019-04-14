@@ -24,15 +24,6 @@
                 <texture border="16" colordiffuse="ff101010">common/rounded-dialog.png</texture>
             </control>
 
-
-      <control type="label">
-        <top>-850</top>
-	<left>600</left>
-        <width>300</width>
-        <font>font_medium_bold</font>
-        <textcolor>white</textcolor>
-        <label>TV Show Lists</label>
-      </control>
       <control type="group">
         <top>0</top>
             <left>5</left>
