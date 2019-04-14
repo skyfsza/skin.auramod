@@ -1,3 +1,6 @@
+v0.9.18
+- Fix Aura mode Poster alignment issue.
+
 v0.9.17
 - Increase Studio logo size
 - Add widget labels + background image to non Showcase views.
