@@ -1,3 +1,8 @@
+v0.9.23
+- Add option to choose Menu type in Aura Mode
+- Add option to enable Spotlight and Menuhub as widgets in Aura Mode.
+- Tweak to Video info Play function.
+
 v0.9.22
 - Add option to disable Fixed Focus on Aura Home widgets
 - Removed Menu Hub Titles

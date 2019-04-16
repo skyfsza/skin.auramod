@@ -67,13 +67,13 @@
         	<include>Spotlight_Tvshows_Widget</include>
            <control type="group">
         	<left>150</left>
-        	<top>430</top> 
+        	<top>390</top> 
         	<animation effect="slide" end="0,-10" time="10" condition="String.IsEmpty(Container(1505).ListItem.Art(clearlogo))">Conditional</animation>
         	<include>Spotlight_Tvshows_buttons</include>
             </control>
            <control type="group">
         	<left>150</left>
-        	<top>430</top>
+        	<top>390</top>
         	<animation effect="slide" end="0,-10" time="10" condition="String.IsEmpty(Container(1506).ListItem.Art(clearlogo))">Conditional</animation>
         	<include>Spotlight_Movies_buttons</include>
            </control>

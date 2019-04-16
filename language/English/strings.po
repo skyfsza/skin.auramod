@@ -2228,3 +2228,8 @@ msgctxt "#31466"
 msgid "Down key starts trailer in Netflix Showcase Views"
 msgstr ""
 
+#: /1080i/Includes_View_Posters.xml
+msgctxt "#31467"
+msgid "Panel Showcase"
+msgstr ""
+

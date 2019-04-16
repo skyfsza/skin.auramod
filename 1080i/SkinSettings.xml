@@ -1029,20 +1029,18 @@
                             <onclick>ActivateWindow(1126)</onclick>
                         </control>
                         <control type="button" id="9632" description="Choose Menu layout">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013) + Skin.HasSetting(DisableNetflixHome)</visible>
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
                             <include>Defs_Settings_Button</include>
                             <label>$LOCALIZE[31433]</label>
 			    <label2>$VAR[netflix_menu_style_selected]</label2>
-                            <visible>Skin.HasSetting(DisableNetflixHome)</visible>
-                            <enable>Skin.HasSetting(DisableNetflixHome)</enable>
                             <onclick>ActivateWindow(1125)</onclick>
                         </control>
                         <control type="radiobutton" id="9634" description="Enable Sidemenu auto-hide">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
                             <include>Defs_Settings_Button</include>
                             <label> - $LOCALIZE[31437]</label>
-                            <visible>Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableNetflixHomeSidemenu)</visible>
-                            <enable>Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableNetflixHomeSidemenu)</enable>
+                            <visible>!Skin.HasSetting(DisableNetflixHomeSidemenu)</visible>
+                            <enable>!Skin.HasSetting(DisableNetflixHomeSidemenu)</enable>
                             <selected>Skin.HasSetting(DisableNetflixHomeSidemenuHide)</selected>
                             <onclick>Skin.ToggleSetting(DisableNetflixHomeSidemenuHide)</onclick>
                         </control>

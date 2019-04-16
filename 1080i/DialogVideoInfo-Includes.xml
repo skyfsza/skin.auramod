@@ -1163,13 +1163,14 @@
             <height>200</height>
             <width>650</width>
             <!-- Play -->
-            <control type="radiobutton" id="8">
+            <control type="radiobutton" id="88">
               <include name="netflix_button" content="netflix_button">
                 <param name="icon" value="play" />
               </include>
               <radiowidth>25</radiowidth>
               <radioheight>28</radioheight>
               <radioposx>13</radioposx>
+	      <onclick>PlayMedia($ESCINFO[ListItem.FileNameAndPath])</onclick> 
               <visible>!ListItem.IsResumable + !Control.IsVisible(33)</visible>
               <label>Play  $VAR[videoinfo_play_label]</label>
             </control>
@@ -1183,9 +1184,6 @@
               <radioposx>13</radioposx>
               <visible>ListItem.IsResumable</visible>
               <label>Resume</label>
-              <!-- Set InfoDialog as BaseWindow -->
-              <onclick>SetProperty(BaseWindow,InfoDialog,Home)</onclick>
-              <onclick>close</onclick>
             </control>
             <control type="group" id="332">
               <visible>Control.IsVisible(9)</visible>

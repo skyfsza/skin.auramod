@@ -33,12 +33,25 @@
             </focusedlayout>
             <content>$INFO[Container(300).ListItem.Property(backgroundPlaylist)]</content>
         </control>
+	<control type="group">
         <include condition="!Skin.HasSetting(DisableNetflixHome)">Global_Background</include>
+	<visible>!Control.HasFocus(1505) + !Control.HasFocus(1506)</visible>
+	</control>
+
+	<control type="group">
+        <visible>!Skin.HasSetting(DisableAuraHomeLayout) + [Control.HasFocus(1505) | Control.HasFocus(1506)]</visible>
+	<control type="image">
+	<width>100%</width>
+	<height>100%</height>
+	<texture background="true" colordiffuse="FF565656">common/white.png</texture>
+	</control>
+	<include>Global_Overlay</include>
+	</control>
+
         <include>Widgets</include>
-        <include condition="!Skin.HasSetting(DisableNetflixHome)">Topbar</include> 
-        <include condition="Skin.HasSetting(DisableNetflixHome) + Skin.HasSetting(DisableNetflixHomeSidemenu)">Topbar</include> 
+        <include condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Topbar</include> 
         <include>Object_PlotOverlay</include>
-        <include condition="Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableNetflixHomeSidemenu)">Home</include>
+        <include condition="!Skin.HasSetting(DisableNetflixHomeSidemenu)">Home</include>
         <include condition="!Skin.HasSetting(SubmenuWidgetPanel)">submenu_widget_fixed</include>
         <include condition="!Skin.HasSetting(SubmenuWidgetPanel)">hubmenu_tv_fixed</include>
         <include condition="!Skin.HasSetting(SubmenuWidgetPanel)">hubmenu_movie_fixed</include>

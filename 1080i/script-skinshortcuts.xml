@@ -420,13 +420,13 @@
                     <onclick>SendClick(404)</onclick>
                     <align>left</align>
                     <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + Skin.HasSetting(DisableNetflixHome)</visible>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
                 </control>
                 <control type="button" id="9906" description="Choose Spotlight">
                    <width>100%</width>
                     <height>66</height>
                     <label>Choose Spotlight</label>
-                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + String.IsEqual(Container(211).ListItem.Property(widgetspotlight),true) + Skin.HasSetting(DisableNetflixHome)</visible>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + String.IsEqual(Container(211).ListItem.Property(widgetspotlight),true)</visible>
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <label2>$INFO[Container(211).ListItem.Property(widgetSpotlighttype)]</label2>
                     <align>left</align>
@@ -446,13 +446,13 @@
                     <onclick>SendClick(404)</onclick>
                     <align>left</align>
                     <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + Skin.HasSetting(DisableNetflixHome)</visible>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
                 </control>
                 <control type="button" id="9908" description="Choose MenuHub">
                    <width>100%</width>
                     <height>66</height>
                     <label>Choose Spotlight</label>
-                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + String.IsEqual(Container(211).ListItem.Property(widgethub),true) + Skin.HasSetting(DisableNetflixHome)</visible>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + String.IsEqual(Container(211).ListItem.Property(widgethub),true)</visible>
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <label2>$INFO[Container(211).ListItem.Property(widgethubselect)]</label2>
                     <align>left</align>

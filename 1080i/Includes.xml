@@ -20,10 +20,20 @@
     <include file="Includes_Object.xml" />
     <include file="Includes_OSD.xml" />
     <include file="Includes_Statusbar.xml" />
+<!--
     <include condition="!Skin.HasSetting(DisableNetflixHome)" file="Includes_Topbar.xml" />
     <include condition="Skin.HasSetting(DisableNetflixHome) + Skin.HasSetting(DisableNetflixHomeSidemenu)" file="Includes_Topbar.xml" />
     <include condition="Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableNetflixHomeSidemenu)" file="Includes_Topbar-Netflix.xml" />
     <include condition="Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableNetflixHomeSidemenu)" file="Includes_Home.xml" />
+
+-->
+    <include condition="Skin.HasSetting(DisableNetflixHomeSidemenu)" file="Includes_Topbar.xml" />
+    <include condition="!Skin.HasSetting(DisableNetflixHomeSidemenu)" file="Includes_Topbar-Netflix.xml" />
+    <include condition="!Skin.HasSetting(DisableNetflixHomeSidemenu)" file="Includes_Home.xml" />
+
+
+
+
     <include file="Includes_VideoLyrics.xml" />
     <include file="Includes_Weather.xml" />
     <include condition="!Skin.HasSetting(DisableNetflixHome)" file="Includes_Widgets.xml" />
