@@ -35,19 +35,7 @@
         </control>
 	<control type="group">
         <include condition="!Skin.HasSetting(DisableNetflixHome)">Global_Background</include>
-	<visible>!Control.HasFocus(1505) + !Control.HasFocus(1506)</visible>
 	</control>
-
-	<control type="group">
-        <visible>!Skin.HasSetting(DisableAuraHomeLayout) + [Control.HasFocus(1505) | Control.HasFocus(1506)]</visible>
-	<control type="image">
-	<width>100%</width>
-	<height>100%</height>
-	<texture background="true" colordiffuse="FF565656">common/white.png</texture>
-	</control>
-	<include>Global_Overlay</include>
-	</control>
-
         <include>Widgets</include>
         <include condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Topbar</include> 
         <include>Object_PlotOverlay</include>

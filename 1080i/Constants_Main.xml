@@ -29,10 +29,10 @@
     <constant name="widget_landscapewide_width_netflix_small">390</constant>
     <constant name="widget_landscape_width_netflix_small">373.33</constant>
     <constant name="widget_landscapenetflix_width_netflix_small">373.33</constant>
-    <constant name="widget_landscape_width">675.56</constant>
-    <constant name="widget_landscape_height">380</constant>
+    <constant name="widget_landscape_width">620</constant>
+    <constant name="widget_landscape_height">348.75</constant>
     <constant name="widget_landscapewide_width">746.67</constant>
-    <constant name="widget_landscapenetflix_width">558.22</constant>
-    <constant name="widget_landscapenetflix_height">314.6</constant>
+    <constant name="widget_landscapenetflix_width">533.33</constant>
+    <constant name="widget_landscapenetflix_height">300</constant>
     <constant name="sidepad">80</constant>    
 </includes>

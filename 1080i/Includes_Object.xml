@@ -515,7 +515,7 @@
   <include name="Spotlight_Movies_Widget">
     <control type="group">
       <control type="list" id="1506">
-        <visible>[Control.HasFocus(300) | Control.HasFocus(3022) | Control.HasFocus(30221) | Control.HasFocus(30222) | Control.HasFocus(1505) | ControlGroup(505).HasFocus] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),Movies)</visible>
+        <visible>[Control.HasFocus(300) | Control.HasFocus(3022) | Control.HasFocus(30221) | Control.HasFocus(30222) | Control.HasFocus(1506) | ControlGroup(506).HasFocus] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),Movies)</visible>
         <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)</visible>
         <defaultcontrol>4000</defaultcontrol>
         <orientation>horizontal</orientation>
@@ -609,6 +609,7 @@
 
   <include name="Spotlight_TV_AuraWidget">
       <control type="list" id="1505">
+	<animation effect="slide" end="-30,-20" time="0" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>
       <scrolltime tween="sine" easing="out">500</scrolltime>
         <visible>String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),TVShows)</visible>
         <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)</visible>
@@ -642,9 +643,9 @@
 	<control type="group">
 <!--      <animation effect="fade" start="100" end="0" delay="200" time="1000" pulse="false" condition="Player.HasVideo">Conditional</animation> -->
           <control type="image">
-	    <left>365</left>
-	    <width>100%</width>
-	    <height>100%</height>
+            <right>0</right>
+            <width>1013.33</width>
+            <height>570</height>
 	    <texture background="true">$VAR[Spotlight_Fanart]</texture>
 	    <aspectratio>keep</aspectratio>
           </control>
@@ -793,6 +794,7 @@
 
   <include name="Spotlight_Movies_AuraWidget">
       <control type="list" id="1506">
+	<animation effect="slide" end="-30,-20" time="0" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>
       <scrolltime tween="sine" easing="out">500</scrolltime>
         <visible>String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),Movies)</visible>
         <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)</visible>
@@ -829,9 +831,9 @@
 	<control type="group">
   <!--    <animation effect="fade" start="100" end="0" delay="200" time="1000" pulse="false" condition="Player.HasVideo">Conditional</animation> -->
           <control type="image">
-	    <left>365</left>
-	    <width>100%</width>
-	    <height>100%</height>
+	    <right>0</right>
+	    <width>1013.33</width>
+	    <height>570</height>
 	    <texture background="true">$VAR[Spotlight_Fanart]</texture>
 	    <aspectratio>keep</aspectratio>
           </control>
@@ -3307,7 +3309,7 @@
 	<aspectratio>keep</aspectratio>
         <height>74</height>
         <width>94</width>
-	<visible>!String.IsEmpty(ListItem.Studio)</visible>
+	<visible>$PARAM[studio] + !String.IsEmpty(ListItem.Studio)</visible>
       </control>
       </control>
     </definition>
@@ -4714,6 +4716,7 @@
               </control>
           </control>
     </include>
+
 
   <include name="main_menu_title">
     <control type="group">

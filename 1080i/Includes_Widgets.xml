@@ -403,6 +403,8 @@
         <onleft condition="Control.HasFocus(30222)">300</onleft>
         <onleft condition="!String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)">300</onleft>
         <onleft condition="!Skin.HasSetting(DisableMenuHor)">300</onleft>
+
+
             <orientation>vertical</orientation>
             <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)</visible>
             <itemgap>0</itemgap>
@@ -423,7 +425,7 @@
                 <height>200</height>
             </control>
             <control type="group" id="335" description="Spacer">
-                <height>40</height>
+                <height>60</height>
 	     <visible>!Skin.HasSetting(SubmenuLabel)</visible>
             </control>
             <control type="group" id="334" description="Spacer">
@@ -440,6 +442,12 @@
             </include>
             <include>skinshortcuts-template-vertical-submenu</include>
 
+	   <control type="button" id="339">
+           <visible allowhiddenfocus="true">false</visible>
+	   <onfocus>SetFocus(30222)</onfocus>
+	   <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),MoviesMenuHub1)">ActivateWindow(3820)</onfocus>
+           <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),TVMenuHub1)">ActivateWindow(3810)</onfocus>
+	   </control>
             <control type="group" id="332">
                 <height>widget_spacer_bottom</height>
             </control>
@@ -560,7 +568,7 @@
 
     <include name="Widget_Items_Landscapesmall_Big_Height"><height>530</height></include>
     <include name="Widget_Items_genre_Big_Height"><height>widget_poster_spacer</height></include>
-    <include name="Widget_Items_Landscape_Big_Height"><height>595</height></include>
+    <include name="Widget_Items_Landscape_Big_Height"><height>585</height></include>
     <include name="Widget_Items_Category_Big_Height"><height>450</height></include>
     <include name="Widget_Items_Poster_Big"><height>640</height></include>
     <include name="Widget_Items_Poster_Big_small"><height>670</height></include>
@@ -741,6 +749,7 @@
                     <param name="oscars" value="true" />
                     <param name="top250" value="false" />
                     <param name="plot" value="true" />
+                    <param name="studio" value="false" />
                 </include>
 		</control>
 		<control type="label">
@@ -1176,20 +1185,6 @@
                         <visible>Skin.HasSetting(SubmenuLabel)</visible>
                         <visible>!Skin.HasSetting(DisableBigCat)</visible>
                     </control>
-<!--
-		    <control type="label">
-                        <bottom>25</bottom>
-                        <height>30</height>
-                        <align>center</align>
-                        <font>font_tiny</font>
-                        <textcolor>PosterFront</textcolor>
-                        <right>30</right>
-                        <left>30</left>
-                        <label>$INFO[ListItem.Label]</label>
-                        <visible>Skin.HasSetting(SubmenuLabel)</visible>
-                        <visible>Skin.HasSetting(DisableBigCat)</visible>
-                    </control>
--->
                     <control type="image">
                         <bordersize>10</bordersize>
                         <aspectratio scalediffuse="false">keep</aspectratio>

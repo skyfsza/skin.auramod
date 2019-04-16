@@ -62,7 +62,7 @@
                             <width>100%</width>
                             <height>100%</height>
                             <aspectratio aligny="center">scale</aspectratio>
-                            <texture colordiffuse="99000000" background="true">diffuse/landscape.png</texture>
+                            <texture colordiffuse="59000000" background="true">diffuse/landscape.png</texture>
                         </control>
                         <control type="image">
 			    <top>10</top>
