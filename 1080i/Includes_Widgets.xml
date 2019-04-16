@@ -412,21 +412,25 @@
            <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
 
            <control type="group" id="331" description="Spacer">
-                <height>100</height>
-	   <visible>Skin.HasSetting(DisableMenuHor)</visible>
+                <height>130</height>
+	         <visible>Skin.HasSetting(DisableMenuHor)</visible>
             </control>
+
             <include>Spotlight_Movies_AuraWidget</include>
-            <include content="Spotlight_TV_AuraWidget">
-	      <param name="id" value="1505" />
-	      <param name="spotpath" value="$VAR[tvshowspotlightpath]" />
-	    </include>
+            <include>Spotlight_TV_AuraWidget</include>
+
             <control type="group" id="333" description="Spacer"> 
                 <height>200</height>
+            </control>
+            <control type="group" id="335" description="Spacer">
+                <height>40</height>
+	     <visible>!Skin.HasSetting(SubmenuLabel)</visible>
             </control>
             <control type="group" id="334" description="Spacer">
                 <height>100</height>
 	      <visible>!String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)</visible>
             </control>
+
 	    <include content="WidgetSubmenu" condition="!Skin.HasSetting(HideSubmenuWidget)">
                 <param name="id" value="30222" />
                 <param name="submenu" value="true" />
@@ -436,16 +440,6 @@
             </include>
             <include>skinshortcuts-template-vertical-submenu</include>
 
-<!--
-            <include>skinshortcuts-template-widget3002</include>
-            <include>skinshortcuts-template-widget3003</include>
-            <include>skinshortcuts-template-widget3004</include>
-            <include>skinshortcuts-template-widget3005</include>
-            <include>skinshortcuts-template-widget3006</include>
-            <include>skinshortcuts-template-widget3007</include>
-            <include>skinshortcuts-template-widget3008</include>
-            <include>skinshortcuts-template-widget3009</include>
--->
             <control type="group" id="332">
                 <height>widget_spacer_bottom</height>
             </control>
