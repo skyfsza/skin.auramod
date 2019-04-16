@@ -2077,7 +2077,7 @@ msgid "Enable Icon Only SideMenu"
 msgstr
 
 msgctxt "#31435"
-msgid "Netflix Mode"
+msgid "AuraMod"
 msgstr ""
 
 msgctxt "#31436"
