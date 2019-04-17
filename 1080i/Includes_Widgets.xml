@@ -422,7 +422,7 @@
             <include>Spotlight_TV_AuraWidget</include>
 
             <control type="group" id="333" description="Spacer"> 
-                <height>200</height>
+                <height>220</height>
             </control>
             <control type="group" id="335" description="Spacer">
                 <height>60</height>
@@ -1430,10 +1430,20 @@
                 <right>120</right>
                 <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
                 <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
-   <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
-
-<!--                <visible>!Skin.HasSetting(DisableFakeLandscapeArt) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + !String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome)]</visible> -->
+          <visible>[!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo)] + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)] + !String.IsEqual(ListItem.DBType,episode) + [!String.IsEqual(ListItem.DBType,episode) + !String.Contains($INFO[ListItem.Art(landscape)],userdata)]</visible>
             </control>
+
+
+            <control type="image">
+                <bottom>30</bottom>
+                <top>170</top>
+                <left>120</left>
+                <right>120</right>
+                <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
+                <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
+                <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
+            </control>
+
             <control type="group">
                 <height>70</height>
                 <bottom>0</bottom>

@@ -83,8 +83,22 @@
           <height>45%</height>
           <aspectratio>keep</aspectratio>
           <texture background="true">$VAR[Widget_ClearLogo]</texture>
-          <visible>[!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo)] + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
+          <visible>[!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo)] + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)] + !String.IsEqual(ListItem.DBType,episode) + [!String.IsEqual(ListItem.DBType,episode) + !String.Contains($INFO[ListItem.Art(landscape)],userdata)]</visible>
         </control>
+      <control type="group">
+        <!-- Add Clearlogo to landscape Image -->
+        <control type="image">
+          <bottom>35</bottom>
+          <right>10</right>
+          <width>45%</width>
+          <height>45%</height>
+          <aspectratio>keep</aspectratio>
+          <animation effect="slide" start="0" end="0,40" time="0" condition="String.IsEmpty(ListItem.Episode) | Skin.HasSetting(WidgetLabels)">Conditional</animation>
+          <texture background="true">$VAR[Widget_ClearLogo]</texture>
+          <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
+        </control>
+      </control>
+
     </control>
 
   </include>
@@ -130,7 +144,7 @@
           <aspectratio>keep</aspectratio>
           <animation effect="slide" start="0" end="0,40" time="0" condition="String.IsEmpty(ListItem.Episode) | Skin.HasSetting(WidgetLabels)">Conditional</animation>
           <texture background="true">$VAR[Widget_ClearLogo]</texture>
-          <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + [[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)] + !String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
+          <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + [[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)] + !String.Contains(ListItem.Art(landscape),fanart.tv) + !String.Contains(ListItem.Art(landscape),fanart.tv) + !String.Contains($INFO[ListItem.Art(landscape),userdata)]</visible>
         </control>
       </control>
 
