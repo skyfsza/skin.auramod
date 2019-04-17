@@ -674,6 +674,7 @@
                     <label>$PARAM[label]</label>
                     <include>Statusbar_Menubar_Items</include>
                 </control>
+<!--
                 <control type="label">
                     <left>-16</left>
                     <textcolor>main_fg_100</textcolor>
@@ -681,22 +682,7 @@
                     <include>Statusbar_Menubar_Items</include>
                     <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Property(similartitle))</visible>
                 </control>
-<!--                <control type="image">
-                    <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
-                    <width>3</width>
-                    <top>10</top>
-                    <bottom>8</bottom>
-                    <visible>Control.HasFocus($PARAM[id])</visible>
-                </control>
-              <control type="label">
-                    <textcolor>main_fg_70</textcolor>
-                    <label>$INFO[Container($PARAM[id]).ListItem.TvShowTitle,,   -]</label>
-                    <include>Statusbar_Menubar_Items</include>
-                    <visible>Control.HasFocus($PARAM[id])</visible>
-                    <visible>!String.IsEqual(Container($PARAM[id]).ListItem.Label,Container($PARAM[id]).ListItem.TvShowTitle) + !String.IsEmpty(Container($PARAM[id]).ListItem.TvShowTitle)</visible>
-                    <visible>!Skin.HasSetting(WidgetsLabel.DisableTvShowTitle)</visible>
-                </control>
-->
+
                 <control type="label">
                     <textcolor>main_fg_70</textcolor>
                     <label>$INFO[Container($PARAM[id]).ListItem.Top250,#,]</label>
@@ -705,6 +691,7 @@
                     <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Top250)</visible>
                     <visible>String.Contains($PARAM[content],Top250)</visible>
                 </control>
+-->
                 <control type="label">
                     <textcolor>main_fg_70</textcolor>
                     <label>$INFO[Container($PARAM[id]).ListItem.Artist,-   ,]</label>
@@ -719,7 +706,7 @@
                     <label>$INFO[Container($PARAM[id]).ListItem.Label,|  ]</label>
                     <include>Statusbar_Menubar_Items</include>
                     <visible>Control.HasFocus($PARAM[id]) + ![Control.HasFocus(302) + Skin.HasSetting(DisableCatlabel)]</visible>
-		    <visible>Skin.HasSetting(DisableWidgetTitle)</visible>
+		    <visible>[!Control.HasFocus(30222) + Skin.HasSetting(SubmenuLabel)] + Skin.HasSetting(DisableWidgetTitle)</visible>
                 </control>
 
 <!-- Add Ratings -->
@@ -733,7 +720,7 @@
                         <visible>String.IsEqual(ListItem.DBType,episode) + Skin.HasSetting(DisableWidgetAirdate)</visible>
                       </control>
 		<control type="grouplist">
-		    <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(302) + Skin.HasSetting(DisableWidgetIMDB)</visible>
+		    <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB)</visible>
                     <bottom>10</bottom>
                     <height>40</height>
                <include content="Object_Ratings">
@@ -1430,7 +1417,7 @@
                 <right>120</right>
                 <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
                 <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
-          <visible>[!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo)] + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)] + !String.IsEqual(ListItem.DBType,episode) + [!String.IsEqual(ListItem.DBType,episode) + !String.Contains($INFO[ListItem.Art(landscape)],userdata)]</visible>
+          <visible>[!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo)] + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)] + !String.IsEqual(ListItem.DBType,episode) + [!String.IsEqual(ListItem.DBType,episode) + !String.Contains(ListItem.Art(landscape),userdata)]</visible>
             </control>
 
 

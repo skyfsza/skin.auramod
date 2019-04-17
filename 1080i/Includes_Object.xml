@@ -3301,7 +3301,7 @@
           <label>$INFO[ListItem.Plot]</label>
           <scroll>true</scroll>
         </control>
-      <control type="image" id="34121">
+      <control type="image">
 	<animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(ListItem.Studio)">Conditional</animation>
 	<top>0</top>
 	<aligny>top</aligny>
@@ -3309,7 +3309,8 @@
 	<aspectratio>keep</aspectratio>
         <height>74</height>
         <width>94</width>
-	<visible>$PARAM[studio] + !String.IsEmpty(ListItem.Studio)</visible>
+	<visible>!String.IsEmpty(ListItem.Studio)</visible>
+	<visible>$PARAM[studio]</visible>
       </control>
       </control>
     </definition>
@@ -4435,8 +4436,6 @@
 
         <animation effect="slide" end="0,160" time="300" delay="150" condition="[!Skin.HasSetting(DisableMenuHor) + [Control.HasFocus(300) + [Integer.IsGreater(Container(1505).NumItems,0) | Integer.IsGreater(Container(1506).NumItems,0)] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)] | [!Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222) | Control.HasFocus(3022) | Control.HasFocus(30221)] | [ControlGroup(505).HasFocus | ControlGroup(506).HasFocus | Control.HasFocus(1505) | Control.HasFocus(1506)]]">Conditional</animation>
 
-
-
 <!--
         <animation effect="slide" end="-20,0" time="200" condition="!Control.HasFocus(300) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
         <animation effect="slide" end="10,0" time="0" condition="!Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
@@ -4450,7 +4449,6 @@
         <onup condition="Integer.IsGreater(Container(30221).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),TVMenuHub1)">SetFocus(30221)</onup>
         <onup condition="Integer.IsGreater(Container(30222).NumItems,0) + !String.IsEqual(Container(300).ListItem.Property(widgethub),true) | [String.IsEqual(Container(300).ListItem.Property(widgethub),true) + !Integer.IsGreater(Container(3022).NumItems,0)]">SetFocus(30222)</onup>
         <onup condition="Integer.IsGreater(Container(30222).NumItems,0) + !String.IsEqual(Container(300).ListItem.Property(widgethub),true) | [String.IsEqual(Container(300).ListItem.Property(widgethub),true) + !Integer.IsGreater(Container(30221).NumItems,0)]">SetFocus(30222)</onup>
-
         <onup condition="!Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(300)</onup>
         <onleft>300</onleft>
         <ondown>431</ondown>

@@ -11,6 +11,7 @@
     <onload>AlarmClock(SetLoad,SetProperty(WidgetLoading,1,Home),00:00,silent)</onload> 
     <onload condition="Integer.IsGreater(Container(1505).NumItems,0)">Control.Move(1505,1)</onload>
     <onload condition="Integer.IsGreater(Container(1506).NumItems,0)">Control.Move(1506,1)</onload>
+    <onload condition="!Skin.HasSetting(LockHubWidgets)">Skin.ToggleSetting(LockHubWidgets)</onload>
     <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
    
 
@@ -33,9 +34,7 @@
             </focusedlayout>
             <content>$INFO[Container(300).ListItem.Property(backgroundPlaylist)]</content>
         </control>
-	<control type="group">
         <include condition="!Skin.HasSetting(DisableNetflixHome)">Global_Background</include>
-	</control>
         <include>Widgets</include>
         <include condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Topbar</include> 
         <include>Object_PlotOverlay</include>
