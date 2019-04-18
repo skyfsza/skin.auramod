@@ -591,6 +591,15 @@
         <visible>Control.HasFocus(560) | Control.HasFocus(570)</visible>
       </control>
       <control type="group">
+        <top>100</top>
+        <width>100%</width>
+        <height>1080</height>
+        <control type="image">
+          <texture colordiffuse="FF18181b">common/white.png</texture>
+        </control>
+        <visible>Control.HasFocus(53) | Control.HasFocus(54)</visible>
+      </control>
+      <control type="group">
         <visible>![Control.HasFocus(51) | Control.HasFocus(52) | Control.HasFocus(53) | Control.HasFocus(54) | Control.HasFocus(5555)]</visible>
         <visible>![Control.HasFocus(5104) | Control.HasFocus(5204) | Control.HasFocus(5304) | Control.HasFocus(5404) | Control.HasFocus(5555) | Control.HasFocus(5604)]</visible>
         <visible>![Control.HasFocus(5105) | Control.HasFocus(5205) | Control.HasFocus(5305) | Control.HasFocus(5404) | Control.HasFocus(5555)] | Control.HasFocus(5605)</visible>
@@ -901,7 +910,7 @@
             <param name="text" value="$PARAM[text]" />
           </include>
         </focusedlayout>
-        <content target="$INFO[Skin.String($PARAM[skinsetting].target)]">$INFO[Skin.String($PARAM[skinsetting].path)]</content>
+        <content target="$INFO[Skin.String($PARAM[skinsetting].target)]" sortby="year" sortorder="descending">$INFO[Skin.String($PARAM[skinsetting].path)]</content>
         <visible>Skin.String($PARAM[skinsetting].path)</visible>
       </control>
     </definition>

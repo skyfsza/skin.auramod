@@ -84,7 +84,7 @@
             <visible allowhiddenfocus="true">!$EXP[Exp_HideFurniture]</visible>
             <include>Animation_FadeInOut</include>
             <control type="group">
-                <include>Animation_Right</include>
+<!--                <include>Animation_Right</include> -->
                 <include>Defs_InfoDialog_Visible</include>
                 <include content="Object_UpDownInfoArrows">
                     <param name="id" value="330" />
@@ -444,9 +444,13 @@
 
 	   <control type="button" id="339">
            <visible allowhiddenfocus="true">false</visible>
-	   <onfocus>SetFocus(30222)</onfocus>
-	   <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),MoviesMenuHub1)">ActivateWindow(3820)</onfocus>
+	   <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),Movies) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),MoviesMenuHub1)">SetFocus(1506)</onfocus>
+           <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),TVShows) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),TVMenuHub1)">SetFocus(1505)</onfocus>
+	   <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgethub),true) | !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)">SetFocus(30222)</onfocus>
+	   <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + !String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)">SetFocus(3000)</onfocus>
+	   <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgethub),true) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)">SetFocus(3000)</onfocus>
            <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),TVMenuHub1)">ActivateWindow(3810)</onfocus>
+	   <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),MoviesMenuHub1)">ActivateWindow(3820)</onfocus>
 	   </control>
             <control type="group" id="332">
                 <height>widget_spacer_bottom</height>
@@ -669,6 +673,7 @@
 		    <visible>!Control.HasFocus($PARAM[submenu]) + !Skin.HasSetting(DisableCatlabel)</visible>
                 </control>
                 <control type="label">
+                    <font>font_widgetbar_bold</font>
                     <left>2</left>
                     <textcolor>main_fg_100</textcolor>
                     <label>$PARAM[label]</label>

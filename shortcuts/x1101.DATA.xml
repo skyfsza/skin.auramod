@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<defaultID />
+		<label>Search...</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>special://skin/media/exuary/search.png</thumb>
+		<action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID>mediahub</defaultID>
+		<label>Media Hub</label>
+		<label2 />
+		<icon>special://skin/extras/icons/tv.png</icon>
+		<thumb>special://skin/extras/icons/emby.png</thumb>
+		<action>ActivateWindow(3730,return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>genreshub</defaultID>
+		<label>Genres Hub</label>
+		<label2 />
+		<icon>special://skin/extras/icons/tv.png</icon>
+		<thumb>special://skin/media/exuary/genres.png</thumb>
+		<action>ActivateWindow(4010,return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Academy Awards - Best Picture Winners</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>special://skin/extras/lists/icons/academybestpic.png</thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Rotten Tomatoes: Best of 2018</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>special://skin/extras/lists/icons/rottentomatoes.png</thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>2018 - Golden Globe Nominees &amp; Winners</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>special://skin/extras/lists/icons/goldenglobe.png</thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>2018 - Oscar Nominees &amp; Winners</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>special://skin/media/exuary/oscar-winners.png</thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>IMDB: Top Rated Movies</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>special://skin/extras/lists/icons/imdb-color.png</thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Reddit Top 250 (2018 Edition)</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>special://skin/extras/lists/icons/reddit.png</thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID>movieaurahub</defaultID>
+		<label>Movie Aura Hub </label>
+		<label2 />
+		<icon>special://skin/extras/icons/film.png</icon>
+		<thumb />
+		<action>ActivateWindow(3920,return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>movienetflixhub</defaultID>
+		<label>Movie Netflix Hub</label>
+		<label2 />
+		<icon>special://skin/extras/icons/film.png</icon>
+		<thumb />
+		<action>ActivateWindow(3820,return)</action>
+	</shortcut>
+</shortcuts>

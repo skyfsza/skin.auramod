@@ -21,7 +21,7 @@
                 <right>30</right>
                 <font>font_tiny</font>
                 <textcolor>dialog_fg_70</textcolor>
-                <label>$INFO[Control.GetLabel(140),,   ]$INFO[Player.FileName]</label>
+                <label>$INFO[Control.GetLabel(140),,   ] $INFO[Player.FileName]</label>
                 <scroll>true</scroll>
             </control>
 

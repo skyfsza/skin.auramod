@@ -937,6 +937,8 @@
       </control>
     </control>
   </include>
+
+  
   <include name="DialogVideoInfo_Netflix">
     <!-- trailer video preview -->
     <control type="group">
@@ -965,6 +967,65 @@
         <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
       </control>
     </control>
+	<control type="group">
+	    <visible>Control.HasFocus(9550)</visible>
+	    <left>20</left>
+
+            <control type="textbox">
+	      <top>260</top>
+              <description>textarea</description>
+              <height min="100" max="300">auto</height>
+              <width>80%</width>
+              <align>left</align>
+              <textcolor>main_fg_70</textcolor>
+              <font>font_overlay_plotbox</font>
+              <label fallback="19055">$VAR[Label_Plot]</label>
+              <autoscroll delay="8000" time="4000" repeat="12000">false</autoscroll>
+            </control>
+
+	    <animation effect="fade" start="0" end="100" time="2000" condition="Control.HasFocus(9950)">Conditional</animation>
+             <include content="Object_VideoInfo_CastList" condition="String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBTYPE,movie) + System.HasAddon(script.skin.helper.service)">
+                <param name="onup" value="9570" />
+                <param name="id" value="9550" />
+                <param name="ondown" value="9670" />
+                <param name="label" value="$LOCALIZE[206]" />
+                <param name="content" value="plugin://script.skin.helper.service/?action=getcast&amp;movie=$INFO[ListItem.Title]&amp;downloadthumbs=true&amp;castaction=extendedinfo" />
+                <param name="infolabel" value="true" />
+                <param name="pad" value="0" />
+                <param name="top" value="560" />
+              </include>
+              <include content="Object_VideoInfo_CastList" condition="String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBTYPE,tvshow) + System.HasAddon(script.skin.helper.service)">
+                <param name="onup" value="9570" />
+                <param name="id" value="9550" />
+                <param name="ondown" value="9670" />
+                <param name="label" value="$LOCALIZE[206]" />
+                <param name="content" value="plugin://script.skin.helper.service/?action=getcast&amp;tvshow=$INFO[ListItem.TvShowTitle]&amp;castaction=extendedinfo" />
+                <param name="infolabel" value="true" />
+                <param name="pad" value="0" />
+                <param name="top" value="560" />
+              </include>
+              <include content="Object_VideoInfo_CastList" condition="String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBTYPE,season) + System.HasAddon(script.skin.helper.service)">
+                <param name="onup" value="9570" />
+                <param name="id" value="9550" />
+                <param name="ondown" value="9670" />
+                <param name="label" value="$LOCALIZE[206]" />
+                <param name="content" value="plugin://script.skin.helper.service/?action=getcast&amp;tvshow=$INFO[ListItem.TvShowTitle]&amp;castaction=extendedinfo" />
+                <param name="infolabel" value="true" />
+                <param name="pad" value="0" />
+                <param name="top" value="560" />
+              </include>
+              <include content="Object_VideoInfo_CastList" condition="String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBTYPE,episode) + System.HasAddon(script.skin.helper.service)">
+                <param name="onup" value="9570" />
+                <param name="id" value="9550" />
+                <param name="ondown" value="9670" />
+                <param name="label" value="$LOCALIZE[206]" />
+                <param name="content" value="plugin://script.skin.helper.service/?action=getcast&amp;tvshow=$INFO[ListItem.TvShowTitle]&amp;castaction=extendedinfo" />
+                <param name="infolabel" value="true" />
+                <param name="pad" value="0" />
+                <param name="top" value="560" />
+              </include>
+	</control>
+
     <!-- Clearlogo and Fallback Title -->
     <control type="group">
       <left>20</left>
@@ -1000,11 +1061,13 @@
         </control>
         <!-- Netflix Info line -->
         <control type="group">
+        <visible>!Control.HasFocus(9550)</visible>
           <height>60</height>
           <include>netflix_infoline</include>
         </control>
         <!-- Plot and Tagline -->
         <control type="group">
+        <visible>!Control.HasFocus(9550)</visible>
           <height>60</height>
           <visible>String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season)</visible>
           <control type="label" id="78631">
@@ -1015,6 +1078,7 @@
           </control>
         </control>
         <control type="group">
+        <visible>!Control.HasFocus(9550)</visible>
 	<height>150</height>
           <control type="textbox">
             <label fallback="19055">$VAR[Label_Plot]</label>
@@ -1025,6 +1089,7 @@
           </control>
         </control>
               <control type="group">
+	    <visible>!Control.HasFocus(9550)</visible>
                 <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(3001)</visible>
 		<top>10</top>
                 <height>50</height>
@@ -1054,6 +1119,7 @@
               </control>
         <control type="group">
           <control type="grouplist">
+	    <visible>!Control.HasFocus(9550)</visible>
             <orientation>vertical</orientation>
             <top>20</top>
             <height>300</height>
@@ -1152,15 +1218,16 @@
         <!-- Buttons -->
         <control type="group">
           <control type="grouplist" id="9570">
-            <defaultcontrol>9570</defaultcontrol>
+	    <visible allowhiddenfocus="true">!Control.HasFocus(9550)</visible>
+            <defaultcontrol>9670</defaultcontrol>
             <orientation>vertical</orientation>
             <onleft>SetProperty(BaseWindow,InfoDialog,Home)</onleft>
             <onleft>9601</onleft>
-            <onup>9570</onup>
-            <ondown>9570</ondown>
+            <onup>9670</onup>
+            <ondown>9670</ondown>
             <onright>9601</onright>
             <top>220</top>
-            <height>200</height>
+            <height>270</height>
             <width>650</width>
             <!-- Play -->
             <control type="radiobutton" id="88">
@@ -1244,6 +1311,16 @@
               <label>Stop</label>
               <visible>Player.HasVideo</visible>
               <onclick>Stop</onclick>
+            </control>
+           <control type="radiobutton" id="38">
+              <include name="netflix_button" content="netflix_button">
+                <param name="icon" value="actors" />
+              </include>
+              <radiowidth>45</radiowidth>
+              <radioheight>48</radioheight>
+              <radioposx>2</radioposx>
+              <label>Cast & Plot</label>
+              <onclick>SetFocus(9550)</onclick>
             </control>
             <!-- More Info -->
             <control type="radiobutton" id="37">

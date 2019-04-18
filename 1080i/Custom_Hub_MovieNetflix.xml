@@ -5,6 +5,7 @@
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <onunload condition="Player.HasVideo">Stop</onunload>
   <controls>
+    <include>Animation_FadeInOut</include>
     <left>20</left>
     <include>Object_Home_Netflix</include>
     <control type="grouplist" id="323233">

@@ -9,10 +9,10 @@
              <effect type="zoom" start="80" end="100" center="auto" tween="Cubic" easing="inout" time="500"/>
      </animation>
      <animation type="WindowClose">
-             <effect type="slide" start="0" end="0,1000" center="auto" delay="500"  tween="Cubic" easing="inout" time="500"/>
-             <effect type="zoom" start="100" end="80" center="auto" delay="500"  tween="Cubic" easing="inout" time="200"/>
+             <effect type="slide" start="0" end="0,1000" center="auto" delay="200"  tween="Cubic" easing="inout" time="500"/>
+             <effect type="zoom" start="100" end="80" center="auto" delay="200"  tween="Cubic" easing="inout" time="200"/>
      </animation>
-
+    <include>Global_Overlay</include>
      <control type="group">
             <centerleft>50%</centerleft>
             <centertop>50%</centertop>
@@ -62,7 +62,7 @@
                             <width>100%</width>
                             <height>100%</height>
                             <aspectratio aligny="center">scale</aspectratio>
-                            <texture colordiffuse="59000000" background="true">diffuse/landscape.png</texture>
+                            <texture colordiffuse="69000000" background="true">diffuse/landscape.png</texture>
                         </control>
                         <control type="image">
 			    <top>10</top>
@@ -115,7 +115,7 @@
                             <width>100%</width>
                             <height>100%</height>
                             <aspectratio aligny="center">scale</aspectratio>
-                            <texture colordiffuse="99000000" background="true">diffuse/landscape.png</texture>
+                            <texture colordiffuse="69000000" background="true">diffuse/landscape.png</texture>
                         </control>
                             <control type="image">
 			    	<top>10</top>

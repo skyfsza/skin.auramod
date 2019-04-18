@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="buttonMenu" id="111">
     <defaultcontrol always="true">3110</defaultcontrol>
-        <onload>AlarmClock(SetFocus,SetFocus(1),00:01,silent)</onload>
+        <onload condition="Skin.HasSetting(EnablePowerMenuBar)">AlarmClock(SetFocus,SetFocus(1),00:01,silent)</onload>
        <controls>
 <include condition="Skin.HasSetting(EnablePowerMenuBar)">powermenu-new</include>
 <include condition="!Skin.HasSetting(EnablePowerMenuBar)">powermenu-standard</include>
