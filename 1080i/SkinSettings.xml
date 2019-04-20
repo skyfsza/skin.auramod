@@ -395,7 +395,7 @@
                         <control type="button" id="9576" description="Configure Misc Hub 2">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Configure Menu Hub 2</label>
+                            <label>Configure Menu Hub 3</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1107)</onclick>
                         </control>
                         <control type="button" id="9665" description="Media Hubs ">
@@ -965,6 +965,13 @@
 			    <alttexturefocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturefocus>
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <label>[B]$LOCALIZE[31446][/B]</label>
+                        </control>
+                        <control type="radiobutton" id="9627" description="Enable Large Label Font ">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Enable Large Label Font</label>
+                            <selected>!Skin.HasSetting(LargeWidgetLabel)</selected>
+                            <onclick>Skin.ToggleSetting(LargeWidgetLabel)</onclick>
                         </control>
 			<control type="radiobutton" id="9623" description="Enable Categories Label ">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
