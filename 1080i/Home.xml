@@ -12,6 +12,7 @@
     <onload condition="Integer.IsGreater(Container(1505).NumItems,0)">Control.Move(1505,1)</onload>
     <onload condition="Integer.IsGreater(Container(1506).NumItems,0)">Control.Move(1506,1)</onload>
     <onload condition="!Skin.HasSetting(LockHubWidgets)">Skin.ToggleSetting(LockHubWidgets)</onload>
+    <onload>UpdateLibrary(video,true)</onload>
     <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
    
 

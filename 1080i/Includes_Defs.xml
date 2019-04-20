@@ -486,6 +486,7 @@
                 <width>720</width>
                 <centerleft>50%</centerleft>
                 <centertop>50%</centertop>
+<!--
                 <control type="image">
                     <description>Busy animation</description>
                     <centerleft>50%</centerleft>
@@ -495,22 +496,25 @@
                     <texture>dialog/loading-back.png</texture>
                     <aspectratio>keep</aspectratio>
                 </control>
+-->
                 <control type="group">
                     <description>Busy animation</description>
                     <centerleft>50%</centerleft>
                     <top>0</top>
                     <width>100</width>
                     <height>100</height>
-                    <animation effect="rotate" condition="true" start="0" end="360" loop="true" time="1000" center="auto">Conditional</animation>
+  <!--                  <animation effect="rotate" condition="true" start="0" end="360" loop="true" time="1000" center="auto">Conditional</animation> -->
                     <control type="image">
-                        <texture colordiffuse="$VAR[ColorHighlight]">dialog/loading-spinner.png</texture>
+                        <texture>special://skin/media/netflix/loading.gif</texture>
                         <aspectratio>keep</aspectratio>
                     </control>
+		  <!--
                     <control type="image">
                         <texture colordiffuse="$VAR[ColorHighlight2]">dialog/loading-spinner.png</texture>
                         <aspectratio>keep</aspectratio>
                         <animation effect="fade" condition="true" start="0" end="75" pulse="true" time="1000">Conditional</animation>
                     </control>
+		  -->
                 </control>
                 <control type="label">
                     <description>Busy label</description>
@@ -522,6 +526,7 @@
                     <align>center</align>
                     <label>$PARAM[label]</label>
                     <textcolor>ffededed</textcolor>
+		    <font>font_tiny_bold</font>
                 </control>
             </control>
         </definition>

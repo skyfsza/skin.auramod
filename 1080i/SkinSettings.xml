@@ -1,7 +1,7 @@
 <window>
     <defaultcontrol always="true">300</defaultcontrol>
     <include>Defs_Settings_OnLoad</include>
-    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104)</onunload>
+    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107)</onunload>
     <onunload condition="System.HasAddon(script.colorbox)">SetProperty(NINE_manual_set,"var=main,set=$INFO[Skin.String(colorbox_main)]|var=comp,set=$INFO[Skin.String(colorbox_comp)]|var=quality,set=$INFO[Skin.String(colorbox_quality)]|var=blursize,set=$INFO[Skin.String(colorbox_blursize)]|var=bitsize,set=$INFO[Skin.String(colorbox_bitsize)]|var=pixelsize,set=$INFO[Skin.String(colorbox_pixelsize)]|var=black,set=$INFO[Skin.String(colorbox_black)]|var=white,set=$INFO[Skin.String(colorbox_white)]|var=blend,set=$INFO[Skin.String(colorbox_blend)]|var=desat,set=$INFO[Skin.String(colorbox_desat)]",home)</onunload> 
     <onload condition="String.IsEmpty(Window.Property(CurrentFocus))">SetProperty(CurrentFocus,$NUMBER[9001])</onload>
     <controls>
@@ -359,26 +359,44 @@
                         <control type="button" id="9660" description="Configure Movie Hub 1">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Configure Movie Categories Hub 1</label>
+                            <label>Configure Movie Menu Hub 1</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1101)</onclick>
                         </control>
                         <control type="button" id="9661" description="Configure Movie Hub 2">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Configure Movie Categories Hub 2</label>
+                            <label>Configure Movie Menu Hub 2</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1102)</onclick>
                         </control>
                         <control type="button" id="9662" description="Configure TV Hub 1">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Configure TV Categories Hub 1</label>
+                            <label>Configure TV Menu Hub 1</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1103)</onclick>
                         </control>
                         <control type="button" id="9663" description="Configure TV Hub 2">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Configure TV Categories Hub 2</label>
+                            <label>Configure TV Menu Hub 2</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1104)</onclick>
+                        </control>
+                        <control type="button" id="9574" description="Configure Misc Hub 2">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Menu Hub 1</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1105)</onclick>
+                        </control>
+                        <control type="button" id="9575" description="Configure Misc Hub 2">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Menu Hub 2</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1106)</onclick>
+                        </control>
+                        <control type="button" id="9576" description="Configure Misc Hub 2">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Menu Hub 2</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1107)</onclick>
                         </control>
                         <control type="button" id="9665" description="Media Hubs ">
                             <textcolor>main_fg_100</textcolor>
@@ -855,7 +873,6 @@
                             <label>$LOCALIZE[31371]</label>
                             <selected>Skin.HasSetting(SubmenuLabel)</selected>
                             <onclick>Skin.ToggleSetting(SubmenuLabel)</onclick>
-                            <onclick condition="Skin.HasSetting(SubmenuWidgetPanel)">Skin.ToggleSetting(SubmenuWidgetPanel)</onclick>
                             <onclick>ReloadSkin()</onclick>
                         </control>
                          <control type="radiobutton" id="9619" description="Disable Categories widget labels">

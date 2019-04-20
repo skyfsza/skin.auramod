@@ -1,3 +1,8 @@
+v0.9.24
+- Add basic Cast feature to Video Info
+- Add additonal Menu Hubs
+- Tweaks / Bug fixes
+
 v0.9.23
 - Add option to choose Menu type in Aura Mode
 - Add option to enable Spotlight and Menuhub as widgets in Aura Mode.

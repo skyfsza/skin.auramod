@@ -966,6 +966,12 @@
         <texture background="true" diffuse="overlay/gradient_overlay_info.png">$VAR[Spotlight_Fanart]</texture>
         <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
       </control>
+          <control type="image">
+            <width>100%</width>
+            <height>100%</height>
+            <texture background="true" colordiffuse="FF000000" flipy="true">common/background_diffuse.png</texture>
+	    <visible>Control.HasFocus(9550)</visible>
+          </control>
     </control>
 	<control type="group">
 	    <visible>Control.HasFocus(9550)</visible>
@@ -975,7 +981,7 @@
 	      <top>260</top>
               <description>textarea</description>
               <height min="100" max="300">auto</height>
-              <width>80%</width>
+              <width>90%</width>
               <align>left</align>
               <textcolor>main_fg_70</textcolor>
               <font>font_overlay_plotbox</font>
@@ -1240,6 +1246,7 @@
 	      <onclick>PlayMedia($ESCINFO[ListItem.FileNameAndPath])</onclick> 
               <visible>!ListItem.IsResumable + !Control.IsVisible(33)</visible>
               <label>Play  $VAR[videoinfo_play_label]</label>
+	      <onclick>ClearProperty(BaseWindow,Home)</onclick>
             </control>
             <!-- Resume -->
             <control type="radiobutton" id="9">
@@ -1266,7 +1273,6 @@
               <radioposx>13</radioposx>
               <visible>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)</visible>
               <label>More Episodes</label>
-              <onclick>SetProperty(BaseWindow,InfoDialog,Home)</onclick>
               <onclick>close</onclick>
               <onclick condition="String.IsEmpty(ListItem.DBID)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
               <onclick condition="!String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>

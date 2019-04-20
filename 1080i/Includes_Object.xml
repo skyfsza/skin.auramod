@@ -818,7 +818,9 @@
         <height>40</height>
         <top>250</top>
         <left>-400</left>
-        <include content="Defs_BusySpinner"></include>
+        <include content="Defs_BusySpinner">
+          <param name="label" value="$LOCALIZE[31138]..." />
+	</include>
       </control>
     </control>
     <control type="list" id="1506">
