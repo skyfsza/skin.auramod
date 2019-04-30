@@ -3,6 +3,5 @@
 <window id="1156" type="dialog">
 	<visible>!String.IsEmpty(Window(home).Property(CustomSearch))</visible>
 	<onload>ClearProperty(CustomSearch,home)</onload>
-	<onload>UpdateLibrary(video,,true)</onload>
 	<controls/>
 </window>

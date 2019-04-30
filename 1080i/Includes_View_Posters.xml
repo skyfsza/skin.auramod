@@ -550,7 +550,7 @@
          </control>
         <control type="list" id="505">
           <animation effect="slide" end="-500,0" time="500" condition="Control.HasFocus(5055)">Conditional</animation>
-          <onright>5055</onright>
+          <onright condition="!Container(5055).IsUpdating">5055</onright>
           <height>700</height>
           <top>140</top>
           <left>60</left>
