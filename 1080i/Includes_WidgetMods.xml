@@ -1,5 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
+    <include name="Widget_Items_Landscape">
+     <control type="group">
+      <control type="group">
+        <visible>[Control.IsVisible(505) | Control.HasFocus(5055)] + String.IsEmpty(Container(5055).ListItem.Art(fanart)) + String.IsEmpty(Container(5055).ListItem.Year) + [String.IsEmpty(Container(5055).ListItem.TvShowTitle) | String.IsEmpty(Container(5055).ListItem.Title)]</visible>
+       <control type="image">
+        <texture background="true" fallback="special://skin/extras/backgrounds/global_blue.jpg">$VAR[category_widget]</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+       </control>
+       <control type="image">
+        <height>100%</height>
+        <width>100%</width>
+        <texture colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
+       </control>
+       <control type="image">
+        <height>100%</height>
+        <width>100%</width>
+        <texture colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
+       </control>
+<!--
+      <control type="textbox">
+        <centerleft>50%</centerleft>
+        <textcolor>grey</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <font>font_medium</font>
+        <width min="100" max="250">auto</width>
+        <aligny>center</aligny>
+        <align>center</align>
+        <label>$INFO[Container(5055).ListItem.Label]</label>
+        <wrapmultiline>true</wrapmultiline>
+      </control>
+-->
+   </control>
+   <!-- Fanart Background -->
+        <control type="image">
+         <texture background="true" diffuse="diffuse/widgetlandscape.png" fallback="DefaultFanartFallback.jpg">$VAR[Image_Fanart]</texture>
+         <aspectratio scalediffuse="false">scale</aspectratio>
+        </control>
+    <!-- Clearlogo -->
+      <control type="group">
+        <!-- Add Clearlogo to landscape Image -->
+        <control type="image">
+          <bottom>35</bottom>
+          <right>10</right>
+          <width>45%</width>
+          <height>45%</height>
+          <aspectratio>keep</aspectratio>
+          <animation effect="slide" start="0" end="0,40" time="0" condition="String.IsEmpty(ListItem.Episode) | Skin.HasSetting(WidgetLabels)">Conditional</animation>
+          <texture background="true">$VAR[Widget_ClearLogo]</texture>
+          <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
+        </control>
+      </control>
+            <control type="image">
+                <bottom>30</bottom>
+                <top>170</top>
+                <left>120</left>
+                <right>120</right>
+                <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
+                <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
+          <visible>!Skin.HasSetting(DisableNetflixSmallWidget) + !Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
+            </control>
+
+        <!-- Add Clearlogo to landscape Image -->
+        <control type="image">
+          <bottom>-10</bottom>
+          <right>10</right>
+          <width>45%</width>
+          <height>45%</height>
+          <aspectratio>keep</aspectratio>
+          <texture background="true">$VAR[Widget_ClearLogo]</texture>
+          <visible>Skin.HasSetting(DisableNetflixSmallWidget) + [!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo)] + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
+        </control>
+
+            <control type="group">
+                <height>70</height>
+                <bottom>0</bottom>
+                <visible>![!Skin.HasSetting(DisableFakeLandscapeArt) + !String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome)]]</visible>
+                <visible>!Skin.HasSetting(WidgetLabels) | Window.IsVisible(1138)</visible>
+
+                <control type="image">
+                    <texture colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
+                </control>
+                <control type="label">
+                    <top>0</top>
+                    <bottom>0</bottom>
+                    <left>20</left>
+                    <right>20</right>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <font>font_tiny_bold</font>
+                    <textcolor>main_fg_70</textcolor>
+                    <label>$VAR[Label_Widget]</label>
+                </control>
+            </control>
+            <control type="group">
+       <visible>[Control.IsVisible(505) | Control.HasFocus(5055)] + ![String.IsEqual(Container(5055).ListItem.DBType,episode) | String.IsEqual(Container(5055).ListItem.DBType,tvshow) |  String.IsEqual(Container(5055).ListItem.DBType,movie)]</visible>
+                <height>70</height>
+                <bottom>0</bottom>
+                <control type="image">
+                    <texture colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
+                </control>
+                <control type="label">
+                    <top>0</top>
+                    <bottom>0</bottom>
+                    <left>20</left>
+                    <right>20</right>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <font>font_tiny_bold</font>
+                    <textcolor>main_fg_70</textcolor>
+                    <label>$INFO[Container(5055).ListItem.Label]</label>
+                </control>
+            </control>
+        </control>
+    </include>
+
   <!-- Start Netflix Showcase Widget -->
   <include name="Widget_Items_Category">
     <control type="group">
@@ -36,20 +151,51 @@
         <aspectratio scalediffuse="false">scale</aspectratio>
       </control>
 
+      <control type="group">
+        <visible>[Control.IsVisible(505) | Control.HasFocus(5055)] + String.IsEmpty(Container(5055).ListItem.Art(fanart)) + String.IsEmpty(Container(5055).ListItem.Year) + [String.IsEmpty(Container(5055).ListItem.TvShowTitle) | String.IsEmpty(Container(5055).ListItem.Title)]</visible>
+       <control type="image">
+   <!--     <texture background="true" fallback="special://skin/extras/backgrounds/global_blue.jpg">$VAR[category_widget]</texture> -->
+          <texture background="true">common/widget_blank.png</texture>
+       </control>
+<!--
+       <control type="image">
+        <height>100%</height>
+        <width>100%</width>
+        <texture colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
+       </control>
+       <control type="image">
+        <height>100%</height>
+        <width>100%</width>
+        <texture colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
+       </control>
+-->
+      <control type="textbox">
+        <centerleft>50%</centerleft>
+        <textcolor>grey</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <font>font_medium</font>
+        <width min="100" max="250">auto</width>
+        <aligny>center</aligny>
+        <align>center</align>
+        <label>$INFO[Container(5055).ListItem.Label]</label>
+        <wrapmultiline>true</wrapmultiline>
+      </control>
+   </control>
+
      <control type="group">
        <visible>String.IsEqual(ListItem.DBType,episode) + [[Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixSmallWidget)] | !Skin.HasSetting(DisableAuraHomeLayout)]</visible>
       <control type="image">
         <left>0</left>
-	<bottom>40</bottom>
+	<bottom>30</bottom>
         <height>45</height>
         <width>90</width>
         <texture colordiffuse="99FF0000" flipy="true">diffuse/halfbox.png</texture>
       </control>
      <control type="textbox">
-	<bottom>20</bottom>
+	<bottom>10</bottom>
         <left>4</left>
         <height>55</height>
-        <width>75</width>
+        <width>80</width>
         <label>[I]$INFO[ListItem.Season, S,: ]$INFO[ListItem.Episode,E, ][/I]</label>
         <textcolor>white</textcolor>
         <font>widget_overlaybutton</font>
@@ -375,6 +521,21 @@
         <width min="150" max="470">auto</width>
         <scroll>true</scroll>
         <label>$INFO[ListItem.Plot]</label>
+	<visible>!Skin.HasSetting(DisableAuraHomeLayout)</visible>
+      </control>
+      <control type="textbox">
+        <height>200</height>
+        <left>280</left>
+        <right>30</right>
+        <top>130</top>
+        <bottom>20</bottom>
+        <align>justify</align>
+        <font>font_widget_plot</font>
+        <textcolor>main_fg_70</textcolor>
+        <width min="150" max="470">auto</width>
+        <scroll>true</scroll>
+        <label>$INFO[ListItem.Plot]</label>
+	<visible>Skin.HasSetting(DisableAuraHomeLayout)</visible>
       </control>
     </definition>
   </include>

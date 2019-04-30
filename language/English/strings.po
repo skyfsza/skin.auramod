@@ -2233,3 +2233,13 @@ msgctxt "#31467"
 msgid "Panel Showcase"
 msgstr ""
 
+#: /1080i/Includes_View_Posters.xml
+msgctxt "#31468"
+msgid "Netflix Season"
+msgstr ""
+
+#: /1080i/Includes_View_Posters.xml
+msgctxt "#31469"
+msgid "Addon List"
+msgstr ""
+

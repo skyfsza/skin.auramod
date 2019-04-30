@@ -2,7 +2,8 @@
 <!-- Foundation -->
 <window id="0">
     <defaultcontrol always="true">4000</defaultcontrol>
-    <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104)</onload>
+<!--    <onload>RunScript(special://masterprofile/addon_data/scripts/weather.py)</onload> -->
+    <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|searchmenu)</onload>
     <onload condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs)">Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
     <onload condition="!Skin.HasSetting(SkinHelper.EnableMusicArt)">Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
     <onload>ClearProperty(HomeFocus,Home)</onload>
@@ -12,7 +13,7 @@
     <onload condition="Integer.IsGreater(Container(1505).NumItems,0)">Control.Move(1505,1)</onload>
     <onload condition="Integer.IsGreater(Container(1506).NumItems,0)">Control.Move(1506,1)</onload>
     <onload condition="!Skin.HasSetting(LockHubWidgets)">Skin.ToggleSetting(LockHubWidgets)</onload>
-    <onload>UpdateLibrary(video,true)</onload>
+    <onload condition="Skin.HasSetting(AutoLibraryHome)">UpdateLibrary(video,,true)</onload>
     <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
    
 
@@ -40,10 +41,17 @@
         <include condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Topbar</include> 
         <include>Object_PlotOverlay</include>
         <include condition="!Skin.HasSetting(DisableNetflixHomeSidemenu)">Home</include>
-        <include condition="!Skin.HasSetting(SubmenuWidgetPanel)">submenu_widget_fixed</include>
         <include condition="!Skin.HasSetting(SubmenuWidgetPanel)">hubmenu_tv_fixed</include>
+        <include condition="!Skin.HasSetting(SubmenuWidgetPanel)">submenu_widget_fixed</include>
+<!--        <include condition="!Skin.HasSetting(SubmenuWidgetPanel)">submenu_widget_thumb</include> -->
         <include condition="!Skin.HasSetting(SubmenuWidgetPanel)">hubmenu_movie_fixed</include>
         <include condition="Skin.HasSetting(SubmenuWidgetPanel)">submenu_widget_panel</include>
+	<control type="group">
+	<top>0</top>
+	<right>-60</right>
+	<include>Logo</include>
+	<visible>!Window.IsVisible(DialogButtonMenu.xml) +  Skin.HasSetting(EnableHomeHeader)</visible>
+	</control>
         <control type="button" id="4000">
             <visible allowhiddenfocus="true">false</visible>
             <width>1</width>

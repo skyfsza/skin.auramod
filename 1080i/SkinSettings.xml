@@ -1,7 +1,7 @@
 <window>
     <defaultcontrol always="true">300</defaultcontrol>
     <include>Defs_Settings_OnLoad</include>
-    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107)</onunload>
+    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|searchmenu)</onunload>
     <onunload condition="System.HasAddon(script.colorbox)">SetProperty(NINE_manual_set,"var=main,set=$INFO[Skin.String(colorbox_main)]|var=comp,set=$INFO[Skin.String(colorbox_comp)]|var=quality,set=$INFO[Skin.String(colorbox_quality)]|var=blursize,set=$INFO[Skin.String(colorbox_blursize)]|var=bitsize,set=$INFO[Skin.String(colorbox_bitsize)]|var=pixelsize,set=$INFO[Skin.String(colorbox_pixelsize)]|var=black,set=$INFO[Skin.String(colorbox_black)]|var=white,set=$INFO[Skin.String(colorbox_white)]|var=blend,set=$INFO[Skin.String(colorbox_blend)]|var=desat,set=$INFO[Skin.String(colorbox_desat)]",home)</onunload> 
     <onload condition="String.IsEmpty(Window.Property(CurrentFocus))">SetProperty(CurrentFocus,$NUMBER[9001])</onload>
     <controls>
@@ -303,6 +303,21 @@
                             <onclick>Skin.ToggleSetting(EnableShowInfo)</onclick>
                             <selected>!Skin.HasSetting(EnableShowInfo)</selected>
                         </control>
+                        <control type="radiobutton" id="9691" description="Default Loading Spinner">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Use Aura Default loading icon</label>
+                            <onclick>Skin.ToggleSetting(EnableDefaultSpinner)</onclick>
+                            <selected>!Skin.HasSetting(EnableDefaultSpinner)</selected>
+                        </control>
+                       <control type="radiobutton" id="9692" description="Enable Time & Weather header on Home">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Enable Time & Weather header on Home</label>
+                            <onclick>Skin.ToggleSetting(EnableHomeHeader)</onclick>
+                            <selected>Skin.HasSetting(EnableHomeHeader)</selected>
+                        </control>
+
                         <!-- ========== -->
                         <!-- --Hubs---- -->
                         <!-- ========== -->
@@ -339,6 +354,12 @@
                             <onclick condition="String.IsEmpty(Skin.String(spotlighttvshows.label))">RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=spotlighttvshows.label&amp;skinWidgetTarget=spotlighttvshows.target&amp;skinWidgetPath=spotlighttvshows.path)</onclick>
                             <onclick condition="!String.IsEmpty(Skin.String(spotlighttvshows.label))">Skin.Reset(spotlighttvshows.label)</onclick>
                             <onclick condition="!String.IsEmpty(Skin.String(spotlighttvshows.path))">Skin.Reset(spotlighttvshows.path)</onclick>
+                        </control>
+                        <control type="button" id="9678" description="Configure Search Lists">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Search Lists</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=searchmenu)</onclick>
                         </control>
                         <control type="button" id="9664" description="Menu Hubs ">
                             <textcolor>main_fg_100</textcolor>
@@ -766,6 +787,13 @@
                         <!-- ============= -->
                         <!-- Miscellaneous -->
                         <!-- ============= -->
+                        <control type="radiobutton" id="9699" description="Auto library update">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9006)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Auto update library on Home load</label>
+                            <selected>Skin.HasSetting(AutoLibraryHome)</selected>
+                            <onclick>Skin.ToggleSetting(AutoLibraryHome)</onclick>
+                        </control>
                         <control type="radiobutton" id="9605" description="Kiosk Mode">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9006)</visible>
                             <include>Defs_Settings_Button</include>
@@ -984,8 +1012,6 @@
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
                             <label>$LOCALIZE[31427]</label>
-                            <visible>!Skin.HasSetting(DisableNetflixHome)</visible>
-                            <enable>!Skin.HasSetting(DisableNetflixHome)</enable>
                             <selected>Skin.HasSetting(DisableWidgetTitle)</selected>
                             <onclick>Skin.ToggleSetting(DisableWidgetTitle)</onclick>
                         </control>
@@ -993,8 +1019,6 @@
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
                             <label>Enable Episode Airdate on Widget Bar</label>
-                            <visible>!Skin.HasSetting(DisableNetflixHome)</visible>
-                            <enable>!Skin.HasSetting(DisableNetflixHome)</enable>
                             <selected>Skin.HasSetting(DisableWidgetAirdate)</selected>
                             <onclick>Skin.ToggleSetting(DisableWidgetAirdate)</onclick>
                         </control>
@@ -1011,8 +1035,6 @@
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
                             <label>$LOCALIZE[31426]</label>
-                            <visible>!Skin.HasSetting(DisableNetflixHome)</visible>
-                            <enable>!Skin.HasSetting(DisableNetflixHome)</enable>
                             <selected>Skin.HasSetting(DisableWidgetIMDB)</selected>
                             <onclick>Skin.ToggleSetting(DisableWidgetIMDB)</onclick>
                         </control>

@@ -30,56 +30,6 @@
 
     <include name="Widgets">
         <include condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">nosidemenu_widget_control</include>
-
-<!--
-        <control type="list" id="302">
-            <onup>430</onup>
-            <onback>300</onback>
-            <ondown>300</ondown>
-            <orientation>horizontal</orientation>
-            <height>10</height>
-            <top>-1000</top>
-            <onfocus>ClearProperty(WidgetFocus,Home)</onfocus>
-            <itemlayout width="10" />
-            <focusedlayout width="10" />
-            <content><include>skinshortcuts-submenu</include></content>
-            <visible>Skin.HasSetting(HideSubmenuWidget)</visible>
-        </control>
-        <control type="list" id="300">
-            <onup condition="Skin.HasSetting(HideSubmenuWidget)">302</onup>
-            <onup condition="!Skin.HasSetting(HideSubmenuWidget)">430</onup>
-            <ondown>3000</ondown>
-            <ondown condition="Control.IsVisible(3902)">3902</ondown>
-            <ondown condition="!Control.IsVisible(3902)">300</ondown>
-            <onfocus>ClearProperty(WidgetFocus,Home)</onfocus>
-            <onfocus>ClearProperty(WidgetLoading,Home)</onfocus>
-            <onfocus>AlarmClock(SetLoad,SetProperty(WidgetLoading,1,Home),00:00,silent)</onfocus>
-            <orientation>horizontal</orientation>
-            <height>10</height>
-            <top>-1000</top>
-            <itemlayout width="10" />
-            <focusedlayout width="10" />
-            <content><include>skinshortcuts-mainmenu</include></content>
-        </control>
-        <control type="button" id="430">
-            <width>1</width>
-            <height>1</height>
-            <left>-2000</left>
-            <animation effect="fade" time="300" start="100" end="0">Focus</animation>
-            <onfocus condition="!Skin.HasSetting(HideSubmenuWidget) | !Integer.IsGreater(Container(302).NumItems,0)">SetFocus(300)</onfocus>
-            <onfocus condition="Skin.HasSetting(HideSubmenuWidget) + Integer.IsGreater(Container(302).NumItems,0)">SetFocus(302)</onfocus>
-            <onclick>noop</onclick>
-            <visible allowhiddenfocus="true">Control.HasFocus(430)</visible>
-        </control>
-        <control type="button" id="431">
-            <width>1</width>
-            <height>1</height>
-            <left>-2000</left>
-            <animation effect="fade" time="300" start="100" end="0">Focus</animation>
-            <onfocus>SetFocus(3000)</onfocus>
-            <onclick>noop</onclick>
-        </control>
--->
         <control type="group">
             <visible allowhiddenfocus="true">!$EXP[Exp_HideFurniture]</visible>
             <include>Animation_FadeInOut</include>
@@ -403,7 +353,6 @@
         <onleft condition="!String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)">300</onleft>
         <onleft condition="!Skin.HasSetting(DisableMenuHor)">SetFocus(300)</onleft>
 
-
             <orientation>vertical</orientation>
             <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)</visible>
             <itemgap>0</itemgap>
@@ -424,9 +373,14 @@
                 <height>110</height>
                  <visible>Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableCatlabel) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
             </control>
+<!--
+           <control type="group" id="33335">
+                <height>180</height>
+            <include>Spotlight_TVNextAired_AuraWidget</include>
+         </control>
+-->
             <include>Spotlight_Movies_AuraWidget</include>
             <include>Spotlight_TV_AuraWidget</include>
-
             <control type="group" id="334" description="Spacer"> 
                 <height>220</height>
             </control>
@@ -446,6 +400,7 @@
                 <param name="label" value="$VAR[catlabel]" />
                 <param name="visible" value="String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)" />
             </include>
+
             <include>skinshortcuts-template-vertical-submenu</include>
 
 	   <control type="button" id="337">
@@ -483,6 +438,7 @@
         <param name="squarecondition" default="false" />
         <param name="genrecondition" default="false" />
         <param name="controltype" default="fixedlist" />
+        <param name="search" default="false" />
         <definition>
             <control type="group" id="2$PARAM[id]">
                 <top>widget_gap</top>
@@ -502,10 +458,12 @@
                     <include content="Defs_BusySpinner">
                         <param name="label" value="$LOCALIZE[31138]..." />
                     </include>
-                    <visible>Container($PARAM[id]).IsUpdating + !Integer.IsGreater(Container($PARAM[id]).NumItems,0)</visible>
+                    <visible>[Container($PARAM[id]).IsUpdating + !Integer.IsGreater(Container($PARAM[id]).NumItems,0)] | [Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating]</visible>
                 </control>
             </control>
             <control type="$PARAM[controltype]" id="$PARAM[id]">
+                <animation effect="fade" start="100" end="0" condition="Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating">Conditional</animation>
+		<onfocus condition="Window.IsVisible(1138)">Container.Update</onfocus>
 		<movement>1</movement>
                 <top>widget_top</top>
                 <include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
@@ -557,6 +515,7 @@
                     <param name="categorycondition" value="$PARAM[categorycondition]" />
                     <param name="squarecondition" value="$PARAM[squarecondition]" />
                     <param name="genrecondition" value="$PARAM[genrecondition]" />
+                    <param name="search" value="$PARAM[search]" />
                 </include>
                 <include content="Widget_Submenu" condition="$PARAM[submenu]">
                     <param name="id" value="$PARAM[id]" />
@@ -576,13 +535,13 @@
     <include name="Widget_Items_Submenu_Big_Height"><height>390</height></include>
 
 
-    <include name="Widget_Items_Landscapesmall_Big_Height"><height>530</height></include>
+    <include name="Widget_Items_Landscapesmall_Big_Height"><height>470</height></include>
+    <include name="Widget_Items_Landscapesmall_Big_Height_small"><height>470</height></include>
     <include name="Widget_Items_genre_Big_Height"><height>widget_poster_spacer</height></include>
     <include name="Widget_Items_Landscape_Big_Height"><height>585</height></include>
     <include name="Widget_Items_Category_Big_Height"><height>450</height></include>
     <include name="Widget_Items_Poster_Big"><height>640</height></include>
     <include name="Widget_Items_Poster_Big_small"><height>670</height></include>
-    <include name="Widget_Items_Landscapesmall_Big_Height_small"><height>570</height></include>
     <include name="Widget_Items_genre_Big_Height_small"><height>690</height></include>
     <include name="Widget_Items_Landscape_Big_Height_small"><height>625</height></include>
     <include name="Widget_Items_Category_Big_Height_small"><height>480</height></include>
@@ -644,6 +603,7 @@
                     <param name="categorycondition" value="$PARAM[categorycondition]" />
                     <param name="squarecondition" value="$PARAM[squarecondition]" />
                     <param name="genrecondition" value="$PARAM[genrecondition]" />
+                    <param name="search" value="$PARAM[search]" />
                 </include>
                 <include content="Widget_Submenu" condition="$PARAM[submenu]">
                     <param name="id" value="$PARAM[id]" />
@@ -732,8 +692,7 @@
                         <label>Aired: $INFO[ListItem.Premiered(dd MMM yyyy)]</label>
                         <textcolor>$VAR[ColorHighlight2]</textcolor>
                         <font>font_tiny_bold</font>
-                    <include>Statusbar_Menubar_Items</include>
-
+                        <include>Statusbar_Menubar_Items</include>
                         <visible>Control.HasFocus($PARAM[id])</visible>
                         <visible>String.IsEqual(ListItem.DBType,episode) + Skin.HasSetting(DisableWidgetAirdate)</visible>
                       </control>
@@ -855,6 +814,7 @@
         <param name="categorycondition" default="false" />
         <param name="squarecondition" default="false" />
         <param name="genrecondition" default="false" />
+        <param name="search" default="false" />
         <definition>
             <include content="Widget_Common">
                 <param name="top" value="$PARAM[top]" />
@@ -1066,7 +1026,17 @@
                 </include>
             </focusedlayout>
 
-            <include content="Widget_ContentInclude">
+            <include condition="!$PARAM[search]" content="Widget_ContentInclude">
+                <param name="target" value="$PARAM[target]" />
+                <param name="sortby" value="$PARAM[sortby]" />
+                <param name="sortorder" value="$PARAM[sortorder]" />
+                <param name="widgetContent" value="$PARAM[widgetContent]" />
+                <param name="content" value="$PARAM[content]" />
+                <param name="limit" value="$VAR[Label_WidgetItemLimit]" />
+                <param name="id" value="$PARAM[id]" />
+            </include>
+
+            <include condition="$PARAM[search]" content="Widget_ContentInclude_Search">
                 <param name="target" value="$PARAM[target]" />
                 <param name="sortby" value="$PARAM[sortby]" />
                 <param name="sortorder" value="$PARAM[sortorder]" />
@@ -1076,6 +1046,19 @@
                 <param name="id" value="$PARAM[id]" />
             </include>
         </definition>
+    </include>
+
+    <include name="Widget_ContentInclude_Search">
+        <content target="$PARAM[target]" sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" limit="$PARAM[limit]">$PARAM[widgetContent]$INFO[Skin.String(CustomSearchTerm)]</content>
+        <content>
+            <item>
+                <label>$LOCALIZE[31373]...</label>
+                <icon>DefaultFolder.png</icon>
+                <onclick>ActivateWindow($PARAM[target],$PARAM[widgetContent],return)</onclick>
+                <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,9)</visible>
+                <visible>!Skin.HasSetting(HideShowMoreItem)</visible>
+            </item>
+        </content>
     </include>
 
     <include name="Widget_ContentInclude">
@@ -1420,56 +1403,6 @@
             </control>
 
         </definition>
-    </include>
-
-    <include name="Widget_Items_Landscape">
-        <control type="group">
-            <control type="image">
-                <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Image_Fanart]</texture>
-                <aspectratio scalediffuse="false">scale</aspectratio>
-            </control>
-            <control type="image">
-                <bottom>30</bottom>
-                <top>170</top>
-                <left>120</left>
-                <right>120</right>
-                <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
-                <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
-          <visible>[!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo)] + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)] + !String.IsEqual(ListItem.DBType,episode) + [!String.IsEqual(ListItem.DBType,episode) + !String.Contains(ListItem.Art(landscape),userdata)]</visible>
-            </control>
-
-
-            <control type="image">
-                <bottom>30</bottom>
-                <top>170</top>
-                <left>120</left>
-                <right>120</right>
-                <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
-                <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
-                <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
-            </control>
-
-            <control type="group">
-                <height>70</height>
-                <bottom>0</bottom>
-                <visible>![!Skin.HasSetting(DisableFakeLandscapeArt) + !String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome)]]</visible>
-                <visible>!Skin.HasSetting(WidgetLabels)</visible>
-                <control type="image">
-                    <texture colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
-                </control>
-                <control type="label">
-                    <top>0</top>
-                    <bottom>0</bottom>
-                    <left>20</left>
-                    <right>20</right>
-                    <align>center</align>
-                    <aligny>center</aligny>
-                    <font>font_tiny_bold</font>
-                    <textcolor>main_fg_70</textcolor>
-                    <label>$VAR[Label_Widget]</label>
-                </control>
-            </control>
-        </control>
     </include>
 
     <include name="Widget_Items_ItemLayout">

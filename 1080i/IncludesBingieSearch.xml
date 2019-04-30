@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- BINGIE -->
+<includes>
+    <!-- VARS -->
+    <variable name="SearchString">
+        <value condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">$INFO[Skin.String(CustomSearchTerm)]</value>
+        <value condition="!String.IsEmpty(Window.Property(SuggestionPath)) + [ControlGroup(77777).HasFocus() | Control.HasFocus(1007)]">$INFO[Container(1007).ListItem.Label]</value>
+    </variable>
+
+    <variable name="EmptySearchResultsString">
+        <value condition="Control.HasFocus(1007) + String.IsEmpty(Skin.String(CustomSearchTerm))">$LOCALIZE[31558]</value>
+        <value condition="String.IsEmpty(Skin.String(CustomSearchTerm))">$LOCALIZE[31559]</value>
+        <value>$LOCALIZE[31578]</value>
+    </variable>
+
+    <variable name="SuggestionBorderColor">
+        <value condition="Control.HasFocus(1007)">$INFO[Skin.String(ViewDetailsBorderFocusColor)]</value>
+        <value>$INFO[Skin.String(BingieSecondaryTextColor)]</value>
+    </variable>
+
+    <!-- Search Auto-Complete Content Provider -->
+    <variable name="SearchAutoCompleteContentProvider">
+        <value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + System.HasAddon(plugin.program.autocompletion)">plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Skin.String(CustomSearchTerm)]</value>
+    </variable>
+
+    <!-- INCLUDES -->
+    <!-- Static Search Suggestions -->
+        <include name="ExtraSmallKey">
+        <width>70</width>
+                <height>70</height>
+        <include>Key</include>
+    </include>
+    <include name="Key">
+        <height>110</height>
+        <align>center</align>
+        <font>Reg28</font>
+        <textoffsetx>0</textoffsetx>
+        <selectedcolor>white</selectedcolor>
+        <textcolor>grey</textcolor>
+        <focusedcolor>black</focusedcolor>
+        <disabledcolor>black</disabledcolor>
+        <pulseonselect>false</pulseonselect>
+        <texturefocus colordiffuse="dimgrey" border="20">dialogs/keyboard/key-nf.png</texturefocus>
+        <texturenofocus colordiffuse="black" border="20">dialogs/keyboard/key-nf.png</texturenofocus>
+        <alttexturefocus colordiffuse="dimgrey" border="20">dialogs/keyboard/key-nf.png</alttexturefocus>
+        <alttexturenofocus colordiffuse="black" border="20">dialogs/keyboard/key-nf.png</alttexturenofocus>
+    </include>
+
+    <!-- Search Radio Key -->
+    <include name="SearchRadioKey">
+        <param name="force_refresh" value="false"/>
+        <param name="onclick2Cond" default="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
+        <param name="onclick2" default="Skin.SetString(CustomSearchTerm)" />
+        <definition>
+            <control type="radiobutton" id="$PARAM[id]">
+                <width>$PARAM[width]</width>
+                <label/>
+                <radioposx>$PARAM[radioposx]</radioposx>
+                <radioposy>$PARAM[radioposy]</radioposy>
+                <radiowidth>$PARAM[radiowidth]</radiowidth>
+                <radioheight>$PARAM[radioheight]</radioheight>
+                <textureradioonfocus colordiffuse="grey">$PARAM[texture]</textureradioonfocus>
+                <textureradioofffocus colordiffuse="grey">$PARAM[texture]</textureradioofffocus>
+                <textureradioonnofocus colordiffuse="white">$PARAM[texture]</textureradioonnofocus>
+                <textureradiooffnofocus colordiffuse="white">$PARAM[texture]</textureradiooffnofocus>
+                <ondown>$PARAM[ondown]</ondown>
+                <onclick condition="$PARAM[force_refresh]">SetProperty(CustomSearch,1,home)</onclick>
+                <onclick>$PARAM[onclick]</onclick>
+                <onclick condition="$PARAM[onclick2Cond]">$PARAM[onclick2]</onclick>
+                <include>ExtraSmallKey</include>
+            </control>
+        </definition>
+    </include>
+
+    <!-- Search Key -->
+    <include name="SearchKey">
+        <control type="button" id="$PARAM[id]">
+            <onup>$PARAM[onup]</onup>
+            <ondown>$PARAM[ondown]</ondown>
+            <include>ExtraSmallKey</include>
+            <label>$PARAM[key]</label>
+            <onclick>Skin.SetString(CustomSearchTerm,$INFO[Skin.String(CustomSearchTerm)]$PARAM[key])</onclick>
+        </control>
+    </include>
+
+    <!-- Search Keyboard Row -->
+    <include name="SearchKeyboardRow">
+        <control type="grouplist" id="$PARAM[id]">
+            <width>370</width>
+            <height>70</height>
+            <orientation>horizontal</orientation>
+            <itemgap>-10</itemgap>
+            <onleft>$PARAM[onleft]</onleft>
+            <onright>$PARAM[onright]</onright>
+            <include>$PARAM[row_include]</include>
+        </control>
+    </include>
+
+    <include name="SearchKeyboardRow_BackspaceAndSpace_Row">
+        <!-- Space -->
+        <include content="SearchRadioKey">
+            <param name="id" value="10" />
+            <param name="width" value="190" />
+            <param name="radioposx" value="50" />
+            <param name="radioposy" value="20" />
+            <param name="radiowidth" value="80" />
+            <param name="radioheight" value="40" />
+            <param name="texture" value="dialogs/keyboard/space.png" />
+            <param name="ondown" value="1001" />
+            <param name="onclick" value="SetProperty(SpaceSearchTerm,1,Home)" />
+        </include>
+        <!-- Backspace -->
+        <include content="SearchRadioKey">
+            <param name="id" value="11" />
+            <param name="width" value="190" />
+            <param name="radioposx" value="25" />
+            <param name="radioposy" value="15" />
+            <param name="radiowidth" value="130" />
+            <param name="radioheight" value="40" />
+            <param name="texture" value="dialogs/keyboard/backspace.png" />
+            <param name="ondown" value="1001" />
+            <param name="onclick" value="SetProperty(BackspaceSearchTerm,1,Home)" />
+            <param name="force_refresh" value="true"/>
+        </include>
+    </include>
+
+    <include name="SearchKeyboardRow_First_Row">
+        <!-- A -->
+        <include content="SearchKey">
+            <param name="id" value="101" />
+            <param name="onup" value="10" />
+            <param name="ondown" value="107" />
+            <param name="key" value="a" />
+        </include>
+        <!-- B -->
+        <include content="SearchKey">
+            <param name="id" value="102" />
+            <param name="onup" value="10" />
+            <param name="ondown" value="108" />
+            <param name="key" value="b" />
+        </include>
+        <!-- C -->
+        <include content="SearchKey">
+            <param name="id" value="103" />
+            <param name="onup" value="10" />
+            <param name="ondown" value="109" />
+            <param name="key" value="c" />
+        </include>
+        <!-- D -->
+        <include content="SearchKey">
+            <param name="id" value="104" />
+            <param name="onup" value="11" />
+            <param name="ondown" value="110" />
+            <param name="key" value="d" />
+        </include>
+        <!-- E -->
+        <include content="SearchKey">
+            <param name="id" value="105" />
+            <param name="onup" value="11" />
+            <param name="ondown" value="111" />
+            <param name="key" value="e" />
+        </include>
+        <!-- F -->
+        <include content="SearchKey">
+            <param name="id" value="106" />
+            <param name="onup" value="11" />
+            <param name="ondown" value="112" />
+            <param name="key" value="f" />
+        </include>
+    </include>
+
+    <include name="SearchKeyboardRow_Second_Row">
+        <!-- G -->
+        <include content="SearchKey">
+            <param name="id" value="107" />
+            <param name="onup" value="101" />
+            <param name="ondown" value="113" />
+            <param name="key" value="g" />
+        </include>
+        <!-- H -->
+        <include content="SearchKey">
+            <param name="id" value="108" />
+            <param name="onup" value="102" />
+            <param name="ondown" value="114" />
+            <param name="key" value="h" />
+        </include>
+        <!-- I -->
+        <include content="SearchKey">
+            <param name="id" value="109" />
+            <param name="onup" value="103" />
+            <param name="ondown" value="115" />
+            <param name="key" value="i" />
+        </include>
+        <!-- J -->
+        <include content="SearchKey">
+            <param name="id" value="110" />
+            <param name="onup" value="104" />
+            <param name="ondown" value="116" />
+            <param name="key" value="j" />
+        </include>
+        <!-- K -->
+        <include content="SearchKey">
+            <param name="id" value="111" />
+            <param name="onup" value="105" />
+            <param name="ondown" value="117" />
+            <param name="key" value="k" />
+        </include>
+        <!-- L -->
+        <include content="SearchKey">
+            <param name="id" value="112" />
+            <param name="onup" value="106" />
+            <param name="ondown" value="118" />
+            <param name="key" value="l" />
+        </include>
+    </include>
+
+    <include name="SearchKeyboardRow_Third_Row">
+        <!-- M -->
+        <include content="SearchKey">
+            <param name="id" value="113" />
+            <param name="onup" value="107" />
+            <param name="ondown" value="119" />
+            <param name="key" value="m" />
+        </include>
+        <!-- N -->
+        <include content="SearchKey">
+            <param name="id" value="114" />
+            <param name="onup" value="108" />
+            <param name="ondown" value="120" />
+            <param name="key" value="n" />
+        </include>
+        <!-- O -->
+        <include content="SearchKey">
+            <param name="id" value="115" />
+            <param name="onup" value="109" />
+            <param name="ondown" value="121" />
+            <param name="key" value="o" />
+        </include>
+        <!-- P -->
+        <include content="SearchKey">
+            <param name="id" value="116" />
+            <param name="onup" value="110" />
+            <param name="ondown" value="122" />
+            <param name="key" value="p" />
+        </include>
+        <!-- Q -->
+        <include content="SearchKey">
+            <param name="id" value="117" />
+            <param name="onup" value="111" />
+            <param name="ondown" value="123" />
+            <param name="key" value="q" />
+        </include>
+        <!-- R -->
+        <include content="SearchKey">
+            <param name="id" value="118" />
+            <param name="onup" value="112" />
+            <param name="ondown" value="124" />
+            <param name="key" value="r" />
+        </include>
+    </include>
+
+    <include name="SearchKeyboardRow_Fourth_Row">
+        <!-- S -->
+        <include content="SearchKey">
+            <param name="id" value="119" />
+            <param name="onup" value="113" />
+            <param name="ondown" value="125" />
+            <param name="key" value="s" />
+        </include>
+        <!-- T -->
+        <include content="SearchKey">
+            <param name="id" value="120" />
+            <param name="onup" value="114" />
+            <param name="ondown" value="126" />
+            <param name="key" value="t" />
+        </include>
+        <!-- U -->
+        <include content="SearchKey">
+            <param name="id" value="121" />
+            <param name="onup" value="115" />
+            <param name="ondown" value="127" />
+            <param name="key" value="u" />
+        </include>
+        <!-- V -->
+        <include content="SearchKey">
+            <param name="id" value="122" />
+            <param name="onup" value="116" />
+            <param name="ondown" value="128" />
+            <param name="key" value="v" />
+        </include>
+        <!-- W -->
+        <include content="SearchKey">
+            <param name="id" value="123" />
+            <param name="onup" value="117" />
+            <param name="ondown" value="129" />
+            <param name="key" value="w" />
+        </include>
+        <!-- X -->
+        <include content="SearchKey">
+            <param name="id" value="124" />
+            <param name="onup" value="118" />
+            <param name="ondown" value="130" />
+            <param name="key" value="x" />
+        </include>
+    </include>
+
+    <include name="SearchKeyboardRow_Fifth_Row">
+        <!-- Y -->
+        <include content="SearchKey">
+            <param name="id" value="125" />
+            <param name="onup" value="119" />
+            <param name="ondown" value="131" />
+            <param name="key" value="y" />
+        </include>
+        <!-- Z -->
+        <include content="SearchKey">
+            <param name="id" value="126" />
+            <param name="onup" value="120" />
+            <param name="ondown" value="132" />
+            <param name="key" value="z" />
+        </include>
+        <!-- 1 -->
+        <include content="SearchKey">
+            <param name="id" value="127" />
+            <param name="onup" value="121" />
+            <param name="ondown" value="133" />
+            <param name="key" value="$NUMBER[1]" />
+        </include>
+        <!-- 2 -->
+        <include content="SearchKey">
+            <param name="id" value="128" />
+            <param name="onup" value="122" />
+            <param name="ondown" value="134" />
+            <param name="key" value="$NUMBER[2]" />
+        </include>
+        <!-- 3 -->
+        <include content="SearchKey">
+            <param name="id" value="129" />
+            <param name="onup" value="123" />
+            <param name="ondown" value="135" />
+            <param name="key" value="$NUMBER[3]" />
+        </include>
+        <!-- 4 -->
+        <include content="SearchKey">
+            <param name="id" value="130" />
+            <param name="onup" value="124" />
+            <param name="ondown" value="136" />
+            <param name="key" value="$NUMBER[4]" />
+        </include>
+    </include>
+
+    <include name="SearchKeyboardRow_Sixth_Row">
+        <!-- 5 -->
+        <include content="SearchKey">
+            <param name="id" value="131" />
+            <param name="onup" value="125" />
+            <param name="ondown" value="1007" />
+            <param name="key" value="$NUMBER[5]" />
+        </include>
+        <!-- 6 -->
+        <include content="SearchKey">
+            <param name="id" value="132" />
+            <param name="onup" value="126" />
+            <param name="ondown" value="1007" />
+            <param name="key" value="$NUMBER[6]" />
+        </include>
+        <!-- 7 -->
+        <include content="SearchKey">
+            <param name="id" value="133" />
+            <param name="onup" value="127" />
+            <param name="ondown" value="1007" />
+            <param name="key" value="$NUMBER[7]" />
+        </include>
+        <!-- 8 -->
+        <include content="SearchKey">
+            <param name="id" value="134" />
+            <param name="onup" value="128" />
+            <param name="ondown" value="1007" />
+            <param name="key" value="$NUMBER[8]" />
+        </include>
+        <!-- 9 -->
+        <include content="SearchKey">
+            <param name="id" value="135" />
+            <param name="onup" value="129" />
+            <param name="ondown" value="1007" />
+            <param name="key" value="$NUMBER[9]" />
+        </include>
+        <!-- 0 -->
+        <include content="SearchKey">
+            <param name="id" value="136" />
+            <param name="onup" value="130" />
+            <param name="ondown" value="1007" />
+            <param name="key" value="$NUMBER[0]" />
+        </include>
+    </include>
+
+    <!-- Search Suggestions Container -->
+    <include name="Search_Suggestions_Container">
+        <param name="visibility" default="true" />
+        <param name="left" default="100" />
+        <param name="top" default="520" />
+        <param name="onback" default="9000" />
+        <param name="onup" default="101" />
+        <param name="ondown" default="noop" />
+        <param name="onright" default="5600" />
+        <param name="onleft" default="900" />
+        <definition>
+            <control type="list" id="$PARAM[id]">
+                <animation effect="slide" end="-450,0" time="500" condition="ControlGroup(5600).HasFocus">Conditional</animation>
+                <nested/>
+                <visible>$PARAM[visibility]</visible>
+                <left>$PARAM[left]</left>
+                <top>$PARAM[top]</top>
+                <width>400</width>
+                <height>474</height>
+                <orientation>vertical</orientation>
+                <onback>$PARAM[onback]</onback>
+                <onup>$PARAM[onup]</onup>
+                <ondown>$PARAM[ondown]</ondown>
+                <onright>$PARAM[onright]</onright>
+                <onleft>$PARAM[onleft]</onleft>
+                <align>left</align>
+                <itemlayout width="350" height="65">
+                    <control type="label">
+                        <left>15</left>
+                        <width>390</width>
+                        <height>100%</height>
+                        <aligny>center</aligny>
+                        <align>left</align>
+                        <font>Reg30</font>
+                        <textcolor>white</textcolor>
+                        <scroll>false</scroll>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="350" height="65">
+                    <control type="group">
+                        <control type="image">
+                            <width>390</width>
+                            <height>100%</height>
+                            <aligny>top</aligny>
+                            <align>left</align>
+                            <aspectratio align="left" aligny="top">stretch</aspectratio>
+                            <colordiffuse>$VAR[ViewDetailsBorderFocusColor]</colordiffuse>
+		            <texture colordiffuse="grey">diffuse/landscape.png</texture>
+                            <visible>Control.HasFocus($PARAM[id]) | Control.IsVisible(500)</visible>
+                        </control>
+                        <control type="label">
+                            <left>15</left>
+                            <width>390</width>
+                            <height>100%</height>
+                            <aligny>center</aligny>
+                            <align>left</align>
+                            <font>Reg30</font>
+                            <textcolor>red</textcolor>
+                            <scroll>true</scroll>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="button">
+                            <visible>false</visible>
+                            <onfocus condition="String.IsEmpty(Skin.String(CustomSearchTerm))">$PARAM[onitemfocus]</onfocus>
+                            <onfocus condition="String.IsEmpty(Skin.String(CustomSearchTerm))">$PARAM[onitemfocus2]</onfocus>
+                        </control>
+                    </control>
+                </focusedlayout>
+            </control>
+        </definition>
+    </include>
+
+    <!-- Thumbs Container Template -->
+    <include name="ThumbsContainerTemplate">
+        <definition>
+            <control type="panel" id="$PARAM[id]">
+                <nested />
+                <visible>Container($PARAM[id]).IsUpdating | Integer.IsGreater(Container($PARAM[id]).NumItems,0) | $PARAM[force_visible]</visible>
+                <visible>$PARAM[visibility]</visible>
+                <width>$PARAM[width]</width>
+                <height>$PARAM[height]</height>
+                <orientation>$PARAM[orientation]</orientation>
+                <pagecontrol>$PARAM[pagecontrol]</pagecontrol>
+                <scrolltime tween="quadratic">400</scrolltime>
+                <preloaditems>4</preloaditems>
+                <itemlayout width="$PARAM[layoutwidth]" height="$PARAM[layoutheight]">
+                    <control type="group">
+                        <width>$PARAM[layoutwidth]</width>
+                        <height>$PARAM[layoutheight]</height>
+                        <include>ThumbsViewLayout</include>
+                        <control type="group">
+                            <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlay</include>
+                            <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
+                            <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
+                                <param name="prefix" value="Landscape"/>
+                            </include>
+                            <include>New_Episodes_Tag_Overlay</include>
+                        </control>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="$PARAM[layoutwidth]" height="$PARAM[layoutheight]">
+                    <control type="group">
+                        <width>$PARAM[layoutwidth]</width>
+                        <height>$PARAM[layoutheight]</height>
+                        <include>ThumbsViewLayoutFocus</include>
+                        <control type="group">
+                            <description>widget label overlay</description>
+                            <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlay</include>
+                            <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
+                            <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
+                                <param name="prefix" value="Landscape"/>
+                            </include>
+                            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">New_Episodes_Tag_Overlay</include>
+                        </control>
+                    </control>
+                </focusedlayout>
+            </control>
+        </definition>
+    </include>
+
+    <include name="SearchResultWidget">
+        <param name="height">250</param>
+        <param name="orientation">horizontal</param>
+        <param name="layoutwidth">440</param>
+        <param name="layoutheight">250"</param>
+        <definition>
+                <include content="ThumbsContainerTemplate">
+                    <nested />
+                    <include condition="Skin.HasSetting(ShowInformationBypass) + $PARAM[allow_showinfo_onclick]">ContainerShowInfoOnclick</include>
+                    <param name="id" value="$PARAM[id]"/>
+                    <param name="width" value="1320" />
+                    <param name="height" value="$PARAM[height]" />
+                    <param name="orientation" value="$PARAM[orientation]" />
+                    <param name="layoutwidth" value="$PARAM[layoutwidth]" />
+                    <param name="layoutheight" value="$PARAM[layoutheight]" />
+                    <param name="force_visible" value="!String.IsEmpty(Window(home).Property(CustomSearch))" />
+                    <param name="visibility" value="$PARAM[visibility]" />
+                </include>
+        </definition>
+    </include>
+
+    <!-- Search Result Widget Top Label -->
+    <include name="SearchResultWidgetTopLabel">
+        <definition>
+            <control type="grouplist" id="$PARAM[groupid]">
+                <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
+                <nested />
+                <height>36</height>
+                <orientation>horizontal</orientation>
+                <usecontrolcoords>true</usecontrolcoords>
+                <itemgap>2</itemgap>
+                <control type="label">
+                    <left>5</left>
+                    <width>auto</width>
+                    <label>$PARAM[label]</label>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <font>Reg30</font>
+                    <height>36</height>
+                    <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
+                </control>
+                <control type="multiimage">
+                    <top>26</top>
+                    <width>24</width>
+                    <height>10</height>
+                    <aspectratio>keep</aspectratio>
+                    <imagepath>spinner/search_widget_loader/</imagepath>
+                    <timeperimage>250</timeperimage>
+                    <pauseatend>500</pauseatend>
+                    <fadetime>0</fadetime>
+                    <visible>Container($PARAM[id]).IsUpdating</visible>
+                </control>
+            </control>
+        </definition>
+    </include>
+
+    <!-- Search Youtube Widget -->
+    <include name="YoutubeSearchResultWidget">
+        <include content="SearchResultWidgetTopLabel">
+            <param name="groupid" value="$PARAM[id]0" />
+            <param name="id" value="$PARAM[id]" />
+            <param name="label" value="$LOCALIZE[31062]" />
+            <visible>Control.IsVisible($PARAM[id])</visible>
+        </include>
+        <include content="SearchResultWidget">
+            <param name="id" value="$PARAM[id]" />
+            <param name="allow_showinfo_onclick" value="false" />
+            <visible>!String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+            <content sortby="file" limit="25" target="videos">plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[Skin.String(CustomSearchTerm)]&amp;search_type=videos</content>
+        </include>
+    </include>
+
+    <!-- Search Episode Widget -->
+    <include name="EpisodeSearchResultWidget">
+        <include content="SearchResultWidgetTopLabel">
+            <param name="groupid" value="$PARAM[id]0" />
+            <param name="id" value="$PARAM[id]" />
+            <param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31579] &quot;,&quot;]" />
+            <visible>Control.IsVisible($PARAM[id])</visible>
+        </include>
+        <include content="SearchResultWidget">
+            <param name="id" value="$PARAM[id]" />
+            <param name="allow_showinfo_onclick" value="false" />
+            <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
+            <content limit="100" target="videos">videodb://tvshows/titles/-1/-1/-1/-1/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22episodes%22%7D</content>
+        </include>
+    </include>
+
+    <!-- Search Music Videos Widget -->
+    <include name="MusicVideosSearchResultWidget">
+        <include content="SearchResultWidgetTopLabel">
+            <param name="groupid" value="$PARAM[id]0" />
+            <param name="id" value="$PARAM[id]" />
+            <param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31580] &quot;,&quot;]" />
+            <visible>Control.IsVisible($PARAM[id])</visible>
+        </include>
+        <include content="SearchResultWidget">
+            <param name="id" value="$PARAM[id]" />
+            <param name="allow_showinfo_onclick" value="false" />
+            <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
+            <content limit="100" target="videos">videodb://musicvideos/titles/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22sorttitle%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22title%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22musicvideos%22%7d</content>
+        </include>
+    </include>
+
+    <!-- Search Albums Widget -->
+    <include name="AlbumsSearchResultWidget">
+        <include content="SearchResultWidgetTopLabel">
+            <param name="groupid" value="$PARAM[id]0" />
+            <param name="id" value="$PARAM[id]" />
+            <param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31593] &quot;,&quot;]" />
+            <visible>Control.IsVisible($PARAM[id])</visible>
+        </include>
+        <include content="SearchResultWidget">
+            <param name="id" value="$PARAM[id]" />
+            <param name="allow_showinfo_onclick" value="false" />
+            <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
+            <content limit="100" target="music">musicdb://albums/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22album%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22album%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22albums%22%7d</content>
+        </include>
+    </include>
+
+    <!-- Search Artists Widget -->
+    <include name="ArtistsSearchResultWidget">
+        <include content="SearchResultWidgetTopLabel">
+            <param name="groupid" value="$PARAM[id]0" />
+            <param name="id" value="$PARAM[id]" />
+            <param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31081] &quot;,&quot;]" />
+            <visible>Control.IsVisible($PARAM[id])</visible>
+        </include>
+        <include content="SearchResultWidget">
+            <param name="id" value="$PARAM[id]" />
+            <param name="allow_showinfo_onclick" value="false" />
+            <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
+            <content limit="100" target="music">musicdb://artists/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22artist%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22artist%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22artists%22%7D</content>
+        </include>
+    </include>
+
+    <!-- Search Songs Widget -->
+    <include name="SongsSearchResultWidget">
+        <include content="SearchResultWidgetTopLabel">
+            <param name="groupid" value="$PARAM[id]0" />
+            <param name="id" value="$PARAM[id]" />
+            <param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31082] &quot;,&quot;]" />
+            <visible>Control.IsVisible($PARAM[id])</visible>
+        </include>
+        <include content="SearchResultWidget">
+            <param name="id" value="$PARAM[id]" />
+            <param name="allow_showinfo_onclick" value="false" />
+            <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
+            <content limit="100" target="music">musicdb://songs/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22artist%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22title%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22songs%22%7d</content>
+        </include>
+    </include>
+</includes>

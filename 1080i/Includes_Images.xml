@@ -38,9 +38,9 @@
         <value condition="!String.IsEmpty(ListItem.Art(fanart)) + [[!Container.Content(videos) + !Container.Content(episodes)] | !String.IsEmpty(ListItem.Property(PlayAll)) | String.IsEqual(ListItem.DBType,movie)] + !Window.IsVisible(home)">$INFO[ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(fanart)) + Window.IsVisible(home) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome) | !String.IsEmpty(ListItem.Property(airday))]">$INFO[ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(ListItem.Property(fanart))">$INFO[ListItem.Property(fanart)]</value>
-        <value condition="!String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
-        <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
-        <value>$INFO[ListItem.Icon]</value>
+        <value condition="[!Control.HasFocus(5055) + !Control.IsVisible(505)] + !String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
+        <value condition="[!Control.HasFocus(5055) + !Control.IsVisible(505)] + !String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+        <value condition="!Control.HasFocus(5055) + !Control.IsVisible(505)">$INFO[ListItem.Icon]</value>
     </variable>
 
     <variable name="Image_MainMenu_fanart"> 
@@ -158,6 +158,7 @@
         <value condition="ListItem.IsPlaying">indicator/play.png</value>
         <value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,66)">indicator/inprogress-75.png</value>
         <value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,33)">indicator/inprogress-50.png</value>
+        <value condition="Integer.IsGreater(ListItem.PlayCount,0)">indicator/checkmark-fo.png</value>
         <value condition="ListItem.IsResumable">indicator/inprogress-25.png</value>
         <value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png)">indicator/checkmark-fo.png</value>
         <value condition="[Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml)]+ !String.IsEmpty(ListItem.DBID)">indicator/library.png</value>

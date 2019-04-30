@@ -38,7 +38,9 @@
           <align>left</align>
           <font>font_tiny_bold</font>
           <textcolor>dimgrey</textcolor>
-          <focusedcolor>red</focusedcolor>
+          <focusedcolor>black</focusedcolor>
+          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
+          <texturenofocus></texturenofocus>
           <label>Action</label>
         </control>
         <control type="button" id="2">
@@ -51,7 +53,8 @@
           <align>left</align>
           <font>font_tiny_bold</font>
           <textcolor>dimgrey</textcolor>
-          <focusedcolor>red</focusedcolor>
+          <focusedcolor>black</focusedcolor>
+          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
           <label>Adventure</label>
         </control>
         <control type="button" id="3">
@@ -64,7 +67,8 @@
           <align>left</align>
           <font>font_tiny_bold</font>
           <textcolor>dimgrey</textcolor>
-          <focusedcolor>red</focusedcolor>
+          <focusedcolor>black</focusedcolor>
+          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
           <label>Documentary</label>
         </control>
         <control type="button" id="4">
@@ -77,7 +81,8 @@
           <align>left</align>
           <font>font_tiny_bold</font>
           <textcolor>dimgrey</textcolor>
-          <focusedcolor>red</focusedcolor>
+          <focusedcolor>black</focusedcolor>
+          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
           <label>Drama</label>
         </control>
         <control type="button" id="5">
@@ -90,7 +95,8 @@
           <align>left</align>
           <font>font_tiny_bold</font>
           <textcolor>dimgrey</textcolor>
-          <focusedcolor>red</focusedcolor>
+          <focusedcolor>black</focusedcolor>
+          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
           <label>Comedy</label>
         </control>
         <control type="button" id="6">
@@ -103,7 +109,8 @@
           <align>left</align>
           <font>font_tiny_bold</font>
           <textcolor>dimgrey</textcolor>
-          <focusedcolor>red</focusedcolor>
+          <focusedcolor>black</focusedcolor>
+          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
           <label>Game Show</label>
         </control>
         <control type="button" id="7">
@@ -116,7 +123,8 @@
           <align>left</align>
           <font>font_tiny_bold</font>
           <textcolor>dimgrey</textcolor>
-          <focusedcolor>red</focusedcolor>
+          <focusedcolor>black</focusedcolor>
+          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
           <label>Horror</label>
         </control>
         <control type="button" id="8">
@@ -129,7 +137,8 @@
           <align>left</align>
           <font>font_tiny_bold</font>
           <textcolor>dimgrey</textcolor>
-          <focusedcolor>red</focusedcolor>
+          <focusedcolor>black</focusedcolor>
+          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
           <label>Romance</label>
         </control>
         <control type="button" id="9">
@@ -142,7 +151,8 @@
           <align>left</align>
           <font>font_tiny_bold</font>
           <textcolor>dimgrey</textcolor>
-          <focusedcolor>red</focusedcolor>
+          <focusedcolor>black</focusedcolor>
+          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
           <label>Science Fiction</label>
       </control>
         <control type="button" id="10">
@@ -155,7 +165,8 @@
           <align>left</align>
           <font>font_tiny_bold</font>
           <textcolor>dimgrey</textcolor>
-          <focusedcolor>red</focusedcolor>
+          <focusedcolor>black</focusedcolor>
+          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
           <label>Thriller</label>
         </control>
     </control>

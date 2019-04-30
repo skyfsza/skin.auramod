@@ -228,7 +228,32 @@
                 <param name="day" value="Day4" />
                 <param name="label" value="$INFO[Window(Weather).Property(Day4.Title)]" />
             </include>
+            </control>   
+<!--
+	    <!-- Add Weather MAP image -->
+	    <control type="group">
+  	       <animation effect="slide" end="-300,0" time="0" condition="Window.IsVisible(Home)">Conditional</animation>
+	       <bottom>50</bottom>
+               <height>520</height>
+               <centerleft>65%</centerleft>
+	    <control type="multiimage">
+		<centertop>45%</centertop>
+		<centerleft>59%</centerleft>
+		<width>1010</width>
+		<height>610</height>
+		<imagepath>special://masterprofile/addon_data/scripts/weather/</imagepath>
+      	    </control>
+	    <!-- Diffuse overlay, "69" in colordiffuse is 69% - set higher / lower to reduce or increase overlay -->
+            <control type="image">
+                <centertop>45%</centertop>
+                <centerleft>59%</centerleft>
+                <width>1010</width>
+                <height>610</height>
+                <aspectratio align="center" aligny="center"></aspectratio>
+                <texture colordiffuse="69000000">common/white.png</texture>
+           </control>
         </control>
+-->
     </include>
 
     <include name="Weather_DailyForecast">

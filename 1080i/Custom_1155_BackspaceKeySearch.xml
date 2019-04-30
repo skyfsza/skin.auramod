@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- BINGIE -->
+<window type="dialog" id="1155">
+	<visible>!String.IsEmpty(Window(home).Property(BackspaceSearchTerm))</visible>
+	<visible>Window.IsVisible(virtualkeyboard) + Window.IsActive(1138)</visible>
+	<!-- backspace action-->
+	<onload>SendClick(10103,8)</onload>
+	<!-- done action-->
+	<onload>SendClick(10103,300)</onload>
+	<onunload>ClearProperty(BackspaceSearchTerm,home)</onunload>
+	<animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
+	<controls/>
+</window>

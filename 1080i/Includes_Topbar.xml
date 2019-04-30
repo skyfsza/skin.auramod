@@ -100,6 +100,7 @@
 
     <include name="Topbar">
 	<control type="group">
+       <visible>!Control.HasFocus(504)</visible>
 	<visible>!Player.HasVideo + Control.HasFocus(300) + [!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(55) | Control.IsVisible(56)]]</visible>
        	    <top>0</top>
             <left>0</left>
@@ -175,13 +176,13 @@
                             <visible>Skin.HasSetting(MouseMode) + ![Window.IsVisible(script-globalsearch.xml) | Window.IsVisible(Home)]</visible>
                         </control>
                         <control type="label">
-			    <visible>![!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(502) | Control.IsVisible(55) | Control.IsVisible(56)]]  + !Window.IsVisible(MyPVRChannels.xml) + !Window.IsVisible(MyPVRGuide.xml)</visible>
+			    <visible>![!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(502) | Control.IsVisible(504) | Control.IsVisible(55) | Control.IsVisible(56)]]  + !Window.IsVisible(MyPVRChannels.xml) + !Window.IsVisible(MyPVRGuide.xml)</visible>
                             <top>0</top>
                             <width max="1140">auto</width>
                             <font>font_topbar</font>
                             <textcolor>main_fg_100</textcolor>
                             <label>$VAR[Label_Header_Content]</label>
-                            <visible>![Window.IsVisible(script-globalsearch.xml) | Window.IsVisible(Home)] | Window.IsVisible(script-script.extendedinfo-VideoList.xml)</visible>
+                            <visible>![Window.IsVisible(script-globalsearch.xml) | Window.IsVisible(Home)] | Window.IsVisible(script-script.extendedinfo-VideoList.xml)</visible
                             <visible>!Control.HasFocus(300)</visible>
                         </control>
                         <control type="label">

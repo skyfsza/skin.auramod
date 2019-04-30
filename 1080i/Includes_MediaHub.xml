@@ -11,14 +11,12 @@
 
   <include name="widget_tvlists">
     <control type="panel" id="570">
-        <scrolltime tween="linear">400</scrolltime>
-
+     <scrolltime tween="linear">400</scrolltime>
       <left>140</left>
       <width>1980</width>
       <height>980</height>
       <onup condition="!Integer.IsGreater(Container(520).NumItems,0)">52</onup>
       <onup condition="Integer.IsGreater(Container(520).NumItems,0)">520</onup>
-
       <orientation>vertical</orientation>
       <itemlayout width="558.22" height="314.6">
         <include>Defs_PosterBack</include>
@@ -545,7 +543,7 @@
         <control type="radiobutton" id="54">
           <ondown condition="!Skin.String(mediahub-540.label) + !Skin.HasSetting(LockHubWidgets)">5405</ondown>
           <ondown condition="!Skin.HasSetting(LockHubWidgets)">5404</ondown>
-          <ondown condition="Skin.HasSetting(LockHubWidgets)">541</ondown>
+          <ondown condition="Skin.HasSetting(LockHubWidgets)">1507</ondown>
           <width>150</width>
           <height>65</height>
           <aligny>center</aligny>
@@ -600,7 +598,7 @@
         <visible>Control.HasFocus(53) | Control.HasFocus(54)</visible>
       </control>
       <control type="group">
-        <visible>![Control.HasFocus(51) | Control.HasFocus(52) | Control.HasFocus(53) | Control.HasFocus(54) | Control.HasFocus(5555)]</visible>
+        <visible>![Control.HasFocus(51) | Control.HasFocus(52) | Control.HasFocus(53) | Control.HasFocus(54) | Control.HasFocus(5555) | ControlGroup(5411).HasFocus]</visible>
         <visible>![Control.HasFocus(5104) | Control.HasFocus(5204) | Control.HasFocus(5304) | Control.HasFocus(5404) | Control.HasFocus(5555) | Control.HasFocus(5604)]</visible>
         <visible>![Control.HasFocus(5105) | Control.HasFocus(5205) | Control.HasFocus(5305) | Control.HasFocus(5404) | Control.HasFocus(5555)] | Control.HasFocus(5605)</visible>
         <visible>!Control.HasFocus(510) + !Control.HasFocus(560) + !Control.HasFocus(520) + !Control.HasFocus(570)</visible>
@@ -694,7 +692,7 @@
           <orientation>vertical</orientation>
           <left>-20</left>
           <control type="group" id="51111">
-            <visible>Control.HasFocus(51) | Control.HasFocus(510) | Control.HasFocus(5104) | Control.HasFocus(5105) | Control.HasFocus(560) | Control.HasFocus(5604)</visible>
+            <visible>Control.HasFocus(51) | Control.HasFocus(510) | Control.HasFocus(5104) | Control.HasFocus(5105)</visible>
             <height>980</height>
             <include condition="true" content="widget_510" name="widget_510">
               <param name="id" value="510" />
@@ -704,8 +702,8 @@
           </control>
           <animation effect="slide" end="0,20" condition="Control.HasFocus(560)">Conditional</animation>
           <control type="group" id="51112">
-            <visible>Control.HasFocus(51) | Control.HasFocus(510) | Control.HasFocus(5104) | Control.HasFocus(5105) | Control.HasFocus(560) | Control.HasFocus(5604)</visible>
             <height>980</height>
+            <visible>Control.HasFocus(51) | Control.HasFocus(510) | Control.HasFocus(5104) | Control.HasFocus(5105) | Control.HasFocus(560) | Control.HasFocus(5604)</visible>
             <include>widget_movielists</include>
           </control>
         </control>
@@ -722,8 +720,8 @@
           <left>-20</left>
 	  <onup>52</onup>
          <control type="group">
+            <visible>Control.HasFocus(52) | Control.HasFocus(520) | Control.HasFocus(5204) | Control.HasFocus(5205)</visible>
           <height>980</height>
-            <visible>Control.HasFocus(52) | Control.HasFocus(520) | Control.HasFocus(5204) | Control.HasFocus(5205) | Control.HasFocus(570) | Control.HasFocus(5704)</visible>
             <include condition="true" content="widget_510" name="widget_510">
               <param name="id" value="520" />
               <param name="aspect" value="LandscapeWidePoster" />
@@ -731,10 +729,9 @@
             </include>
           </control>
           <control type="group">
+          <height>980</height>
         <animation effect="slide" end="0,100" condition="[Control.HasFocus(52) | Control.HasFocus(5205) | Control.HasFocus(5204)] + !Skin.HasSetting(LockHubWidgets)">Conditional</animation>
             <visible>Control.HasFocus(52) | Control.HasFocus(520) | Control.HasFocus(5204) | Control.HasFocus(5205) | Control.HasFocus(570)</visible>
-          <height>980</height>
-
             <include>widget_tvlists</include>
           </control>
         </control>
@@ -759,13 +756,35 @@
         </control>
       </control>
       <!-- My TV -->
-      <control type="group" id="541">
-        <onup>54</onup>
-        <top>100</top>
-        <animation effect="slide" end="0,50" condition="Control.HasFocus(54)">Conditional</animation>
-        <animation effect="slide" end="0,500" time="500" condition="Control.HasFocus(540)">Conditional</animation>
-        <control type="group">
-          <visible>Control.HasFocus(54) | Control.HasFocus(540) | Control.HasFocus(5403) | Control.HasFocus(5404) | Control.HasFocus(5405)</visible>
+      <control type="group">
+	<control type="grouplist" id="541">
+	<height>960</height>
+        <top>90</top>
+<!--        <animation effect="slide" end="0,50" condition="Control.HasFocus(54)">Conditional</animation>
+        <animation effect="slide" end="0,500" time="500" condition="Control.HasFocus(540)">Conditional</animation> -->
+          <visible>Control.HasFocus(54) | Control.HasFocus(540) | Control.HasFocus(5403) | Control.HasFocus(5404) | Control.HasFocus(5405) | ControlGroup(5411).HasFocus</visible>
+	<control type="group" id="5411">
+	<visible allowhiddenfocus="true">ControlGroup(5411).HasFocus | Control.HasFocus(54)</visible>
+        <width>1980</width>
+	<height>360</height>
+	<onup>54</onup>
+<!--
+	<control type="image">
+	<texture background="true" colordiffuse="FFFFFFFF">common/white.png</texture>
+	</control>
+-->
+	<control type="group">
+	<top>20</top>
+        <include>Spotlight_TVNextAired_AuraWidget</include> 
+	<visible>!String.IsEmpty(Window(Home).Property(NextAired.1.Label))</visible>
+	</control>
+	</control>
+	<control type="group">
+	<height>40</height>
+	</control>
+	<control type="group" id="5412">
+          <height>650</height>
+          <animation effect="slide"  end="0,450" time="0" condition="Control.HasFocus(540)">Conditional</animation>
           <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
             <param name="id" value="540" />
             <param name="aspect" value="landscapenetflix" />
@@ -775,6 +794,7 @@
 	    <param name="panelheight" value="490" />
           </include>
         </control>
+      </control>
       </control>
       <!-- My Apps -->
       <control type="group" id="551">
@@ -807,7 +827,7 @@
       </control>
 
       <control type="image">
-        <top>-15</top>
+        <top>-45</top>
         <left>800</left>
         <width>190</width>
         <height>190</height>
@@ -867,7 +887,7 @@
         <onup condition="Control.HasFocus(510)">51</onup>
         <onup condition="Control.HasFocus(520)">52</onup>
         <onup condition="Control.HasFocus(530)">53</onup>
-        <onup condition="Control.HasFocus(540)">54</onup>
+        <onup condition="Control.HasFocus(540)">5411</onup>
         <include content="Widget_Common">
           <param name="top" value="$PARAM[top]" />
           <param name="height" value="$PARAM[height]" />
@@ -915,6 +935,7 @@
       </control>
     </definition>
   </include>
+
   <include name="widget_poster">
     <itemlayout width="260" height="420">
       <include content="Widget_Items_ItemLayout">
@@ -1009,7 +1030,7 @@
         <onup condition="Control.HasFocus(510)">51</onup>
         <onup condition="Control.HasFocus(520)">52</onup>
         <onup condition="Control.HasFocus(530)">53</onup>
-        <onup condition="Control.HasFocus(540)">54</onup>
+        <onup condition="Control.HasFocus(540)">5411</onup>
         <onclick condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie) | Container.Content(movies) | Container.Content(tvshows)]">Action(Info)</onclick>
         <onleft>$PARAM[onleft]</onleft>
         <preloaditems>2</preloaditems>

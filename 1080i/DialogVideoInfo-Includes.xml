@@ -1106,6 +1106,7 @@
                 <height>30</height>
                 <colordiffuse>dimgray</colordiffuse>
                 <texture>flags/rating.png</texture>
+		<visible>!String.IsEmpty(ListItem.Rating)</visible>
               </control>
                 <include content="Object_Ratings" condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(Home.xml) | Window.IsVisible(script-globalsearch.xml)">
                   <param name="directory" value="color" />
@@ -1225,13 +1226,12 @@
         <control type="group">
           <control type="grouplist" id="9570">
 	    <visible allowhiddenfocus="true">!Control.HasFocus(9550)</visible>
-            <defaultcontrol>9670</defaultcontrol>
             <orientation>vertical</orientation>
             <onleft>SetProperty(BaseWindow,InfoDialog,Home)</onleft>
             <onleft>9601</onleft>
-            <onup>9670</onup>
-            <ondown>9670</ondown>
             <onright>9601</onright>
+            <onup>9570</onup>
+            <ondown>9570</ondown>
             <top>220</top>
             <height>270</height>
             <width>650</width>
@@ -1274,7 +1274,7 @@
               <visible>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)</visible>
               <label>More Episodes</label>
               <onclick>close</onclick>
-              <onclick condition="String.IsEmpty(ListItem.DBID)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
+              <onclick condition="String.IsEmpty(ListItem.DBID)">ActivateWindow(10025,$ESCINFO[ListItem.FolderPath],return)</onclick>
               <onclick condition="!String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
             </control>
             <!-- Trailer-->

@@ -157,7 +157,7 @@
                             <visible>Skin.HasSetting(MouseMode) + ![Window.IsVisible(script-globalsearch.xml) | Window.IsVisible(Home)]</visible>
                         </control>
                         <control type="label">
-			    <visible>![!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(502) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(509)]]  + !Window.IsVisible(MyPVRChannels.xml) + !Window.IsVisible(MyPVRGuide.xml)</visible>
+			    <visible>![!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(502) | Control.IsVisible(505) | Control.HasFocus(5055) | Control.IsVisible(504) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(509)]]  + !Window.IsVisible(MyPVRChannels.xml) + !Window.IsVisible(MyPVRGuide.xml)</visible>
                             <top>0</top>
                             <width max="1140">auto</width>
                             <font>font_topbar</font>
@@ -763,7 +763,6 @@
     </include>
 
     <include name="Topbar_Info">
-<visible>!Skin.HasSetting(DisableNetflixHome)</visible>
         <control type="group">
             <control type="group">
                 <control type="group">
@@ -804,6 +803,7 @@
                         <visible>!Window.IsVisible(DialogExtendedProgressBar.xml)</visible>
                         <visible>!Window.IsVisible(DialogVolumeBar.xml) | Player.Muted</visible>
                         <visible>!Skin.HasSetting(MinimalBusyLoader) | [Skin.HasSetting(MinimalBusyLoader) + !Window.IsVisible(DialogBusy.xml)]</visible>
+			<visible>Skin.HasSetting(EnableHomeHeader)</visible>
                         <control type="group">
                             <width>view_pad</width>
                             <control type="image">

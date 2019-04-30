@@ -19,6 +19,7 @@
 	<control type="button" id="9005">
 	 <visible allowhiddenfocus="true">false</visible>
             <onfocus condition="!Skin.HasSetting(UseExtendedInfoDialog)">SetFocus(8000)</onfocus>
+	    <onfocus>SetFocus(9570)</onfocus>
 	</control>
     <include condition="Skin.HasSetting(DisableNetflixVideoInfo)">DialogVideoInfo_Aura</include>
     <include condition="!Skin.HasSetting(DisableNetflixVideoInfo)">DialogVideoInfo_Netflix</include>

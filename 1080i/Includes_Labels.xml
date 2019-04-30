@@ -9,6 +9,10 @@
     <value condition="String.IsEqual(ListItem.Property(TotalSeasons),1)">$INFO[ListItem.Property(TotalSeasons)] Season</value>
     <value condition="!String.IsEqual(ListItem.Property(TotalSeasons),0) + !String.IsEqual(ListItem.Property(TotalSeasons),1)">$INFO[ListItem.Property(TotalSeasons)] Seasons</value>
     </variable>
+    <variable name="total_seasons_view505">
+    <value condition="String.IsEqual(Container(5055).ListItem.Property(TotalSeasons),1)">$INFO[Container(5055).ListItem.Property(TotalSeasons)] Season</value>
+    <value condition="!String.IsEqual(Container(5055).ListItem.Property(TotalSeasons),0) + !String.IsEqual(Container(5055).ListItem.Property(TotalSeasons),1)">$INFO[Container(5055).ListItem.Property(TotalSeasons)] Seasons</value>
+    </variable>
     <variable name="videoinfo_play_label">
     <value condition="String.IsEqual(ListItem.DBType,episode)">Season $INFO[ListItem.Season]: Episode $INFO[ListItem.Episode]</value>
     </variable>

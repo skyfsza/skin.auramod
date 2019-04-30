@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-    <include name="View_ViewIDs"><views>50,51,52,53,503,54,55,56,57,58,59,500,501,502,509</views></include>
+    <include name="View_ViewIDs"><views>50,51,52,53,503,54,55,56,57,58,59,500,501,502,504,509,505</views></include>
 
     <include name="View_Group">
         <top>view_pad</top>
@@ -27,7 +27,7 @@
             <include>Animation_FadeInOut</include>
 	   <control type="group">
 	    <include>Global_Background</include>
-	    <visible>!Skin.HasSetting(DisableNetflixView) + [!Control.HasFocus(55) + !Control.HasFocus(56) + !Control.HasFocus(502) + !Control.HasFocus(509) + !Control.HasFocus(300)]</visible>
+	    <visible>!Skin.HasSetting(DisableNetflixView) + [!Control.HasFocus(505) + !Control.HasFocus(5055) + !Control.HasFocus(55) + !Control.HasFocus(56) + !Control.HasFocus(509) + !Control.HasFocus(300) + !Control.HasFocus(504)]</visible>
 	    </control>
             <control type="group">
                 <include>View_Group</include>
@@ -289,6 +289,7 @@
     <include name="View_WatchedOverlay_White">
         <control type="group">
             <visible>!Skin.HasSetting(DisableWatchedOverlay)</visible>
+<!--	    <visible>!Control.IsVisible(504) + !Control.IsVisible(5022)</visible> -->
             <control type="image">
                 <top>10</top>
                 <right>10</right>
@@ -321,6 +322,7 @@
     <include name="View_WatchedOverlay_Black">
         <control type="group">
             <visible>!Skin.HasSetting(DisableWatchedOverlay)</visible>
+	    <visible>!Control.IsVisible(504) + !Control.IsVisible(5022)</visible>
             <control type="image">
                 <top>10</top>
                 <right>10</right>
@@ -353,6 +355,7 @@
     <include name="View_WatchedOverlay_Focus">
         <control type="group">
             <visible>!Skin.HasSetting(DisableWatchedOverlay)</visible>
+<!--	    <visible>!Control.IsVisible(504) + !Control.IsVisible(5022)</visible> -->
             <control type="image">
                 <top>10</top>
                 <right>10</right>

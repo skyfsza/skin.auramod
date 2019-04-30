@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="window" id="1139">
+  <onload>ClearProperty(CustomSearchTerm)</onload>
+  <onload>ActivateWindow(Home)</onload>
+  <controls>
+<control type="label">
+<textcolor>black</textcolor>
+<font>font_tiny</font>
+<label>reload</label>
+</control>
+</controls>
+</window>

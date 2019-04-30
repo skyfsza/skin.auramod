@@ -6,7 +6,7 @@
 		<label2>Video Add-On</label2>
 		<icon>DefaultShortcut.png</icon>
 		<thumb>special://skin/media/exuary/search.png</thumb>
-		<action></action>
+		<action>ActivateWindow(1138,return)</action>
 	</shortcut>
 	<shortcut>
 		<defaultID />

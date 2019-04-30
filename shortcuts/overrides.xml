@@ -491,6 +491,7 @@
             <shortcut label="Movie Aura Hub " grouping="32029" icon="special://skin/extras/icons/film.png">ActivateWindow(3920,return)</shortcut>
             <shortcut label="TV Netflix Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3810,return)</shortcut>
             <shortcut label="TV Aura Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3910,return)</shortcut>
+            <shortcut label="Search" grouping="32029" icon="special://skin/extras/icons/search.png">ActivateWindow(1138,return)</shortcut>
         </node>
         <node label="32030">
             <content>video</content>

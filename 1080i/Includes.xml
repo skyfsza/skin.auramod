@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
 <includes>
-
+<expression name="IsActualKeyboardActive">Window.IsActive(virtualkeyboard) + String.IsEmpty(Window(Home).Property(SpaceSearchTerm)) + String.IsEmpty(Window(Home).Property(BackspaceSearchTerm))</expression>
     <include file="Defaults.xml" />
     <include file="Includes_MediaHub.xml" />
     <include file="DialogButtonMenu-Includes.xml" />
@@ -20,15 +20,16 @@
     <include file="Includes_Object.xml" />
     <include file="Includes_OSD.xml" />
     <include file="Includes_Statusbar.xml" />
+    <include file="IncludesBingieSearch.xml" />
 <!--
     <include condition="!Skin.HasSetting(DisableNetflixHome)" file="Includes_Topbar.xml" />
     <include condition="Skin.HasSetting(DisableNetflixHome) + Skin.HasSetting(DisableNetflixHomeSidemenu)" file="Includes_Topbar.xml" />
     <include condition="Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableNetflixHomeSidemenu)" file="Includes_Topbar-Netflix.xml" />
     <include condition="Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableNetflixHomeSidemenu)" file="Includes_Home.xml" />
 
--->
     <include condition="Skin.HasSetting(DisableNetflixHomeSidemenu)" file="Includes_Topbar.xml" />
-    <include condition="!Skin.HasSetting(DisableNetflixHomeSidemenu)" file="Includes_Topbar-Netflix.xml" />
+-->
+    <include file="Includes_Topbar-Netflix.xml" />
     <include condition="!Skin.HasSetting(DisableNetflixHomeSidemenu)" file="Includes_Home.xml" />
 
 

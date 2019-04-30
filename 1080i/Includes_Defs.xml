@@ -477,6 +477,58 @@
         <onclick>AlarmClock(nms2,SetProperty(FIVE_daemon_fire,True,home),00:01,silent)</onclick>
     </include>
 
+    <!-- Busy Spinner Side -->
+    <include name="Defs_BusySpinner_Side">
+        <param name="label" default="$LOCALIZE[20186]..." />
+        <definition>
+            <control type="group">
+                <height>170</height>
+                <width>720</width>
+                <centerleft>50%</centerleft>
+                <centertop>50%</centertop>
+                <control type="image">
+                    <visible>!Skin.HasSetting(EnableDefaultSpinner)</visible>
+                    <description>Busy animation</description>
+                    <top>0</top>
+                    <width>60</width>
+                    <height>60</height>
+                    <texture>dialog/loading-back.png</texture>
+                    <aspectratio>keep</aspectratio>
+                </control>
+                <control type="group">
+                    <description>Busy animation</description>
+                    <top>0</top>
+                    <width>60</width>
+                    <height>60</height>
+                    <control type="image">
+                        <visible>Skin.HasSetting(EnableDefaultSpinner)</visible>
+                        <texture>special://skin/media/netflix/loading.gif</texture>
+                        <aspectratio>keep</aspectratio>
+                    </control>
+                    <control type="image">
+                    <animation effect="rotate" condition="true" start="0" end="360" loop="true" time="1000" center="auto">Conditional</animation> 
+                        <texture colordiffuse="$VAR[ColorHighlight2]">dialog/loading-spinner.png</texture>
+                        <aspectratio>keep</aspectratio>
+                        <animation effect="fade" condition="true" start="0" end="75" pulse="true" time="1000">Conditional</animation>
+		        <visible>!Skin.HasSetting(EnableDefaultSpinner)</visible>
+                    </control>
+                </control>
+                <control type="label">
+		    <left>70</left>
+                    <description>Busy label</description>
+                    <width>720</width>
+                    <height>60</height>
+                    <label>$PARAM[label]</label>
+                    <textcolor>ffededed</textcolor>
+		    <font>font_tiny_bold</font>
+                </control>
+            </control>
+        </definition>
+    </include>
+
+
+
+
     <!-- Busy Spinner -->
     <include name="Defs_BusySpinner">
         <param name="label" default="$LOCALIZE[20186]..." />
@@ -486,8 +538,8 @@
                 <width>720</width>
                 <centerleft>50%</centerleft>
                 <centertop>50%</centertop>
-<!--
                 <control type="image">
+                    <visible>!Skin.HasSetting(EnableDefaultSpinner)</visible>
                     <description>Busy animation</description>
                     <centerleft>50%</centerleft>
                     <top>0</top>
@@ -496,25 +548,24 @@
                     <texture>dialog/loading-back.png</texture>
                     <aspectratio>keep</aspectratio>
                 </control>
--->
                 <control type="group">
                     <description>Busy animation</description>
                     <centerleft>50%</centerleft>
                     <top>0</top>
                     <width>100</width>
                     <height>100</height>
-  <!--                  <animation effect="rotate" condition="true" start="0" end="360" loop="true" time="1000" center="auto">Conditional</animation> -->
                     <control type="image">
+                        <visible>Skin.HasSetting(EnableDefaultSpinner)</visible>
                         <texture>special://skin/media/netflix/loading.gif</texture>
                         <aspectratio>keep</aspectratio>
                     </control>
-		  <!--
                     <control type="image">
+                    <animation effect="rotate" condition="true" start="0" end="360" loop="true" time="1000" center="auto">Conditional</animation> 
                         <texture colordiffuse="$VAR[ColorHighlight2]">dialog/loading-spinner.png</texture>
                         <aspectratio>keep</aspectratio>
                         <animation effect="fade" condition="true" start="0" end="75" pulse="true" time="1000">Conditional</animation>
+		        <visible>!Skin.HasSetting(EnableDefaultSpinner)</visible>
                     </control>
-		  -->
                 </control>
                 <control type="label">
                     <description>Busy label</description>

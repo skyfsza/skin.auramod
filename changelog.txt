@@ -1,3 +1,12 @@
+v0.9.25
+- New beta Season / Episode split panel view.
+- New beta Addon browser split pannel view
+- New beta Search Hub (Credit to Cartmandos / Titan Bingie for the onscreen keyboard and jurialmunkey for the AZ2 search func)
+- Fix bug with standard powermenu double click.
+- Add beta Next Aired widget to Media Hub - My TV
+- Resize landscape widgets in Aura Mode
+- Tweaks / Bug fixes. 
+
 v0.9.24
 - Add basic Cast feature to Video Info
 - Add additonal Menu Hubs
@@ -54,7 +63,7 @@ v0.9.13
 
 v0.9.12
 - Add Fanart background to Library views.
-- Add New Power Menu design option
+- Add New Power Menu design option (Credit to PCXL skin)
 - Design tweak to Settings
 - Design tweaks to Netflix Home + Showcase infoline
 - Option to remove plot + info from Netflix Simple home spotlight. 
