@@ -230,7 +230,6 @@
             </include>
             </control>   
 <!--
-	    <!-- Add Weather MAP image -->
 	    <control type="group">
   	       <animation effect="slide" end="-300,0" time="0" condition="Window.IsVisible(Home)">Conditional</animation>
 	       <bottom>50</bottom>
@@ -243,7 +242,6 @@
 		<height>610</height>
 		<imagepath>special://masterprofile/addon_data/scripts/weather/</imagepath>
       	    </control>
-	    <!-- Diffuse overlay, "69" in colordiffuse is 69% - set higher / lower to reduce or increase overlay -->
             <control type="image">
                 <centertop>45%</centertop>
                 <centerleft>59%</centerleft>
