@@ -4790,11 +4790,11 @@
 -->
         <posy>670</posy>
         <left>30</left>
-        <onup condition="Integer.IsGreater(Container(3022).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),MoviesMenuHub1)">SetFocus(3022)</onup>
-        <onup condition="Integer.IsGreater(Container(30221).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),TVMenuHub1)">SetFocus(30221)</onup>
-        <onup condition="Integer.IsGreater(Container(30222).NumItems,0) + !String.IsEqual(Container(300).ListItem.Property(widgethub),true) | [String.IsEqual(Container(300).ListItem.Property(widgethub),true) + !Integer.IsGreater(Container(3022).NumItems,0)]">SetFocus(30222)</onup>
-        <onup condition="Integer.IsGreater(Container(30222).NumItems,0) + !String.IsEqual(Container(300).ListItem.Property(widgethub),true) | [String.IsEqual(Container(300).ListItem.Property(widgethub),true) + !Integer.IsGreater(Container(30221).NumItems,0)]">SetFocus(30222)</onup>
-        <onup condition="!Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(300)</onup>
+        <onup condition="Integer.IsGreater(Container(3022).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),MoviesMenuHub1)">3022</onup>
+        <onup condition="Integer.IsGreater(Container(30221).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),TVMenuHub1)">30221</onup>
+        <onup condition="[!Skin.HasSetting(DisableNetflixCatWidget) + Integer.IsGreater(Container(30222).NumItems,0)] + !String.IsEqual(Container(300).ListItem.Property(widgethub),true) | [String.IsEqual(Container(300).ListItem.Property(widgethub),true) + !Integer.IsGreater(Container(3022).NumItems,0)]">SetFocus(30222)</onup>
+        <onup condition="[!Skin.HasSetting(DisableNetflixCatWidget) + Integer.IsGreater(Container(30222).NumItems,0)] + !String.IsEqual(Container(300).ListItem.Property(widgethub),true) | [String.IsEqual(Container(300).ListItem.Property(widgethub),true) + !Integer.IsGreater(Container(30221).NumItems,0)]">SetFocus(30222)</onup>
+        <onup condition="Skin.HasSetting(DisableNetflixCatWidget) | !Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(300)</onup>
         <onleft>300</onleft>
         <ondown>431</ondown>
         <orientation>vertical</orientation>
@@ -5403,7 +5403,38 @@
 
       </control>
     </control>
-
 </include>
+
+<include name="aurahub_tv_widgets">
+    <control type="group">
+      <visible>!String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+      <left>200</left>
+      <animation effect="slide" end="-450,0" time="500" condition="ControlGroup(5600).HasFocus">Conditional</animation>
+        <width>1920</width>
+      <control type="grouplist" id="5600">
+        <onfocus>Container.Refresh</onfocus>
+        <width>1920</width>
+        <height>1080</height>
+        <left>270</left>
+        <scrolltime tween="quadratic">400</scrolltime>
+        <orientation>vertical</orientation>
+        <usecontrolcoords>true</usecontrolcoords>
+        <onback>9000</onback>  
+        <onleft>9000</onleft>
+            <control type="group" id="334" description="Spacer">
+                <height>220</height>
+                <visible>!Skin.HasSetting(DisableAuraHomeLayout)</visible>
+            </control>
+            <control type="group" id="335" description="Spacer">
+                <height>50</height>    
+                <visible>Skin.HasSetting(DisableAuraHomeLayout)</visible>
+            </control>
+        <include>skinshortcuts-template-aurahubtv</include>
+
+      </control>
+    </control>
+</include>
+
+
 
 </includes>
