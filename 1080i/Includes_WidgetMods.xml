@@ -149,8 +149,14 @@
       <control type="image">
         <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$VAR[Image_Fanart]</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
+	<visible>!String.Contains(ListItem.Path,plugin.video.youtube)</visible>
       </control>
 
+      <control type="image">
+        <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$INFO[ListItem.Icon]</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <visible>String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+      </control>
       <control type="group">
         <visible>[Control.IsVisible(505) | Control.HasFocus(5055)] + String.IsEmpty(Container(5055).ListItem.Art(fanart)) + String.IsEmpty(Container(5055).ListItem.Year) + [String.IsEmpty(Container(5055).ListItem.TvShowTitle) | String.IsEmpty(Container(5055).ListItem.Title)]</visible>
        <control type="image">
@@ -188,7 +194,7 @@
         <left>0</left>
 	<bottom>30</bottom>
         <height>45</height>
-        <width>90</width>
+        <width>70</width>
         <texture colordiffuse="99FF0000" flipy="true">diffuse/halfbox.png</texture>
       </control>
      <control type="textbox">
@@ -208,14 +214,14 @@
         <left>0</left>
         <bottom>20</bottom>
         <height>30</height>
-        <width>80</width>
+        <width>90</width>
         <texture colordiffuse="99FF0000" flipy="true">diffuse/halfbox.png</texture>
       </control>
      <control type="textbox">
         <bottom>0</bottom>
         <left>4</left>
         <height>45</height>
-        <width>70</width>
+        <width>90</width>
         <label>[I]$INFO[ListItem.Season, S,: ]$INFO[ListItem.Episode,E, ][/I]</label>
         <textcolor>white</textcolor>
         <font>widget_overlaybutton</font>

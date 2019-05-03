@@ -1273,8 +1273,10 @@
               <radioposx>13</radioposx>
               <visible>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)</visible>
               <label>More Episodes</label>
+              <onclick>Skin.SetString(AddonContainer,false)</onclick>
               <onclick>close</onclick>
-              <onclick condition="String.IsEmpty(ListItem.DBID)">ActivateWindow(10025,$ESCINFO[ListItem.FolderPath],return)</onclick>
+              <onclick condition="String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),true)">ActivateWindow(10025,$ESCINFO[Container(5055).ListItem.FileNameAndPath],return)</onclick>
+              <onclick condition="String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),false)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
               <onclick condition="!String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
             </control>
             <!-- Trailer-->

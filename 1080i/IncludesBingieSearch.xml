@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- BINGIE -->
+<!-- Titan BINGIE On-Screen keyboard and auto complete suggestions -->
 <includes>
     <!-- VARS -->
     <variable name="SearchString">
         <value condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">$INFO[Skin.String(CustomSearchTerm)]</value>
-        <value condition="!String.IsEmpty(Window.Property(SuggestionPath)) + [ControlGroup(77777).HasFocus() | Control.HasFocus(1007)]">$INFO[Container(1007).ListItem.Label]</value>
     </variable>
 
     <variable name="EmptySearchResultsString">
@@ -13,10 +12,6 @@
         <value>$LOCALIZE[31578]</value>
     </variable>
 
-    <variable name="SuggestionBorderColor">
-        <value condition="Control.HasFocus(1007)">$INFO[Skin.String(ViewDetailsBorderFocusColor)]</value>
-        <value>$INFO[Skin.String(BingieSecondaryTextColor)]</value>
-    </variable>
 
     <!-- Search Auto-Complete Content Provider -->
     <variable name="SearchAutoCompleteContentProvider">
@@ -465,205 +460,5 @@
                 </focusedlayout>
             </control>
         </definition>
-    </include>
-
-    <!-- Thumbs Container Template -->
-    <include name="ThumbsContainerTemplate">
-        <definition>
-            <control type="panel" id="$PARAM[id]">
-                <nested />
-                <visible>Container($PARAM[id]).IsUpdating | Integer.IsGreater(Container($PARAM[id]).NumItems,0) | $PARAM[force_visible]</visible>
-                <visible>$PARAM[visibility]</visible>
-                <width>$PARAM[width]</width>
-                <height>$PARAM[height]</height>
-                <orientation>$PARAM[orientation]</orientation>
-                <pagecontrol>$PARAM[pagecontrol]</pagecontrol>
-                <scrolltime tween="quadratic">400</scrolltime>
-                <preloaditems>4</preloaditems>
-                <itemlayout width="$PARAM[layoutwidth]" height="$PARAM[layoutheight]">
-                    <control type="group">
-                        <width>$PARAM[layoutwidth]</width>
-                        <height>$PARAM[layoutheight]</height>
-                        <include>ThumbsViewLayout</include>
-                        <control type="group">
-                            <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlay</include>
-                            <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
-                            <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
-                                <param name="prefix" value="Landscape"/>
-                            </include>
-                            <include>New_Episodes_Tag_Overlay</include>
-                        </control>
-                    </control>
-                </itemlayout>
-                <focusedlayout width="$PARAM[layoutwidth]" height="$PARAM[layoutheight]">
-                    <control type="group">
-                        <width>$PARAM[layoutwidth]</width>
-                        <height>$PARAM[layoutheight]</height>
-                        <include>ThumbsViewLayoutFocus</include>
-                        <control type="group">
-                            <description>widget label overlay</description>
-                            <include condition="!String.IsEqual(Skin.String(Widgets_DisplayTags),disable)">ThumbsTagOverlay</include>
-                            <include condition="String.IsEqual(Skin.String(Widgets_DisplayTags),auto)">LandscapeTagOverlayVisibility</include>
-                            <include content="$PARAM[widgetTags]" condition="String.IsEqual(Skin.String(Widgets_DisplayTags),override)">
-                                <param name="prefix" value="Landscape"/>
-                            </include>
-                            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">New_Episodes_Tag_Overlay</include>
-                        </control>
-                    </control>
-                </focusedlayout>
-            </control>
-        </definition>
-    </include>
-
-    <include name="SearchResultWidget">
-        <param name="height">250</param>
-        <param name="orientation">horizontal</param>
-        <param name="layoutwidth">440</param>
-        <param name="layoutheight">250"</param>
-        <definition>
-                <include content="ThumbsContainerTemplate">
-                    <nested />
-                    <include condition="Skin.HasSetting(ShowInformationBypass) + $PARAM[allow_showinfo_onclick]">ContainerShowInfoOnclick</include>
-                    <param name="id" value="$PARAM[id]"/>
-                    <param name="width" value="1320" />
-                    <param name="height" value="$PARAM[height]" />
-                    <param name="orientation" value="$PARAM[orientation]" />
-                    <param name="layoutwidth" value="$PARAM[layoutwidth]" />
-                    <param name="layoutheight" value="$PARAM[layoutheight]" />
-                    <param name="force_visible" value="!String.IsEmpty(Window(home).Property(CustomSearch))" />
-                    <param name="visibility" value="$PARAM[visibility]" />
-                </include>
-        </definition>
-    </include>
-
-    <!-- Search Result Widget Top Label -->
-    <include name="SearchResultWidgetTopLabel">
-        <definition>
-            <control type="grouplist" id="$PARAM[groupid]">
-                <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
-                <nested />
-                <height>36</height>
-                <orientation>horizontal</orientation>
-                <usecontrolcoords>true</usecontrolcoords>
-                <itemgap>2</itemgap>
-                <control type="label">
-                    <left>5</left>
-                    <width>auto</width>
-                    <label>$PARAM[label]</label>
-                    <aligny>center</aligny>
-                    <textcolor>white</textcolor>
-                    <font>Reg30</font>
-                    <height>36</height>
-                    <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
-                </control>
-                <control type="multiimage">
-                    <top>26</top>
-                    <width>24</width>
-                    <height>10</height>
-                    <aspectratio>keep</aspectratio>
-                    <imagepath>spinner/search_widget_loader/</imagepath>
-                    <timeperimage>250</timeperimage>
-                    <pauseatend>500</pauseatend>
-                    <fadetime>0</fadetime>
-                    <visible>Container($PARAM[id]).IsUpdating</visible>
-                </control>
-            </control>
-        </definition>
-    </include>
-
-    <!-- Search Youtube Widget -->
-    <include name="YoutubeSearchResultWidget">
-        <include content="SearchResultWidgetTopLabel">
-            <param name="groupid" value="$PARAM[id]0" />
-            <param name="id" value="$PARAM[id]" />
-            <param name="label" value="$LOCALIZE[31062]" />
-            <visible>Control.IsVisible($PARAM[id])</visible>
-        </include>
-        <include content="SearchResultWidget">
-            <param name="id" value="$PARAM[id]" />
-            <param name="allow_showinfo_onclick" value="false" />
-            <visible>!String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
-            <content sortby="file" limit="25" target="videos">plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[Skin.String(CustomSearchTerm)]&amp;search_type=videos</content>
-        </include>
-    </include>
-
-    <!-- Search Episode Widget -->
-    <include name="EpisodeSearchResultWidget">
-        <include content="SearchResultWidgetTopLabel">
-            <param name="groupid" value="$PARAM[id]0" />
-            <param name="id" value="$PARAM[id]" />
-            <param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31579] &quot;,&quot;]" />
-            <visible>Control.IsVisible($PARAM[id])</visible>
-        </include>
-        <include content="SearchResultWidget">
-            <param name="id" value="$PARAM[id]" />
-            <param name="allow_showinfo_onclick" value="false" />
-            <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
-            <content limit="100" target="videos">videodb://tvshows/titles/-1/-1/-1/-1/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22episodes%22%7D</content>
-        </include>
-    </include>
-
-    <!-- Search Music Videos Widget -->
-    <include name="MusicVideosSearchResultWidget">
-        <include content="SearchResultWidgetTopLabel">
-            <param name="groupid" value="$PARAM[id]0" />
-            <param name="id" value="$PARAM[id]" />
-            <param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31580] &quot;,&quot;]" />
-            <visible>Control.IsVisible($PARAM[id])</visible>
-        </include>
-        <include content="SearchResultWidget">
-            <param name="id" value="$PARAM[id]" />
-            <param name="allow_showinfo_onclick" value="false" />
-            <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
-            <content limit="100" target="videos">videodb://musicvideos/titles/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22sorttitle%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22title%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22musicvideos%22%7d</content>
-        </include>
-    </include>
-
-    <!-- Search Albums Widget -->
-    <include name="AlbumsSearchResultWidget">
-        <include content="SearchResultWidgetTopLabel">
-            <param name="groupid" value="$PARAM[id]0" />
-            <param name="id" value="$PARAM[id]" />
-            <param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31593] &quot;,&quot;]" />
-            <visible>Control.IsVisible($PARAM[id])</visible>
-        </include>
-        <include content="SearchResultWidget">
-            <param name="id" value="$PARAM[id]" />
-            <param name="allow_showinfo_onclick" value="false" />
-            <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
-            <content limit="100" target="music">musicdb://albums/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22album%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22album%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22albums%22%7d</content>
-        </include>
-    </include>
-
-    <!-- Search Artists Widget -->
-    <include name="ArtistsSearchResultWidget">
-        <include content="SearchResultWidgetTopLabel">
-            <param name="groupid" value="$PARAM[id]0" />
-            <param name="id" value="$PARAM[id]" />
-            <param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31081] &quot;,&quot;]" />
-            <visible>Control.IsVisible($PARAM[id])</visible>
-        </include>
-        <include content="SearchResultWidget">
-            <param name="id" value="$PARAM[id]" />
-            <param name="allow_showinfo_onclick" value="false" />
-            <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
-            <content limit="100" target="music">musicdb://artists/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22artist%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22artist%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22artists%22%7D</content>
-        </include>
-    </include>
-
-    <!-- Search Songs Widget -->
-    <include name="SongsSearchResultWidget">
-        <include content="SearchResultWidgetTopLabel">
-            <param name="groupid" value="$PARAM[id]0" />
-            <param name="id" value="$PARAM[id]" />
-            <param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31082] &quot;,&quot;]" />
-            <visible>Control.IsVisible($PARAM[id])</visible>
-        </include>
-        <include content="SearchResultWidget">
-            <param name="id" value="$PARAM[id]" />
-            <param name="allow_showinfo_onclick" value="false" />
-            <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
-            <content limit="100" target="music">musicdb://songs/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22artist%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22title%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22songs%22%7d</content>
-        </include>
     </include>
 </includes>

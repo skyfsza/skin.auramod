@@ -50,12 +50,19 @@
             <linespacing>0.9</linespacing>
             <size>50</size>
         </font>
+        <font>
+            <name>spotlight_heading_small</name>
+            <filename>Bold-new.ttf</filename>
+            <aspect>1.3</aspect>
+            <linespacing>0.9</linespacing>
+            <size>40</size>
+        </font>
 	<font>
             <name>netflix_heading</name>
             <filename>Bold-new.ttf</filename>
             <aspect>1.3</aspect>
             <linespacing>0.9</linespacing>
-            <size>64</size>
+            <size>50</size>
         </font>
         <font>
             <name>search_heading</name>

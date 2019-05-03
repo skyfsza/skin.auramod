@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<window id="1110">
-	<backgroundcolor>ff212121</backgroundcolor>
-	<defaultcontrol always="true">11</defaultcontrol>
-	<onload>SetFocus(11)</onload>
-	<controls>
+<includes>
+	<include name="youtube_widget">
 		<control type="group">
-<!--
-			<animation type="WindowOpen">
-				<effect type="slide" start="0,1000" end="0" center="auto" tween="Cubic" easing="inout" time="200"/>
-				<effect type="zoom" start="80" end="100" center="auto" tween="Cubic" easing="inout" time="500"/>
-			</animation>
-			<animation type="WindowClose">
-				<effect type="slide" start="0" end="0,1000" center="auto" delay="500"  tween="Cubic" easing="inout" time="500"/>
-				<effect type="zoom" start="100" end="80" center="auto" delay="500"  tween="Cubic" easing="inout" time="200"/>
-			</animation>
--->			
                         <control type="image">
                                 <include>FullscreenDimensions</include>
                                 <texture colordiffuse="$VAR[YoutubeBackground]">special://home/addons/plugin.video.youtube/fanart.jpg</texture>
@@ -166,6 +153,7 @@
 					<left>10</left>
 					<width>100%</width>
 					<height>552</height>
+					<onleft>300</onleft>
 					<onup>2</onup>
 					<ondown>22</ondown>
 					<focusposition>-1</focusposition>
@@ -774,5 +762,5 @@
 			</control>
 
 		</control>
-	</controls>
-</window>
+</include>
+</includes>

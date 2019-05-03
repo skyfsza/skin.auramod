@@ -28,9 +28,7 @@
     </include>
 
     <include name="Widgets">
-
         <include condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">nosidemenu_widget_control</include>
-
         <control type="group">
             <visible allowhiddenfocus="true">!$EXP[Exp_HideFurniture]</visible>
             <include>Animation_FadeInOut</include>
@@ -119,6 +117,13 @@
                             <visible>String.IsEqual(Container(300).ListItem.Property(widget),Settings)</visible>
                             <include>Widget_Settings</include>
                         </control>
+<!--
+                        <control type="group">
+			    <left>80</left>
+                            <visible>String.IsEqual(Container(300).ListItem.Label,Youtube)</visible>
+                            <include>youtube_widget</include>
+                        </control>
+-->
                     </control>
                 </control>
             </control>
@@ -383,6 +388,7 @@
 
 
     <include name="Widget_Busy_Top_Mouse"><top>455</top></include>
+
     <include name="WidgetSubmenu">
         <param name="submenu" default="false" />
         <param name="genres" default="false" />

@@ -876,7 +876,6 @@
       </control>
       <control type="fixedlist" id="$PARAM[id]">
         <onclick condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie) | Container.Content(movies) | Container.Content(tvshows)]">Action(Info)        </onclick>
-        <left>0</left>
         <movement>2</movement>
         <width>1980</width>
         <height>350</height>
@@ -1039,33 +1038,33 @@
           <param name="height" value="$PARAM[height]" />
           <param name="id" value="$PARAM[id]" />
           <param name="aspect" value="$PARAM[aspect]" />
-          <param name="widgetAspect" value="$PARAM[widgetAspect]" />
+          <param name="widgetAspect" value="$PARAM[widgetaspect]" />
           <param name="submenu" value="$PARAM[submenu]" />
         </include>
         <itemlayout width="$PARAM[widgetwidth]" height="$PARAM[widgetheight]">
           <include content="Widget_Items_ItemLayout">
             <param name="$PARAM[aspect]" value="true" />
-            <param name="genres" value="$PARAM[genres]" />
-            <param name="studios" value="$PARAM[studios]" />
-            <param name="text" value="$PARAM[text]" />
+            <param name="genres" value="false" />
+            <param name="studios" value="false" />
+            <param name="text" value="false" />
           </include>
         </itemlayout>
         <focusedlayout width="$PARAM[widgetwidth]" height="$PARAM[widgetheight]">
           <include content="Widget_Items_FocusedLayout">
             <param name="id" value="$PARAM[id]" />
             <param name="$PARAM[aspect]" value="true" />
-            <param name="genres" value="$PARAM[genres]" />
-            <param name="studios" value="$PARAM[studios]" />
-            <param name="text" value="$PARAM[text]" />
+            <param name="genres" value="false" />
+            <param name="studios" value="false" />
+            <param name="text" value="false" />
           </include>
         </focusedlayout>
 <!--
         <itemlayout width="260" height="420">
           <include content="Widget_Items_ItemLayout">
             <param name="poster" value="true" />
-            <param name="genres" value="$PARAM[genres]" />
-            <param name="studios" value="$PARAM[studios]" />
-            <param name="text" value="$PARAM[text]" />
+            <param name="genres" value="false" />
+            <param name="studios" value="false" />
+            <param name="text" value="false" />
           </include>
         </itemlayout>
         <focusedlayout width="260" height="420">

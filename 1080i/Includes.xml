@@ -21,6 +21,7 @@
     <include file="Includes_OSD.xml" />
     <include file="Includes_Statusbar.xml" />
     <include file="IncludesBingieSearch.xml" />
+    <include file="Includes_Youtube.xml" />
 <!--
     <include condition="!Skin.HasSetting(DisableNetflixHome)" file="Includes_Topbar.xml" />
     <include condition="Skin.HasSetting(DisableNetflixHome) + Skin.HasSetting(DisableNetflixHomeSidemenu)" file="Includes_Topbar.xml" />

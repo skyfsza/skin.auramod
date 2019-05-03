@@ -26,14 +26,14 @@
                 <texture border="16" colordiffuse="dimgrey">common/rounded-dialog.png</texture>
             </control>
             </control>
-        <include>Topbar</include>
+        <include>Home</include>
         
         <!-- GroupList -->
         <control type="group">
             <include>Dialog_Settings_Panel</include>
             <control type="group">
                 <control type="label">
-                    <left>view_pad</left>
+                    <left>100</left>
                     <height>80</height>
                     <label>$INFO[System.AddonVersion(skin.auramod),Auramod ,]</label>
                     <font>font_button</font>
@@ -47,8 +47,9 @@
                     <!-- Left Gradient Fade -->
                     <control type="image">
                         <top>0</top>
+			<left>90</left>
                         <height>80</height>
-                        <width>450</width>
+                        <width>350</width>
                         <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
                         <visible>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(300)] + !Control.HasFocus(20)</visible>
                         <animation effect="slide" end="0,80" condition="Integer.IsGreater(Container(3).Position,0)">Conditional</animation>
@@ -98,7 +99,8 @@
                     <!-- Left Group -->
                     <control type="grouplist" id="3">
                         <description>Button Area</description>
-                        <width>450</width>
+		        <left>50</left>
+                        <width>350</width>
                         <top>0</top>
                         <bottom>0</bottom>
                         <itemgap>0</itemgap>
@@ -110,14 +112,16 @@
 
                     <!-- Settings Change -->
                     <control type="image">
+			<left>50</left>
                         <height>80</height>
-                        <width>450</width>
+                        <width>350</width>
                         <bottom>80</bottom>
                         <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
                         <visible>Control.HasFocus(20)</visible>
                     </control>
                     <control type="button" id="20">
-                        <width>450</width>
+                        <left>50</left>
+                        <width>350</width>
                         <bottom>80</bottom>
                         <onup>3</onup>
                         <onright>3</onright>
@@ -138,7 +142,7 @@
 
                 <!-- Info -->
                 <control type="grouplist">
-                    <left>view_pad</left>
+                    <left>100</left>
                     <right>30</right>
                     <top>806</top>
                     <bottom>0</bottom>

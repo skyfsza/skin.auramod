@@ -3,12 +3,9 @@
   <defaultcontrol always="true">4000</defaultcontrol>
   <onload>AlarmClock(focusWidgets,SetFocus(323233),00:00,silent)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
-  <onunload condition="Player.HasVideo">Stop</onunload>
   <controls>
-    <left>20</left>
     <include>Object_Home_Netflix</include>
     <control type="grouplist" id="323233">
-      <left>-30</left>
       <scrolltime tween="linear">400</scrolltime>
       <posy>670</posy>
       <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
@@ -36,6 +33,39 @@
         <param name="aspect" value="LandscapeWidePoster" />
         <param name="skinsetting" value="tvnetflixhub-650" />
       </include>
+
+ <control type="group" id="666">
+ <height>50</height>
+ </control>
+  <control type="fixedlist" id="660">
+      <posx>50</posx>
+      <scrolltime tween="sine" easing="out">500</scrolltime> 
+      <height>350</height>
+      <orientation>horizontal</orientation>
+      <onup>650</onup>
+      <height>350</height>
+      <width>1980</width>
+      <preloaditems>2</preloaditems>
+      <itemlayout width="373.33" height="200" condition="Skin.HasSetting(SubmenuLabel)">
+        <include content="Widget_Hub_ItemLayout">
+          <param name="category" value="true" />
+          <param name="genres" value="$PARAM[genres]" />
+          <param name="studios" value="$PARAM[studios]" />
+          <param name="text" value="$PARAM[text]" />
+        </include>
+      </itemlayout>
+      <focusedlayout width="373.33" height="200" condition="Skin.HasSetting(SubmenuLabel)">
+        <include content="Widget_Hub_FocusedLayout">
+          <param name="id" value="661" />
+          <param name="category" value="true" />
+          <param name="genres" value="$PARAM[genres]" />
+          <param name="studios" value="$PARAM[studios]" />
+          <param name="text" value="$PARAM[text]" />
+        </include>
+      </focusedlayout>
+      <include>Home_Widget_HubMenu_TVItems</include>
+    </control>
+
     </control>
   </controls>
 </window>

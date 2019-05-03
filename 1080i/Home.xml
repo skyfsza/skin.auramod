@@ -14,6 +14,7 @@
     <onload condition="Integer.IsGreater(Container(1506).NumItems,0)">Control.Move(1506,1)</onload>
     <onload condition="!Skin.HasSetting(LockHubWidgets)">Skin.ToggleSetting(LockHubWidgets)</onload>
     <onload condition="Skin.HasSetting(AutoLibraryHome)">UpdateLibrary(video,,true)</onload>
+    <onload>Skin.SetString(AddonContainer,false)</onload>
     <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
    
 
@@ -42,15 +43,14 @@
         <include>Object_PlotOverlay</include>
         <include condition="!Skin.HasSetting(DisableNetflixHomeSidemenu)">Home</include>
         <include condition="!Skin.HasSetting(SubmenuWidgetPanel)">hubmenu_tv_fixed</include>
-        <include condition="!Skin.HasSetting(SubmenuWidgetPanel)">submenu_widget_fixed</include>
-<!--        <include condition="!Skin.HasSetting(SubmenuWidgetPanel)">submenu_widget_thumb</include> -->
+        <include condition="!Skin.HasSetting(SubmenuWidgetPanel) + !Skin.HasSetting(DisableNetflixCatWidget)">submenu_widget_fixed</include>
         <include condition="!Skin.HasSetting(SubmenuWidgetPanel)">hubmenu_movie_fixed</include>
         <include condition="Skin.HasSetting(SubmenuWidgetPanel)">submenu_widget_panel</include>
 	<control type="group">
 	<top>0</top>
 	<right>-60</right>
 	<include>Logo</include>
-	<visible>!Window.IsVisible(DialogButtonMenu.xml) +  Skin.HasSetting(EnableHomeHeader)</visible>
+	<visible>!Window.IsVisible(DialogButtonMenu.xml) + !Window.IsVisible(DialogBusy.xml) + Skin.HasSetting(EnableHomeHeader)</visible>
 	</control>
         <control type="button" id="4000">
             <visible allowhiddenfocus="true">false</visible>
@@ -59,8 +59,6 @@
             <onleft>300</onleft>
             <onright>300</onright>
             <onup>300</onup>
-            <ondown>3000</ondown>
-            <onfocus condition="!String.IsEmpty(Skin.String(MenuPos))">SetFocus(302)</onfocus>
             <onfocus condition="!String.IsEmpty(Skin.String(MenuPos))">SetFocus(300,$INFO[Skin.String(MenuPos)])</onfocus>
             <onfocus condition="!Skin.HasSetting(DisableMenuVertFull) + String.IsEmpty(Skin.String(MenuPos)) + String.IsEmpty(Window(Home).Property(WidgetFocus))">SetFocus(300)</onfocus>
             <onfocus condition="Skin.HasSetting(DisableMenuVertFull) + String.IsEmpty(Skin.String(MenuPos)) + String.IsEmpty(Window(Home).Property(WidgetFocus))">SetFocus(3000)</onfocus>
@@ -87,14 +85,14 @@
         <!-- Splash -->
         <control type="image" description="Background">
             <include>Dimensions_Fullscreen</include>
-            <texture colordiffuse="ff000000">common/white.png</texture>
+            <texture background="true" colordiffuse="ff000000">common/white.png</texture>
             <visible>String.IsEmpty(Window(Home).Property(SkinSplashStarted)) | Integer.IsEqual(Container(300).NumItems,0) | Container(300).IsUpdating</visible>
             <animation effect="fade" start="100" end="0" delay="600" time="600" tween="quadratic">Hidden</animation>
             <visible>String.IsEmpty(Skin.String(StartupPlaylist))</visible>
         </control>
         <control type="image" description="Background">
             <include>Dimensions_Fullscreen</include>
-            <texture fallback="special://skin/fanart.jpg">$INFO[Skin.String(StartupSplash)]</texture>
+            <texture background="true" fallback="special://skin/fanart.jpg">$INFO[Skin.String(StartupSplash)]</texture>
             <visible>String.IsEmpty(Window(Home).Property(SkinSplashStarted)) | Integer.IsEqual(Container(300).NumItems,0) | Container(300).IsUpdating</visible>
             <animation effect="fade" start="100" end="0" time="600" tween="quadratic">Hidden</animation>
             <visible>String.IsEmpty(Skin.String(StartupPlaylist))</visible>

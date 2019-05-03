@@ -514,7 +514,7 @@
 
   <include name="View_Posters_AddonList">
     <control type="group">
-      <visible>Control.IsVisible(505) + !Container.Content(episodes)</visible>
+      <visible>Control.IsVisible(505) + !Container.Content(episodes) + !Container.Content(tvshows)</visible>
       <control type="group">
        <control type="group">
           <animation effect="slide" end="-500,0" time="500" condition="Control.HasFocus(5055)">Conditional</animation>
@@ -585,21 +585,32 @@
             </include>
           </control>
         </control>
+
+        <control type="image">
+          <texture background="true" diffuse="Right Corner.png">$VAR[Image_MainMenu_fanart]</texture>
+          <fadetime>100</fadetime>
+          <width>1400</width>
+          <height>630</height>
+          <left>500</left>
+          <top>-60</top>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <visible>[Control.HasFocus(505) | Control.HasFocus(5055)] + [[Container(5055).IsUpdating + !Integer.IsGreater(Container(5055).NumItems,0)] | String.IsEmpty(Container(5055).ListItem.Art(fanart))]</visible>
+        </control>
         <control type="image">
           <animation effect="fade" start="10" end="100">Visible</animation>
-          <fadetime>2500</fadetime>
+          <fadetime>500</fadetime>
           <width>1420</width>
-          <height>800</height>
+          <height>630</height>
           <left>500</left>
-          <top>-40</top>
+          <top>-60</top>
           <texture background="true" diffuse="Right Corner.png">$INFO[Container(5055).ListItem.Art(fanart)]</texture>
           <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
+	  <visible>Control.HasFocus(505) | Control.HasFocus(5055)</visible>
         </control>
-
       <control type="group">
         <animation effect="slide" end="-400,0" time="500" condition="Control.HasFocus(5055)">Conditional</animation>
 	<visible>Control.HasFocus(5055)</visible>
-	<left>500</left>
+	<left>480</left>
 	<top>-20</top>
        <include content="addon_view_infospotlight">
          <param name="id" value="5055" />
@@ -607,17 +618,19 @@
 
       </control>
       <control type="group"> 
-          <animation effect="slide" end="-350,0" time="500" condition="Control.HasFocus(5055)">Conditional</animation>
+          <animation effect="slide" end="-400,0" time="500" condition="Control.HasFocus(5055)">Conditional</animation>
           <visible>[Control.HasFocus(505) | Control.HasFocus(5055)] +  !Container(505).ListItem.IsParentFolder</visible>
           <animation effect="fade" start="100" end="0" condition="Container(5055).IsUpdating">Conditional</animation>
- <!--         <animation effect="slide" end="0,-400" time="500" condition="Control.HasFocus(505)">Conditional</animation> -->
 	  <posy>540</posy>
 
       <control type="panel" id="5055">
         <onleft>504</onleft>
         <onback>SetFocus(505,0,absolute)</onback>
         <onback>505</onback>
-<!--        <onclick condition="!Skin.HasSetting(EnableShowInfo)  + [String.IsEqual(Container(5055).ListItem.DBType,tvshow) | String.IsEqual(Container(5055).ListItem.DBType,movie) | Container.Content(movies) | Container.Content(tvshows)]">Action(Info)</onclick> -->
+<!--
+	<onclick>Skin.SetString(AddonContainer,true)</onclick>
+        <onclick condition="!Skin.HasSetting(EnableShowInfo)  + [String.IsEqual(Container(5055).ListItem.DBType,tvshow) | String.IsEqual(Container(5055).ListItem.DBType,movie) | Container.Content(movies) | Container.Content(tvshows)]">Action(Info)</onclick> 
+-->
         <left>420</left>
         <movement>2</movement>
         <width>1900</width>
@@ -977,7 +990,6 @@
     <param name="submenu" default="false" />
     <param name="text" default="true" />
     <definition>
-<!--      <onclick condition="!Skin.HasSetting(EnableShowInfo)">Action(Info)</onclick> -->
       <focusposition>3</focusposition>
       <movement>3</movement>
       <orientation>vertical</orientation>
@@ -2076,11 +2088,27 @@
   </include>
   <include name="View_Landscape_Artwork">
     <include>Defs_PosterBack</include>
+<!--
     <control type="image">
-      <bordersize>10</bordersize>
       <aspectratio aligny="center" scalediffuse="false">scale</aspectratio>
       <texture background="true" diffuse="diffuse/landscape.png">$VAR[Image_Fanart]</texture>
     </control>
+-->
+      <control type="image">
+        <bordersize>10</bordersize>
+        <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$VAR[Image_Fanart]</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <visible>!String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+      </control>
+
+      <control type="image">
+        <bordersize>10</bordersize>
+        <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$INFO[ListItem.Icon]</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <visible>String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+      </control>
+
+
     <control type="image">
       <bottom>20</bottom>
       <left>75</left>
