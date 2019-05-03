@@ -5406,16 +5406,11 @@
 </include>
 
 <include name="aurahub_tv_widgets">
-    <control type="group">
-      <visible>!String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
-      <left>200</left>
-      <animation effect="slide" end="-450,0" time="500" condition="ControlGroup(5600).HasFocus">Conditional</animation>
-        <width>1920</width>
       <control type="grouplist" id="5600">
         <onfocus>Container.Refresh</onfocus>
         <width>1920</width>
         <height>1080</height>
-        <left>270</left>
+        <left>10</left>
         <scrolltime tween="quadratic">400</scrolltime>
         <orientation>vertical</orientation>
         <usecontrolcoords>true</usecontrolcoords>
@@ -5431,7 +5426,6 @@
             </control>
         <include>skinshortcuts-template-aurahubtv</include>
 
-      </control>
     </control>
 </include>
 

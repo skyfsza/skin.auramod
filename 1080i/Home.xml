@@ -3,7 +3,7 @@
 <window id="0">
     <defaultcontrol always="true">4000</defaultcontrol>
 <!--    <onload>RunScript(special://masterprofile/addon_data/scripts/weather.py)</onload> -->
-    <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|searchmenu)</onload>
+    <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|searchmenu|aurahubtv)</onload>
     <onload condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs)">Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
     <onload condition="!Skin.HasSetting(SkinHelper.EnableMusicArt)">Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
     <onload>ClearProperty(HomeFocus,Home)</onload>
@@ -59,6 +59,7 @@
             <onleft>300</onleft>
             <onright>300</onright>
             <onup>300</onup>
+            <ondown>3000</ondown>
             <onfocus condition="!String.IsEmpty(Skin.String(MenuPos))">SetFocus(300,$INFO[Skin.String(MenuPos)])</onfocus>
             <onfocus condition="!Skin.HasSetting(DisableMenuVertFull) + String.IsEmpty(Skin.String(MenuPos)) + String.IsEmpty(Window(Home).Property(WidgetFocus))">SetFocus(300)</onfocus>
             <onfocus condition="Skin.HasSetting(DisableMenuVertFull) + String.IsEmpty(Skin.String(MenuPos)) + String.IsEmpty(Window(Home).Property(WidgetFocus))">SetFocus(3000)</onfocus>

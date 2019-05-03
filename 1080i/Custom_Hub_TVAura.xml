@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="3910">
-  <defaultcontrol always="true">4000</defaultcontrol>
+  <defaultcontrol always="true">5600</defaultcontrol>
   <onload>AlarmClock(focusWidgets,SetFocus(323233),00:00,silent)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
     <include>Global_Background</include>
+<control type="group">
+<top>50</top>
+</control>
+    <include>aurahub_tv_widgets</include>
+<!--
     <control type="grouplist" id="323233">
       <posy>50</posy>
       <scrolltime tween="linear">400</scrolltime>
@@ -34,5 +39,6 @@
         <param name="skinsetting" value="tvaurahub-750" />
       </include>
     </control>
+-->
   </controls>
 </window>
