@@ -1235,7 +1235,6 @@
           <shadowcolor>black</shadowcolor>
           <font>netflix_heading_small</font>
           <width min="200" max="500">auto</width>
-          <height min="50" max="280">auto</height>
           <align>left</align>
           <wrapmultiline>true</wrapmultiline>
           <autoscroll>true</autoscroll>
@@ -1243,7 +1242,6 @@
         </control>
         <control type="label">
           <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Skin.HasSetting(DisableNetflixLowSpotlight) + String.IsEmpty(Control.GetLabel(55445))</visible>
-          <label>$VAR[video_heading]</label>
           <top>0</top>
           <label>$VAR[video_heading]</label>
           <textcolor>grey</textcolor>
@@ -1319,7 +1317,7 @@
         <!-- Plot Low spotlight -->
         <control type="textbox">
           <height min="50" max="122">auto</height>
-          <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001) + Skin.HasSetting(EnableFullEpInfo)</visible>
+          <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | [String.IsEqual(ListItem.DBType,episode) + Skin.HasSetting(EnableFullEpInfo)]]</visible>
           <visible>Skin.HasSetting(DisableNetflixLowSpotlight)</visible>
           <label fallback="19055">$VAR[Label_Plot]</label>
           <width>1000</width>
@@ -1454,7 +1452,6 @@
         <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)</visible>
         <animation effect="slide" end="20,0" time="0" condition="String.IsEmpty(ListItem.Studio)">Conditional</animation>
         <animation effect="slide" end="0,-30" condition="Skin.HasSetting(DisableNetflixSmallWidget)">Conditional</animation>
-        <!--        <animation effect="slide" end="80,-20" condition="String.IsEmpty(Control.GetLabel(54009))">Conditional</animation> -->
         <animation effect="slide" end="400,-10" time="500" condition="Window.IsActive(4010)">Conditional</animation>
         <animation effect="slide" end="400,-10" time="500" condition="Window.IsActive(4020)">Conditional</animation>
         <animation effect="slide" end="440,0" time="500" condition="Window.IsActive(3810) | Window.IsActive(3820)">Conditional</animation>

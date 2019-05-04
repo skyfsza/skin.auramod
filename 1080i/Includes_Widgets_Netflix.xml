@@ -493,8 +493,8 @@
 			<movement>1</movement>
 			<include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
 			<include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
-			<include condition="!$PARAM[submenu] + !Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138)">Widget_Items_menu_Big_Height</include>
-			<include condition="!$PARAM[submenu] + Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138)">Widget_Items_menu_Small_Height</include>
+			<include condition="!$PARAM[submenu] + !Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138) | Window.IsVisible(3910)">Widget_Items_menu_Big_Height</include>
+			<include condition="!$PARAM[submenu] + Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138) + !Window.IsVisible(3910)">Widget_Items_menu_Small_Height</include>
 			<onclick condition="!Skin.HasSetting(EnableShowInfo) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]">Action(Info)</onclick>
 			<visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | Container(300).OnNext | Container(300).OnPrevious | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
 			<include content="Widget_Items" condition="!$PARAM[submenu]">
@@ -592,31 +592,40 @@
                             <label>$INFO[Container($PARAM[id]).ListItem.Label,|  ]</label>
 			    <include>Statusbar_Menubar_Items</include>
 			    <visible>Control.HasFocus($PARAM[id])</visible>
-			    <visible>Skin.HasSetting(DisableWidgetTitle)</visible>
+			    <visible>Skin.HasSetting(DisableWidgetTitle) + ![Window.IsVisible(Home) + Skin.HasSetting(DisableNetflixHome)]</visible>
 			</control>
 	<!-- Add Ratings -->
-			<control type="grouplist">
-			    <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(302) + Skin.HasSetting(DisableWidgetIMDB)</visible>
-			    <bottom>5</bottom>
-			    <height>30</height>
-		       <include content="Object_Ratings_Content">
-			    <param name="directory" value="color" />
-			    <param name="align" value="left" />
-			    <param name="width" value="1200" />
-			    <param name="rottentomatoes" value="true" />
-			    <param name="imdbvotes" value="false" />
-			    <param name="usermeter" value="false" />
-			    <param name="imdb" value="true" />
-			    <param name="tmdb" value="true" />
-			    <param name="metacritic" value="true" />
-			    <param name="oscars" value="true" />
-			    <param name="top250" value="$PARAM[top250]" />
-			    <param name="plot" value="true" />
-			</include>
-			</control>
+                     <control type="label">
+                        <label>Aired: $INFO[ListItem.Premiered(dd MMM yyyy)]</label>
+                        <textcolor>$VAR[ColorHighlight2]</textcolor>
+                        <font>font_tiny_bold</font>
+                        <include>Statusbar_Menubar_Items</include>
+                        <visible>Control.HasFocus($PARAM[id])</visible>
+                        <visible>String.IsEqual(ListItem.DBType,episode) + Skin.HasSetting(DisableWidgetAirdate) + ![Window.IsVisible(Home) + Skin.HasSetting(DisableNetflixHome)]</visible>
+                      </control>
+                <control type="grouplist">
+                    <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB) + ![Window.IsVisible(Home) + Skin.HasSetting(DisableNetflixHome)]</visible>
+                    <bottom>10</bottom>
+                    <height>40</height>
+               <include content="Object_Ratings">
+                    <param name="directory" value="color" />
+                    <param name="align" value="left" />
+                    <param name="width" value="1400" />
+                    <param name="rottentomatoes" value="true" />
+                    <param name="imdbvotes" value="false" />
+                    <param name="usermeter" value="false" />
+                    <param name="imdb" value="true" />
+                    <param name="tmdb" value="true" />
+                    <param name="metacritic" value="true" />
+                    <param name="oscars" value="true" />
+                    <param name="top250" value="false" />
+                    <param name="plot" value="true" />
+                    <param name="studio" value="false" />
+                </include>
+                </control>
 			<control type="label">
 			    <left>5</left>
-			    <visible>Control.HasFocus($PARAM[id]) + Skin.HasSetting(DisableWidgetPlot) + Skin.HasSetting(DisableWidgetIMDB)</visible>
+			    <visible>Control.HasFocus($PARAM[id]) + Skin.HasSetting(DisableWidgetPlot) + Skin.HasSetting(DisableWidgetIMDB) + ![Window.IsVisible(Home) + Skin.HasSetting(DisableNetflixHome)]</visible>
 			    <textcolor>main_fg_70</textcolor>
 			    <height>20</height>
 			    <top>10</top>
@@ -781,7 +790,7 @@
 			<param name="submenu" value="$PARAM[submenu]" />
 		    </include>
 
-		<include condition="!Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138)" content="Widget_Items_Large">
+		<include condition="!Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138) | Window.IsVisible(3910)" content="Widget_Items_Large">
 			<param name="top" value="$PARAM[top]" />
 			<param name="height" value="$PARAM[height]" />
 			<param name="id" value="$PARAM[id]" />
@@ -799,7 +808,7 @@
 			    <param name="squarecondition" value="$PARAM[squarecondition]" />
 			    <param name="genrecondition" value="$PARAM[genrecondition]" />
 		</include>
-		<include condition="Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138)" content="Widget_Items_Small">
+		<include condition="Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138) + !Window.IsVisible(3910)" content="Widget_Items_Small">
 			<param name="top" value="$PARAM[top]" />
 			<param name="height" value="$PARAM[height]" />
 			<param name="id" value="$PARAM[id]" />

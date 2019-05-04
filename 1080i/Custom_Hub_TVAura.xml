@@ -12,6 +12,7 @@
 <!--
     <control type="grouplist" id="323233">
       <posy>50</posy>
+        <height>1080</height>
       <scrolltime tween="linear">400</scrolltime>
       <include content="netflix_customhub_fixed" name="netflix_customhub_fixed">
         <param name="id" value="710" />

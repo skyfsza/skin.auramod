@@ -3,7 +3,6 @@
   <defaultcontrol always="true">4000</defaultcontrol>
   <onload>AlarmClock(focusWidgets,SetFocus(323233),00:00,silent)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
-  <onunload condition="Player.HasVideo">Stop</onunload>
   <controls>
     <include>Animation_FadeInOut</include>
     <left>20</left>

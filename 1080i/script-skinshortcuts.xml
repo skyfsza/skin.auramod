@@ -354,7 +354,7 @@
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <align>left</align>
                     <include>Dialog_Standard_Right_Buttons</include>
-                    <visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),searchmenu)</visible>
+                    <visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),searchmenu) | String.IsEqual(Window.Property(groupname),aurahubtv)</visible>
                 </control>
                 <control type="radiobutton" id="9911" description="Widget Control">
                     <width>100%</width>

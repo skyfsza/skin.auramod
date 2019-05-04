@@ -43,7 +43,7 @@
         <include>Object_PlotOverlay</include>
         <include condition="!Skin.HasSetting(DisableNetflixHomeSidemenu)">Home</include>
         <include condition="!Skin.HasSetting(SubmenuWidgetPanel)">hubmenu_tv_fixed</include>
-        <include condition="!Skin.HasSetting(SubmenuWidgetPanel) + !Skin.HasSetting(DisableNetflixCatWidget)">submenu_widget_fixed</include>
+        <include condition="Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(SubmenuWidgetPanel) + !Skin.HasSetting(DisableNetflixCatWidget)">submenu_widget_fixed</include>
         <include condition="!Skin.HasSetting(SubmenuWidgetPanel)">hubmenu_movie_fixed</include>
         <include condition="Skin.HasSetting(SubmenuWidgetPanel)">submenu_widget_panel</include>
 	<control type="group">

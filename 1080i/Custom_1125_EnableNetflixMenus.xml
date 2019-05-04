@@ -76,6 +76,7 @@
                             <include>Dialog_Standard_ListButton</include>
 	                    <radioposx>630</radioposx>
                             <label>$LOCALIZE[31451]</label>
+			    <visible>!Skin.HasSetting(DisableAuraHomeLayout)</visible>
                             <selected>Skin.HasSetting(DisableMenuHor)</selected>
                             <onclick condition="!Skin.HasSetting(DisableMenuVertIcon)">Skin.ToggleSetting(DisableMenuHor)</onclick>
                             <onclick condition="Skin.HasSetting(DisableMenuVertFull)">Skin.ToggleSetting(DisableMenuHor)</onclick>
