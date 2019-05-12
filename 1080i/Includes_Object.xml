@@ -5426,6 +5426,29 @@
     </control>
 </include>
 
+<include name="aurahub_movies_widgets">
+      <control type="grouplist" id="5700">
+        <onfocus>Container.Refresh</onfocus>
+        <width>1920</width>
+        <height>1080</height>
+        <left>10</left>
+        <scrolltime tween="quadratic">400</scrolltime>
+        <orientation>vertical</orientation>
+        <usecontrolcoords>true</usecontrolcoords>
+        <onback>9000</onback>
+        <onleft>9000</onleft>
+            <control type="group" id="334" description="Spacer">
+                <height>220</height>
+                <visible>!Skin.HasSetting(DisableAuraHomeLayout)</visible>
+            </control>
+            <control type="group" id="335" description="Spacer">
+                <height>50</height>
+                <visible>Skin.HasSetting(DisableAuraHomeLayout)</visible>
+            </control>
+        <include>skinshortcuts-template-aurahubmovies</include>
+
+    </control>
+</include>
 
 
 </includes>

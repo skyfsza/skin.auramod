@@ -1,59 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="3920">
-  <defaultcontrol always="true">4000</defaultcontrol>
+  <defaultcontrol always="true">5700</defaultcontrol>
   <onload>AlarmClock(focusWidgets,SetFocus(323233),00:00,silent)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
     <include>Global_Background</include>
+<control type="group">
+<top>50</top>
+</control>
+    <include>aurahub_movies_widgets</include>
+<!--
     <control type="grouplist" id="323233">
       <posy>50</posy>
+        <height>1080</height>
       <scrolltime tween="linear">400</scrolltime>
-
-    <control type="group">
-       <visible>String.IsEmpty(Skin.String(movieaurahub-810.label) + String.IsEmpty(Skin.String(movieaurahub-820.label) + String.IsEmpty(Skin.String(movieaurahub-830.label) + String.IsEmpty(Skin.String(movieaurahub-840.label)</visible>
-      <top>400</top>
-      <left>400</left>
-     <control type="button">
-      <width>750</width>
-      <height>65</height>
-      <aligny>center</aligny>
-      <align>center</align>
-      <font>font_medium</font>
-      <textcolor>grey</textcolor>
-      <focusedcolor>black</focusedcolor>
-      <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
-      <texturenofocus colordiffuse="grey">diffuse/landscape.png</texturenofocus>
-      <label>Click to Configure Widgets</label>
-      <onclick>ActivateWindow(1040)</onclick>
-      </control>
-    </control> 
-
-
-      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
-        <param name="id" value="810" />
-        <param name="widgetaspect" value="Poster" />
-        <param name="skinsetting" value="movieaurahub-810" />
+      <include content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="710" />
+        <param name="aspect" value="$LOCALIZE[31262]" />
+        <param name="skinsetting" value="tvaurahub-710" />
       </include>
       <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
-        <param name="id" value="820" />
-        <param name="widgetaspect" value="LandscapeWidePoster" />
-        <param name="skinsetting" value="movieaurahub-820" />
-      </include>
-      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
-        <param name="id" value="830" />
-        <param name="widgetaspect" value="LandscapeWidePoster" />
-        <param name="skinsetting" value="movieaurahub-830" />
-      </include>
-      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
-        <param name="id" value="840" />
-        <param name="aspect" value="Poster" />
-        <param name="skinsetting" value="movieaurahub-840" />
-      </include>
-      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
-        <param name="id" value="850" />
+        <param name="id" value="720" />
         <param name="aspect" value="LandscapeWidePoster" />
-        <param name="skinsetting" value="movieaurahub-850" />
+        <param name="skinsetting" value="tvaurahub-720" />
+      </include>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="730" />
+        <param name="aspect" value="LandscapeWidePoster" />
+        <param name="skinsetting" value="tvaurahub-730" />
+      </include>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="740" />
+        <param name="aspect" value="Poster" />
+        <param name="skinsetting" value="tvaurahub-740" />
+      </include>
+      <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
+        <param name="id" value="750" />
+        <param name="aspect" value="LandscapeWidePoster" />
+        <param name="skinsetting" value="tvaurahub-750" />
       </include>
     </control>
+-->
   </controls>
 </window>

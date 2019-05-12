@@ -354,7 +354,7 @@
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <align>left</align>
                     <include>Dialog_Standard_Right_Buttons</include>
-                    <visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),searchmenu) | String.IsEqual(Window.Property(groupname),aurahubtv)</visible>
+                    <visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),searchmenu) | String.IsEqual(Window.Property(groupname),aurahubtv) | String.IsEqual(Window.Property(groupname),aurahubmovies)</visible>
                 </control>
                 <control type="radiobutton" id="9911" description="Widget Control">
                     <width>100%</width>
@@ -391,7 +391,7 @@
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <label2>$INFO[Container(211).ListItem.Property(widgetSortby)]</label2>
                     <align>left</align>
-                    <visible>String.EndsWith(Window.Property(groupname),.1)</visible>
+                    <visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),searchmenu) | String.IsEqual(Window.Property(groupname),aurahubtv) | String.IsEqual(Window.Property(groupname),aurahubmovies)</visible>
                     <include>Dialog_Standard_Right_Buttons</include>
                 </control>
 
@@ -403,7 +403,7 @@
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <label2>$INFO[Container(211).ListItem.Property(widgetSortorder)]</label2>
                     <align>left</align>
-                    <visible>String.EndsWith(Window.Property(groupname),.1)</visible>
+                    <visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),searchmenu) | String.IsEqual(Window.Property(groupname),aurahubtv) | String.IsEqual(Window.Property(groupname),aurahubmovies)</visible>
                     <include>Dialog_Standard_Right_Buttons</include>
                 </control>
                 <control type="radiobutton" id="9905" description="Widget Spotlight">

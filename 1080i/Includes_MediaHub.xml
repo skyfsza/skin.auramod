@@ -849,6 +849,7 @@
     <param name="height" default="460" />
     <definition>
       <control type="label" id="$PARAM[id]3">
+        <animation effect="slide" end="-40,0" time="0" condition="Window.IsVisible(3810) | Window.IsVisible(3820)">Conditional</animation>
         <top>10</top>
         <width>100%</width>
         <height>40</height>
@@ -875,6 +876,7 @@
         <visible>Skin.String($PARAM[skinsetting].label) + !Integer.IsGreater(Container($PARAM[id]).NumItems,0) + Container($PARAM[id]).IsUpdating</visible>
       </control>
       <control type="fixedlist" id="$PARAM[id]">
+        <animation effect="slide" end="-40,0" time="0" condition="Window.IsVisible(3810) | Window.IsVisible(3820)">Conditional</animation>
         <onclick condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie) | Container.Content(movies) | Container.Content(tvshows)]">Action(Info)        </onclick>
         <movement>2</movement>
         <width>1980</width>

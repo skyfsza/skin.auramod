@@ -28,202 +28,6 @@
             </include>
         </controls>
     </other>
-    <other include="widget3003">
-        <condition tag="property" attribute="name|widgetPath.Widget1" />
-        <property name="widgetTarget" tag="property" attribute="name|widgetTarget.Widget1" />
-        <property name="widgetSort" tag="property" attribute="name|WidgetSort.Widget1" />
-        <property name="widgetDirection" tag="property" attribute="name|WidgetDirection.Widget1" />
-        <property name="widgetAspect" tag="property" attribute="name|WidgetAspect.Widget1" />
-        <property name="widgetName" tag="property" attribute="name|widgetName.Widget1" />
-        <property name="widgetContent" tag="property" attribute="name|widgetPath.Widget1" />
-        <property name="widgetContent">None</property>
-        <property name="id" tag="mainmenuid" />
-        <controls>
-            <include content="Widget">
-                <param name="id" value="$PYTHON[int(id) - 1]3003" />
-                <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
-                <param name="sortby" value="$SKINSHORTCUTS[widgetSort]" />
-                <param name="sortorder" value="$SKINSHORTCUTS[widgetDirection]" />
-                <param name="content" value="Container(300).ListItem.Property(widgetPath.Widget1)" />
-                <param name="widgetContent" value="$SKINSHORTCUTS[widgetContent]" />
-                <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
-                <param name="aspect" value="Container(300).ListItem.Property(widgetAspect.Widget1)" />
-                <param name="label" value="$SKINSHORTCUTS[widgetName]" />
-                <param name="visible" value="String.IsEqual(Container(300).ListItem.Property(id),$SKINSHORTCUTS[id])" />
-                <param name="genres" value="$PYTHON['true' if widgetContent in 'tvGenres' or widgetContent in 'movieGenres' or widgetContent in 'genres.xml' or widgetContent in 'Genres.xsp' or widgetContent in 'genres.xsp' else 'false']" />
-                <param name="studios" value="$PYTHON['true' if widgetContent in 'studios.xml' or widgetContent in 'Studios.xsp' or widgetContent in 'studios.xsp' else 'false']" />
-                <param name="text" value="$PYTHON['true' if widgetContent in 'years.xml' or widgetContent in 'country.xml' or widgetContent in 'tags.xml' or widgetContent in 'directors.xml' or widgetContent in 'special://videoplaylists/' or widgetContent in 'years.xsp' or widgetContent in 'countries.xsp' or widgetContent in 'tags.xsp' or widgetContent in 'directors.xsp' or widgetContent in 'Years.xsp' or widgetContent in 'Countries.xsp' or widgetContent in 'Tags.xsp' or widgetContent in 'Directors.xsp' else 'false']" />
-            </include>
-        </controls>
-    </other>
-    <other include="widget3004">
-        <condition tag="property" attribute="name|widgetPath.Widget2" />
-        <property name="widgetTarget" tag="property" attribute="name|widgetTarget.Widget2" />
-        <property name="widgetSort" tag="property" attribute="name|WidgetSort.Widget2" />
-        <property name="widgetDirection" tag="property" attribute="name|WidgetDirection.Widget2" />
-        <property name="widgetAspect" tag="property" attribute="name|WidgetAspect.Widget2" />
-        <property name="widgetName" tag="property" attribute="name|widgetName.Widget2" />
-        <property name="widgetContent" tag="property" attribute="name|widgetPath.Widget2" />
-        <property name="widgetContent">None</property>
-        <property name="id" tag="mainmenuid" />
-        <controls>
-            <include content="Widget">
-                <param name="id" value="$PYTHON[int(id) - 1]3004" />
-                <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
-                <param name="sortby" value="$SKINSHORTCUTS[widgetSort]" />
-                <param name="sortorder" value="$SKINSHORTCUTS[widgetDirection]" />
-                <param name="content" value="Container(300).ListItem.Property(widgetPath.Widget2)" />
-                <param name="widgetContent" value="$SKINSHORTCUTS[widgetContent]" />
-                <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
-                <param name="aspect" value="Container(300).ListItem.Property(widgetAspect.Widget2)" />
-                <param name="label" value="$SKINSHORTCUTS[widgetName]" />
-                <param name="visible" value="String.IsEqual(Container(300).ListItem.Property(id),$SKINSHORTCUTS[id])" />
-                <param name="genres" value="$PYTHON['true' if widgetContent in 'tvGenres' or widgetContent in 'movieGenres' or widgetContent in 'genres.xml' or widgetContent in 'Genres.xsp' or widgetContent in 'genres.xsp' else 'false']" />
-                <param name="studios" value="$PYTHON['true' if widgetContent in 'studios.xml' or widgetContent in 'Studios.xsp' or widgetContent in 'studios.xsp' else 'false']" />
-                <param name="text" value="$PYTHON['true' if widgetContent in 'years.xml' or widgetContent in 'country.xml' or widgetContent in 'tags.xml' or widgetContent in 'directors.xml' or widgetContent in 'special://videoplaylists/' or widgetContent in 'years.xsp' or widgetContent in 'countries.xsp' or widgetContent in 'tags.xsp' or widgetContent in 'directors.xsp' or widgetContent in 'Years.xsp' or widgetContent in 'Countries.xsp' or widgetContent in 'Tags.xsp' or widgetContent in 'Directors.xsp' else 'false']" />
-            </include>
-        </controls>
-    </other>
-    <other include="widget3005">
-        <condition tag="property" attribute="name|widgetPath.Widget3" />
-        <property name="widgetTarget" tag="property" attribute="name|widgetTarget.Widget3" />
-        <property name="widgetSort" tag="property" attribute="name|WidgetSort.Widget3" />
-        <property name="widgetDirection" tag="property" attribute="name|WidgetDirection.Widget3" />
-        <property name="widgetAspect" tag="property" attribute="name|WidgetAspect.Widget3" />
-        <property name="widgetName" tag="property" attribute="name|widgetName.Widget3" />
-        <property name="widgetContent" tag="property" attribute="name|widgetPath.Widget3" />
-        <property name="widgetContent">None</property>
-        <property name="id" tag="mainmenuid" />
-        <controls>
-            <include content="Widget">
-                <param name="id" value="$PYTHON[int(id) - 1]3005" />
-                <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
-                <param name="sortby" value="$SKINSHORTCUTS[widgetSort]" />
-                <param name="sortorder" value="$SKINSHORTCUTS[widgetDirection]" />
-                <param name="content" value="Container(300).ListItem.Property(widgetPath.Widget3)" />
-                <param name="widgetContent" value="$SKINSHORTCUTS[widgetContent]" />
-                <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
-                <param name="aspect" value="Container(300).ListItem.Property(widgetAspect.Widget3)" />
-                <param name="label" value="$SKINSHORTCUTS[widgetName]" />
-                <param name="visible" value="String.IsEqual(Container(300).ListItem.Property(id),$SKINSHORTCUTS[id])" />
-                <param name="genres" value="$PYTHON['true' if widgetContent in 'tvGenres' or widgetContent in 'movieGenres' or widgetContent in 'genres.xml' or widgetContent in 'Genres.xsp' or widgetContent in 'genres.xsp' else 'false']" />
-                <param name="studios" value="$PYTHON['true' if widgetContent in 'studios.xml' or widgetContent in 'Studios.xsp' or widgetContent in 'studios.xsp' else 'false']" />
-                <param name="text" value="$PYTHON['true' if widgetContent in 'years.xml' or widgetContent in 'country.xml' or widgetContent in 'tags.xml' or widgetContent in 'directors.xml' or widgetContent in 'special://videoplaylists/' or widgetContent in 'years.xsp' or widgetContent in 'countries.xsp' or widgetContent in 'tags.xsp' or widgetContent in 'directors.xsp' or widgetContent in 'Years.xsp' or widgetContent in 'Countries.xsp' or widgetContent in 'Tags.xsp' or widgetContent in 'Directors.xsp' else 'false']" />
-            </include>
-        </controls>
-    </other>
-    <other include="widget3006">
-        <condition tag="property" attribute="name|widgetPath.Widget4" />
-        <property name="widgetTarget" tag="property" attribute="name|widgetTarget.Widget4" />
-        <property name="widgetSort" tag="property" attribute="name|WidgetSort.Widget4" />
-        <property name="widgetDirection" tag="property" attribute="name|WidgetDirection.Widget4" />
-        <property name="widgetAspect" tag="property" attribute="name|WidgetAspect.Widget4" />
-        <property name="widgetName" tag="property" attribute="name|widgetName.Widget4" />
-        <property name="widgetContent" tag="property" attribute="name|widgetPath.Widget4" />
-        <property name="widgetContent">None</property>
-        <property name="id" tag="mainmenuid" />
-        <controls>
-            <include content="Widget">
-                <param name="id" value="$PYTHON[int(id) - 1]3006" />
-                <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
-                <param name="sortby" value="$SKINSHORTCUTS[widgetSort]" />
-                <param name="sortorder" value="$SKINSHORTCUTS[widgetDirection]" />
-                <param name="content" value="Container(300).ListItem.Property(widgetPath.Widget4)" />
-                <param name="widgetContent" value="$SKINSHORTCUTS[widgetContent]" />
-                <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
-                <param name="aspect" value="Container(300).ListItem.Property(widgetAspect.Widget4)" />
-                <param name="label" value="$SKINSHORTCUTS[widgetName]" />
-                <param name="visible" value="String.IsEqual(Container(300).ListItem.Property(id),$SKINSHORTCUTS[id])" />
-                <param name="genres" value="$PYTHON['true' if widgetContent in 'tvGenres' or widgetContent in 'movieGenres' or widgetContent in 'genres.xml' or widgetContent in 'Genres.xsp' or widgetContent in 'genres.xsp' else 'false']" />
-                <param name="studios" value="$PYTHON['true' if widgetContent in 'studios.xml' or widgetContent in 'Studios.xsp' or widgetContent in 'studios.xsp' else 'false']" />
-                <param name="text" value="$PYTHON['true' if widgetContent in 'years.xml' or widgetContent in 'country.xml' or widgetContent in 'tags.xml' or widgetContent in 'directors.xml' or widgetContent in 'special://videoplaylists/' or widgetContent in 'years.xsp' or widgetContent in 'countries.xsp' or widgetContent in 'tags.xsp' or widgetContent in 'directors.xsp' or widgetContent in 'Years.xsp' or widgetContent in 'Countries.xsp' or widgetContent in 'Tags.xsp' or widgetContent in 'Directors.xsp' else 'false']" />
-            </include>
-        </controls>
-    </other>
-    <other include="widget3007">
-        <condition tag="property" attribute="name|widgetPath.Widget5" />
-        <property name="widgetTarget" tag="property" attribute="name|widgetTarget.Widget5" />
-        <property name="widgetSort" tag="property" attribute="name|WidgetSort.Widget5" />
-        <property name="widgetDirection" tag="property" attribute="name|WidgetDirection.Widget5" />
-        <property name="widgetAspect" tag="property" attribute="name|WidgetAspect.Widget5" />
-        <property name="widgetName" tag="property" attribute="name|widgetName.Widget5" />
-        <property name="widgetContent" tag="property" attribute="name|widgetPath.Widget5" />
-        <property name="widgetContent">None</property>
-        <property name="id" tag="mainmenuid" />
-        <controls>
-            <include content="Widget">
-                <param name="id" value="$PYTHON[int(id) - 1]3007" />
-                <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
-                <param name="sortby" value="$SKINSHORTCUTS[widgetSort]" />
-                <param name="sortorder" value="$SKINSHORTCUTS[widgetDirection]" />
-                <param name="content" value="Container(300).ListItem.Property(widgetPath.Widget5)" />
-                <param name="widgetContent" value="$SKINSHORTCUTS[widgetContent]" />
-                <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
-                <param name="aspect" value="Container(300).ListItem.Property(widgetAspect.Widget5)" />
-                <param name="label" value="$SKINSHORTCUTS[widgetName]" />
-                <param name="visible" value="String.IsEqual(Container(300).ListItem.Property(id),$SKINSHORTCUTS[id])" />
-                <param name="genres" value="$PYTHON['true' if widgetContent in 'tvGenres' or widgetContent in 'movieGenres' or widgetContent in 'genres.xml' or widgetContent in 'Genres.xsp' or widgetContent in 'genres.xsp' else 'false']" />
-                <param name="studios" value="$PYTHON['true' if widgetContent in 'studios.xml' or widgetContent in 'Studios.xsp' or widgetContent in 'studios.xsp' else 'false']" />
-                <param name="text" value="$PYTHON['true' if widgetContent in 'years.xml' or widgetContent in 'country.xml' or widgetContent in 'tags.xml' or widgetContent in 'directors.xml' or widgetContent in 'special://videoplaylists/' or widgetContent in 'years.xsp' or widgetContent in 'countries.xsp' or widgetContent in 'tags.xsp' or widgetContent in 'directors.xsp' or widgetContent in 'Years.xsp' or widgetContent in 'Countries.xsp' or widgetContent in 'Tags.xsp' or widgetContent in 'Directors.xsp' else 'false']" />
-            </include>
-        </controls>
-    </other>
-    <other include="widget3008">
-        <condition tag="property" attribute="name|widgetPath.Widget6" />
-        <property name="widgetTarget" tag="property" attribute="name|widgetTarget.Widget6" />
-        <property name="widgetSort" tag="property" attribute="name|WidgetSort.Widget6" />
-        <property name="widgetDirection" tag="property" attribute="name|WidgetDirection.Widget6" />
-        <property name="widgetAspect" tag="property" attribute="name|WidgetAspect.Widget6" />
-        <property name="widgetName" tag="property" attribute="name|widgetName.Widget6" />
-        <property name="widgetContent" tag="property" attribute="name|widgetPath.Widget6" />
-        <property name="widgetContent">None</property>
-        <property name="id" tag="mainmenuid" />
-        <controls>
-            <include content="Widget">
-                <param name="id" value="$PYTHON[int(id) - 1]3008" />
-                <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
-                <param name="sortby" value="$SKINSHORTCUTS[widgetSort]" />
-                <param name="sortorder" value="$SKINSHORTCUTS[widgetDirection]" />
-                <param name="content" value="Container(300).ListItem.Property(widgetPath.Widget6)" />
-                <param name="widgetContent" value="$SKINSHORTCUTS[widgetContent]" />
-                <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
-                <param name="aspect" value="Container(300).ListItem.Property(widgetAspect.Widget6)" />
-                <param name="label" value="$SKINSHORTCUTS[widgetName]" />
-                <param name="visible" value="String.IsEqual(Container(300).ListItem.Property(id),$SKINSHORTCUTS[id])" />
-                <param name="genres" value="$PYTHON['true' if widgetContent in 'tvGenres' or widgetContent in 'movieGenres' or widgetContent in 'genres.xml' or widgetContent in 'Genres.xsp' or widgetContent in 'genres.xsp' else 'false']" />
-                <param name="studios" value="$PYTHON['true' if widgetContent in 'studios.xml' or widgetContent in 'Studios.xsp' or widgetContent in 'studios.xsp' else 'false']" />
-                <param name="text" value="$PYTHON['true' if widgetContent in 'years.xml' or widgetContent in 'country.xml' or widgetContent in 'tags.xml' or widgetContent in 'directors.xml' or widgetContent in 'special://videoplaylists/' or widgetContent in 'years.xsp' or widgetContent in 'countries.xsp' or widgetContent in 'tags.xsp' or widgetContent in 'directors.xsp' or widgetContent in 'Years.xsp' or widgetContent in 'Countries.xsp' or widgetContent in 'Tags.xsp' or widgetContent in 'Directors.xsp' else 'false']" />
-            </include>
-        </controls>
-    </other>
-    <other include="widget3009">
-        <condition tag="property" attribute="name|widgetPath.Widget7" />
-        <property name="widgetTarget" tag="property" attribute="name|widgetTarget.Widget7" />
-        <property name="widgetSort" tag="property" attribute="name|WidgetSort.Widget7" />
-        <property name="widgetDirection" tag="property" attribute="name|WidgetDirection.Widget7" />
-        <property name="widgetAspect" tag="property" attribute="name|WidgetAspect.Widget7" />
-        <property name="widgetName" tag="property" attribute="name|widgetName.Widget7" />
-        <property name="widgetContent" tag="property" attribute="name|widgetPath.Widget7" />
-        <property name="widgetContent">None</property>
-        <property name="id" tag="mainmenuid" />
-        <controls>
-            <include content="Widget">
-                <param name="id" value="$PYTHON[int(id) - 1]3009" />
-                <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
-                <param name="sortby" value="$SKINSHORTCUTS[widgetSort]" />
-                <param name="sortorder" value="$SKINSHORTCUTS[widgetDirection]" />
-                <param name="content" value="Container(300).ListItem.Property(widgetPath.Widget7)" />
-                <param name="widgetContent" value="$SKINSHORTCUTS[widgetContent]" />
-                <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
-                <param name="aspect" value="Container(300).ListItem.Property(widgetAspect.Widget7)" />
-                <param name="label" value="$SKINSHORTCUTS[widgetName]" />
-                <param name="visible" value="String.IsEqual(Container(300).ListItem.Property(id),$SKINSHORTCUTS[id])" />
-                <param name="genres" value="$PYTHON['true' if widgetContent in 'tvGenres' or widgetContent in 'movieGenres' or widgetContent in 'genres.xml' or widgetContent in 'Genres.xsp' or widgetContent in 'genres.xsp' else 'false']" />
-                <param name="studios" value="$PYTHON['true' if widgetContent in 'studios.xml' or widgetContent in 'Studios.xsp' or widgetContent in 'studios.xsp' else 'false']" />
-                <param name="text" value="$PYTHON['true' if widgetContent in 'years.xml' or widgetContent in 'country.xml' or widgetContent in 'tags.xml' or widgetContent in 'directors.xml' or widgetContent in 'special://videoplaylists/' or widgetContent in 'years.xsp' or widgetContent in 'countries.xsp' or widgetContent in 'tags.xsp' or widgetContent in 'directors.xsp' or widgetContent in 'Years.xsp' or widgetContent in 'Countries.xsp' or widgetContent in 'Tags.xsp' or widgetContent in 'Directors.xsp' else 'false']" />
-            </include>
-        </controls>
-    </other>
     <submenuOther include="vertical-submenu" container="302" level="1">
         <condition tag="property" attribute="name|list" />
         <property name="widgetControl" tag="property" attribute="name|widgetControl" />
@@ -525,4 +329,118 @@
             </controls>
         </items>
     </submenu>
+
+    <submenu include="aurahubmovies" name="aurahubmovies">
+        <controls>
+            <skinshortcuts insert="aurahubmovies">items</skinshortcuts>
+        </controls>
+        <items insert="aurahubmovies">
+            <property name="label" tag="label" />
+            <property name="path" tag="property" attribute="name|list"/>
+
+            <property name="itemwidth" tag="property" attribute="name|widgetAspect" value="Square">item_square_width</property>
+            <property name="itemwidth" tag="property" attribute="name|widgetAspect" value="Landscape">item_landscape_width</property>
+            <property name="itemwidth">item_poster_width</property>
+
+            <property name="diffuse" tag="property" attribute="name|widgetAspect" value="Square">diffuse/square-wall.png</property>
+            <property name="diffuse" tag="property" attribute="name|widgetAspect" value="Landscape">diffuse/landscape-wall.png</property>
+            <property name="diffuse">diffuse/poster-wall.png</property>
+
+            <property name="icon" tag="property" attribute="name|widgetAspect" value="Landscape">$VAR[Image_Landscape]</property>
+            <property name="icon">$VAR[Image_Poster]</property>
+
+            <property name="widgetControl" tag="property" attribute="name|widgetControl" />
+            <property name="widgetControl">fixedlist</property>
+
+            <property name="widgetAspect" tag="property" attribute="name|widgetAspect" />
+            <property name="widgetAspect">Landscape</property>
+
+            <property name="aspectratio" tag="property" attribute="name|widgetAspect" value="Square">keep</property>
+            <property name="aspectratio">scale</property>
+
+            <property name="limit" tag="property" attribute="name|widgetLimit" />
+            <property name="target" tag="property" attribute="name|widgetTarget" />
+            <property name="target">videos</property>
+
+	    <property name="widgetSearch">false</property>
+
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[1]">1</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[2]">2</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[3]">3</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[4]">4</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[5]">5</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[6]">6</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[7]">7</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[8]">8</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[9]">9</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[10]">10</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[11]">11</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[12]">12</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[13]">13</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[14]">14</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[15]">15</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[16]">16</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[17]">17</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[18]">18</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[19]">19</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[20]">20</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[21]">21</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[22]">22</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[23]">23</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[24]">24</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[25]">25</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[26]">26</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[27]">27</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[28]">28</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[29]">29</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[30]">30</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[31]">31</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[32]">32</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[33]">33</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[34]">34</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[35]">35</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[36]">36</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[37]">37</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[38]">38</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[39]">39</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[40]">40</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[41]">41</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[42]">42</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[43]">43</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[44]">44</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[45]">45</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[46]">46</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[47]">47</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[48]">48</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[49]">49</property>
+            <property name="id">50</property>
+            <controls>
+            <include content="Widget">
+                <param name="id" value="$PYTHON[int(id) + 6050]" />
+                <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
+                <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
+                <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
+                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
+                <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
+                <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
+                <param name="postercondition" value="$PYTHON['true' if widgetAspect in 'Poster' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetAspect in 'Landscape' else 'false']" />
+                <param name="landscapewidecondition" value="$PYTHON['true' if widgetAspect in 'LandscapeWide' else 'false']" />
+                <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetAspect in 'LandscapePoster' else 'false']" />
+                <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetAspect in 'LandscapeSmall' else 'false']" />
+                <param name="posterdetailscondition" value="$PYTHON['true' if widgetAspect in 'PosterDetails' else 'false']" />
+                <param name="widgetlivecondition" value="$PYTHON['true' if widgetAspect in 'WidgetLive' else 'false']" />
+                <param name="categorycondition" value="$PYTHON['true' if widgetAspect in 'Category' else 'false']" />
+                <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
+                <param name="genrecondition" value="$PYTHON['true' if widgetAspect in 'Genre' else 'false']" />
+                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'fixedlist']" />
+                <param name="label" value="$SKINSHORTCUTS[label]" />
+                <param name="visible" value="Window.IsVisible(Custom_Hub_MovieAura.xml)" />
+            </include>
+            </controls>
+        </items>
+    </submenu>
+
+
 </template>
