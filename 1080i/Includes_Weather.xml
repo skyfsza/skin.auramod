@@ -2,6 +2,7 @@
 <includes>
     
     <include name="Weather">
+<!--
 	<control type="label">
 	<font>font_medium_bold</font>
 	<textcolor>white</textcolor>
@@ -9,6 +10,7 @@
         <left>120</left>
 	<label>$INFO[Window(Weather).Property(Location),$LOCALIZE[31007] ,]</label>
 	</control>
+-->
         <control type="grouplist">
             <left>view_pad</left>
             <right>view_pad</right>
