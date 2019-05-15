@@ -356,6 +356,17 @@
                     <include>Dialog_Standard_Right_Buttons</include>
                     <visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),searchmenu) | String.IsEqual(Window.Property(groupname),aurahubtv) | String.IsEqual(Window.Property(groupname),aurahubmovies)</visible>
                 </control>
+                <control type="button" id="9905" description="Widget Submenu Aspect">
+                   <width>100%</width>
+                    <height>66</height>
+                    <label>Widget Type</label>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
+                    <label2>$INFO[Container(211).ListItem.Property(widgetHubAspect)]</label2>
+                    <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
+                    <align>left</align>
+                    <include>Dialog_Standard_Right_Buttons</include>
+                    <visible>String.Contains(Window.Property(groupname),x110)</visible>
+                </control>
                 <control type="radiobutton" id="9911" description="Widget Control">
                     <width>100%</width>
                     <label>Disable Fixed Focus</label>
@@ -451,10 +462,36 @@
                 <control type="button" id="9908" description="Choose MenuHub">
                    <width>100%</width>
                     <height>66</height>
-                    <label>Choose MenuHub</label>
+                    <label> - Choose MenuHub</label>
                     <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + String.IsEqual(Container(211).ListItem.Property(widgethub),true)</visible>
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <label2>$INFO[Container(211).ListItem.Property(widgethubselect)]</label2>
+                    <align>left</align>
+                    <include>Dialog_Standard_Right_Buttons</include>
+                </control>
+                <control type="radiobutton" id="9909" description="Auto Scroll to Hub">
+                    <width>100%</width>
+                    <label>Enable Autoscroll to Hub</label>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
+                    <include>Dialog_Standard_ListButton</include>
+                    <radioposx>830</radioposx>
+                    <selected>String.IsEqual(Container(211).ListItem.Property(widgethubscroll),true)</selected>
+                    <onclick>SetProperty(customProperty,widgethubscroll)</onclick>
+                    <onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgethubscroll),true)">SetProperty(customValue,true)</onclick>
+                    <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgethubscroll),true)">SetProperty(customValue,false)</onclick>
+                    <onclick>SendClick(404)</onclick>
+                    <align>left</align>
+                    <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
+                </control>
+                <control type="button" id="9910" description="Choose Scroll Hub">
+                   <width>100%</width>
+                    <height>66</height>
+                    <label> - Choose Autoscroll Hub</label>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + String.IsEqual(Container(211).ListItem.Property(widgethubscroll),true)</visible>
+                    <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
+                    <label2>$INFO[Container(211).ListItem.Property(widgethubscrollselect)]</label2>
                     <align>left</align>
                     <include>Dialog_Standard_Right_Buttons</include>
                 </control>

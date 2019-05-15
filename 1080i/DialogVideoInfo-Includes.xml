@@ -963,9 +963,25 @@
         <width>100%</width>
         <height>100%</height>
         <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>
-        <texture background="true" diffuse="overlay/gradient_overlay_info.png">$VAR[Spotlight_Fanart]</texture>
-        <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
+        <texture background="true">$VAR[Spotlight_Fanart]</texture>
+        <aspectratio scalediffuse="true" align="right" aligny="top">scale</aspectratio>
       </control>
+      <control type="image">
+	<width>130%</width>
+        <texture flipx="true" colordiffuse="ff000000" border="15">overlay/gradient_overlay_info.png</texture>
+      </control>
+<!--
+                 <control type="image">
+                                        <right>0</right>
+                                        <top>0</top>
+                                        <animation time="600" effect="fade" reversible="true" easing="inout">WindowOpen</animation>
+                                        <animation time="300" effect="fade" reversible="true" easing="inout">WindowClose</animation>
+                                        <width>90%</width>
+                                        <height>100%</height>
+                                        <texture background="true" diffuse="overlay/gradient_overlay_info.png">$VAR[Spotlight_Fanart]</texture>
+                                        <aspectratio scalediffuse="true" align="right" aligny="top">scale</aspectratio>
+                                </control>
+-->
           <control type="image">
             <width>100%</width>
             <height>100%</height>

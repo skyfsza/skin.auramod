@@ -380,43 +380,43 @@
                         <control type="button" id="9660" description="Configure Movie Hub 1">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Configure Movie Menu Hub 1</label>
+                            <label>Configure Movie Lists 1</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1101)</onclick>
                         </control>
                         <control type="button" id="9661" description="Configure Movie Hub 2">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Configure Movie Menu Hub 2</label>
+                            <label>Configure Movie Lists 2</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1102)</onclick>
                         </control>
                         <control type="button" id="9662" description="Configure TV Hub 1">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Configure TV Menu Hub 1</label>
+                            <label>Configure TV Lists 1</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1103)</onclick>
                         </control>
                         <control type="button" id="9663" description="Configure TV Hub 2">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Configure TV Menu Hub 2</label>
+                            <label>Configure TV Lists 2</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1104)</onclick>
                         </control>
                         <control type="button" id="9574" description="Configure Misc Hub 2">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Configure Menu Hub 1</label>
+                            <label>Configure My Lists 1</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1105)</onclick>
                         </control>
                         <control type="button" id="9575" description="Configure Misc Hub 2">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Configure Menu Hub 2</label>
+                            <label>Configure My Lists 2</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1106)</onclick>
                         </control>
                         <control type="button" id="9576" description="Configure Misc Hub 2">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Configure Menu Hub 3</label>
+                            <label>Configure My Lists 3</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1107)</onclick>
                         </control>
                         <control type="button" id="9665" description="Media Hubs ">
@@ -860,6 +860,23 @@
                             <onclick>Skin.ToggleSetting(DisableTrailerPreview)</onclick>
                         </control>
 
+                        <control type="radiobutton" id="9230" description="Enable Weather Radar Map">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9006)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Enable Weather Radar Map</label>
+                            <selected>Skin.HasSetting(EnableWetherRadar)</selected>
+                            <onclick>Skin.ToggleSetting(EnableWetherRadar)</onclick>
+                        </control>
+
+                        <control type="button" id="9231" description="Set Radar Map URL">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9006)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>- Set Radar Map URL</label>
+                            <label2>$INFO[Skin.String(weather_image_url)]</label2>
+			    <visible>Skin.HasSetting(EnableWetherRadar)</visible>
+                            <onclick>Skin.SetString(weather_image_url)</onclick>
+                        </control>
+
                         <!-- =============-->
                         <!-- Widget Mods---->
                         <!-- =============-->
@@ -1181,6 +1198,17 @@
                             <selected>Skin.HasSetting(EnableTrailerOnDown)</selected>
                             <onclick>Skin.ToggleSetting(EnableTrailerOnDown)</onclick>
                         </control>
+
+                        <control type="radiobutton" id="9689" description="Use Posters in Addon View">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Use Posters in Addon View</label>
+                            <selected>Skin.HasSetting(EnableAddonViewPoster)</selected>
+                            <onclick>Skin.ToggleSetting(EnableAddonViewPoster)</onclick>
+                        </control>
+
+
+
 
                         <!-- ================= -->
                         <!-- Video / Music OSD -->

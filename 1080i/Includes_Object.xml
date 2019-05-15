@@ -800,6 +800,7 @@
                 <top>240</top>
                 <width>200</width>
                 <left>30</left>
+		<visible>!Skin.HasSetting(DisableStarRating)</visible>
                 <include content="Object_StarRating" condition="![Skin.HasSetting(DisableInfoRatings)]">
                   <param name="height" value="50" />
                   <param name="width" value="50" />
@@ -1529,6 +1530,7 @@
                 </control>
                 <control type="label">
                   <visible>String.IsEmpty(Control.GetLabel(55446)) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222)</visible>
+		  <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)]</visible>
                   <top>25</top>
                   <label>$VAR[video_heading]</label>
                   <textcolor>grey</textcolor>
@@ -1539,7 +1541,19 @@
                   <align>left</align>
                   <wrapmultiline>true</wrapmultiline>
                 </control>
-
+                <control type="label">
+                  <visible>String.IsEmpty(Control.GetLabel(55446)) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222)</visible>
+                  <visible>![String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)]</visible>
+                  <top>25</top>
+                  <label>$VAR[video_heading]</label>
+                  <textcolor>grey</textcolor>
+                  <shadowcolor>black</shadowcolor>
+                  <font>spotlight_heading_small</font>
+                  <width min="200" max="600">auto</width>
+                  <height min="50" max="200">auto</height>
+                  <align>left</align>
+                  <wrapmultiline>true</wrapmultiline>
+                </control>
               </control>
               <!-- Add Star Rating + Video info to spotlight -->
               <include>netflix_infoline</include>
@@ -1660,7 +1674,7 @@
           <control type="label">
             <visible>[String.IsEqual(Container(5055).ListItem.DBType,episode) | String.IsEqual(Container(5055).ListItem.DBType,movie) | String.IsEqual(Container(5055).ListItem.DBType,tvshow) | String.IsEqual(Container(5055).ListItem.DBType,season) | !String.IsEmpty(Container(5055).ListItem.ChannelName)] + String.IsEmpty(Container(5055).ListItem.Art(clearlogo))</visible>
             <top>-210</top>
-            <label>$INFO[Container(5055).ListItem.Label]</label>
+            <label>$VAR[video_heading5055]</label>
             <textcolor>grey</textcolor>
             <shadowcolor>black</shadowcolor>
             <font>netflix_heading</font>
@@ -1674,7 +1688,7 @@
           <control type="label">
             <visible>![String.IsEqual(Container(5055).ListItem.DBType,movie) | String.IsEqual(Container(5055).ListItem.DBType,episode) |  String.IsEqual(Container(5055).ListItem.DBType,tvshow) | String.IsEqual(Container(5055).ListItem.DBType,season) | !String.IsEmpty(Container(5055).ListItem.ChannelName)] + String.IsEmpty(Container(5055).ListItem.Art(clearlogo))</visible>
             <top>-210</top>
-            <label>$INFO[Container(5055).ListItem.Label]</label>
+            <label>$VAR[video_heading5055]</label>
             <textcolor>grey</textcolor>
             <shadowcolor>black</shadowcolor>
             <font>spotlight_heading_small</font>
@@ -1700,7 +1714,7 @@
               <width>200</width>
               <left>-5</left>
               <top>-20</top>
-              <visible>!String.IsEmpty(Container(5055).ListItem.Rating)</visible>
+              <visible>!String.IsEmpty(Container(5055).ListItem.Rating) + !Skin.HasSetting(DisableStarRating)</visible>
               <include content="Object_StarRating" condition="![Skin.HasSetting(DisableInfoRatings)]">
                 <param name="height" value="50" />
                 <param name="width" value="50" />
@@ -3350,7 +3364,7 @@
         <param name="metacritic" value="$PARAM[metacritic]" />
         <param name="oscars" value="$PARAM[oscars]" />
         <param name="top250" value="$PARAM[top250]" />
-        <param name="studio" default="false" />
+        <param name="studio" value="$PARAM[studio]" />
       </include>
       <!--
       <include content="Object_Ratings_Content">
@@ -3643,7 +3657,6 @@
           <label>$INFO[ListItem.Plot]</label>
           <scroll>true</scroll>
         </control>
-        <!--
         <control type="image">
           <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(ListItem.Studio)">Conditional</animation>
           <top>13</top>
@@ -3652,9 +3665,8 @@
           <aspectratio>stretch</aspectratio>
           <height>44</height>
           <width>64</width>
-          <visible>String.IsEqual($PARAM[studio],true)</visible> 
+	  <visible>!String.IsEmpty(ListItem.Studio)</visible>
         </control>
--->
       </control>
     </definition>
   </include>
@@ -4447,7 +4459,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="640" height="widget_poster_height_netflix" condition="$PARAM[landscapewidepostercondition]">
+      <focusedlayout width="640" height="widget_poster_height_netflix" condition="$PARAM[landscapewidepostercondition] + Control.HasFocus($PARAM[id])">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="landscapewide" value="true" />
@@ -4456,7 +4468,6 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <!--
       <focusedlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="$PARAM[landscapewidepostercondition] + !Control.HasFocus($PARAM[id])">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
@@ -4466,8 +4477,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
--->
-      <focusedlayout width="800" height="widget_poster_height_netflix" condition="$PARAM[posterdetailscondition]">
+      <focusedlayout width="800" height="widget_poster_height_netflix" condition="$PARAM[posterdetailscondition] + Control.HasFocus($PARAM[id])">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="posterdetails" value="true" />
@@ -4476,7 +4486,6 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <!--
       <focusedlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="$PARAM[posterdetailscondition] + !Control.HasFocus($PARAM[id])">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
@@ -4486,7 +4495,6 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
--->
       <focusedlayout width="380" height="widget_poster_height_netflix" condition="$PARAM[widgetlivecondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
@@ -4807,6 +4815,7 @@
           <param name="visible" value="String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)" />
         </include>
         <include>skinshortcuts-template-vertical-submenu</include>
+        <include>WidgetHubScroll</include>
       </control>
     </definition>
   </include>
@@ -4855,18 +4864,25 @@
           <param name="visible" value="String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)" />
         </include>
         <include>skinshortcuts-template-vertical-submenu</include>
-        <control type="button" id="337">
-          <visible allowhiddenfocus="true">false</visible>
-          <visible>String.IsEqual(Container(300).ListItem.Property(widgethub),true)</visible>
-          <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgethub),true) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + !Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(3000)</onfocus>
-          <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),Movies) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),MoviesMenuHub1)">SetFocus(330,1)</onfocus>
-          <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),TVShows) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),TVMenuHub1)">SetFocus(330,1)</onfocus>
-          <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),TVMenuHub1)">ActivateWindow(3810)</onfocus>
-          <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),MoviesMenuHub1)">ActivateWindow(3820)</onfocus>
-        </control>
+	<include>WidgetHubScroll</include>
       </control>
     </definition>
   </include>
+
+  <include name="WidgetHubScroll">
+        <control type="button" id="337">
+          <visible allowhiddenfocus="true">false</visible>
+          <visible>String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true)</visible>
+          <onfocus condition="!Skin.HasSetting(DisableAuraHomeLayout)">SetFocus(30222)</onfocus>
+          <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + !Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(3000)</onfocus>
+          <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)">SetFocus(330,1)</onfocus>
+          <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + String.IsEqual(Container(300).ListItem.Property(widgethubscrollselect),TVNetflixHub)">ActivateWindow(3810)</onfocus>
+          <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + String.IsEqual(Container(300).ListItem.Property(widgethubscrollselect),TVAuraHub)">ActivateWindow(3910)</onfocus>
+          <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + String.IsEqual(Container(300).ListItem.Property(widgethubscrollselect),MovieNetflixHub)">ActivateWindow(3820)</onfocus>
+          <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + String.IsEqual(Container(300).ListItem.Property(widgethubscrollselect),MovieAuraHub)">ActivateWindow(3920)</onfocus>
+        </control>
+  </include>
+
   <!-- @PXCL dev -->
   <include name="Logo">
     <control type="group">

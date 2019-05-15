@@ -2,6 +2,13 @@
 <includes>
     
     <include name="Weather">
+	<control type="label">
+	<font>font_medium_bold</font>
+	<textcolor>white</textcolor>
+	<top>-800</top>
+        <left>120</left>
+	<label>$INFO[Window(Weather).Property(Location),$LOCALIZE[31007] ,]</label>
+	</control>
         <control type="grouplist">
             <left>view_pad</left>
             <right>view_pad</right>
@@ -216,21 +223,22 @@
                 <param name="day" value="Day1" />
                 <param name="label" value="$INFO[Window(Weather).Property(Day1.Title)]" />
             </include>
-            <include content="Weather_DailyForecast">
+            <include content="Weather_DailyForecast" condition="!Skin.HasSetting(EnableWetherRadar)">
                 <param name="day" value="Day2" />
                 <param name="label" value="$INFO[Window(Weather).Property(Day2.Title)]" />
             </include>
-            <include content="Weather_DailyForecast">
+            <include content="Weather_DailyForecast" condition="!Skin.HasSetting(EnableWetherRadar)">
                 <param name="day" value="Day3" />
                 <param name="label" value="$INFO[Window(Weather).Property(Day3.Title)]" />
             </include>
-            <include content="Weather_DailyForecast">
+            <include content="Weather_DailyForecast" condition="!Skin.HasSetting(EnableWetherRadar)">
                 <param name="day" value="Day4" />
                 <param name="label" value="$INFO[Window(Weather).Property(Day4.Title)]" />
             </include>
             </control>   
-<!--
+	    <!-- Add Weather MAP image -->
 	    <control type="group">
+	       <visible>Skin.HasSetting(EnableWetherRadar)</visible>
   	       <animation effect="slide" end="-300,0" time="0" condition="Window.IsVisible(Home)">Conditional</animation>
 	       <bottom>50</bottom>
                <height>520</height>
@@ -242,6 +250,7 @@
 		<height>610</height>
 		<imagepath>special://masterprofile/addon_data/scripts/weather/</imagepath>
       	    </control>
+	    <!-- Diffuse overlay, "69" in colordiffuse is 69% - set higher / lower to reduce or increase overlay -->
             <control type="image">
                 <centertop>45%</centertop>
                 <centerleft>59%</centerleft>
@@ -251,7 +260,6 @@
                 <texture colordiffuse="69000000">common/white.png</texture>
            </control>
         </control>
--->
     </include>
 
     <include name="Weather_DailyForecast">

@@ -1,3 +1,16 @@
+v0.9.26
+- Add option in Netflix modes to disable Category / Submenu widget.
+- Add option in Netflix modes to choose default focus - Category/Submenu or Widgets
+- Add option to use Poster widgets in Addon List view
+- Add option to Autoscroll from home widgets to content Hub 
+- Add option to enable Weather Radar map for Weather Widget.
+- Fix Force extendedinfo when using Skin show information setting
+- Change TV/Movie Aurahub to use normal skin Widget config.
+- Adjusted title fallback font size
+- Rename Menu Hubs to "My Lists" 
+- Add Media Content Hub for each "My List"
+- Change diffuse on Netflix Video Info
+
 v0.9.25
 - New beta Season / Episode split panel view.
 - New beta Addon browser split pannel view

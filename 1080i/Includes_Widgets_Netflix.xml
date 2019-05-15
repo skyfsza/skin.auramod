@@ -111,6 +111,7 @@
                         </control>
                         <control type="group">
                             <visible>String.IsEqual(Container(300).ListItem.Property(widget),Weather)</visible>
+			    <include>Global_Background</include>
                             <include>Weather</include>
                         </control>
                         <control type="group">
@@ -122,6 +123,11 @@
 			    <left>80</left>
                             <visible>String.IsEqual(Container(300).ListItem.Label,Youtube)</visible>
                             <include>youtube_widget</include>
+                        </control>
+                        <control type="group">
+                            <left>80</left>
+                            <visible>String.IsEqual(Container(300).ListItem.Label,Search)</visible>
+			    <include>object_search</include>
                         </control>
 -->
                     </control>

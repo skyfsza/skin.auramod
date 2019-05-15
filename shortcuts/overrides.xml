@@ -20,13 +20,13 @@
     <!-- For Power Menu -->
     <groupoverride group="powermenu" condition="Window.IsActive(DialogButtonMenu.xml)">Close</groupoverride>
     <!-- For Custom Hub -->
-    <groupoverride group="x1101" condition="Window.IsActive(Custom_MenuHub_Movie1.xml)">Close</groupoverride>
-    <groupoverride group="x1102" condition="Window.IsActive(Custom_MenuHub_Movie2.xml)">Close</groupoverride>
-    <groupoverride group="x1103" condition="Window.IsActive(Custom_MenuHub_TV1.xml)">Close</groupoverride>
-    <groupoverride group="x1104" condition="Window.IsActive(Custom_MenuHub_TV2.xml)">Close</groupoverride>
-    <groupoverride group="x1105" condition="Window.IsActive(Custom_MenuHub_Generic1.xml)">Close</groupoverride>
-    <groupoverride group="x1106" condition="Window.IsActive(Custom_MenuHub_Generic2.xml)">Close</groupoverride>
-    <groupoverride group="x1107" condition="Window.IsActive(Custom_MenuHub_Generic3.xml)">Close</groupoverride>
+    <groupoverride group="x1101" condition="Window.IsActive(Custom_Menu_Movie1.xml)">Close</groupoverride>
+    <groupoverride group="x1102" condition="Window.IsActive(Custom_Menu_Movie2.xml)">Close</groupoverride>
+    <groupoverride group="x1103" condition="Window.IsActive(Custom_Menu_TV1.xml)">Close</groupoverride>
+    <groupoverride group="x1104" condition="Window.IsActive(Custom_Menu_TV2.xml)">Close</groupoverride>
+    <groupoverride group="x1105" condition="Window.IsActive(Custom_Menu_Generic1.xml)">Close</groupoverride>
+    <groupoverride group="x1106" condition="Window.IsActive(Custom_Menu_Generic2.xml)">Close</groupoverride>
+    <groupoverride group="x1107" condition="Window.IsActive(Custom_Menu_Generic3.xml)">Close</groupoverride>
 
     <!-- Icon Overrides -->
     <icon labelID="tvhub">special://skin/extras/icons/tv.png</icon>
@@ -344,6 +344,13 @@
     <propertySettings property="widgethubselect" showNone="false" buttonID="9908" title="Widget Hub" />
 
     <!-- Widget Hub -->
+    <property property="widgethubscrollselect">TVNetflixHub</property>
+    <property property="widgethubscrollselect">TVAuraHub</property>
+    <property property="widgethubscrollselect">MovieNetflixHub</property>
+    <property property="widgethubscrollselect">MovieAuraHub</property>
+    <propertySettings property="widgethubscrollselect" showNone="false" buttonID="9910" title="Widget Scroll Hub" />
+
+    <!-- Widget Hub -->
     <propertySettings toggle="widgetControl" buttonID="9911" title="Widget Control" />
 
     <!-- Widget Aspect -->
@@ -358,6 +365,11 @@
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-category.png">Category</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-genres.png">Genre</property>
     <propertySettings property="widgetAspect" showNone="false" buttonID="9901" title="Widget Aspect Ratio" />
+
+    <!-- Menu Hub Widget Aspect -->
+    <property property="widgetHubAspect" icon="special://skin/extras/widgettype/widget-poster.png">Poster</property>
+    <property property="widgetHubAspect" icon="special://skin/extras/widgettype/widget-landscape.png">Landscape</property>
+    <propertySettings property="widgetHubAspect" showNone="false" buttonID="9905" title="Widget Hub Aspect Ratio" />
 
     <!-- Widget Target -->
     <property property="widgetTarget">videos</property>
@@ -477,13 +489,20 @@
             <content>common</content>
             <shortcut label="$LOCALIZE[33060]" type="$LOCALIZE[31018]" icon="special://skin/extras/icons/power.png">ActivateWindow(shutdownmenu)</shortcut>
             <shortcut label="$LOCALIZE[31017]" type="32010">||BROWSE||script.skin.helper.service/?action=smartshortcuts</shortcut>
-            <shortcut label="Movie Categories Hub 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1101,return)</shortcut>
-            <shortcut label="Movie Categories  Hub 2" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1102,return)</shortcut>
-            <shortcut label="TV Categories Hub 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1103,return)</shortcut>
-            <shortcut label="TV Categories Hub 2" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1104,return)</shortcut>
-            <shortcut label="Menu Hub 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1105,return)</shortcut>
-            <shortcut label="Menu Hub 2" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1106,return)</shortcut>
-            <shortcut label="Menu Hub 3" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1107,return)</shortcut>
+            <shortcut label="Movie Lists 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1101,return)</shortcut>
+            <shortcut label="Movie Lists 2" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1102,return)</shortcut>
+            <shortcut label="TV Lists 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1103,return)</shortcut>
+            <shortcut label="TV Lists 2" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1104,return)</shortcut>
+            <shortcut label="My Lists 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1105,return)</shortcut>
+            <shortcut label="My Lists 2" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1106,return)</shortcut>
+            <shortcut label="My Lists 3" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1107,return)</shortcut>
+            <shortcut label="Movie Lists Hub 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2111,return)</shortcut>
+            <shortcut label="Movie Lists Hub 2" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2112,return)</shortcut>
+            <shortcut label="TV Lists Hub 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2113,return)</shortcut>
+            <shortcut label="TV Lists Hub 2" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2114,return)</shortcut>
+            <shortcut label="My Lists Hub 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2115,return)</shortcut>
+            <shortcut label="My Lists Hub 2" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2116,return)</shortcut>
+            <shortcut label="My Lists Hub 3" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2117,return)</shortcut>
             <shortcut label="Media Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3730,return)</shortcut>
             <shortcut label="Movie Genres Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(4010,return)</shortcut>
             <shortcut label="TV Genres Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(4020,return)</shortcut>

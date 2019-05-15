@@ -402,17 +402,8 @@
             </include>
 
             <include>skinshortcuts-template-vertical-submenu</include>
+        <include>WidgetHubScroll</include>
 
-	   <control type="button" id="337">
-           <visible allowhiddenfocus="true">false</visible>
-	   <visible>String.IsEqual(Container(300).ListItem.Property(widgethub),true)</visible>
-	   <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgethub),true) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + !Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(3000)</onfocus>
-	   <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),Movies) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),MoviesMenuHub1)">SetFocus(1506)</onfocus>
-           <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),TVShows) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),TVMenuHub1)">SetFocus(1505)</onfocus>
-           <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),TVMenuHub1)">ActivateWindow(3810)</onfocus>
-	   <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),MoviesMenuHub1)">ActivateWindow(3820)</onfocus>
--->
-	   </control>
             <control type="group" id="338">
                 <height>widget_spacer_bottom</height>
             </control>
@@ -463,7 +454,6 @@
             </control>
             <control type="$PARAM[controltype]" id="$PARAM[id]">
                 <animation effect="fade" start="100" end="0" condition="Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating">Conditional</animation>
-		<onfocus condition="Window.IsVisible(1138)">Container.Update</onfocus>
 		<movement>1</movement>
                 <top>widget_top</top>
                 <include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>

@@ -623,7 +623,56 @@
           <animation effect="fade" start="100" end="0" condition="Container(5055).IsUpdating">Conditional</animation>
 	  <posy>540</posy>
 
+      <control type="fixedlist" id="5055">
+	<visible>Skin.HasSetting(EnableAddonViewPoster)</visible>
+        <onleft>504</onleft>
+        <onback>SetFocus(505,0,absolute)</onback>
+        <onback>505</onback>
+<!--
+	<onclick>Skin.SetString(AddonContainer,true)</onclick>
+        <onclick condition="!Skin.HasSetting(EnableShowInfo)  + [String.IsEqual(Container(5055).ListItem.DBType,tvshow) | String.IsEqual(Container(5055).ListItem.DBType,movie) | Container.Content(movies) | Container.Content(tvshows)]">Action(Info)</onclick> 
+-->
+        <left>420</left>
+        <movement>2</movement>
+        <width>1900</width>
+        <height>420</height>
+        <orientation>horizontal</orientation>
+        <preloaditems>2</preloaditems>
+        <scrolltime tween="linear">400</scrolltime>
+
+        <include content="Widget_Common">
+          <param name="top" value="$PARAM[top]" />
+          <param name="height" value="$PARAM[height]" />
+          <param name="id" value="5055" />
+          <param name="aspect" value="landscape" />
+          <param name="widgetAspect" value="landscapenetflix" />
+          <param name="submenu" value="$PARAM[submenu]" />
+        </include>
+
+        <itemlayout width="295" height="420">
+          <include content="Widget_Items_ItemLayout">
+            <param name="poster" value="true" />
+            <param name="genres" value="$PARAM[genres]" />
+            <param name="studios" value="$PARAM[studios]" />
+            <param name="text" value="$PARAM[text]" />
+          </include>
+        </itemlayout>
+        <focusedlayout width="295" height="420">
+          <include content="Widget_Items_FocusedLayout">
+            <param name="id" value="5055" />
+            <param name="poster" value="true" />
+            <param name="genres" value="$PARAM[genres]" />
+            <param name="studios" value="$PARAM[studios]" />
+            <param name="text" value="$PARAM[text]" />
+          </include>
+        </focusedlayout>
+          <content target="videos" sortby="year" sortorder="descending">$INFO[Container(505).ListItem.FolderPath]</content>
+        </control>
+
+
+
       <control type="panel" id="5055">
+	<visible>!Skin.HasSetting(EnableAddonViewPoster)</visible>
         <onleft>504</onleft>
         <onback>SetFocus(505,0,absolute)</onback>
         <onback>505</onback>

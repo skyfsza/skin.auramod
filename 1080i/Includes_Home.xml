@@ -78,9 +78,10 @@
 			<onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widget),Settings)">3000</onright>	
 			<onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Label,Youtube)">11</onright>	
 			<onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widget),Weather)">9966</onright>	
-			<onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Label,Search)">9000</onright>	
+			<onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Label,Search)">SetFocus(9000)</onright>	
                         <onright condition="Window.IsVisible(script-globalsearch-main.xml)">9500</onright>
-                        <onright condition="!Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home)">3000</onright>
+                        <onright condition="!Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),false)">3000</onright>
+                        <onright condition="!Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)">3000</onright>
                         <onright condition="Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + Integer.IsGreater(Container(30222).NumItems,0)">30222</onright>
                         <onright condition="Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + Integer.IsGreater(Container(30222).NumItems,0)">3000</onright>
                         <onright condition="Window.IsVisible(Home) + !Integer.IsGreater(Container(330).NumItems,0) + Integer.IsGreater(Container(1505).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),TVShows)">1505</onright>
@@ -812,11 +813,13 @@
         <ondown condition="Control.IsVisible(3902)">3902</ondown>
         <onup condition="!Control.IsVisible(3902)">300</onup>
         <ondown condition="!Control.IsVisible(3902)">300</ondown>
+<!--
         <onunfocus>ClearProperty(MenuFocus,Home)</onunfocus>
         <onfocus>SetProperty(MenuFocus,1,Home)</onfocus>
         <onfocus>ClearProperty(WidgetFocus,Home)</onfocus>
         <onfocus>ClearProperty(WidgetLoading,Home)</onfocus>
         <onfocus>AlarmClock(SetLoad,SetProperty(WidgetLoading,1,Home),00:00,silent)</onfocus>
+-->
     </include>
 
 <!--
