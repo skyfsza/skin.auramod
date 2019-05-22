@@ -970,18 +970,6 @@
 	<width>130%</width>
         <texture flipx="true" colordiffuse="ff000000" border="15">overlay/gradient_overlay_info.png</texture>
       </control>
-<!--
-                 <control type="image">
-                                        <right>0</right>
-                                        <top>0</top>
-                                        <animation time="600" effect="fade" reversible="true" easing="inout">WindowOpen</animation>
-                                        <animation time="300" effect="fade" reversible="true" easing="inout">WindowClose</animation>
-                                        <width>90%</width>
-                                        <height>100%</height>
-                                        <texture background="true" diffuse="overlay/gradient_overlay_info.png">$VAR[Spotlight_Fanart]</texture>
-                                        <aspectratio scalediffuse="true" align="right" aligny="top">scale</aspectratio>
-                                </control>
--->
           <control type="image">
             <width>100%</width>
             <height>100%</height>
@@ -1291,6 +1279,7 @@
               <label>More Episodes</label>
               <onclick>Skin.SetString(AddonContainer,false)</onclick>
               <onclick>close</onclick>
+              <onclick condition="Skin.HasSetting(EnableShowInfo) + Window.IsVisible(1138)">ActivateWindow(Home)</onclick>
               <onclick condition="String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),true)">ActivateWindow(10025,$ESCINFO[Container(5055).ListItem.FileNameAndPath],return)</onclick>
               <onclick condition="String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),false)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
               <onclick condition="!String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
@@ -1353,14 +1342,36 @@
               </include>
               <radiowidth>25</radiowidth>
               <radioheight>28</radioheight>
-              <radioposx>5</radioposx>
+              <radioposx>8</radioposx>
               <label>More Info</label>
               <onclick condition="String.IsEqual(ListItem.DBType,movie)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onclick>
               <onclick condition="String.IsEqual(ListItem.DBType,tvshow)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.TvShowTitle])</onclick>
               <onclick condition="String.IsEqual(ListItem.DBType,season)">RunScript(script.extendedinfo,info=seasoninfo,tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],silent=True)</onclick>
               <onclick condition="String.IsEqual(ListItem.DBType,episode)">RunScript(script.extendedinfo,info=extendedepisodeinfo,dbid=$INFO[ListItem.DBID],tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],episode=$INFO[ListItem.Episode],silent=True)</onclick>
             </control>
-          </control>
+            <!-- Refresh -->
+            <control type="radiobutton" id="6">
+              <visible>Control.IsEnabled(6)</visible>
+              <label>184</label>
+              <include name="netflix_button" content="netflix_button">
+                <param name="icon" value="sinchronize" />
+              </include>
+              <radiowidth>25</radiowidth>
+              <radioheight>28</radioheight>
+              <radioposx>8</radioposx>
+           </control>
+            <!-- Choose Artwork -->
+            <control type="radiobutton" id="10">
+              <visible>Control.IsEnabled(10)</visible>
+              <label>Choose Artwork</label>
+              <include name="netflix_button" content="netflix_button">
+                <param name="icon" value="pictures" />
+              </include>
+              <radiowidth>25</radiowidth>
+              <radioheight>28</radioheight>
+              <radioposx>8</radioposx>
+           </control>
+         </control>
         </control>
       </control>
     <control type="group">
