@@ -24,7 +24,7 @@
                 <top>100</top>
                 <height>600</height>
                 <control type="image">
-                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <aspectratio scalediffuse="false">keep</aspectratio>
                     <texture background="true" fallback="special://skin/fanart.jpg" diffuse="diffuse/1117.png">$INFO[Window.Property(Image_Preview)]</texture>
                 </control>
                 <control type="image">

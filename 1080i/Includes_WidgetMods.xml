@@ -143,6 +143,166 @@
    </control>
    </include>
 
+  <include name="Widget_Items_LandscapeDetails_Focused">
+    <control type="group">
+    <include>Animation_FocusBounce_Small</include>
+      <control type="image">
+	<width>50%</width>
+        <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$VAR[Image_Fanart]</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+	<visible>!String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+      </control>
+      <control type="image">
+        <width>50%</width>
+	<left>50%</left>
+        <texture colordiffuse="white" background="true">common/white.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+      </control>
+      <control type="image">
+        <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$INFO[ListItem.Icon]</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <visible>String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+      </control>
+	<!-- Add Clearlogo to landscape Image -->
+        <control type="image">
+          <bottom>-10</bottom>
+          <left>10</left>
+          <width>45%</width>
+          <height>45%</height>
+          <aspectratio>keep</aspectratio>
+          <texture background="true">$VAR[Widget_ClearLogo]</texture>
+          <visible>[!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo)] + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)] + !String.IsEqual(ListItem.DBType,episode) + [!String.IsEqual(ListItem.DBType,episode) + !String.Contains(ListItem.Art(landscape),userdata)]</visible>
+        </control>
+      <control type="group">
+        <!-- Add Clearlogo to landscape Image -->
+        <control type="image">
+          <bottom>35</bottom>
+	  <left>10</left>
+<!--	  <top>5</top>
+	  <centerleft>50%</centerleft> -->
+          <width>50%</width>
+          <height>50%</height>
+          <aspectratio>keep</aspectratio>
+          <animation effect="slide" start="0" end="0,40" time="0" condition="String.IsEmpty(ListItem.Episode) | Skin.HasSetting(WidgetLabels)">Conditional</animation>
+          <texture background="true">$VAR[Widget_ClearLogo]</texture>
+          <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
+        </control>
+      </control>
+
+	<control type="group">
+	<control type="label">
+	<top>10</top>
+	<width>40%</width>
+	<height>30</height>
+	<left>53%</left>
+	<font>font_small</font>
+	<textcolor>black</textcolor>
+	<label>$INFO[ListItem.Genre]</label>
+	<scroll>false</scroll>
+	</control>
+        <control type="label">
+	<top>40</top>
+	<height>60</height>
+        <width>40%</width>
+        <left>53%</left>
+        <font>font_medium_bold</font>
+        <textcolor>black</textcolor>
+        <label>$VAR[video_heading]</label>
+        </control>	
+        <control type="textbox">
+	<top>100</top>
+	<height>95</height>
+        <width>40%</width>
+        <left>53%</left>
+        <font>font_tiny</font>
+        <textcolor>dimgrey</textcolor>
+	<autoscroll>0</autoscroll>
+        <label>$INFO[ListItem.Plot]</label>
+        </control>
+        </control>
+
+    </control>
+
+  </include>
+
+
+
+  <include name="Widget_Items_LandscapeDetails">
+    <control type="group">
+      <control type="image">
+	<width>50%</width>
+        <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$VAR[Image_Fanart]</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+	<visible>!String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+      </control>
+      <control type="image">
+        <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$INFO[ListItem.Icon]</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <visible>String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+      </control>
+	<!-- Add Clearlogo to landscape Image -->
+        <control type="image">
+          <bottom>-10</bottom>
+          <left>10</left>
+          <width>45%</width>
+          <height>45%</height>
+          <aspectratio>keep</aspectratio>
+          <texture background="true">$VAR[Widget_ClearLogo]</texture>
+          <visible>[!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo)] + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)] + !String.IsEqual(ListItem.DBType,episode) + [!String.IsEqual(ListItem.DBType,episode) + !String.Contains(ListItem.Art(landscape),userdata)]</visible>
+        </control>
+      <control type="group">
+        <!-- Add Clearlogo to landscape Image -->
+        <control type="image">
+          <bottom>35</bottom>
+	  <left>10</left>
+<!--	  <top>5</top>
+	  <centerleft>50%</centerleft> -->
+          <width>50%</width>
+          <height>50%</height>
+          <aspectratio>keep</aspectratio>
+          <animation effect="slide" start="0" end="0,40" time="0" condition="String.IsEmpty(ListItem.Episode) | Skin.HasSetting(WidgetLabels)">Conditional</animation>
+          <texture background="true">$VAR[Widget_ClearLogo]</texture>
+          <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
+        </control>
+      </control>
+
+	<control type="group">
+	<control type="label">
+	<top>10</top>
+	<width>40%</width>
+	<height>30</height>
+	<left>53%</left>
+	<font>font_small</font>
+	<textcolor>white</textcolor>
+	<label>$INFO[ListItem.Genre]</label>
+	<scroll>false</scroll>
+	</control>
+        <control type="label">
+	<top>40</top>
+	<height>60</height>
+        <width>40%</width>
+        <left>53%</left>
+        <font>font_medium_bold</font>
+        <textcolor>white</textcolor>
+        <label>$VAR[video_heading]</label>
+        </control>	
+        <control type="textbox">
+	<top>100</top>
+	<height>95</height>
+        <width>40%</width>
+        <left>53%</left>
+        <font>font_tiny</font>
+        <textcolor>white</textcolor>
+	<autoscroll>0</autoscroll>
+        <label>$INFO[ListItem.Plot]</label>
+        </control>
+        </control>
+
+    </control>
+
+  </include>
+
+
 
   <include name="Widget_Items_LandscapeNetflix">
     <control type="group">
@@ -194,14 +354,14 @@
         <left>0</left>
 	<bottom>30</bottom>
         <height>45</height>
-        <width>70</width>
+        <width>90</width>
         <texture colordiffuse="99FF0000" flipy="true">diffuse/halfbox.png</texture>
       </control>
      <control type="textbox">
 	<bottom>10</bottom>
         <left>4</left>
         <height>55</height>
-        <width>80</width>
+        <width>90</width>
         <label>[I]$INFO[ListItem.Season, S,: ]$INFO[ListItem.Episode,E, ][/I]</label>
         <textcolor>white</textcolor>
         <font>widget_overlaybutton</font>
@@ -241,9 +401,11 @@
         <!-- Add Clearlogo to landscape Image -->
         <control type="image">
           <bottom>35</bottom>
-          <right>10</right>
-          <width>45%</width>
-          <height>45%</height>
+          <right>10</right> 
+<!--	  <top>5</top>
+	  <centerleft>50%</centerleft> -->
+          <width>50%</width>
+          <height>50%</height>
           <aspectratio>keep</aspectratio>
           <animation effect="slide" start="0" end="0,40" time="0" condition="String.IsEmpty(ListItem.Episode) | Skin.HasSetting(WidgetLabels)">Conditional</animation>
           <texture background="true">$VAR[Widget_ClearLogo]</texture>

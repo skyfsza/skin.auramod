@@ -3,6 +3,7 @@
     <include name="Widget_Movement">
         <param name="submenu" default="false" />
         <definition>
+<!--
             <onunfocus condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + Integer.IsEqual(Container($PARAM[id]).Position,0)">SetProperty(listposition,0,home)</onunfocus>
             <onunfocus condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + Integer.IsEqual(Container($PARAM[id]).Position,1)">SetProperty(listposition,3,home)</onunfocus>
             <onunfocus condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + Integer.IsEqual(Container($PARAM[id]).Position,2)">SetProperty(listposition,5,home)</onunfocus>
@@ -11,15 +12,16 @@
             <onunfocus condition="!String.IsEqual($PARAM[aspect],$LOCALIZE[31038])">SetProperty(listposition,$INFO[Container($PARAM[id]).Position],home)</onunfocus>
             <onunfocus condition="!String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + Integer.IsLess(Container($PARAM[id]).Position,2)">SetProperty(landscapeposition,0,home)</onunfocus>
             <onunfocus condition="!String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + !Integer.IsLess(Container($PARAM[id]).Position,2) + !Integer.IsGreater(Container($PARAM[id]).Position,4)">SetProperty(landscapeposition,1,home)</onunfocus>
+            <onfocus condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + !$PARAM[submenu]">Control.Move($PARAM[id],$INFO[Window(home).Property(landscapeposition)])</onfocus>
             <onunfocus condition="!String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + Integer.IsGreater(Container($PARAM[id]).Position,4)">SetProperty(landscapeposition,2,home)</onunfocus>
 
 
             <onfocus>Control.Move($PARAM[id],-$INFO[Container($PARAM[id]).Position])</onfocus>
-            <onfocus condition="String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + !$PARAM[submenu]">Control.Move($PARAM[id],$INFO[Window(home).Property(landscapeposition)])</onfocus>
+-->
 
             <onunfocus condition="$PARAM[submenu]">SetProperty(listposition,0,home)</onunfocus>
             <onunfocus condition="$PARAM[submenu]">SetProperty(landscapeposition,0,home)</onunfocus>
-
+            <onback condition="Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)">505</onback>
             <onback condition="!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious">Control.Move($PARAM[id],$INFO[Container($PARAM[id]).CurrentItem,-,])</onback>
             <onback condition="!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious">Control.Move($PARAM[id],1)</onback>
             <onback condition="Integer.IsEqual(Container($PARAM[id]).Position,0) + !Container($PARAM[id]).HasPrevious">SetFocus(302)</onback>
@@ -65,13 +67,14 @@
         	<include>Spotlight_Tvshows_Widget</include>
 <!--                <include>Spotlight_TVNextAired_AuraWidget</include> -->
            <control type="group">
-        	<left>150</left>
+        	<left>130</left>
         	<top>390</top> 
         	<animation effect="slide" end="0,-10" time="10" condition="String.IsEmpty(Container(1505).ListItem.Art(clearlogo))">Conditional</animation>
+        	<animation effect="slide" end="0,40" time="0" condition="String.IsEqual(Container(1505).ListItem.DBType,episode)">Conditional</animation>
         	<include>Spotlight_Tvshows_buttons</include>
             </control>
            <control type="group">
-        	<left>150</left>
+        	<left>130</left>
         	<top>390</top>
         	<animation effect="slide" end="0,-10" time="10" condition="String.IsEmpty(Container(1506).ListItem.Art(clearlogo))">Conditional</animation>
         	<include>Spotlight_Movies_buttons</include>
@@ -96,6 +99,7 @@
                 <param name="widgetAspect" value="$PARAM[widgetAspect]" />
                 <param name="submenu" value="$PARAM[submenu]" />
         </include>
+
                         <control type="button" id="9966">
                             <onleft>300</onleft>
                             <onright>300</onright>
@@ -109,6 +113,7 @@
                             <visible>String.IsEqual(Container(300).ListItem.Property(widget),Weather)</visible>
                             <animation effect="fade" end="0" condition="true">Conditional</animation>
                         </control>
+        <include>WidgetHubScroll</include>
                         <control type="group">
                             <visible>String.IsEqual(Container(300).ListItem.Property(widget),Weather)</visible>
 			    <include>Global_Background</include>
@@ -118,18 +123,6 @@
                             <visible>String.IsEqual(Container(300).ListItem.Property(widget),Settings)</visible>
                             <include>Widget_Settings</include>
                         </control>
-<!--
-                        <control type="group">
-			    <left>80</left>
-                            <visible>String.IsEqual(Container(300).ListItem.Label,Youtube)</visible>
-                            <include>youtube_widget</include>
-                        </control>
-                        <control type="group">
-                            <left>80</left>
-                            <visible>String.IsEqual(Container(300).ListItem.Label,Search)</visible>
-			    <include>object_search</include>
-                        </control>
--->
                     </control>
                 </control>
             </control>
@@ -456,6 +449,10 @@
         </definition>
     </include>
  
+    <include name="netflix_largewidgets_top"><top>40</top></include>
+    <include name="netflix_largewidgets_height"><height>40</height></include>
+    <include name="netflix_smallwidgets_top"><top>-40</top></include>
+
     <include name="Widget">
         <param name="submenu" default="false" />
         <param name="genres" default="false" />
@@ -466,24 +463,50 @@
         <param name="landscapewidecondition" default="false" />
         <param name="landscapewidepostercondition" default="false" />
         <param name="landscapenetflixcondition" default="false" />
+        <param name="landscapepanelcondition" default="false" />
         <param name="posterdetailscondition" default="false" />
         <param name="widgetlivecondition" default="false" />
         <param name="categorycondition" default="false" />
         <param name="squarecondition" default="false" />
         <param name="genrecondition" default="false" />
         <param name="search" default="false" />
+        <param name="controltype" default="fixedlist" />
         <definition>
             <control type="group" id="2$PARAM[id]">
                 <visible>$PARAM[visible]</visible>
                 <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
-                <height>40</height>
+                <include condition="!Skin.HasSetting(DisableNetflixSmallWidget)">netflix_largewidgets_height</include>
+                <include condition="Skin.HasSetting(DisableNetflixSmallWidget)">netflix_smallwidgets_top</include>
+		<animation effect="slide" end="0,-40" time="0" condition="!Window.IsVisible(Home)">Conditional</animation>
                 <include content="Widget_Label">
                     <param name="id" value="$PARAM[id]" />
                     <param name="label" value="$PARAM[label]" />
                     <param name="content" value="$PARAM[content]" />
                     <param name="widgetContent" value="$PARAM[widgetContent]" />
                 </include>
+            <control type="image" id="35055">
+                <top>85</top>
+                <left>-340</left>
+                <height>420</height>
+                <texture background="true">special://skin/media/dialogs/loading_poster.png</texture>
+                <aspectratio>keep</aspectratio>
+                <visible>$PARAM[postercondition]</visible>
+                <visible>!Window.IsVisible(Home) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + !Window.IsVisible(3810) + !Window.IsVisible(3820)</visible>
+                <visible>!Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
+           </control>
+            <control type="image" id="35055">
+                <top>85</top>
+                <left>-200</left>
+                <height>380</height>
+                <texture background="true">special://skin/media/dialogs/loading_landscape.png</texture>
+                <aspectratio>keep</aspectratio>
+                <visible>!$PARAM[postercondition]</visible>
+                <visible>!Window.IsVisible(Home) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + !Window.IsVisible(3810) + !Window.IsVisible(3820)</visible>
+                <visible>!Integer.IsGreater(Container($PARAM[id]).NumItems,0) +  Container($PARAM[id]).IsUpdating</visible>
+           </control>
                 <control type="group">
+                    <animation effect="slide" end="40,70" time="0" condition="[Window.IsActive(4010) | Window.IsActive(4020) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117)] + !Window.IsVisible(1138) + !Window.IsVisible(Home) + $PARAM[postercondition]">Conditional</animation>
+                    <animation effect="slide" end="-350,70" time="0" condition="[Window.IsActive(4010) | Window.IsActive(4020) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117)] + !Window.IsVisible(1138) + !Window.IsVisible(Home) + !$PARAM[postercondition]">Conditional</animation>
                     <include condition="Skin.HasSetting(MouseMode)">Widget_Busy_Top_Mouse</include>
                     <top>155</top>
                     <left>-395</left>
@@ -493,15 +516,23 @@
                     <visible>[Container($PARAM[id]).IsUpdating + !Integer.IsGreater(Container($PARAM[id]).NumItems,0)] | [Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating]</visible>
                 </control>
             </control>
-            <control type="fixedlist" id="$PARAM[id]">
+            <control type="$PARAM[controltype]" id="$PARAM[id]">
                 <animation effect="fade" start="100" end="0" condition="Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating">Conditional</animation>
 			<scrolltime tween="linear">400</scrolltime>
+			<include condition="Window.IsVisible(Home)">netflix_largewidgets_top</include>
 			<movement>1</movement>
 			<include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
 			<include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
-			<include condition="!$PARAM[submenu] + !Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920)">Widget_Items_menu_Big_Height</include>
-			<include condition="!$PARAM[submenu] + Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920)">Widget_Items_menu_Small_Height</include>
+			<include condition="!$PARAM[submenu] + !Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)">Widget_Items_menu_Big_Height</include>
+			<include condition="!$PARAM[submenu] + Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + ![Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]">Widget_Items_menu_Small_Height</include>
 			<onclick condition="!Skin.HasSetting(EnableShowInfo) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]">Action(Info)</onclick>
+            <onclick condition="!Skin.HasSetting(EnableShowInfo) + String.IsEmpty(ListItem.DBType) + [Window.IsVisible(3910) | Window.IsVisible(3920)] + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),true)">ActivateWindow(10025,$ESCINFO[Container(5055).ListItem.FileNameAndPath],return)</onclick>
+              <onclick condition="!Skin.HasSetting(EnableShowInfo) + String.IsEmpty(ListItem.DBType) + [Window.IsVisible(3910) | Window.IsVisible(3920)] + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),false)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
+              <onclick condition="!Skin.HasSetting(EnableShowInfo) + String.IsEmpty(ListItem.DBType) + [Window.IsVisible(3910) | Window.IsVisible(3920)] + !String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
+
+            <onclick condition="Skin.HasSetting(EnableShowInfo) + [Window.IsVisible(3910) | Window.IsVisible(3920)] + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),true)">ActivateWindow(10025,$ESCINFO[Container(5055).ListItem.FileNameAndPath],return)</onclick>
+              <onclick condition="Skin.HasSetting(EnableShowInfo) + [Window.IsVisible(3910) | Window.IsVisible(3920)] + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),false)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
+              <onclick condition="Skin.HasSetting(EnableShowInfo) + [Window.IsVisible(3910) | Window.IsVisible(3920)] + !String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
 			<visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | Container(300).OnNext | Container(300).OnPrevious | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
 			<include content="Widget_Items" condition="!$PARAM[submenu]">
 			    <param name="id" value="$PARAM[id]" />
@@ -520,6 +551,7 @@
 			    <param name="landscapewidecondition" value="$PARAM[landscapewidecondition]" />
 			    <param name="landscapewidepostercondition" value="$PARAM[landscapewidepostercondition]" />
 			    <param name="landscapenetflixcondition" value="$PARAM[landscapenetflixcondition]" />
+			    <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]" />
 			    <param name="posterdetailscondition" value="$PARAM[posterdetailscondition]" />
 			    <param name="widgetlivecondition" value="$PARAM[widgetlivecondition]" />
 			    <param name="categorycondition" value="$PARAM[categorycondition]" />
@@ -527,35 +559,22 @@
 			    <param name="genrecondition" value="$PARAM[genrecondition]" />
 			    <param name="search" value="$PARAM[search]" />
 			</include>
-<!--
-			<include content="Widget_Submenu" condition="$PARAM[submenu]">
-			    <param name="id" value="$PARAM[id]" />
-			    <param name="target" value="$PARAM[target]" />
-			    <param name="content" value="$PARAM[content]" />
-			    <param name="widgetContent" value="$PARAM[widgetContent]" />
-			    <param name="aspect" value="$PARAM[aspect]" />
-			    <param name="widgetAspect" value="$PARAM[widgetAspect]" />
-			    <param name="submenu" value="$PARAM[submenu]" />
-			    <param name="sortby" value="$PARAM[sortby]" />
-			    <param name="sortorder" value="$PARAM[sortorder]" />
-			</include>
--->
 		    </control>
 		</definition>
 	    </include>
 	    <include name="Widget_Items_Submenu_Height"><height>140</height></include>
 	    <include name="Widget_Items_Submenu_Big_Height"><height>widget_submenu_big_spacer</height></include>
-	    <include name="Widget_Items_menu_Big_Height"><height>365</height></include>
+	    <include name="Widget_Items_menu_Big_Height"><height>420</height></include>
 	    <include name="Widget_Items_menu_Small_Height"><height>210</height></include>
 
 	    <include name="Widget_Label">
 		<definition>
 		    <control type="grouplist">
 			<left>70</left>
+			<top>40</top>
 			<height>40</height>
 			<orientation>horizontal</orientation>
 			<usecontrolcoords>true</usecontrolcoords>
-			<itemgap>16</itemgap>
 			<control type="image">
 			    <width>16</width>
 			    <height>100%</height>
@@ -600,7 +619,7 @@
                             <label>$INFO[Container($PARAM[id]).ListItem.Label,|  ]</label>
 			    <include>Statusbar_Menubar_Items</include>
 			    <visible>Control.HasFocus($PARAM[id])</visible>
-			    <visible>Skin.HasSetting(DisableWidgetTitle) + ![Window.IsVisible(Home) + Skin.HasSetting(DisableNetflixHome)]</visible>
+			    <visible>Skin.HasSetting(DisableWidgetTitle) + ![Window.IsVisible(Home) + Skin.HasSetting(DisableNetflixHome)] + Window.IsVisible(Home)</visible>
 			</control>
 	<!-- Add Ratings -->
                      <control type="label">
@@ -609,10 +628,10 @@
                         <font>font_tiny_bold</font>
                         <include>Statusbar_Menubar_Items</include>
                         <visible>Control.HasFocus($PARAM[id])</visible>
-                        <visible>String.IsEqual(ListItem.DBType,episode) + Skin.HasSetting(DisableWidgetAirdate) + ![Window.IsVisible(Home) + Skin.HasSetting(DisableNetflixHome)]</visible>
+                        <visible>String.IsEqual(ListItem.DBType,episode) + Skin.HasSetting(DisableWidgetAirdate) + ![Window.IsVisible(Home) + Skin.HasSetting(DisableNetflixHome)] + !Window.IsVisible(2116)</visible>
                       </control>
                 <control type="grouplist">
-                    <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB) + ![Window.IsVisible(Home) + Skin.HasSetting(DisableNetflixHome)]</visible>
+                    <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB) + ![Window.IsVisible(Home) + Skin.HasSetting(DisableNetflixHome)] + Window.IsVisible(Home)</visible>
                     <bottom>10</bottom>
                     <height>40</height>
                <include content="Object_Ratings">
@@ -633,7 +652,7 @@
                 </control>
 			<control type="label">
 			    <left>5</left>
-			    <visible>Control.HasFocus($PARAM[id]) + Skin.HasSetting(DisableWidgetPlot) + Skin.HasSetting(DisableWidgetIMDB) + ![Window.IsVisible(Home) + Skin.HasSetting(DisableNetflixHome)]</visible>
+			    <visible>Control.HasFocus($PARAM[id]) + Skin.HasSetting(DisableWidgetPlot) + Skin.HasSetting(DisableWidgetIMDB) + ![Window.IsVisible(Home) + Skin.HasSetting(DisableNetflixHome)] + Window.IsVisible(Home)</visible>
 			    <textcolor>main_fg_70</textcolor>
 			    <height>20</height>
 			    <top>10</top>
@@ -782,6 +801,7 @@
 		<param name="landscapewidecondition" default="false" />
 		<param name="landscapewidepostercondition" default="false" />
 		<param name="landscapenetflixcondition" default="false" />
+		<param name="landscapepanelcondition" default="false" />
 		<param name="posterdetailscondition" default="false" />
 		<param name="widgetlivecondition" default="false" />
 		<param name="categorycondition" default="false" />
@@ -798,7 +818,7 @@
 			<param name="submenu" value="$PARAM[submenu]" />
 		    </include>
 
-		<include condition="!Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920)" content="Widget_Items_Large">
+		<include condition="!Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)" content="Widget_Items_Large">
 			<param name="top" value="$PARAM[top]" />
 			<param name="height" value="$PARAM[height]" />
 			<param name="id" value="$PARAM[id]" />
@@ -810,13 +830,14 @@
 			    <param name="landscapewidecondition" value="$PARAM[landscapewidecondition]" />
 			    <param name="landscapewidepostercondition" value="$PARAM[landscapewidepostercondition]" />
 			    <param name="landscapenetflixcondition" value="$PARAM[landscapenetflixcondition]" />
+			    <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]" />
 			    <param name="posterdetailscondition" value="$PARAM[posterdetailscondition]" />
 			    <param name="widgetlivecondition" value="$PARAM[widgetlivecondition]" />
 			    <param name="categorycondition" value="$PARAM[categorycondition]" />
 			    <param name="squarecondition" value="$PARAM[squarecondition]" />
 			    <param name="genrecondition" value="$PARAM[genrecondition]" />
 		</include>
-		<include condition="Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920)" content="Widget_Items_Small">
+		<include condition="Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + ![Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]" content="Widget_Items_Small">
 			<param name="top" value="$PARAM[top]" />
 			<param name="height" value="$PARAM[height]" />
 			<param name="id" value="$PARAM[id]" />
@@ -828,6 +849,7 @@
 			    <param name="landscapewidecondition" value="$PARAM[landscapewidecondition]" />
 			    <param name="landscapewidepostercondition" value="$PARAM[landscapewidepostercondition]" />
 			    <param name="landscapenetflixcondition" value="$PARAM[landscapenetflixcondition]" />
+			    <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]" />
 			    <param name="posterdetailscondition" value="$PARAM[posterdetailscondition]" />
 			    <param name="widgetlivecondition" value="$PARAM[widgetlivecondition]" />
 			    <param name="categorycondition" value="$PARAM[categorycondition]" />
@@ -897,6 +919,7 @@
 	<param name="posterdetails" default="false" />
 	<param name="widgetlive" default="false" />
 	<param name="landscapenetflix" default="false" />
+	<param name="landscapepanel" default="false" />
 	<param name="category" default="false" />
         <definition>
             <control type="group">
@@ -962,6 +985,7 @@
         <param name="posterdetails" default="false" />
         <param name="widgetlive" default="false" />
 	<param name="landscapenetflix" default="false" />
+	<param name="landscapepanel" default="false" />
 	<param name="category" default="false" />
         <definition>
             <control type="group">
@@ -1031,6 +1055,7 @@
 		    <param name="posterdetails" value="$PARAM[posterdetails]" />
 		    <param name="widgetlive" value="$PARAM[widgetlive]" />
 		    <param name="landscapenetflix" value="$PARAM[landscapenetflix]" />
+		    <param name="landscapepanel" value="$PARAM[landscapepanel]" />
 		    <param name="category" value="$PARAM[category]" />
                 </include>
             </control>
@@ -1251,6 +1276,7 @@
 	<param name="posterdetails" default="false" />
 	<param name="widgetlive" default="false" />
 	<param name="landscapenetflix" default="false" />
+	<param name="landscapepanel" default="false" />
 	<param name="category" default="false" />
         <definition>
             <control type="group">
@@ -1264,13 +1290,13 @@
                     <right>10</right>
                     <bottom>10</bottom>
                     <left>10</left>
-                    <include condition="!$PARAM[poster] + !$PARAM[landscape] + !$PARAM[landscapenetflix] + !$PARAM[category] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] +  !$PARAM[landscapewide] + !$PARAM[text]">Widget_Items_Textbox</include>
+                    <include condition="!$PARAM[poster] + !$PARAM[landscape] + !$PARAM[landscapenetflix] + !$PARAM[landscapepanel] + !$PARAM[category] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] +  !$PARAM[landscapewide] + !$PARAM[text]">Widget_Items_Textbox</include>
                     <include condition="$PARAM[genres]">Widget_Items_Genres</include>
                     <include condition="$PARAM[studios] + !$PARAM[genres]">Widget_Items_Studios</include>
                     <include condition="$PARAM[text] + !$PARAM[genres] + !$PARAM[studios]">Widget_Items_Text</include>
                     <include condition="$PARAM[square] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_Square</include>
-                    <include condition="!$PARAM[poster] + !$PARAM[landscape] + !$PARAM[landscapenetflix] + !$PARAM[category] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] + !$PARAM[landscapewide] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !$PARAM[square]">Widget_Items_Default</include>
-                    <include condition="[$PARAM[poster] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]] | [!$PARAM[landscape] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] + !$PARAM[landscapewide] + !$PARAM[landscapenetflix] + !$PARAM[category] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !$PARAM[square]]" content="Widget_Items_Poster">
+                    <include condition="!$PARAM[poster] + !$PARAM[landscape] + !$PARAM[landscapepanel] + !$PARAM[landscapenetflix] + !$PARAM[category] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] + !$PARAM[landscapewide] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !$PARAM[square]">Widget_Items_Default</include>
+                    <include condition="[$PARAM[poster] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]] | [!$PARAM[landscape] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] + !$PARAM[landscapewide] + !$PARAM[landscapepanel] + !$PARAM[landscapenetflix] + !$PARAM[category] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !$PARAM[square]]" content="Widget_Items_Poster">
                         <param name="poster" value="$PARAM[poster]" />
                     </include>
                     <include condition="$PARAM[landscape] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_Landscape</include>
@@ -1279,6 +1305,7 @@
                     <include condition="$PARAM[posterdetails] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_PosterDetails</include>
                     <include condition="$PARAM[widgetlive] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_WidgetLive</include>
 		    <include condition="$PARAM[landscapenetflix] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeNetflix</include>
+		    <include condition="$PARAM[landscapepanel] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeNetflix</include>
 		    <include condition="$PARAM[category] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_Category</include>
                 </control>
                 <include>View_WatchedOverlay</include>
@@ -1289,7 +1316,8 @@
             </control>
         </definition>
     </include>
-
+    
+    <include name="selectbox_landscapedetails_height"><width>200</width></include>
     <include name="Widget_Items_FocusedLayout">
         <param name="genres" default="false" />
         <param name="studios" default="false" />
@@ -1302,6 +1330,7 @@
         <param name="posterdetails" default="false" />
         <param name="widgetlive" default="false" />
 	<param name="landscapenetflix" default="false" />
+	<param name="landscapepanel" default="false" />
 	<param name="category" default="false" />
         <definition>
             <control type="group">
@@ -1318,7 +1347,7 @@
                     <right>10</right>
                     <bottom>10</bottom>
                     <left>10</left>
-                    <include condition="!$PARAM[poster] + !$PARAM[landscape] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[category] + !$PARAM[posterdetails] + !$PARAM[landscapenetflix] + !$PARAM[landscapewide] + !$PARAM[text]" content="Widget_Items_Textbox">
+                    <include condition="!$PARAM[poster] + !$PARAM[landscape] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[category] + !$PARAM[posterdetails] + !$PARAM[landscapenetflix] + !$PARAM[landscapepanel] + !$PARAM[landscapewide] + !$PARAM[text]" content="Widget_Items_Textbox">
                         <param name="color" value="PosterFront" />
                     </include>
                     <include condition="$PARAM[genres]" content="Widget_Items_Genres">
@@ -1333,10 +1362,10 @@
                     <include condition="$PARAM[square] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]" content="Widget_Items_Square">
                         <param name="color" value="PosterFront" />
                     </include>
-                    <include condition="!$PARAM[poster] + !$PARAM[landscape] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] + !$PARAM[category] + !$PARAM[landscapenetflix] + !$PARAM[landscapewide] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !$PARAM[square]" content="Widget_Items_Default">
+                    <include condition="!$PARAM[poster] + !$PARAM[landscape] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] + !$PARAM[category] + !$PARAM[landscapenetflix] + !$PARAM[landscapepanel] + !$PARAM[landscapewide] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !$PARAM[square]" content="Widget_Items_Default">
                         <param name="color" value="PosterFront" />
                     </include>
-                    <include condition="[$PARAM[poster] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]] | [!$PARAM[landscape] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] + !$PARAM[landscapenetflix] + !$PARAM[category] + !$PARAM[landscapewide] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !$PARAM[square]]" content="Widget_Items_Poster">
+                    <include condition="[$PARAM[poster] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]] | [!$PARAM[landscape] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] + !$PARAM[landscapenetflix] + !$PARAM[landscapepanel] + !$PARAM[category] + !$PARAM[landscapewide] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !$PARAM[square]]" content="Widget_Items_Poster">
                         <param name="poster" value="$PARAM[poster]" />
                     </include>
                     <include condition="$PARAM[landscape] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_Landscape</include>
@@ -1345,6 +1374,7 @@
 		    <include condition="$PARAM[posterdetails] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_PosterDetails</include>
 		    <include condition="$PARAM[widgetlive] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_WidgetLive</include>
 		    <include condition="$PARAM[landscapenetflix] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeNetflix</include>
+		    <include condition="$PARAM[landscapepanel] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeNetflix</include>
 		    <include condition="$PARAM[category] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_Category</include>
                 </control>
                 <include>View_WatchedOverlay</include>
@@ -1367,6 +1397,7 @@
 		    <param name="posterdetails" value="$PARAM[posterdetails]" />
 		    <param name="widgetlive" value="$PARAM[widgetlive]" />
 		    <param name="landscapenetflix" value="$PARAM[landscapenetflix]" />
+		    <param name="landscapepanel" value="$PARAM[landscapepanel]" />
 		    <param name="category" value="$PARAM[category]" />
                 </include>
             </control>

@@ -32,7 +32,8 @@
     <constant name="widget_landscape_width">620</constant>
     <constant name="widget_landscape_height">348.75</constant>
     <constant name="widget_landscapewide_width">746.67</constant>
-    <constant name="widget_landscapenetflix_width">471.11</constant>
-    <constant name="widget_landscapenetflix_height">265</constant>
+    <constant name="widget_landscapenetflix_width">462.22</constant>
+    <constant name="widget_landscapedetails_width">922.11</constant>
+    <constant name="widget_landscapenetflix_height">260</constant>
     <constant name="sidepad">80</constant>    
 </includes>

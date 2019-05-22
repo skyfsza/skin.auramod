@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<defaultID />
+		<label>Action</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+                <thumb></thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Animation</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+                <thumb></thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Anime</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+                <thumb></thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Comedy</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+                <thumb></thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Crime</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+                <thumb></thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Documentary</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+                <thumb></thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Drama</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+                <thumb></thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Family</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+                <thumb></thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Game Show</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+                <thumb></thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>History</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+                <thumb></thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Home and Garden</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+                <thumb></thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Horror</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+                <thumb></thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Mystery</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+                <thumb></thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Reality</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+                <thumb></thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Romance</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+                <thumb></thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Science Fiction</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+                <thumb></thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Superhero</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+                <thumb></thumb>
+                <action></action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>War</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+                <thumb></thumb>
+                <action></action>
+	</shortcut>
+</shortcuts>

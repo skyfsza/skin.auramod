@@ -2,8 +2,12 @@
     <view id="List" value="50" languageid="31465" type="all" />
     <view id="Info List" value="501" languageid="31164" type="all" />
     <view id="Media Info" value="500" languageid="31298" type="all" />
-    <view id="Episode List" value="502" languageid="31385" type="all" />
+    <view id="Addon List" value="505" languageid="31469" type="addons" />
+    <view id="Episode List" value="502" languageid="31385" type="tvshows,episodes" />
+    <view id="Netflix Season" value="504" languageid="31468" type="seasons" />
+    <view id="Showcase Season" value="507" languageid="31470" type="seasons" />
     <view id="Landscape Showcase" value="56" languageid="31361" type="all" />
+    <view id="Landscape Panel" value="509" languageid="31467" type="all" />
     <view id="Poster Showcase" value="55" languageid="31040" type="all" />
     <view id="Banner Wall" value="54" languageid="31370" type="all" />
     <view id="Big Posters" value="58" languageid="31363" type="all" />

@@ -380,7 +380,7 @@
                     <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetControl),true)">SetProperty(customValue,false)</onclick>
                     <onclick>SendClick(404)</onclick>
                     <align>left</align>
-                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + !Skin.HasSetting(DisableNetflixHome) + String.EndsWith(Window.Property(groupname),.1)</visible>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + String.EndsWith(Window.Property(groupname),.1)</visible>
                 </control>
                 <control type="button" id="9902" description="Content Type / Widget Target">
                    <width>100%</width>
@@ -402,7 +402,7 @@
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <label2>$INFO[Container(211).ListItem.Property(widgetSortby)]</label2>
                     <align>left</align>
-                    <visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),searchmenu) | String.IsEqual(Window.Property(groupname),aurahubtv) | String.IsEqual(Window.Property(groupname),aurahubmovies)</visible>
+                    <visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),searchmenu) | String.IsEqual(Window.Property(groupname),aurahubtv) | String.IsEqual(Window.Property(groupname),aurahubmovies) | String.Contains(Window.Property(groupname),x110)</visible>
                     <include>Dialog_Standard_Right_Buttons</include>
                 </control>
 
@@ -414,10 +414,10 @@
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <label2>$INFO[Container(211).ListItem.Property(widgetSortorder)]</label2>
                     <align>left</align>
-                    <visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),searchmenu) | String.IsEqual(Window.Property(groupname),aurahubtv) | String.IsEqual(Window.Property(groupname),aurahubmovies)</visible>
+                    <visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),searchmenu) | String.IsEqual(Window.Property(groupname),aurahubtv) | String.IsEqual(Window.Property(groupname),aurahubmovies) | String.Contains(Window.Property(groupname),x110)</visible>
                     <include>Dialog_Standard_Right_Buttons</include>
                 </control>
-                <control type="radiobutton" id="9905" description="Widget Spotlight">
+                <control type="radiobutton" id="9913" description="Widget Spotlight">
                     <width>100%</width>
                     <label>Enable Spotlight</label>
                     <height>66</height>
@@ -443,9 +443,9 @@
                     <align>left</align>
                     <include>Dialog_Standard_Right_Buttons</include>
                 </control>
-                <control type="radiobutton" id="9907" description="Menu Hub as Widget">
+                <control type="radiobutton" id="9907" description="List as Widget">
                     <width>100%</width>
-                    <label>Enable MenuHub as Widget</label>
+                    <label>Enable My List as Widget</label>
                     <height>66</height>
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <include>Dialog_Standard_ListButton</include>
@@ -462,7 +462,7 @@
                 <control type="button" id="9908" description="Choose MenuHub">
                    <width>100%</width>
                     <height>66</height>
-                    <label> - Choose MenuHub</label>
+                    <label> - Choose List</label>
                     <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + String.IsEqual(Container(211).ListItem.Property(widgethub),true)</visible>
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <label2>$INFO[Container(211).ListItem.Property(widgethubselect)]</label2>

@@ -2243,3 +2243,8 @@ msgctxt "#31469"
 msgid "Addon List"
 msgstr ""
 
+#: /1080i/Includes_View_Posters.xml
+msgctxt "#31470"
+msgid "Season Showcase"
+msgstr ""
+

@@ -1,3 +1,14 @@
+v0.9.27
+- Add option for Submenu widget background images.
+- Selecting "None" Icon for Submenu item will display only text on that Submenu widget.
+- Add option for Large Submenu Widget.
+- Add option to disable Widget Fixed Focus in Netflix modes.
+- Add Refresh and Choose Artwork buttons to Netflix Video info for Library items
+- Add new Widget types - Landscape Details and Landscape Panel
+- Add new view type - Season Showcase
+- Add Settings option to disable Netflix mode Spotlight trailer auto-play
+- Fix widget label not showing when scrolling up in Netflix modes.
+
 v0.9.26
 - Add option in Netflix modes to disable Category / Submenu widget.
 - Add option in Netflix modes to choose default focus - Category/Submenu or Widgets

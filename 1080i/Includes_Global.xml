@@ -151,6 +151,7 @@
                 <include>Animation_FadeInOut</include>
                 <control type="image">
                     <texture colordiffuse="$VAR[Global_FanartDim]">common/white.png</texture>
+		    <visible>!Skin.HasSetting(DisableTransparency)</visible>
                 </control>
                 <!-- Vignette Overlay -->
                 <control type="image">

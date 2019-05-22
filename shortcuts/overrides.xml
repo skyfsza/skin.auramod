@@ -339,8 +339,8 @@
     <propertySettings property="widgetSpotlighttype" showNone="false" buttonID="9906" title="Spotlight Widget" />
 
     <!-- Widget Hub -->
-    <property property="widgethubselect">MoviesMenuHub1</property>
-    <property property="widgethubselect">TVMenuHub1</property>
+    <property property="widgethubselect">MoviesLists1</property>
+    <property property="widgethubselect">TVLists1</property>
     <propertySettings property="widgethubselect" showNone="false" buttonID="9908" title="Widget Hub" />
 
     <!-- Widget Hub -->
@@ -354,13 +354,15 @@
     <propertySettings toggle="widgetControl" buttonID="9911" title="Widget Control" />
 
     <!-- Widget Aspect -->
-    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-poster.png">Poster</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-poster.png" condition="!Skin.HasSetting(DisableAuraHomeLayout) | [Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixLargeWidget)]">Poster</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-square.png">Square</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscape.png">Landscape</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapewide.png">LandscapeWide</property>
-    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapewideposter.png">LandscapePoster</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapewideposter.png" condition="!Skin.HasSetting(DisableAuraHomeLayout) | [Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixLargeWidget)]">LandscapePoster</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapenetflix.png">LandscapeSmall</property>
-    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-posterdetails.png">PosterDetails</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapenetflix.png">LandscapePanel</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapenetflix.png" condition="!Skin.HasSetting(DisableAuraHomeLayout)">LandscapeDetails</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-posterdetails.png" condition="!Skin.HasSetting(DisableAuraHomeLayout)">PosterDetails</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-widgetlive.png">WidgetLive</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-category.png">Category</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-genres.png">Genre</property>
@@ -368,6 +370,7 @@
 
     <!-- Menu Hub Widget Aspect -->
     <property property="widgetHubAspect" icon="special://skin/extras/widgettype/widget-poster.png">Poster</property>
+    <property property="widgetHubAspect" icon="special://skin/extras/widgettype/widget-poster.png">LandscapePoster</property>
     <property property="widgetHubAspect" icon="special://skin/extras/widgettype/widget-landscape.png">Landscape</property>
     <propertySettings property="widgetHubAspect" showNone="false" buttonID="9905" title="Widget Hub Aspect Ratio" />
 
@@ -464,7 +467,7 @@
     <widgetdefaultnode labelID="31103" label="19023" path="pvr://channels/tv/*?view=lastplayed" target="pvr">TVChannels</widgetdefaultnode>
     
     <!-- Addons -->
-    <widgetdefaultnode labelID="24001" label="1037" path="addons://sources/video" target="videos">VideoAddons</widgetdefaultnode>
+    <widgetdefaultnode labelID="24001" label="Video-Addons" path="addons://sources/video" target="videos">VideoAddons</widgetdefaultnode>
     <propertydefault labelID="24001" property="WidgetSort">lastused</propertydefault>
     <propertydefault labelID="24001" property="WidgetDirection">descending</propertydefault>
     <propertydefault labelID="24001" property="widgetName.Widget1">$LOCALIZE[1038]</propertydefault>
@@ -518,7 +521,7 @@
                 <content>playlist-video</content>
             </node>
             <node label="32010">
-                <shortcut label="1037" type="32014" icon="DefaultAddonVideo.png">ActivateWindow(Videos,Addons,return)</shortcut>
+                <shortcut label="Video-Addons" type="32014" icon="DefaultAddonVideo.png">ActivateWindow(Videos,Addons,return)</shortcut>
                 <content>addon-video</content>
             </node>
             <node label="32075">
@@ -570,7 +573,7 @@
                 <content>addon-program</content>
             </node>
             <node label="32010">
-                <shortcut label="1037" type="32014" icon="DefaultAddonVideo.png">ActivateWindow(Videos,Addons,return)</shortcut>
+                <shortcut label="Video-Addons" type="32014" icon="DefaultAddonVideo.png">ActivateWindow(Videos,Addons,return)</shortcut>
                 <content>addon-video</content>
             </node>
             <node label="32011">
@@ -599,7 +602,7 @@
             <content>playlist-video</content>
         </node>
         <node label="32010">
-            <shortcut label="1037" type="32014" icon="DefaultAddonVideo.png">ActivateWindow(Videos,Addons,return)</shortcut>
+            <shortcut label="Video-Addons" type="32014" icon="DefaultAddonVideo.png">ActivateWindow(Videos,Addons,return)</shortcut>
             <content>addon-video</content>
         </node>
         <content>video</content>
@@ -680,7 +683,7 @@
             </node>
             <shortcut label="10001" type="32021" icon="DefaultAddonProgram.png" widget="addon" widgetType="program" widgetTarget="programs">addons://sources/executable/</shortcut>
             <shortcut label="20244" type="32021" icon="DefaultAddonProgram.png" widget="addon" widgetType="program" widgetTarget="programs" condition="System.Platform.Android">androidapp://sources/apps/</shortcut>
-            <shortcut label="1037" type="32014" icon="DefaultAddonVideo.png" widget="addon" widgetType="video" widgetTarget="video">addons://sources/video/</shortcut>
+            <shortcut label="Video-Addons" type="32014" icon="DefaultAddonVideo.png" widget="addon" widgetType="video" widgetTarget="video">addons://sources/video/</shortcut>
             <shortcut label="1038" type="32019" icon="DefaultAddonMusic.png" widget="addon" widgetType="music" widgetTarget="music">addons://sources/audio/</shortcut>
             <shortcut label="1039" type="32020" icon="DefaultAddonPicture.png" widget="addon" widgetType="picture" widgetTarget="pictures">addons://sources/image/</shortcut>
         </node>

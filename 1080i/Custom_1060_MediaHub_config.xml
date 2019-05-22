@@ -21,7 +21,7 @@
                 <description>Control Area</description>
                 <width>900</width>
                 <top>100</top>
-                <height>700</height>
+                <height>750</height>
                 <orientation>vertical</orientation>
                 <usecontrolcoords>true</usecontrolcoords>
                        <control type="button" id="9001" description="Configure Widget 1">
@@ -43,26 +43,37 @@
                             <label2>$INFO[Skin.String(mediahub-530.label)]</label2>
                             <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=mediahub-530.label&amp;skinWidgetTarget=mediahub-530.target&amp;skinWidgetPath=mediahub-530.path)</onclick>
                         </control>
+                       <control type="button" id="9013" description="Configure Widget 3">
+                            <include>Defs_Settings_Button</include>
+                            <label>My Movies Widget 2</label>
+                            <label2>$INFO[Skin.String(mediahub-531.label)]</label2>
+                            <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=mediahub-531.label&amp;skinWidgetTarget=mediahub-531.target&amp;skinWidgetPath=mediahub-531.path)</onclick>
+                        </control>
                        <control type="button" id="9008" description="Configure Widget 4">
                             <include>Defs_Settings_Button</include>
                             <label>My TV Widget</label>
                             <label2>$INFO[Skin.String(mediahub-540.label)]</label2>
                             <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=mediahub-540.label&amp;skinWidgetTarget=mediahub-540.target&amp;skinWidgetPath=mediahub-540.path)</onclick>
                         </control>
-
                        <control type="button" id="9009" description="Configure Widget 5">
+                            <include>Defs_Settings_Button</include>
+                            <label>My TV Widget 2</label>
+                            <label2>$INFO[Skin.String(mediahub-541.label)]</label2>
+                            <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=mediahub-541.label&amp;skinWidgetTarget=mediahub-541.target&amp;skinWidgetPath=mediahub-541.path)</onclick>
+                        </control>
+                       <control type="button" id="9010" description="Configure Widget 6">
                             <include>Defs_Settings_Button</include>
                             <label>My Apps Widget 1</label>
                             <label2>$INFO[Skin.String(mediahub-550.label)]</label2>
                             <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=mediahub-550.label&amp;skinWidgetTarget=mediahub-550.target&amp;skinWidgetPath=mediahub-550.path)</onclick>
                         </control>
-                       <control type="button" id="9010" description="Configure Widget 6">
+                       <control type="button" id="9011" description="Configure Widget 6">
                             <include>Defs_Settings_Button</include>
                             <label>My Apps Widget 2</label>
                             <label2>$INFO[Skin.String(mediahub-580.label)]</label2>
                             <onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=mediahub-580.label&amp;skinWidgetTarget=mediahub-580.target&amp;skinWidgetPath=mediahub-580.path)</onclick>
                         </control>
-                       <control type="button" id="9011" description="Configure Widget 7">
+                       <control type="button" id="9012" description="Configure Widget 7">
                             <include>Defs_Settings_Button</include>
                             <label>My Apps Widget 3</label>
                             <label2>$INFO[Skin.String(mediahub-590.label)]</label2>

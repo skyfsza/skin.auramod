@@ -1,7 +1,7 @@
 <window>
     <defaultcontrol always="true">300</defaultcontrol>
     <include>Defs_Settings_OnLoad</include>
-    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|searchmenu|aurahubtv|aurahubmovies)</onunload>
+    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|searchmenu|aurahubtv|aurahubmovies)</onunload>
     <onunload condition="System.HasAddon(script.colorbox)">SetProperty(NINE_manual_set,"var=main,set=$INFO[Skin.String(colorbox_main)]|var=comp,set=$INFO[Skin.String(colorbox_comp)]|var=quality,set=$INFO[Skin.String(colorbox_quality)]|var=blursize,set=$INFO[Skin.String(colorbox_blursize)]|var=bitsize,set=$INFO[Skin.String(colorbox_bitsize)]|var=pixelsize,set=$INFO[Skin.String(colorbox_pixelsize)]|var=black,set=$INFO[Skin.String(colorbox_black)]|var=white,set=$INFO[Skin.String(colorbox_white)]|var=blend,set=$INFO[Skin.String(colorbox_blend)]|var=desat,set=$INFO[Skin.String(colorbox_desat)]",home)</onunload> 
     <onload condition="String.IsEmpty(Window.Property(CurrentFocus))">SetProperty(CurrentFocus,$NUMBER[9001])</onload>
     <controls>
@@ -445,13 +445,13 @@
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
                             <label>Configure Movie Genres Hub</label>
-                            <onclick>ActivateWindow(1050)</onclick>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1108)</onclick>
                         </control>
                      <control type="button" id="9677" description="Configure TV Genres Hub">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
                             <label>Configure TV Genres Hub</label>
-                            <onclick>ActivateWindow(1051)</onclick>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1109)</onclick>
                         </control>
                         <control type="button" id="9671" description="Configure Movie Aura Hub">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
@@ -530,6 +530,13 @@
                             <onclick condition="String.IsEqual(Skin.String(TransparencyLevel),$LOCALIZE[31000])">Skin.SetString(TransparencyLevel,$LOCALIZE[31316])</onclick>
                         </control>
 
+                        <control type="radiobutton" id="9333" description="Disable Transparency">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9003)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Disable Transparency</label>
+                            <selected>Skin.HasSetting(DisableTransparency)</selected>
+                            <onclick>Skin.ToggleSetting(DisableTransparency)</onclick>
+                        </control>
                         <control type="radiobutton" id="9302" description="Disable color overlay">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9003)</visible>
                             <include>Defs_Settings_Button</include>
@@ -921,6 +928,13 @@
                             <onclick>Skin.ToggleSetting(DisableNetflixCatWidget)</onclick>
                             <onclick condition="Skin.HasSetting(EnableCatonFocus)">Skin.ToggleSetting(EnableCatonFocus)</onclick>
                         </control>
+                        <control type="button" id="9105" description="Choose Category Widget Size">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011) + !Skin.HasSetting(DisableNetflixCatWidget)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Choose Category Widget Size</label>
+                            <onclick>ActivateWindow(1140)</onclick>
+                        </control>
+<!--
                         <control type="radiobutton" id="9105" description="Enable Large Category Widget">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011) + !Skin.HasSetting(DisableNetflixCatWidget)</visible>
                             <include>Defs_Settings_Button</include>
@@ -929,6 +943,7 @@
                             <onclick>Skin.ToggleSetting(SubmenuLabel)</onclick>
                             <onclick>ReloadSkin()</onclick>
                         </control>
+-->
                          <control type="radiobutton" id="9619" description="Disable Categories widget labels">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011) + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(DisableNetflixCatWidget)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1179,6 +1194,14 @@
                             <enable>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed) | Skin.HasSetting(DisableNetflixHome)</enable>
                             <selected>Skin.HasSetting(EnableFullEpInfo)</selected>
                             <onclick>Skin.ToggleSetting(EnableFullEpInfo)</onclick>
+                        </control>
+                        <control type="radiobutton" id="9686" description="Disable Spotlight Trailer auto-play">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Disable Spotlight Trailer auto-play</label>
+                            <visible>Skin.HasSetting(DisableNetflixHome)</visible>
+                            <selected>Skin.HasSetting(DisableSpotlightAutoplay)</selected>
+                            <onclick>Skin.ToggleSetting(DisableSpotlightAutoplay)</onclick>
                         </control>
                         <control type="radiobutton" id="9638" description="Enable Video Info Trailer auto-play">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>

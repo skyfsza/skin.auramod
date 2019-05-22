@@ -16,7 +16,7 @@
       <width>1980</width>
       <height>980</height>
       <onup condition="!Integer.IsGreater(Container(520).NumItems,0)">52</onup>
-      <onup condition="Integer.IsGreater(Container(520).NumItems,0)">520</onup>
+      <onup condition="Integer.IsGreater(Container(520).NumItems,0)">SetFocus(520)</onup>
       <orientation>vertical</orientation>
       <itemlayout width="558.22" height="314.6">
         <include>Defs_PosterBack</include>
@@ -142,7 +142,7 @@
       <animation effect="slide" end="0,80" condition="[Control.HasFocus(51) | Control.HasFocus(5105) | Control.HasFocus(5104)] + !Skin.HasSetting(LockHubWidgets)">Conditional</animation>
       <left>140</left>
       <onup condition="!Integer.IsGreater(Container(510).NumItems,0)">51</onup>
-      <onup condition="Integer.IsGreater(Container(510).NumItems,0)">510</onup>
+      <onup condition="Integer.IsGreater(Container(510).NumItems,0)">SetFocus(510)</onup>
       <width>1980</width>
       <height>980</height>
       <orientation>vertical</orientation>
@@ -543,7 +543,7 @@
         <control type="radiobutton" id="54">
           <ondown condition="!Skin.String(mediahub-540.label) + !Skin.HasSetting(LockHubWidgets)">5405</ondown>
           <ondown condition="!Skin.HasSetting(LockHubWidgets)">5404</ondown>
-          <ondown condition="Skin.HasSetting(LockHubWidgets)">1507</ondown>
+          <ondown condition="Skin.HasSetting(LockHubWidgets)">540</ondown>
           <width>150</width>
           <height>65</height>
           <aligny>center</aligny>
@@ -598,7 +598,7 @@
         <visible>Control.HasFocus(53) | Control.HasFocus(54)</visible>
       </control>
       <control type="group">
-        <visible>![Control.HasFocus(51) | Control.HasFocus(52) | Control.HasFocus(53) | Control.HasFocus(54) | Control.HasFocus(5555) | ControlGroup(5411).HasFocus]</visible>
+        <visible>![Control.HasFocus(51) | Control.HasFocus(52) | Control.HasFocus(53) | Control.HasFocus(54) | Control.HasFocus(5555)]</visible>
         <visible>![Control.HasFocus(5104) | Control.HasFocus(5204) | Control.HasFocus(5304) | Control.HasFocus(5404) | Control.HasFocus(5555) | Control.HasFocus(5604)]</visible>
         <visible>![Control.HasFocus(5105) | Control.HasFocus(5205) | Control.HasFocus(5305) | Control.HasFocus(5404) | Control.HasFocus(5555)] | Control.HasFocus(5605)</visible>
         <visible>!Control.HasFocus(510) + !Control.HasFocus(560) + !Control.HasFocus(520) + !Control.HasFocus(570)</visible>
@@ -758,40 +758,58 @@
       <!-- My TV -->
       <control type="group">
 	<control type="grouplist" id="541">
-	<height>960</height>
-        <top>90</top>
+	<height>540</height>
+        <posy>560</posy>
 <!--        <animation effect="slide" end="0,50" condition="Control.HasFocus(54)">Conditional</animation>
         <animation effect="slide" end="0,500" time="500" condition="Control.HasFocus(540)">Conditional</animation> -->
-          <visible>Control.HasFocus(54) | Control.HasFocus(540) | Control.HasFocus(5403) | Control.HasFocus(5404) | Control.HasFocus(5405) | ControlGroup(5411).HasFocus</visible>
+          <visible>Control.HasFocus(54) | Control.HasFocus(540) | Control.HasFocus(5403) | Control.HasFocus(5404) | Control.HasFocus(5405) | ControlGroup(541).HasFocus</visible>
+<!--
 	<control type="group" id="5411">
 	<visible allowhiddenfocus="true">ControlGroup(5411).HasFocus | Control.HasFocus(54)</visible>
         <width>1980</width>
 	<height>360</height>
 	<onup>54</onup>
-<!--
+        <onup condition="Control.HasFocus(542)">540</onup>
+        <ondown condition="Control.HasFocus(540)">542</ondown>
 	<control type="image">
-	<texture background="true" colordiffuse="FFFFFFFF">common/white.png</texture>
+	<texture background="true" colordiffuse="white">common/white.png</texture>
 	</control>
--->
 	<control type="group">
 	<top>20</top>
         <include>Spotlight_TVNextAired_AuraWidget</include> 
 	<visible>!String.IsEmpty(Window(Home).Property(NextAired.1.Label))</visible>
 	</control>
 	</control>
-	<control type="group">
-	<height>40</height>
-	</control>
-	<control type="group" id="5412">
-          <height>650</height>
-          <animation effect="slide"  end="0,450" time="0" condition="Control.HasFocus(540)">Conditional</animation>
+-->
+        <control type="group">
+        <height>40</height>
+        </control>
+	<control type="group" id="5411">
+          <height>270</height>
+          <animation effect="slide"  end="0,-450" time="0" condition="Control.HasFocus(54)">Conditional</animation>
           <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
             <param name="id" value="540" />
             <param name="aspect" value="landscapenetflix" />
             <param name="skinsetting" value="mediahub-540" />
 	    <param name="widgetheight" value="240" />
 	    <param name="widgetwidth" value="426.67" />
-	    <param name="panelheight" value="490" />
+	    <param name="panelheight" value="250" />
+            <param name="orientation" value="horizontal" />
+            <param name="controltype" value="list" />
+          </include>
+        </control>
+        <control type="group" id="5412">
+          <height>270</height>
+          <animation effect="slide"  end="0,-450" time="0" condition="Control.HasFocus(54)">Conditional</animation>
+          <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
+            <param name="id" value="542" />
+            <param name="aspect" value="landscapenetflix" />
+            <param name="skinsetting" value="mediahub-541" />
+            <param name="widgetheight" value="240" />
+            <param name="widgetwidth" value="426.67" />
+            <param name="panelheight" value="2500" />
+            <param name="orientation" value="horizontal" />
+            <param name="controltype" value="list" />
           </include>
         </control>
       </control>
@@ -888,7 +906,9 @@
         <onup condition="Control.HasFocus(510)">51</onup>
         <onup condition="Control.HasFocus(520)">52</onup>
         <onup condition="Control.HasFocus(530)">53</onup>
-        <onup condition="Control.HasFocus(540)">5411</onup>
+        <onup condition="Control.HasFocus(540)">54</onup>
+        <onup condition="Control.HasFocus(542)">540</onup>
+        <ondown condition="Control.HasFocus(540)">542</ondown>
         <include content="Widget_Common">
           <param name="top" value="$PARAM[top]" />
           <param name="height" value="$PARAM[height]" />
@@ -1031,7 +1051,9 @@
         <onup condition="Control.HasFocus(510)">51</onup>
         <onup condition="Control.HasFocus(520)">52</onup>
         <onup condition="Control.HasFocus(530)">53</onup>
-        <onup condition="Control.HasFocus(540)">5411</onup>
+        <onup condition="Control.HasFocus(540)">54</onup>
+        <onup condition="Control.HasFocus(542)">540</onup>
+        <ondown condition="Control.HasFocus(540)">542</ondown>
         <onclick condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie) | Container.Content(movies) | Container.Content(tvshows)]">Action(Info)</onclick>
         <onleft>$PARAM[onleft]</onleft>
         <preloaditems>2</preloaditems>
@@ -1079,8 +1101,17 @@
           </include>
         </focusedlayout>
 -->
-        <content target="$INFO[Skin.String($PARAM[skinsetting].target)]" sortby="year" sortorder="descending">$INFO[Skin.String($PARAM[skinsetting].path)]</content>
         <visible>Skin.String($PARAM[skinsetting].path)</visible>
+        <content limit="25" target="$INFO[Skin.String($PARAM[skinsetting].target)]" sortby="year" sortorder="descending">$INFO[Skin.String($PARAM[skinsetting].path)]</content>
+        <content>
+            <item>
+                <label>$LOCALIZE[31373]...</label>
+                <icon>DefaultFolder.png</icon>
+                <onclick>ActivateWindow(Videos,$PARAM[skinsetting].path,return)</onclick>
+                <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,9)</visible>
+                <visible>!Skin.HasSetting(HideShowMoreItem)</visible>
+            </item>
+        </content>
       </control>
     </definition>
   </include>
@@ -1098,7 +1129,6 @@
              <effect type="zoom" start="100" end="80" center="auto" delay="200"  tween="Cubic" easing="inout" time="200"/>
      </animation>
     <control type="group">
-    <include>Global_Overlay</include>
     <include>Animation_FadeIn_Slide</include>
 
     </control>
@@ -1123,7 +1153,7 @@
             <height>370</height>
             <control type="image">
                 <include condition="!Skin.HasSetting(DisableShadows)">Defs_Shadow_24</include>
-                <texture border="16" colordiffuse="ff101010">common/rounded-dialog.png</texture>
+                <texture border="16" colordiffuse="darkgrey">common/rounded-dialog.png</texture>
             </control>
     </control>
      <control type="group">
@@ -1132,7 +1162,7 @@
             <height>920</height>
             <control type="image">
                 <include condition="!Skin.HasSetting(DisableShadows)">Defs_Shadow_24</include>
-                <texture border="16" colordiffuse="ff101010">common/rounded-dialog.png</texture>
+                <texture border="16" colordiffuse="darkgrey">common/rounded-dialog.png</texture>
             </control>
     </control>
       <control type="group">
@@ -1141,7 +1171,7 @@
             <control type="panel" id="9967">
                 <top>60</top>
                 <width>1380</width>
-                <height>870</height>
+                <height>860</height>
                 <onleft condition="Window.IsVisible(Home)">300</onleft>
                 <onright condition="Window.IsVisible(Home)">9967</onright>
                 <onup condition="Window.IsVisible(Home)">300</onup>
@@ -1150,21 +1180,15 @@
                 <orientation>vertical</orientation>
 
                 <itemlayout width="455" height="283.33">
-                    <include>Defs_PosterBack</include>
-                    <control type="image">
-                        <bordersize>10</bordersize>
-                        <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
-                    </control>
-
                     <control type="group">
                         <left>10</left>
                         <right>0</right>
                         <bottom>10</bottom>
                         <top>10</top>
                         <control type="image">
-                            <width>100%</width>
+                            <width>99%</width>
                             <height>100%</height>
-                            <aspectratio aligny="center">scale</aspectratio>
+                            <aspectratio>scale</aspectratio>
                             <texture colordiffuse="PosterFront_70" background="true">$INFO[ListItem.Property(background)]</texture>
                         </control>
                         <control type="image">
@@ -1203,11 +1227,6 @@
                </itemlayout>
                 <focusedlayout width="455" height="283.33">
                     <control type="group">
-                        <include>Defs_PosterBack</include>
-                        <control type="image">
-                            <bordersize>10</bordersize>
-                            <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
-                        </control>
                         <include>Animation_FocusBounce_Small</include>
                         <control type="group">
                             <left>10</left>
@@ -1215,9 +1234,9 @@
                             <bottom>10</bottom>
                             <top>10</top>
                         <control type="image">
-                            <width>100%</width>
+                            <width>99%</width>
                             <height>100%</height>
-                            <aspectratio aligny="center">scale</aspectratio>
+                            <aspectratio>scale</aspectratio>
                             <texture colordiffuse="PosterFront_70" background="true">$INFO[Container(9967).ListItem.Property(background)]</texture>
                         </control>
                         <control type="image">
@@ -1270,6 +1289,65 @@
     </control>
    </control>
  </definition>
+ </include>
+
+ <include name="object_menuhub_includes">
+        <control type="image">
+          <width>90</width>
+          <height>120</height>
+          <top>780</top>
+          <left>1</left>
+          <texture background="true" colordiffuse="white">special://skin/media/netflix/left-arrow.png</texture>
+          <visible>ControlGroup(5055).HasFocus</visible>
+         </control>
+        <control type="image">
+          <width>90</width>
+          <height>120</height>
+          <centertop>40%</centertop>
+          <left>-10</left>
+          <texture background="true" colordiffuse="white">special://skin/media/netflix/left-arrow.png</texture>
+          <visible>Control.HasFocus(505)</visible>
+         </control>
+    <control type="group" id="25055">
+      <visible>Container(5055).IsUpdating + !Window.IsVisible(DialogBusy.xml)</visible>
+      <control type="image">
+        <top>540</top>
+        <left>480</left>
+        <texture background="true">special://skin/media/dialogs/season_loading_pannel.png</texture>
+      </control>
+      <control type="group">
+        <height>40</height>
+        <top>550</top>
+        <left>-200</left>
+        <include content="Defs_BusySpinner_Side">
+          <param name="label" value="$LOCALIZE[31138]..." />
+        </include>
+      </control>
+    </control>
+    <control type="image">
+      <texture background="true" diffuse="Right Corner.png">$VAR[Image_MainMenu_fanart]</texture>
+      <fadetime>100</fadetime>
+     <width>1500</width>
+      <height>750</height>
+      <left>400</left>
+      <aspectratio scalediffuse="false">scale</aspectratio>
+      <visible>[Control.HasFocus(505) | Control.HasFocus(5055)] + [[Container(5055).IsUpdating + !Integer.IsGreater(Container(5055).NumItems,0)] | String.IsEmpty(Container(5055).ListItem.Art(fanart))]</visible>
+    </control>
+    <control type="image">
+      <animation effect="fade" start="10" end="100">Visible</animation>
+      <fadetime>500</fadetime>
+      <width>1420</width>
+      <height>630</height>
+      <left>500</left>
+      <texture background="true" diffuse="Right Corner.png">$INFO[Container(5055).ListItem.Art(fanart)]</texture>
+      <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
+      <visible>Control.HasFocus(505) | Control.HasFocus(5055)</visible>
+    </control>
+    <control type="group">
+      <animation effect="fade" delay="200" time="500" start="10" end="100">Visible</animation>
+      <visible>ControlGroup(5055).HasFocus</visible>
+      <include>Object_Home_Netflix</include>
+    </control>
  </include>
 
 </includes>

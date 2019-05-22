@@ -8,6 +8,7 @@
     <control type="grouplist" id="323233">
       <scrolltime tween="linear">400</scrolltime>
       <posy>670</posy>
+      <ondown>ActivateWindow(3910)</ondown>
       <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
         <param name="id" value="610" />
         <param name="widgetaspect" value="Poster" />
@@ -38,7 +39,7 @@
  <height>50</height>
  </control>
   <control type="fixedlist" id="660">
-      <posx>50</posx>
+      <animation effect="slide" end="20,0" time="0" condition="Window.IsVisible(3810)">Conditional</animation>
       <scrolltime tween="sine" easing="out">500</scrolltime> 
       <height>350</height>
       <orientation>horizontal</orientation>
@@ -56,7 +57,7 @@
       </itemlayout>
       <focusedlayout width="373.33" height="200" condition="Skin.HasSetting(SubmenuLabel)">
         <include content="Widget_Hub_FocusedLayout">
-          <param name="id" value="661" />
+          <param name="id" value="660" />
           <param name="category" value="true" />
           <param name="genres" value="$PARAM[genres]" />
           <param name="studios" value="$PARAM[studios]" />

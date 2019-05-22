@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window type="dialog" id="1140">
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <!-- <onunload>AlarmClock(reloadskin,ReloadSkin(),00:00,silent,false)</onunload> -->
+    <controls>
+        <include>Global_Overlay</include>
+        <control type="group">
+            <include content="Dialog_Standard_Group">
+                <param name="width" value="1800" />
+                <param name="height" value="716" />
+            </include>
+
+            <control type="label">
+                <description>Header Label</description>
+                <label>[CAPITALIZE]Choose Category Widget Size[/CAPITALIZE]</label>
+                <include>Dialog_Standard_Header</include>
+            </control>
+            <!-- Image -->
+            <control type="group">
+                <left>20</left>
+                <width>1060</width>
+                <top>100</top>
+                <height>600</height>
+                <control type="image">
+                    <aspectratio scalediffuse="false">keep</aspectratio>
+                    <texture background="true" fallback="special://skin/fanart.jpg" diffuse="diffuse/1117.png">$INFO[Window.Property(Image_Preview)]</texture>
+                </control>
+                <control type="image">
+                    <aspectratio scalediffuse="false">center</aspectratio>
+                    <visible>[Control.HasFocus(9001) + !String.Contains(Control.GetLabel(9001),*)] | [Control.HasFocus(9002) + !String.Contains(Control.GetLabel(9002),*)] | [Control.HasFocus(9003) + !String.Contains(Control.GetLabel(9003),*)] | [Control.HasFocus(9004) + !String.Contains(Control.GetLabel(9004),*)] | [Control.HasFocus(9005) + !String.Contains(Control.GetLabel(9005),*)] | [Control.HasFocus(9006) + !String.Contains(Control.GetLabel(9006),*)] | [Control.HasFocus(9007) + !String.Contains(Control.GetLabel(9007),*)] | [Control.HasFocus(9008) + !String.Contains(Control.GetLabel(9008),*)] | [Control.HasFocus(9009) + !String.Contains(Control.GetLabel(9009),*)] | [Control.HasFocus(9010) + !String.Contains(Control.GetLabel(9010),*)]</visible>
+                </control>
+            </control>
+
+            <control type="grouplist" id="9000">
+                <description>Control Area</description>
+                <right>20</right>
+                <width>680</width>
+                <top>100</top>
+                <height>600</height>
+                <itemgap>10</itemgap>
+                <orientation>vertical</orientation>
+                <pagecontrol>60</pagecontrol>
+                <usecontrolcoords>true</usecontrolcoords>
+                       <control type="radiobutton" id="9001" description="Enable Small Submenu">
+                            <include>Dialog_Standard_ListButton</include>
+                            <radioposx>630</radioposx>
+                            <label>Enable Small Category Widget</label>
+                            <selected>!Skin.HasSetting(SubmenuLabel)</selected>
+                            <onclick>Skin.ToggleSetting(SubmenuLabel)</onclick>
+                            <onclick condition="Skin.HasSetting(LargeSubmenuLabel)">Skin.ToggleSetting(LargeSubmenuLabel)</onclick>
+                            <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/submenu-small.jpg)</onfocus>
+                            <onclick>ReloadSkin()</onclick>
+                        </control>
+                        <control type="radiobutton" id="9002" description="Enable Medium Submenu">
+                            <include>Dialog_Standard_ListButton</include>
+                            <radioposx>630</radioposx>
+                            <label>Enable Medium Category Widget</label>
+                            <selected>Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(LargeSubmenuLabel)</selected>
+                            <onclick condition="!Skin.HasSetting(SubmenuLabel)">Skin.ToggleSetting(SubmenuLabel)</onclick>
+                            <onclick condition="Skin.HasSetting(LargeSubmenuLabel)">Skin.ToggleSetting(LargeSubmenuLabel)</onclick>
+                            <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/submenu-medium.jpg)</onfocus>
+                            <onclick>ReloadSkin()</onclick>
+                        </control>
+                        <control type="radiobutton" id="9003" description="Enable Large Submenu">
+                            <include>Dialog_Standard_ListButton</include>
+                            <radioposx>630</radioposx>
+                            <label>Enable Large Category Widget</label>
+                            <selected>Skin.HasSetting(LargeSubmenuLabel)</selected>
+                            <onclick>Skin.ToggleSetting(LargeSubmenuLabel)</onclick>
+                            <onclick condition="!Skin.HasSetting(SubmenuLabel)">Skin.ToggleSetting(SubmenuLabel)</onclick>
+                            <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/submenu-large.jpg)</onfocus>
+                            <onclick>ReloadSkin()</onclick>
+                        </control>
+           </control>
+        </control>
+    </controls>
+</window>

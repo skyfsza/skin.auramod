@@ -15,6 +15,7 @@
       <include condition="!Skin.HasSetting(DisableViewMode.EpisodeList) + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_EpisodeList</include>
       <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_SeasonList</include>
       <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_AddonList</include>
+      <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_Season</include>
     </definition>
   </include>
   <include name="View_Posters_Wall">
@@ -684,7 +685,7 @@
         <movement>2</movement>
         <width>1900</width>
         <height>680</height>
-        <orientation>vertical</orientation>
+        <orientation>horizontal</orientation>
         <preloaditems>2</preloaditems>
         <scrolltime tween="linear">400</scrolltime>
 
@@ -722,6 +723,316 @@
   </include>
 
 
+  <include name="View_Posters_Season">
+    <control type="group">
+      <visible>Control.IsVisible(507) + Container.Content(seasons)</visible>
+      <control type="group">
+        <height>100%</height>
+    <control type="group">
+      <control type="label">
+        <visible>String.IsEmpty(Container(507).ListItem.Art(clearlogo)</visible>
+        <top>50</top>
+        <left>40</left>
+        <centerleft>50%</centerleft>
+        <label>$VAR[video_heading]</label>
+        <textcolor>grey</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <font>netflix_heading_small</font>
+        <width min="200" max="600">auto</width>
+        <height min="50" max="150">auto</height>
+        <align>left</align>
+        <wrapmultiline>true</wrapmultiline>
+      </control>
+      <control type="image" id="56751">
+	<centerleft>50%</centerleft>
+        <top>0</top>
+        <height>281</height>
+        <width>500</width>
+        <aligny>top</aligny>
+        <align>left</align>
+        <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+	<aspectratio>keep</aspectratio>
+      </control>
+      </control>
+        <control type="list" id="507">
+          <ondown>5022</ondown>
+          <height>100</height>
+	  <width>1800</width>
+          <top>280</top>
+          <left>60</left>
+	  <onup>300</onup>
+	  <onright>507</onright>
+	  <onleft>507</onleft>
+          <visible>Container.Content(seasons)</visible>
+          <include>View_NotTheseWindows</include>
+          <viewtype label="$LOCALIZE[31470]">icon</viewtype>
+          <include>Animation_FocusBounce_Small</include>
+          <include content="View_Forced">
+            <param name="string" value="$LOCALIZE[31470]" />
+          </include>
+          <include content="View_Posters_Layout">
+            <param name="id" value="507" />
+            <param name="orientation" value="horizontal" />
+            <param name="season_showcase_list" default="true" />
+          </include>
+        </control>
+        <control type="group" id="25022">
+          <visible>Container(5022).IsUpdating + !Window.IsVisible(DialogBusy.xml)</visible>
+          <control type="group">
+            <height>40</height>
+            <top>550</top>
+            <left>100</left>
+            <include content="Defs_BusySpinner">
+              <param name="label" value="$LOCALIZE[31138]..." />
+            </include>
+          </control>
+        </control>
+        <control type="list" id="5022">
+          <visible>Control.IsVisible(507) + !Container(507).ListItem.IsParentFolder</visible>
+          <animation effect="fade" start="100" end="0" condition="Container(5022).IsUpdating">Conditional</animation>
+	  <left>60</left>
+	  <itemgap>100</itemgap>
+          <movement>3</movement>
+          <focusposition>1</focusposition>
+          <orientation>horizontal</orientation>
+	  <width>1920</width>
+          <height>700</height>
+          <top>340</top>
+          <preloaditems>2</preloaditems>
+          <scrolltime tween="quadratic">400</scrolltime>
+          <onup>507</onup>
+          <onback>507</onback>
+	  <onleft>507</onleft>
+          <itemlayout width="533.33" height="700">
+            <control type="group">
+              <top>$PARAM[top_offset]</top>
+              <bottom>$PARAM[bottom_offset]</bottom>
+              <control type="group">
+                <height>300</height>
+                <width>533.33</width>
+                <include>View_Landscape_Artwork</include>
+              </control>
+<!--
+              <control type="label">
+                <top>250</top>
+                <left>30</left>
+                <font>font_medium_bold</font>
+                <textcolor>white</textcolor>
+                <shadowcolor>black</shadowcolor>
+                <label>S$INFO[ListItem.Season]:E$INFO[ListItem.Episode]</label>
+                <visible>!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)</visible>
+                <animation effect="slide" end="0,20" time="0" condition="!Integer.IsGreater(ListItem.PercentPlayed,0) + !Integer.IsGreater(ListItem.PlayCount,0)">Conditional</animation>
+              </control>
+-->
+              <control type="progress">
+                <visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
+                <left>30</left>
+                <top>260</top>
+                <description>progress bar</description>
+                <width>430</width>
+                <height>9</height>
+                <align>center</align>
+                <texturebg colordiffuse="white" border="2">colors/color_white.png</texturebg>
+                <lefttexture></lefttexture>
+                <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
+                <righttexture></righttexture>
+                <info>ListItem.PercentPlayed</info>
+              </control>
+              <control type="progress">
+                <visible>Integer.IsGreater(ListItem.PlayCount,0)</visible>
+                <left>30</left>
+                <top>260</top>
+                <description>progress bar</description>
+                <width>430</width>
+                <height>9</height>
+                <align>center</align>
+                <texturebg colordiffuse="red" border="2">colors/color_white.png</texturebg>
+                <lefttexture></lefttexture>
+                <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
+                <righttexture></righttexture>
+                <info>ListItem.PercentPlayed</info>
+              </control>
+              <control type="group">
+		<width>533.33</width>
+                <height>300</height>
+                <left>30</left>
+		<top>310</top>
+                <visible>!ListItem.IsParentFolder</visible>
+		<control type="image">
+		<top>-17</top>
+		<left>-20</left>
+		<width>514</width>
+		<height>100%</height>
+		<texture background="true" colordiffuse="darkgrey">common/white.png</texture>
+		</control>
+                <control type="label">
+                  <top>0</top>
+                  <aligny>top</aligny>
+                  <font>font_tiny</font>
+                  <textcolor>dimgrey</textcolor>
+                  <label>EPISODE $INFO[Container(507).ListItem.Episode]</label>
+                </control>
+                <control type="label">
+		  <top>30</top>
+                  <label>$INFO[ListItem.Title]</label>
+                  <width>480</width>
+                  <height>80</height>
+                  <aligny>top</aligny>
+                  <textcolor>main_fg_100</textcolor>
+                  <shadowcolor>black</shadowcolor>
+                  <font>font_medium_bold</font>
+                </control>
+                <control type="textbox">
+                  <top>90</top>
+		  <width>480</width>
+                  <label fallback="19055">$VAR[Label_Plot]</label>
+		  <height min="10" max="110">auto</height>
+                  <aligny>top</aligny>
+                  <textcolor>main_fg_70</textcolor>
+                  <shadowcolor>black</shadowcolor>
+                  <font>widget_trakt_title2</font>
+                  <autoscroll>false</autoscroll>
+                </control>
+                <control type="label">
+                  <top>230</top>
+                  <label>$INFO[ListItem.Duration]m  Aired $INFO[ListItem.Premiered(DDD MMM yyyy)]</label>
+                  <height>80</height>
+                  <aligny>top</aligny>
+                  <textcolor>grey</textcolor>
+                  <shadowcolor>black</shadowcolor>
+                  <font>font_tiny_bold</font>
+                </control>
+                  <control type="image">
+                    <left>310</left>
+                    <top>238</top>
+                    <width>37</width>
+                    <height>24</height>
+                    <texture colordiffuse="main_fg_100">$VAR[Image_HDSD]</texture>
+                  </control>
+              </control>
+            </control>
+          </itemlayout>
+          <focusedlayout width="533.33" height="700">
+            <control type="group">
+              <top>$PARAM[top_offset]</top>
+              <bottom>$PARAM[bottom_offset]</bottom>
+	      <animation type="Focus" reversible="false">
+      	      <effect type="zoom" end="105" time="75" tween="sine" easing="out" center="auto" />
+              <effect type="zoom" end="95.2380952" time="225" tween="sine" delay="100" easing="out" center="auto" />
+	      </animation>
+              <control type="group">
+                <height>300</height>
+                <width>533.33</width>
+                <include>View_Landscape_Artwork</include>
+                <!-- Highlight -->
+                <control type="group">
+                  <visible>Control.HasFocus(5022)</visible>
+                </control>
+              </control>
+<!--
+              <control type="label">
+                <top>160</top>
+                <left>30</left>
+                <font>font_medium_bold</font>
+                <shadowcolor>black</shadowcolor>
+                <textcolor>white</textcolor>
+                <label>S$INFO[ListItem.Season]:E$INFO[ListItem.Episode]</label>
+                <visible>!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)</visible>
+                <animation effect="slide" end="0,20" time="0" condition="!Integer.IsGreater(ListItem.PercentPlayed,0) + !Integer.IsGreater(ListItem.PlayCount,0)">Conditional</animation>
+              </control>
+-->
+              <control type="progress">
+                <visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
+                <left>30</left>
+                <top>260</top>
+                <description>progress bar</description>
+                <width>430</width>
+                <height>9</height>
+                <align>center</align>
+                <texturebg colordiffuse="white" border="2">colors/color_white.png</texturebg>
+                <lefttexture></lefttexture>
+                <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
+                <righttexture></righttexture>
+                <info>ListItem.PercentPlayed</info>
+              </control>
+              <control type="progress">
+                <visible>Integer.IsGreater(ListItem.PlayCount,0)</visible>
+                <left>30</left>
+                <top>260</top>
+                <description>progress bar</description>
+                <width>430</width>
+                <height>9</height>
+                <align>center</align>
+                <texturebg colordiffuse="red" border="2">colors/color_white.png</texturebg>
+                <lefttexture></lefttexture>
+                <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
+                <righttexture></righttexture>
+                <info>ListItem.PercentPlayed</info>
+              </control>
+              <control type="group">
+		<width>533.33</width>
+                <height>300</height>
+                <left>30</left>
+		<top>310</top>
+                <visible>!ListItem.IsParentFolder</visible>
+		<control type="image">
+		<top>-17</top>
+		<left>-20</left>
+		<width>514</width>
+		<height>100%</height>
+		<texture background="true" colordiffuse="white">common/white.png</texture>
+		</control>
+                <control type="label">
+                  <top>0</top>
+                  <aligny>top</aligny>
+                  <font>font_tiny</font>
+                  <textcolor>dimgrey</textcolor>
+                  <label>EPISODE $INFO[Container(507).ListItem.Episode]</label>
+                </control>
+                <control type="label">
+		  <top>30</top>
+                  <label>$INFO[ListItem.Title]</label>
+		  <width>480</width>
+                  <height>80</height>
+                  <aligny>top</aligny>
+                  <textcolor>black</textcolor>
+                  <shadowcolor>dimgrey</shadowcolor>
+                  <font>font_medium_bold</font>
+                </control>
+                <control type="textbox">
+                  <top>90</top>
+		  <width>480</width>
+                  <label fallback="19055">$VAR[Label_Plot]</label>
+		  <height min="10" max="110">auto</height>
+                  <aligny>top</aligny>
+                  <textcolor>darkgrey</textcolor>
+                  <font>widget_trakt_title2</font>
+                  <autoscroll>false</autoscroll>
+                </control>
+                <control type="label">
+                  <top>230</top>
+                  <label>$INFO[ListItem.Duration]m  Aired $INFO[ListItem.Premiered(DDD MMM yyyy)]</label>
+                  <height>80</height>
+                  <aligny>top</aligny>
+                  <textcolor>darkgrey</textcolor>
+                  <font>font_tiny_bold</font>
+                </control>
+                  <control type="image">
+                    <left>310</left>
+                    <top>238</top>
+                    <width>37</width>
+                    <height>24</height>
+                    <texture colordiffuse="black">$VAR[Image_HDSD]</texture>
+                  </control>
+              </control>
+            </control>
+          </focusedlayout>
+          <content target="videos" sortby="episode" sortorder="ascending">$INFO[Container(507).ListItem.FolderPath]</content>
+        </control>
+      </control>
+    </control>
+  </include>
+
   <include name="View_Posters_SeasonList">
     <control type="group">
       <visible>Control.IsVisible(504) + Container.Content(seasons)</visible>
@@ -733,7 +1044,7 @@
           <height>700</height>
           <top>280</top>
           <left>30</left>
-          <visible>!Container.Content(episodes)</visible>
+          <visible>Container.Content(seasons)</visible>
           <include>View_NotTheseWindows</include>
           <viewtype label="$LOCALIZE[31468]">icon</viewtype>
           <include>Animation_FocusBounce_Small</include>
@@ -1090,6 +1401,7 @@
     <param name="landscape" default="false" />
     <param name="landscape_small" default="false" />
     <param name="season_list" default="false" />
+    <param name="season_showcase_list" default="false" />
     <param name="episode_list" default="false" />
     <param name="episode_list_netflix" default="false" />
     <param name="banner" default="false" />
@@ -1285,6 +1597,51 @@
           </control>
         </control>
       </focusedlayout>
+      <itemlayout width="200" height="70" condition="$PARAM[season_showcase_list]">
+        <control type="group">
+          <control type="label">
+            <left>30</left>
+            <label>$INFO[ListItem.Label]</label>
+            <align>left</align>
+            <font>font_medium_bold</font>
+            <textcolor>main_fg_70</textcolor>
+          </control>
+        </control>
+      </itemlayout>
+      <focusedlayout width="200" height="70" condition="$PARAM[season_showcase_list]">
+        <control type="group">
+          <control type="group">
+            <height>70</height>
+            <width>200</width>
+	    <left>10</left>
+            <control type="image">
+              <align>left</align>
+              <aspectratio align="left" aligny="top">stretch</aspectratio>
+           <!--   <texture background="true" border="10" colordiffuse="FFFFFFFF">common/selectbox.png</texture> -->
+              <texture background="true" colordiffuse="grey">diffuse/landscape.png</texture>
+	      <visible>Control.HasFocus(507)</visible>
+            </control>
+          </control>
+          <control type="label">
+            <left>30</left>
+            <label>$INFO[ListItem.Label]</label>
+            <align>left</align>
+            <font>font_medium_bold</font>
+            <textcolor>red</textcolor>
+	    <visible>!Control.HasFocus(507)</visible>
+          </control>
+          <control type="label">
+            <left>30</left>
+            <label>$INFO[ListItem.Label]</label>
+            <align>left</align>
+            <font>font_medium_bold</font>
+            <textcolor>black</textcolor>
+	    <visible>Control.HasFocus(507)</visible>
+          </control>
+        </control>
+      </focusedlayout>
+
+
       <itemlayout width="350" height="70" condition="$PARAM[season_list]">
         <control type="group">
           <control type="label">

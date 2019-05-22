@@ -1,345 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="4020">
-  <defaultcontrol always="true">4000</defaultcontrol>
-  <onload>AlarmClock(focusWidgets,SetFocus(101),00:00,silent)</onload>
+  <defaultcontrol always="true">5600</defaultcontrol>
+  <onload>AlarmClock(focusWidgets,SetFocus(505),00:00,silent)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
-  <control type="group">
-                      <animation type="WindowOpen">
-                                <effect type="slide" start="0,1000" end="0" center="auto" tween="Cubic" easing="inout" time="200"/>
-                                <effect type="zoom" start="80" end="100" center="auto" tween="Cubic" easing="inout" time="500"/>
-                        </animation>
-                        <animation type="WindowClose">
-                                <effect type="slide" start="0" end="0,1000" center="auto" delay="200"  tween="Cubic" easing="inout" time="500"/>
-                                <effect type="zoom" start="100" end="80" center="auto" delay="200"  tween="Cubic" easing="inout" time="200"/>
-                        </animation>
-    <include>Global_Background</include>
-    <!-- Side Panel -->
-    <control type="group">
-      <control type="image">
-        <width>300</width>
-        <texture>common/gradient-solid-horizontal.png</texture>
-        <include>Defs_DarkShadow</include>
-      </control>
-
-     <!-- Side Panel Buttons --> 
-      <control type="grouplist" id="101">
-        <left>30</left>
-        <top>200</top>
-        <orientation>vertical</orientation>
-        <control type="button" id="1">
-          <onright condition="!Skin.String(tvgenreshub-11.label) + !Skin.HasSetting(LockHubWidgets)">115</onright>
-          <onright condition="Skin.String(tvgenreshub-11.label) + !Skin.HasSetting(LockHubWidgets)">114</onright>
-          <onright condition="Skin.HasSetting(LockHubWidgets)">11</onright>
-          <onright>115</onright>
-          <width>220</width>
-          <height>65</height>
-          <aligny>center</aligny>
-          <align>left</align>
-          <font>font_tiny_bold</font>
-          <textcolor>dimgrey</textcolor>
-          <focusedcolor>black</focusedcolor>
-          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
-          <texturenofocus></texturenofocus>
-          <label>Action</label>
+    <control type="list" id="505">
+      <animation effect="slide" end="-500,0" time="500" condition="ControlGroup(5055).HasFocus">Conditional</animation>
+      <onright>5055</onright>
+      <height>900</height>
+      <top>140</top>
+      <left>60</left>
+      <viewtype label="$LOCALIZE[31469]">icon</viewtype>
+      <scrolltime tween="sine" easing="out">500</scrolltime>
+      <itemlayout width="350" height="70">
+        <control type="group">
+          <control type="label">
+            <left>30</left>
+            <label>$INFO[ListItem.Label]</label>
+            <align>left</align>
+            <font>font_small</font>
+            <textcolor>main_fg_70</textcolor>
+          </control>
         </control>
-        <control type="button" id="2">
-          <onright condition="!Skin.String(tvgenreshub-12.label) + !Skin.HasSetting(LockHubWidgets)">125</onright>
-          <onright condition="Skin.String(tvgenreshub-12.label) + !Skin.HasSetting(LockHubWidgets)">124</onright>
-          <onright condition="Skin.HasSetting(LockHubWidgets)">12</onright>
-          <width>220</width>
-          <height>65</height>
-          <aligny>center</aligny>
-          <align>left</align>
-          <font>font_tiny_bold</font>
-          <textcolor>dimgrey</textcolor>
-          <focusedcolor>black</focusedcolor>
-          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
-          <label>Adventure</label>
+      </itemlayout>
+      <focusedlayout width="350" height="70">
+        <control type="group">
+          <control type="group">
+            <height>70</height>
+            <width>350</width>
+            <left>10</left>
+            <control type="image">
+              <align>left</align>
+              <aspectratio align="left" aligny="top">stretch</aspectratio>
+              <texture background="true" colordiffuse="grey">diffuse/landscape.png</texture>
+            </control>
+          </control>
+          <control type="label">
+            <left>30</left>
+            <label>$INFO[ListItem.Label]</label>
+            <align>left</align>
+            <font>font_small_bold</font>
+            <textcolor>black</textcolor>
+          </control>
         </control>
-        <control type="button" id="3">
-          <onright condition="!Skin.String(tvgenreshub-13.label) + !Skin.HasSetting(LockHubWidgets)">135</onright>
-          <onright condition="Skin.String(tvgenreshub-13.label) + !Skin.HasSetting(LockHubWidgets)">134</onright>
-          <onright condition="Skin.HasSetting(LockHubWidgets)">13</onright>
-          <width>220</width>
-          <height>65</height>
-          <aligny>center</aligny>
-          <align>left</align>
-          <font>font_tiny_bold</font>
-          <textcolor>dimgrey</textcolor>
-          <focusedcolor>black</focusedcolor>
-          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
-          <label>Documentary</label>
-        </control>
-        <control type="button" id="4">
-          <onright condition="!Skin.String(tvgenreshub-14.label) + !Skin.HasSetting(LockHubWidgets)">145</onright>
-          <onright condition="Skin.String(tvgenreshub-14.label) + !Skin.HasSetting(LockHubWidgets)">144</onright>
-          <onright condition="Skin.HasSetting(LockHubWidgets)">14</onright>
-          <width>220</width>
-          <height>65</height>
-          <aligny>center</aligny>
-          <align>left</align>
-          <font>font_tiny_bold</font>
-          <textcolor>dimgrey</textcolor>
-          <focusedcolor>black</focusedcolor>
-          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
-          <label>Drama</label>
-        </control>
-        <control type="button" id="5">
-          <onright condition="!Skin.String(tvgenreshub-15.label) + !Skin.HasSetting(LockHubWidgets)">155</onright>
-          <onright condition="Skin.String(tvgenreshub-15.label) + !Skin.HasSetting(LockHubWidgets)">154</onright>
-          <onright condition="Skin.HasSetting(LockHubWidgets)">15</onright>
-          <width>220</width>
-          <height>65</height>
-          <aligny>center</aligny>
-          <align>left</align>
-          <font>font_tiny_bold</font>
-          <textcolor>dimgrey</textcolor>
-          <focusedcolor>black</focusedcolor>
-          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
-          <label>Comedy</label>
-        </control>
-        <control type="button" id="6">
-          <onright condition="!Skin.String(tvgenreshub-16.label) + !Skin.HasSetting(LockHubWidgets)">165</onright>
-          <onright condition="Skin.String(tvgenreshub-16.label) + !Skin.HasSetting(LockHubWidgets)">164</onright>
-          <onright condition="Skin.HasSetting(LockHubWidgets)">16</onright>
-          <width>220</width>
-          <height>65</height>
-          <aligny>center</aligny>
-          <align>left</align>
-          <font>font_tiny_bold</font>
-          <textcolor>dimgrey</textcolor>
-          <focusedcolor>black</focusedcolor>
-          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
-          <label>Game Show</label>
-        </control>
-        <control type="button" id="7">
-          <onright condition="!Skin.String(tvgenreshub-17.label) + !Skin.HasSetting(LockHubWidgets)">175</onright>
-          <onright condition="Skin.String(tvgenreshub-17.label) + !Skin.HasSetting(LockHubWidgets)">174</onright>
-          <onright condition="Skin.HasSetting(LockHubWidgets)">17</onright>
-          <width>220</width>
-          <height>65</height>
-          <aligny>center</aligny>
-          <align>left</align>
-          <font>font_tiny_bold</font>
-          <textcolor>dimgrey</textcolor>
-          <focusedcolor>black</focusedcolor>
-          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
-          <label>Horror</label>
-        </control>
-        <control type="button" id="8">
-          <onright condition="!Skin.String(tvgenreshub-18.label) + !Skin.HasSetting(LockHubWidgets)">185</onright>
-          <onright condition="Skin.String(tvgenreshub-18.label) + !Skin.HasSetting(LockHubWidgets)">184</onright>
-          <onright condition="Skin.HasSetting(LockHubWidgets)">18</onright>
-          <width>220</width>
-          <height>65</height>
-          <aligny>center</aligny>
-          <align>left</align>
-          <font>font_tiny_bold</font>
-          <textcolor>dimgrey</textcolor>
-          <focusedcolor>black</focusedcolor>
-          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
-          <label>Romance</label>
-        </control>
-        <control type="button" id="9">
-          <onright condition="!Skin.String(tvgenreshub-19.label) + !Skin.HasSetting(LockHubWidgets)">195</onright>
-          <onright condition="Skin.String(tvgenreshub-19.label) + !Skin.HasSetting(LockHubWidgets)">194</onright>
-          <onright condition="Skin.HasSetting(LockHubWidgets)">19</onright>
-          <width>220</width>
-          <height>65</height>
-          <aligny>center</aligny>
-          <align>left</align>
-          <font>font_tiny_bold</font>
-          <textcolor>dimgrey</textcolor>
-          <focusedcolor>black</focusedcolor>
-          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
-          <label>Science Fiction</label>
-      </control>
-        <control type="button" id="10">
-          <onright condition="!Skin.String(tvgenreshub-20.label) + !Skin.HasSetting(LockHubWidgets)">205</onright>
-          <onright condition="Skin.String(tvgenreshub-20.label) + !Skin.HasSetting(LockHubWidgets)">204</onright>
-          <onright condition="Skin.HasSetting(LockHubWidgets)">20</onright>
-          <width>220</width>
-          <height>65</height>
-          <aligny>center</aligny>
-          <align>left</align>
-          <font>font_tiny_bold</font>
-          <textcolor>dimgrey</textcolor>
-          <focusedcolor>black</focusedcolor>
-          <texturefocus colordiffuse="grey">diffuse/landscape.png</texturefocus>
-          <label>Thriller</label>
-        </control>
+      </focusedlayout>
+      <content>
+        <include>skinshortcuts-group-x1109</include>
+      </content>
     </control>
-    </control>
-
-    <!-- Spotlight -->
-    <control type="group">
-      <include>Object_Home_Netflix</include>
-      <left>221</left>
-      <visible>!ControlGroup(101).HasFocus</visible>
-    </control>
-
-    <!-- Widgets -->
-    <control type="group">
-      <visible>Control.HasFocus(1) | Control.HasFocus(11) | Control.HasFocus(114) | Control.HasFocus(115) | Control.HasFocus(116)</visible>
-      <posy>610</posy>
-      <left>221</left>
-      <animation effect="slide" start="0,-400" end="0,-400" time="0" condition="Control.HasFocus(1)">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,400" time="500" condition="Control.HasFocus(11)">Conditional</animation>
-      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
-        <param name="id" value="11" />
-        <param name="widgetaspect" value="Poster" />
-        <param name="skinsetting" value="tvgenreshub-11" />
-        <param name="widgetheight" value="230" />
-        <param name="widgetwidth" value="408.89" />
-        <param name="onleft" value="1" />
-        <param name="panelwidth" value="1900" />
-      </include>
-    </control>
-    <control type="group">
-      <visible>Control.HasFocus(2) | Control.HasFocus(12) | Control.HasFocus(124) | Control.HasFocus(125) | Control.HasFocus(126)</visible>
-      <posy>600</posy>
-      <left>221</left>
-      <animation effect="slide" start="0,-400" end="0,-400" time="0" condition="Control.HasFocus(2)">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,400" time="500" condition="Control.HasFocus(12)">Conditional</animation>
-      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
-        <param name="id" value="12" />
-        <param name="widgetaspect" value="Poster" />
-        <param name="skinsetting" value="tvgenreshub-12" />
-        <param name="widgetheight" value="230" />
-        <param name="widgetwidth" value="408.89" />
-        <param name="onleft" value="2" />
-        <param name="panelwidth" value="1900" />
-      </include>
-    </control>
-    <control type="group">
-      <visible>Control.HasFocus(3) | Control.HasFocus(13) | Control.HasFocus(134) | Control.HasFocus(135) | Control.HasFocus(136)</visible>
-      <posy>600</posy>
-      <left>221</left>
-      <animation effect="slide" start="0,-400" end="0,-400" time="0" condition="Control.HasFocus(3)">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,400" time="500" condition="Control.HasFocus(13)">Conditional</animation>
-      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
-        <param name="id" value="13" />
-        <param name="widgetaspect" value="Poster" />
-        <param name="skinsetting" value="tvgenreshub-13" />
-        <param name="widgetheight" value="230" />
-        <param name="widgetwidth" value="408.89" />
-        <param name="onleft" value="3" />
-        <param name="panelwidth" value="1900" />
-      </include>
-    </control>
-    <control type="group">
-      <visible>Control.HasFocus(4) | Control.HasFocus(14) | Control.HasFocus(144) | Control.HasFocus(145) | Control.HasFocus(146)</visible>
-      <posy>600</posy>
-      <left>221</left>
-      <animation effect="slide" start="0,-400" end="0,-400" time="0" condition="Control.HasFocus(4)">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,400" time="500" condition="Control.HasFocus(14)">Conditional</animation>
-      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
-        <param name="id" value="14" />
-        <param name="widgetaspect" value="Poster" />
-        <param name="skinsetting" value="tvgenreshub-14" />
-        <param name="widgetheight" value="230" />
-        <param name="widgetwidth" value="408.89" />
-        <param name="onleft" value="4" />
-        <param name="panelwidth" value="1900" />
-      </include>
-    </control>
-    <control type="group">
-      <visible>Control.HasFocus(5) | Control.HasFocus(15) | Control.HasFocus(154) | Control.HasFocus(155) | Control.HasFocus(156)</visible>
-      <posy>600</posy>
-      <left>221</left>
-      <animation effect="slide" start="0,-400" end="0,-400" time="0" condition="Control.HasFocus(5)">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,400" time="500" condition="Control.HasFocus(15)">Conditional</animation>
-      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
-        <param name="id" value="15" />
-        <param name="widgetaspect" value="Poster" />
-        <param name="skinsetting" value="tvgenreshub-15" />
-        <param name="widgetheight" value="230" />
-        <param name="widgetwidth" value="408.89" />
-        <param name="onleft" value="5" />
-        <param name="panelwidth" value="1900" />
-      </include>
-    </control>
-    <control type="group">
-      <visible>Control.HasFocus(6) | Control.HasFocus(16) | Control.HasFocus(164) | Control.HasFocus(165) | Control.HasFocus(166)</visible>
-      <posy>600</posy>
-      <left>221</left>
-      <animation effect="slide" start="0,-400" end="0,-400" time="0" condition="Control.HasFocus(6)">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,400" time="500" condition="Control.HasFocus(16)">Conditional</animation>
-      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
-        <param name="id" value="16" />
-        <param name="widgetaspect" value="Poster" />
-        <param name="skinsetting" value="tvgenreshub-16" />
-        <param name="widgetheight" value="230" />
-        <param name="widgetwidth" value="408.89" />
-        <param name="onleft" value="6" />
-        <param name="panelwidth" value="1900" />
-      </include>
-     </control>
-    <control type="group">
-      <visible>Control.HasFocus(7) | Control.HasFocus(17) | Control.HasFocus(174) | Control.HasFocus(175) | Control.HasFocus(176)</visible>
-      <posy>600</posy>
-      <left>221</left>
-      <animation effect="slide" start="0,-400" end="0,-400" time="0" condition="Control.HasFocus(7)">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,400" time="500" condition="Control.HasFocus(17)">Conditional</animation>
-      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
-        <param name="id" value="17" />
-        <param name="widgetaspect" value="Poster" />
-        <param name="skinsetting" value="tvgenreshub-17" />
-        <param name="widgetheight" value="230" />
-        <param name="widgetwidth" value="408.89" />
-        <param name="onleft" value="7" />
-        <param name="panelwidth" value="1900" />
-      </include>
-    </control>
-    <control type="group">
-      <visible>Control.HasFocus(8) | Control.HasFocus(18) | Control.HasFocus(184) | Control.HasFocus(185) | Control.HasFocus(186)</visible>
-      <posy>600</posy>
-      <left>221</left>
-      <animation effect="slide" start="0,-400" end="0,-400" time="0" condition="Control.HasFocus(8)">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,400" time="500" condition="Control.HasFocus(18)">Conditional</animation>
-      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
-        <param name="id" value="18" />
-        <param name="widgetaspect" value="Poster" />
-        <param name="skinsetting" value="tvgenreshub-18" />
-        <param name="widgetheight" value="230" />
-        <param name="widgetwidth" value="408.89" />
-        <param name="onleft" value="8" />
-        <param name="panelwidth" value="1900" />
-      </include>
-    </control>
-    <control type="group">
-      <visible>Control.HasFocus(9) | Control.HasFocus(19) | Control.HasFocus(194) | Control.HasFocus(195) | Control.HasFocus(196)</visible>
-      <posy>600</posy>
-      <left>221</left>
-      <animation effect="slide" start="0,-400" end="0,-400" time="0" condition="Control.HasFocus(9)">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,400" time="500" condition="Control.HasFocus(19)">Conditional</animation>
-      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
-        <param name="id" value="19" />
-        <param name="widgetaspect" value="Poster" />
-        <param name="skinsetting" value="tvgenreshub-19" />
-        <param name="widgetheight" value="230" />
-        <param name="widgetwidth" value="408.89" />
-        <param name="onleft" value="9" />
-        <param name="panelwidth" value="1900" />
-      </include>
-    </control>
-    <control type="group">
-      <visible>Control.HasFocus(10) | Control.HasFocus(20) | Control.HasFocus(204) | Control.HasFocus(205) | Control.HasFocus(206)</visible>
-      <posy>600</posy>
-      <left>221</left>
-      <animation effect="slide" start="0,-400" end="0,-400" time="0" condition="Control.HasFocus(10)">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,400" time="500" condition="Control.HasFocus(20)">Conditional</animation>
-      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
-        <param name="id" value="20" />
-        <param name="widgetaspect" value="Poster" />
-        <param name="skinsetting" value="tvgenreshub-20" />
-        <param name="widgetheight" value="230" />
-        <param name="widgetwidth" value="408.89" />
-        <param name="onleft" value="9" />
-        <param name="panelwidth" value="1900" />
-      </include>
-    </control>
+      <include>object_menuhub_includes</include>
+   <control type="grouplist" id="5055">
+      <animation effect="slide" end="-400,0" time="500" condition="ControlGroup(5055).HasFocus">Conditional</animation>
+      <left>420</left>
+      <posy>620</posy>
+      <width>100%</width>
+      <onleft>505</onleft>
+      <orientation>vertical</orientation>
+      <include>skinshortcuts-template-x1109</include>
     </control>
   </controls>
 </window>
