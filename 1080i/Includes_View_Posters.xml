@@ -685,7 +685,7 @@
         <movement>2</movement>
         <width>1900</width>
         <height>680</height>
-        <orientation>horizontal</orientation>
+        <orientation>vertical</orientation>
         <preloaditems>2</preloaditems>
         <scrolltime tween="linear">400</scrolltime>
 
