@@ -730,18 +730,16 @@
         <height>100%</height>
     <control type="group">
       <control type="label">
-        <visible>String.IsEmpty(Container(507).ListItem.Art(clearlogo)</visible>
+        <visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(ListItem.Art(clearlogo))</visible>
         <top>50</top>
-        <left>40</left>
         <centerleft>50%</centerleft>
         <label>$VAR[video_heading]</label>
         <textcolor>grey</textcolor>
         <shadowcolor>black</shadowcolor>
-        <font>netflix_heading_small</font>
+        <font>netflix_heading</font>
         <width min="200" max="600">auto</width>
         <height min="50" max="150">auto</height>
         <align>left</align>
-        <wrapmultiline>true</wrapmultiline>
       </control>
       <control type="image" id="56751">
 	<centerleft>50%</centerleft>
@@ -750,7 +748,7 @@
         <width>500</width>
         <aligny>top</aligny>
         <align>left</align>
-        <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+        <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
 	<aspectratio>keep</aspectratio>
       </control>
       </control>
@@ -2520,9 +2518,8 @@
       <left>75</left>
       <right>75</right>
       <aspectratio aligny="bottom">keep</aspectratio>
-      <texture background="true">$VAR[Image_ClearLogo]</texture>
       <visible>!Skin.HasSetting(DisableFakeLandscapeArt)</visible>
-      <visible>String.IsEmpty(ListItem.Art(landscape)) + String.IsEmpty(ListItem.Art(tvshow.landscape)) + String.IsEmpty(ListItem.Art(season.landscape))</visible>
+      <visible>!Control.IsVisible(507) + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb) + !String.Contains(ListItem.Art(fanart),tvthumb)]</visible>
       <visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)</visible>
     </control>
     <include>Defs_PictureBack</include>
