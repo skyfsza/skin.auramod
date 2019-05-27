@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="1138">
   <defaultcontrol always="true">9000</defaultcontrol>
-  <onload>ClearProperty(CustomSearchTerm)</onload>
-  <onload>Skin.SetString(CustomSearchTerm,$INFO[ListItem.Label])</onload>
+  <onload condition="!Skin.HasSetting(EnableSearchDefaultKB)">Skin.Reset(CustomSearchTerm)</onload>
+  <onload condition="!Skin.HasSetting(EnableSearchDefaultKB)">Skin.SetString(CustomSearchTerm,$INFO[ListItem.Label])</onload>
   <onload>SetProperty(CustomSearch,1,home)</onload>
   <onunload>ClearProperty(SuggestionPath)</onunload>
   <controls>

@@ -5,7 +5,7 @@
 	<label2>Custom item</label2>
 	<icon>DefaultShortcut.png</icon>
 	<thumb>special://skin/extras/icons/search.png</thumb>
-	<action>ActivateWindow(1138,return)</action>
+	<action>ActivateWindow(1136,return)</action>
     </shortcut>
     <shortcut>
         <label>20342</label>

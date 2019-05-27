@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="1139">
-  <onload>ClearProperty(CustomSearchTerm)</onload>
+  <onload>Skin.Reset(CustomSearchTerm)</onload>
   <onload>ActivateWindow(Home)</onload>
   <controls>
 <control type="label">
