@@ -284,10 +284,10 @@
                         <icon>special://skin/extras/icons/skinsettings.png</icon>
                     </item>
                     <item id="5">
-                        <description>Library</description>
-                        <label>14202</label>
-                        <label2>$LOCALIZE[14022] • $LOCALIZE[16000] • $LOCALIZE[14215][CR]$LOCALIZE[14216] • $LOCALIZE[14217]</label2>
-                        <onclick>activatewindow(MediaSettings)</onclick>
+                        <description>Customise Home Menu</description>
+                        <label>Customize Home</label>
+                        <label2>Menu • Submenu • Widgets</label2>
+                        <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
                         <icon>special://skin/extras/icons/tags.png</icon>
                     </item>
                     
@@ -358,12 +358,11 @@
                     </item>
                     
                     <item id="14">
-                        <description>Events</description>
-                        <label>$LOCALIZE[14111]</label>
-                        <label2>$LOCALIZE[31345]</label2>
-                        <onclick>activatewindow(eventlog)</onclick>
-                        <icon>special://skin/extras/icons/year.png</icon>
-                        <visible>!System.HasAddon(service.libreelec.settings)</visible>
+                        <description>Library</description>
+                        <label>14202</label>
+                        <label2>$LOCALIZE[14022] • $LOCALIZE[16000] • $LOCALIZE[14215][CR]$LOCALIZE[14216] • $LOCALIZE[14217]</label2>
+                        <onclick>activatewindow(MediaSettings)</onclick>
+                        <icon>special://skin/extras/icons/tags.png</icon>
                     </item>
                     <item id="19">
                         <description>LibreElec</description>
@@ -518,6 +517,7 @@
             </control>
             <control type="$PARAM[controltype]" id="$PARAM[id]">
                 <animation effect="fade" start="100" end="0" condition="Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating">Conditional</animation>
+			<onback condition="ControlGroup(5600).HasFocus">9000</onback>
 			<scrolltime tween="linear">400</scrolltime>
 			<include condition="Window.IsVisible(Home)">netflix_largewidgets_top</include>
 			<movement>1</movement>
