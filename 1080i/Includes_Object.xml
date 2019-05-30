@@ -354,7 +354,7 @@
         <left>50</left>
         <texturenofocus border="10" colordiffuse="FFFFFFFF">common/selectbox.png</texturenofocus>
         <texturefocus border="10" colordiffuse="FFFFFFFF">common/selectbox.png</texturefocus>
-        <width>300</width>
+        <width>330</width>
         <height>60</height>
         <textoffsetx>15</textoffsetx>
         <align>left</align>

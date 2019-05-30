@@ -1296,7 +1296,14 @@
                             <selected>Skin.HasSetting(ShowOSDClearArt)</selected>
                             <onclick>Skin.ToggleSetting(ShowOSDClearArt)</onclick>
                         </control>
-
+                        <control type="radiobutton" id="97041" description="Show clearlogo">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9007)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label> - use ClearLogo instead of ClearArt</label>
+			    <visible>Skin.HasSetting(ShowOSDClearArt)</visible>
+                            <selected>Skin.HasSetting(ShowOSDClearLogo)</selected>
+                            <onclick>Skin.ToggleSetting(ShowOSDClearLogo)</onclick>
+                        </control>
                         <control type="radiobutton" id="9705" description="Media Flags">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9007)</visible>
                             <include>Defs_Settings_Button</include>
