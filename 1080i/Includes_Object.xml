@@ -1285,7 +1285,7 @@
           <textcolor>grey</textcolor>
           <shadowcolor>black</shadowcolor>
           <font>netflix_heading</font>
-          <width>500</width>
+          <width>550</width>
 	  <height>30</height>
           <align>left</align>
           <autoscroll>true</autoscroll>
@@ -1323,7 +1323,7 @@
         <orientation>vertical</orientation>
         <!-- Episode Label  -->
         <control type="label">
-          <left>60</left>
+          <left>40</left>
           <height min="55" max="90">auto</height>
           <visible>String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(EnableFullEpInfo)</visible>
           <label fallback="19055">$VAR[home_simple_episode]</label>

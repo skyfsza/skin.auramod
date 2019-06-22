@@ -9,7 +9,6 @@
     <include>Object_Home_Netflix</include>
     <control type="grouplist" id="323233">
       <ondown>SetFocus(410)</ondown>
-      <ondown>ActivateWindow(3920)</ondown>
      <animation effect="fade" start="0" end="100" time="1000">Focus</animation>
       <left>-30</left>
       <scrolltime tween="linear">400</scrolltime>
@@ -56,7 +55,7 @@
  <control type="group" id="666">
  <height>50</height>
  </control>
-  <control type="fixedlist" id="661">
+  <control type="fixedlist" id="660">
       <animation effect="slide" end="40,0" time="0" condition="Window.IsVisible(3820)">Conditional</animation>
       <scrolltime tween="sine" easing="out">500</scrolltime>
       <height>350</height>
@@ -75,7 +74,7 @@
       </itemlayout>
       <focusedlayout width="373.33" height="200" condition="Skin.HasSetting(SubmenuLabel)">
         <include content="Widget_Hub_FocusedLayout">
-          <param name="id" value="661" />
+          <param name="id" value="660" />
           <param name="category" value="true" />
           <param name="genres" value="$PARAM[genres]" />
           <param name="studios" value="$PARAM[studios]" />

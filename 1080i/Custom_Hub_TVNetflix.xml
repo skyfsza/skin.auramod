@@ -8,7 +8,6 @@
     <control type="grouplist" id="323233">
       <scrolltime tween="linear">400</scrolltime>
       <posy>670</posy>
-      <ondown>ActivateWindow(3910)</ondown>
       <include condition="true" content="netflix_customhub_fixed" name="netflix_customhub_fixed">
         <param name="id" value="610" />
         <param name="widgetaspect" value="Poster" />
