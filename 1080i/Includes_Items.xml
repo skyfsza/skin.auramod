@@ -644,7 +644,11 @@
                 <visible>Container.Content(addons) + !String.Contains(Container.FolderPath,addons://)</visible>
                 <visible>!Skin.HasSetting(global.kioskmode)</visible>
             </item>
-
+            <item>
+                <icon>special://skin/extras/icons/updatelibrary.png</icon>
+                <label>Refresh</label>
+                <onclick>Container.Refresh</onclick>
+            </item>
             <!-- Configure -->
             <!-- <item>
                 <icon>special://skin/extras/icons/configure.png</icon>

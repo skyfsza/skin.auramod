@@ -1037,8 +1037,8 @@
             <property name="widgetSortby" tag="property" attribute="name|widgetSortby" />
             <property name="widgetSortorder" tag="property" attribute="name|widgetSortorder" />
             <property name="limit" tag="property" attribute="name|widgetLimit" />
-            <property name="target" tag="property" attribute="name|widgetTarget" />
-            <property name="target">videos</property>
+            <property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
+            <property name="widgetTarget">videos</property>
 
 	    <property name="widgetSearch">false</property>
 

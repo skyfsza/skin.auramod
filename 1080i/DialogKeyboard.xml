@@ -2,7 +2,6 @@
 <!-- Foundation -->
 <window id="103">
     <defaultcontrol always="true">300</defaultcontrol>
-    <onload condition="Window.IsVisible(1138)">Close</onload>
     <controls>
         <include>Global_Overlay</include>
         <control type="group">

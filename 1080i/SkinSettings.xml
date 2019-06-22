@@ -1102,7 +1102,15 @@
                             <selected>Skin.HasSetting(DisableWidgetIMDB)</selected>
                             <onclick>Skin.ToggleSetting(DisableWidgetIMDB)</onclick>
                         </control>
-
+                        <control type="radiobutton" id="96251" description="Enable Widget Bar Studio logo">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Enable Widget Bar Studio logo</label>
+			    <visible>Skin.HasSetting(DisableWidgetIMDB)</visible>
+			    <enable>Skin.HasSetting(DisableWidgetIMDB)</enable>
+                            <selected>Skin.HasSetting(DisableWidgetStudio)</selected>
+                            <onclick>Skin.ToggleSetting(DisableWidgetStudio)</onclick>
+                        </control>
                         <!-- =============-->
                         <!-- ----PVR-------->
                         <!-- =============-->

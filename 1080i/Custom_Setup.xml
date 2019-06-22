@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="window" id="5111">
+    <defaultcontrol always="true">4000</defaultcontrol>
+    <onload>AlarmClock(focusWidgets,SetFocus(5051),00:00,silent)</onload>
+    <controls>
+ <control type="group">
+    <control type="image">
+      <width>100%</width>
+      <height>100%</height>
+      <texture background="true">special://skin/fanart.jpg</texture>
+   </control>
+    <control type="label">
+      <top>100</top>
+      <centerleft>50%</centerleft>
+      <width>700</width>
+      <height>100</height>
+      <font>netflix_heading_small</font>
+      <textcolor>dimgrey</textcolor>
+      <label> Welcome to AuraMod Setup</label>
+   </control>
+
+      <control type="button" id="5051">
+        <width>300</width>
+        <height>100</height>
+        <bottom>180</bottom>
+        <left>600</left> 
+        <label>[CAPITALIZE][B]Run Wizard[/B][/CAPITALIZE]</label>
+        <align>center</align>
+        <textcolor>grey</textcolor>
+        <focusedcolor>black</focusedcolor>
+        <texturefocus colordiffuse="d9ffffff" border="5">diffuse/panel.png</texturefocus>
+        <texturenofocus colordiffuse="darkgrey" border="5">diffuse/panel.png</texturenofocus>
+        <font>Reg28</font>
+	<onright>5052</onright>
+        <onclick>SetProperty(SpotlightPlay,1,Home)</onclick>
+        <onclick>SetFocus(1505)</onclick>
+      </control>
+
+      <control type="button" id="5052">
+	<bottom>180</bottom>
+	<left>950</left>
+        <width>300</width>
+        <height>100</height>
+        <label>[CAPITALIZE][B]Manual Setup[/B][/CAPITALIZE]</label>
+        <align>center</align>
+        <textcolor>grey</textcolor>
+        <focusedcolor>black</focusedcolor>
+        <texturefocus colordiffuse="d9ffffff" border="5">diffuse/panel.png</texturefocus>
+        <texturenofocus colordiffuse="darkgrey" border="5">diffuse/panel.png</texturenofocus>
+        <font>Reg28</font>
+	<onleft>5051</onleft>
+        <onclick>SetFocus(1505)</onclick>
+      </control>
+
+  </control>
+
+
+   </controls>
+</window>

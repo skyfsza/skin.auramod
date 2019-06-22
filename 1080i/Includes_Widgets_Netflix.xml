@@ -491,7 +491,7 @@
                 <aspectratio>keep</aspectratio>
                 <visible>$PARAM[postercondition]</visible>
                 <visible>!Window.IsVisible(Home) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + !Window.IsVisible(3810) + !Window.IsVisible(3820)</visible>
-                <visible>!Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
+                <visible>!Integer.IsGreater(Container($PARAM[id]).NumItems,0) + Container($PARAM[id]).IsUpdating</visible>
            </control>
             <control type="image" id="35055">
                 <top>85</top>
@@ -621,7 +621,7 @@
                             <label>$INFO[Container($PARAM[id]).ListItem.Label,|  ]</label>
 			    <include>Statusbar_Menubar_Items</include>
 			    <visible>Control.HasFocus($PARAM[id])</visible>
-			    <visible>Skin.HasSetting(DisableWidgetTitle) + ![Window.IsVisible(Home) + Skin.HasSetting(DisableNetflixHome)] + Window.IsVisible(Home)</visible>
+			    <visible>Skin.HasSetting(DisableWidgetTitle) + [Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920)]</visible>
 			</control>
 	<!-- Add Ratings -->
                      <control type="label">
@@ -630,10 +630,10 @@
                         <font>font_tiny_bold</font>
                         <include>Statusbar_Menubar_Items</include>
                         <visible>Control.HasFocus($PARAM[id])</visible>
-                        <visible>String.IsEqual(ListItem.DBType,episode) + Skin.HasSetting(DisableWidgetAirdate) + ![Window.IsVisible(Home) + Skin.HasSetting(DisableNetflixHome)] + !Window.IsVisible(2116)</visible>
+                        <visible>String.IsEqual(ListItem.DBType,episode) + Skin.HasSetting(DisableWidgetAirdate) + [Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920)]</visible>
                       </control>
                 <control type="grouplist">
-                    <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB) + ![Window.IsVisible(Home) + Skin.HasSetting(DisableNetflixHome)] + Window.IsVisible(Home)</visible>
+                    <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB) + [Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920)]</visible>
                     <bottom>10</bottom>
                     <height>40</height>
                <include content="Object_Ratings">

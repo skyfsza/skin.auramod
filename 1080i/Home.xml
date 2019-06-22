@@ -37,77 +37,14 @@
             </focusedlayout>
             <content>$INFO[Container(300).ListItem.Property(backgroundPlaylist)]</content>
         </control>
-        <include condition="!Skin.HasSetting(DisableNetflixHome)">Global_Background</include>
-        <include>Widgets</include>
-        <include condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Topbar</include> 
-        <include>Object_PlotOverlay</include>
-        <include condition="!Skin.HasSetting(DisableNetflixHomeSidemenu)">Home</include>
-        <include condition="!Skin.HasSetting(SubmenuWidgetPanel)">hubmenu_tv_fixed</include>
-        <include condition="Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(SubmenuWidgetPanel) + !Skin.HasSetting(DisableNetflixCatWidget) + !Skin.HasSetting(LargeSubmenuLabel)">submenu_widget_fixed</include>
-        <include condition="Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(SubmenuWidgetPanel) + !Skin.HasSetting(DisableNetflixCatWidget) + Skin.HasSetting(LargeSubmenuLabel)">submenu_widget_thumb</include>
-        <include condition="!Skin.HasSetting(SubmenuWidgetPanel)">hubmenu_movie_fixed</include>
-	<control type="group">
-	<top>0</top>
-	<right>-60</right>
-	<include>Logo</include>
-	<visible>!Window.IsVisible(DialogButtonMenu.xml) + !Window.IsVisible(DialogBusy.xml) + Skin.HasSetting(EnableHomeHeader)</visible>
-	</control>
-        <control type="button" id="4000">
-            <visible allowhiddenfocus="true">false</visible>
-            <width>1</width>
-            <height>1</height>
-            <onleft>300</onleft>
-            <onright>300</onright>
-            <onup>300</onup>
-            <ondown>3000</ondown>
-            <onfocus condition="!String.IsEmpty(Skin.String(MenuPos))">SetFocus(300,$INFO[Skin.String(MenuPos)])</onfocus>
-            <onfocus condition="!Skin.HasSetting(DisableMenuVertFull) + String.IsEmpty(Skin.String(MenuPos)) + String.IsEmpty(Window(Home).Property(WidgetFocus))">SetFocus(300)</onfocus>
-            <onfocus condition="Skin.HasSetting(DisableMenuVertFull) + String.IsEmpty(Skin.String(MenuPos)) + String.IsEmpty(Window(Home).Property(WidgetFocus))">SetFocus(3000)</onfocus>
-            <onfocus condition="!String.IsEqual(Container(300).ListItem.Label,Search) + String.IsEmpty(Skin.String(MenuPos)) + !String.IsEmpty(Window(Home).Property(WidgetFocus))">SetFocus(3000)</onfocus>
-            <onfocus condition="String.IsEqual(Container(300).ListItem.Label,Search) + String.IsEmpty(Skin.String(MenuPos)) + !String.IsEmpty(Window(Home).Property(WidgetFocus))">SetFocus(300)</onfocus>
-        </control>
 
-<!--
-        <control type="scrollbar" id="9060">
-            <top>0</top>
-            <right>0</right>
-            <width>8</width>
-            <bottom>0</bottom>
-            <showonepage>true</showonepage>
-            <orientation>vertical</orientation>
-            <texturesliderbackground colordiffuse="main_fg_12">common/white.png</texturesliderbackground>
-            <texturesliderbar colordiffuse="main_fg_30">common/white.png</texturesliderbar>
-            <texturesliderbarfocus colordiffuse="$VAR[ColorHighlight]">common/white.png</texturesliderbarfocus>
-            <animation effect="fade" start="100" end="0" time="400" condition="!Control.HasFocus(9060) + !Container.Scrolling">Conditional</animation>
-            <include>Animation_FadeIn</include>
-            <include>Animation_FadeOut</include>
-            <include>Defs_InfoDialog_Visible</include>
-        </control>
--->
-        <!-- Splash -->
-        <control type="image" description="Background">
-            <include>Dimensions_Fullscreen</include>
-            <texture background="true" colordiffuse="ff000000">common/white.png</texture>
-            <visible>String.IsEmpty(Window(Home).Property(SkinSplashStarted)) | Integer.IsEqual(Container(300).NumItems,0) | Container(300).IsUpdating</visible>
-            <animation effect="fade" start="100" end="0" delay="600" time="600" tween="quadratic">Hidden</animation>
-            <visible>String.IsEmpty(Skin.String(StartupPlaylist))</visible>
-        </control>
-        <control type="image" description="Background">
-            <include>Dimensions_Fullscreen</include>
-            <texture background="true" fallback="special://skin/fanart.jpg">$INFO[Skin.String(StartupSplash)]</texture>
-            <visible>String.IsEmpty(Window(Home).Property(SkinSplashStarted)) | Integer.IsEqual(Container(300).NumItems,0) | Container(300).IsUpdating</visible>
-            <animation effect="fade" start="100" end="0" time="600" tween="quadratic">Hidden</animation>
-            <visible>String.IsEmpty(Skin.String(StartupPlaylist))</visible>
-        </control>
-        <control type="group">
-            <top>800</top>
-            <visible>String.IsEmpty(Skin.String(StartupPlaylist))</visible>
-            <visible>String.IsEmpty(Window(Home).Property(SkinSplashStarted)) | Integer.IsEqual(Container(300).NumItems,0) | Container(300).IsUpdating</visible>
-            <animation effect="fade" start="100" end="0" time="600" tween="quadratic">Hidden</animation>
-            <include content="Defs_BusySpinner">
-                <param name="label" value="$LOCALIZE[31348]..." />
-            </include>
-        </control>
+      <control type="grouplist" id="4000">
+        <itemgap>0</itemgap>
+        <visible>Skin.HasSetting(DisableTraktMode)</visible>
+        <include condition="Skin.HasSetting(DisableTraktMode)">Object_Home_Media_Hub_mainmenu</include>
+      </control>	
+
+   <include condition="!Skin.HasSetting(DisableTraktMode)">home_no_trakt</include>
 
     </controls>
 </window>

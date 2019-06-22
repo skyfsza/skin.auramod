@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="2003">
-
-    <onload>Control.SetFocus(9570,0)</onload>
-    <onload>SetFocus(9570)</onload>
+    <onload>SetFocus(9005)</onload>
     <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo)">Close</onload>
 
     <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo) + [String.IsEqual(ListItem.DBType,movie) | Container.Content(movies)]">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onload>

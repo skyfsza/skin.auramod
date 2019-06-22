@@ -137,7 +137,6 @@
 
   <include name="widget_movielists">
     <control type="panel" id="560">
-        <scrolltime tween="linear">400</scrolltime>
 
       <animation effect="slide" end="0,80" condition="[Control.HasFocus(51) | Control.HasFocus(5105) | Control.HasFocus(5104)] + !Skin.HasSetting(LockHubWidgets)">Conditional</animation>
       <left>140</left>
@@ -285,6 +284,25 @@
         <visible>Skin.String($PARAM[skinsetting].label)</visible>
       </control>
 
+      <control type="button" id="$PARAM[id]4">
+        <ondown condition="Control.HasFocus(5104)">560</ondown>
+        <ondown condition="Control.HasFocus(5204)">570</ondown>
+        <onup condition="Control.HasFocus(5104)">51</onup>
+        <onup condition="Control.HasFocus(5204)">52</onup>
+        <top>400</top>
+        <width min="200" max="900">auto</width>
+        <height>40</height>
+	<centerleft>60%</centerleft>
+        <align>left</align>
+        <font>Reg32</font>
+        <textoffsetx>65</textoffsetx>
+        <label>[B]Click to set Widget Content[/B]</label>
+        <textcolor>white</textcolor>
+        <texturefocus colordiffuse="white">netflix/border_netflix.png</texturefocus>
+        <onclick>ActivateWindow(1060)</onclick>
+        <texturenofocus></texturenofocus>
+        <visible>!Skin.String($PARAM[skinsetting].label)</visible>
+      </control>
       <control type="multiimage" id="$PARAM[id]6">
       <animation effect="slide" end="0,80" condition="[Control.HasFocus(51) | Control.HasFocus(52) | Control.HasFocus(5205) | Control.HasFocus(5204) | Control.HasFocus(5105) | Control.HasFocus(5104)] + !Skin.HasSetting(LockHubWidgets)">Conditional</animation>
         <top>50</top>
@@ -431,6 +449,7 @@
                       <width>500</width>
                       <wrapmultiline>true</wrapmultiline>
                       <align>left</align>
+		      <height>100</height>
                     </control>
                     <control type="group">
                       <height>20</height>
@@ -499,6 +518,7 @@
         <left>350</left>
         <top>20</top>
         <orientation>horizontal</orientation>
+          <onleft>50</onleft>
         <control type="button" id="51">
           <ondown condition="!Skin.String(mediahub-510.label) + !Skin.HasSetting(LockHubWidgets)">5105</ondown>
           <ondown condition="!Skin.HasSetting(LockHubWidgets)">5104</ondown>
@@ -569,6 +589,21 @@
           <onclick>close</onclick>
         </control>
       </control>
+        <control type="button" id="50">
+          <onright>51</onright>
+          <top>20</top>
+          <left>50</left>
+          <width>70</width>
+          <height>70</height>
+          <aligny>center</aligny>
+          <align>left</align>
+          <font>font_tiny_bold</font>
+          <textcolor>dimgrey</textcolor>
+          <focusedcolor>red</focusedcolor>
+          <texturefocus colordiffuse="red">special://skin/extras/icons/search.png</texturefocus>
+          <texturenofocus colordiffuse="white">special://skin/extras/icons/search.png</texturenofocus>
+          <onclick>ActivateWindow(1138)</onclick>
+        </control>
       <control type="group">
         <top>100</top>
         <width>100%</width>
@@ -584,8 +619,10 @@
         <width>100%</width>
         <height>1080</height>
         <control type="image">
-          <texture>$INFO[ListItem.Property(background)]</texture>
+	<fadetime>500</fadetime>
+         <texture>$INFO[ListItem.Property(background)]</texture>
         </control>
+	<include>Global_Overlay</include>
         <visible>Control.HasFocus(560) | Control.HasFocus(570)</visible>
       </control>
       <control type="group">
@@ -786,7 +823,7 @@
         </control>
 	<control type="group" id="5411">
           <height>270</height>
-          <animation effect="slide"  end="0,-450" time="0" condition="Control.HasFocus(54)">Conditional</animation>
+          <animation effect="slide"  end="0,-450" time="500" condition="Control.HasFocus(54)">Conditional</animation>
           <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
             <param name="id" value="540" />
             <param name="aspect" value="landscapenetflix" />
@@ -800,7 +837,7 @@
         </control>
         <control type="group" id="5412">
           <height>270</height>
-          <animation effect="slide"  end="0,-450" time="0" condition="Control.HasFocus(54)">Conditional</animation>
+          <animation effect="slide"  end="0,-450" time="500" condition="Control.HasFocus(54)">Conditional</animation>
           <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
             <param name="id" value="542" />
             <param name="aspect" value="landscapenetflix" />
@@ -1026,7 +1063,6 @@
         <texturenofocus></texturenofocus>
         <visible>Skin.String($PARAM[skinsetting].label) + Skin.HasSetting(LockHubWidgets)</visible>
       </control>
-
       <control type="multiimage" id="$PARAM[id]6">
         <top>10</top>
         <left>65</left>

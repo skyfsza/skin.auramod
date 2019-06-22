@@ -164,6 +164,17 @@
                             <onclick>ReloadSkin()</onclick>
 	                    <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/netflix-mixed/netflixmixed1.gif)</onfocus>
                         </control>
+<!--
+                        <control type="radiobutton" id="9005" description="Enable Trakt Simple Mode">
+                            <include>Dialog_Standard_ListButton</include>
+                            <radioposx>630</radioposx>
+                            <label>Trakt Simple Mode</label>
+                            <selected>Skin.HasSetting(DisableTraktMode)</selected>
+                            <onclick>Skin.ToggleSetting(DisableTraktMode)</onclick>
+                            <onclick>ReloadSkin()</onclick>
+                            <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/netflix-mixed/netflixmixed1.gif)</onfocus>
+                        </control>
+-->
            </control>
         </control>
     </controls>
