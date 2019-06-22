@@ -485,9 +485,9 @@
                 </include>
             <control type="image" id="35055">
                 <top>85</top>
-                <left>-340</left>
-                <height>420</height>
-                <texture background="true">special://skin/media/dialogs/loading_poster.png</texture>
+                <left>-380</left>
+                <height>360</height>
+                <texture background="true">special://skin/media/dialogs/loading_poster_netflix.png</texture>
                 <aspectratio>keep</aspectratio>
                 <visible>$PARAM[postercondition]</visible>
                 <visible>!Window.IsVisible(Home) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + !Window.IsVisible(3810) + !Window.IsVisible(3820)</visible>
@@ -495,17 +495,17 @@
            </control>
             <control type="image" id="35055">
                 <top>85</top>
-                <left>-200</left>
-                <height>380</height>
-                <texture background="true">special://skin/media/dialogs/loading_landscape.png</texture>
+                <left>-360</left>
+                <height>360</height>
+                <texture background="true">special://skin/media/dialogs/loading_landscape_netflix.png</texture>
                 <aspectratio>keep</aspectratio>
                 <visible>!$PARAM[postercondition]</visible>
                 <visible>!Window.IsVisible(Home) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + !Window.IsVisible(3810) + !Window.IsVisible(3820)</visible>
                 <visible>!Integer.IsGreater(Container($PARAM[id]).NumItems,0) +  Container($PARAM[id]).IsUpdating</visible>
            </control>
                 <control type="group">
-                    <animation effect="slide" end="40,70" time="0" condition="[Window.IsActive(4010) | Window.IsActive(4020) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117)] + !Window.IsVisible(1138) + !Window.IsVisible(Home) + $PARAM[postercondition]">Conditional</animation>
-                    <animation effect="slide" end="-350,70" time="0" condition="[Window.IsActive(4010) | Window.IsActive(4020) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117)] + !Window.IsVisible(1138) + !Window.IsVisible(Home) + !$PARAM[postercondition]">Conditional</animation>
+                    <animation effect="slide" end="-80,40" time="0" condition="[Window.IsActive(4010) | Window.IsActive(4020) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117)] + !Window.IsVisible(1138) + !Window.IsVisible(Home) + $PARAM[postercondition]">Conditional</animation>
+                    <animation effect="slide" end="-390,40" time="0" condition="[Window.IsActive(4010) | Window.IsActive(4020) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117)] + !Window.IsVisible(1138) + !Window.IsVisible(Home) + !$PARAM[postercondition]">Conditional</animation>
                     <include condition="Skin.HasSetting(MouseMode)">Widget_Busy_Top_Mouse</include>
                     <top>255</top>
                     <left>-395</left>
