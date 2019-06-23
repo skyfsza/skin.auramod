@@ -1500,7 +1500,6 @@
       </control>
       <control type="group">
         <visible>!Control.HasFocus(660) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)</visible>
-        <animation effect="slide" end="20,0" time="0" condition="String.IsEmpty(ListItem.Studio)">Conditional</animation>
         <animation effect="slide" end="0,-30" condition="Skin.HasSetting(DisableNetflixSmallWidget)">Conditional</animation>
         <animation effect="slide" end="400,-10" time="500" condition="Window.IsActive(4010)">Conditional</animation>
         <animation effect="slide" end="400,-10" time="500" condition="Window.IsActive(4020)">Conditional</animation>
@@ -1976,7 +1975,7 @@
         <control type="group">
           <visible>!Skin.HasSetting(DisableNetflixView) + !Window.IsVisible(DialogVideoInfo.xml)</visible>
           <top>550</top>
-          <right>50</right>
+          <right>40</right>
           <width>$PARAM[width]</width>
           <height>184</height>
           <include content="Object_Ratings" condition="Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(Home.xml) | Window.IsVisible(script-globalsearch.xml)">
