@@ -350,6 +350,12 @@
     <property property="widgethubscrollselect">MovieAuraHub</property>
     <propertySettings property="widgethubscrollselect" showNone="false" buttonID="9910" title="Widget Scroll Hub" />
 
+    <property property="widgetmylistselect">Movie List 1</property>
+    <property property="widgetmylistselect">TV List 1</property>
+    <property property="widgetmylistselect">My List 1</property>
+    <property property="widgetmylistselect">My List 2</property>
+    <propertySettings property="widgetmylistselect" showNone="false" buttonID="99101" title="Widget My List" />
+
     <!-- Widget Hub -->
     <propertySettings toggle="widgetControl" buttonID="9911" title="Widget Control" />
 

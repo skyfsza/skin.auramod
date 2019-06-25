@@ -495,6 +495,32 @@
                     <align>left</align>
                     <include>Dialog_Standard_Right_Buttons</include>
                 </control>
+                <control type="radiobutton" id="9919" description="My List Panel">
+                    <width>100%</width>
+                    <label>Enable My List Panel</label>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
+                    <include>Dialog_Standard_ListButton</include>
+                    <radioposx>830</radioposx>
+                    <selected>String.IsEqual(Container(211).ListItem.Property(widgetmylist),true)</selected>
+                    <onclick>SetProperty(customProperty,widgetmylist)</onclick>
+                    <onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetmylist),true)">SetProperty(customValue,true)</onclick>
+                    <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetmylist),true)">SetProperty(customValue,false)</onclick>
+                    <onclick>SendClick(404)</onclick>
+                    <align>left</align>
+                    <visible>String.IsEqual(Window.Property(groupname),mainmenu) + !Skin.HasSetting(DisableAuraHomeLayout)</visible>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
+                </control>
+                <control type="button" id="99101" description="Choose List">
+                   <width>100%</width>
+                    <height>66</height>
+                    <label> - Choose List</label>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + String.IsEqual(Container(211).ListItem.Property(widgetmylist),true) + !Skin.HasSetting(DisableAuraHomeLayout)</visible>
+                    <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
+                    <label2>$INFO[Container(211).ListItem.Property(widgetmylistselect)]</label2>
+                    <align>left</align>
+                    <include>Dialog_Standard_Right_Buttons</include>
+                </control>
                 <control type="button" id="310" description="Background">
                     <width>100%</width>
                     <height>66</height>

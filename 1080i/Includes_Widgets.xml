@@ -395,6 +395,10 @@
                 <height>100</height>
 	      <visible>!String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)</visible>
             </control>
+            <control type="group" id="3361" description="Spacer">
+                <height>100</height>
+              <visible>!String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)</visible>
+            </control>
 	    <include content="WidgetSubmenu" condition="!Skin.HasSetting(HideSubmenuWidget)">
                 <param name="id" value="30222" />
                 <param name="submenu" value="true" />
@@ -402,6 +406,14 @@
                 <param name="label" value="$VAR[catlabel]" />
                 <param name="visible" value="String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)" />
             </include>
+	    <include>submenu_widget_mymovies1</include> 
+	    <include>submenu_widget_mytv1</include> 
+	    <include>submenu_widget_mylist1</include> 
+	    <include>submenu_widget_mylist2</include> 
+            <control type="group" id="3362" description="Spacer">
+                <height>200</height>
+              <visible>String.IsEqual(Container(300).ListItem.Property(widgetmylist),true)</visible>
+            </control>
             <control type="group" id="339" description="Spacer">
                 <height>30</height>
              <visible>Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(LargeSubmenuLabel)</visible>
@@ -837,11 +849,11 @@
                     <param name="id" value="$PARAM[id]" />
                 </include>
             </focusedlayout>
-            <itemlayout width="373.33" height="200" condition="Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(LargeSubmenuLabel)">
+            <itemlayout width="365.56" height="200" condition="Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(LargeSubmenuLabel)">
                 <include>Widget_Hub_ItemLayout</include>
             </itemlayout>
 
-            <focusedlayout width="373.33" height="200" condition="Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(LargeSubmenuLabel)">
+            <focusedlayout width="365.56" height="200" condition="Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(LargeSubmenuLabel)">
                 <include content="Widget_Hub_FocusedLayout">
                     <param name="id" value="$PARAM[id]" />
                 </include>
