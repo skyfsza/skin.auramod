@@ -27,6 +27,7 @@
     <!-- Clearlogo -->
       <control type="group">
         <!-- Add Clearlogo to landscape Image -->
+<!--
         <control type="image">
           <bottom>35</bottom>
           <right>10</right>
@@ -37,6 +38,7 @@
           <texture background="true">$VAR[Widget_ClearLogo]</texture>
           <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
         </control>
+-->
       </control>
             <control type="image">
                 <bottom>30</bottom>
@@ -99,6 +101,25 @@
                     <label>$INFO[Container(5055).ListItem.Label]</label>
                 </control>
             </control>
+     <control type="group">
+
+        <visible>![Skin.HasSetting(DisableAuraHomeLayout) + Window.IsVisible(Home)] + Window.IsVisible(Home) + Skin.HasSetting(WidgetLabelsBelow)</visible>
+          <control type="label">
+            <top>380</top>
+            <align>center</align>
+            <textcolor>white</textcolor>
+            <font>font_small</font>
+            <label>$VAR[video_heading]</label>
+          </control>
+          <control type="label">
+            <top>420</top>
+            <align>center</align>
+            <textcolor>dimgrey</textcolor>
+            <font>font_tiny</font>
+            <label>$VAR[widget_label2]</label>
+         </control>
+    </control>
+
         </control>
     </include>
 
@@ -414,7 +435,7 @@
       </control>
      <control type="group">
 	<animation effect="slide" end="0,20" time="0" condition="Skin.HasSetting(DisableNetflixSmallWidget)">Conditional</animation>
-       <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+        <visible>Skin.HasSetting(WidgetLabels) + String.IsEqual(ListItem.DBType,episode)</visible>
       <control type="image">
         <left>0</left>
         <bottom>40</bottom>
@@ -427,7 +448,7 @@
         <left>4</left>
         <height>55</height>
         <width>75</width>
-        <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+        <visible>Skin.HasSetting(WidgetLabels) + String.IsEqual(ListItem.DBType,episode)</visible>
         <label>[I]$INFO[ListItem.Season, S,: ]$INFO[ListItem.Episode,E, ][/I]</label>
         <textcolor>white</textcolor>
         <font>widget_overlaybutton</font>
@@ -494,30 +515,25 @@
           <label>[B]$INFO[ListItem.Season,Season , ]$INFO[ListItem.Episode,Episode , ][/B]</label>
         </control>
 	</control>
-	<!-- END Add label box if Episode -->
-	<!-- Start Add label box if no Banner or Clearlogo  -->
-<!--
-        <control type="group">
-        <bottom>0</bottom>
-        <height>70</height>
-        <visible>!Skin.HasSetting(WidgetLabels) + String.IsEmpty(ListItem.Episode)</visible>
-        <control type="image">
-          <texture colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
-        </control>
-        <control type="label">
-          <top>0</top>
-          <bottom>0</bottom>
-          <left>20</left>
-          <right>20</right>
-          <align>center</align>
-          <aligny>center</aligny>
-          <font>font_tiny_bold</font>
-          <textcolor>main_fg_70</textcolor>
-          <label>$VAR[Label_Widget]</label>
-        </control>
-      </control>
--->
-      </control>
+    </control>
+	<!-- Start Add label below widget  -->
+       <control type="group">
+        <visible>![Skin.HasSetting(DisableAuraHomeLayout) + Window.IsVisible(Home)] + Window.IsVisible(Home) + Skin.HasSetting(WidgetLabelsBelow)</visible>
+          <control type="label">
+            <top>420</top>
+            <align>center</align>
+            <textcolor>white</textcolor>
+	    <font>font_small</font>
+            <label>$VAR[video_heading]</label>
+          </control>
+          <control type="label">
+	    <top>460</top>
+	    <align>center</align>
+            <textcolor>dimgrey</textcolor>
+	    <font>font_tiny</font>
+            <label>$VAR[widget_label2]</label>
+         </control>
+    </control>
     </control>
   </include>
   <!-- END LandscapeBanner Widget -->

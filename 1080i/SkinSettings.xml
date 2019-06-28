@@ -998,6 +998,13 @@
                             <selected>!Skin.HasSetting(BounceAnimations)</selected>
                             <onclick>Skin.ToggleSetting(BounceAnimations)</onclick>
                         </control>
+                        <control type="radiobutton" id="96111" description="Display labels below widgets">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011) + !Skin.HasSetting(DisableAuraHomeLayout)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Display labels below widgets</label>
+                            <selected>Skin.HasSetting(WidgetLabelsBelow)</selected>
+                            <onclick>Skin.ToggleSetting(WidgetLabelsBelow)</onclick>
+                        </control>
                         <control type="button" id="9653" description="Widget Overlays ">
                             <textcolor>main_fg_100</textcolor>
                             <disabledcolor>main_fg_12</disabledcolor>

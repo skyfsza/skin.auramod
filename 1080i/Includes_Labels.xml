@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	
+    <variable name="widget_label2">
+    <value condition="String.IsEqual(ListItem.DBType,Episode)">$INFO[Container($PARAM[id]).ListItem.Label  ]</value>
+    <value condition="String.IsEqual(ListItem.DBType,Movie) | String.IsEqual(ListItem.DBType,Movie)">$INFO[Container($PARAM[id]).ListItem.Year  ]</value>
+    </variable>
     <variable name="show_count">
     <value condition="!String.IsEmpty(ListItem.Property(WatchedEpisodes)">$INFO[ListItem.Property(WatchedEpisodes)]</value>
     <value condition="String.IsEmpty(ListItem.Property(WatchedEpisodes) + !String.IsEmpty(ListItem.Property(TotalEpisodes)">$INFO[ListItem.Property(TotalEpisodes)]</value>
