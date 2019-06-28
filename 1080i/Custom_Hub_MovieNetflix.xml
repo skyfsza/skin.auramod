@@ -5,60 +5,21 @@
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
     <include>Animation_FadeInOut</include>
-    <left>20</left>
     <include>Object_Home_Netflix</include>
-    <control type="grouplist" id="323233">
-      <ondown>SetFocus(410)</ondown>
-     <animation effect="fade" start="0" end="100" time="1000">Focus</animation>
-      <left>-30</left>
-      <scrolltime tween="linear">400</scrolltime>
-      <posy>670</posy>
-      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
-        <param name="id" value="410" />
-        <param name="widgetaspect" value="landscapewide" />
-        <param name="skinsetting" value="movienetflixhub-410" />
-        <param name="controltype" value="fixedlist" />
-        <param name="orientation" value="horizontal" />
-        <param name="panelheight" value="widget_poster_height_netflix" />
-      </include>
-      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
-        <param name="id" value="420" />
-        <param name="widgetaspect" value="landscapewide" />
-        <param name="skinsetting" value="movienetflixhub-420" />
-        <param name="controltype" value="fixedlist" />
-        <param name="orientation" value="horizontal" />
-        <param name="panelheight" value="widget_poster_height_netflix" />
-      </include>
-      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
-        <param name="id" value="430" />
-        <param name="widgetaspect" value="landscapewide" />
-        <param name="skinsetting" value="movienetflixhub-430" />
-        <param name="controltype" value="fixedlist" />
-        <param name="orientation" value="horizontal" />
-        <param name="panelheight" value="widget_poster_height_netflix" />
-      </include>
-      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
-        <param name="id" value="440" />
-        <param name="widgetaspect" value="Poster" />
-        <param name="skinsetting" value="movienetflixhub-440" />
-        <param name="controltype" value="fixedlist" />
-        <param name="orientation" value="horizontal" />
-        <param name="panelheight" value="widget_poster_height_netflix" />
-      </include>
-      <include condition="true" content="netflix_customhub_item" name="netflix_customhub_item">
-        <param name="id" value="450" />
-        <param name="widgetaspect" value="landscapewide" />
-        <param name="skinsetting" value="movienetflixhub-450" />
-        <param name="controltype" value="fixedlist" />
-        <param name="orientation" value="horizontal" />
-      </include>
- <control type="group" id="666">
- <height>50</height>
- </control>
+   <control type="grouplist" id="323233">
+    <scrolltime tween="quadratic">400</scrolltime>
+    <orientation>vertical</orientation>
+    <itemgap>10</itemgap>
+    <usecontrolcoords>true</usecontrolcoords>
+    <posy>630</posy>
+    <height>450</height>
+    <left>-40</left>
+    <include>netflixhub_movies_widgets</include>
+
   <control type="fixedlist" id="660">
-      <animation effect="slide" end="40,0" time="0" condition="Window.IsVisible(3820)">Conditional</animation>
+      <left>60</left>
       <scrolltime tween="sine" easing="out">500</scrolltime>
-      <height>350</height>
+      <height>450</height>
       <orientation>horizontal</orientation>
       <onup>650</onup>
       <height>350</height>
@@ -83,9 +44,6 @@
       </focusedlayout>
       <include>Home_Widget_HubMenu_MovieItems</include>
     </control>
-
     </control>
-
-
   </controls>
 </window>

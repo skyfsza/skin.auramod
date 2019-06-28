@@ -18,19 +18,6 @@
         <width>100%</width>
         <texture colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
        </control>
-<!--
-      <control type="textbox">
-        <centerleft>50%</centerleft>
-        <textcolor>grey</textcolor>
-        <shadowcolor>black</shadowcolor>
-        <font>font_medium</font>
-        <width min="100" max="250">auto</width>
-        <aligny>center</aligny>
-        <align>center</align>
-        <label>$INFO[Container(5055).ListItem.Label]</label>
-        <wrapmultiline>true</wrapmultiline>
-      </control>
--->
    </control>
    <!-- Fanart Background -->
         <control type="image">
@@ -58,7 +45,7 @@
                 <right>120</right>
                 <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
                 <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
-          <visible>!Skin.HasSetting(DisableNetflixSmallWidget) + !Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)] + Window.IsVisible(Home)</visible>
+          <visible>!Skin.HasSetting(DisableNetflixSmallWidget) + !Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)] + [Window.IsVisible(Home) | Window.IsVisible(3810) | Window.IsVisible(3820)]</visible>
             </control>
 
         <!-- Add Clearlogo to landscape Image -->
@@ -69,7 +56,7 @@
           <height>45%</height>
           <aspectratio>keep</aspectratio>
           <texture background="true">$VAR[Widget_ClearLogo]</texture>
-          <visible>Skin.HasSetting(DisableNetflixSmallWidget) + [!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo)] + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)] + Window.IsVisible(Home)</visible>
+          <visible>Skin.HasSetting(DisableNetflixSmallWidget) + [!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo)] + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)] + [Window.IsVisible(Home) | Window.IsVisible(3810) | Window.IsVisible(3820)]</visible>
         </control>
 
             <control type="group">

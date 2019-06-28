@@ -17,7 +17,7 @@
             </control>
 
             <control type="group">
-                <animation effect="slide" start="0" end="301" time="300" tween="sine" easing="inout" condition="Control.HasFocus(302) + Skin.HasSetting(IconOnlyMode)">Conditional</animation>
+                <animation effect="slide" start="0" end="301" time="400" condition="Control.HasFocus(302) + Skin.HasSetting(IconOnlyMode)">Conditional</animation>
                 <control type="group">
                     <left>-320</left>
                     <width>320</width>
@@ -147,6 +147,7 @@
                 <control type="group">
                     <visible>$PARAM[visible]</visible>
                     <include>Animation_FadeOut_Delay</include>
+                    <include>Animation_FadeIn_Delay</include>
                     <control type="image">
                         <width>100%</width>
                         <height>1</height>

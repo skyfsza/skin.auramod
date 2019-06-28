@@ -283,7 +283,7 @@
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <align>left</align>
                     <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
-                    <visible>!String.EndsWith(Window.Property(groupname),.1)</visible>
+                    <visible>!String.EndsWith(Window.Property(groupname),.1) + !String.Contains(Window.Property(groupname),netflixhubmovies) | !String.Contains(Window.Property(groupname),netflixhubtv)</visible>
                     <include>Dialog_Standard_Right_Buttons</include>
                 </control>
                 <control type="button" id="307" description="Custom">
@@ -343,7 +343,7 @@
                     <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
                     <include>Dialog_Standard_Right_Buttons</include>
                     <visible>!String.IsEqual(Window.Property(groupname),powermenu)</visible>
-                    <visible>!String.EndsWith(Window.Property(groupname),.1)</visible>
+                    <visible>!String.EndsWith(Window.Property(groupname),.1) + !String.Contains(Window.Property(groupname),netflixhubmovies) + !String.Contains(Window.Property(groupname),netflixhubtv)</visible>
                 </control>
                 <control type="button" id="9901" description="Widget Submenu Aspect">
                    <width>100%</width>
@@ -365,7 +365,7 @@
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <align>left</align>
                     <include>Dialog_Standard_Right_Buttons</include>
-                    <visible>String.Contains(Window.Property(groupname),x110)</visible>
+                    <visible>String.Contains(Window.Property(groupname),x110) | String.Contains(Window.Property(groupname),netflixhubmovies) | String.Contains(Window.Property(groupname),netflixhubtv)</visible>
                 </control>
                 <control type="radiobutton" id="9911" description="Widget Control">
                     <width>100%</width>
@@ -380,7 +380,7 @@
                     <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetControl),true)">SetProperty(customValue,false)</onclick>
                     <onclick>SendClick(404)</onclick>
                     <align>left</align>
-                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + String.EndsWith(Window.Property(groupname),.1)</visible>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) | String.EndsWith(Window.Property(groupname),.1) | String.Contains(Window.Property(groupname),netflixhubmovies) | String.Contains(Window.Property(groupname),netflixhubtv)</visible>
                 </control>
                 <control type="button" id="9902" description="Content Type / Widget Target">
                    <width>100%</width>
@@ -402,7 +402,7 @@
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <label2>$INFO[Container(211).ListItem.Property(widgetSortby)]</label2>
                     <align>left</align>
-                    <visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),searchmenu) | String.IsEqual(Window.Property(groupname),aurahubtv) | String.IsEqual(Window.Property(groupname),aurahubmovies) | String.Contains(Window.Property(groupname),x110)</visible>
+                    <visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),searchmenu) | String.IsEqual(Window.Property(groupname),aurahubtv) | String.IsEqual(Window.Property(groupname),aurahubmovies) | String.Contains(Window.Property(groupname),x110) | String.Contains(Window.Property(groupname),netflixhubmovies) | String.Contains(Window.Property(groupname),netflixhubtv)</visible>
                     <include>Dialog_Standard_Right_Buttons</include>
                 </control>
 
@@ -414,7 +414,7 @@
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <label2>$INFO[Container(211).ListItem.Property(widgetSortorder)]</label2>
                     <align>left</align>
-                    <visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),searchmenu) | String.IsEqual(Window.Property(groupname),aurahubtv) | String.IsEqual(Window.Property(groupname),aurahubmovies) | String.Contains(Window.Property(groupname),x110)</visible>
+                    <visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),searchmenu) | String.IsEqual(Window.Property(groupname),aurahubtv) | String.IsEqual(Window.Property(groupname),aurahubmovies) | String.Contains(Window.Property(groupname),x110) | String.Contains(Window.Property(groupname),netflixhubmovies) | String.Contains(Window.Property(groupname),netflixhubtv)</visible>
                     <include>Dialog_Standard_Right_Buttons</include>
                 </control>
                 <control type="radiobutton" id="9913" description="Widget Spotlight">
@@ -530,7 +530,7 @@
                     <align>left</align>
                     <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
                     <include>Dialog_Standard_Right_Buttons</include>
-                    <visible>!String.EndsWith(Window.Property(groupname),.1)</visible>
+                    <visible>!String.EndsWith(Window.Property(groupname),.1) + !String.Contains(Window.Property(groupname),netflixhubmovies) + !String.Contains(Window.Property(groupname),netflixhubtv)</visible>
                 </control>
 
                 <control type="button" id="308" description="Reset">
@@ -540,7 +540,7 @@
                     <align>left</align>
                     <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
                     <include>Dialog_Standard_Right_Buttons</include>
-                    <visible>!String.EndsWith(Window.Property(groupname),.1)</visible>
+                    <visible>!String.EndsWith(Window.Property(groupname),.1) + !String.Contains(Window.Property(groupname),netflixhubmovies) | !String.Contains(Window.Property(groupname),netflixhubtv)</visible>
                 </control>
 
                 <control type="button" id="9900" description="Save Changes">

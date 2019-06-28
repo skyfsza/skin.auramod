@@ -367,7 +367,7 @@
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapewideposter.png" condition="!Skin.HasSetting(DisableAuraHomeLayout) | [Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixLargeWidget)]">LandscapePoster</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapenetflix.png">LandscapeSmall</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapenetflix.png">LandscapePanel</property>
-    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapenetflix.png" condition="!Skin.HasSetting(DisableAuraHomeLayout)">LandscapeDetails</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapenetflix.png">LandscapeDetails</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-posterdetails.png" condition="!Skin.HasSetting(DisableAuraHomeLayout)">PosterDetails</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-widgetlive.png">WidgetLive</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-category.png">Category</property>

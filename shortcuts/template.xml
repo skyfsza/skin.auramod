@@ -320,6 +320,7 @@
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetAspect in 'LandscapeWide' else 'false']" />
                 <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetAspect in 'LandscapePoster' else 'false']" />
                 <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetAspect in 'LandscapeSmall' else 'false']" />
+                <param name="landscapedetailscondition" value="$PYTHON['true' if widgetAspect in 'LandscapeDetails' else 'false']" />
                 <param name="posterdetailscondition" value="$PYTHON['true' if widgetAspect in 'PosterDetails' else 'false']" />
                 <param name="widgetlivecondition" value="$PYTHON['true' if widgetAspect in 'WidgetLive' else 'false']" />
                 <param name="categorycondition" value="$PYTHON['true' if widgetAspect in 'Category' else 'false']" />
@@ -434,6 +435,7 @@
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetAspect in 'LandscapeWide' else 'false']" />
                 <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetAspect in 'LandscapePoster' else 'false']" />
                 <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetAspect in 'LandscapeSmall' else 'false']" />
+                <param name="landscapedetailscondition" value="$PYTHON['true' if widgetAspect in 'LandscapeDetails' else 'false']" />
                 <param name="posterdetailscondition" value="$PYTHON['true' if widgetAspect in 'PosterDetails' else 'false']" />
                 <param name="widgetlivecondition" value="$PYTHON['true' if widgetAspect in 'WidgetLive' else 'false']" />
                 <param name="categorycondition" value="$PYTHON['true' if widgetAspect in 'Category' else 'false']" />
@@ -1457,4 +1459,232 @@
             </controls>
         </items>
     </submenu>
+    <submenu include="netflixhubmovies" name="netflixhubmovies">
+        <controls>
+            <skinshortcuts insert="netflixhubmovies">items</skinshortcuts>
+        </controls>
+        <items insert="netflixhubmovies">
+            <property name="label" tag="label" />
+            <property name="path" tag="property" attribute="name|list"/>
+
+            <property name="itemwidth" tag="property" attribute="name|widgetHubAspect" value="Square">item_square_width</property>
+            <property name="itemwidth" tag="property" attribute="name|widgetHubAspect" value="Landscape">item_landscape_width</property>
+            <property name="itemwidth">item_poster_width</property>
+
+            <property name="diffuse" tag="property" attribute="name|widgetHubAspect" value="Square">diffuse/square-wall.png</property>
+            <property name="diffuse" tag="property" attribute="name|widgetHubAspect" value="Landscape">diffuse/landscape-wall.png</property>
+            <property name="diffuse">diffuse/poster-wall.png</property>
+
+            <property name="icon" tag="property" attribute="name|widgetHubAspect" value="Landscape">$VAR[Image_Landscape]</property>
+            <property name="icon">$VAR[Image_Poster]</property>
+
+            <property name="widgetControl" tag="property" attribute="name|widgetControl" />
+            <property name="widgetControl">fixedlist</property>
+
+            <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
+            <property name="widgetHubAspect">Landscape</property>
+
+            <property name="aspectratio" tag="property" attribute="name|widgetHubAspect" value="Square">keep</property>
+            <property name="aspectratio">scale</property>
+            <property name="widgetSortby" tag="property" attribute="name|widgetSortby" />
+            <property name="widgetSortorder" tag="property" attribute="name|widgetSortorder" />
+            <property name="limit" tag="property" attribute="name|widgetLimit" />
+            <property name="target" tag="property" attribute="name|widgetTarget" />
+            <property name="target">videos</property>
+
+	    <property name="widgetSearch">false</property>
+
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[1]">1</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[2]">2</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[3]">3</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[4]">4</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[5]">5</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[6]">6</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[7]">7</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[8]">8</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[9]">9</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[10]">10</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[11]">11</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[12]">12</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[13]">13</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[14]">14</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[15]">15</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[16]">16</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[17]">17</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[18]">18</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[19]">19</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[20]">20</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[21]">21</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[22]">22</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[23]">23</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[24]">24</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[25]">25</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[26]">26</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[27]">27</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[28]">28</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[29]">29</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[30]">30</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[31]">31</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[32]">32</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[33]">33</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[34]">34</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[35]">35</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[36]">36</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[37]">37</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[38]">38</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[39]">39</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[40]">40</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[41]">41</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[42]">42</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[43]">43</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[44]">44</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[45]">45</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[46]">46</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[47]">47</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[48]">48</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[49]">49</property>
+            <property name="id">50</property>
+            <controls>
+            <include content="Widget_Aurahub">
+                <param name="id" value="$PYTHON[int(id) + 6050]" />
+                <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
+                <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
+                <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
+                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
+                <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
+                <param name="aspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
+                <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
+                <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
+                <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapePoster' else 'false']" />
+                <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeSmall' else 'false']" />
+                <param name="posterdetailscondition" value="$PYTHON['true' if widgetHubAspect in 'PosterDetails' else 'false']" />
+                <param name="widgetlivecondition" value="$PYTHON['true' if widgetHubAspect in 'WidgetLive' else 'false']" />
+                <param name="categorycondition" value="$PYTHON['true' if widgetHubAspect in 'Category' else 'false']" />
+                <param name="squarecondition" value="$PYTHON['true' if widgetHubAspect in 'Square' else 'false']" />
+                <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
+                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'fixedlist']" />
+                <param name="label" value="$SKINSHORTCUTS[label]" />
+                <param name="visible" value="Window.IsVisible(Custom_Hub_MovieNetflix.xml)" />
+            </include>
+            </controls>
+        </items>
+    </submenu>
+    <submenu include="netflixhubtv" name="netflixhubtv">
+        <controls>
+            <skinshortcuts insert="netflixhubtv">items</skinshortcuts>
+        </controls>
+        <items insert="netflixhubtv">
+            <property name="label" tag="label" />
+            <property name="path" tag="property" attribute="name|list"/>
+
+            <property name="itemwidth" tag="property" attribute="name|widgetHubAspect" value="Square">item_square_width</property>
+            <property name="itemwidth" tag="property" attribute="name|widgetHubAspect" value="Landscape">item_landscape_width</property>
+            <property name="itemwidth">item_poster_width</property>
+
+            <property name="diffuse" tag="property" attribute="name|widgetHubAspect" value="Square">diffuse/square-wall.png</property>
+            <property name="diffuse" tag="property" attribute="name|widgetHubAspect" value="Landscape">diffuse/landscape-wall.png</property>
+            <property name="diffuse">diffuse/poster-wall.png</property>
+
+            <property name="icon" tag="property" attribute="name|widgetHubAspect" value="Landscape">$VAR[Image_Landscape]</property>
+            <property name="icon">$VAR[Image_Poster]</property>
+
+            <property name="widgetControl" tag="property" attribute="name|widgetControl" />
+            <property name="widgetControl">fixedlist</property>
+
+            <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
+            <property name="widgetHubAspect">Landscape</property>
+
+            <property name="aspectratio" tag="property" attribute="name|widgetHubAspect" value="Square">keep</property>
+            <property name="aspectratio">scale</property>
+            <property name="widgetSortby" tag="property" attribute="name|widgetSortby" />
+            <property name="widgetSortorder" tag="property" attribute="name|widgetSortorder" />
+            <property name="limit" tag="property" attribute="name|widgetLimit" />
+            <property name="target" tag="property" attribute="name|widgetTarget" />
+            <property name="target">videos</property>
+
+	    <property name="widgetSearch">false</property>
+
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[1]">1</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[2]">2</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[3]">3</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[4]">4</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[5]">5</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[6]">6</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[7]">7</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[8]">8</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[9]">9</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[10]">10</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[11]">11</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[12]">12</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[13]">13</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[14]">14</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[15]">15</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[16]">16</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[17]">17</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[18]">18</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[19]">19</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[20]">20</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[21]">21</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[22]">22</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[23]">23</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[24]">24</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[25]">25</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[26]">26</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[27]">27</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[28]">28</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[29]">29</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[30]">30</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[31]">31</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[32]">32</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[33]">33</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[34]">34</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[35]">35</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[36]">36</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[37]">37</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[38]">38</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[39]">39</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[40]">40</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[41]">41</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[42]">42</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[43]">43</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[44]">44</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[45]">45</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[46]">46</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[47]">47</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[48]">48</property>
+            <property name="id" tag="property" attribute="name|id" value="$NUMBER[49]">49</property>
+            <property name="id">50</property>
+            <controls>
+            <include content="Widget_Aurahub">
+                <param name="id" value="$PYTHON[int(id) + 6050]" />
+                <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
+                <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
+                <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
+                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
+                <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
+                <param name="aspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
+                <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
+                <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
+                <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapePoster' else 'false']" />
+                <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeSmall' else 'false']" />
+                <param name="posterdetailscondition" value="$PYTHON['true' if widgetHubAspect in 'PosterDetails' else 'false']" />
+                <param name="widgetlivecondition" value="$PYTHON['true' if widgetHubAspect in 'WidgetLive' else 'false']" />
+                <param name="categorycondition" value="$PYTHON['true' if widgetHubAspect in 'Category' else 'false']" />
+                <param name="squarecondition" value="$PYTHON['true' if widgetHubAspect in 'Square' else 'false']" />
+                <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
+                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'fixedlist']" />
+                <param name="label" value="$SKINSHORTCUTS[label]" />
+                <param name="visible" value="Window.IsVisible(Custom_Hub_TVNetflix.xml)" />
+            </include>
+            </controls>
+        </items>
+    </submenu>
+
+
+
+
 </template>

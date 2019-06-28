@@ -1,3 +1,8 @@
+v0.9.29
+- Change TV and Movie Netflix hubs to use standard widget configuration (requires once off reconfigure)
+- Add option to Aura Mode for My Lists as a Home widget panel.
+- Bug Fixes and Tweaks
+
 v0.9.28
 - Bug Fixes
 

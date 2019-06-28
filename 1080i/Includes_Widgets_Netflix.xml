@@ -34,7 +34,10 @@
         <control type="group">
             <visible allowhiddenfocus="true">!$EXP[Exp_HideFurniture]</visible>
             <include>Animation_FadeInOut</include>
+
             <control type="group">
+        <animation effect="slide" end="320,0" delay="0" time="400" condition="Skin.HasSetting(DisableMenuVertFull) + [Control.HasFocus(300) | Control.HasFocus(302)]">Conditional</animation>
+
 <!--                <include>Animation_Right</include> -->
                 <include>Defs_InfoDialog_Visible</include>
                 <control type="group">
@@ -523,7 +526,7 @@
 			<movement>1</movement>
 			<include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
 			<include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
-			<include condition="!$PARAM[submenu] + !Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)">Widget_Items_menu_Big_Height</include>
+			<include condition="!$PARAM[submenu] + !Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(3820)">Widget_Items_menu_Big_Height</include>
 			<include condition="!$PARAM[submenu] + Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + ![Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]">Widget_Items_menu_Small_Height</include>
 			<onclick condition="!Skin.HasSetting(EnableShowInfo) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]">Action(Info)</onclick>
             <onclick condition="!Skin.HasSetting(EnableShowInfo) + String.IsEmpty(ListItem.DBType) + !Window.IsVisible(Home) + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),true)">ActivateWindow(10025,$ESCINFO[Container(5055).ListItem.FileNameAndPath],return)</onclick>
