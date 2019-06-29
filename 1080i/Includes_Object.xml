@@ -755,9 +755,9 @@
       <visible>Container(1505).IsUpdating + !Integer.IsGreater(Container(1505).NumItems,0)</visible>
       <control type="group">
         <top>40</top>
-        <left>90</left>
+        <left>70</left>
         <control type="image">
-          <width>1750</width>
+          <width>1810</width>
           <height>570</height>
           <bordersize>1</bordersize>
           <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
@@ -785,10 +785,10 @@
       <onleft>300</onleft>
       <height>570</height>
       <top>40</top>
-      <left>90</left>
+      <left>70</left>
       <onclick condition="!Skin.HasSetting(EnableShowInfo) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]">Action(Info)</onclick>
       <itemlayout width="1750" height="570"></itemlayout>
-      <focusedlayout width="1750" height="570">
+      <focusedlayout width="1810" height="570">
         <control type="group">
           <control type="image">
             <right>0</right>
@@ -804,7 +804,7 @@
           </control>
           <control type="group">
             <control type="image">
-              <top>30</top>
+              <top>0</top>
               <left>40</left>
               <height min="60" max="218">auto</height>
               <width>510</width>
@@ -828,8 +828,9 @@
             </control>
             <control type="group">
               <animation effect="slide" end="0,-120" time="0" condition="String.IsEmpty(Container(1506).ListItem.Art(clearlogo))">Conditional</animation>
+              <animation effect="slide" end="0,-60" time="0" condition="!String.IsEmpty(Container(1506).ListItem.Art(clearlogo))">Conditional</animation>
               <control type="group">
-                <top>240</top>
+                <top>235</top>
                 <width>200</width>
                 <left>30</left>
 		<visible>!Skin.HasSetting(DisableStarRating)</visible>
@@ -858,6 +859,7 @@
                   <height>100%</height>
                   <width>100%</width>
                   <texture colordiffuse="dimgrey">flags/flag_box_rating_classic.png</texture>
+                <visible>!String.IsEmpty(ListItem.MPAA)</visible>
                 </control>
                 <control type="label">
                   <left>30</left>
@@ -872,6 +874,7 @@
               </control>
               <!-- Season Count -->
               <control type="label">
+                <animation effect="slide" end="-100,0" time="0" condition="String.IsEmpty(Container(1506).ListItem.MPAA)">Conditional</animation>
                 <width>115</width>
                 <left>400</left>
                 <textcolor>white</textcolor>
@@ -943,9 +946,9 @@
       <visible>Container(1506).IsUpdating + !Integer.IsGreater(Container(1506).NumItems,0)</visible>
       <control type="group">
         <top>40</top>
-        <left>90</left>
+        <left>70</left>
         <control type="image">
-          <width>1750</width>
+          <width>1810</width>
           <height>570</height>
           <bordersize>1</bordersize>
           <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
@@ -975,10 +978,10 @@
       <onleft>300</onleft>
       <height>570</height>
       <top>40</top>
-      <left>90</left>
+      <left>70</left>
       <onclick condition="!Skin.HasSetting(EnableShowInfo) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]">Action(Info)</onclick>
-      <itemlayout width="1750" height="570"></itemlayout>
-      <focusedlayout width="1750" height="570">
+      <itemlayout width="1810" height="570"></itemlayout>
+      <focusedlayout width="1810" height="570">
         <control type="group">
           <control type="image">
             <right>0</right>
@@ -994,7 +997,7 @@
           </control>
           <control type="group">
             <control type="image">
-              <top>30</top>
+              <top>0</top>
               <left>40</left>
               <height min="60" max="218">auto</height>
               <width>510</width>
@@ -1018,6 +1021,7 @@
             </control>
             <control type="group">
               <animation effect="slide" end="0,-120" time="0" condition="String.IsEmpty(Container(1506).ListItem.Art(clearlogo))">Conditional</animation>
+              <animation effect="slide" end="0,-55" time="0" condition="!String.IsEmpty(Container(1506).ListItem.Art(clearlogo))">Conditional</animation>
 	      <top>-10</top>
               <control type="group">
                 <top>240</top>
@@ -1044,7 +1048,7 @@
                 <width>100</width>
                 <visible>!String.IsEmpty(ListItem.MPAA)</visible>
                 <control type="image">
-                  <top>270</top>
+                  <top>275</top>
                   <height>30</height>
                   <height>100%</height>
                   <width>100%</width>
@@ -2773,7 +2777,7 @@
                 </include>
             </focusedlayout>
 
-            <itemlayout width="302.22" height="170" condition="Skin.HasSetting(SubmenuLabel)+ !Skin.HasSetting(LargeSubmenuLabel)">
+            <itemlayout width="302.22" height="170" condition="Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(LargeSubmenuLabel)">
                 <include>Widget_Hub_ItemLayout</include>
             </itemlayout>
 
@@ -5200,7 +5204,7 @@
     <definition>
       <control type="grouplist" id="330">
         <animation effect="slide" end="-30,0" delay="0" time="150" condition="[Skin.HasSetting(DisableMenuHor) |!Control.HasFocus(300) + !Control.HasFocus(302) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
-        <animation effect="slide" end="0,240" time="300" delay="150" condition="!Skin.HasSetting(DisableMenuVertIcon) + [[Control.HasFocus(300) + [Integer.IsGreater(Container(1505).NumItems,0) | Integer.IsGreater(Container(1506).NumItems,0)] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)] | [!Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222) | Control.HasFocus(3022) | Control.HasFocus(30221)] | [ControlGroup(505).HasFocus | ControlGroup(506).HasFocus | Control.HasFocus(1505) | Control.HasFocus(1506)]]">Conditional</animation>
+        <animation effect="slide" end="0,240" time="300" delay="150" condition="![Skin.HasSetting(DisableMenuVertIcon) + Control.HasFocus(300] + [[Control.HasFocus(300) + [Integer.IsGreater(Container(1505).NumItems,0) | Integer.IsGreater(Container(1506).NumItems,0)] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)] | [!Skin.HasSetting(SubmenuWidgetPanel) + Control.HasFocus(30222) | Control.HasFocus(3022) | Control.HasFocus(30221)] | [ControlGroup(505).HasFocus | ControlGroup(506).HasFocus | Control.HasFocus(1505) | Control.HasFocus(1506)]]">Conditional</animation>
         <onup condition="Integer.IsGreater(Container(3022).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),MoviesLists1)">3022</onup>
         <onup condition="Integer.IsGreater(Container(30221).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),TVLists1)">30221</onup>
         <onup condition="[!Skin.HasSetting(DisableNetflixCatWidget) + Integer.IsGreater(Container(30222).NumItems,0)] + !String.IsEqual(Container(300).ListItem.Property(widgethub),true) | [String.IsEqual(Container(300).ListItem.Property(widgethub),true) + !Integer.IsGreater(Container(3022).NumItems,0)]">SetFocus(30222)</onup>

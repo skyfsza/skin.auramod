@@ -225,8 +225,53 @@
         <textcolor>dimgrey</textcolor>
 	<autoscroll>0</autoscroll>
         <label>$INFO[ListItem.Plot]</label>
+        <visible>!String.IsEqual(ListItem.DBType,episode)</visible>
         </control>
         </control>
+
+     <control type="group">
+      <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+       <control type="label">
+	<top>100</top>
+	<width>150</width>
+	<height>70</height>
+	<left>53%</left>
+        <font>font_widgetbar_bold</font>
+        <textcolor>$VAR[ColorHighlight]</textcolor>
+        <label>S$INFO[ListItem.Season]:E$INFO[ListItem.Episode] - </label>
+       </control>
+       <control type="label">
+        <top>100</top>
+        <width>300</width>
+        <height>70</height>
+        <left>65%</left>
+        <font>font_widgetbar_bold</font>
+        <textcolor>$VAR[ColorHighlight]</textcolor>
+        <label>$INFO[ListItem.Title]</label>
+	<scroll>true</scroll>
+       </control>
+       <control type="textbox">
+	<top>190</top>
+	<height>95</height>
+        <width>40%</width>
+        <left>53%</left>
+        <font>font_epg_timeline</font>
+        <textcolor>dimgrey</textcolor>
+        <label fallback="19055">[I]Aired $INFO[ListItem.Premiered(DDD MMM yyyy)] on [/I]</label>
+       </control>
+       <control type="image">
+          <top>180</top>
+	  <right>120</right>
+          <texture colordiffuse="main_fg_100">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
+          <aspectratio>stretch</aspectratio>
+          <height>54</height>
+          <width>74</width>
+        </control>
+      </control>
+ 
+
+
+
 
     </control>
 
@@ -262,8 +307,6 @@
         <control type="image">
           <bottom>35</bottom>
 	  <left>10</left>
-<!--	  <top>5</top>
-	  <centerleft>50%</centerleft> -->
           <width>50%</width>
           <height>50%</height>
           <aspectratio>keep</aspectratio>
@@ -273,8 +316,8 @@
         </control>
       </control>
 
-	<control type="group">
-	<control type="label">
+     <control type="group">
+       <control type="label">
 	<top>10</top>
 	<width>40%</width>
 	<height>30</height>
@@ -283,8 +326,9 @@
 	<textcolor>white</textcolor>
 	<label>$INFO[ListItem.Genre]</label>
 	<scroll>false</scroll>
-	</control>
-        <control type="label">
+       </control>
+
+       <control type="label">
 	<top>40</top>
 	<height>60</height>
         <width>40%</width>
@@ -292,8 +336,9 @@
         <font>font_medium_bold</font>
         <textcolor>white</textcolor>
         <label>$VAR[video_heading]</label>
-        </control>	
-        <control type="textbox">
+       </control>	
+
+       <control type="textbox">
 	<top>100</top>
 	<height>95</height>
         <width>40%</width>
@@ -302,8 +347,51 @@
         <textcolor>white</textcolor>
 	<autoscroll>0</autoscroll>
         <label>$INFO[ListItem.Plot]</label>
+	<visible>!String.IsEqual(ListItem.DBType,episode)</visible>
+       </control>
+      </control>
+
+     <control type="group">
+      <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+       <control type="label">
+	<top>100</top>
+	<width>150</width>
+	<height>70</height>
+	<left>53%</left>
+        <font>font_widgetbar_bold</font>
+        <textcolor>$VAR[ColorHighlight]</textcolor>
+        <label>S$INFO[ListItem.Season]:E$INFO[ListItem.Episode] - </label>
+       </control>
+       <control type="label">
+        <top>100</top>
+        <width>300</width>
+        <height>70</height>
+        <left>65%</left>
+        <font>font_widgetbar_bold</font>
+        <textcolor>$VAR[ColorHighlight]</textcolor>
+        <label>$INFO[ListItem.Title]</label>
+	<scroll>false</scroll>
+       </control>
+       <control type="textbox">
+	<top>190</top>
+	<height>95</height>
+        <width>40%</width>
+        <left>53%</left>
+        <font>font_epg_timeline</font>
+        <textcolor>dimgrey</textcolor>
+        <label fallback="19055">[I]Aired $INFO[ListItem.Premiered(DDD MMM yyyy)] on [/I]</label>
+       </control>
+       <control type="image">
+          <top>180</top>
+	  <right>120</right>
+          <texture colordiffuse="main_fg_100">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
+          <aspectratio>stretch</aspectratio>
+          <height>54</height>
+          <width>74</width>
         </control>
-        </control>
+      </control>
+ 
+ 
 
     </control>
 
