@@ -1021,6 +1021,7 @@
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <label>[B]$LOCALIZE[31455][/B]</label>
                         </control>
+<!--
                         <control type="radiobutton" id="9107" description="Display text labels on landscape widgets">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1028,6 +1029,7 @@
                             <selected>!Skin.HasSetting(WidgetLabels)</selected>
                             <onclick>Skin.ToggleSetting(WidgetLabels)</onclick>
                         </control>
+-->
                        <control type="radiobutton" id="9108" description="Prefer fanart">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1035,6 +1037,7 @@
                             <selected>Skin.HasSetting(PreferFanartHome)</selected>
                             <onclick>Skin.ToggleSetting(PreferFanartHome)</onclick>
                         </control>
+<!--
                         <control type="radiobutton" id="9621" description="Enable Banners on Widgets">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1042,6 +1045,7 @@
                             <selected>Skin.HasSetting(DisableBanners)</selected>
                             <onclick>Skin.ToggleSetting(DisableBanners)</onclick>
                         </control>
+-->
                         <control type="radiobutton" id="9622" description="Enable Clearlogo on Widgets">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1113,10 +1117,15 @@
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
                             <label>Enable Widget Bar Studio logo</label>
-			    <visible>Skin.HasSetting(DisableWidgetIMDB)</visible>
-			    <enable>Skin.HasSetting(DisableWidgetIMDB)</enable>
                             <selected>Skin.HasSetting(DisableWidgetStudio)</selected>
                             <onclick>Skin.ToggleSetting(DisableWidgetStudio)</onclick>
+                        </control>
+                        <control type="radiobutton" id="96252" description="Enable Widget Bar MPAA">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Enable Widget Bar MPAA</label>
+                            <selected>Skin.HasSetting(DisableWidgetMPAA)</selected>
+                            <onclick>Skin.ToggleSetting(DisableWidgetMPAA)</onclick>
                         </control>
                         <!-- =============-->
                         <!-- ----PVR-------->

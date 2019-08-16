@@ -516,7 +516,7 @@
 
   <include name="View_Posters_AddonList">
     <control type="group">
-      <visible>Control.IsVisible(505) + !Container.Content(episodes) + !Container.Content(tvshows)</visible>
+      <visible>Control.IsVisible(505) + !Container.Content(episodes) + !Container.Content(tvshows) + !Container.Content(movies)</visible>
       <control type="group">
        <control type="group">
           <animation effect="slide" end="-500,0" time="500" condition="Control.HasFocus(5055)">Conditional</animation>
@@ -1424,7 +1424,7 @@
             <include>View_Posters_Itemlayout_Artwork</include>
           </control>
           <control type="group">
-            <visible>$PARAM[text] + !Skin.HasSetting(DisableViewText) + [Skin.HasSetting(DisableNetflixView) | [!Skin.HasSetting(DisableNetflixView) + !Control.HasFocus(55) + !Control.HasFocus(56) + !Control.HasFocus(502) + !Control.HasFocus(504) + !Control.HasFocus(509) + !Control.HasFocus(505) + !Control.HasFocus(300) + !Window.IsVisible(DialogBusy.xml)]]</visible>
+            <visible>$PARAM[text] + !Skin.HasSetting(DisableViewText) + [Skin.HasSetting(DisableNetflixView) | [!Skin.HasSetting(DisableNetflixView) + !Control.IsVisible(55) + !Control.HasFocus(56) + !Control.HasFocus(502) + !Control.HasFocus(504) + !Control.HasFocus(509) + !Control.HasFocus(505) + !Window.IsVisible(DialogBusy.xml) + !Window.IsVisible(DialogContextMenu.xml)]]</visible>
             <include condition="$PARAM[text] + !Skin.HasSetting(DisableViewText)">View_Posters_Text</include>
           </control>
         </control>
@@ -1446,7 +1446,7 @@
             </control>
           </control>
           <control type="group">
-            <visible>$PARAM[text] + !Skin.HasSetting(DisableViewText) + [Skin.HasSetting(DisableNetflixView) | [!Skin.HasSetting(DisableNetflixView) + !Control.HasFocus(55) + !Control.HasFocus(56) + !Control.HasFocus(502) + !Control.HasFocus(504) + !Control.HasFocus(509) + !Control.HasFocus(505) + !Control.HasFocus(300) + !Window.IsVisible(DialogBusy.xml)]]</visible>
+            <visible>$PARAM[text] + !Skin.HasSetting(DisableViewText) + [Skin.HasSetting(DisableNetflixView) | [!Skin.HasSetting(DisableNetflixView) + !Control.HasFocus(55) + !Control.HasFocus(56) + !Control.HasFocus(502) + !Control.HasFocus(504) + !Control.HasFocus(509) + !Control.HasFocus(505) + !Control.HasFocus(300) + !Window.IsVisible(DialogBusy.xml) + !Window.IsVisible(DialogContextMenu.xml)]]</visible>
             <include condition="$PARAM[text] + !Skin.HasSetting(DisableViewText)">View_Posters_Text</include>
           </control>
         </control>

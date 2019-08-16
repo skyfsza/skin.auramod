@@ -1,3 +1,9 @@
+v0.9.30
+- Fix circular navigation for Submenu / Category widget on Auramod mode with Horizontal Menu.
+- Fix navigation from Horizontal mainmenu to Settings + Weather widgets.
+- Add MPAA option for Aura Mode widget status bar.
+
+
 v0.9.29
 - Change TV and Movie Netflix hubs to use standard widget configuration (requires once off reconfigure)
 - Add option to Aura Mode for My Lists as a Home widget panel.

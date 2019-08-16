@@ -424,7 +424,7 @@
         <definition>
             <left>-10</left>
             <right>-10</right>
-            <top>70</top>
+            <top>30</top>
             <focusposition>0</focusposition>
             <movement>6</movement>
             <description>Plugin Content Widget</description>

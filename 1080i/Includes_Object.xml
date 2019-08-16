@@ -1248,6 +1248,7 @@
         <include>Global_Background</include>
       </control>
     </control>
+
     <control type="group">
       <animation effect="slide" end="-90,0" condition="!Skin.HasSetting(DisableNetflixLargeWidget) + !Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
       <animation effect="slide" end="-90,0" condition="Skin.HasSetting(DisableNetflixSmallWidget) + !Skin.HasSetting(DisableNetflixLowSpotlight) + !Control.HasFocus(300) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
@@ -2139,7 +2140,7 @@
       </control>
       <control type="grouplist">
         <visible>![Container.Content(movies) | Container.Content(sets) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(videos) | Container.Content(seasons) | Window.IsVisible(script-script.extendedinfo-VideoList.xml) | $EXP[Exp_IsPluginAdvancedLauncher]]</visible>
-        <visible>!Container($PARAM[id]).ListItem.IsParentFolder</visible>
+        <visible>!Container($PARAM[id]).ListItem.IsParentFolder + !Control.HasFocus(505) + !Control.HasFocus(5055) + !Control.HasFocus(55) + !Control.HasFocus(56) + !Control.HasFocus(509) + !Control.HasFocus(504)</visible>
         <bottom>$PARAM[bottom]</bottom>
         <top>-10</top>
         <orientation>vertical</orientation>
@@ -2249,6 +2250,16 @@
   </definition>
   </include>
 
+  <include name="submenu_widget_hub_mymovies1">
+    <control type="panel" id="30229">
+    <visible>Window.IsVisible(Home)</visible>
+      <include content="submenu_widget_panel_template">
+       <param name="id" value="30229" />
+      </include>
+    <content><include>skinshortcuts-group-x1101</include></content>
+    </control>
+  </include>
+
   <include name="submenu_widget_mymovies1">
     <control type="panel" id="30229">
     <visible>Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widgetmylist),true) + String.IsEqual(Container(300).ListItem.Property(widgetmylistselect),Movie List 1)</visible>
@@ -2296,6 +2307,46 @@
   <include name="widgetmylist1"><content><include>skinshortcuts-group-x1105</include></content></include>
   <include name="widgetmylist2"><content><include>skinshortcuts-group-x1106</include></content></include>
   <include name="widgetmylist3"><content><include>skinshortcuts-group-x1107</include></content></include>
+
+
+  <include name="submenu_widget_hub">
+    <control type="image">
+      <width>100%</width>
+      <height>100%</height>
+      <texture background="true" colordiffuse="FF000000" flipy="true">common/white.png</texture>
+      <visible>Control.HasFocus(30222) | Control.HasFocus(30229)</visible>
+    </control>
+
+    <control type="list" id="30222">
+      <visible allowhiddenfocus="true">Control.HasFocus(30222) | Control.HasFocus(30229)</visible>
+      <left>80</left>
+      <top>150</top>
+      <orientation>horizontal</orientation>
+      <onup condition="Window.IsVisible(Home) + !Integer.IsGreater(Container($PARAM[id]).NumItems,0) + Integer.IsGreater(Container(1505).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),TVShows)">SetFocus(1505)</onup>
+      <onup condition="Window.IsVisible(Home) + !Integer.IsGreater(Container($PARAM[id]).NumItems,0) + Integer.IsGreater(Container(1506).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),Movies)">SetFocus(1506)</onup>
+      <onup condition="!String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)">300</onup>
+      <onup>300</onup>
+      <onleft>300</onleft>
+      <onback>300</onback>
+      <ondown>30229</ondown>
+      <include>Home_Widget_SubMenu_Layout_thumb_fixed</include>
+    </control>
+
+    <control type="panel" id="30229">
+      <visible>Control.HasFocus(30222) | Control.HasFocus(30229)</visible>
+      <onleft>300</onleft>
+      <onup>30222</onup>
+      <top>400</top>
+      <include content="submenu_widget_panel_template">
+       <param name="id" value="30229" />
+      </include>
+    <content><include>skinshortcuts-group-x1101</include></content>
+    </control>
+
+  </include>
+
+
+
 
   <include name="submenu_widget_thumb">
     <control type="list" id="30222">
@@ -2876,7 +2927,7 @@
     <param name="onclick3" default="" />
     <param name="busyspinner" default="true" />
     <param name="pad" default="view_pad" />
-    <param name="top" default="-15" />
+    <param name="top" default="0" />
     <param name="episodelayout" default="false" />
     <param name="aspect" default="scale" />
     <param name="fallbackimage" default="DefaultAddonImages.png" />
@@ -2892,8 +2943,8 @@
         <visible>!Container.Content(musicvideos)</visible>
         <visible>$PARAM[visible]</visible>
         <control type="grouplist">
-          <top>20</top>
-          <height>42</height>
+          <top>0</top>
+          <height>25</height>
           <left>0</left>
           <align>left</align>
           <itemgap>12</itemgap>
@@ -2933,6 +2984,7 @@
         <!-- Similar Movies -->
         <control type="list" id="$PARAM[id]">
           <orientation>horizontal</orientation>
+	  <left>10</left>
           <include content="Object_VideoInfo_CastList_OnClick" condition="$PARAM[include_onclick]">
             <param name="onclick" value="$PARAM[onclick]" />
             <param name="onclick2" value="$PARAM[onclick2]" />
@@ -3432,7 +3484,7 @@
             <control type="image">
               <aspectratio aligny="center" scalediffuse="false">scale</aspectratio>
               <texture background="true" fallback="DefaultAddonImages.png" diffuse="diffuse/bigposter.png">$PARAM[variable]</texture>
-              <visible>[!$PARAM[container]ListItem.IsParentFolder + !String.StartsWith($PARAM[container]ListItem.Icon,Default) + [!String.IsEmpty($PARAM[container]ListItem.Art(tvshow.poster)) | !String.IsEmpty($PARAM[container]ListItem.Art(poster)) | !String.IsEmpty($PARAM[container]ListItem.Art(season.poster))]]</visible>
+              <visible>[!$PARAM[container]ListItem.IsParentFolder + [!String.IsEmpty($PARAM[container]ListItem.Art(tvshow.poster)) | !String.IsEmpty($PARAM[container]ListItem.Art(poster)) | !String.IsEmpty($PARAM[container]ListItem.Art(season.poster))]]</visible>
             </control>
             <control type="group">
               <visible>[[!$PARAM[container]ListItem.IsParentFolder + !String.StartsWith($PARAM[container]ListItem.Icon,Default)] + ![!String.IsEmpty($PARAM[container]ListItem.Art(tvshow.poster)) | !String.IsEmpty($PARAM[container]ListItem.Art(poster)) | !String.IsEmpty($PARAM[container]ListItem.Art(season.poster))]]</visible>
@@ -3494,6 +3546,7 @@
       </control>
     </definition>
   </include>
+
   <include name="Object_Flags">
     <param name="container" default="" />
     <param name="source" default="ListItem." />

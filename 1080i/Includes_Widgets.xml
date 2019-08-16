@@ -352,7 +352,7 @@
         <onup condition="!Skin.HasSetting(DisableMenuHor) + Integer.IsGreater(Container(30222).NumItems,0) + !String.IsEqual(Container(300).ListItem.Property(widgethub),true) | [String.IsEqual(Container(300).ListItem.Property(widgethub),true) + !Integer.IsGreater(Container(3022).NumItems,0)]">SetFocus(30222)</onup>
         <onup condition="!Skin.HasSetting(DisableMenuHor) + Integer.IsGreater(Container(30222).NumItems,0) + !String.IsEqual(Container(300).ListItem.Property(widgethub),true) | [String.IsEqual(Container(300).ListItem.Property(widgethub),true) + !Integer.IsGreater(Container(30221).NumItems,0)]">SetFocus(30222)</onup>
         <onup condition="!Skin.HasSetting(DisableMenuHor) + !String.IsEqual(Container(300).ListItem.Property(widgethub),true)">300</onup>
-        <onleft condition="Control.HasFocus(30222)">300</onleft>
+        <onleft condition="Control.HasFocus(30222) + !Skin.HasSetting(DisableMenuHor)">300</onleft>
         <onleft condition="!String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)">300</onleft>
         <onleft condition="!Skin.HasSetting(DisableMenuHor)">SetFocus(300)</onleft>
 	<ondown>3337</ondown>
@@ -682,7 +682,7 @@
                 <height>40</height>
                 <orientation>horizontal</orientation>
                 <usecontrolcoords>true</usecontrolcoords>
-                <itemgap>16</itemgap>
+                <itemgap>20</itemgap>
                 <control type="image">
                     <width>16</width>
                     <height>100%</height>
@@ -691,6 +691,7 @@
 		    <visible>!Control.HasFocus($PARAM[submenu]) + !Skin.HasSetting(DisableCatlabel)</visible>
                 </control>
                 <control type="label">
+		    <top>-2</top>
                     <left>2</left>
                     <textcolor>main_fg_100</textcolor>
                     <label>$PARAM[label]</label>
@@ -698,6 +699,7 @@
 		    <visible>Skin.HasSetting(LargeWidgetLabel)</visible>
                 </control>
                 <control type="label">
+		    <top>-2</top>
                     <font>font_widgetbar_bold</font>
                     <left>2</left>
                     <textcolor>main_fg_100</textcolor>
@@ -724,6 +726,7 @@
                 </control>
 -->
                 <control type="label">
+		    <top>-2</top>
                     <textcolor>main_fg_70</textcolor>
                     <label>$INFO[Container($PARAM[id]).ListItem.Artist,-   ,]</label>
                     <include>Statusbar_Menubar_Items</include>
@@ -733,15 +736,52 @@
                 </control>
 <!-- Add Title, Rating and Plot to Widget Bar -->
                 <control type="label">
+		    <top>-2</top>
                     <textcolor>$VAR[ColorHighlight2]</textcolor>
                     <label>$INFO[Container($PARAM[id]).ListItem.Label,|  ]</label>
                     <include>Statusbar_Menubar_Items</include>
                     <visible>Control.HasFocus($PARAM[id]) + ![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetTitle)</visible>
 	<visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
+                    <visible>Skin.HasSetting(LargeWidgetLabel)</visible>
                 </control>
 
-<!-- Add Ratings -->
+                <control type="label">
+		    <top>-2</top>
+                    <font>font_widgetbar_bold</font>
+                    <textcolor>$VAR[ColorHighlight2]</textcolor>
+                    <label>$INFO[Container($PARAM[id]).ListItem.Label,|  ]</label>
+                    <include>Statusbar_Menubar_Items</include>
+                    <visible>Control.HasFocus($PARAM[id]) + ![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetTitle)</visible>
+        <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
+                    <visible>!Skin.HasSetting(LargeWidgetLabel)</visible>
+                </control>
+
+
+                <control type="label">
+		    <top>-2</top>
+                    <textcolor>$VAR[ColorHighlight2]</textcolor>
+                    <label>$INFO[Container($PARAM[id]).ListItem.MPAA,|  ]</label>
+                    <include>Statusbar_Menubar_Items</include>
+                    <visible>Control.HasFocus($PARAM[id]) + ![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetMPAA)</visible>
+        <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
+                    <visible>Skin.HasSetting(LargeWidgetLabel)</visible>
+                </control>
+
+                <control type="label">
+		    <top>-2</top>
+                    <font>font_widgetbar_bold</font>
+                    <textcolor>$VAR[ColorHighlight2]</textcolor>
+                    <label>$INFO[Container($PARAM[id]).ListItem.MPAA,|  ]</label>
+                    <include>Statusbar_Menubar_Items</include>
+                    <visible>Control.HasFocus($PARAM[id]) + ![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetMPAA)</visible>
+        <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
+                    <visible>!Skin.HasSetting(LargeWidgetLabel)</visible>
+                </control>
+
+
+<!-- Add Airdate -->
                       <control type="label">
+		        <top>-2</top>
                         <label>Aired: $INFO[ListItem.Premiered(dd MMM yyyy)]</label>
                         <textcolor>$VAR[ColorHighlight2]</textcolor>
                         <font>font_tiny_bold</font>
@@ -750,6 +790,8 @@
                         <visible>String.IsEqual(ListItem.DBType,episode) + Skin.HasSetting(DisableWidgetAirdate)</visible>
 	<visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
                       </control>
+
+<!-- Add Ratings -->
 		<control type="grouplist">
 		    <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB)</visible>
 	<visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
@@ -771,6 +813,30 @@
                     <param name="studio" value="false" />
                 </include>
 		</control>
+
+                <control type="grouplist">
+                    <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetStudio) + !Skin.HasSetting(DisableWidgetIMDB</visible>
+        <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
+                    <bottom>10</bottom>
+                    <height>40</height>
+               <include content="Object_Ratings">
+                    <param name="directory" value="color" />
+                    <param name="align" value="left" />
+                    <param name="width" value="1400" />
+                    <param name="rottentomatoes" value="false" />
+                    <param name="imdbvotes" value="false" />
+                    <param name="usermeter" value="false" />
+                    <param name="imdb" value="false" />
+                    <param name="tmdb" value="false" />
+		    <param name="tvdb" default="false" />
+                    <param name="metacritic" value="false" />
+                    <param name="oscars" value="false" />
+                    <param name="top250" value="false" />
+                    <param name="plot" value="false" />
+                    <param name="studio" value="true" />
+                </include>
+                </control>
+<!-- Add Plot when no ratings -->
 		<control type="label">
                     <left>5</left>
 	<visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
