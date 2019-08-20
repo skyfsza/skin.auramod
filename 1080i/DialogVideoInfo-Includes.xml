@@ -1365,6 +1365,7 @@
               <onclick>Skin.Reset(TMDBSearchTerm)</onclick>
               <onclick>Skin.SetString(CustomSearchTerm,$INFO[ListItem.Title])</onclick>
               <onclick>Skin.SetString(TMDB_Search,INFO[ListItem.Title])</onclick>
+	      <onclick>RunScript(plugin.video.themoviedb.helper,reset_path)</onclick>
 	      <onclick>ActivateWindow(Home)</onclick>
 
               <visible>String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
