@@ -119,7 +119,6 @@
         <include>WidgetHubScroll</include>
                         <control type="group">
                             <visible>String.IsEqual(Container(300).ListItem.Property(widget),Weather)</visible>
-			    <include>Global_Background</include>
                             <include>Weather</include>
                         </control>
                         <control type="group">

@@ -5,7 +5,6 @@
     
     <include>View_ViewIDs</include>
     <controls>
-        <include>Global_Background</include>
         <include>View_Library</include>
         <include>Topbar</include>
 
