@@ -73,15 +73,13 @@
 
                         <onleft condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">9602</onleft>
 
-                        <ondown condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widget),Settings)">9967</ondown>
-                        <ondown condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widget),Weather)">9966</ondown>
 			<onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widget),Settings)">9967</onright>
 			<onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widget),Weather)">9966</onright>	
                         <onright condition="Window.IsVisible(script-globalsearch-main.xml)">9500</onright>
-                        <onright condition="Window.IsVisible(Home) + !Skin.HasSetting(DisableAuraHomeLayout)">3000</onright>
-                        <onright condition="Window.IsVisible(Home) + !Integer.IsGreater(Container(30222).NumItems,0)">3000</onright>
+                        <onright condition="Window.IsVisible(Home) + !Skin.HasSetting(DisableAuraHomeLayout) + Integer.IsGreater(Container(330).NumItems,0)">3000</onright>
+                        <onright condition="Window.IsVisible(Home) + !Integer.IsGreater(Container(30222).NumItems,0) + Integer.IsGreater(Container(330).NumItems,0)">3000</onright>
 			<onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Label,Youtube)">11</onright>	
-                        <onright condition="!Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)">330</onright>
+                        <onright condition="!Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + Integer.IsGreater(Container(330).NumItems,0)">330</onright>
 
                         <onright condition="Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + Integer.IsGreater(Container(30222).NumItems,0)">30222</onright>
                         <onright condition="Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + Integer.IsGreater(Container(30222).NumItems,0)">30222</onright>
@@ -814,6 +812,8 @@
         <ondown condition="Control.IsVisible(3902)">3902</ondown>
         <onup condition="!Control.IsVisible(3902)">300</onup>
         <ondown condition="!Control.IsVisible(3902)">300</ondown>
+                <onfocus condition="String.IsEqual(Container(300).ListItem.Property(label),24001)">ActivateWindow(2112)</onfocus>
+
 <!--
         <onunfocus>ClearProperty(MenuFocus,Home)</onunfocus>
         <onfocus>SetProperty(MenuFocus,1,Home)</onfocus>

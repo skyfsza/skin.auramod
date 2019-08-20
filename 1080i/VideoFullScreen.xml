@@ -2,8 +2,8 @@
 <!-- Foundation -->
 <window id="2005">
     <onload>ClearProperty(ViewType,Home)</onload>
+	<onunload condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">AlarmClock(loadinfo,PlayerControl(Stop),00:00,silent)</onunload>
       <onunload condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">AlarmClock(loadinfo,Action(Info),00:00,silent)</onunload>
-      <onunload condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">AlarmClock(loadinfo,PlayerControl(Stop),00:00,silent)</onunload>                                                                                                                                                                                                              
     <controls>
 
         <control type="group" id="0">

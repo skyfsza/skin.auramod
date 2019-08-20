@@ -152,6 +152,7 @@
                 <animation effect="fade" condition="!Control.HasFocus(9602)" start="0" end="100" delay="0" time="300" reversible="false">Conditional</animation>
                 <include>Animation_FadeInOut</include>
                 <control type="image">
+            <animation effect="fade" start="0" end="100" delay="200" time="1000" pulse="false">Visible</animation>
                     <texture colordiffuse="$VAR[Global_FanartDim]">common/white.png</texture>
 		    <visible>!Skin.HasSetting(DisableTransparency)</visible>
                 </control>

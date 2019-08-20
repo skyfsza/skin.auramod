@@ -2,6 +2,7 @@
 <!-- Foundation -->
 <window id="0">
     <defaultcontrol always="true">4000</defaultcontrol>
+    <onload>RunScript(plugin.video.themoviedb.helper,reset_path)</onload>
     <onload condition="Skin.HasSetting(EnableWetherRadar)">RunScript(special://masterprofile/addon_data/scripts/weather.py)</onload> 
     <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|searchmenu|aurahubtv|aurahubmovies|netflixhubtv|netflixhubmovies)</onload>
     <onload condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs)">Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
@@ -14,6 +15,7 @@
     <onload condition="Integer.IsGreater(Container(1506).NumItems,0)">Control.Move(1506,1)</onload>
     <onload condition="!Skin.HasSetting(LockHubWidgets)">Skin.ToggleSetting(LockHubWidgets)</onload>
     <onload condition="Skin.HasSetting(AutoLibraryHome)">UpdateLibrary(video,,true)</onload>
+    <onload condition="!String.IsEmpty(Skin.String(TMDB_Search))">ActivateWindow(1136)</onload>
     <onload>Skin.SetString(AddonContainer,false)</onload>
     <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
    

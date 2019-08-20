@@ -4,7 +4,6 @@
     <!-- Common -->
     <!-- ====== -->
     <include name="Topbar_HomeMenu_Item">
-      <visible>!Skin.HasSetting(DisableNetflixHome)</visible>
         <control type="togglebutton">
             <width>auto</width>
             <align>left</align>

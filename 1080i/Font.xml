@@ -3,6 +3,40 @@
 <fonts>
     <fontset id="Default" unicode="true">
 
+        <font>
+            <name>font_heading_top</name>
+            <style>uppercase</style>
+            <filename>RobotoCondensed-Light.ttf</filename>
+            <size>26</size>
+            <aspect>0.9</aspect>
+        </font>
+        <font>
+            <name>font_heading_small</name>
+            <style>uppercase</style>
+            <filename>RobotoCondensed-Spaced-Caps.ttf</filename>
+            <size>26</size>
+            <aspect>0.9</aspect>
+        </font>
+        <font>
+            <name>font_heading</name>
+            <style>uppercase</style>
+            <filename>RobotoCondensed-Spaced-Caps.ttf</filename>
+            <aspect>0.9</aspect>
+            <size>46</size>
+        </font>
+        <font>
+            <name>font_heading_spot</name>
+            <style>uppercase</style>
+            <filename>RobotoCondensed-Regular.ttf</filename>
+            <aspect>0.9</aspect>
+            <size>46</size>
+        </font>
+        <font>
+            <name>font_heading</name>
+            <style>uppercase</style>
+            <filename>RobotoCondensed-Spaced-Caps.ttf</filename>
+            <size>46</size>
+        </font>
         <!-- Standard Fonts -->
         <font>
             <name>category_widget_title</name>

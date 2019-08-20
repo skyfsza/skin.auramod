@@ -420,6 +420,110 @@
         </control>
     </include>
 
+
+<!--
+    <include name="Widget_TMDB">
+        <param name="submenu" default="false" />
+        <param name="genres" default="false" />
+        <param name="studios" default="false" />
+        <param name="text" default="false" />
+        <param name="widgetAspect" default="$PARAM[widgetAspect]" />
+        <param name="postercondition" default="false" />
+        <param name="landscapecondition" default="false" />
+        <param name="landscapewidecondition" default="false" />
+        <param name="landscapewidepostercondition" default="false" />
+        <param name="landscapenetflixcondition" default="false" />
+        <param name="landscapepanelcondition" default="false" />
+        <param name="landscapedetails" default="false" />
+        <param name="landscapepanel" default="false" />
+        <param name="posterdetailscondition" default="false" />
+        <param name="widgetlivecondition" default="false" />
+        <param name="categorycondition" default="false" />
+        <param name="squarecondition" default="false" />
+        <param name="genrecondition" default="false" />
+        <param name="controltype" default="fixedlist" />
+        <param name="search" default="false" />
+        <definition>
+            <control type="group" id="2$PARAM[id]">
+		<onback>SetFocus(9570)</onback>
+                <top>widget_gap</top>
+                <visible>$PARAM[visible]</visible>
+                <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
+                <height>40</height>
+                <animation effect="slide" end="0,-35" time="0" condition="Skin.HasSetting(DisableAuraHomeLayout) + Window.IsVisible(DialogVideoInfo.xml)">Conditional</animation>
+                <animation effect="slide" end="0,10" time="0" condition="[!Skin.HasSetting(DisableAuraHomeLayout) + Skin.HasSetting(LargeWidgetLabel)]  + Window.IsVisible(DialogVideoInfo.xml)">Conditional</animation>
+                <include content="Widget_Label">
+                    <param name="id" value="$PARAM[id]" />
+                    <param name="label" value="$PARAM[label]" />
+                    <param name="content" value="$PARAM[content]" />
+                    <param name="widgetContent" value="$PARAM[widgetContent]" />
+                </include>
+                <control type="group">
+                    <include condition="Skin.HasSetting(MouseMode)">Widget_Busy_Top_Mouse</include>
+                    <include condition="![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(DialogVideoInfo.xml)] | Window.IsVisible(1134)">Widget_Label_height</include>
+                    <include condition="[Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(1134)]">Widget_Label_height_hub</include>
+                    <left>-395</left>
+		    <include condition="Skin.HasSetting(DisableAuraHomeLayout)">widget_label_top</include>
+                    <include content="Defs_BusySpinner">
+                        <param name="label" value="$LOCALIZE[31138]..." />
+                    </include>
+                    <visible>[Container($PARAM[id]).IsUpdating + !Integer.IsGreater(Container($PARAM[id]).NumItems,0)] | [Window.IsVisible(DialogVideoInfo.xml) + Container($PARAM[id]).IsUpdating]</visible>
+
+                </control>
+            </control>
+            <control type="$PARAM[controltype]" id="$PARAM[id]">
+		<onleft>$PARAM[onleft]</onleft>
+		<onback>$PARAM[onback]</onback>
+                <animation effect="fade" start="100" end="0" condition="Window.IsVisible(DialogVideoInfo.xml) + Container($PARAM[id]).IsUpdating">Conditional</animation>
+		<movement>1</movement>
+		<height>425</height>
+                <onclick condition="Window.IsVisible(DialogVideoInfo.xml)">SetFocus(9570)</onclick>
+                <onclick condition="Window.IsVisible(DialogVideoInfo.xml)">RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath],call_id=1137,delay=0.35,prevent_del)</onclick>
+
+                <visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | Container(300).OnNext | Container(300).OnPrevious | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
+                <include content="Widget_Items" condition="!$PARAM[submenu]">
+                    <param name="id" value="$PARAM[id]" />
+                    <param name="target" value="$PARAM[target]" />
+                    <param name="content" value="$PARAM[content]" />
+                    <param name="widgetContent" value="$PARAM[widgetContent]" />
+                    <param name="aspect" value="$PARAM[aspect]" />
+                    <param name="widgetAspect" value="$PARAM[widgetAspect]" />
+                    <param name="submenu" value="$PARAM[submenu]" />
+                    <param name="sortby" value="$PARAM[sortby]" />
+                    <param name="sortorder" value="$PARAM[sortorder]" />
+                    <param name="genres" value="$PARAM[genres]" />
+                    <param name="studios" value="$PARAM[studios]" />
+                    <param name="text" value="$PARAM[text]" />
+                    <param name="postercondition" value="$PARAM[postercondition]" />
+                    <param name="landscapecondition" value="$PARAM[landscapecondition]" />
+                    <param name="landscapewidecondition" value="$PARAM[landscapewidecondition]" />
+                    <param name="landscapewidepostercondition" value="$PARAM[landscapewidepostercondition]" />
+                    <param name="landscapenetflixcondition" value="$PARAM[landscapenetflixcondition]" />
+                    <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]" />
+                    <param name="landscapedetailscondition" value="$PARAM[landscapedetailscondition]" />
+                    <param name="posterdetailscondition" value="$PARAM[posterdetailscondition]" />
+                    <param name="widgetlivecondition" value="$PARAM[widgetlivecondition]" />
+                    <param name="categorycondition" value="$PARAM[categorycondition]" />
+                    <param name="squarecondition" value="$PARAM[squarecondition]" />
+                    <param name="genrecondition" value="$PARAM[genrecondition]" />
+                    <param name="search" value="$PARAM[search]" />
+                </include>
+                <include content="Widget_Submenu" condition="$PARAM[submenu]">
+                    <param name="id" value="$PARAM[id]" />
+                    <param name="target" value="$PARAM[target]" />
+                    <param name="content" value="$PARAM[content]" />
+                    <param name="widgetContent" value="$PARAM[widgetContent]" />
+                    <param name="aspect" value="$PARAM[aspect]" />
+                    <param name="widgetAspect" value="$PARAM[widgetAspect]" />
+                    <param name="submenu" value="$PARAM[submenu]" />
+                    <param name="sortby" value="$PARAM[sortby]" />
+                    <param name="sortorder" value="$PARAM[sortorder]" />
+                </include>
+            </control>
+        </definition>
+    </include>
+-->
+
     <include name="Widget_Busy_Top_Mouse"><top>455</top></include>
     <include name="Widget_Label_height"><top>655</top></include>
     <include name="Widget_Label_height_hub"><top>250</top></include>
@@ -478,8 +582,6 @@
                     <param name="widgetContent" value="$PARAM[widgetContent]" />
                 </include>
                 <control type="group">
-		    <animation effect="slide" end="30,0" time="0" condition="!Window.IsVisible(Home) + $PARAM[postercondition]">Conditional</animation>
-		    <animation effect="slide" end="-350,0" time="0" condition="!Window.IsVisible(Home) + !$PARAM[postercondition]">Conditional</animation>
                     <include condition="Skin.HasSetting(MouseMode)">Widget_Busy_Top_Mouse</include>
                     <include condition="![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]">Widget_Label_height</include>
                     <include condition="[Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]">Widget_Label_height_hub</include>
@@ -677,7 +779,7 @@
     <include name="Widget_Label">
         <definition>
             <control type="grouplist">
-                <include condition="![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]">Widget_Label_height_hub1</include>
+                <include condition="![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(DialogVideoInfo.xml)]">Widget_Label_height_hub1</include>
                 <left>70</left>
                 <height>40</height>
                 <orientation>horizontal</orientation>
@@ -740,7 +842,8 @@
                     <textcolor>$VAR[ColorHighlight2]</textcolor>
                     <label>$INFO[Container($PARAM[id]).ListItem.Label,|  ]</label>
                     <include>Statusbar_Menubar_Items</include>
-                    <visible>Control.HasFocus($PARAM[id]) + ![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetTitle)</visible>
+                    <visible>Control.HasFocus($PARAM[id])</visible>
+		    <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetTitle)</visible>
 	<visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
                     <visible>Skin.HasSetting(LargeWidgetLabel)</visible>
                 </control>
@@ -751,7 +854,8 @@
                     <textcolor>$VAR[ColorHighlight2]</textcolor>
                     <label>$INFO[Container($PARAM[id]).ListItem.Label,|  ]</label>
                     <include>Statusbar_Menubar_Items</include>
-                    <visible>Control.HasFocus($PARAM[id]) + ![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetTitle)</visible>
+                    <visible>Control.HasFocus($PARAM[id])</visible> 
+		    <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetTitle)</visible>
         <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
                     <visible>!Skin.HasSetting(LargeWidgetLabel)</visible>
                 </control>
@@ -762,7 +866,8 @@
                     <textcolor>$VAR[ColorHighlight2]</textcolor>
                     <label>$INFO[Container($PARAM[id]).ListItem.MPAA,|  ]</label>
                     <include>Statusbar_Menubar_Items</include>
-                    <visible>Control.HasFocus($PARAM[id]) + ![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetMPAA)</visible>
+                    <visible>Control.HasFocus($PARAM[id])</visible> 
+		    <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetMPAA)</visible>
         <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
                     <visible>Skin.HasSetting(LargeWidgetLabel)</visible>
                 </control>
@@ -773,7 +878,8 @@
                     <textcolor>$VAR[ColorHighlight2]</textcolor>
                     <label>$INFO[Container($PARAM[id]).ListItem.MPAA,|  ]</label>
                     <include>Statusbar_Menubar_Items</include>
-                    <visible>Control.HasFocus($PARAM[id]) + ![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetMPAA)</visible>
+                    <visible>Control.HasFocus($PARAM[id])</visible>  
+		    <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetMPAA)</visible>
         <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
                     <visible>!Skin.HasSetting(LargeWidgetLabel)</visible>
                 </control>
@@ -793,8 +899,9 @@
 
 <!-- Add Ratings -->
 		<control type="grouplist">
-		    <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB)</visible>
-	<visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
+		    <visible>Control.HasFocus($PARAM[id])</visible>
+	            <visible>!Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB)</visible>
+	<visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(DialogVideoInfo.xml)]</visible>
                     <bottom>10</bottom>
                     <height>40</height>
                <include content="Object_Ratings">
@@ -815,7 +922,7 @@
 		</control>
 
                 <control type="grouplist">
-                    <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetStudio) + !Skin.HasSetting(DisableWidgetIMDB</visible>
+                    <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetStudio) + !Skin.HasSetting(DisableWidgetIMDB)</visible>
         <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
                     <bottom>10</bottom>
                     <height>40</height>
@@ -1234,7 +1341,7 @@
                 <label>$LOCALIZE[31373]...</label>
                 <icon>DefaultFolder.png</icon>
                 <onclick>ActivateWindow($PARAM[target],$PARAM[widgetContent],return)</onclick>
-                <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,9)</visible>
+                <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,9) + !Window.IsVisible(DialogVideoInfo.xml)</visible>
                 <visible>!Skin.HasSetting(HideShowMoreItem)</visible>
             </item>
         </content>
@@ -1632,6 +1739,39 @@
                 <aspectratio scalediffuse="false">scale</aspectratio>
                 <visible>!String.IsEmpty(ListItem.Art(poster)) | [!String.IsEmpty(ListItem.Art(tvshow.poster)) + !String.IsEqual(ListItem.DBType,episode)] | $PARAM[poster]</visible>
             </control>
+
+                    <control type="image">
+                        <height>100%</height>
+                        <width>100%</width>
+                        <texture colordiffuse="bf000000" diffuse="diffuse/widgetposter.png">common/gradient-actor.png</texture>
+                        <visible>String.Contains(ListItem.FolderPath,type=person)</visible>
+                   </control>
+
+                    <control type="label">
+                        <left>20</left>
+                        <right>20</right>
+                        <height>30</height>
+                        <bottom>42</bottom>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <font>font_statusbar</font>
+                        <textcolor>main_fg_100</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                        <visible>String.Contains(ListItem.FolderPath,type=person)</visible>
+                    </control>
+                    <control type="label">
+                        <left>20</left>
+                        <right>20</right>
+                        <height>30</height>
+                        <bottom>18</bottom>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <font>font_statusbar</font>
+                        <textcolor>main_fg_70</textcolor>
+                        <label>$INFO[ListItem.Label2]</label>
+                        <visible>String.Contains(ListItem.FolderPath,type=person)</visible>
+                    </control>
+
 
         </definition>
     </include>

@@ -429,18 +429,18 @@
               <texture background="true">$VAR[Widget_ClearLogo]</texture>
             </control>
             <control type="textbox">
-              <top>130</top>
-              <left>140</left>
-              <visible>String.IsEmpty(Container(1505).ListItem.Art(clearlogo))</visible>
-              <label>$VAR[video_heading]</label>
-              <textcolor>grey</textcolor>
-              <shadowcolor>black</shadowcolor>
-              <font>spotlight_heading</font>
-              <width min="200" max="500">auto</width>
-              <height min="30" max="115">auto</height>
-              <align>center</align>
-              <wrapmultiline>true</wrapmultiline>
-              <scroll>true</scroll>
+            <visible>String.IsEmpty(Container(1505).ListItem.Art(clearlogo))</visible>
+            <top>130</top>
+            <left>140</left>
+            <label>[B]$VAR[video_heading][/B]</label>
+	    <textcolor>grey</textcolor>
+            <shadowcolor>black</shadowcolor>
+            <font>font_heading</font>
+            <width min="200" max="500">auto</width>
+            <height min="30" max="115">auto</height>
+            <align>center</align>
+            <wrapmultiline>true</wrapmultiline>
+            <scroll>true</scroll>
             </control>
             <!-- Tagline -->
             <!--
@@ -630,18 +630,18 @@
               <texture background="true">$VAR[Widget_ClearLogo]</texture>
             </control>
             <control type="textbox">
-              <top>130</top>
-              <left>110</left>
-              <visible>String.IsEmpty(Container(1506).ListItem.Art(clearlogo))</visible>
-              <label>$VAR[video_heading]</label>
-              <textcolor>grey</textcolor>
-              <shadowcolor>black</shadowcolor>
-              <font>spotlight_heading</font>
-              <width min="200" max="500">auto</width>
-              <height min="30" max="115">auto</height>
-              <align>center</align>
-              <wrapmultiline>true</wrapmultiline>
-              <scroll>true</scroll>
+            <visible>String.IsEmpty(Container(1505).ListItem.Art(clearlogo))</visible>
+            <top>130</top>
+            <left>140</left>
+            <label>[B]$VAR[video_heading][/B]</label>
+            <textcolor>grey</textcolor>
+            <shadowcolor>black</shadowcolor>
+            <font>font_heading</font>
+            <width min="200" max="500">auto</width>
+            <height min="30" max="115">auto</height>
+            <align>center</align>
+            <wrapmultiline>true</wrapmultiline>
+            <scroll>true</scroll>
             </control>
             <!-- Tagline -->
             <!--
@@ -817,13 +817,13 @@
               <top>60</top>
               <left>40</left>
               <visible>String.IsEmpty(Container(1505).ListItem.Art(clearlogo))</visible>
-              <label>$VAR[video_heading]</label>
+              <label>[B]$VAR[video_heading][/B]</label>
               <textcolor>grey</textcolor>
               <shadowcolor>black</shadowcolor>
-              <font>spotlight_widget_heading</font>
-              <width min="200" max="650">auto</width>
+              <font>font_heading_spot</font>
+              <width min="200" max="710">auto</width>
               <height>40</height>
-              <align>center</align>
+              <align>left</align>
               <scroll>true</scroll>
             </control>
             <control type="group">
@@ -1009,14 +1009,14 @@
             <control type="label">
               <top>60</top>
               <left>40</left>
-              <visible>String.IsEmpty(Container(1506).ListItem.Art(clearlogo))</visible>
-              <label>$VAR[video_heading]</label>
+              <visible>String.IsEmpty(Container(1505).ListItem.Art(clearlogo))</visible>
+              <label>[B]$VAR[video_heading][/B]</label>
               <textcolor>grey</textcolor>
               <shadowcolor>black</shadowcolor>
-              <font>spotlight_widget_heading</font>
-              <width min="200" max="650">auto</width>
+              <font>font_heading_spot</font>
+              <width min="200" max="710">auto</width>
               <height>40</height>
-              <align>center</align>
+              <align>left</align>
               <scroll>true</scroll>
             </control>
             <control type="group">
@@ -1269,13 +1269,13 @@
         </control>
         <!-- Fall back Title -->
         <control type="label">
-          <top>220</top>
+          <top>200</top>
           <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | !String.IsEmpty(ListItem.ChannelName)]</visible>
           <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + Skin.HasSetting(DisableNetflixLowSpotlight) + String.IsEmpty(Control.GetLabel(55445))</visible>
-          <label>$VAR[video_heading]</label>
+          <label>[B]$VAR[video_heading][/B]</label>
           <textcolor>grey</textcolor>
           <shadowcolor>black</shadowcolor>
-          <font>netflix_heading</font>
+          <font>font_heading</font>
           <width min="200" max="1200">auto</width>
 	  <height>30</height>
           <align>left</align>
@@ -1283,13 +1283,13 @@
           <scroll>true</scroll>
         </control>
         <control type="label">
-          <top>220</top>
+          <top>200</top>
 	  <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | !String.IsEmpty(ListItem.ChannelName)]</visible>
           <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Skin.HasSetting(DisableNetflixLowSpotlight) + String.IsEmpty(Control.GetLabel(55445))</visible>
-          <label>$VAR[video_heading]</label>
+          <label>[B]$VAR[video_heading][/B]</label>
           <textcolor>grey</textcolor>
           <shadowcolor>black</shadowcolor>
-          <font>netflix_heading</font>
+          <font>font_heading</font>
           <width>550</width>
 	  <height>30</height>
           <align>left</align>
@@ -1297,21 +1297,28 @@
           <scroll>true</scroll>
         </control>
         <control type="textbox">
-          <top>234</top>
+          <top>190</top>
 	  <visible>![String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | !String.IsEmpty(ListItem.ChannelName)]</visible>
           <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + String.IsEmpty(Control.GetLabel(55445))</visible>
-          <label>$VAR[video_heading]</label>
+          <label>[B]$VAR[video_heading][/B]</label>
           <textcolor>grey</textcolor>
           <shadowcolor>black</shadowcolor>
-          <font>spotlight_heading_small</font>
+          <font>font_heading</font>
           <width min="200" max="1200">auto</width>
-          <height min="30" max="90">auto</height>
+          <height min="30" max="110">auto</height>
           <align>left</align>
           <wrapmultiline>true</wrapmultiline>
           <autoscroll>true</autoscroll>
           <scroll>true</scroll>
         </control>
+      </control>
       <!-- Addon Infoline -->
+      <control type="image">
+	<top>250</top>
+	<width>100</width>
+	<height>10</height>
+	<texture background="true" colordiffuse="red">diffuse/landscape.png</texture>
+	<visible>ControlGroup(330).HasFocus + String.IsEmpty(Control.GetLabel(55445)) + [String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie)]</visible>
       </control>
       <control type="label">
          <top>350</top>
@@ -1518,7 +1525,7 @@
           <param name="align" value="right" />
           <param name="width" value="700" />
           <param name="rottentomatoes" value="true" />
-          <param name="imdbvotes" value="false" />
+          <param name="imdbvotes" value="true" />
           <param name="usermeter" value="false" />
           <param name="imdb" value="true" />
           <param name="tmdb" value="true" />
@@ -1586,14 +1593,17 @@
                   <visible>String.IsEmpty(Control.GetLabel(55446)) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(660)</visible>
 		  <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)]</visible>
                   <top>25</top>
+
                   <label>$VAR[video_heading]</label>
                   <textcolor>grey</textcolor>
                   <shadowcolor>black</shadowcolor>
-                  <font>netflix_heading</font>
-                  <width min="200" max="600">auto</width>
-                  <height min="50" max="200">auto</height>
+                  <font>font_heading</font>
+                  <width>730</width>
+                  <height>120</height>
                   <align>left</align>
                   <wrapmultiline>true</wrapmultiline>
+                  <autoscroll>true</autoscroll>
+                  <scroll>true</scroll>
                 </control>
                 <control type="label">
                   <visible>String.IsEmpty(Control.GetLabel(55446)) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(660)</visible>
@@ -1603,6 +1613,18 @@
                   <textcolor>grey</textcolor>
                   <shadowcolor>black</shadowcolor>
                   <font>spotlight_heading_small</font>
+                  <width min="200" max="600">auto</width>
+                  <height min="50" max="200">auto</height>
+                  <align>left</align>
+                  <wrapmultiline>true</wrapmultiline>
+                </control>
+                <control type="label">
+                  <visible>!Window.IsVisible(Home) + Control.HasFocus(660)</visible>
+                  <top>25</top>
+                  <font>font_heading</font>
+                  <label>$VAR[video_heading]</label>
+                  <textcolor>grey</textcolor>
+                  <shadowcolor>black</shadowcolor>
                   <width min="200" max="600">auto</width>
                   <height min="50" max="200">auto</height>
                   <align>left</align>
@@ -1927,7 +1949,7 @@
   <include name="Object_Info_Netflix">
     <param name="hdsd_flag" default="false" />
     <param name="rottentomatoes" default="true" />
-    <param name="imdbvotes" default="Skin.HasSetting(Ratings.IMDBVotes)" />
+    <param name="imdbvotes" default="true" />
     <param name="usermeter" default="true" />
     <param name="imdb" default="true" />
     <param name="tmdb" default="true" />
@@ -2021,48 +2043,15 @@
           <align>left</align>
           <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
         </control>
-        <!--
-        <control type="label">
-          <visible>String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
-          <top>-210</top>
-          <label>$VAR[video_heading]</label>
-          <label>Watched: $INFO[ListItem.Property(WatchedEpisodes)]  Unwatched: $INFO[ListItem.Property(UnWatchedEpisodes)] Total: $INFO[ListItem.Property(TotalEpisodes)]</label>
-          <textcolor>grey</textcolor>
-          <shadowcolor>black</shadowcolor>
-          <font>netflix_heading</font>
-          <width min="200" max="600">auto</width>
-          <height min="50" max="200">auto</height>
-          <align>left</align>
-          <wrapmultiline>true</wrapmultiline>
-          <autoscroll>true</autoscroll>
-          <scroll>true</scroll>
-        </control>
--->
-<!--
-        <control type="label">
-          <visible>String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
-          <top>-210</top>
-          <label>$VAR[video_heading]</label>
-          <textcolor>grey</textcolor>
-          <shadowcolor>black</shadowcolor>
-          <font>netflix_heading</font>
-          <width min="200" max="600">auto</width>
-          <height min="50" max="200">auto</height>
-          <align>left</align>
-          <wrapmultiline>true</wrapmultiline>
-          <autoscroll>true</autoscroll>
-          <scroll>true</scroll>
-        </control>
--->
           <control type="label">
             <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)] + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
-            <top>-210</top>
+	    <top>-200</top>
             <label>$VAR[video_heading]</label>
             <textcolor>grey</textcolor>
             <shadowcolor>black</shadowcolor>
-            <font>netflix_heading</font>
-            <width min="200" max="600">auto</width>
+            <font>font_heading</font>
             <height min="50" max="120">auto</height>
+            <width>730</width>
             <align>left</align>
             <wrapmultiline>true</wrapmultiline>
             <autoscroll>true</autoscroll>
@@ -2086,7 +2075,7 @@
 
 
         <control type="grouplist">
-          <top>0</top>
+          <top>30</top>
           <height>60</height>
           <orientation>horizontal</orientation>
           <usecontrolcoords>true</usecontrolcoords>
@@ -2308,7 +2297,7 @@
   <include name="widgetmylist2"><content><include>skinshortcuts-group-x1106</include></content></include>
   <include name="widgetmylist3"><content><include>skinshortcuts-group-x1107</include></content></include>
 
-
+<!--
   <include name="submenu_widget_hub">
     <control type="image">
       <width>100%</width>
@@ -2344,7 +2333,7 @@
     </control>
 
   </include>
-
+-->
 
 
 
@@ -2911,6 +2900,8 @@
     </focusedlayout>
   </include>
 
+
+
   <include name="Object_VideoInfo_CastList">
     <param name="height" default="455" />
     <param name="include_content" default="true" />
@@ -2933,10 +2924,11 @@
     <param name="fallbackimage" default="DefaultAddonImages.png" />
     <param name="showfocuslabel" default="true" />
     <param name="visible" default="true" />
+    <param name="left" default="$PARAM[pad]" />
     <definition>
       <control type="group">
         <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
-        <left>$PARAM[pad]</left>
+        <left>$PARAM[left]</left>
         <right>$PARAM[pad]</right>
         <height>$PARAM[height]</height>
         <top>$PARAM[top]</top>
@@ -2945,14 +2937,12 @@
         <control type="grouplist">
           <top>0</top>
           <height>25</height>
-          <left>0</left>
+          <left>20</left>
           <align>left</align>
           <itemgap>12</itemgap>
           <usecontrolcoords>true</usecontrolcoords>
           <orientation>horizontal</orientation>
-          <include>Object_DownArrows</include>
           <control type="label">
-            <font>font_small</font>
             <textcolor>main_fg_100</textcolor>
             <aligny>center</aligny>
             <width>auto</width>
@@ -2960,7 +2950,6 @@
             <label>$PARAM[label]</label>
           </control>
           <control type="label">
-            <font>font_small</font>
             <textcolor>$VAR[ColorHighlight]</textcolor>
             <aligny>center</aligny>
             <width>auto</width>
@@ -2971,7 +2960,6 @@
             <visible>$PARAM[showfocuslabel]</visible>
           </control>
           <control type="label">
-            <font>font_small</font>
             <textcolor>main_fg_100</textcolor>
             <aligny>center</aligny>
             <width>auto</width>
@@ -2990,6 +2978,7 @@
             <param name="onclick2" value="$PARAM[onclick2]" />
             <param name="onclick3" value="$PARAM[onclick3]" />
           </include>
+	  <onback>$PARAM[onback]</onback>
           <onup>$PARAM[onup]</onup>
           <ondown>$PARAM[ondown]</ondown>
           <include>Animation_FadeInOut</include>
@@ -3022,6 +3011,7 @@
       </control>
     </definition>
   </include>
+
   <include name="Object_VideoInfo_CastList_Content_NextUp">
     <content limit="3" sortby="playcount" sortorder="ascending">videodb://inprogresstvshows/$INFO[ListItem.DBID]/-2/?tvshowid=$INFO[ListItem.DBID]</content>
   </include>
@@ -4798,7 +4788,7 @@
     <param name="genrecondition" default="false" />
     <param name="landscapepanelcondition" default="false" />
     <definition>
-      <itemlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="$PARAM[postercondition]">
+      <itemlayout width="widget_poster_width" height="widget_poster_height" condition="$PARAM[postercondition]">
         <include content="Widget_Items_ItemLayout">
           <param name="poster" value="true" />
           <param name="genres" value="$PARAM[genres]" />
@@ -4980,7 +4970,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="widget_poster_width_netflix" height="widget_poster_height_netflix" condition="$PARAM[postercondition]">
+      <focusedlayout width="widget_poster_width" height="widget_poster_height" condition="$PARAM[postercondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="poster" value="true" />
@@ -5354,6 +5344,7 @@
   <!-- @PXCL dev -->
   <include name="Logo">
     <control type="group">
+    <control type="group">
       <top>35</top>
       <animation type="Conditional" condition="Window.Previous(fullscreenvideo)">
         <effect type="slide" start="0,0" end="320,0" center="auto" tween="sine" easing="inout" time="200" />
@@ -5387,10 +5378,10 @@
         <right>170</right>
         <width>1000</width>
         <height>60</height>
-        <font>Reg25</font>
+        <font>font_heading_top</font>
         <align>right</align>
         <textcolor>white</textcolor>
-        <label>$INFO[System.Time(hh:mm)]</label>
+        <label>[B]$INFO[System.Time(hh:mm)][/B]</label>
         <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(extendedprogressdialog)">Conditional</animation>
       </control>
       <control type="label">
@@ -5398,15 +5389,18 @@
         <top>20</top>
         <width>1000</width>
         <height>60</height>
-        <font>Reg20</font>
+        <font>font_heading_top</font>
         <align>right</align>
         <alignx>right</alignx>
         <textcolor>white</textcolor>
-        <label>$INFO[System.Date]</label>
+        <label>[B]$INFO[System.Date][/B]</label>
         <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(extendedprogressdialog)">Conditional</animation>
       </control>
     </control>
+    </control>
   </include>
+
+
   <include name="netflix_infoline">
     <control type="group">
      <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(660)</visible>
@@ -5987,6 +5981,7 @@
             <ondown>3000</ondown>
             <onfocus condition="!String.IsEmpty(Skin.String(MenuPos))">SetFocus(300,$INFO[Skin.String(MenuPos)])</onfocus>
             <onfocus condition="String.IsEmpty(Skin.String(MenuPos))">SetFocus(300)</onfocus>
+	    <onfocus condition="Integer.IsGreater(Container(330).NumItems,0)">SetFocus(330)</onfocus>
         </control>
 
         <control type="image" description="Background">
@@ -6234,6 +6229,160 @@
 		    </control>
 		</definition>
 	    </include>
+    <include name="widget_label_top"><top>255</top></include>
+
+    <include name="Widget_TMDB">
+        <param name="submenu" default="false" />
+        <param name="genres" default="false" />
+        <param name="studios" default="false" />
+        <param name="text" default="false" />
+        <param name="widgetAspect" default="$PARAM[widgetAspect]" />
+        <param name="postercondition" default="false" />
+        <param name="landscapecondition" default="false" />
+        <param name="landscapewidecondition" default="false" />
+        <param name="landscapewidepostercondition" default="false" />
+        <param name="landscapenetflixcondition" default="false" />
+        <param name="landscapepanelcondition" default="false" />
+        <param name="landscapedetails" default="false" />
+        <param name="landscapepanel" default="false" />
+        <param name="posterdetailscondition" default="false" />
+        <param name="widgetlivecondition" default="false" />
+        <param name="categorycondition" default="false" />
+        <param name="squarecondition" default="false" />
+        <param name="genrecondition" default="false" />
+        <param name="controltype" default="fixedlist" />
+        <param name="search" default="false" />
+        <param name="onclick" default="SetFocus(9570)" />
+        <param name="onclick2" default="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath],call_id=1137,delay=0.35,prevent_del)" />
+        <param name="onclick3" default="" />
+        <param name="onback" default="SetFocus(9570)" />
+        <definition>
+            <control type="group" id="2$PARAM[id]">
+                <visible>$PARAM[visible]</visible>
+                <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
+                <include content="Widget_Label">
+                    <param name="id" value="$PARAM[id]" />
+                    <param name="label" value="$PARAM[label]" />
+                    <param name="content" value="$PARAM[content]" />
+                    <param name="widgetContent" value="$PARAM[widgetContent]" />
+                </include>
+                <control type="group">
+                    <include condition="Skin.HasSetting(MouseMode)">Widget_Busy_Top_Mouse</include>
+                    <include>Widget_Label_height_hub</include>
+                    <left>-395</left>
+		    <include condition="Skin.HasSetting(DisableAuraHomeLayout)">widget_label_top</include>
+                    <include content="Defs_BusySpinner">
+                        <param name="label" value="$LOCALIZE[31138]..." />
+                    </include>
+                    <visible>[Container($PARAM[id]).IsUpdating + !Integer.IsGreater(Container($PARAM[id]).NumItems,0)] | [Window.IsVisible(DialogVideoInfo.xml) + Container($PARAM[id]).IsUpdating]</visible>
+
+                </control>
+            </control>
+            <control type="$PARAM[controltype]" id="$PARAM[id]">
+		<animation effect="slide" end="0,30" time="0" condition="!Skin.HasSetting(DisableAuraHomeLayout) + Window.IsVisible(DialogVideoInfo.xml)">Conditional</animation>
+		<animation effect="slide" end="0,70" time="0" condition="Skin.HasSetting(DisableAuraHomeLayout) + Window.IsVisible(DialogVideoInfo.xml)">Conditional</animation>
+		<onleft>$PARAM[onleft]</onleft>
+		<onback>$PARAM[onback]</onback>
+                <animation effect="fade" start="100" end="0" condition="Window.IsVisible(DialogVideoInfo.xml) + Container($PARAM[id]).IsUpdating">Conditional</animation>
+		<movement>1</movement>
+		<height>440</height>
+
+                <onclick>$PARAM[onclick]</onclick>
+                <onclick>$PARAM[onclick2]</onclick>
+
+                <visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | Container(300).OnNext | Container(300).OnPrevious | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
+                <include content="Widget_Items" condition="!$PARAM[submenu]">
+                    <param name="id" value="$PARAM[id]" />
+                    <param name="target" value="$PARAM[target]" />
+                    <param name="content" value="$PARAM[content]" />
+                    <param name="widgetContent" value="$PARAM[widgetContent]" />
+                    <param name="aspect" value="$PARAM[aspect]" />
+                    <param name="widgetAspect" value="$PARAM[widgetAspect]" />
+                    <param name="submenu" value="$PARAM[submenu]" />
+                    <param name="sortby" value="$PARAM[sortby]" />
+                    <param name="sortorder" value="$PARAM[sortorder]" />
+                    <param name="genres" value="$PARAM[genres]" />
+                    <param name="studios" value="$PARAM[studios]" />
+                    <param name="text" value="$PARAM[text]" />
+                    <param name="postercondition" value="$PARAM[postercondition]" />
+                    <param name="landscapecondition" value="$PARAM[landscapecondition]" />
+                    <param name="landscapewidecondition" value="$PARAM[landscapewidecondition]" />
+                    <param name="landscapewidepostercondition" value="$PARAM[landscapewidepostercondition]" />
+                    <param name="landscapenetflixcondition" value="$PARAM[landscapenetflixcondition]" />
+                    <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]" />
+                    <param name="landscapedetailscondition" value="$PARAM[landscapedetailscondition]" />
+                    <param name="posterdetailscondition" value="$PARAM[posterdetailscondition]" />
+                    <param name="widgetlivecondition" value="$PARAM[widgetlivecondition]" />
+                    <param name="categorycondition" value="$PARAM[categorycondition]" />
+                    <param name="squarecondition" value="$PARAM[squarecondition]" />
+                    <param name="genrecondition" value="$PARAM[genrecondition]" />
+                    <param name="search" value="$PARAM[search]" />
+                </include>
+            </control>
+        </definition>
+    </include>
+
+
+    <include name="Object_Info_Plot">
+        <param name="maxheight" default="200" />
+        <param name="height" default="auto" />
+        <param name="label" default="$VAR[Label_Plot]" />
+        <definition>
+            <control type="textbox">
+                <nested />
+                <top>30</top>
+                <label fallback="19055">$PARAM[label]</label>
+                <height max="$PARAM[maxheight]">$PARAM[height]</height>
+                <aligny>top</aligny>
+                <textcolor>main_fg_70</textcolor>
+                <font>font_plotbox</font>
+            </control>
+        </definition>
+    </include>
+
+    <include name="Object_Info_Line_Label">
+        <param name="divider" default="true" />
+        <param name="visible" default="true" />
+        <param name="fallback" default="" />
+        <definition>
+            <control type="label">
+                <width>auto</width>
+                <label>  |  </label>
+                <height>40</height>
+                <aligny>top</aligny>
+                <textcolor>$VAR[ColorHighlight]</textcolor>
+                <font>font_small</font>
+                <visible>!String.IsEmpty(Control.GetLabel($PARAM[id]))</visible>
+                <visible>$PARAM[divider]</visible>
+                <visible>$PARAM[visible]</visible>
+            </control>
+            <control type="label" id="$PARAM[id]">
+                <width>auto</width>
+                <label fallback="$PARAM[fallback]">$PARAM[label]</label>
+                <height>40</height>
+                <aligny>top</aligny>
+                <textcolor>$PARAM[textcolor]</textcolor>
+                <font>font_small</font>
+                <visible>$PARAM[visible]</visible>
+            </control>
+        </definition>
+    </include>
+
+    <include name="Object_Info_Title">
+        <param name="label" default="$INFO[ListItem.Label]" />
+        <param name="font" default="font_title_large" />
+        <param name="titleheight" default="80" />
+        <param name="textcolor" default="main_fg_100" />
+        <definition>
+            <control type="label">
+                <label>$PARAM[label]</label>
+                <height>$PARAM[titleheight]</height>
+                <aligny>top</aligny>
+                <textcolor>$PARAM[textcolor]</textcolor>
+                <font>font_heading</font>
+            </control>
+        </definition>
+    </include>
 
 
 </includes>

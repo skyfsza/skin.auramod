@@ -1,3 +1,8 @@
+v0.9.31
+- Add TMDB Helper from AZ2 (jurialmunkey) via  Netflix Video info "Cast & More" button (install repository.jurialmunkey for TMDBHelper)
+- Change Fallback heading fonts
+- Tweaks and Bug fixed
+ 
 v0.9.30
 - Fix circular navigation for Submenu / Category widget on Auramod mode with Horizontal Menu.
 - Fix navigation from Horizontal mainmenu to Settings + Weather widgets.

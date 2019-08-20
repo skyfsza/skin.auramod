@@ -1336,6 +1336,7 @@
           <texture background="true" colordiffuse="white">special://skin/media/netflix/left-arrow.png</texture>
           <visible>ControlGroup(5055).HasFocus</visible>
          </control>
+<!--
         <control type="image">
           <width>90</width>
           <height>120</height>
@@ -1344,6 +1345,7 @@
           <texture background="true" colordiffuse="white">special://skin/media/netflix/left-arrow.png</texture>
           <visible>Control.HasFocus(505)</visible>
          </control>
+-->
     <control type="group" id="25055">
       <visible>Container(5055).IsUpdating + !Window.IsVisible(DialogBusy.xml)</visible>
       <control type="image">
