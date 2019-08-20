@@ -629,6 +629,8 @@
                 <shortcut widget="MovieNodes" label="$LOCALIZE[31296]" icon="special://skin/extras/icons/title.png" widgetTarget="video">library://video/movies/</shortcut>
                 <shortcut widget="MovieGenres" label="$LOCALIZE[31257]" icon="DefaultGenre.png" widgetTarget="video">library://video/movies/genres.xml</shortcut>
                 <shortcut widget="MovieSets" label="$LOCALIZE[31260]" icon="DefaultSets.png" widgetTarget="video">videodb://movies/sets/</shortcut>
+                <shortcut widget="RandomWidget" label="RandomWidget" icon="DefaultSets.png" widgetTarget="video">plugin://plugin.program.widgetize/?action=random_wdiget</shortcut>
+
             </node>
             <node label="$LOCALIZE[31301]">
                 <shortcut widget="NewTvShows" label="$LOCALIZE[31367]" icon="DefaultRecentlyAddedMovies.png" widgetTarget="video">special://skin/extras/playlists/NewShows.xsp</shortcut>

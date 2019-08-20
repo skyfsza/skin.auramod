@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+   
+   <variable name="loading_spinner">
+       <value condition="String.IsEmpty(Skin.String(loadingspinner.icon))">special://skin/media/netflix/loading.gif</value>
+       <value condition="!String.IsEmpty(Skin.String(loadingspinner.icon))">$INFO[Skin.String(loadingspinner.icon)]</value>
+   </variable>
    <variable name="loading_widget">
        <value condition="String.IsEqual(Container(505).ListItem.Property(widgetAspect),Poster)">special://skin/media/dialogs/loading_poster.png</value>
        <value condition="!String.IsEqual(Container(505).ListItem.Property(widgetAspect),Poster)">special://skin/media/dialogs/loading_landscape.png</value>

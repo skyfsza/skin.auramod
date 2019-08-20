@@ -569,15 +569,15 @@
             <property name="label" tag="label" />
             <property name="path" tag="property" attribute="name|list"/>
 
-            <property name="itemwidth" tag="property" attribute="name|widgetAspect" value="Square">item_square_width</property>
-            <property name="itemwidth" tag="property" attribute="name|widgetAspect" value="Landscape">item_landscape_width</property>
+            <property name="itemwidth" tag="property" attribute="name|widgetHubAspect" value="Square">item_square_width</property>
+            <property name="itemwidth" tag="property" attribute="name|widgetHubAspect" value="Landscape">item_landscape_width</property>
             <property name="itemwidth">item_poster_width</property>
 
-            <property name="diffuse" tag="property" attribute="name|widgetAspect" value="Square">diffuse/square-wall.png</property>
-            <property name="diffuse" tag="property" attribute="name|widgetAspect" value="Landscape">diffuse/landscape-wall.png</property>
+            <property name="diffuse" tag="property" attribute="name|widgetHubAspect" value="Square">diffuse/square-wall.png</property>
+            <property name="diffuse" tag="property" attribute="name|widgetHubAspect" value="Landscape">diffuse/landscape-wall.png</property>
             <property name="diffuse">diffuse/poster-wall.png</property>
 
-            <property name="icon" tag="property" attribute="name|widgetAspect" value="Landscape">$VAR[Image_Landscape]</property>
+            <property name="icon" tag="property" attribute="name|widgetHubAspect" value="Landscape">$VAR[Image_Landscape]</property>
             <property name="icon">$VAR[Image_Poster]</property>
 
             <property name="widgetControl" tag="property" attribute="name|widgetControl" />
@@ -591,8 +591,8 @@
             <property name="widgetSortby" tag="property" attribute="name|widgetSortby" />
             <property name="widgetSortorder" tag="property" attribute="name|widgetSortorder" />
             <property name="limit" tag="property" attribute="name|widgetLimit" />
-            <property name="target" tag="property" attribute="name|widgetTarget" />
-            <property name="target">videos</property>
+            <property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
+            <property name="widgetTarget">videos</property>
 
 	    <property name="widgetSearch">false</property>
 
@@ -655,7 +655,7 @@
                 <param name="content" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
-                <param name="aspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
+                <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
                 <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
@@ -673,6 +673,7 @@
             </controls>
         </items>
     </submenu>
+
     <submenu include="x1103" name="x1103">
         <controls>
             <skinshortcuts insert="x1103">items</skinshortcuts>
@@ -703,8 +704,8 @@
             <property name="widgetSortby" tag="property" attribute="name|widgetSortby" />
             <property name="widgetSortorder" tag="property" attribute="name|widgetSortorder" />
             <property name="limit" tag="property" attribute="name|widgetLimit" />
-            <property name="target" tag="property" attribute="name|widgetTarget" />
-            <property name="target">videos</property>
+            <property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
+            <property name="widgetTarget">videos</property>
 
 	    <property name="widgetSearch">false</property>
 
@@ -767,7 +768,7 @@
                 <param name="content" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
-                <param name="aspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
+                <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
                 <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
@@ -785,6 +786,9 @@
             </controls>
         </items>
     </submenu>
+
+
+
     <submenu include="x1104" name="x1104">
         <controls>
             <skinshortcuts insert="x1104">items</skinshortcuts>
@@ -815,8 +819,8 @@
             <property name="widgetSortby" tag="property" attribute="name|widgetSortby" />
             <property name="widgetSortorder" tag="property" attribute="name|widgetSortorder" />
             <property name="limit" tag="property" attribute="name|widgetLimit" />
-            <property name="target" tag="property" attribute="name|widgetTarget" />
-            <property name="target">videos</property>
+            <property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
+            <property name="widgetTarget">videos</property>
 
 	    <property name="widgetSearch">false</property>
 
@@ -879,7 +883,7 @@
                 <param name="content" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
-                <param name="aspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
+                <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
                 <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
@@ -897,6 +901,9 @@
             </controls>
         </items>
     </submenu>
+
+
+
     <submenu include="x1105" name="x1105">
         <controls>
             <skinshortcuts insert="x1105">items</skinshortcuts>
@@ -927,8 +934,8 @@
             <property name="widgetSortby" tag="property" attribute="name|widgetSortby" />
             <property name="widgetSortorder" tag="property" attribute="name|widgetSortorder" />
             <property name="limit" tag="property" attribute="name|widgetLimit" />
-            <property name="target" tag="property" attribute="name|widgetTarget" />
-            <property name="target">videos</property>
+            <property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
+            <property name="widgetTarget">videos</property>
 
 	    <property name="widgetSearch">false</property>
 
@@ -991,7 +998,7 @@
                 <param name="content" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
-                <param name="aspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
+                <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
                 <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
@@ -1009,6 +1016,12 @@
             </controls>
         </items>
     </submenu>
+
+
+
+
+
+
     <submenu include="x1106" name="x1106">
         <controls>
             <skinshortcuts insert="x1106">items</skinshortcuts>
@@ -1151,8 +1164,8 @@
             <property name="widgetSortby" tag="property" attribute="name|widgetSortby" />
             <property name="widgetSortorder" tag="property" attribute="name|widgetSortorder" />
             <property name="limit" tag="property" attribute="name|widgetLimit" />
-            <property name="target" tag="property" attribute="name|widgetTarget" />
-            <property name="target">videos</property>
+            <property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
+            <property name="widgetTarget">videos</property>
 
 	    <property name="widgetSearch">false</property>
 
@@ -1215,7 +1228,7 @@
                 <param name="content" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
-                <param name="aspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
+                <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
                 <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
@@ -1233,6 +1246,9 @@
             </controls>
         </items>
     </submenu>
+
+
+
 
     <submenu include="x1108" name="x1108">
         <controls>
@@ -1264,8 +1280,8 @@
             <property name="widgetSortby" tag="property" attribute="name|widgetSortby" />
             <property name="widgetSortorder" tag="property" attribute="name|widgetSortorder" />
             <property name="limit" tag="property" attribute="name|widgetLimit" />
-            <property name="target" tag="property" attribute="name|widgetTarget" />
-            <property name="target">videos</property>
+            <property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
+            <property name="widgetTarget">videos</property>
 
 	    <property name="widgetSearch">false</property>
 
@@ -1328,7 +1344,7 @@
                 <param name="content" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
-                <param name="aspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
+                <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
                 <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
@@ -1377,8 +1393,8 @@
             <property name="widgetSortby" tag="property" attribute="name|widgetSortby" />
             <property name="widgetSortorder" tag="property" attribute="name|widgetSortorder" />
             <property name="limit" tag="property" attribute="name|widgetLimit" />
-            <property name="target" tag="property" attribute="name|widgetTarget" />
-            <property name="target">videos</property>
+            <property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
+            <property name="widgetTarget">videos</property>
 
 	    <property name="widgetSearch">false</property>
 
@@ -1441,7 +1457,7 @@
                 <param name="content" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
-                <param name="aspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
+                <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
                 <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
@@ -1459,6 +1475,7 @@
             </controls>
         </items>
     </submenu>
+
     <submenu include="netflixhubmovies" name="netflixhubmovies">
         <controls>
             <skinshortcuts insert="netflixhubmovies">items</skinshortcuts>
