@@ -1464,7 +1464,7 @@
         <control type="image">
           <animation effect="slide" end="50,-10" condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Conditional</animation>
           <animation effect="slide" end="20,0" condition="Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
-          <visible>!Player.HasVideo + [String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)]</visible>
+          <visible>!Player.HasVideo + [String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,set) | !String.IsEmpty(ListItem.ChannelName)]</visible>
           <fadetime>2500</fadetime>
           <width>1400</width>
           <height>800</height>
@@ -1487,7 +1487,7 @@
         </control>
         <control type="image">
           <animation effect="slide" end="50,-10" condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Conditional</animation>
-          <visible>!Player.HasVideo + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(300) + !Control.HasFocus(3001) + ![String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)]</visible>
+          <visible>!Player.HasVideo + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(300) + !Control.HasFocus(3001) + ![String.IsEqual(ListItem.DBType,set) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)]</visible>
           <fadetime>100</fadetime>
           <width>1400</width>
           <height>800</height>
@@ -1591,7 +1591,7 @@
                 </control>
                 <control type="label">
                   <visible>String.IsEmpty(Control.GetLabel(55446)) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(660)</visible>
-		  <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)]</visible>
+		  <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName) | String.IsEqual(ListItem.DBType,set)]</visible>
                   <top>25</top>
 
                   <label>$VAR[video_heading]</label>
@@ -1607,7 +1607,7 @@
                 </control>
                 <control type="label">
                   <visible>String.IsEmpty(Control.GetLabel(55446)) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(660)</visible>
-                  <visible>![String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)]</visible>
+                  <visible>![String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName) | String.IsEqual(ListItem.DBType,set)]</visible>
                   <top>25</top>
                   <label>$VAR[video_heading]</label>
                   <textcolor>grey</textcolor>
@@ -1748,7 +1748,7 @@
             <texture background="true">$INFO[Container(5055).ListItem.Art(clearlogo)]</texture>
           </control>
           <control type="label">
-            <visible>[String.IsEqual(Container(5055).ListItem.DBType,episode) | String.IsEqual(Container(5055).ListItem.DBType,movie) | String.IsEqual(Container(5055).ListItem.DBType,tvshow) | String.IsEqual(Container(5055).ListItem.DBType,season) | !String.IsEmpty(Container(5055).ListItem.ChannelName)] + String.IsEmpty(Container(5055).ListItem.Art(clearlogo))</visible>
+            <visible>[String.IsEqual(Container(5055).ListItem.DBType,episode) | String.IsEqual(Container(5055).ListItem.DBType,movie) | String.IsEqual(Container(5055).ListItem.DBType,tvshow) | String.IsEqual(Container(5055).ListItem.DBType,season) | String.IsEmpty(Container(5055).ListItem.DBType,set) | !String.IsEmpty(Container(5055).ListItem.ChannelName)] + String.IsEmpty(Container(5055).ListItem.Art(clearlogo))</visible>
             <top>-210</top>
             <label>$VAR[video_heading5055]</label>
             <textcolor>grey</textcolor>
@@ -1762,7 +1762,7 @@
             <scroll>true</scroll>
           </control>
           <control type="label">
-            <visible>![String.IsEqual(Container(5055).ListItem.DBType,movie) | String.IsEqual(Container(5055).ListItem.DBType,episode) |  String.IsEqual(Container(5055).ListItem.DBType,tvshow) | String.IsEqual(Container(5055).ListItem.DBType,season) | !String.IsEmpty(Container(5055).ListItem.ChannelName)] + String.IsEmpty(Container(5055).ListItem.Art(clearlogo))</visible>
+            <visible>![String.IsEqual(Container(5055).ListItem.DBType,movie) | String.IsEqual(Container(5055).ListItem.DBType,episode) |  String.IsEqual(Container(5055).ListItem.DBType,tvshow) | String.IsEqual(Container(5055).ListItem.DBType,season) | String.IsEmpty(Container(5055).ListItem.DBType,set) | !String.IsEmpty(Container(5055).ListItem.ChannelName)] + String.IsEmpty(Container(5055).ListItem.Art(clearlogo))</visible>
             <top>-210</top>
             <label>$VAR[video_heading5055]</label>
             <textcolor>grey</textcolor>
@@ -2058,7 +2058,7 @@
             <scroll>true</scroll>
           </control>
           <control type="label">
-            <visible>![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) |  String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)]</visible>
+            <visible>![String.IsEqual(ListItem.DBType,set) |  String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) |  String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)]</visible>
             <top>-210</top>
             <label>$VAR[video_heading]</label>
             <textcolor>grey</textcolor>
@@ -2128,6 +2128,7 @@
         </control>
       </control>
       <control type="grouplist">
+
         <visible>![Container.Content(movies) | Container.Content(sets) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(videos) | Container.Content(seasons) | Window.IsVisible(script-script.extendedinfo-VideoList.xml) | $EXP[Exp_IsPluginAdvancedLauncher]]</visible>
         <visible>!Container($PARAM[id]).ListItem.IsParentFolder + !Control.HasFocus(505) + !Control.HasFocus(5055) + !Control.HasFocus(55) + !Control.HasFocus(56) + !Control.HasFocus(509) + !Control.HasFocus(504)</visible>
         <bottom>$PARAM[bottom]</bottom>
@@ -2173,6 +2174,9 @@
       </control>
     </definition>
   </include>
+
+
+
   <include name="Object_VideoInfo_InfoSection">
     <param name="haspath" default="false" />
     <param name="label3" default="" />
