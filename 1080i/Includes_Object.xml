@@ -411,8 +411,18 @@
             <left>10</left>
             <right>-20</right>
             <animation effect="fade" start="0" end="100" delay="200" time="1000" pulse="false">Visible</animation>
-            <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>
-            <include>Global_Background</include>
+            <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasMedia">Conditional</animation>
+                <control type="image">
+                  <fadetime>500</fadetime>
+                  <width>100%</width>
+                  <height>100%</height>
+                  <texture background="true" diffuse="diffuse/widgetlandscape.png" fallback="common/black-back.png">$VAR[Spotlight_Fanart]</texture>
+                  <aspectratio scalediffuse="false">scale</aspectratio>
+                </control>
+               <control type="image">
+                    <texture colordiffuse="$VAR[Global_FanartDim]">common/white.png</texture>
+                    <visible>!Skin.HasSetting(DisableTransparency)</visible>
+                </control>
           </control>
           <control type="group">
             <animation effect="slide" end="-40,50" time="10" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>
@@ -612,8 +622,18 @@
             <left>10</left>
             <right>-20</right>
             <animation effect="fade" start="0" end="100" delay="200" time="1000" pulse="false">Visible</animation>
-            <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>
-            <include>Global_Background</include>
+            <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasMedia">Conditional</animation>
+                <control type="image">
+                  <fadetime>500</fadetime>
+                  <width>100%</width>
+                  <height>100%</height>
+                  <texture background="true" diffuse="diffuse/widgetlandscape.png" fallback="common/black-back.png">$VAR[Spotlight_Fanart]</texture>
+                  <aspectratio scalediffuse="false">scale</aspectratio>
+                </control>
+               <control type="image">
+                    <texture colordiffuse="$VAR[Global_FanartDim]">common/white.png</texture>
+                    <visible>!Skin.HasSetting(DisableTransparency)</visible>
+                </control>
           </control>
           <control type="group">
             <animation effect="slide" end="-40,50" time="10" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>
@@ -1222,30 +1242,25 @@
           <left>10</left>
           <right>0</right>
           <fadetime>2000</fadetime>
-          <include>Global_Background</include>
         </control>
         <control type="group">
           <top>-30</top>
           <visible>Player.HasVideo</visible>
-          <include>Global_Background</include>
         </control>
       </control>
       <control type="group">
         <left>10</left>
         <visible>Skin.HasSetting(DisableNetflixSubmenuBG) + Control.HasFocus(300)</visible>
-        <include>Global_Background</include>
       </control>
       <control type="group">
         <left>10</left>
         <right>0</right>
         <visible>Skin.HasSetting(DisableNetflixSubmenuBG) + Control.HasFocus(302)</visible>
-        <include>Global_Background</include>
       </control>
       <control type="group">
         <left>10</left>
         <right>0</right>
         <visible>Skin.HasSetting(DisableNetflixSubmenuBG) + Control.HasFocus(3001)</visible>
-        <include>Global_Background</include>
       </control>
     </control>
 
@@ -1458,9 +1473,14 @@
       <control type="group">
         <left>-60</left>
         <visible>Skin.HasSetting(DisableNetflixSubmenuBG) + [Control.HasFocus(300) | Control.HasFocus(302) | Control.HasFocus(30222)]</visible>
-        <include>Global_Background</include>
       </control>
       <control type="group">
+      <control type="image">
+	<left>-50</left>
+        <width>100%</width>
+        <height>100%</height>
+        <texture background="true" colordiffuse="FF000000">common/white.png</texture>
+      </control> 
         <control type="image">
           <animation effect="slide" end="50,-10" condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Conditional</animation>
           <animation effect="slide" end="20,0" condition="Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
@@ -1485,6 +1505,7 @@
           <texture background="true" diffuse="Right Corner.png">$VAR[Image_MainMenu_fanart]</texture>
           <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
         </control>
+
         <control type="image">
           <animation effect="slide" end="50,-10" condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Conditional</animation>
           <visible>!Player.HasVideo + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(300) + !Control.HasFocus(3001) + ![String.IsEqual(ListItem.DBType,set) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)]</visible>
@@ -1540,7 +1561,9 @@
         <visible>!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
         <!-- Start Video Window -->
         <control type="group">
-          <animation effect="slide" start="0" end="100,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
+          <animation effect="slide" start="0" end="100,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
+            <animation effect="slide" start="0" end="0,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,2.20)">Conditional</animation>
+
           <animation effect="slide" start="0" end="200,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,1.33)">Conditional</animation>
           <animation effect="slide" start="0" end="95,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,1.78)">Conditional</animation>
           <animation effect="slide" start="0" end="285,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,0.00)">Conditional</animation>
@@ -1557,6 +1580,7 @@
           <control type="image">
             <animation effect="slide" start="0" end="100,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,1.78)">Conditional</animation>
             <animation effect="slide" start="0" end="225,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,0.00)">Conditional</animation>
+            <animation effect="slide" start="0" end="-30,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,2.20)">Conditional</animation>
             <animation effect="slide" start="0" end="30,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)">Conditional</animation>
             <texture colordiffuse="ff000000" border="40">netflix/netflix_corner.png</texture>
           </control>
@@ -5960,7 +5984,8 @@
 </include>
 
 <include name="home_no_trakt">
-        <include condition="!Skin.HasSetting(DisableNetflixHome)">Global_Background</include>
+	<include>Global_Background</include>
+        <animation time="0" effect="fade" start="100" end="0" condition="System.HasAlarm(loadinfo)">Conditional</animation>
         <include>Widgets</include>
         <include condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Topbar</include>
         <include>Object_PlotOverlay</include>

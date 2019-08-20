@@ -152,7 +152,6 @@
                 <animation effect="fade" condition="!Control.HasFocus(9602)" start="0" end="100" delay="0" time="300" reversible="false">Conditional</animation>
                 <include>Animation_FadeInOut</include>
                 <control type="image">
-            <animation effect="fade" start="0" end="100" delay="200" time="1000" pulse="false">Visible</animation>
                     <texture colordiffuse="$VAR[Global_FanartDim]">common/white.png</texture>
 		    <visible>!Skin.HasSetting(DisableTransparency)</visible>
                 </control>
@@ -199,17 +198,18 @@
         <value condition="Window.IsVisible(home) + !String.IsEmpty(Skin.String(home.slideshowpath)) + !String.IsEqual(Skin.String(home.slideshowpath),$LOCALIZE[8]) + [String.IsEmpty(Container(300).ListItem.Property(widget)) | Container(301).IsUpdating |  Skin.HasSetting(home.dontshowfanart)]">$INFO[Skin.String(home.slideshowpath)]</value>
         <value condition="!String.IsEmpty(Skin.String(fanart.fallback))">$INFO[Skin.String(fanart.fallback)]</value>
         <value condition="!Skin.HasSetting(NoFanart)">special://skin/extras/backgrounds/default.jpg</value>
+        <value condition="!Skin.HasSetting(NoFanart)">special://skin/extras/backgrounds/default.jpg</value>
         <value>common/null.png</value>
     </variable>
 
     <variable name="Global_Background_Image">
-        <value condition="Skin.HasSetting(NoFanart)">$VAR[Global_Background_Image_NoFanart]</value>
+        <value condition="Window.IsVisible(home)  + Skin.HasSetting(NoFanart)">$VAR[Global_Background_Image_NoFanart]</value>
         <value condition="!String.IsEmpty(Window(home).Property(ImageFilterFIVE)) + Skin.HasSetting(EnableBlur) + [!Skin.HasSetting(OnlyBlurInfo) | [Skin.HasSetting(OnlyBlurInfo) + [Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)]]] + !Control.HasFocus(9602)">$INFO[Window(home).Property(ImageFilterFIVE)]</value>
         <value>$VAR[Global_Background_Image_Var]</value>
     </variable>
 
     <variable name="Global_Background_Image_Var">
-        <value condition="Skin.HasSetting(NoFanart) | ListItem.IsParentFolder">$VAR[Global_Background_Image_NoFanart]</value>
+        <value condition="[Window.IsVisible(home) + Skin.HasSetting(NoFanart)] | ListItem.IsParentFolder">$VAR[Global_Background_Image_NoFanart]</value>
         <!-- Next up -->
         <value condition="Window.IsVisible(script-nextup-notification-PostPlayInfo.xml)">$INFO[Window.Property(background)]</value>
         <!-- Extended Info -->
