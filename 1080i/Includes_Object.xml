@@ -5969,7 +5969,7 @@
         <top>0</top>
         <right>-60</right>
         <include>Logo</include>
-        <visible>!Window.IsVisible(DialogButtonMenu.xml) + !Window.IsVisible(DialogBusy.xml) + Skin.HasSetting(EnableHomeHeader)</visible>
+        <visible>!Window.IsVisible(DialogNotification.xml) + !Window.IsVisible(DialogButtonMenu.xml) + !Window.IsVisible(DialogBusy.xml) + Skin.HasSetting(EnableHomeHeader)</visible>
         </control>
         <control type="button" id="4000">
             <visible allowhiddenfocus="true">false</visible>
@@ -5981,7 +5981,8 @@
             <ondown>3000</ondown>
             <onfocus condition="!String.IsEmpty(Skin.String(MenuPos))">SetFocus(300,$INFO[Skin.String(MenuPos)])</onfocus>
             <onfocus condition="String.IsEmpty(Skin.String(MenuPos))">SetFocus(300)</onfocus>
-	    <onfocus condition="Integer.IsGreater(Container(330).NumItems,0)">SetFocus(330)</onfocus>
+	    <onfocus condition="Integer.IsGreater(Container(330).NumItems,0) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)">SetFocus(330)</onfocus>
+	    <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widget),Settings) + String.IsEqual(Container(300).ListItem.Property(widget),Settings)">SetFocus(300)</onfocus>
         </control>
 
         <control type="image" description="Background">
