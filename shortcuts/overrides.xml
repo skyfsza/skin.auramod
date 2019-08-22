@@ -378,6 +378,7 @@
     <property property="widgetHubAspect" icon="special://skin/extras/widgettype/widget-poster.png">Poster</property>
     <property property="widgetHubAspect" icon="special://skin/extras/widgettype/widget-poster.png">LandscapePoster</property>
     <property property="widgetHubAspect" icon="special://skin/extras/widgettype/widget-landscape.png">Landscape</property>
+    <property property="widgetHubAspect" icon="special://skin/extras/widgettype/widget-landscape.png">LandscapePanel</property>
     <propertySettings property="widgetHubAspect" showNone="false" buttonID="9905" title="Widget Hub Aspect Ratio" />
 
     <!-- Widget Target -->

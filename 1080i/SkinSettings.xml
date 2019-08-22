@@ -316,12 +316,7 @@
                             <label>Select Loading gif</label>
                             <label2>$INFO[Skin.String(loadingspinner.icon)]</label2>
                             <enable>Skin.HasSetting(EnableDefaultSpinner)</enable>
-                            <onclick condition="!String.IsEmpty(Skin.String(loadingspinner.icon))">Skin.Reset(loadingspinner.icon)</onclick>
-                            <onclick>SetProperty(Dialog.1.Label,$LOCALIZE[16018])</onclick>
-                            <onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(loadingspinner.icon))</onclick>
-                            <onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31271])</onclick>
-                            <onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetImage(loadingspinner.icon))</onclick>
-                            <onclick condition="String.IsEmpty(Skin.String(loadingspinner.icon))">RunScript(script.toolbox,info=selectdialog,header=loadingspinner.icon)</onclick>
+                            <onclick>RunScript(script.skin.helper.service,action=selectimage,skinstring=loadingspinner.icon)</onclick>
                         </control>
                        <control type="radiobutton" id="9692" description="Enable Time & Weather header on Home">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>

@@ -119,7 +119,7 @@
             <label>$VAR[widget_label2]</label>
          </control>
     </control>
-
+        <include>seemore</include>
         </control>
     </include>
 
@@ -268,13 +268,7 @@
           <width>74</width>
         </control>
       </control>
- 
-
-
-
-
     </control>
-
   </include>
 
 
@@ -390,14 +384,8 @@
           <width>74</width>
         </control>
       </control>
- 
- 
-
     </control>
-
   </include>
-
-
 
   <include name="Widget_Items_LandscapeNetflix">
     <control type="group">
@@ -507,6 +495,7 @@
           <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
         </control>
       </control>
+        <include>seemore</include>
 
     </control>
 
@@ -622,6 +611,7 @@
             <label>$VAR[widget_label2]</label>
          </control>
     </control>
+        <include>seemore</include>
     </control>
   </include>
   <!-- END LandscapeBanner Widget -->
@@ -712,6 +702,7 @@
         <aspectratio scalediffuse="false">scale</aspectratio>
         <visible>!String.IsEmpty(ListItem.Art(poster)) | [!String.IsEmpty(ListItem.Art(tvshow.poster)) + !String.IsEqual(ListItem.DBType,episode)] | $PARAM[landscapewide]</visible>
       </control>
+        <include>seemore</include>
     </definition>
   </include>
   <!-- END Landscape Wide Widget -->
@@ -795,6 +786,7 @@
         <label>$INFO[ListItem.Plot]</label>
 	<visible>Skin.HasSetting(DisableAuraHomeLayout)</visible>
       </control>
+        <include>seemore</include>
     </definition>
   </include>
   <!-- END Poster Details  Widget -->

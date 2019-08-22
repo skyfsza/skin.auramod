@@ -5292,6 +5292,7 @@
         <itemgap>0</itemgap>
         <usecontrolcoords>true</usecontrolcoords>
         <scrolltime tween="linear">400</scrolltime>
+        <movement>0</movement>
         <include content="WidgetSubmenu" condition="!Skin.HasSetting(HideSubmenuWidget)">
           <param name="id" value="3001" />
           <param name="submenu" value="true" />
@@ -5910,57 +5911,35 @@
       </control>
     </control>
 </include>
-
-<include name="aurahub_tv_widgets">
-      <control type="grouplist" id="5600">
-        <width>1920</width>
-        <height>1080</height>
-        <left>10</left>
-        <scrolltime tween="sine" easing="out">500</scrolltime>
-        <orientation>vertical</orientation>
-        <usecontrolcoords>true</usecontrolcoords>
-        <onback>9000</onback>  
-        <onleft>9000</onleft>
-            <control type="group" id="334" description="Spacer">
-                <height>220</height>
-                <visible>!Skin.HasSetting(DisableAuraHomeLayout)</visible>
-            </control>
-            <control type="group" id="335" description="Spacer">
-                <height>50</height>    
-                <visible>Skin.HasSetting(DisableAuraHomeLayout)</visible>
-            </control>
-        <include>skinshortcuts-template-aurahubtv</include>
-
-    </control>
-</include>
-
-<include name="aurahub_movies_widgets">
-      <control type="grouplist" id="5700">
-        <width>1920</width>
-        <height>1080</height>
-        <left>10</left>
-        <scrolltime tween="quadratic">400</scrolltime>
-        <orientation>vertical</orientation>
-        <usecontrolcoords>true</usecontrolcoords>
-        <onback>9000</onback>
-        <onleft>9000</onleft>
-            <control type="group" id="334" description="Spacer">
-                <height>220</height>
-                <visible>!Skin.HasSetting(DisableAuraHomeLayout)</visible>
-            </control>
-            <control type="group" id="335" description="Spacer">
-                <height>50</height>
-                <visible>Skin.HasSetting(DisableAuraHomeLayout)</visible>
-            </control>
-        <include>skinshortcuts-template-aurahubmovies</include>
-
-    </control>
-</include>
-
 <include name="netflixhub_movies_widgets">
         <include>skinshortcuts-template-netflixhubmovies</include>
 </include>
 
+<include name="seemore">
+    <control type="group">
+        <visible>String.IsEqual(ListItem.Label,See More...) | String.IsEqual(ListItem.Label,Next)</visible>
+      <control type="image">
+        <texture background="true" colordiffuse="darkgrey">common/white.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+      </control>
+      <control type="image">
+        <height>100%</height>
+        <width>100%</width>
+        <texture colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
+      </control>
+     <control type="textbox">
+        <centerleft>50%</centerleft>
+        <textcolor>grey</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <font>font_small_bold</font>
+        <width min="100" max="250">auto</width>
+        <aligny>center</aligny>
+        <align>center</align>
+        <label>$INFO[ListItem.Label]</label>
+        <wrapmultiline>true</wrapmultiline>
+    </control>
+   </control>
+</include>
 
 <include name="netflixhub_tv_widgets">
       <control type="grouplist" id="5700">
@@ -6167,13 +6146,15 @@
         <param name="genrecondition" default="false" />
         <param name="search" default="false" />
         <param name="controltype" default="fixedlist" />
+        <param name="movement" default="1" />
         <definition>
             <control type="group" id="2$PARAM[id]">
                 <visible>$PARAM[visible]</visible>
                 <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
                 <include condition="!Skin.HasSetting(DisableNetflixSmallWidget)">netflix_largewidgets_height</include>
                 <include condition="Skin.HasSetting(DisableNetflixSmallWidget)">netflix_smallwidgets_top</include>
-		<animation effect="slide" end="0,-40" time="0" condition="!Window.IsVisible(Home)">Conditional</animation>
+                <animation effect="slide" end="0,-40" time="0" condition="!Window.IsVisible(Home) + !Window.IsVisible(3810) + !Window.IsVisible(3820)">Conditional</animation>
+                <animation effect="slide" end="0,-40" time="0" condition="Window.IsVisible(DialogVideoInfo.xml)">Conditional</animation>
                 <include content="Widgets_Label">
                     <param name="id" value="$PARAM[id]" />
                     <param name="label" value="$PARAM[label]" />
@@ -6216,13 +6197,14 @@
                 <animation effect="fade" start="100" end="0" condition="Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating">Conditional</animation>
 			<onback condition="ControlGroup(5600).HasFocus">9000</onback>
 			<scrolltime tween="linear">400</scrolltime>
-			<include condition="Window.IsVisible(Home)">netflix_largewidgets_top</include>
-			<movement>1</movement>
+                        <include condition="Window.IsVisible(Home) | Window.IsVisible(3810) | Window.IsVisible(3820)">netflix_largewidgets_top</include>
+			<movement>$PARAM[movement]</movement>
 			<include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widgets_Items_Submenu_Height</include>
 			<include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widgets_Items_Submenu_Big_Height</include>
 			<include condition="!$PARAM[submenu] + !Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(3820)">Widgets_Items_menu_Big_Height</include>
 			<include condition="!$PARAM[submenu] + Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + ![Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]">Widgets_Items_menu_Small_Height</include>
 			<onclick condition="!Skin.HasSetting(EnableShowInfo) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]">Action(Info)</onclick>
+<!--
             <onclick condition="!Skin.HasSetting(EnableShowInfo) + String.IsEmpty(ListItem.DBType) + !Window.IsVisible(Home) + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),true)">ActivateWindow(10025,$ESCINFO[Container(5055).ListItem.FileNameAndPath],return)</onclick>
               <onclick condition="!Skin.HasSetting(EnableShowInfo) + String.IsEmpty(ListItem.DBType) + !Window.IsVisible(Home) + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),false)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
               <onclick condition="!Skin.HasSetting(EnableShowInfo) + String.IsEmpty(ListItem.DBType) + !Window.IsVisible(Home) + !String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
@@ -6232,6 +6214,7 @@
             <onclick condition="Skin.HasSetting(EnableShowInfo) + !Window.IsVisible(Home) + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),true)">ActivateWindow(10025,$ESCINFO[Container(5055).ListItem.FileNameAndPath],return)</onclick>
               <onclick condition="Skin.HasSetting(EnableShowInfo) + !Window.IsVisible(Home) + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),false)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
               <onclick condition="Skin.HasSetting(EnableShowInfo) + !Window.IsVisible(Home) + !String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
+-->
 			<visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | Container(300).OnNext | Container(300).OnPrevious | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
 			<include content="Widget_Items" condition="!$PARAM[submenu]">
 			    <param name="id" value="$PARAM[id]" />

@@ -43,8 +43,14 @@
         <property name="widgetLimit" tag="property" attribute="name|widgetLimit" />
         <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Square">4</property>
         <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Icon">4</property>
+        <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="PosterDetails">1</property>
+        <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Poster">5</property>
+        <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapePoster">1</property>
         <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Landscape">2</property>
-        <property name="widgetMovement">6</property>
+        <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapeWide">1</property>
+        <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapeSmall">3</property>
+        <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapeDetails">1</property>
+        <property name="widgetMovement">5</property>
 
         <property name="mainmenuid" tag="property" attribute="name|mainmenuid" />
 
@@ -101,6 +107,7 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetAspect in 'Genre' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetAspect in 'LandscapePanel' else 'fixedlist']" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[widgetName]" />
                 <param name="visible" value="String.IsEqual(Container(300).ListItem.Property(id),$SKINSHORTCUTS[mainmenuid])" />
             </include>
@@ -125,6 +132,17 @@
 
             <property name="icon" tag="property" attribute="name|widgetAspect" value="Landscape">$VAR[Image_Landscape]</property>
             <property name="icon">$VAR[Image_Poster]</property>
+
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Square">4</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Icon">4</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="PosterDetails">1</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Poster">5</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapePoster">1</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Landscape">2</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapeWide">1</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapeSmall">3</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapeDetails">1</property>
+            <property name="widgetMovement">5</property>
 
             <property name="widgetControl" tag="property" attribute="name|widgetControl" />
             <property name="widgetControl">fixedlist</property>
@@ -212,7 +230,7 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetAspect in 'Genre' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'fixedlist']" />
-                <param name="label" value="$SKINSHORTCUTS[label]" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="search" value="$SKINSHORTCUTS[widgetSearch]" />
                 <param name="visible" value="Window.IsVisible(1138)" />
@@ -238,17 +256,31 @@
 
             <property name="icon" tag="property" attribute="name|widgetAspect" value="Landscape">$VAR[Image_Landscape]</property>
             <property name="icon">$VAR[Image_Poster]</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Square">4</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Icon">4</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="PosterDetails">1</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Poster">5</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapePoster">1</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Landscape">2</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapeWide">1</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapeSmall">3</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapeDetails">1</property>
+            <property name="widgetMovement">5</property>
 
             <property name="widgetControl" tag="property" attribute="name|widgetControl" />
             <property name="widgetControl">fixedlist</property>
-
             <property name="widgetAspect" tag="property" attribute="name|widgetAspect" />
-            <property name="widgetAspect">Landscape</property>
+            <property name="widgetAspect">Poster</property>
+            <property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
+            <property name="widgetTarget">videos</property>
+            <property name="widgetName" tag="label" />
+            <property name="widgetPath" tag="property" attribute="name|list" />
+            <property name="widgetSortby" tag="property" attribute="name|widgetSortby" />
+            <property name="widgetSortorder" tag="property" attribute="name|widgetSortorder" />
+            <property name="widgetLimit" tag="property" attribute="name|widgetLimit" />
 
             <property name="aspectratio" tag="property" attribute="name|widgetAspect" value="Square">keep</property>
             <property name="aspectratio">scale</property>
-            <property name="widgetSortby" tag="property" attribute="name|widgetSortby" />
-            <property name="widgetSortorder" tag="property" attribute="name|widgetSortorder" />
             <property name="limit" tag="property" attribute="name|widgetLimit" />
             <property name="target" tag="property" attribute="name|widgetTarget" />
             <property name="target">videos</property>
@@ -327,6 +359,7 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetAspect in 'Genre' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'fixedlist']" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="Window.IsVisible(Custom_Hub_TVAura.xml)" />
             </include>
@@ -352,18 +385,32 @@
 
             <property name="icon" tag="property" attribute="name|widgetAspect" value="Landscape">$VAR[Image_Landscape]</property>
             <property name="icon">$VAR[Image_Poster]</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Square">4</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Icon">4</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="PosterDetails">1</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Poster">5</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapePoster">1</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Landscape">2</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapeWide">1</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapeSmall">3</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapeDetails">1</property>
+            <property name="widgetMovement">5</property>
 
             <property name="widgetControl" tag="property" attribute="name|widgetControl" />
             <property name="widgetControl">fixedlist</property>
-
             <property name="widgetAspect" tag="property" attribute="name|widgetAspect" />
-            <property name="widgetAspect">Landscape</property>
+            <property name="widgetAspect">Poster</property>
+            <property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
+            <property name="widgetTarget">videos</property>
+            <property name="widgetName" tag="label" />
+            <property name="widgetPath" tag="property" attribute="name|list" />
+            <property name="widgetSortby" tag="property" attribute="name|widgetSortby" />
+            <property name="widgetSortorder" tag="property" attribute="name|widgetSortorder" />
+            <property name="widgetLimit" tag="property" attribute="name|widgetLimit" />
 
             <property name="aspectratio" tag="property" attribute="name|widgetAspect" value="Square">keep</property>
             <property name="aspectratio">scale</property>
 
-            <property name="widgetSortby" tag="property" attribute="name|widgetSortby" />
-            <property name="widgetSortorder" tag="property" attribute="name|widgetSortorder" />
             <property name="limit" tag="property" attribute="name|widgetLimit" />
             <property name="target" tag="property" attribute="name|widgetTarget" />
             <property name="target">videos</property>
@@ -442,6 +489,7 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetAspect in 'Genre' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'fixedlist']" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="Window.IsVisible(Custom_Hub_MovieAura.xml)" />
             </include>
@@ -473,6 +521,10 @@
 
             <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
             <property name="widgetHubAspect">Landscape</property>
+
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="Poster">5</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="LandscapePoster">2</property>
+            <property name="widgetMovement">2</property>
 
             <property name="aspectratio" tag="property" attribute="name|widgetHubAspect" value="Square">keep</property>
             <property name="aspectratio">scale</property>
@@ -555,6 +607,7 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetHubAspect in 'Square' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'fixedlist']" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
             </include>
@@ -586,6 +639,9 @@
             <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
             <property name="widgetHubAspect">Landscape</property>
 
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="Poster">5</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="LandscapePoster">2</property>
+            <property name="widgetMovement">2</property>
             <property name="aspectratio" tag="property" attribute="name|widgetHubAspect" value="Square">keep</property>
             <property name="aspectratio">scale</property>
             <property name="widgetSortby" tag="property" attribute="name|widgetSortby" />
@@ -667,6 +723,7 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetHubAspect in 'Square' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'fixedlist']" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
             </include>
@@ -696,6 +753,9 @@
             <property name="widgetControl" tag="property" attribute="name|widgetControl" />
             <property name="widgetControl">fixedlist</property>
 
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="Poster">5</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="LandscapePoster">2</property>
+            <property name="widgetMovement">2</property>
             <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
             <property name="widgetHubAspect">Landscape</property>
 
@@ -780,6 +840,7 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetHubAspect in 'Square' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'fixedlist']" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
             </include>
@@ -811,6 +872,9 @@
             <property name="widgetControl" tag="property" attribute="name|widgetControl" />
             <property name="widgetControl">fixedlist</property>
 
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="Poster">5</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="LandscapePoster">2</property>
+            <property name="widgetMovement">2</property>
             <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
             <property name="widgetHubAspect">Landscape</property>
 
@@ -895,6 +959,7 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetHubAspect in 'Square' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'fixedlist']" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
             </include>
@@ -926,6 +991,9 @@
             <property name="widgetControl" tag="property" attribute="name|widgetControl" />
             <property name="widgetControl">fixedlist</property>
 
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="Poster">5</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="LandscapePoster">2</property>
+            <property name="widgetMovement">2</property>
             <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
             <property name="widgetHubAspect">Landscape</property>
 
@@ -1010,6 +1078,7 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetHubAspect in 'Square' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'fixedlist']" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
             </include>
@@ -1044,6 +1113,9 @@
             <property name="widgetControl" tag="property" attribute="name|widgetControl" />
             <property name="widgetControl">fixedlist</property>
 
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="Poster">5</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="LandscapePoster">2</property>
+            <property name="widgetMovement">2</property>
             <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
             <property name="widgetHubAspect">Landscape</property>
 
@@ -1128,6 +1200,7 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetHubAspect in 'Square' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'fixedlist']" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
             </include>
@@ -1156,6 +1229,9 @@
             <property name="widgetControl" tag="property" attribute="name|widgetControl" />
             <property name="widgetControl">fixedlist</property>
 
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="Poster">5</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="LandscapePoster">2</property>
+            <property name="widgetMovement">2</property>
             <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
             <property name="widgetHubAspect">Landscape</property>
 
@@ -1240,6 +1316,7 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetHubAspect in 'Square' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'fixedlist']" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
             </include>
@@ -1272,6 +1349,9 @@
             <property name="widgetControl" tag="property" attribute="name|widgetControl" />
             <property name="widgetControl">fixedlist</property>
 
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="Poster">5</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="LandscapePoster">2</property>
+            <property name="widgetMovement">2</property>
             <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
             <property name="widgetHubAspect">Landscape</property>
 
@@ -1356,6 +1436,7 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetHubAspect in 'Square' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'fixedlist']" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
             </include>
@@ -1382,6 +1463,9 @@
             <property name="icon" tag="property" attribute="name|widgetHubAspect" value="Landscape">$VAR[Image_Landscape]</property>
             <property name="icon">$VAR[Image_Poster]</property>
 
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="Poster">5</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="LandscapePoster">2</property>
+            <property name="widgetMovement">2</property>
             <property name="widgetControl" tag="property" attribute="name|widgetControl" />
             <property name="widgetControl">fixedlist</property>
 
@@ -1469,12 +1553,14 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetHubAspect in 'Square' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'fixedlist']" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
             </include>
             </controls>
         </items>
     </submenu>
+
 
     <submenu include="netflixhubmovies" name="netflixhubmovies">
         <controls>
@@ -1495,6 +1581,9 @@
             <property name="icon" tag="property" attribute="name|widgetHubAspect" value="Landscape">$VAR[Image_Landscape]</property>
             <property name="icon">$VAR[Image_Poster]</property>
 
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="Poster">5</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="LandscapePoster">2</property>
+            <property name="widgetMovement">2</property>
             <property name="widgetControl" tag="property" attribute="name|widgetControl" />
             <property name="widgetControl">fixedlist</property>
 
@@ -1506,8 +1595,8 @@
             <property name="widgetSortby" tag="property" attribute="name|widgetSortby" />
             <property name="widgetSortorder" tag="property" attribute="name|widgetSortorder" />
             <property name="limit" tag="property" attribute="name|widgetLimit" />
-            <property name="target" tag="property" attribute="name|widgetTarget" />
-            <property name="target">videos</property>
+            <property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
+            <property name="widgetTarget">videos</property>
 
 	    <property name="widgetSearch">false</property>
 
@@ -1570,7 +1659,7 @@
                 <param name="content" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
-                <param name="aspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
+                <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
                 <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
@@ -1582,12 +1671,14 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetHubAspect in 'Square' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'fixedlist']" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="Window.IsVisible(Custom_Hub_MovieNetflix.xml)" />
             </include>
             </controls>
         </items>
     </submenu>
+
     <submenu include="netflixhubtv" name="netflixhubtv">
         <controls>
             <skinshortcuts insert="netflixhubtv">items</skinshortcuts>
@@ -1607,6 +1698,9 @@
             <property name="icon" tag="property" attribute="name|widgetHubAspect" value="Landscape">$VAR[Image_Landscape]</property>
             <property name="icon">$VAR[Image_Poster]</property>
 
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="Poster">5</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="LandscapePoster">2</property>
+            <property name="widgetMovement">2</property>
             <property name="widgetControl" tag="property" attribute="name|widgetControl" />
             <property name="widgetControl">fixedlist</property>
 
@@ -1618,8 +1712,8 @@
             <property name="widgetSortby" tag="property" attribute="name|widgetSortby" />
             <property name="widgetSortorder" tag="property" attribute="name|widgetSortorder" />
             <property name="limit" tag="property" attribute="name|widgetLimit" />
-            <property name="target" tag="property" attribute="name|widgetTarget" />
-            <property name="target">videos</property>
+            <property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
+            <property name="widgetTarget">videos</property>
 
 	    <property name="widgetSearch">false</property>
 
@@ -1682,8 +1776,9 @@
                 <param name="content" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
-                <param name="aspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
+                <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
+                <param name="landscapepanelcondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapePanel' else 'false']" />
                 <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
                 <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapePoster' else 'false']" />
@@ -1693,15 +1788,13 @@
                 <param name="categorycondition" value="$PYTHON['true' if widgetHubAspect in 'Category' else 'false']" />
                 <param name="squarecondition" value="$PYTHON['true' if widgetHubAspect in 'Square' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
-                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'fixedlist']" />
+                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetHubAspect in 'LandscapePanel' else 'fixedlist']" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="Window.IsVisible(Custom_Hub_TVNetflix.xml)" />
             </include>
             </controls>
         </items>
     </submenu>
-
-
-
 
 </template>

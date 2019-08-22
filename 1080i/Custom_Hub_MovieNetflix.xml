@@ -9,13 +9,12 @@
    <control type="grouplist" id="323233">
     <scrolltime tween="quadratic">400</scrolltime>
     <orientation>vertical</orientation>
-    <itemgap>10</itemgap>
+    <itemgap>0</itemgap>
     <usecontrolcoords>true</usecontrolcoords>
-    <posy>630</posy>
-    <height>450</height>
+    <posy>590</posy>
     <left>-40</left>
     <include>netflixhub_movies_widgets</include>
-
+    <movement>0</movement>
   <control type="fixedlist" id="660">
       <left>60</left>
       <scrolltime tween="sine" easing="out">500</scrolltime>
