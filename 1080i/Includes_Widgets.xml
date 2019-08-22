@@ -493,6 +493,7 @@
                 </control>
             </control>
             <control type="$PARAM[controltype]" id="$PARAM[id]">
+                <onback condition="ControlGroup(5600).HasFocus">9000</onback>
                 <animation effect="fade" start="100" end="0" condition="Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating">Conditional</animation>
 		<movement>$PARAM[movement]</movement>
                 <top>widget_top</top>

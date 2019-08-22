@@ -338,7 +338,7 @@
             <property name="id" tag="property" attribute="name|id" value="$NUMBER[49]">49</property>
             <property name="id">50</property>
             <controls>
-            <include content="Widget">
+            <include content="Widget_AuraHub">
                 <param name="id" value="$PYTHON[int(id) + 6040]" />
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
@@ -468,7 +468,7 @@
             <property name="id" tag="property" attribute="name|id" value="$NUMBER[49]">49</property>
             <property name="id">50</property>
             <controls>
-            <include content="Widget">
+            <include content="Widget_AuraHub">
                 <param name="id" value="$PYTHON[int(id) + 6050]" />
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
@@ -1651,7 +1651,7 @@
             <property name="id" tag="property" attribute="name|id" value="$NUMBER[49]">49</property>
             <property name="id">50</property>
             <controls>
-            <include content="Widget_Aurahub">
+            <include content="Widget_Netflixhub">
                 <param name="id" value="$PYTHON[int(id) + 6050]" />
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
@@ -1768,7 +1768,7 @@
             <property name="id" tag="property" attribute="name|id" value="$NUMBER[49]">49</property>
             <property name="id">50</property>
             <controls>
-            <include content="Widget_Aurahub">
+            <include content="Widget_Netflixhub">
                 <param name="id" value="$PYTHON[int(id) + 6050]" />
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />

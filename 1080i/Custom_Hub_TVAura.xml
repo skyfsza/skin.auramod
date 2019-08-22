@@ -31,7 +31,7 @@
                 <visible>!Skin.HasSetting(DisableAuraHomeLayout)</visible>
             </control>
             <control type="group" id="335" description="Spacer">
-                <height>50</height>
+                <height>220</height>
                 <visible>Skin.HasSetting(DisableAuraHomeLayout)</visible>
             </control>
         <include>skinshortcuts-template-aurahubtv</include>
