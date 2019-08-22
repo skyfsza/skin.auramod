@@ -132,7 +132,6 @@
 
             <property name="icon" tag="property" attribute="name|widgetAspect" value="Landscape">$VAR[Image_Landscape]</property>
             <property name="icon">$VAR[Image_Poster]</property>
-
             <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Square">4</property>
             <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Icon">4</property>
             <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="PosterDetails">1</property>
@@ -146,16 +145,22 @@
 
             <property name="widgetControl" tag="property" attribute="name|widgetControl" />
             <property name="widgetControl">fixedlist</property>
-
             <property name="widgetAspect" tag="property" attribute="name|widgetAspect" />
-            <property name="widgetAspect">Landscape</property>
+            <property name="widgetAspect">Poster</property>
+            <property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
+            <property name="widgetTarget">videos</property>
+            <property name="widgetName" tag="label" />
+            <property name="widgetPath" tag="property" attribute="name|list" />
+            <property name="widgetSortby" tag="property" attribute="name|widgetSortby" />
+            <property name="widgetSortorder" tag="property" attribute="name|widgetSortorder" />
+            <property name="widgetLimit" tag="property" attribute="name|widgetLimit" />
 
             <property name="aspectratio" tag="property" attribute="name|widgetAspect" value="Square">keep</property>
             <property name="aspectratio">scale</property>
-
             <property name="limit" tag="property" attribute="name|widgetLimit" />
             <property name="target" tag="property" attribute="name|widgetTarget" />
             <property name="target">videos</property>
+
 
 	    <property name="widgetSearch">true</property>
 
