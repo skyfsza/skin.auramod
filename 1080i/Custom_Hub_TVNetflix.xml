@@ -14,13 +14,15 @@
     <left>-40</left>
     <movement>0</movement>
     <include>skinshortcuts-template-netflixhubtv</include>
+   <control type="group" id="661">
+   <height>120</height>
+   </control>
   <control type="fixedlist" id="660">
       <left>60</left>
       <scrolltime tween="sine" easing="out">500</scrolltime> 
-      <height>450</height>
+      <height>350</height>
       <orientation>horizontal</orientation>
       <onup>650</onup>
-      <height>350</height>
       <width>1980</width>
       <preloaditems>2</preloaditems>
       <itemlayout width="373.33" height="200" condition="Skin.HasSetting(SubmenuLabel)">
