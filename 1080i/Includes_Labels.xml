@@ -50,7 +50,7 @@
 
 
    <variable name="home_simple_episode">
-	<value>[I]Continue Watching[/I] [CR][COLOR=$INFO[Skin.String(mainmenutcolor.name)]]S$INFO[ListItem.Season] E$INFO[ListItem.Episode] - $INFO[ListItem.Title][/COLOR]</value>
+	<value>[COLOR=$INFO[Skin.String(mainmenutcolor.name)]]S$INFO[ListItem.Season] E$INFO[ListItem.Episode] - $INFO[ListItem.Title][/COLOR]</value>
    </variable>   
 
     <variable name="netflix_widget_style_selected">
@@ -62,6 +62,7 @@
     <value condition="!Skin.HasSetting(DisableMenuVertIcon)">$LOCALIZE[31449]</value>
     <value condition="Skin.HasSetting(DisableMenuVertFull)">$LOCALIZE[31450]</value>
     <value condition="Skin.HasSetting(DisableMenuHor)">$LOCALIZE[31451]</value>
+    <value condition="Skin.HasSetting(DisableMenuVertLabel)">$LOCALIZE[31471]</value>
     </variable>
 
     <variable name="netflix_home_style_selected">
@@ -220,7 +221,7 @@
 
 
     <variable name="Label_Widget">
-        <value condition="String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(ListItem.TvShowTitle) + !String.IsEqual(ListItem.Title,ListItem.TvShowTitle)">$INFO[ListItem.Property(AirDate),, - ]$INFO[ListItem.TvShowTitle,, - ]S$INFO[ListItem.Season,,:]E$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</value>
+        <value condition="String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(ListItem.TvShowTitle) + !String.IsEqual(ListItem.Title,ListItem.TvShowTitle)">$INFO[ListItem.Property(AirDate),, - ]$INFO[ListItem.TvShowTitle,, - ]S$INFO[ListItem.Season,,]E$INFO[ListItem.Episode,, ]$INFO[ListItem.Title]</value>
         <value condition="!String.IsEmpty(ListItem.ChannelName)">$INFO[ListItem.ChannelName]$INFO[ListItem.Title, - ,]</value>
         <value condition="!String.IsEmpty(ListItem.Property(ChannelName))">$INFO[ListItem.Label]$INFO[ListItem.Label2, - ,]</value>
         <value>$INFO[ListItem.Label]</value>
@@ -383,14 +384,9 @@
 
     <variable name="Label_SubTitle">
         <value condition="!String.IsEmpty(ListItem.Property(Artist_Genre)) + Container.Content(artists)">$INFO[Window(Home).Property(SkinHelper.ListItem.AlbumCount),[COLOR=main_fg_100], $LOCALIZE[132][/COLOR]  |  ]$INFO[ListItem.Property(Artist_Genre),[COLOR=main_fg_100],[/COLOR]]$INFO[ListItem.Property(Artist_YearsActive),  |  [COLOR=main_fg_100],[/COLOR]]</value>
-        
         <value condition="!String.IsEmpty(ListItem.Artist) + [Container.Content(musicvideos) | Container.Content(albums) | Container.Content(songs) | [Window.IsVisible(MyPlaylist.xml) + String.IsEqual(ListItem.DBType,song)]]">$INFO[ListItem.Artist,[COLOR=main_fg_100],[/COLOR]]$INFO[ListItem.Year,  |  [COLOR=main_fg_100],[/COLOR]]$INFO[ListItem.Genre,  |  [COLOR=main_fg_100],[/COLOR]]</value>
-
         <value condition="[Window.IsVisible(DialogAddonInfo.xml) | Container.Content(addons)] + !String.IsEmpty(ListItem.AddonVersion)">$INFO[ListItem.AddonType,[COLOR=main_fg_100],[/COLOR]  |  ]$INFO[ListItem.AddonVersion,[COLOR=main_fg_100],[/COLOR]]$INFO[ListItem.AddonCreator,  |  [COLOR=main_fg_100],[/COLOR]]</value>
-
         <value condition="Container.Content(images) + !String.IsEmpty(ListItem.Size)">$INFO[ListItem.PictureDate ,[COLOR=main_fg_100],[/COLOR]  |  ]$INFO[ListItem.PictureResolution ,[COLOR=main_fg_100],[/COLOR]  |  ]$INFO[ListItem.Size,[COLOR=main_fg_100],[/COLOR]]</value>
-
-        <value>[COLOR=main_fg_100]$LOCALIZE[19055][/COLOR]</value>
     </variable>
 
     <variable name="Label_Title">
@@ -589,6 +585,7 @@
     <variable name="Label_Rating">
         <value condition="!String.IsEmpty(ListItem.UserRating)">$INFO[ListItem.UserRating,,.0]</value>
         <value condition="!String.IsEmpty(ListItem.Rating)">$INFO[ListItem.Rating]</value>
+        <value condition="!String.IsEmpty(ListItem.Rating)">$INFO[Window(Home).Property(SkinHelper.ListItem.Rating])</value>
         <value>0.0</value>
     </variable>
 

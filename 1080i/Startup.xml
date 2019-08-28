@@ -4,6 +4,7 @@
     <defaultcontrol always="true">9315</defaultcontrol>
     <onload>SetProperty(SkinInitStarted,1,home)</onload>
     <onload>ClearProperty(SkinSplashStarted,home)</onload>
+    <onload>Skin.SetString(hubstartup,true)</onload>
     <controls>
         <control type="image" description="Background">
             <include>Dimensions_Fullscreen</include>

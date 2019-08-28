@@ -1,5 +1,7 @@
 <window type="dialog">
     <defaultcontrol always="true">120</defaultcontrol>
+    <onunload>ClearProperty(filename_formatted,Home)</onunload>
+    <onload>RunScript(script.skin.helper.service,action=GETPLAYERFILENAME,output=filename_formatted)</onload>
     <controls>
         <include>Global_Overlay</include>
 
@@ -14,15 +16,41 @@
 
             <control type="label">
                 <description>Path</description>
-                <bottom>10</bottom>
+                <bottom>20</bottom>
                 <height>84</height>
                 <aligny>center</aligny>
                 <left>30</left>
                 <right>30</right>
                 <font>font_tiny</font>
                 <textcolor>dialog_fg_70</textcolor>
-                <label>$INFO[Control.GetLabel(140),,   ] $INFO[Player.FileName]</label>
+                <label>$INFO[Control.GetLabel(140),,   ]</label>
                 <scroll>true</scroll>
+            </control>
+
+            <control type="label">
+                <description>Path</description>
+                <bottom>0</bottom>
+                <height>84</height>
+                <aligny>center</aligny>
+                <left>30</left>
+                <right>30</right>
+                <font>font_tiny</font>
+                <textcolor>dialog_fg_70</textcolor>
+                <label>[I]$INFO[Window(Home).Property(filename_formatted)][/I]</label>
+		<visible>!String.Contains(Window(Home).Property(filename_formatted),plugin.video)</visible>
+                <scroll>true</scroll>
+            </control>
+            <control type="label">
+                <description>Path</description>
+                <bottom>20</bottom>
+                <height>84</height>
+                <aligny>center</aligny>
+                <left>400</left>
+                <font>font_tiny</font>
+                <textcolor>dialog_fg_70</textcolor>
+                <label>[I][B]$INFO[Skin.String(serenfile)][/I][/B]</label>
+                <scroll>true</scroll>
+		<visible>String.Contains(Window(Home).Property(filename_formatted),plugin.video.seren)</visible>
             </control>
 
             <control type="label" id="140"><visible allowhiddenfocus="true">false</visible></control>

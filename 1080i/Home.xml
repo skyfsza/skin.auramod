@@ -2,23 +2,26 @@
 <!-- Foundation -->
 <window id="0">
     <defaultcontrol always="true">4000</defaultcontrol>
+    <onload condition="String.IsEqual(Skin.String(hubstartup),true) + Skin.HasSetting(HubOnStartup) + !Container(330).IsUpdating">ActivateWindow(1111)</onload>
     <onload>RunScript(plugin.video.themoviedb.helper,reset_path)</onload>
     <onload condition="Skin.HasSetting(EnableWetherRadar)">RunScript(special://skin/extras/weather.py)</onload> 
-    <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|searchmenu|aurahubtv|aurahubmovies|netflixhubtv|netflixhubmovies)</onload>
+    <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|hubtvnetworks|searchmenu|aurahubtv|aurahubmovies|netflixhubtv|netflixhubmovies)</onload>
     <onload condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs)">Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
     <onload condition="!Skin.HasSetting(SkinHelper.EnableMusicArt)">Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
     <onload>ClearProperty(HomeFocus,Home)</onload>
     <onload>AlarmClock(SkinSplashStarted,SetProperty(SkinSplashStarted,1,home),00:01,silent,false)</onload>
     <onload>ClearProperty(WidgetLoading,Home)</onload>
     <onload>AlarmClock(SetLoad,SetProperty(WidgetLoading,1,Home),00:00,silent)</onload> 
-    <onload condition="Integer.IsGreater(Container(1505).NumItems,0)">Control.Move(1505,1)</onload>
-    <onload condition="Integer.IsGreater(Container(1506).NumItems,0)">Control.Move(1506,1)</onload>
+    <onload condition="String.IsEmpty(Skin.String(TVHubMenuFocus)) + String.IsEmpty(Skin.String(MovieHubMenuFocus)) + Integer.IsGreater(Container(1505).NumItems,0)">Control.Move(1505,1)</onload>
+    <onload condition="String.IsEmpty(Skin.String(TVHubMenuFocus)) + String.IsEmpty(Skin.String(MovieHubMenuFocus)) + Integer.IsGreater(Container(1506).NumItems,0)">Control.Move(1506,1)</onload>
     <onload condition="!Skin.HasSetting(LockHubWidgets)">Skin.ToggleSetting(LockHubWidgets)</onload>
     <onload condition="Skin.HasSetting(AutoLibraryHome)">UpdateLibrary(video,,true)</onload>
     <onload condition="!String.IsEmpty(Skin.String(TMDB_Search))">ActivateWindow(1136)</onload>
     <onload>Skin.SetString(AddonContainer,false)</onload>
     <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
-   
+  
+  <onload condition="!String.IsEmpty(Skin.String(MovieHubMenuFocus))">SetFocus(401,0,absolute)</onload> 
+  <onload condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,0,absolute)</onload> 
 
     <controls>
         <control type="list" id="9988">
@@ -39,13 +42,12 @@
             </focusedlayout>
             <content>$INFO[Container(300).ListItem.Property(backgroundPlaylist)]</content>
         </control>
-
+      <include>fanart_multi</include>
       <control type="grouplist" id="4000">
         <itemgap>0</itemgap>
         <visible>Skin.HasSetting(DisableTraktMode)</visible>
         <include condition="Skin.HasSetting(DisableTraktMode)">Object_Home_Media_Hub_mainmenu</include>
       </control>	
-
    <include condition="!Skin.HasSetting(DisableTraktMode)">home_no_trakt</include>
 
     </controls>

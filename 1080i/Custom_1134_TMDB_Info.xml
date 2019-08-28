@@ -28,7 +28,7 @@
     </control>
     <control type="group">
       <visible>!String.Contains(Window(Home).Property(TMDbHelper.Path.Current),type=person) | Control.HasFocus(9999)</visible>
-      <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+      <visible>!Window.IsVisible(DialogVideoInfo.xml) + !Player.HasVideo</visible>
       <include>Dialog_Busy</include>
     </control>
     <!-- Person Info -->
@@ -50,6 +50,7 @@
         <orientation>vertical</orientation>
         <itemgap>0</itemgap>
         <control type="group" id="3000">
+		<include>Object_UpDownInfoArrows</include>
           <visible allowhiddenfocus="true">!ControlGroup(4000).HasFocus</visible>
           <height>1080</height>
           <animation effect="fade" start="0" end="100" time="1000">Visible</animation>
@@ -93,7 +94,6 @@
                   <param name="maxheight" value="600" />
                   <param name="height" value="600" />
                 </include>
-		<include>Object_UpDownInfoArrows</include>
               </control>
               <control type="button" id="3111">
                 <onfocus>SetFocus(3100)</onfocus>

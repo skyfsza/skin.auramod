@@ -967,12 +967,17 @@
         <texture background="true" colordiffuse="FF000000">common/white.png</texture>
         <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
       </control>
-      <control type="image">
+      <control type="multiimage">
         <width>100%</width>
         <height>100%</height>
-        <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>
-        <texture background="true">$VAR[Spotlight_Fanart]</texture>
-        <aspectratio scalediffuse="true" align="right" aligny="top">scale</aspectratio>
+      <imagepath>$INFO[Control.GetLabel(398045)]</imagepath>
+      <timeperimage>2000</timeperimage>
+      <fadetime>2000</fadetime>
+      <pauseatend>10000</pauseatend>
+      <randomize>true</randomize>
+      <loop>no</loop>
+      <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>
+      <aspectratio scalediffuse="true" align="right" aligny="top">scale</aspectratio>
       </control>
       <control type="image">
 	<width>130%</width>
@@ -982,7 +987,6 @@
     </control>
 
 	<control type="group">
-	<include>Global_Background</include>
 
         <control type="label">
             <left>80</left>
@@ -1004,7 +1008,7 @@
                 <left>10</left>
 	        <include condition="Skin.HasSetting(DisableAuraHomeLayout)">widget_info_top_netflix</include>
 	        <include condition="!Skin.HasSetting(DisableAuraHomeLayout)">widget_info_top_aura</include>
-		<width>1710</width>
+		<width>1810</width>
                 <height>900</height>
             <include content="Widget_TMDB">
                 <param name="id" value="53001" />
@@ -1425,7 +1429,7 @@
               <radioposx>2</radioposx>
               <visible>!Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]</visible>
               <label>Trailer</label>
-              <onclick condition="!Player.HasVideo + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]">PlayMedia($INFO[ListItem.Trailer],1)</onclick>
+              <onclick condition="!Player.HasVideo + !String.IsEmpty(ListItem.Trailer) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]">PlayMedia($INFO[ListItem.Trailer],1)</onclick>
               <onclick condition="!Player.HasVideo + String.IsEmpty(ListItem.Trailer)">Playmedia($INFO[Window(Home).Property(SkinHelper.ListItem.Trailer)],1)</onclick>
               <onclick condition="!Player.HasVideo">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
               <onclick condition="!Player.HasVideo">SetProperty(TrailerPlaying,fullscreen,home)</onclick>

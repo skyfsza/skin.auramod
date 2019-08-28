@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="3920">
-  <defaultcontrol always="true">5700</defaultcontrol>
+  <onload condition="String.IsEmpty(Skin.String(MovieHubMenuFocus))">SetFocus(5055)</onload>
+  <onload condition="!String.IsEmpty(Skin.String(MovieHubMenuFocus))">SetFocus(401,3,absolute)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
     <include>Global_Background</include>
     <include>Logo</include>
+    <include>Home_MovieHubMenu_Layout</include>
    <control type="group">
    <control type="label">
+   <animation effect="slide" end="260,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
    <top>65</top>
    <left>70</left>
    <width>400</width>
@@ -16,24 +19,18 @@
    <label>[B]Movie AuraHub[/B]</label>
    </control>
    </control>
-   <control type="grouplist" id="5700">
+   <control type="grouplist" id="5055">
+        <animation effect="slide" end="260,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
 	<top>140</top>
         <width>1920</width>
-        <height>1080</height>
+        <height>900</height>
         <left>0</left>
         <scrolltime tween="quadratic">400</scrolltime>
         <orientation>vertical</orientation>
         <usecontrolcoords>true</usecontrolcoords>
-        <onback>9000</onback>
-        <onleft>9000</onleft>
-            <control type="group" id="334" description="Spacer">
-                <height>220</height>
-                <visible>!Skin.HasSetting(DisableAuraHomeLayout)</visible>
-            </control>
-            <control type="group" id="335" description="Spacer">
-                <height>220</height>
-                <visible>Skin.HasSetting(DisableAuraHomeLayout)</visible>
-            </control>
+        <onback>Skin.Reset(MovieHubMenuFocus)</onback>
+        <onback>ActivateWindow(Home)</onback>
+        <onleft>SetFocus(401,3)</onleft>
         <include>skinshortcuts-template-aurahubmovies</include>
     </control>
 

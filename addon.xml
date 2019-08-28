@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<addon id="skin.auramod" version="0.9.31" name="Aura[COLOR cyan]MOD[/COLOR]" provider-name="auramod,jurialmunkey,Cartmandos,marduklev,marcelveldt">
+<addon id="skin.auramod" version="0.9.32" name="Aura[COLOR cyan]MOD[/COLOR]" provider-name="auramod,jurialmunkey,Cartmandos,marduklev,marcelveldt">
     <requires>
         <import addon="xbmc.gui" version="5.14.0"/>
         <import addon="repository.marcelveldt" version="1.0.1"/>
@@ -18,7 +18,7 @@
     </extension>
     <extension point="xbmc.addon.metadata">
         <summary lang="en">Mod of aura ,  Minimalistic. Customisable. Multiple Widgets.</summary>
-        <description lang="en">Aura is highly customisable skin with multiple widgets and a horizontal home menu. Aura combines the minimalism and rounded edges of Arctic Zephyr with the sleek customisability of Horizon. Whilst the best Aura experience is had with a remote, Aura has been designed to accomodate mouse and touch users where possible.,  [COLOR cyan]Mods to Aura by skyfsza[/COLOR]</description>
+        <description lang="en">Aura is highly customisable skin with multiple widgets and a horizontal home menu. Aura combines the minimalism and rounded edges of Arctic Zephyr with the sleek customisability of Horizon and Titan Bingie. [COLOR cyan]Mods to Aura by skyfsza[/COLOR]</description>
         <platform>all</platform>
         <license>Creative Commons Attribution Non-Commercial Share-Alike 4.0</license>
         <forum/>

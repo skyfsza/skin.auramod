@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+    <variable name="OSD_Info_Label">
+        <value condition="Control.HasFocus(18)">Subtitles</value>
+        <value condition="Control.HasFocus(32)">Extended Info</value>
+        <value condition="Control.HasFocus(25)">Settings</value>
+        <value condition="Control.HasFocus(25)">More Info</value>
+        <value condition="Control.HasFocus(34)">Cast</value>
+    </variable>
+
+
     <variable name="Info_Cast_List01">
         <value condition="!Container(3100).IsUpdating + Integer.IsGreater(Container(3100).NumItems,0)">$INFO[Container(3100).ListItemAbsolute(1).FolderPath]</value>
         <value>videodb://</value>

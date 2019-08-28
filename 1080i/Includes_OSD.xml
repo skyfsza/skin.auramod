@@ -242,6 +242,7 @@
                         <right>view_pad</right>
                         <height>480</height>
                         <bottom>158</bottom>
+			<visible>!Window.IsVisible(1122)</visible>
                         <control type="grouplist">
                             <left>0</left>
                             <usecontrolcoords>true</usecontrolcoords>
@@ -500,26 +501,6 @@
             <visible>Window.IsVisible(videoosd)</visible>
             <visible>!VideoPlayer.Content(musicvideos)</visible>
         </control>
-        <control type="button" id="32">
-            <centertop>50%</centertop>
-            <description>extrainfo</description>
-            <width>48</width>
-            <height>48</height>
-            <label/>
-            <font/>
-            <texturefocus colordiffuse="$VAR[ColorHighlight]">osd/info.png</texturefocus>
-            <texturenofocus colordiffuse="main_fg_70">osd/info.png</texturenofocus>
-            <onclick condition="!Player.Paused + !Skin.HasSetting(DontPauseOSD)">SetProperty(OSDExtendedInfo,1,Home)</onclick>
-            <onclick condition="!Player.Paused + !Skin.HasSetting(DontPauseOSD)">Pause</onclick>
-            <onclick condition="VideoPlayer.Content(movies)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[VideoPlayer.Title],imdb_id=$INFO[VideoPlayer.IMDBNumber])</onclick>
-            <onclick condition="VideoPlayer.Content(episodes)">RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[VideoPlayer.TvShowTitle])</onclick>
-            <onfocus condition="!String.IsEmpty(Window(Home).Property(OSDExtendedInfo)) + Player.Paused">Play</onfocus>
-            <onfocus condition="!String.IsEmpty(Window(Home).Property(OSDExtendedInfo))">ClearProperty(OSDExtendedInfo,Home)</onfocus>
-            <onfocus>ClearProperty(OSD_Menu,Home)</onfocus>
-            <visible>Window.IsVisible(videoosd)</visible>
-            <visible>!VideoPlayer.Content(livetv)</visible>
-            <visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
-        </control>
         <control type="togglebutton" id="20">
             <usealttexture>Control.HasFocus(20) | Control.HasFocus(21) | Control.HasFocus(22)</usealttexture>
             <centertop>50%</centertop>
@@ -671,7 +652,59 @@
             <visible>Window.IsVisible(videoosd)</visible>
             <visible>VideoPlayer.Content(livetv)</visible>
         </control>
+        <control type="button" id="35">
+            <centertop>50%</centertop>
+            <description>EPG</description>
+            <width>48</width>
+            <height>48</height>
+            <label/>
+            <font/>
+            <texturefocus colordiffuse="$VAR[ColorHighlight]">osd/playlist.png</texturefocus>
+            <texturenofocus colordiffuse="main_fg_70">osd/playlist.png</texturenofocus>
+            <onclick>Close</onclick>
+            <onclick>ActivateWindow(videoplaylist)</onclick>
+            <visible>Window.IsVisible(videoosd)</visible>
+            <visible>Integer.IsGreater(Playlist.Length(video),1)</visible>
+        </control>
+       <control type="button" id="33">
+            <centertop>50%</centertop>
+            <description>extrainfo</description>
+            <width>48</width>
+            <height>48</height>
+            <label/>
+            <font/>
+            <texturefocus colordiffuse="$VAR[ColorHighlight]">netflix/director.png</texturefocus>
+            <texturenofocus colordiffuse="panel_fg_70">netflix/director.png</texturenofocus>
+            <onclick>SetProperty(OSDExtendedInfo,1,Home)</onclick>
+            
+            <onclick condition="String.IsEmpty(VideoPlayer.DBID) + VideoPlayer.Content(movies) + !String.IsEmpty(VideoPlayer.IMDBNumber)">RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=find&amp;type=movie&amp;imdb_id=$INFO[VideoPlayer.IMDBNumber],call_id=1137,delay=0.35)</onclick>
+            <onclick condition="String.IsEmpty(VideoPlayer.DBID) + VideoPlayer.Content(movies) + String.IsEmpty(VideoPlayer.IMDBNumber)">RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=movie&amp;query=$INFO[Player.Title],call_id=1137,delay=0.35)</onclick>
+            <onclick condition="String.IsEmpty(VideoPlayer.DBID) + [VideoPlayer.Content(tvshows) | VideoPlayer.Content(episodes)]">RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[VideoPlayer.TvShowTitle],call_id=1137,delay=0.35)</onclick>
 
+
+            <onclick condition="!String.IsEmpty(VideoPlayer.DBID) + VideoPlayer.Content(movies)">RunScript(plugin.video.themoviedb.helper,add_path=$INFO[Player.Title,videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22,%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D],call_id=1137,delay=0.35)</onclick>
+            <onclick condition="!String.IsEmpty(VideoPlayer.DBID) + [VideoPlayer.Content(tvshows) | VideoPlayer.Content(episodes)]">RunScript(plugin.video.themoviedb.helper,add_path=$INFO[VideoPlayer.TvShowTitle,videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22,%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D],call_id=1137,delay=0.35)</onclick>
+
+            <onfocus condition="!String.IsEmpty(Window(Home).Property(OSDExtendedInfo))">ClearProperty(OSDExtendedInfo,Home)</onfocus>
+            <onfocus>ClearProperty(OSD_Menu,Home)</onfocus>
+            <visible>Window.IsVisible(videoosd)</visible>
+            <visible>!VideoPlayer.Content(livetv)</visible>
+        </control>
+
+        <control type="button" id="34">
+            <centertop>50%</centertop>
+            <description>extrainfo</description>
+            <width>48</width>
+            <height>48</height>
+            <label/>
+            <font/>
+            <texturefocus colordiffuse="$VAR[ColorHighlight]">osd/actors.png</texturefocus>
+            <texturenofocus colordiffuse="panel_fg_70">osd/actors.png</texturenofocus>
+            <onclick condition="String.IsEmpty(Window(Home).Property(OSDInfo))">SetProperty(OSDInfo,1,Home)</onclick>
+            <onclick>ActivateWindow(1122)</onclick>
+            <visible>Window.IsVisible(videoosd)</visible>
+            <visible>!VideoPlayer.Content(livetv)</visible>
+        </control>
         <control type="button" id="31">
             <centertop>50%</centertop>
             <description>3d</description>
@@ -688,6 +721,26 @@
             <onfocus>ClearProperty(OSD_Menu,Home)</onfocus>
             <visible>Window.IsVisible(videoosd)</visible>
             <visible>!VideoPlayer.Content(livetv)</visible>
+        </control>
+        <control type="button" id="32">
+            <centertop>50%</centertop>
+            <description>extrainfo</description>
+            <width>48</width>
+            <height>48</height>
+            <label/>
+            <font/>
+            <texturefocus colordiffuse="$VAR[ColorHighlight]">osd/info.png</texturefocus>
+            <texturenofocus colordiffuse="main_fg_70">osd/info.png</texturenofocus>
+            <onclick condition="!Player.Paused + !Skin.HasSetting(DontPauseOSD)">SetProperty(OSDExtendedInfo,1,Home)</onclick>
+            <onclick condition="!Player.Paused + !Skin.HasSetting(DontPauseOSD)">Pause</onclick>
+            <onclick condition="VideoPlayer.Content(movies)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[VideoPlayer.Title],imdb_id=$INFO[VideoPlayer.IMDBNumber])</onclick>
+            <onclick condition="VideoPlayer.Content(episodes)">RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[VideoPlayer.TvShowTitle])</onclick>
+            <onfocus condition="!String.IsEmpty(Window(Home).Property(OSDExtendedInfo)) + Player.Paused">Play</onfocus>
+            <onfocus condition="!String.IsEmpty(Window(Home).Property(OSDExtendedInfo))">ClearProperty(OSDExtendedInfo,Home)</onfocus>
+            <onfocus>ClearProperty(OSD_Menu,Home)</onfocus>
+            <visible>Window.IsVisible(videoosd)</visible>
+            <visible>!VideoPlayer.Content(livetv)</visible>
+            <visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
         </control>
 
     </include>

@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-   
+     <include name="fanart_multi">
+     <control type="fadelabel" id="398045">
+        <description>Randomizer for plugin-free multiple fanart</description>
+        <top>-1000</top> <!-- Don't need to see it, but can't change its visibility. Put it off screen -->
+        <width>1</width>
+        <height>1</height>
+        <info>ListItem.Art(fanart)</info>
+        <info>ListItem.Art(fanart1)</info>
+        <info>ListItem.Art(fanart2)</info>
+        <info>ListItem.Art(fanart3)</info>
+        <!-- ... repeat for each numbered fanart -->
+        <!-- tvshow.fanart are filled with the series fanart when navigating season and episode lists -->
+        <info>ListItem.Art(tvshow.fanart)</info>
+        <info>ListItem.Art(tvshow.fanart1)</info>
+        <info>ListItem.Art(tvshow.fanart2)</info>
+        <!-- Container.ListItem.Art() are filled based on the focused ListItem in the **focused container** in Leia -->
+        <info>Container.ListItem.Art(fanart)</info>
+        <info>Container.ListItem.Art(fanart1)</info>
+        <info>Container.ListItem.Art(fanart2)</info>
+        <info>Container.ListItem.Art(tvshow.fanart)</info>
+        <info>Container.ListItem.Art(tvshow.fanart1)</info>
+        <info>Container.ListItem.Art(tvshow.fanart2)</info>
+        <randomize>true</randomize>
+        <pauseatend>8000</pauseatend> <!-- Time to show each image, in milliseconds -->
+        <!-- No scrolling so only the pauseatend above (plus a short fade-in) affects length of time each
+                image is shown -->
+        <scroll>false</scroll>
+        <scrollout>false</scrollout>
+        <!-- Resets the timer when navigating to a new item, so each item's first visible fanart will
+                show for the full amount of time -->
+        <resetonlabelchange>true</resetonlabelchange>
+   </control>
+   </include> 
+   <variable name="fanart_multi_fadelabel">
+       <value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(Control.GetLabel(398045))">$INFO[Control.GetLabel(398045)]</value>
+       <value condition="!Skin.HasSetting(SkinHelper.EnableExtraFanart)">$VAR[Spotlight_Fanart]</value>
+   </variable>
    <variable name="loading_spinner">
        <value condition="String.IsEmpty(Skin.String(loadingspinner.icon))">special://skin/media/netflix/loading.gif</value>
        <value condition="!String.IsEmpty(Skin.String(loadingspinner.icon))">$INFO[Skin.String(loadingspinner.icon)]</value>
@@ -27,10 +63,10 @@
         <value condition="String.Contains(ListItem.Label,Genres)">special://skin/media/exuary/tvlist/genres-background.jpg</value>
    </variable> 
    <variable name="Spotlight_Fanart">
-	<value condition="!String.IsEmpty(ListItem.ChannelName)">$VAR[Global_Background_Image]</value>
         <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
+        <value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(ListItem.Art(fanart)) + System.HasAddon(script.artwork.helper) + [Window.IsVisible(Home) | Window.IsVisible(DialogVideoInfo.xml)] + [String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)]">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[ListItem.Label]</value>
         <value>$INFO[ListItem.Icon]</value>
    </variable> 
    <variable name="Image_Fanart">
@@ -51,6 +87,12 @@
         <value condition="[!Control.HasFocus(5055) + !Control.IsVisible(505)] + !String.IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
         <value condition="[!Control.HasFocus(5055) + !Control.IsVisible(505)] + !String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
         <value condition="!Control.HasFocus(5055) + !Control.IsVisible(505)">$INFO[ListItem.Icon]</value>
+    </variable>
+
+    <variable name="Image_MainMenu_fanart_aurahub"> 
+	<value condition="!String.IsEmpty(Container(6051).ListItemAbsolute(0).Art(fanart))">$INFO[Container(6051).ListItemAbsolute(0).Art(fanart)]</value>
+	<value condition="!String.IsEmpty(Container(6052).ListItem.Art(fanart))">$INFO[Container(6052).ListItem.Art(fanart)]</value>
+        <value>$VAR[Image_MainMenu_fanart]</value>
     </variable>
 
     <variable name="Image_MainMenu_fanart"> 

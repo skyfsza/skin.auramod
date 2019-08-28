@@ -10,12 +10,11 @@
                 <control type="group">
                     <left>home_left</left>
                     <width>320</width>
-                    <include>Home_Textbar_Texture</include>
-                    <include>Home_Textbar_Items</include>
-                    <include>Home_Textbar_Bottomline</include>
+                    <include condition="!Skin.HasSetting(DisableMenuVertLabel)">Home_Textbar_Texture</include>
+                    <include condition="!Skin.HasSetting(DisableMenuVertLabel)">Home_Textbar_Items</include>
+                    <include condition="!Skin.HasSetting(DisableMenuVertLabel)">Home_Textbar_Bottomline</include>
                 </control>
             </control>
-
             <control type="group">
                 <animation effect="slide" start="0" end="301" time="400" condition="Control.HasFocus(302) + Skin.HasSetting(IconOnlyMode)">Conditional</animation>
                 <control type="group">
@@ -23,9 +22,10 @@
                     <width>320</width>
                     <control type="group">
                         <right>-8</right>
-                        <include>Home_Textbar_Texture</include>
+                        <include condition="!Skin.HasSetting(DisableMenuVertLabel)">Home_Textbar_Texture</include>
                     </control>
 
+	    <!-- Submenu -->
                     <control type="list" id="302">
                         <visible>Window.IsVisible(Home)</visible>
                         <onclick>SetFocus(300)</onclick>
@@ -56,57 +56,47 @@
                 <control type="group">
                     <left>0</left>
                     <width>home_icon</width>
-                    <include>Home_Iconbar_Texture</include>
+                    <include condition="!Skin.HasSetting(DisableMenuVertLabel)">Home_Iconbar_Texture</include>
 
                     <control type="list" id="300">
-		        <include>Global_Overlay</include>
-                        <include>Defs_InfoDialog_Visible</include>
-                        <include condition="![Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">Home_OnClick</include>
-                        <include>Home_OnFocus</include>
-<!--
-                        <onleft condition="Window.IsVisible(Home) + Skin.HasSetting(DisableMenuVertFull) +  [!Skin.HasSetting(DisableSubMenu) | String.IsEqual(Container(300).ListItem.Property(widget),Weather)] + !Window.IsVisible(script-globalsearch-main.xml) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)">302</onleft>
--->
+			<onfocus>Skin.Reset(TVHubMenuFocus)</onfocus>
+			<onfocus>Skin.Reset(MovieHubMenuFocus)</onfocus>
+			<onleft condition="Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Label,TV Shows) + Skin.HasSetting(DisableSubMenuVert)">SetFocus(400,0)</onleft>
+			<onleft condition="Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Label,Movies) + Skin.HasSetting(DisableSubMenuVert)">SetFocus(401,0)</onleft>
 			<onleft condition="Control.HasFocus(300) + Skin.HasSetting(DisableMenuVertFull)">302</onleft>
-			<onleft condition="Skin.HasSetting(DisableMenuVertFull) + !Integer.IsGreater(Container(30222).NumItems,0) + !Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)">302</onleft>
-			<onleft condition="Integer.IsGreater(Container(30222).NumItems,0) + !Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)">30222</onleft>
+			<onleft condition="!String.IsEqual(Container(300).ListItem.Property(widgetinfospotlight),true) + Skin.HasSetting(DisableMenuVertFull) + !Integer.IsGreater(Container(30222).NumItems,0) + !Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)">302</onleft>
+			<onleft condition="!Skin.HasSetting(DisableSubMenuVert) + !String.IsEqual(Container(300).ListItem.Property(widgetinfospotlight),true) + Integer.IsGreater(Container(30222).NumItems,0) + !Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)">30222</onleft>
 			<onleft condition="Skin.HasSetting(DisableMenuVertFull) + Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)">302</onleft>
 
                         <onleft condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">9602</onleft>
 
-			<onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widget),Settings)">9967</onright>
-			<onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widget),Weather)">9966</onright>	
+                        <onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widget),Settings)">9967</onright>
+                        <onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widget),Weather)">9966</onright>
                         <onright condition="Window.IsVisible(script-globalsearch-main.xml)">9500</onright>
                         <onright condition="Window.IsVisible(Home) + !Skin.HasSetting(DisableAuraHomeLayout) + Integer.IsGreater(Container(330).NumItems,0)">3000</onright>
                         <onright condition="Window.IsVisible(Home) + !Integer.IsGreater(Container(30222).NumItems,0) + Integer.IsGreater(Container(330).NumItems,0)">3000</onright>
-			<onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Label,Youtube)">11</onright>	
-                        <onright condition="!Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + Integer.IsGreater(Container(330).NumItems,0)">330</onright>
 
-                        <onright condition="Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + Integer.IsGreater(Container(30222).NumItems,0)">30222</onright>
-                        <onright condition="Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + Integer.IsGreater(Container(30222).NumItems,0)">30222</onright>
-                        <onright condition="Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + [!String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) | String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)]  + !Integer.IsGreater(Container(30222).NumItems,0)">3000</onright>
-                        <onright condition="!Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + Integer.IsGreater(Container(1505).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),TVShows)">330</onright>
-                        <onright condition="!Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + Integer.IsGreater(Container(1506).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),Movies)">330</onright>
+                        <onright condition="Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + Integer.IsGreater(Container(30222).NumItems,0)">30222</onright>
+                        <onright condition="Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + !Integer.IsGreater(Container(30222).NumItems,0)">3000</onright>
+                        <onright condition="!Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + Integer.IsGreater(Container(330).NumItems,0)">330</onright>
+                        <onright condition="!Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + Integer.IsGreater(Container(30222).NumItems,0) + !Integer.IsGreater(Container(330).NumItems,0)">30222</onright>
                         <onright condition="Window.IsVisible(SettingsProfile.xml)">4</onright>
                         <onright condition="Window.IsVisible(SettingsCategory.xml)">3</onright>
                         <onright condition="Window.IsVisible(SkinSettings.xml)">9100</onright>
                         <onright condition="Window.IsVisible(SettingsSystemInfo.xml)">50</onright>
-                        <onleft>300</onleft>
 
+                        <onleft>300</onleft>
                         <onright condition="[Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">50</onright>
                         <onright condition="Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">9500</onright>
 
-                        
-
-                        <include condition="![Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">Home_MainMenu_Layout</include>
+                        <include>Global_Overlay</include>
+                        <include>Defs_InfoDialog_Visible</include>
+                        <include>Home_OnFocus</include>
+                        <include condition="!Skin.HasSetting(DisableMenuVertLabel) + Window.IsVisible(Home) + !Window.IsVisible(script-globalsearch-main.xml)">Home_MainMenu_Items</include>
+                        <include condition="!Skin.HasSetting(DisableMenuVertLabel) + ![Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">Home_MainMenu_Layout</include>
                         <include condition="[Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">Home_VideoInfo_Layout</include>
-
-                        <include condition="Window.IsVisible(Home) + !Window.IsVisible(script-globalsearch-main.xml)">Home_MainMenu_Items</include>
-                        <include condition="[Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">Home_MainMenu_OptionsItems</include>
-                        <include condition="Window.IsVisible(MyPlaylist.xml) + !Window.IsVisible(script-globalsearch-main.xml)">Home_MainMenu_PlaylistItems</include>
-                        <include condition="[Window.IsVisible(SettingsSystemInfo.xml) | Window.IsVisible(Settings.xml) | Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(SkinSettings.xml) | Window.IsVisible(SettingsProfile.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">Items_Settings</include>
-                        <include condition="[Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">Home_MainMenu_NextAired</include>
-                        <include condition="Window.IsVisible(script-globalsearch-main.xml)">Home_MainMenu_GlobalSearch</include>
                     </control>
+
                     <control type="group">
                         <top>view_top</top>
                         <include>Home_Separator</include>
@@ -208,6 +198,128 @@
             </include>
         </control>
     </include>
+
+    <include name="Home_MainMenu_Layout_wLabel_texture">
+   <control type="group">
+      <width>310</width>
+      <left>-315</left>
+                <control type="image">
+                    <left>0</left>
+                    <height>100%</height>
+                    <colordiffuse>FF000000</colordiffuse>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">common/white.png</texture>
+                </control>
+                <control type="image">
+                    <left>311</left>
+                    <height>100%</height>
+                    <width>0.5</width>
+                    <colordiffuse>dimgray</colordiffuse>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">diffuse/gradient_seperator.png</texture>
+                </control>
+</control>
+</include>
+    <include name="Home_MainMenu_Layout_wLabel">
+	<control type="group">
+       <animation effect="slide" start="0,0" end="310,0" time="500" condition="Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)">Conditional</animation>
+       <animation effect="slide" start="0,0" end="70,0" time="500" 
+							condition="Control.HasFocus(30222) | Control.HasFocus(1505) | Control.HasFocus(1506) | 
+								   [Control.HasFocus(23003) + [Integer.IsEqual(Container(23003).Position,0) + !Container(23003).HasPrevious]] |
+								   [Control.HasFocus(33003) + [Integer.IsEqual(Container(33003).Position,0) + !Container(33003).HasPrevious]] |
+								   [Control.HasFocus(43003) + [Integer.IsEqual(Container(43003).Position,0) + !Container(43003).HasPrevious]] |
+                                                                   [Control.HasFocus(53003) + [Integer.IsEqual(Container(53003).Position,0) + !Container(53003).HasPrevious]] |
+                                                                   [Control.HasFocus(63003) + [Integer.IsEqual(Container(63003).Position,0) + !Container(63003).HasPrevious]]" 
+                                                                   >Conditional</animation>
+  <include>Home_MainMenu_Layout_wLabel_texture</include>
+		<control type="list" id="300">
+			<onfocus>Skin.Reset(TVHubMenuFocus)</onfocus>
+			<onfocus>Skin.Reset(MovieHubMenuFocus)</onfocus>
+			<onleft condition="Skin.HasSetting(DisableSubMenuVert) + Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Label,TV Shows)">SetFocus(400,0)</onleft>
+			<onleft condition="Skin.HasSetting(DisableSubMenuVert) + Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Label,Movies)">SetFocus(401,0)</onleft>
+			<onleft condition="Control.HasFocus(300) + Skin.HasSetting(DisableMenuVertFull)">302</onleft>
+			<onleft condition="!String.IsEqual(Container(300).ListItem.Property(widgetinfospotlight),true) + Skin.HasSetting(DisableMenuVertFull) + !Integer.IsGreater(Container(30222).NumItems,0) + !Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)">302</onleft>
+			<onleft condition="!Skin.HasSetting(DisableSubMenuVert) + !String.IsEqual(Container(300).ListItem.Property(widgetinfospotlight),true) + Integer.IsGreater(Container(30222).NumItems,0) + !Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)">30222</onleft>
+			<onleft condition="Skin.HasSetting(DisableMenuVertFull) + Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)">302</onleft>
+
+                        <onleft condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">9602</onleft>
+
+			<onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widget),Settings)">9967</onright>
+			<onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widget),Weather)">9966</onright>	
+                        <onright condition="Window.IsVisible(script-globalsearch-main.xml)">9500</onright>
+                        <onright condition="Window.IsVisible(Home) + !Skin.HasSetting(DisableAuraHomeLayout) + Integer.IsGreater(Container(330).NumItems,0)">3000</onright>
+                        <onright condition="Window.IsVisible(Home) + !Integer.IsGreater(Container(30222).NumItems,0) + Integer.IsGreater(Container(330).NumItems,0)">3000</onright>
+
+                        <onright condition="Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + Integer.IsGreater(Container(30222).NumItems,0)">30222</onright>
+                        <onright condition="Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + !Integer.IsGreater(Container(30222).NumItems,0)">3000</onright>
+                        <onright condition="!Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + Integer.IsGreater(Container(330).NumItems,0)">330</onright>
+                        <onright condition="!Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + Integer.IsGreater(Container(30222).NumItems,0) + !Integer.IsGreater(Container(330).NumItems,0)">30222</onright>
+                        <onright condition="Window.IsVisible(SettingsProfile.xml)">4</onright>
+                        <onright condition="Window.IsVisible(SettingsCategory.xml)">3</onright>
+                        <onright condition="Window.IsVisible(SkinSettings.xml)">9100</onright>
+                        <onright condition="Window.IsVisible(SettingsSystemInfo.xml)">50</onright>
+                        <onleft>300</onleft>
+                        <onright condition="[Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">50</onright>
+                        <onright condition="Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">9500</onright>
+
+                        <include>Global_Overlay</include>
+                        <include>Defs_InfoDialog_Visible</include>
+
+                <top>300</top>
+                <width>310</width>
+		<include>IconOnly_Height</include>
+	        <preloaditems>2</preloaditems>
+       	        <orientation>vertical</orientation>
+        	<scrolltime>0</scrolltime>
+		<left>-310</left>
+
+        <itemlayout height="75" width="240">
+            <control type="image">
+		<left>240</left>
+                <width>home_icon</width>
+                <texture colordiffuse="main_fg_30">$INFO[ListItem.Icon]</texture>
+            </control>
+	    <control type="label">
+	       <label>$INFO[ListItem.Label]</label>
+               <shadowcolor>darkgrey</shadowcolor>
+               <textcolor>dimgrey</textcolor>
+	       <width>200</width> 
+	       <left>40</left>
+	       <font>font_small</font>
+	    </control>
+        </itemlayout>
+        <focusedlayout height="75" width="240">
+            <control type="image">
+                [[Control.HasFocus(23003) + String.IsEqual(Container(23003).Position,0)] | [Control.HasFocus(23004) + String.IsEqual(Container(23004).Position,0)] | [Control.HasFocus(23005) + String.IsEqual(Container(23005).Position,0)]]<left>240</left>
+                <width>home_icon</width>
+                <texture colordiffuse="main_fg_100">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="label">
+               <label>$INFO[ListItem.Label]</label>
+               <width>200</width>
+	       <shadowcolor>grey</shadowcolor>
+	       <textcolor>white</textcolor>
+	       <left>40</left>
+	       <font>font_medium_bold</font>
+            </control>
+            <control type="group">
+                <left>240</left>
+                <width>6</width>
+                <control type="image">
+                    <texture colordiffuse="red">common/white.png</texture>
+                </control>
+            </control>
+        </focusedlayout>
+		<content>
+		<include>skinshortcuts-mainmenu</include>
+		</content>
+	</control>
+	</control>
+    </include>
+
+
+
+
 
     <include name="Home_Textbar_Item_Label">
         <param name="font" default="font_mainmenu" />
@@ -415,11 +527,269 @@
 
     <expression name="Home_SwitchFocusButton_Expression">!Window.Next(programs) + !Window.Next(pictures) + !Window.Next(filemanager) + !Window.Next(settings) + !Window.Next(systeminfo) + !Window.Next(testpattern) + !Window.Next(screencalibration) + !Window.Next(SettingsCategory.xml) + !Window.Next(MyVideoNav.xml) + !Window.Next(MyMusicNav.xml) + !Window.Next(MyPlaylist.xml) + !Window.Next(loginscreen) + !Window.Next(profiles) + !Window.Next(skinsetting) + !Window.Next(addonbrowser) + !Window.Next(eventlog) + !Window.Next(favourites) + !Window.Next(MyPVRChannels.xml) + !Window.Next(MyPVRRecordings.xml) + !Window.Next(MyPVRTimers.xml) + !Window.Next(MyPVRSearch.xml) + !Window.Next(MyPVRGuide.xml) + !Window.Next(MyGames.xml) + !Window.Next(VideoFullScreen.xml) + !Window.Next(MyWeather.xml) + !Window.Next(SlideShow.xml) + !Window.Next(Startup.xml) + !Window.Next(MusicVisualisation.xml)</expression>
 
+    <include name="Home_TVHubMenu_Layout">
+      <control type="group">
+      <animation effect="slide" end="220,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
+      <animation effect="slide" end="-220,0" time="800">Hidden</animation>
+      <animation effect="slide" end="-100,0" time="300" condition="ControlGroup(5055).HasFocus">Conditional</animation>
+      <visible allowhiddenfocus="true">Control.HasFocus(505) | ControlGroup(5055).HasFocus | Control.HasFocus(400)</visible>
+<control type="group">
+      <width>310</width>
+      <left>-220</left>
+      <control type="image">
+            <texture>common/gradient-solid-horizontal.png</texture>
+            <include>Defs_DarkShadow</include>
+        </control>
+        <control type="image">
+            <right>6</right>
+            <texture colordiffuse="dimgrey">common/white.png</texture>
+        </control>
+        <control type="image">
+            <right>6</right>
+            <texture colordiffuse="$VAR[ColorOverlay]">common/white.png</texture>
+            <animation effect="fade" start="100" end="5" condition="true">Conditional</animation>
+            <visible>!String.IsEmpty(Skin.String(overlaycolor.name))</visible>
+            <visible>String.IsEqual(Skin.CurrentColourTheme,Dark Dialogs)</visible>
+        </control>
+        <control type="image">
+
+            <width>1</width>
+            <right>4</right>
+            <texture colordiffuse="highlight_bottombar">common/white.png</texture>
+        </control>
+        <control type="image">
+            <width>1</width>
+            <right>5</right>
+            <texture colordiffuse="darkline_separator">common/white.png</texture>
+        </control>
+</control>
+
+<!--
+	<control type="image">
+		<left>-220</left>
+		<width>290</width>
+		<texture background="true" colordiffuse="dimgrey">common/white.png</texture>
+	</control>
+-->
+	<control type="list" id="400">
+                <top>300</top>
+                <width>440</width>
+		<include>IconOnly_Height</include>
+	        <preloaditems>2</preloaditems>
+       	        <orientation>vertical</orientation>
+        	<scrolltime>0</scrolltime>
+                <onright condition="Window.IsVisible(3910)">SetFocus(5055)</onright>
+		<onright condition="!Window.IsVisible(Home) + !Window.IsVisible(3910)">505</onright>
+		<onright condition="Window.IsVisible(Home)">Skin.Reset(TVHubMenuFocus)</onright>
+		<onright condition="Window.IsVisible(Home)">SetFocus(300)</onright>
+		<onleft condition="Window.IsVisible(Home)">300</onleft>
+                <onback>Skin.Reset(TVHubMenuFocus)</onback>
+	        <onback>ActivateWindow(Home)</onback>
+		<left>-200</left>
+
+        <itemlayout height="home_icon" width="240">
+            <control type="image">
+		<left>210</left>
+                <width>home_icon</width>
+                <texture colordiffuse="main_fg_30">$INFO[ListItem.Icon]</texture>
+            </control>
+	    <control type="label">
+	       <label>$INFO[ListItem.Label]</label>
+	       <width>200</width> 
+	       <shadowcolor>darkgrey</shadowcolor>
+	    </control>
+        </itemlayout>
+        <focusedlayout height="home_icon" width="240">
+            <control type="image">
+                <left>210</left>
+                <width>home_icon</width>
+                <texture colordiffuse="main_fg_100">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="label">
+               <label>$INFO[ListItem.Label]</label>
+               <width>200</width>
+	       <textcolor>white</textcolor>
+	       <shadowcolor>darkgrey</shadowcolor>
+            </control>
+            <control type="group">
+                <left>281</left>
+                <width>6</width>
+                <control type="image">
+                    <texture background="true" colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
+                </control>
+            </control>
+            <control type="button">
+	      <visible allowhiddenfocus="true">false</visible>
+	      <onfocus condition="String.IsEqual(ListItem.Label,Home) + !Window.IsVisible(Home)">ActivateWindow(Home)</onfocus>
+	      <onfocus condition="String.IsEqual(ListItem.Label,TV Categories) + !Window.IsVisible(2114)">ActivateWindow(2114)</onfocus>
+	      <onfocus condition="String.IsEqual(ListItem.Label,TV Genres) + !Window.IsVisible(4020)">ActivateWindow(4020)</onfocus>
+	      <onfocus condition="String.IsEqual(ListItem.Label,TV Networks) + !Window.IsVisible(2118)">ActivateWindow(2118)</onfocus>
+	      <onfocus condition="String.IsEqual(ListItem.Label,TV Hub) + !Window.IsVisible(3910)">ActivateWindow(3910)</onfocus>
+	      <onfocus>Skin.SetString(TVHubMenuFocus,$INFO[ListItem.Label])</onfocus>
+	      </control>
+        </focusedlayout>
+		<content>
+                    <item id="1">
+                        <label>Home</label>
+                        <onclick>activatewindow(Home)</onclick>
+                        <onclick>SetFocus(400,0,absolute)</onclick>
+                        <icon>special://skin/extras/icons/home.png</icon>
+                    </item>
+                    <item id="2">
+                        <label>TV Categories</label>
+                        <onclick>activatewindow(2114)</onclick>
+                        <icon>special://skin/extras/icons/tv.png</icon>
+                    </item>
+                    <item id="3">
+                        <label>TV Genres</label>
+                        <onclick>activatewindow(4020)</onclick>
+                        <icon>special://skin/extras/icons/genre.png</icon>
+                    </item>
+                    <item id="4">
+                        <label>TV Networks</label>
+                        <onclick>activatewindow(2118)</onclick>
+                        <icon>special://skin/media/exuary/networks.png</icon>
+                    </item>
+                    <item id="5">
+                        <label>TV Hub</label>
+                        <onclick>activatewindow(3910)</onclick>
+                        <icon>special://skin/extras/icons/infinity.png</icon>
+                    </item>
+
+		</content>
+     </control>
+     </control>
+    </include>
+
+
+
+
+
+    <include name="Home_MovieHubMenu_Layout">
+      <control type="group">
+      <animation effect="slide" end="220,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
+      <animation effect="slide" end="-220,0" time="800">Hidden</animation>
+      <animation effect="slide" end="-100,0" time="300" condition="ControlGroup(5055).HasFocus">Conditional</animation>
+      <visible allowhiddenfocus="true">Control.HasFocus(505) | ControlGroup(5055).HasFocus | Control.HasFocus(401)</visible>
+<control type="group">
+      <width>310</width>
+      <left>-220</left>
+      <control type="image">
+            <texture>common/gradient-solid-horizontal.png</texture>
+            <include>Defs_DarkShadow</include>
+        </control>
+        <control type="image">
+            <right>6</right>
+            <texture colordiffuse="dimgrey">common/white.png</texture>
+        </control>
+        <control type="image">
+            <right>6</right>
+            <texture colordiffuse="$VAR[ColorOverlay]">common/white.png</texture>
+            <animation effect="fade" start="100" end="5" condition="true">Conditional</animation>
+            <visible>!String.IsEmpty(Skin.String(overlaycolor.name))</visible>
+            <visible>String.IsEqual(Skin.CurrentColourTheme,Dark Dialogs)</visible>
+        </control>
+        <control type="image">
+
+            <width>1</width>
+            <right>4</right>
+            <texture colordiffuse="highlight_bottombar">common/white.png</texture>
+        </control>
+        <control type="image">
+            <width>1</width>
+            <right>5</right>
+            <texture colordiffuse="darkline_separator">common/white.png</texture>
+        </control>
+</control>
+	<control type="list" id="401">
+                <top>300</top>
+                <width>440</width>
+		<include>IconOnly_Height</include>
+	        <preloaditems>2</preloaditems>
+       	        <orientation>vertical</orientation>
+        	<scrolltime>0</scrolltime>
+		<onright condition="!Window.IsVisible(3920)">505</onright>
+		<onright condition="Window.IsVisible(3920)">SetFocus(5055)</onright>
+		<onright condition="Window.IsVisible(Home)">SetFocus(300)</onright>
+		<onleft condition="Window.IsVisible(Home)">300</onleft>
+                <onback>Skin.Reset(MovieHubMenuFocus)</onback>
+                <onback>ActivateWindow(Home)</onback>
+		<left>-200</left>
+
+        <itemlayout height="home_icon" width="240">
+            <control type="image">
+		<left>210</left>
+                <width>home_icon</width>
+                <texture colordiffuse="main_fg_30">$INFO[ListItem.Icon]</texture>
+            </control>
+	    <control type="label">
+	       <label>$INFO[ListItem.Label]</label>
+               <shadowcolor>darkgrey</shadowcolor>
+	       <width>200</width> 
+	    </control>
+        </itemlayout>
+        <focusedlayout height="home_icon" width="240">
+            <control type="image">
+                <left>210</left>
+                <width>home_icon</width>
+                <texture colordiffuse="main_fg_100">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="label">
+               <label>$INFO[ListItem.Label]</label>
+               <width>200</width>
+	       <shadowcolor>darkgrey</shadowcolor>
+	       <textcolor>white</textcolor>
+            </control>
+            <control type="group">
+                <left>285</left>
+                <width>6</width>
+                <control type="image">
+                    <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
+                </control>
+            </control>
+            <control type="button">
+	      <visible allowhiddenfocus="true">false</visible>
+	      <onfocus condition="String.IsEqual(ListItem.Label,Movie Genres) + !Window.IsVisible(4010)">ActivateWindow(4010)</onfocus>
+	      <onfocus condition="String.IsEqual(ListItem.Label,Categories) + !Window.IsVisible(2112)">ActivateWindow(2112)</onfocus>
+	      <onfocus condition="String.IsEqual(ListItem.Label,Movie Hub) + !Window.IsVisible(3920)">ActivateWindow(3920)</onfocus>
+	      <onfocus condition="String.IsEqual(ListItem.Label,Home) + !Window.IsVisible(Home)">ActivateWindow(Home)</onfocus>
+	      <onfocus>Skin.SetString(MovieHubMenuFocus,$INFO[ListItem.Label])</onfocus>
+	      </control>
+        </focusedlayout>
+		<content>
+                    <item id="1">
+                        <label>Home</label>
+                        <onclick>activatewindow(Home)</onclick>
+                        <onclick>SetFocus(401,0,absolute)</onclick>
+                        <icon>special://skin/extras/icons/home.png</icon>
+                    </item>
+                    <item id="2">
+                        <label>Categories</label>
+                        <onclick>activatewindow(2112)</onclick>
+                        <icon>special://skin/extras/icons/movie.png</icon>
+                    </item>
+                    <item id="3">
+                        <label>Movie Genres</label>
+                        <onclick>activatewindow(4010)</onclick>
+                        <icon>special://skin/extras/icons/genre.png</icon>
+                    </item>
+                    <item id="4">
+                        <label>Movie Hub</label>
+                        <onclick>activatewindow(3920)</onclick>
+                        <icon>special://skin/extras/icons/infinity.png</icon>
+                    </item>
+		</content>
+     </control>
+     </control>
+    </include>
+
+
 
     <include name="IconOnly_Height">
     <height>870</height>
     </include>
 
+    <!-- Icon for mainmenu -->
     <include name="Home_MainMenu_Layout">
         <animation effect="slide" time="200" end="-60,0" condition="[!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(3901) + !Control.HasFocus(3902) + !Control.HasFocus(3903) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)] +  ![Window.IsVisible(SettingsSystemInfo.xml) | Window.IsVisible(Settings.xml) | Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(SkinSettings.xml) | Window.IsVisible(SettingsProfile.xml)]">Conditional</animation>
 	<animation effect="slide" end="0,100" time="0" condition="!Skin.HasSetting(DisableMenuVertIcon)">Conditional</animation>
@@ -713,8 +1083,12 @@
 	<!-- Focused -->
 	<control type="group">
 	    <visible>[!Skin.HasSetting(DisableMenuVertIcon) +  [Control.HasFocus(300) | Control.HasFocus(302) | Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904)]] | [Window.IsVisible(SettingsSystemInfo.xml) | Window.IsVisible(Settings.xml) | Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(SkinSettings.xml) | Window.IsVisible(SettingsProfile.xml)]</visible>
+<!--
             <animation effect="fade" start="100" end="0" time="800" delay="20" condition="!Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Hidden</animation>
             <animation effect="fade" start="30" end="100" time="800" delay="20" condition="!Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Visible</animation>
+-->
+        <animation effect="slide" time="200" end="-60,0" condition="[!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(3901) + !Control.HasFocus(3902) + !Control.HasFocus(3903) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)] +  ![Window.IsVisible(SettingsSystemInfo.xml) | Window.IsVisible(Settings.xml) | Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(SkinSettings.xml) | Window.IsVisible(SettingsProfile.xml)]">Conditional</animation>
+
             <control type="group">
                 <posy>0</posy>
                 <posx>0</posx>
@@ -812,8 +1186,6 @@
         <ondown condition="Control.IsVisible(3902)">3902</ondown>
         <onup condition="!Control.IsVisible(3902)">300</onup>
         <ondown condition="!Control.IsVisible(3902)">300</ondown>
-                <onfocus condition="String.IsEqual(Container(300).ListItem.Property(label),24001)">ActivateWindow(2112)</onfocus>
-
 <!--
         <onunfocus>ClearProperty(MenuFocus,Home)</onunfocus>
         <onfocus>SetProperty(MenuFocus,1,Home)</onfocus>

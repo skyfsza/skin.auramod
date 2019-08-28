@@ -22,8 +22,8 @@
             <onunfocus condition="$PARAM[submenu]">SetProperty(listposition,0,home)</onunfocus>
             <onunfocus condition="$PARAM[submenu]">SetProperty(landscapeposition,0,home)</onunfocus>
             <onback condition="Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)">505</onback>
-            <onback condition="!Window.IsVisible(1138) + [!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious]">Control.Move($PARAM[id],$INFO[Container($PARAM[id]).CurrentItem,-,])</onback>
-            <onback condition="!Window.IsVisible(1138) + [!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious]">Control.Move($PARAM[id],1)</onback>
+            <onback condition="!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious">Control.Move($PARAM[id],$INFO[Container($PARAM[id]).CurrentItem,-,])</onback>
+            <onback condition="!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious">Control.Move($PARAM[id],1)</onback>
             <onback condition="Integer.IsEqual(Container($PARAM[id]).Position,0) + !Container($PARAM[id]).HasPrevious">SetFocus(302)</onback>
             <onback condition="Integer.IsEqual(Container($PARAM[id]).Position,0) + !Container($PARAM[id]).HasPrevious">SetFocus(300)</onback>
         </definition>
@@ -392,13 +392,14 @@
 
     <include name="Widget_Busy_Top_Mouse"><top>455</top></include>
 
-    <include name="WidgetSubmenu">
+  <include name="WidgetSubmenu">
         <param name="submenu" default="false" />
         <param name="genres" default="false" />
         <param name="studios" default="false" />
         <param name="text" default="false" />
         <definition>
             <control type="group" id="2$PARAM[id]">
+                <top>widget_gap</top>
                 <visible>$PARAM[visible]</visible>
                 <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
                 <height>40</height>
@@ -410,7 +411,7 @@
                 </include>
                 <control type="group">
                     <include condition="Skin.HasSetting(MouseMode)">Widget_Busy_Top_Mouse</include>
-                    <top>155</top>
+                    <top>655</top>
                     <left>-395</left>
                     <include content="Defs_BusySpinner">
                         <param name="label" value="$LOCALIZE[31138]..." />
@@ -419,10 +420,11 @@
                 </control>
             </control>
             <control type="list" id="$PARAM[id]">
-		<movement>2</movement>
+                <movement>2</movement>
+                <top>widget_top</top>
                 <include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
                 <include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
-                <include condition="!$PARAM[submenu] + String.IsEqual(Container(300).ListItem.Property(widgetAspect),LandscapeWide)">Widget_Height_LandscapeWide</include>
+                <height>widget_poster_spacer</height>
                 <visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | Container(300).OnNext | Container(300).OnPrevious | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
                 <include content="Widget_Items" condition="!$PARAM[submenu]">
                     <param name="id" value="$PARAM[id]" />
@@ -437,6 +439,19 @@
                     <param name="genres" value="$PARAM[genres]" />
                     <param name="studios" value="$PARAM[studios]" />
                     <param name="text" value="$PARAM[text]" />
+                    <param name="landscapewidepostercondition" value="$PARAM[landscapewidepostercondition]" />
+                    <param name="postercondition" value="$PARAM[postercondition]" />
+                    <param name="landscapecondition" value="$PARAM[landscapecondition]" />
+                    <param name="landscapewidecondition" value="$PARAM[landscapewidecondition]" />
+                    <param name="landscapedetailscondition" value="$PARAM[landscapedetailscondition]" />
+                  <param name="landscapenetflixcondition" value="$PARAM[landscapenetflixcondition]" />
+                    <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]" />
+                    <param name="posterdetailscondition" value="$PARAM[posterdetailscondition]" />
+                    <param name="widgetlivecondition" value="$PARAM[widgetlivecondition]" />
+                    <param name="categorycondition" value="$PARAM[categorycondition]" />
+                    <param name="squarecondition" value="$PARAM[squarecondition]" />
+                    <param name="genrecondition" value="$PARAM[genrecondition]" />
+                    <param name="search" value="$PARAM[search]" />
                 </include>
                 <include content="Widget_Submenu" condition="$PARAM[submenu]">
                     <param name="id" value="$PARAM[id]" />
@@ -452,6 +467,11 @@
             </control>
         </definition>
     </include>
+
+
+
+
+
 
     <include name="netflix_largewidgets_top"><top>40</top></include>
     <include name="netflix_largewidgets_height"><height>40</height></include>
@@ -511,8 +531,8 @@
                 <visible>!Integer.IsGreater(Container($PARAM[id]).NumItems,0) +  Container($PARAM[id]).IsUpdating</visible>
            </control>
                 <control type="group">
-                    <animation effect="slide" end="-80,40" time="0" condition="[Window.IsActive(4010) | Window.IsActive(4020) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117)] + !Window.IsVisible(1138) + !Window.IsVisible(Home) + $PARAM[postercondition]">Conditional</animation>
-                    <animation effect="slide" end="-390,40" time="0" condition="[Window.IsActive(4010) | Window.IsActive(4020) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117)] + !Window.IsVisible(1138) + !Window.IsVisible(Home) + !$PARAM[postercondition]">Conditional</animation>
+                    <animation effect="slide" end="-80,40" time="0" condition="[Window.IsActive(4010) | Window.IsActive(4020) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(2118)] + !Window.IsVisible(1138) + !Window.IsVisible(Home) + $PARAM[postercondition]">Conditional</animation>
+                    <animation effect="slide" end="-390,40" time="0" condition="[Window.IsActive(4010) | Window.IsActive(4020) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(2118)] + !Window.IsVisible(1138) + !Window.IsVisible(Home) + !$PARAM[postercondition]">Conditional</animation>
                     <include condition="Skin.HasSetting(MouseMode)">Widget_Busy_Top_Mouse</include>
                     <top>255</top>
                     <left>-395</left>
@@ -525,13 +545,14 @@
             <control type="$PARAM[controltype]" id="$PARAM[id]">
                 <animation effect="fade" start="100" end="0" condition="Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating">Conditional</animation>
 			<onback condition="ControlGroup(5600).HasFocus">9000</onback>
+                <preloaditems>2</preloaditems>
 			<scrolltime tween="linear">400</scrolltime>
 			<include condition="Window.IsVisible(Home) | Window.IsVisible(3810) | Window.IsVisible(3820)">netflix_largewidgets_top</include>
 			<movement>$PARAM[movement]</movement>
 			<include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
 			<include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
-			<include condition="!$PARAM[submenu] + !Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(3820)">Widget_Items_menu_Big_Height</include>
-			<include condition="!$PARAM[submenu] + Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + ![Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]">Widget_Items_menu_Small_Height</include>
+			<include condition="!$PARAM[submenu] + !Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(3820) | Window.IsVisible(2118)">Widget_Items_menu_Big_Height</include>
+			<include condition="!$PARAM[submenu] + Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + ![Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(2118)]">Widget_Items_menu_Small_Height</include>
 
 			<onclick condition="!Skin.HasSetting(EnableShowInfo) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]">Action(Info)</onclick>
 	
@@ -699,8 +720,58 @@
 		<orientation>horizontal</orientation>
 	    </include>
 
+    <include name="Widget_Submenu">
+        <param name="submenu" default="false" />
+        <param name="aspect" default="" />
+        <param name="sortby" default="" />
+        <param name="sortorder" default="" />
+        <param name="top" default="0" />
+        <param name="height" default="480" />
+        <definition>
+           <animation effect="fade" start="100" end="0" time="200" condition="Control.HasFocus(3022) | Control.Hasfocus(30221)">Conditional</animation>
 
+            <include content="Widget_Common">
+                <param name="top" value="$PARAM[top]" />
+                <param name="height" value="$PARAM[height]" />
+                <param name="id" value="$PARAM[id]" />
+                <param name="aspect" value="$PARAM[aspect]" />
+                <param name="widgetAspect" value="$PARAM[widgetAspect]" />
+                <param name="submenu" value="$PARAM[submenu]" />
+            </include>
+            <left>60</left>
+            <itemlayout width="130" height="130" condition="!Skin.HasSetting(SubmenuLabel)">
+                <include>Widget_Hub_ItemLayout</include>
+            </itemlayout>
 
+            <focusedlayout width="130" height="130" condition="!Skin.HasSetting(SubmenuLabel)">
+                <include content="Widget_Hub_FocusedLayout">
+                    <param name="id" value="$PARAM[id]" />
+                </include>
+            </focusedlayout>
+
+            <itemlayout width="302.22" height="170" condition="Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(LargeSubmenuLabel)">
+                <include>Widget_Hub_ItemLayout</include>
+            </itemlayout>
+
+            <focusedlayout width="302.22" height="170" condition="Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(LargeSubmenuLabel)">
+                <include content="Widget_Hub_FocusedLayout">
+                    <param name="id" value="$PARAM[id]" />
+                </include>
+            </focusedlayout>
+            <itemlayout width="365.56" height="200" condition="Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(LargeSubmenuLabel)">
+                <include>Widget_Hub_ItemLayout</include>
+            </itemlayout>
+
+            <focusedlayout width="365.56" height="200" condition="Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(LargeSubmenuLabel)">
+                <include content="Widget_Hub_FocusedLayout">
+                    <param name="id" value="$PARAM[id]" />
+                </include>
+            </focusedlayout>
+            <include>Items_SubMenu</include>
+        </definition>
+    </include>
+
+<!--
 	    <include name="Widget_Submenu">
 		<param name="submenu" default="false" />
 		<param name="aspect" default="" />
@@ -742,7 +813,7 @@
 		    <include>Items_SubMenu</include>
 		</definition>
 	    </include>
-
+-->
 	    <include name="Widget_TVHub">
 		<param name="submenu" default="false" />
 		<param name="aspect" default="" />

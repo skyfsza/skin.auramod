@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="3910">
-  <defaultcontrol always="true">5600</defaultcontrol>
+  <onload condition="String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(5055)</onload>
+  <onload condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,4,absolute)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
     <include>Global_Background</include>
     <include>Logo</include>
+    <include>Home_TVHubMenu_Layout</include>
    <control type="group">
    <control type="label">
+   <animation effect="slide" end="260,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
    <top>65</top>
    <left>70</left>
    <width>400</width>
@@ -16,24 +19,19 @@
    <label>[B]TV AuraHub[/B]</label>
    </control> 
    </control>
-      <control type="grouplist" id="5600">
+      <control type="grouplist" id="5055">
+   	<animation effect="slide" end="260,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
         <top>140</top>
         <width>1920</width>
-        <height>1080</height>
+        <height>900</height>
         <left>0</left>
+	<movement>1</movement>
         <scrolltime tween="sine" easing="out">500</scrolltime>
         <orientation>vertical</orientation>
         <usecontrolcoords>true</usecontrolcoords>
-        <onback>9000</onback>
-        <onleft>9000</onleft>
-            <control type="group" id="334" description="Spacer">
-                <height>220</height>
-                <visible>!Skin.HasSetting(DisableAuraHomeLayout)</visible>
-            </control>
-            <control type="group" id="335" description="Spacer">
-                <height>220</height>
-                <visible>Skin.HasSetting(DisableAuraHomeLayout)</visible>
-            </control>
+	<onback>Skin.Reset(TVHubMenuFocus)</onback>
+        <onback>ActivateWindow(Home)</onback>
+        <onleft>SetFocus(400,4)</onleft>
         <include>skinshortcuts-template-aurahubtv</include>
     </control>
   </controls>

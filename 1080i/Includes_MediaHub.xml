@@ -1336,16 +1336,8 @@
           <texture background="true" colordiffuse="white">special://skin/media/netflix/left-arrow.png</texture>
           <visible>ControlGroup(5055).HasFocus</visible>
          </control>
-<!--
-        <control type="image">
-          <width>90</width>
-          <height>120</height>
-          <centertop>40%</centertop>
-          <left>-10</left>
-          <texture background="true" colordiffuse="white">special://skin/media/netflix/left-arrow.png</texture>
-          <visible>Control.HasFocus(505)</visible>
-         </control>
--->
+
+
     <control type="group" id="25055">
       <visible>Container(5055).IsUpdating + !Window.IsVisible(DialogBusy.xml)</visible>
       <control type="image">
@@ -1363,13 +1355,14 @@
       </control>
     </control>
     <control type="image">
+      <animation effect="slide" end="250,0" time="500" condition="Control.HasFocus(400) | Control.HasFocus(401)">Conditional</animation>
       <texture background="true" diffuse="Right Corner.png">$VAR[Image_MainMenu_fanart]</texture>
       <fadetime>100</fadetime>
      <width>1500</width>
       <height>750</height>
       <left>400</left>
       <aspectratio scalediffuse="false">scale</aspectratio>
-      <visible>[Control.HasFocus(505) | Control.HasFocus(5055)] + [[Container(5055).IsUpdating + !Integer.IsGreater(Container(5055).NumItems,0)] | String.IsEmpty(Container(5055).ListItem.Art(fanart))]</visible>
+      <visible>[Control.HasFocus(401) | Control.HasFocus(400) | Control.HasFocus(505) | Control.HasFocus(5055)] + [[Container(5055).IsUpdating + !Integer.IsGreater(Container(5055).NumItems,0)] | String.IsEmpty(Container(5055).ListItem.Art(fanart))]</visible>
     </control>
     <control type="image">
       <animation effect="fade" start="10" end="100">Visible</animation>
@@ -1384,6 +1377,8 @@
     <control type="group">
       <animation effect="fade" delay="200" time="500" start="10" end="100">Visible</animation>
       <visible>ControlGroup(5055).HasFocus</visible>
+      <left>-10</left>
+      <include>fanart_multi</include>
       <include>Object_Home_Netflix</include>
     </control>
  </include>

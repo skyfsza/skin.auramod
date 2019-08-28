@@ -14,7 +14,6 @@
       <include condition="!Skin.HasSetting(DisableViewMode.Lovefilm) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_Lovefilm</include>
       <include condition="!Skin.HasSetting(DisableViewMode.EpisodeList) + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_EpisodeList</include>
       <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_SeasonList</include>
-      <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_AddonList</include>
       <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_Season</include>
     </definition>
   </include>
@@ -54,7 +53,7 @@
           <right>-10</right>
           <bottom>20</bottom>
           <top>-10</top>
-          <visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(videos) | Container.Content(artists) | Container.Content(images) | $EXP[Exp_IsPluginAdvancedLauncher]</visible>
+          <visible>Container.Content(seasons) | Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(videos) | Container.Content(artists) | Container.Content(images) | $EXP[Exp_IsPluginAdvancedLauncher]</visible>
           <pagecontrol>60</pagecontrol>
           <include>View_NotTheseWindows</include>
           <viewtype label="$LOCALIZE[31359]">icon</viewtype>
@@ -516,11 +515,12 @@
 
   <include name="View_Posters_AddonList">
     <control type="group">
-      <visible>Control.IsVisible(505) + !Container.Content(episodes) + !Container.Content(tvshows) + !Container.Content(movies)</visible>
+      <visible>Control.IsVisible(505)</visible>
+      <visible>!Container.Content(episodes) + !Container.Content(tvshows) + !Container.Content(movies) + !Container.Content(seasons)</visible>
       <control type="group">
        <control type="group">
           <animation effect="slide" end="-500,0" time="500" condition="Control.HasFocus(5055)">Conditional</animation>
-	<visible>Control.HasFocus(505)</visible>
+	<visible>!Container.Content(episodes) + !Container.Content(tvshows) + !Container.Content(movies) + !Container.Content(seasons)</visible>
         <width>440</width>
         <height>100%</height>
         <control type="label">
@@ -1309,14 +1309,14 @@
 
   <include name="View_Posters_EpisodeList">
     <control type="group">
-      <visible>Control.IsVisible(502) + Container.Content(episodes)</visible>
+      <visible>Control.IsVisible(502) + [Container.Content(episodes) | Container.Content(seasons)]</visible>
       <control type="group">
         <include condition="Skin.HasSetting(DisableNetflixView)">View_Pad</include>
         <include condition="!Skin.HasSetting(DisableNetflixView)">Object_Episodes_Info</include>
         <control type="fixedlist" id="502">
           <top>80</top>
           <left>30</left>
-          <visible>Container.Content(episodes)</visible>
+          <visible>Container.Content(episodes) | Container.Content(seasons)</visible>
           <pagecontrol>60</pagecontrol>
           <focusposition>1</focusposition>
           <movement>1</movement>
@@ -1741,6 +1741,7 @@
             <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
             <righttexture></righttexture>
             <info>ListItem.PercentPlayed</info>
+	    <visible>!Container.Content(seasons)</visible>
           </control>
           <control type="progress">
             <visible>Integer.IsGreater(ListItem.PlayCount,0)</visible>
@@ -1755,6 +1756,7 @@
             <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
             <righttexture></righttexture>
             <info>ListItem.PercentPlayed</info>
+	    <visible>!Container.Content(seasons)</visible>
           </control>
           <control type="group">
             <height>300</height>
@@ -1854,6 +1856,7 @@
             <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
             <righttexture></righttexture>
             <info>ListItem.PercentPlayed</info>
+	    <visible>!Container.Content(seasons)</visible>
           </control>
           <control type="progress">
             <visible>Integer.IsGreater(ListItem.PlayCount,0)</visible>
@@ -1868,6 +1871,7 @@
             <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
             <righttexture></righttexture>
             <info>ListItem.PercentPlayed</info>
+	    <visible>!Container.Content(seasons)</visible>
           </control>
           <control type="group">
             <height>300</height>
@@ -2539,6 +2543,7 @@
       <visible>!Skin.HasSetting(DisableFakeLandscapeArt)</visible>
       <visible>!Control.IsVisible(507) + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb) + !String.Contains(ListItem.Art(fanart),tvthumb)]</visible>
       <visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+      <visible>!Control.IsVisible(52) + !Control.IsVisible(502)</visible> 
     </control>
     <include>Defs_PictureBack</include>
     <include>View_WatchedOverlay</include>

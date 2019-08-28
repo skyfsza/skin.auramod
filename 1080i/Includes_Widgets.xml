@@ -346,6 +346,7 @@
 
     <include name="Widgets_Grouplist">
         <control type="grouplist" id="330">
+
         <onup condition="Skin.HasSetting(DisableMenuHor)">SetFocus(300)</onup>
         <onup condition="!Skin.HasSetting(DisableMenuHor) + Integer.IsGreater(Container(3022).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),MoviesLists1)">SetFocus(3022)</onup>
         <onup condition="!Skin.HasSetting(DisableMenuHor) + Integer.IsGreater(Container(30221).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),TVLists1)">SetFocus(30221)</onup>
@@ -361,38 +362,28 @@
             <itemgap>0</itemgap>
             <usecontrolcoords>true</usecontrolcoords>
             <scrolltime tween="sine" easing="out">500</scrolltime>
+           
+           <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
+           <control type="group" id="332" description="Spacer"><height>150</height><visible>Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableCatlabel) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
+           <control type="group" id="333" description="Spacer"><height>110</height><visible>Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableCatlabel) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
+           <control type="group" id="332" description="Spacer"><height>100</height><visible>Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableCatlabel) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
+           <control type="group" id="333" description="Spacer"><height>110</height><visible>Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableCatlabel) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
 
-           <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
+<!--
+            <control type="group" id="343" description="Spacer"><height>80</height><visible>Skin.HasSetting(DisableMenuHor) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
+            <control type="group" id="344" description="Spacer"><height>80</height><visible>Skin.HasSetting(DisableMenuHor) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
+-->
 
-           <control type="group" id="331" description="Spacer">
-                <height>110</height>
-	         <visible>Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableCatlabel)</visible>
-            </control>
-           <control type="group" id="332" description="Spacer">
-                <height>70</height>
-	         <visible>Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableCatlabel) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
-            </control>
-           <control type="group" id="333" description="Spacer">
-                <height>110</height>
-                 <visible>Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableCatlabel) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
-            </control>
             <include>Spotlight_Movies_AuraWidget</include>
             <include>Spotlight_TV_AuraWidget</include>
-            <control type="group" id="334" description="Spacer"> 
-                <height>220</height>
-            </control>
-            <control type="group" id="335" description="Spacer">
-                <height>60</height>
-	     <visible>!Skin.HasSetting(SubmenuLabel)</visible>
-            </control>
-            <control type="group" id="336" description="Spacer">
-                <height>100</height>
-	      <visible>!String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)</visible>
-            </control>
-            <control type="group" id="3361" description="Spacer">
-                <height>100</height>
-              <visible>!String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true) + !Skin.HasSetting(DisableMenuHor)</visible>
-            </control>
+
+            <control type="group" id="334" description="Spacer"><height>180</height></control>
+            <control type="group" id="342" description="Spacer"><height>40</height><visible>String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
+            <control type="group" id="335" description="Spacer"><height>60</height><visible>!Skin.HasSetting(SubmenuLabel)</visible></control>
+            <control type="group" id="336" description="Spacer"><height>30</height><visible>Skin.HasSetting(HideSubmenuWidget)</visible></control>
+            <control type="group" id="337" description="Spacer"><height>100</height><visible>!String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)</visible></control>
+            <control type="group" id="338" description="Spacer"><height>100</height><visible>!String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true) + !Skin.HasSetting(DisableMenuHor)</visible></control>
+
 	    <include content="WidgetSubmenu" condition="!Skin.HasSetting(HideSubmenuWidget)">
                 <param name="id" value="30222" />
                 <param name="submenu" value="true" />
@@ -404,17 +395,13 @@
 	    <include>submenu_widget_mytv1</include> 
 	    <include>submenu_widget_mylist1</include> 
 	    <include>submenu_widget_mylist2</include> 
-            <control type="group" id="3362" description="Spacer">
-                <height>200</height>
-              <visible>String.IsEqual(Container(300).ListItem.Property(widgetmylist),true)</visible>
-            </control>
-            <control type="group" id="339" description="Spacer">
-                <height>30</height>
-             <visible>Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(LargeSubmenuLabel)</visible>
-            </control>
+            <control type="group" id="339" description="Spacer"><height>200</height><visible>String.IsEqual(Container(300).ListItem.Property(widgetmylist),true)</visible></control>
+
+            <control type="group" id="340" description="Spacer"><height>30</height><visible>Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(LargeSubmenuLabel)</visible></control>
+
             <include>skinshortcuts-template-vertical-submenu</include>
 
-            <control type="group" id="338">
+            <control type="group" id="341">
                 <height>widget_spacer_bottom</height>
             </control>
         </control>
@@ -461,7 +448,7 @@
 	        <texture background="true">special://skin/media/dialogs/loading_poster.png</texture>
 		<aspectratio>keep</aspectratio>
 		<visible>$PARAM[postercondition]</visible>
-		<visible>Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)</visible>
+		<visible>Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(2118)</visible>
                 <visible>!Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
            </control>
             <control type="image" id="35055">
@@ -471,7 +458,7 @@
                 <texture background="true">special://skin/media/dialogs/loading_landscape.png</texture>
                 <aspectratio>keep</aspectratio>
 		<visible>!$PARAM[postercondition]</visible>
-		<visible>Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)</visible>
+		<visible>Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(2118)</visible>
                 <visible>!Integer.IsGreater(Container($PARAM[id]).NumItems,0) +  Container($PARAM[id]).IsUpdating</visible>
            </control>
                 <include content="Widget_Label">
@@ -481,9 +468,11 @@
                     <param name="widgetContent" value="$PARAM[widgetContent]" />
                 </include>
                 <control type="group">
+                    <animation effect="slide" end="-80,40" time="0" condition="[Window.IsActive(4010) | Window.IsActive(4020) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(2118)] + !Window.IsVisible(1138) + !Window.IsVisible(Home) + $PARAM[postercondition]">Conditional</animation>
+                    <animation effect="slide" end="-350,0" time="0" condition="[Window.IsActive(4010) | Window.IsActive(4020) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(2118)] + !Window.IsVisible(1138) + !Window.IsVisible(Home) + !$PARAM[postercondition]">Conditional</animation>
                     <include condition="Skin.HasSetting(MouseMode)">Widget_Busy_Top_Mouse</include>
-                    <include condition="![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]">Widget_Label_height</include>
-                    <include condition="[Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]">Widget_Label_height_hub</include>
+                    <include condition="![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsActive(2118)]">Widget_Label_height</include>
+                    <include condition="[Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsActive(2118)]">Widget_Label_height_hub</include>
                     <left>-395</left>
                     <include content="Defs_BusySpinner">
                         <param name="label" value="$LOCALIZE[31138]..." />
@@ -585,10 +574,10 @@
 
 
     <include name="Widget_Items_LandscapePanel_Height"><height>629</height></include>
-    <include name="Widget_Items_Landscapesmall_Big_Height"><height>500</height></include>
+    <include name="Widget_Items_Landscapesmall_Big_Height"><height>550</height></include>
     <include name="Widget_Items_Landscapesmall_Big_Height_small"><height>500</height></include>
     <include name="Widget_Items_genre_Big_Height"><height>widget_poster_spacer</height></include>
-    <include name="Widget_Items_Landscape_Big_Height"><height>585</height></include>
+    <include name="Widget_Items_Landscape_Big_Height"><height>595</height></include>
     <include name="Widget_Items_Landscape_Big_Height_Label"><height>695</height></include>
     <include name="Widget_Items_Category_Big_Height"><height>450</height></include>
     <include name="Widget_Items_Poster_Big"><height>620</height></include>
@@ -680,7 +669,7 @@
     <include name="Widget_Label">
         <definition>
             <control type="grouplist">
-                <include condition="![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(DialogVideoInfo.xml)]">Widget_Label_height_hub1</include>
+                <include condition="![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(2118) | Window.IsVisible(DialogVideoInfo.xml)]">Widget_Label_height_hub1</include>
                 <left>70</left>
                 <height>40</height>
                 <orientation>horizontal</orientation>
@@ -998,9 +987,9 @@
                     <param name="text" value="$PARAM[text]" />
                 </include>
             </itemlayout>
-            <itemlayout width="widget_landscapedetails_width" height="widget_landscapenetflix_height" condition="$PARAM[landscapedetailscondition]">
+            <itemlayout width="widget_landscapenetflix_width" height="widget_landscapenetflix_height" condition="$PARAM[landscapedetailscondition]">
                 <include content="Widget_Items_ItemLayout">
-                    <param name="landscapedetails" value="true" />
+                    <param name="landscapenetflix" value="true" />
                     <param name="genres" value="$PARAM[genres]" />
                     <param name="studios" value="$PARAM[studios]" />
                     <param name="text" value="$PARAM[text]" />
