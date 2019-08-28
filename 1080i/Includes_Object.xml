@@ -2731,7 +2731,6 @@
     <left>90</left>
     <top>600</top>
     <orientation>horizontal</orientation>
-    <visible allowhiddenfocus="true">Control.HasFocus(30222)</visible>
     <include>Home_Widget_SubMenu_Items</include>
     <include content="Home_Widget_HubMenu_Layout_icon_fixed">
         <param name="id" value="30222" />
@@ -5836,7 +5835,7 @@
         <include condition="!Skin.HasSetting(SubmenuWidgetPanel)">hubmenu_movie_fixed</include>
      </control>
 	<include condition="Skin.HasSetting(DisableMenuVertLabel)">Home_MainMenu_Layout_wLabel</include>
-        <include condition="!Skin.HasSetting(DisableMenuHor)">Home</include>
+        <include condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabel)">Home</include>
         <control type="group">
 	<include condition="Skin.HasSetting(DisableSubMenuVert)">Home_TVHubMenu_Layout</include>
 	<include condition="Skin.HasSetting(DisableSubMenuVert)">Home_MovieHubMenu_Layout</include>
@@ -5854,7 +5853,7 @@
             <height>1</height>
             <onleft>300</onleft>
             <onright>300</onright>
-            <onup>SetFocus(300)</onup>
+            <onup>300</onup>
             <ondown>3000</ondown>
   <onfocus condition="!String.IsEmpty(Skin.String(MovieHubMenuFocus))">SetFocus(401,0,absolute)</onfocus>
   <onfocus condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,0,absolute)</onfocus>  
