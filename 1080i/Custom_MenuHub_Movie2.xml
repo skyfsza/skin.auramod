@@ -84,6 +84,7 @@
       <onleft>505</onleft>
       <onback>505</onback>
       <orientation>vertical</orientation>
+      <preloaditems>2</preloaditems>
       <include>skinshortcuts-template-x1102</include>
     </control>
   </controls>

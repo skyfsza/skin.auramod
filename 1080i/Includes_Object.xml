@@ -1485,7 +1485,7 @@
         <control type="multiimage">
           <animation effect="slide" end="50,-10" condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Conditional</animation>
           <animation effect="slide" end="20,0" condition="Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
-          <visible>!Player.HasVideo + [String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,set) | !String.IsEmpty(ListItem.ChannelName)]</visible>
+          <visible>!Player.HasVideo + $EXP[DBTvideos]</visible>
           <fadetime>2500</fadetime>
           <width>1400</width>
           <height>800</height>
@@ -1514,7 +1514,7 @@
 
         <control type="image">
           <animation effect="slide" end="50,-10" condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Conditional</animation>
-          <visible>!Player.HasVideo + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(300) + !Control.HasFocus(3001) + ![String.IsEqual(ListItem.DBType,set) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)]</visible>
+          <visible>!Player.HasVideo + $EXP[DBTother] + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(300) + !Control.HasFocus(3001) </visible>
           <fadetime>100</fadetime>
           <width>1400</width>
           <height>800</height>
@@ -5294,12 +5294,23 @@
           <width>200</width>
           <left>-5</left>
           <top>-20</top>
-          <visible>!Control.HasFocus(3001) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(300)</visible>
+          <visible>!$EXP[MainSubMenuHasFocus]</visible>
+	  <visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.percent.IMDB))</visible>
           <include content="Object_StarRating" condition="![Skin.HasSetting(DisableInfoRatings)]">
             <param name="height" value="50" />
             <param name="width" value="50" />
           </include>
         </control>
+         <control type="label">
+	      <left>-15</left>
+              <width>140</width>
+              <label>$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.percent.IMDB),[B],% Liked[/B]]</label>
+              <textcolor>green</textcolor>
+              <align>center</align>
+              <font>font_tiny_bold</font>
+	      <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.percent.IMDB))</visible>
+              <visible>!$EXP[MainSubMenuHasFocus]</visible>
+            </control>
         <control type="group">
           <width>500</width>
           <control type="grouplist">

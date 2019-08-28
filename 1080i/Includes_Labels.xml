@@ -579,7 +579,9 @@
         <value condition="String.IsEqual(ListItem.DBType,episode) + !String.IsEqual(ListItem.Episode,1)">[I]Continue watching $INFO[ListItem.Season, S,: ]$INFO[ListItem.Episode,E, ][/I]</value>
         <value condition="String.IsEqual(ListItem.DBType,episode) + String.IsEqual(ListItem.Episode,1)">[I][COLOR=green]Season Premiere[/COLOR] $INFO[ListItem.Season, S,: ]$INFO[ListItem.Episode,E, ][/I]</value>
         <value condition="String.IsEqual(ListItem.DBType,season)">$INFO[ListItem.Season,Season , ]</value>
-        <value condition="!Control.HasFocus(55) + !Control.HasFocus(56) + String.IsEqual(ListItem.DBType,tvshow)">[I]$INFO[ListItem.Year,Premiered  , ] on $INFO[ListItem.Studio][/I]</value>
+        <value condition="!Control.HasFocus(55) + !Control.HasFocus(56) + !String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Status),Ended) + !String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Airday))">[I]$INFO[Window(Home).Property(SkinHelper.ListItem.Airday)] on $INFO[ListItem.Studio][/I]</value>
+        <value condition="!Control.HasFocus(55) + !Control.HasFocus(56) + String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.Studio)">[I]$INFO[ListItem.Year,Premiered  , ] $INFO[ListItem.Studio,on , ][/I]</value>
+        <value condition="!Control.HasFocus(55) + !Control.HasFocus(56) + String.IsEqual(ListItem.DBType,tvshow)">[I]$INFO[ListItem.Year,Premiered  , ] $INFO[Window(Home).Property(SkinHelper.ListItem.Studio),on , ][/I]</value>
     </variable>
 
     <variable name="Label_Rating">

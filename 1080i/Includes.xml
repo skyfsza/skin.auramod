@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
-<includes>
-<expression name="IsActualKeyboardActive">Window.IsActive(virtualkeyboard) + String.IsEmpty(Window(Home).Property(SpaceSearchTerm)) + String.IsEmpty(Window(Home).Property(BackspaceSearchTerm))</expression>
+<includes> 
+    <expression name="IsActualKeyboardActive">Window.IsActive(virtualkeyboard) + String.IsEmpty(Window(Home).Property(SpaceSearchTerm)) + String.IsEmpty(Window(Home).Property(BackspaceSearchTerm))</expression>
+
+    <expression name="DBTvideos">String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,set) | !String.IsEmpty(ListItem.ChannelName)</expression>
+    <expression name="DBTother">![String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,set) | !String.IsEmpty(ListItem.ChannelName)]</expression>
+     <expression name="MainSubMenuHasFocus">Control.HasFocus(3001) + Control.HasFocus(302) + Control.HasFocus(30222) + Control.HasFocus(300)</expression>
+     <expression name="HubMenu">Control.HasFocus(400) + Control.HasFocus(401)</expression>
+     <expression name="ListHubsActive">Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsActive(2118)</expression>
+
+
     <include file="Defaults.xml" />
     <include file="Includes_MediaHub.xml" />
     <include file="DialogButtonMenu-Includes.xml" />

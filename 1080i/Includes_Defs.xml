@@ -652,7 +652,7 @@
                     <height>100</height>
                     <control type="image">
                         <visible>Skin.HasSetting(EnableDefaultSpinner)</visible>
-                        <texture>$VAR[loading_spinner]</texture>
+                        <texture background="true">$VAR[loading_spinner]</texture>
                         <aspectratio>keep</aspectratio>
                     </control>
                     <control type="image">

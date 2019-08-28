@@ -35,9 +35,10 @@
    </control>
    </include> 
    <variable name="fanart_multi_fadelabel">
-       <value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(Control.GetLabel(398045))">$INFO[Control.GetLabel(398045)]</value>
-       <value condition="!Skin.HasSetting(SkinHelper.EnableExtraFanart)">$VAR[Spotlight_Fanart]</value>
+       <value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(ListItem.Art(fanart1)) + !String.IsEmpty(Control.GetLabel(398045))">$INFO[Control.GetLabel(398045)]</value>
+       <value>$VAR[Spotlight_Fanart]</value>
    </variable>
+
    <variable name="loading_spinner">
        <value condition="String.IsEmpty(Skin.String(loadingspinner.icon))">special://skin/media/netflix/loading.gif</value>
        <value condition="!String.IsEmpty(Skin.String(loadingspinner.icon))">$INFO[Skin.String(loadingspinner.icon)]</value>
@@ -258,9 +259,9 @@
         <value condition="Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !String.IsEmpty(ListItem.Art(animatedposter))">$INFO[ListItem.Art(animatedposter)]</value>
         <value condition="Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.AnimatedPoster))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.AnimatedPoster)]</value>
         <value condition="[Container.Content(seasons) | Container.Content(episodes)] + !String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
-        <value condition="Container.Content(seasons) + !String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+        <value condition="Container.Content(seasons) + !String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
         <value>$INFO[ListItem.Icon]</value>
     </variable>
 
