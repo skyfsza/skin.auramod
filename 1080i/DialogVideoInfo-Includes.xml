@@ -970,7 +970,7 @@
       <control type="multiimage">
         <width>100%</width>
         <height>100%</height>
-      <imagepath>$INFO[Control.GetLabel(398045)]</imagepath>
+      <imagepath background="true">$VAR[fanart_multi_fadelabel]</imagepath>
       <timeperimage>2000</timeperimage>
       <fadetime>2000</fadetime>
       <pauseatend>10000</pauseatend>
@@ -1008,7 +1008,7 @@
                 <left>10</left>
 	        <include condition="Skin.HasSetting(DisableAuraHomeLayout)">widget_info_top_netflix</include>
 	        <include condition="!Skin.HasSetting(DisableAuraHomeLayout)">widget_info_top_aura</include>
-		<width>1810</width>
+		<width>1900</width>
                 <height>900</height>
             <include content="Widget_TMDB">
                 <param name="id" value="53001" />
