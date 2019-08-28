@@ -347,7 +347,7 @@
     <include name="Widgets_Grouplist">
         <control type="grouplist" id="330">
 
-        <onup condition="Skin.HasSetting(DisableMenuHor)">SetFocus(300)</onup>
+        <onup condition="Skin.HasSetting(DisableMenuHor)">300</onup>
         <onup condition="!Skin.HasSetting(DisableMenuHor) + Integer.IsGreater(Container(3022).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),MoviesLists1)">SetFocus(3022)</onup>
         <onup condition="!Skin.HasSetting(DisableMenuHor) + Integer.IsGreater(Container(30221).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),TVLists1)">SetFocus(30221)</onup>
         <onup condition="!Skin.HasSetting(DisableMenuHor) + Integer.IsGreater(Container(30222).NumItems,0) + !String.IsEqual(Container(300).ListItem.Property(widgethub),true) | [String.IsEqual(Container(300).ListItem.Property(widgethub),true) + !Integer.IsGreater(Container(3022).NumItems,0)]">SetFocus(30222)</onup>
@@ -366,23 +366,23 @@
            <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
            <control type="group" id="332" description="Spacer"><height>150</height><visible>Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableCatlabel) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
            <control type="group" id="333" description="Spacer"><height>110</height><visible>Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableCatlabel) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
-           <control type="group" id="332" description="Spacer"><height>100</height><visible>Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableCatlabel) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
-           <control type="group" id="333" description="Spacer"><height>110</height><visible>Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableCatlabel) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
+           <control type="group" id="334" description="Spacer"><height>100</height><visible>Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableCatlabel) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
+           <control type="group" id="335" description="Spacer"><height>110</height><visible>Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableCatlabel) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
 
 <!--
-            <control type="group" id="343" description="Spacer"><height>80</height><visible>Skin.HasSetting(DisableMenuHor) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
-            <control type="group" id="344" description="Spacer"><height>80</height><visible>Skin.HasSetting(DisableMenuHor) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
+            <control type="group" id="336" description="Spacer"><height>80</height><visible>Skin.HasSetting(DisableMenuHor) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
+            <control type="group" id="337" description="Spacer"><height>80</height><visible>Skin.HasSetting(DisableMenuHor) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
 -->
 
             <include>Spotlight_Movies_AuraWidget</include>
             <include>Spotlight_TV_AuraWidget</include>
 
-            <control type="group" id="334" description="Spacer"><height>180</height></control>
-            <control type="group" id="342" description="Spacer"><height>40</height><visible>String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
-            <control type="group" id="335" description="Spacer"><height>60</height><visible>!Skin.HasSetting(SubmenuLabel)</visible></control>
-            <control type="group" id="336" description="Spacer"><height>30</height><visible>Skin.HasSetting(HideSubmenuWidget)</visible></control>
-            <control type="group" id="337" description="Spacer"><height>100</height><visible>!String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)</visible></control>
-            <control type="group" id="338" description="Spacer"><height>100</height><visible>!String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true) + !Skin.HasSetting(DisableMenuHor)</visible></control>
+            <control type="group" id="338" description="Spacer"><height>180</height></control>
+            <control type="group" id="339" description="Spacer"><height>40</height><visible>String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
+            <control type="group" id="340" description="Spacer"><height>60</height><visible>!Skin.HasSetting(SubmenuLabel)</visible></control>
+            <control type="group" id="341" description="Spacer"><height>30</height><visible>Skin.HasSetting(HideSubmenuWidget)</visible></control>
+            <control type="group" id="342" description="Spacer"><height>100</height><visible>!String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)</visible></control>
+            <control type="group" id="343" description="Spacer"><height>100</height><visible>!String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true) + !Skin.HasSetting(DisableMenuHor)</visible></control>
 
 	    <include content="WidgetSubmenu" condition="!Skin.HasSetting(HideSubmenuWidget)">
                 <param name="id" value="30222" />
@@ -395,13 +395,13 @@
 	    <include>submenu_widget_mytv1</include> 
 	    <include>submenu_widget_mylist1</include> 
 	    <include>submenu_widget_mylist2</include> 
-            <control type="group" id="339" description="Spacer"><height>200</height><visible>String.IsEqual(Container(300).ListItem.Property(widgetmylist),true)</visible></control>
+            <control type="group" id="344" description="Spacer"><height>200</height><visible>String.IsEqual(Container(300).ListItem.Property(widgetmylist),true)</visible></control>
 
-            <control type="group" id="340" description="Spacer"><height>30</height><visible>Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(LargeSubmenuLabel)</visible></control>
+            <control type="group" id="345" description="Spacer"><height>30</height><visible>Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(LargeSubmenuLabel)</visible></control>
 
             <include>skinshortcuts-template-vertical-submenu</include>
 
-            <control type="group" id="341">
+            <control type="group" id="346">
                 <height>widget_spacer_bottom</height>
             </control>
         </control>

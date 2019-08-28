@@ -31,8 +31,8 @@
     <include condition="Skin.HasSetting(DisableNetflixHomeSidemenu)" file="Includes_Topbar.xml" />
 -->
     <include file="Includes_Topbar-Netflix.xml" />
-    <include condition="!Skin.HasSetting(DisableNetflixHomeSidemenu)" file="Includes_Home.xml" />
-
+<!--    <include condition="!Skin.HasSetting(DisableMenuHor)" file="Includes_Home.xml" /> -->
+    <include file="Includes_Home.xml" />
 
 
 

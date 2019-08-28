@@ -5815,7 +5815,7 @@
 <include name="home_no_trakt">
 	<include>Global_Background</include>
         <animation time="0" effect="fade" start="100" end="0" condition="System.HasAlarm(loadinfo)">Conditional</animation>
-        <control type="group">
+      <control type="group">
         <animation effect="slide" end="40,0" time="500" 
                                                         condition="!Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableMenuVertLabel) +  
 								   [Control.HasFocus(30222) | Control.HasFocus(1505) | Control.HasFocus(1506) | 
@@ -5834,9 +5834,9 @@
         <include condition="Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(SubmenuWidgetPanel) + !Skin.HasSetting(DisableNetflixCatWidget) + !Skin.HasSetting(LargeSubmenuLabel)">submenu_widget_fixed</include>
         <include condition="Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(SubmenuWidgetPanel) + !Skin.HasSetting(DisableNetflixCatWidget) + Skin.HasSetting(LargeSubmenuLabel)">submenu_widget_thumb</include>
         <include condition="!Skin.HasSetting(SubmenuWidgetPanel)">hubmenu_movie_fixed</include>
-	</control>
+     </control>
 	<include condition="Skin.HasSetting(DisableMenuVertLabel)">Home_MainMenu_Layout_wLabel</include>
-        <include condition="!Skin.HasSetting(DisableMenuVertLabel) + !Skin.HasSetting(DisableNetflixHomeSidemenu)">Home</include>
+        <include condition="!Skin.HasSetting(DisableMenuHor)">Home</include>
         <control type="group">
 	<include condition="Skin.HasSetting(DisableSubMenuVert)">Home_TVHubMenu_Layout</include>
 	<include condition="Skin.HasSetting(DisableSubMenuVert)">Home_MovieHubMenu_Layout</include>
@@ -5854,7 +5854,7 @@
             <height>1</height>
             <onleft>300</onleft>
             <onright>300</onright>
-            <onup>300</onup>
+            <onup>SetFocus(300)</onup>
             <ondown>3000</ondown>
   <onfocus condition="!String.IsEmpty(Skin.String(MovieHubMenuFocus))">SetFocus(401,0,absolute)</onfocus>
   <onfocus condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,0,absolute)</onfocus>  
