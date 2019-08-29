@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	
-    <variable name="widget_label2">
-    <value condition="String.IsEqual(ListItem.DBType,Episode)">$INFO[Container($PARAM[id]).ListItem.Label  ]</value>
-    <value condition="String.IsEqual(ListItem.DBType,Movie) | String.IsEqual(ListItem.DBType,Movie)">$INFO[Container($PARAM[id]).ListItem.Year  ]</value>
+    <variable name="widget_label1">
+   <value condition="String.IsEqual(ListItem.DBType,Episode)">S$INFO[ListItem.Season]:E$INFO[ListItem.Episode] - $INFO[ListItem.Title]$INFO[Container($PARAM[id]).ListItem.Label  ]</value> 
+        <value>$VAR[video_heading]</value>
     </variable>
+
+    <variable name="widget_label2">
+<!--    <value condition="String.IsEqual(ListItem.DBType,Episode)">S$INFO[ListItem.Season]:E$INFO[ListItem.Episode] - $INFO[ListItem.Title]$INFO[Container($PARAM[id]).ListItem.Label  ]</value> -->
+    <value condition="String.IsEqual(ListItem.DBType,Movie) | String.IsEqual(ListItem.DBType,Movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,tvshow)">$INFO[Container($PARAM[id]).ListItem.Year  ]</value>
+    </variable>
+
     <variable name="show_count">
     <value condition="!String.IsEmpty(ListItem.Property(WatchedEpisodes)">$INFO[ListItem.Property(WatchedEpisodes)]</value>
     <value condition="String.IsEmpty(ListItem.Property(WatchedEpisodes) + !String.IsEmpty(ListItem.Property(TotalEpisodes)">$INFO[ListItem.Property(TotalEpisodes)]</value>
@@ -355,6 +361,11 @@
         <value>$INFO[ListItem.MPAA]</value>
     </variable>
 
+    <variable name="MPAA">
+        <value condition="!String.IsEmpty(ListItem.MPAA)">$INFO[ListItem.MPAA]</value>
+        <value condition="String.IsEmpty(ListItem.MPAA) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA)">$INFO[Window(Home).Property(SkinHelper.ListItem.MPAA)]</value>
+    </variable>
+
     <variable name="Label_Settings_Header">
         <value condition="Window.IsActive(systeminfo)">[CAPITALIZE]$LOCALIZE[10007][/CAPITALIZE]</value>
         <value condition="Window.IsActive(systemsettings)">[CAPITALIZE]$LOCALIZE[14209][/CAPITALIZE]</value>
@@ -561,6 +572,10 @@
         
     </variable>
 
+    <variable name="AiredOnDay">
+	<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Airday.short)) + !String.IsEmpty(ListItem.Premiered)">Aired $INFO[Window(Home).Property(SkinHelper.ListItem.Airday.short)] $INFO[ListItem.Premiered(DDD MMM yyyy),, on]</value>
+	<value>Aired $INFO[ListItem.Premiered(DDD MMM yyyy), on , ]</value>
+    </variable>
     <variable name="Label_Tagline">
         <value condition="!String.IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>
         <value condition="ListItem.IsCollection">$INFO[Window(Home).Property(SkinHelper.ListItem.Plots)]</value>
@@ -579,6 +594,7 @@
         <value condition="String.IsEqual(ListItem.DBType,episode) + !String.IsEqual(ListItem.Episode,1)">[I]Continue watching $INFO[ListItem.Season, S,: ]$INFO[ListItem.Episode,E, ][/I]</value>
         <value condition="String.IsEqual(ListItem.DBType,episode) + String.IsEqual(ListItem.Episode,1)">[I][COLOR=green]Season Premiere[/COLOR] $INFO[ListItem.Season, S,: ]$INFO[ListItem.Episode,E, ][/I]</value>
         <value condition="String.IsEqual(ListItem.DBType,season)">$INFO[ListItem.Season,Season , ]</value>
+<!--        <value condition="!Control.HasFocus(55) + !Control.HasFocus(56) + String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.NextEpisode.Airdate.long))">[I]New Episode on $INFO[Window(Home).Property(SkinHelper.ListItem.NextEpisode.Airdate.long)][/I]</value> -->
         <value condition="!Control.HasFocus(55) + !Control.HasFocus(56) + !String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Status),Ended) + !String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Airday))">[I]$INFO[Window(Home).Property(SkinHelper.ListItem.Airday)] on $INFO[ListItem.Studio][/I]</value>
         <value condition="!Control.HasFocus(55) + !Control.HasFocus(56) + String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.Studio)">[I]$INFO[ListItem.Year,Premiered  , ] $INFO[ListItem.Studio,on , ][/I]</value>
         <value condition="!Control.HasFocus(55) + !Control.HasFocus(56) + String.IsEqual(ListItem.DBType,tvshow)">[I]$INFO[ListItem.Year,Premiered  , ] $INFO[Window(Home).Property(SkinHelper.ListItem.Studio),on , ][/I]</value>

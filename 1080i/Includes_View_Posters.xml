@@ -315,6 +315,30 @@
           </include>
           <visible>Container.Content(artists) | Container.Content(albums) | $EXP[Exp_IsPluginAdvancedLauncher]</visible>
           <include>View_NotTheseWindows</include>
+   <control type="group">
+        <visible>String.IsEqual(ListItem.Label,See More...) | String.IsEqual(ListItem.Label,Next)</visible>
+      <control type="image">
+        <bordersize>10</bordersize>
+        <texture background="true" colordiffuse="darkgrey">common/white.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+      </control>
+      <control type="image">
+        <bordersize>10</bordersize>
+        <texture colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
+      </control>
+     <control type="textbox">
+        <centerleft>50%</centerleft>
+        <textcolor>grey</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <font>font_small_bold</font>
+        <width min="100" max="250">auto</width>
+        <aligny>center</aligny>
+        <align>center</align>
+        <label>$INFO[ListItem.Label]</label>
+        <wrapmultiline>true</wrapmultiline>
+    </control>
+   </control>
+
           <include content="View_Posters_Layout">
             <param name="id" value="57" />
             <param name="orientation" value="horizontal" />
@@ -391,7 +415,7 @@
             <bottom>50</bottom>
             <align>left</align>
             <visible>Skin.HasSetting(DisableInfoRatings) + [Container.Content(movies) | Container.Content(episodes)]</visible>
-            <label fallback="19055">$VAR[Label_Tagline]</label>
+            <label>$VAR[Label_Tagline]</label>
             <height>$PARAM[plot_height]</height>
             <aligny>top</aligny>
             <textcolor>main_fg_70</textcolor>
@@ -2547,6 +2571,30 @@
     </control>
     <include>Defs_PictureBack</include>
     <include>View_WatchedOverlay</include>
+   <control type="group">
+        <visible>String.IsEqual(ListItem.Label,See More...) | String.IsEqual(ListItem.Label,Next)</visible>
+      <control type="image">
+        <bordersize>10</bordersize>
+        <texture background="true" colordiffuse="darkgrey">common/white.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+      </control>
+      <control type="image">
+        <bordersize>10</bordersize>
+        <texture colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
+      </control>
+     <control type="textbox">
+        <centerleft>50%</centerleft>
+        <textcolor>grey</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <font>font_small_bold</font>
+        <width min="100" max="250">auto</width>
+        <aligny>center</aligny>
+        <align>center</align>
+        <label>$INFO[ListItem.Label]</label>
+        <wrapmultiline>true</wrapmultiline>
+    </control>
+   </control>
+
     <control type="image">
       <bordersize>10</bordersize>
       <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
@@ -2632,6 +2680,31 @@
         <texture background="true" colordiffuse="PosterFront_30" diffuse="diffuse/widgetposter.png">$INFO[ListItem.Label,resource://resource.images.moviecountryicons.maps/,.png]</texture>
         <visible>Container.Content(countries) + !ListItem.IsParentFolder</visible>
       </control>
+
+    <control type="group">
+        <visible>String.IsEqual(ListItem.Label,See More...) | String.IsEqual(ListItem.Label,Next)</visible>
+      <control type="image">
+        <bordersize>10</bordersize>
+        <texture background="true" colordiffuse="darkgrey">common/white.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+      </control>
+      <control type="image">
+        <bordersize>10</bordersize>
+        <texture colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
+      </control>
+     <control type="textbox">
+        <centerleft>50%</centerleft>
+        <textcolor>grey</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <font>font_small_bold</font>
+        <width min="100" max="250">auto</width>
+        <aligny>center</aligny>
+        <align>center</align>
+        <label>$INFO[ListItem.Label]</label>
+        <wrapmultiline>true</wrapmultiline>
+    </control>
+   </control>
+
       <control type="textbox">
         <left>20</left>
         <right>20</right>
@@ -2649,8 +2722,9 @@
       <bordersize>10</bordersize>
       <include condition="!Skin.HasSetting(DisableShadows)">Defs_Shadow_10</include>
       <aspectratio scalediffuse="false">scale</aspectratio>
-      <texture fallback="DefaultAddonNone.png" background="true" diffuse="diffuse/widgetposter.png">$VAR[Image_Poster]</texture>
+      <texture fallback="DefaultFanartFallback.jpg" background="true" diffuse="diffuse/widgetposter.png">$VAR[Image_Poster]</texture>
       <visible>!ListItem.IsParentFolder</visible>
+      <visible>!String.StartsWith(ListItem.Icon,Default)</visible>
       <visible>[!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster)) | !String.IsEmpty(ListItem.Art(season.poster))]</visible>
       <visible>!Container.Content(musicvideos)</visible>
     </control>
@@ -2710,12 +2784,37 @@
       </control>
       <include>Defs_PictureBack</include>
     </control>
+   <control type="group">
+        <visible>String.IsEqual(ListItem.Label,See More...) | String.IsEqual(ListItem.Label,Next)</visible>
+      <control type="image">
+        <bordersize>10</bordersize>
+        <texture background="true" colordiffuse="darkgrey">common/white.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+      </control>
+      <control type="image">
+        <bordersize>10</bordersize>
+        <texture colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
+      </control>
+     <control type="textbox">
+        <centerleft>50%</centerleft>
+        <textcolor>grey</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <font>font_small_bold</font>
+        <width min="100" max="250">auto</width>
+        <aligny>center</aligny>
+        <align>center</align>
+        <label>$INFO[ListItem.Label]</label>
+        <wrapmultiline>true</wrapmultiline>
+    </control>
+   </control>
+
     <control type="image" description="Poster">
       <bordersize>10</bordersize>
       <include condition="!Skin.HasSetting(DisableShadows)">Defs_Shadow_10</include>
       <aspectratio scalediffuse="false">scale</aspectratio>
-      <texture fallback="DefaultAddonNone.png" background="true" diffuse="diffuse/widgetposter.png">$VAR[Image_Poster]</texture>
+      <texture fallback="DefaultFanartFallback.jpg" background="true" diffuse="diffuse/widgetposter.png">$VAR[Image_Poster]</texture>
       <visible>!ListItem.IsParentFolder</visible>
+      <visible>!String.StartsWith(ListItem.Icon,Default)</visible>
       <visible>[!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster)) | !String.IsEmpty(ListItem.Art(season.poster))]</visible>
       <visible>!Container.Content(musicvideos)</visible>
     </control>

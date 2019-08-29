@@ -13,17 +13,7 @@
         <info>ListItem.Art(fanart3)</info>
         <!-- ... repeat for each numbered fanart -->
         <!-- tvshow.fanart are filled with the series fanart when navigating season and episode lists -->
-        <info>ListItem.Art(tvshow.fanart)</info>
-        <info>ListItem.Art(tvshow.fanart1)</info>
-        <info>ListItem.Art(tvshow.fanart2)</info>
-        <!-- Container.ListItem.Art() are filled based on the focused ListItem in the **focused container** in Leia -->
-        <info>Container.ListItem.Art(fanart)</info>
-        <info>Container.ListItem.Art(fanart1)</info>
-        <info>Container.ListItem.Art(fanart2)</info>
-        <info>Container.ListItem.Art(tvshow.fanart)</info>
-        <info>Container.ListItem.Art(tvshow.fanart1)</info>
-        <info>Container.ListItem.Art(tvshow.fanart2)</info>
-        <randomize>true</randomize>
+        <randomize>false</randomize>
         <pauseatend>8000</pauseatend> <!-- Time to show each image, in milliseconds -->
         <!-- No scrolling so only the pauseatend above (plus a short fade-in) affects length of time each
                 image is shown -->
@@ -170,7 +160,6 @@
     <variable name="NetflixHome_ClearLogo">
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + !String.IsEqual(ListItem.Art(tvshow.clearlogo),0)">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEqual(ListItem.Art(clearlogo),0)">$INFO[ListItem.Art(clearlogo)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</value>
     </variable>
 
     <variable name="Image_DiscArt">

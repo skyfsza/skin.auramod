@@ -24,6 +24,30 @@
          <texture background="true" diffuse="diffuse/widgetlandscape.png" fallback="DefaultFanartFallback.jpg">$VAR[Image_Fanart]</texture>
          <aspectratio scalediffuse="false">scale</aspectratio>
         </control>
+
+     <control type="group">
+        <animation effect="slide" end="0,20" time="0" condition="Skin.HasSetting(DisableNetflixSmallWidget)">Conditional</animation>
+        <visible>Skin.HasSetting(WidgetLabels) + String.IsEqual(ListItem.DBType,episode)</visible>
+      <control type="image">
+        <left>0</left>
+        <bottom>40</bottom>
+        <height>45</height>
+        <width>100</width>
+        <texture colordiffuse="99FF0000" flipy="true">diffuse/halfbox.png</texture>
+      </control>
+     <control type="textbox">
+        <bottom>20</bottom>
+        <left>4</left>
+        <height>55</height>
+        <width>85</width>
+        <visible>Skin.HasSetting(WidgetLabels) + String.IsEqual(ListItem.DBType,episode)</visible>
+        <label>[I]$INFO[ListItem.Season, S,: ]$INFO[ListItem.Episode,E, ][/I]</label>
+        <textcolor>white</textcolor>
+        <font>widget_overlaybutton</font>
+       </control>
+     </control>
+
+
     <!-- Clearlogo -->
       <control type="group">
         <!-- Add Clearlogo to landscape Image -->
@@ -102,17 +126,16 @@
                 </control>
             </control>
      <control type="group">
-
         <visible>![Skin.HasSetting(DisableAuraHomeLayout) + Window.IsVisible(Home)] + Window.IsVisible(Home) + Skin.HasSetting(WidgetLabelsBelow)</visible>
+            <top>360</top>
           <control type="label">
-            <top>380</top>
             <align>center</align>
             <textcolor>white</textcolor>
-            <font>font_small</font>
+            <font>font_heading_small</font>
             <label>$VAR[video_heading]</label>
           </control>
           <control type="label">
-            <top>420</top>
+            <top>40</top>
             <align>center</align>
             <textcolor>dimgrey</textcolor>
             <font>font_tiny</font>
@@ -233,21 +256,12 @@
       <visible>String.IsEqual(ListItem.DBType,episode)</visible>
        <control type="label">
 	<top>100</top>
-	<width>150</width>
+	<width>400</width>
 	<height>70</height>
 	<left>53%</left>
         <font>font_widgetbar_bold</font>
         <textcolor>$VAR[ColorHighlight]</textcolor>
-        <label>S$INFO[ListItem.Season]:E$INFO[ListItem.Episode] - </label>
-       </control>
-       <control type="label">
-        <top>100</top>
-        <width>300</width>
-        <height>70</height>
-        <left>65%</left>
-        <font>font_widgetbar_bold</font>
-        <textcolor>$VAR[ColorHighlight]</textcolor>
-        <label>$INFO[ListItem.Title]</label>
+        <label>S$INFO[ListItem.Season]:E$INFO[ListItem.Episode] - $INFO[ListItem.Title]</label>
 	<scroll>true</scroll>
        </control>
        <control type="textbox">
@@ -595,16 +609,16 @@
     </control>
 	<!-- Start Add label below widget  -->
        <control type="group">
+            <top>400</top>
         <visible>![Skin.HasSetting(DisableAuraHomeLayout) + Window.IsVisible(Home)] + Window.IsVisible(Home) + Skin.HasSetting(WidgetLabelsBelow)</visible>
           <control type="label">
-            <top>420</top>
             <align>center</align>
             <textcolor>white</textcolor>
-	    <font>font_small</font>
+	    <font>font_heading_small</font>
             <label>$VAR[video_heading]</label>
           </control>
           <control type="label">
-	    <top>460</top>
+	    <top>40</top>
 	    <align>center</align>
             <textcolor>dimgrey</textcolor>
 	    <font>font_tiny</font>

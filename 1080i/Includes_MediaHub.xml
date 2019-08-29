@@ -1328,15 +1328,6 @@
  </include>
 
  <include name="object_menuhub_includes">
-        <control type="image">
-          <width>90</width>
-          <height>120</height>
-          <top>780</top>
-          <left>1</left>
-          <texture background="true" colordiffuse="white">special://skin/media/netflix/left-arrow.png</texture>
-          <visible>ControlGroup(5055).HasFocus</visible>
-         </control>
-
 
     <control type="group" id="25055">
       <visible>Container(5055).IsUpdating + !Window.IsVisible(DialogBusy.xml)</visible>
@@ -1378,9 +1369,17 @@
       <animation effect="fade" delay="200" time="500" start="10" end="100">Visible</animation>
       <visible>ControlGroup(5055).HasFocus</visible>
       <left>-10</left>
-      <include>fanart_multi</include>
+      <include condition="Skin.HasSetting(SkinHelper.EnableExtraFanart)">fanart_multi</include>
       <include>Object_Home_Netflix</include>
     </control>
+        <control type="image">
+          <width>90</width>
+          <height>120</height>
+          <top>780</top>
+          <left>-6</left>
+          <texture background="true" colordiffuse="white">special://skin/media/netflix/left-arrow.png</texture>
+          <visible>ControlGroup(5055).HasFocus</visible>
+         </control>
  </include>
 
 </includes>

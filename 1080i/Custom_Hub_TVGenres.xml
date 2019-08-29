@@ -69,7 +69,7 @@
       <include>object_menuhub_includes</include>
    <control type="grouplist" id="5055">
       <animation effect="slide" end="300,0" time="500" condition="Control.HasFocus(400) | Control.HasFocus(9601)">Conditional</animation>
-      <animation effect="slide" end="-400,0" time="500" condition="ControlGroup(5055).HasFocus">Conditional</animation>
+      <animation effect="slide" end="-430,0" time="500" condition="ControlGroup(5055).HasFocus">Conditional</animation>
       <left>420</left>
       <posy>620</posy>
       <width>100%</width>

@@ -20,7 +20,7 @@
     </control>
     <control type="list" id="505">
       <animation effect="slide" end="250,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
-      <animation effect="slide" end="-500,0" time="300" condition="ControlGroup(5055).HasFocus">Conditional</animation>
+      <animation effect="slide" end="-500,0" time="500" condition="ControlGroup(5055).HasFocus">Conditional</animation>
       <onright>5055</onright>
       <height>900</height>
       <onback>Skin.Reset(MovieHubMenuFocus)</onback>
@@ -67,17 +67,9 @@
       </content>
     </control>
       <include>object_menuhub_includes</include>
-        <control type="image">
-          <width>90</width>
-          <height>120</height>
-          <top>780</top>
-          <left>1</left>
-          <texture background="true" colordiffuse="white">special://skin/media/netflix/left-arrow.png</texture>
-          <visible>ControlGroup(5055).HasFocus</visible>
-         </control>
    <control type="grouplist" id="5055">
       <animation effect="slide" end="300,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
-      <animation effect="slide" end="-400,0" time="350" condition="ControlGroup(5055).HasFocus">Conditional</animation>
+      <animation effect="slide" end="-430,0" time="500" condition="ControlGroup(5055).HasFocus">Conditional</animation>
       <left>420</left>
       <posy>620</posy>
       <width>100%</width>

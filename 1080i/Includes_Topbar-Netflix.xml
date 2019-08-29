@@ -888,7 +888,6 @@
             <movement>5</movement>
             <centerleft>50%</centerleft>
             <orientation>horizontal</orientation>
-	    <onup>300</onup>
             <onup condition="!Skin.HasSetting(DisablePressingUp)">9602</onup>
             <ondown condition="Window.IsVisible(SettingsCategory.xml)">3</ondown>
             <ondown condition="Window.IsVisible(SettingsProfile.xml)">4</ondown>
