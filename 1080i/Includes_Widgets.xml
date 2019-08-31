@@ -588,8 +588,8 @@
     <include name="Widget_Items_SquareLabel_Big_small"><height>650</height></include>
     <include name="Widget_Items_SquareLabel_Big_Label"><height>720</height></include>
 
-    <include name="Widget_Items_LandscapePanel_Height"><height>629</height></include>
-    <include name="Widget_Items_LandscapePanel_Height_small"><height>629</height></include>
+    <include name="Widget_Items_LandscapePanel_Height"><height>669</height></include>
+    <include name="Widget_Items_LandscapePanel_Height_small"><height>669</height></include>
 
     <include name="Widget_Items_Landscapesmall_Big_Height"><height>550</height></include>
     <include name="Widget_Items_Landscapesmall_Big_Height_small"><height>550</height></include>

@@ -769,7 +769,7 @@
     <param name="posterdetails" default="false" />
     <definition>
       <control type="image">
-        <height>390</height>
+        <height>100%</height>
         <texture colordiffuse="70000000" border="10" flipy="true">diffuse/halfbox.png</texture>
       </control>
       <control type="image">
