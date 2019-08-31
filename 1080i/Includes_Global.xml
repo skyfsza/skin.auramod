@@ -134,7 +134,7 @@
         <control type="group">
             <!-- Fanart and backgrounds with parallax -->
             <control type="group">
-                <control type="multiimage" description="Fanart">
+                <control type="multiimage" description="Fanart" id="12345">
                     <visible>!Player.HasMedia | [Player.HasVideo + [!Skin.HasSetting(global.showvideo) | !String.IsEmpty(Window(Home).Property(TrailerPlaying))]] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio] | [Player.HasAudio + !String.IsEmpty(Window(10025).Property(PlayingBackgroundMedia))]</visible>
                     <include>Dimensions_Fullscreen</include>
                     <timeperimage>7000</timeperimage>
@@ -208,6 +208,17 @@
 
     <variable name="Global_Background_Image_Var">
         <value condition="[[Window.IsVisible(home) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather)] + Skin.HasSetting(NoFanart)] | ListItem.IsParentFolder">$VAR[Global_Background_Image_NoFanart]</value>
+
+        <value condition="!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + Window.IsVisible(home) + String.IsEmpty(Container(330).ListItem.Property(Background)) + String.IsEmpty(Container(330).ListItem.Property(backgroundPlaylist)) + !String.IsEmpty(Container(13003).ListItem.Art(fanart)) + Control.IsVisible(13003)">$INFO[Container(13003).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + Window.IsVisible(home) + String.IsEmpty(Container(330).ListItem.Property(Background)) + String.IsEmpty(Container(330).ListItem.Property(backgroundPlaylist)) + !String.IsEmpty(Container(23003).ListItem.Art(fanart)) + Control.IsVisible(23003)">$INFO[Container(23003).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + Window.IsVisible(home) + String.IsEmpty(Container(330).ListItem.Property(Background)) + String.IsEmpty(Container(330).ListItem.Property(backgroundPlaylist)) + !String.IsEmpty(Container(33003).ListItem.Art(fanart)) + Control.IsVisible(33003)">$INFO[Container(33003).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + Window.IsVisible(home) + String.IsEmpty(Container(330).ListItem.Property(Background)) + String.IsEmpty(Container(330).ListItem.Property(backgroundPlaylist)) + !String.IsEmpty(Container(43003).ListItem.Art(fanart)) + Control.IsVisible(43003)">$INFO[Container(43003).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + Window.IsVisible(home) + String.IsEmpty(Container(330).ListItem.Property(Background)) + String.IsEmpty(Container(330).ListItem.Property(backgroundPlaylist)) + !String.IsEmpty(Container(53003).ListItem.Art(fanart)) + Control.IsVisible(53003)">$INFO[Container(53003).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + Window.IsVisible(home) + String.IsEmpty(Container(330).ListItem.Property(Background)) + String.IsEmpty(Container(330).ListItem.Property(backgroundPlaylist)) + !String.IsEmpty(Container(63003).ListItem.Art(fanart)) + Control.IsVisible(63003)">$INFO[Container(63003).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + Window.IsVisible(home) + String.IsEmpty(Container(330).ListItem.Property(Background)) + String.IsEmpty(Container(330).ListItem.Property(backgroundPlaylist)) + !String.IsEmpty(Container(73003).ListItem.Art(fanart)) + Control.IsVisible(73003)">$INFO[Container(73003).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + Window.IsVisible(home) + String.IsEmpty(Container(330).ListItem.Property(Background)) + String.IsEmpty(Container(330).ListItem.Property(backgroundPlaylist)) + !String.IsEmpty(Container(83003).ListItem.Art(fanart)) + Control.IsVisible(83003)">$INFO[Container(83003).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + Window.IsVisible(home) + String.IsEmpty(Container(330).ListItem.Property(Background)) + String.IsEmpty(Container(330).ListItem.Property(backgroundPlaylist)) + !String.IsEmpty(Container(93003).ListItem.Art(fanart)) + Control.IsVisible(93003)">$INFO[Container(93003).ListItem.Art(fanart)]</value>
+
         <!-- Next up -->
         <value condition="Window.IsVisible(script-nextup-notification-PostPlayInfo.xml)">$INFO[Window.Property(background)]</value>
         <!-- Extended Info -->
@@ -244,7 +255,7 @@
         <!-- Artwork Helper Extra Fanart -->
 
         <!-- Artwork Helper Extra Fanart -->
-        <value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(Control.GetLabel(398045))">$INFO[Control.GetLabel(398045)]</value>
+        <value condition="!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(Control.GetLabel(398045))">$INFO[Control.GetLabel(398045)]</value>
 
         <value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !Window.IsVisible(Home) + System.HasAddon(script.artwork.helper) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,musicvideo) | String.IsEqual(ListItem.DBTYPE,tvshow)] + !String.IsEmpty(ListItem.DBID)">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[ListItem.DBID]&amp;&amp;arttype=fanart</value>
         <value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !Window.IsVisible(Home) + System.HasAddon(script.artwork.helper) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,musicvideo) | String.IsEqual(ListItem.DBTYPE,tvshow)] + String.IsEmpty(ListItem.DBID)">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[ListItem.Label]&amp;&amp;arttype=fanart</value>
@@ -281,9 +292,6 @@
         <value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + String.IsEmpty(Container.ListItem.Art(fanart)) + Window.IsVisible(Home) + System.HasAddon(script.artwork.helper) + [String.IsEqual(Container.ListItem.DBTYPE,album) | String.IsEqual(Container.ListItem.DBTYPE,song)] + String.IsEmpty(Container.ListItem.DBID)">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[Container.ListItem.Label]&amp;&amp;containerid=&amp;&amp;arttype=artist.fanart</value>
         <value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(Container.ListItem.Art(fanart)) + Window.IsVisible(Home) + System.HasAddon(script.artwork.helper) + [String.IsEqual(Container.ListItem.DBTYPE,artist)] + !String.IsEmpty(Container.ListItem.DBID)">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[Container.ListItem.DBID]&amp;&amp;containerid=&amp;&amp;arttype=fanart</value>
         <value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(Container.ListItem.Art(fanart)) + Window.IsVisible(Home) + System.HasAddon(script.artwork.helper) + [String.IsEqual(Container.ListItem.DBTYPE,artist)] + String.IsEmpty(Container.ListItem.DBID)">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[Container.ListItem.Label]&amp;&amp;containerid=&amp;&amp;arttype=fanart</value>
-
-
-
 
                 <!-- Skin Helper Extra Fanart -->
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt)) + Skin.HasSetting(SkinHelper.EnableExtraFanart) + [!Window.IsVisible(Home) | [Window.IsVisible(Home) + !Control.HasFocus(300) + !Control.HasFocus(302)]]">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt)]</value>

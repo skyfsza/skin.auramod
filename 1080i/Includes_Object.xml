@@ -2101,7 +2101,7 @@
           <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
         </control>
           <control type="textbox">
-            <visible>$EXP[DBTvideos] + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
+            <visible>$EXP[DBTvideos] + String.IsEmpty(Control.GetLabel(554450))</visible>
 	    <top>-190</top>
             <label>$VAR[video_heading]</label>
             <textcolor>grey</textcolor>

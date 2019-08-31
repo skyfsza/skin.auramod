@@ -492,8 +492,10 @@
                 <include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
                 <include condition="$PARAM[squarelabelcondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_SquareLabel_Big</include>
                 <include condition="$PARAM[squarelabelcondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_SquareLabel_Big_small</include>
+
                 <include condition="$PARAM[squarecondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Square_Height</include>
                 <include condition="$PARAM[squarecondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Square_Big_Height_small</include>
+
                 <include condition="$PARAM[landscapewidepostercondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Poster_Big</include>
                 <include condition="$PARAM[landscapewidepostercondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Poster_Big_small</include>
                 <include condition="$PARAM[landscapepanelcondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_LandscapePanel_Height</include>
@@ -579,25 +581,34 @@
     <include name="Widget_Items_Submenu_Height"><height>widget_submenu_spacer</height></include>
     <include name="Widget_Items_Submenu_Big_Height"><height>410</height></include>
 
-    <include name="Widget_Items_Square_Height"><height>550</height></include>
-    <include name="Widget_Items_Square_Big_Height"><height>450</height></include>
+    <include name="Widget_Items_Square_Big_Height_small"><height>580</height></include>
+    <include name="Widget_Items_Square_Height"><height>580</height></include>
 
-    <include name="Widget_Items_SquareLabel_Big"><height>620</height></include>
+    <include name="Widget_Items_SquareLabel_Big"><height>650</height></include>
+    <include name="Widget_Items_SquareLabel_Big_small"><height>650</height></include>
     <include name="Widget_Items_SquareLabel_Big_Label"><height>720</height></include>
 
     <include name="Widget_Items_LandscapePanel_Height"><height>629</height></include>
+    <include name="Widget_Items_LandscapePanel_Height_small"><height>629</height></include>
+
     <include name="Widget_Items_Landscapesmall_Big_Height"><height>550</height></include>
-    <include name="Widget_Items_Landscapesmall_Big_Height_small"><height>500</height></include>
+    <include name="Widget_Items_Landscapesmall_Big_Height_small"><height>550</height></include>
+
     <include name="Widget_Items_genre_Big_Height"><height>widget_poster_spacer</height></include>
+    <include name="Widget_Items_genre_Big_Height_small"><height>690</height></include>
+
     <include name="Widget_Items_Landscape_Big_Height"><height>595</height></include>
     <include name="Widget_Items_Landscape_Big_Height_Label"><height>695</height></include>
+    <include name="Widget_Items_Landscape_Big_Height_small"><height>625</height></include>
+
     <include name="Widget_Items_Category_Big_Height"><height>450</height></include>
+    <include name="Widget_Items_Category_Big_Height_small"><height>480</height></include>
+
     <include name="Widget_Items_Poster_Big"><height>620</height></include>
     <include name="Widget_Items_Poster_Big_Label"><height>720</height></include>
     <include name="Widget_Items_Poster_Big_small"><height>670</height></include>
-    <include name="Widget_Items_genre_Big_Height_small"><height>690</height></include>
-    <include name="Widget_Items_Landscape_Big_Height_small"><height>625</height></include>
-    <include name="Widget_Items_Category_Big_Height_small"><height>480</height></include>
+
+
 
     <include name="WidgetSubmenu">
         <param name="submenu" default="false" />

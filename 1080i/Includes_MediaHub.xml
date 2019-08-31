@@ -1347,7 +1347,7 @@
     </control>
     <control type="image">
       <animation effect="slide" end="250,0" time="500" condition="Control.HasFocus(400) | Control.HasFocus(401)">Conditional</animation>
-      <texture background="true" diffuse="Right Corner.png">$VAR[Image_MainMenu_fanart]</texture>
+      <texture background="true" diffuse="Right Corner.png">$VAR[Image_MainMenu_fanart_aurahub]</texture>
       <fadetime>100</fadetime>
      <width>1500</width>
       <height>750</height>
@@ -1376,7 +1376,7 @@
           <width>90</width>
           <height>120</height>
           <top>780</top>
-          <left>-6</left>
+          <left>-7</left>
           <texture background="true" colordiffuse="white">special://skin/media/netflix/left-arrow.png</texture>
           <visible>ControlGroup(5055).HasFocus</visible>
          </control>

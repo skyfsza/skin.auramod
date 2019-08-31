@@ -81,11 +81,22 @@
     </variable>
 
     <variable name="Image_MainMenu_fanart_aurahub"> 
-	<value condition="!String.IsEmpty(Container(6051).ListItemAbsolute(0).Art(fanart))">$INFO[Container(6051).ListItemAbsolute(0).Art(fanart)]</value>
-	<value condition="!String.IsEmpty(Container(6052).ListItem.Art(fanart))">$INFO[Container(6052).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(6051).ListItem.Art(fanart)) + Control.IsVisible(6051)">$INFO[Container(6051).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(6052).ListItem.Art(fanart)) + Control.IsVisible(6052)">$INFO[Container(6052).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(6053).ListItem.Art(fanart)) + Control.IsVisible(6053)">$INFO[Container(6053).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(6054).ListItem.Art(fanart)) + Control.IsVisible(6054)">$INFO[Container(6054).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(6055).ListItem.Art(fanart)) + Control.IsVisible(6055)">$INFO[Container(6055).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(6056).ListItem.Art(fanart)) + Control.IsVisible(6056)">$INFO[Container(6056).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(6057).ListItem.Art(fanart)) + Control.IsVisible(6057)">$INFO[Container(6057).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(6058).ListItem.Art(fanart)) + Control.IsVisible(6058)">$INFO[Container(6058).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(6059).ListItem.Art(fanart)) + Control.IsVisible(6059)">$INFO[Container(6059).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(6060).ListItem.Art(fanart)) + Control.IsVisible(6060)">$INFO[Container(6060).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(6061).ListItem.Art(fanart)) + Control.IsVisible(6061)">$INFO[Container(6061).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(6062).ListItem.Art(fanart)) + Control.IsVisible(6062)">$INFO[Container(6062).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(6063).ListItem.Art(fanart)) + Control.IsVisible(6063)">$INFO[Container(6063).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(6064).ListItem.Art(fanart)) + Control.IsVisible(6064)">$INFO[Container(6064).ListItem.Art(fanart)]</value>
         <value>$VAR[Image_MainMenu_fanart]</value>
     </variable>
-
     <variable name="Image_MainMenu_fanart"> 
 	<value condition="String.Contains(ListItem.Label,Shows)">special://skin/extras/backgrounds/tv-shows-mainmenu-bg.jpg</value>	
 	<value condition="String.Contains(ListItem.Label,Movies)">special://skin/extras/backgrounds/movies-mainmenu-bg.jpg</value>	
@@ -158,8 +169,9 @@
     </variable>
 
     <variable name="NetflixHome_ClearLogo">
-        <value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + !String.IsEqual(ListItem.Art(tvshow.clearlogo),0)">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
-        <value condition="!String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEqual(ListItem.Art(clearlogo),0)">$INFO[ListItem.Art(clearlogo)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</value>
     </variable>
 
     <variable name="Image_DiscArt">
