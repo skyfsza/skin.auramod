@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
+
+ <include name="Widget_Items_BigPoster">
+            <control type="image">
+                <texture background="true" diffuse="diffuse/widgetposter.png">$VAR[Image_Poster]</texture>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <visible>!String.IsEmpty(ListItem.Art(poster)) | [!String.IsEmpty(ListItem.Art(tvshow.poster)) + !String.IsEqual(ListItem.DBType,episode)] | $PARAM[poster]</visible>
+            </control>
+
+                    <control type="image">
+                        <height>100%</height>
+                        <width>100%</width>
+                        <texture colordiffuse="bf000000" diffuse="diffuse/widgetposter.png">common/gradient-actor.png</texture>
+                        <visible>String.Contains(ListItem.FolderPath,type=person)</visible>
+                   </control>
+
+                    <control type="label">
+                        <left>20</left>
+                        <right>20</right>
+                        <height>30</height>
+                        <bottom>42</bottom>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <font>font_statusbar</font>
+                        <textcolor>main_fg_100</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                        <visible>String.Contains(ListItem.FolderPath,type=person)</visible>
+                    </control>
+                    <control type="label">
+                        <left>20</left>
+                        <right>20</right>
+                        <height>30</height>
+                        <bottom>18</bottom>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <font>font_statusbar</font>
+                        <textcolor>main_fg_70</textcolor>
+                        <label>$INFO[ListItem.Label2]</label>
+                        <visible>String.Contains(ListItem.FolderPath,type=person)</visible>
+                    </control>
+    </include>
+
+
+
+
     <include name="Widget_Items_Landscape">
      <control type="group">
       <control type="group">
@@ -227,7 +271,7 @@
 	<left>53%</left>
 	<font>font_small</font>
 	<textcolor>black</textcolor>
-	<label>$INFO[ListItem.Genre]</label>
+	<label>$VAR[Label_Genre]</label>
 	<scroll>false</scroll>
 	</control>
         <control type="label">
