@@ -991,30 +991,29 @@
         <orientation>vertical</orientation>
 	<height>1500</height>
         <left>10</left>
-        <control type="group">
-          <height min="155" max="251">auto</height>
           <control type="image" id="55443">
             <left>0</left>
             <right>$PARAM[titleright]</right>
-            <height>251</height>
-            <width>650</width>
+            <height>218</height>
+            <width>563</width>
             <aligny>top</aligny>
             <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
           </control>
           <control type="label">
             <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)] + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
-            <top>-210</top>
+            <top>-190</top>
             <label>$VAR[video_heading]</label>
-            <textcolor>grey</textcolor>
-            <shadowcolor>black</shadowcolor>
-            <font>netflix_heading</font>
-            <width min="200" max="600">auto</width>
-            <height min="50" max="120">auto</height>
-            <align>left</align>
-            <wrapmultiline>true</wrapmultiline>
-            <autoscroll>true</autoscroll>
-            <scroll>true</scroll>
+                  <textcolor>grey</textcolor>
+                  <shadowcolor>black</shadowcolor>
+                  <font>font_heading</font>
+                  <width>730</width>
+                  <height min="30" max="110">auto</height>
+                  <align>left</align>
+                  <aligny>center</aligny>
+                  <wrapmultiline>true</wrapmultiline>
+                  <scroll>true</scroll>
           </control>
+<!--
           <control type="label">
             <visible>String.IsEmpty(Control.GetLabel(55443))</visible>
             <top>60</top>
@@ -1023,55 +1022,39 @@
             <shadowcolor>black</shadowcolor>
             <font>font_heading</font>
             <width>730</width>
-            <height>120</height>
+            <height min="40" max="120">auto</height>
             <align>left</align>
             <wrapmultiline>true</wrapmultiline>
             <autoscroll>true</autoscroll>
             <scroll>true</scroll>
           </control>
-        </control>
+-->
         <!-- Netflix Info line -->
         <control type="group">
         <visible>!Control.HasFocus(9550)</visible>
+	  <top>40</top>
           <height>60</height>
           <include>netflix_infoline</include>
         </control>
         <!-- Plot and Tagline -->
-        <control type="group">
-        <visible>!Control.HasFocus(9550)</visible>
-          <height>60</height>
-          <visible>String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season)</visible>
-          <control type="label" id="78631">
-            <label fallback="19055">[B]$VAR[Label_Netflix_Tagline][/B]</label>
-            <width>750</width>
-            <textcolor>grey</textcolor>
-            <font>font_small</font>
-          </control>
-        </control>
-        <control type="group">
-        <visible>!Control.HasFocus(9550)</visible>
-	<height>150</height>
           <control type="textbox">
-            <label fallback="19055">$VAR[Label_Plot]</label>
+	    <top>10</top>
+            <visible>!Control.HasFocus(9550)</visible>
+            <label fallback="19055">$VAR[Label_OverlayPlot]</label>
+	    <height min="60" max="158">auto</height>
             <width>750</width>
             <aligny>top</aligny>
             <textcolor>dimgrey</textcolor>
             <font>widget_trakt_title</font>
           </control>
-        </control>
+	  <control type="label">
+	  <height>20</height>
+	  </control>
               <control type="group">
 	    <visible>!Control.HasFocus(9550)</visible>
 		<top>10</top>
                 <height>50</height>
                 <right>940</right>	        
-              <control type="image">
-		<top>10</top>
-                <width>30</width>
-                <height>30</height>
-                <colordiffuse>dimgray</colordiffuse>
-                <texture>flags/rating.png</texture>
-		<visible>!String.IsEmpty(ListItem.Rating)</visible>
-              </control>
                 <include content="Object_Ratings">
                   <param name="directory" value="color" />
                   <param name="align" value="left" />
@@ -1087,6 +1070,14 @@
                   <param name="plot" value="false" />
                   <param name="studio" value="false" />
                 </include>
+              <control type="image">
+                <top>10</top>
+                <width>30</width>
+                <height>30</height>
+                <colordiffuse>grey</colordiffuse>
+                <texture>flags/rating.png</texture>
+                <visible>!String.IsEmpty(ListItem.Rating)</visible>
+              </control>
               </control>
         <control type="group">
           <control type="grouplist">
@@ -1102,7 +1093,7 @@
 		<left>-15</left>
                 <width>55</width>
                 <height>55</height>
-                <colordiffuse>dimgray</colordiffuse>
+                <colordiffuse>dimgrey</colordiffuse>
                 <texture>special://skin/extras/icons/person3.png</texture>
 		<aspectratio>scale</aspectratio>
               </control>
@@ -1113,7 +1104,7 @@
               <height min="30" max="50">auto</height>
                 <font>Netflix_Info_main</font>
                 <label>$VAR[cast_list]</label>
-                <textcolor>dimgray</textcolor>
+                <textcolor>dimgrey</textcolor>
                 <autoscroll>true</autoscroll>
                 <wrapmultiline>true</wrapmultiline>
               </control>
@@ -1127,7 +1118,7 @@
                 <left>-8</left>
                 <width>45</width>
                 <height>45</height>
-                <colordiffuse>dimgray</colordiffuse>
+                <colordiffuse>dimgrey</colordiffuse>
                 <texture>special://skin/extras/icons/director.png</texture>
               </control>
               <control type="label">
@@ -1149,7 +1140,7 @@
                 <left>-8</left>
                 <width>45</width>
                 <height>45</height>
-                <colordiffuse>dimgray</colordiffuse>
+                <colordiffuse>dimgrey</colordiffuse>
                 <texture>dialogs/videoinfo/genre-icon.png</texture>
               </control>
               <control type="label">
@@ -1158,7 +1149,7 @@
                 <font>Netflix_Info_main</font>
                 <align>left</align>
                 <label>$INFO[ListItem.Genre]</label>
-                <textcolor>dimgray</textcolor>
+                <textcolor>dimgrey</textcolor>
                 <scroll>false</scroll>
               </control>
             </control>
@@ -1170,7 +1161,7 @@
               <control type="image">
                 <width>30</width>
                 <height>30</height>
-                <colordiffuse>dimgray</colordiffuse>
+                <colordiffuse>dimgrey</colordiffuse>
                 <texture>netflix/trophy.png</texture>
               </control>
               <control type="label">
@@ -1179,7 +1170,7 @@
                 <font>Netflix_Info_main</font>
                 <align>left</align>
                 <label>$INFO[Window(Home).Property(SkinHelper.ListItem.Awards)]</label>
-                <textcolor>dimgray</textcolor>
+                <textcolor>dimgrey</textcolor>
                 <scroll>false</scroll>
               </control>
             </control>
@@ -1260,6 +1251,23 @@
               <onclick condition="String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),false)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
               <onclick condition="!String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
             </control>
+            <!--More episodes-->
+<!--
+            <control type="radiobutton" id="339">
+              <include name="netflix_button" content="netflix_button">
+                <param name="icon" value="more_episodes" />
+              </include>
+              <radiowidth>25</radiowidth>
+              <radioheight>28</radioheight>
+              <radioposx>13</radioposx>
+              <visible>String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)</visible>
+              <label>More Episodes</label>
+              <onclick>Skin.SetString(AddonContainer,false)</onclick>
+              <onclick>close</onclick>
+              <onclick condition="Skin.HasSetting(EnableShowInfo) + Window.IsVisible(1138)">ActivateWindow(Home)</onclick>
+              <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)">ActivateWindow(10025,plugin://plugin.video.seren/?action=showSeasons&actionArgs=%7b%22item_type%22%3a%20%22show%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.IMDBNumber]%7d,return)</onclick>
+            </control>
+-->
             <!-- Trailer-->
             <control type="radiobutton" id="34">
               <include name="netflix_button" content="netflix_button">

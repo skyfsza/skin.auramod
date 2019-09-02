@@ -444,7 +444,7 @@
                     <param name="landscapecondition" value="$PARAM[landscapecondition]" />
                     <param name="landscapewidecondition" value="$PARAM[landscapewidecondition]" />
                     <param name="landscapedetailscondition" value="$PARAM[landscapedetailscondition]" />
-                  <param name="landscapenetflixcondition" value="$PARAM[landscapenetflixcondition]" />
+                    <param name="landscapenetflixcondition" value="$PARAM[landscapenetflixcondition]" />
                     <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]" />
                     <param name="posterdetailscondition" value="$PARAM[posterdetailscondition]" />
                     <param name="widgetlivecondition" value="$PARAM[widgetlivecondition]" />
@@ -485,6 +485,7 @@
     	<param name="postercondition" default="false" />
         <param name="landscapecondition" default="false" />
         <param name="landscapewidecondition" default="false" />
+        <param name="landscapedetailscondition" default="false" />
         <param name="landscapewidepostercondition" default="false" />
         <param name="landscapenetflixcondition" default="false" />
         <param name="landscapepanelcondition" default="false" />
@@ -580,6 +581,7 @@
 			    <param name="studios" value="$PARAM[studios]" />
 			    <param name="postercondition" value="$PARAM[postercondition]" />
 			    <param name="landscapecondition" value="$PARAM[landscapecondition]" />
+                    	    <param name="landscapedetailscondition" value="$PARAM[landscapedetailscondition]" />
 			    <param name="landscapewidecondition" value="$PARAM[landscapewidecondition]" />
 			    <param name="landscapewidepostercondition" value="$PARAM[landscapewidepostercondition]" />
 			    <param name="landscapenetflixcondition" value="$PARAM[landscapenetflixcondition]" />
@@ -627,6 +629,7 @@
 			    <include>Statusbar_Menubar_Items</include>
 			    <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Property(similartitle))</visible>
 			</control>
+<!--
 			<control type="label">
 			    <textcolor>main_fg_70</textcolor>
 			    <label>$INFO[Container($PARAM[id]).ListItem.Top250,#,]</label>
@@ -635,6 +638,7 @@
 			    <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Top250)</visible>
 			    <visible>String.Contains($PARAM[content],Top250)</visible>
 			</control>
+-->
 			<control type="label">
 			    <textcolor>main_fg_70</textcolor>
 			    <label>$INFO[Container($PARAM[id]).ListItem.Artist,-   ,]</label>
@@ -701,6 +705,7 @@
 		<width>1980</width>
 		<top>$PARAM[top]</top>
 		<height>$PARAM[height]</height>
+		<preloaditems>2</preloaditems>
 		<onfocus>SetProperty(WidgetFocus,1,Home)</onfocus>
 		<onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[id],Home)</onfocus>
 		<include content="Widget_Movement" condition="!Skin.HasSetting(SubmenuLabel)">
@@ -879,6 +884,7 @@
 		<param name="postercondition" default="false" />
 		<param name="landscapecondition" default="false" />
 		<param name="landscapewidecondition" default="false" />
+		<param name="landscapedetailscondition" default="false" />
 		<param name="landscapewidepostercondition" default="false" />
 		<param name="landscapenetflixcondition" default="false" />
 		<param name="landscapepanelcondition" default="false" />
@@ -908,6 +914,7 @@
 			    <param name="postercondition" value="$PARAM[postercondition]" />
 			    <param name="landscapecondition" value="$PARAM[landscapecondition]" />
 			    <param name="landscapewidecondition" value="$PARAM[landscapewidecondition]" />
+	                    <param name="landscapedetailscondition" value="$PARAM[landscapedetailscondition]" />
 			    <param name="landscapewidepostercondition" value="$PARAM[landscapewidepostercondition]" />
 			    <param name="landscapenetflixcondition" value="$PARAM[landscapenetflixcondition]" />
 			    <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]" />
@@ -927,6 +934,7 @@
 			    <param name="postercondition" value="$PARAM[postercondition]" />
 			    <param name="landscapecondition" value="$PARAM[landscapecondition]" />
 			    <param name="landscapewidecondition" value="$PARAM[landscapewidecondition]" />
+	                    <param name="landscapedetailscondition" value="$PARAM[landscapedetailscondition]" />
 			    <param name="landscapewidepostercondition" value="$PARAM[landscapewidepostercondition]" />
 			    <param name="landscapenetflixcondition" value="$PARAM[landscapenetflixcondition]" />
 			    <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]" />
@@ -994,6 +1002,7 @@
         <param name="square" default="false" />
         <param name="poster" default="false" />
         <param name="landscape" default="false" />
+        <param name="landscapedetails" default="false" />
         <param name="landscapewide" default="false" />
 	<param name="landscapewideposter" default="false" />
 	<param name="posterdetails" default="false" />
@@ -1060,6 +1069,7 @@
         <param name="square" default="false" />
         <param name="poster" default="false" />
         <param name="landscape" default="false" />
+        <param name="landscapedetails" default="false" />
         <param name="landscapewide" default="false" />
 	<param name="landscapewideposter" default="false" />
         <param name="posterdetails" default="false" />
@@ -1130,6 +1140,7 @@
                     <param name="square" value="$PARAM[square]" />
                     <param name="poster" value="$PARAM[poster]" />
                     <param name="landscape" value="$PARAM[landscape]" />
+                    <param name="landscapedetails" value="$PARAM[landscape]" />
                     <param name="landscapewide" value="$PARAM[landscapewide]" />
 		    <param name="landscapewideposter" value="$PARAM[landscapewideposter]" />
 		    <param name="posterdetails" value="$PARAM[posterdetails]" />
@@ -1373,9 +1384,7 @@
                         <label>$INFO[ListItem.Label2]</label>
 			<visible>String.Contains(ListItem.FolderPath,type=person)</visible>
                     </control>
-
-
-
+        <include>seemore</include>
         </definition>
     </include>
 
@@ -1386,6 +1395,7 @@
         <param name="square" default="false" />
         <param name="poster" default="false" />
         <param name="landscape" default="false" />
+        <param name="landscapedetails" default="false" />
 	<param name="landscapewide" default="false" />
 	<param name="landscapewideposter" default="false" />
 	<param name="posterdetails" default="false" />
@@ -1405,12 +1415,12 @@
                     <right>10</right>
                     <bottom>10</bottom>
                     <left>10</left>
-                    <include condition="!$PARAM[poster] + !$PARAM[landscape] + !$PARAM[landscapenetflix] + !$PARAM[landscapepanel] + !$PARAM[category] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] +  !$PARAM[landscapewide] + !$PARAM[text]">Widget_Items_Textbox</include>
+                    <include condition="!$PARAM[poster] + !$PARAM[landscape] + !$PARAM[landscapedetails] + !$PARAM[landscapenetflix] + !$PARAM[landscapepanel] + !$PARAM[category] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] + !$PARAM[landscapewide] + !$PARAM[text]">Widget_Items_Textbox</include>
                     <include condition="$PARAM[genres]">Widget_Items_Genres</include>
                     <include condition="$PARAM[studios] + !$PARAM[genres]">Widget_Items_Studios</include>
                     <include condition="$PARAM[text] + !$PARAM[genres] + !$PARAM[studios]">Widget_Items_Text</include>
                     <include condition="$PARAM[square] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_Square</include>
-                    <include condition="!$PARAM[poster] + !$PARAM[landscape] + !$PARAM[landscapepanel] + !$PARAM[landscapenetflix] + !$PARAM[category] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] + !$PARAM[landscapewide] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !$PARAM[square]">Widget_Items_Default</include>
+                    <include condition="!$PARAM[poster] + !$PARAM[landscape] + !$PARAM[landscapepanel] + !$PARAM[landscapedetails] + !$PARAM[landscapenetflix] + !$PARAM[category] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] + !$PARAM[landscapewide] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !$PARAM[square]">Widget_Items_Default</include>
                     <include condition="[$PARAM[poster] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]] | [!$PARAM[landscape] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] + !$PARAM[landscapewide] + !$PARAM[landscapepanel] + !$PARAM[landscapenetflix] + !$PARAM[category] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !$PARAM[square]]" content="Widget_Items_Poster">
                         <param name="poster" value="$PARAM[poster]" />
                     </include>
@@ -1418,6 +1428,7 @@
 		    <include condition="$PARAM[landscapewide] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeBanner</include>
 		    <include condition="$PARAM[landscapewideposter] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeWidePoster</include>
                     <include condition="$PARAM[posterdetails] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_PosterDetails</include>
+                    <include condition="$PARAM[landscapedetails] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeDetails</include>
                     <include condition="$PARAM[widgetlive] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_WidgetLive</include>
 		    <include condition="$PARAM[landscapenetflix] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeNetflix</include>
 		    <include condition="$PARAM[landscapepanel] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeNetflix</include>
@@ -1440,6 +1451,7 @@
         <param name="square" default="false" />
         <param name="poster" default="false" />
         <param name="landscape" default="false" />
+        <param name="landscapedetails" default="false" />
         <param name="landscapewide" default="false" />
         <param name="landscapewideposter" default="false" />
         <param name="posterdetails" default="false" />
@@ -1462,7 +1474,7 @@
                     <right>10</right>
                     <bottom>10</bottom>
                     <left>10</left>
-                    <include condition="!$PARAM[poster] + !$PARAM[landscape] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[category] + !$PARAM[posterdetails] + !$PARAM[landscapenetflix] + !$PARAM[landscapepanel] + !$PARAM[landscapewide] + !$PARAM[text]" content="Widget_Items_Textbox">
+                    <include condition="!$PARAM[poster] + !$PARAM[landscapedetails] + !$PARAM[landscape] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[category] + !$PARAM[posterdetails] + !$PARAM[landscapenetflix] + !$PARAM[landscapepanel] + !$PARAM[landscapewide] + !$PARAM[text]" content="Widget_Items_Textbox">
                         <param name="color" value="PosterFront" />
                     </include>
                     <include condition="$PARAM[genres]" content="Widget_Items_Genres">
@@ -1477,7 +1489,7 @@
                     <include condition="$PARAM[square] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]" content="Widget_Items_Square">
                         <param name="color" value="PosterFront" />
                     </include>
-                    <include condition="!$PARAM[poster] + !$PARAM[landscape] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] + !$PARAM[category] + !$PARAM[landscapenetflix] + !$PARAM[landscapepanel] + !$PARAM[landscapewide] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !$PARAM[square]" content="Widget_Items_Default">
+                    <include condition="!$PARAM[poster] + !$PARAM[landscape] + !$PARAM[landscapedetails] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] + !$PARAM[category] + !$PARAM[landscapenetflix] + !$PARAM[landscapepanel] + !$PARAM[landscapewide] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !$PARAM[square]" content="Widget_Items_Default">
                         <param name="color" value="PosterFront" />
                     </include>
                     <include condition="[$PARAM[poster] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]] | [!$PARAM[landscape] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] + !$PARAM[landscapenetflix] + !$PARAM[landscapepanel] + !$PARAM[category] + !$PARAM[landscapewide] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !$PARAM[square]]" content="Widget_Items_Poster">
@@ -1488,6 +1500,7 @@
 		    <include condition="$PARAM[landscapewideposter] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeWidePoster</include>
 		    <include condition="$PARAM[posterdetails] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_PosterDetails</include>
 		    <include condition="$PARAM[widgetlive] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_WidgetLive</include>
+                    <include condition="$PARAM[landscapedetails] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeDetails_Focused</include>
 		    <include condition="$PARAM[landscapenetflix] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeNetflix</include>
 		    <include condition="$PARAM[landscapepanel] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeNetflix</include>
 		    <include condition="$PARAM[category] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_Category</include>
@@ -1507,6 +1520,7 @@
                     <param name="square" value="$PARAM[square]" />
                     <param name="poster" value="$PARAM[poster]" />
                     <param name="landscape" value="$PARAM[landscape]" />
+                    <param name="landscapedetails" value="$PARAM[landscapedetails]" />
 		    <param name="landscapewide" value="$PARAM[landscapewide]" />
 		    <param name="landscapewideposter" value="$PARAM[landscapewideposter]" />
 		    <param name="posterdetails" value="$PARAM[posterdetails]" />

@@ -798,6 +798,7 @@
                             <onclick>Skin.ToggleSetting(LightWatchedOverlay)</onclick>
                         </control>
 
+<!--
                         <control type="radiobutton" id="9507" description="Plot overlay">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
                             <include>Defs_Settings_Button</include>
@@ -805,7 +806,7 @@
                             <selected>Skin.HasSetting(AutoPlotOverlay)</selected>
                             <onclick>Skin.ToggleSetting(AutoPlotOverlay)</onclick>
                         </control>
-
+-->
                         <control type="button" id="9508" description="Enable viewmodes">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1041,6 +1042,13 @@
                             <label>Display labels below widgets</label>
                             <selected>Skin.HasSetting(WidgetLabelsBelow)</selected>
                             <onclick>Skin.ToggleSetting(WidgetLabelsBelow)</onclick>
+                        </control>
+                      <control type="radiobutton" id="96112" description="Detatch Widgets from Main Menu">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Detatch Home Widgets from Main Menu</label>
+                            <selected>Skin.HasSetting(WidgetDetach)</selected>
+                            <onclick>Skin.ToggleSetting(WidgetDetach)</onclick>
                         </control>
                         <control type="button" id="9653" description="Widget Overlays ">
                             <textcolor>main_fg_100</textcolor>

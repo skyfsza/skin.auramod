@@ -611,6 +611,7 @@
         <onright condition="Control.IsVisible(60)">60</onright>
         <onright condition="!Control.IsVisible(60)">300</onright>
         <onleft>300</onleft>
+
     </include>
 
     <include name="View_Movement_Vertical">

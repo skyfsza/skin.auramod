@@ -1337,13 +1337,14 @@
       <control type="group">
         <include condition="Skin.HasSetting(DisableNetflixView)">View_Pad</include>
         <include condition="!Skin.HasSetting(DisableNetflixView)">Object_Episodes_Info</include>
-        <control type="fixedlist" id="502">
-          <top>80</top>
+	<posy>60</posy>
+        <control type="list" id="502">
+          <top>40</top>
           <left>30</left>
           <visible>Container.Content(episodes) | Container.Content(seasons)</visible>
           <pagecontrol>60</pagecontrol>
           <focusposition>1</focusposition>
-          <movement>1</movement>
+          <movement>2</movement>
           <include>View_NotTheseWindows</include>
           <viewtype label="$LOCALIZE[31385]">icon</viewtype>
           <include content="View_Forced">
@@ -1432,7 +1433,7 @@
     <param name="text" default="true" />
     <definition>
       <focusposition>3</focusposition>
-      <movement>3</movement>
+      <movement>6</movement>
       <orientation>$PARAM[orientation]</orientation>
       <include>View_Movement_Horizontal</include>
       <preloaditems>2</preloaditems>

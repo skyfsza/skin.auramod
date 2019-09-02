@@ -225,6 +225,7 @@
        <animation effect="slide" start="0,0" end="310,0" time="500" condition="Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)">Conditional</animation>
        <animation effect="slide" start="0,0" end="70,0" time="500" 
 							condition="Control.HasFocus(30222) | Control.HasFocus(1505) | Control.HasFocus(1506) | 
+								   [Control.HasFocus(13003) + [Integer.IsEqual(Container(13003).Position,0) + !Container(13003).HasPrevious]] |
 								   [Control.HasFocus(23003) + [Integer.IsEqual(Container(23003).Position,0) + !Container(23003).HasPrevious]] |
 								   [Control.HasFocus(33003) + [Integer.IsEqual(Container(33003).Position,0) + !Container(33003).HasPrevious]] |
 								   [Control.HasFocus(43003) + [Integer.IsEqual(Container(43003).Position,0) + !Container(43003).HasPrevious]] |
@@ -529,7 +530,9 @@
 
     <include name="Home_TVHubMenu_Layout">
       <control type="group">
+
       <animation effect="slide" end="220,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
+      <animation effect="slide" end="-220,0" time="0" condition="!Window.IsVisible(Home) + String.IsEmpty(Skin.String(TVHubMenuFocus))">Conditional</animation>
       <animation effect="slide" end="-220,0" time="800">Hidden</animation>
       <animation effect="slide" end="-100,0" time="300" condition="ControlGroup(5055).HasFocus">Conditional</animation>
       <visible allowhiddenfocus="true">Control.HasFocus(505) | ControlGroup(5055).HasFocus | Control.HasFocus(400)</visible>
@@ -668,6 +671,7 @@
     <include name="Home_MovieHubMenu_Layout">
       <control type="group">
       <animation effect="slide" end="220,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
+      <animation effect="slide" end="-220,0" time="0" condition="!Window.IsVisible(Home) + String.IsEmpty(Skin.String(MovieHubMenuFocus))">Conditional</animation>
       <animation effect="slide" end="-220,0" time="800">Hidden</animation>
       <animation effect="slide" end="-100,0" time="300" condition="ControlGroup(5055).HasFocus">Conditional</animation>
       <visible allowhiddenfocus="true">Control.HasFocus(505) | ControlGroup(5055).HasFocus | Control.HasFocus(401)</visible>

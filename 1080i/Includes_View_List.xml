@@ -10,6 +10,7 @@
                 <top>view_pad</top>
                 <bottom>view_pad</bottom>
                 <control type="fixedlist" id="50">
+                    <onclick condition="!Skin.HasSetting(EnableShowInfo) + [Container.Content(movies) | Container.Content(tvshows) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]">Action(Info)</onclick>
                     <animation effect="slide" end="0,-90" condition="Integer.IsLess(Container(50).NumItems,9) + !Container(50).HasParent">Conditional</animation>
                     <animation effect="slide" end="0,-90" condition="Integer.IsLess(Container(50).NumItems,7)+ !Container(50).HasParent">Conditional</animation>
                     <animation effect="slide" end="0,-90" condition="Integer.IsLess(Container(50).NumItems,5)+ !Container(50).HasParent">Conditional</animation>

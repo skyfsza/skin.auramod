@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+     <variable name="Image_Clearart_Hub">
+	<value condition="!String.IsEmpty(ListItem.Art(clearart))">$INFO[ListItem.Art(clearart)]</value>
+	<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Clearart))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Clearart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(Clearart))">$INFO[ListItem.Art(clearlogo)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
+     </variable>
      <include name="fanart_multi">
      <control type="fadelabel" id="398045">
         <description>Randomizer for plugin-free multiple fanart</description>

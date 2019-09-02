@@ -6,7 +6,6 @@
   <controls>
     <include>Global_Background</include>
     <include>Logo</include>
-    <include>Home_TVHubMenu_Layout</include>
    <control type="group">
    <control type="label">
    <animation effect="slide" end="260,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
@@ -24,7 +23,7 @@
         <top>140</top>
         <width>1920</width>
         <height>900</height>
-        <left>0</left>
+        <left>50</left>
 	<movement>1</movement>
         <scrolltime tween="sine" easing="out">500</scrolltime>
         <orientation>vertical</orientation>
@@ -34,5 +33,6 @@
         <onleft>SetFocus(400,4)</onleft>
         <include>skinshortcuts-template-aurahubtv</include>
     </control>
+    <include>Home_TVHubMenu_Layout</include>
   </controls>
 </window>

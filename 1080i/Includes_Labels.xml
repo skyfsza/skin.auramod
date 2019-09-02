@@ -363,7 +363,7 @@
 
     <variable name="MPAA">
         <value condition="!String.IsEmpty(ListItem.MPAA)">$INFO[ListItem.MPAA]</value>
-        <value condition="String.IsEmpty(ListItem.MPAA) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA)">$INFO[Window(Home).Property(SkinHelper.ListItem.MPAA)]</value>
+        <value condition="String.IsEmpty(ListItem.MPAA) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA))">$INFO[Window(Home).Property(SkinHelper.ListItem.MPAA)]</value>
     </variable>
 
     <variable name="Label_Settings_Header">
@@ -591,6 +591,7 @@
         <value condition="!String.IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
         <value condition="!String.IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
         <value condition="!String.IsEmpty(ListItem.AddonDescription)">$INFO[ListItem.AddonDescription]</value>
+        <value condition="String.IsEqual(ListItem.DBType,episode) + Window.IsVisible(DialogVideoInfo.xml)">$VAR[videoinfo_play_label]</value>
         <value condition="String.IsEqual(ListItem.DBType,episode) + String.IsEqual(ListItem.Episode,1)">[I][COLOR=green]Season Premiere[/COLOR] $INFO[ListItem.Season, S,: ]$INFO[ListItem.Episode,E, ][/I]</value>
 
         <value condition="String.IsEqual(ListItem.DBType,season)">$INFO[ListItem.Season,Season , ]</value>

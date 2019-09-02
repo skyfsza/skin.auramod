@@ -5,15 +5,18 @@
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
     <include>Global_Background</include>
+    <control type="group">
+    <right>-50</right>
     <include>Logo</include>
+    </control>
     <include>Home_MovieHubMenu_Layout</include>
    <control type="group">
    <control type="label">
    <animation effect="slide" end="260,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
    <top>65</top>
-   <left>70</left>
+   <left>60</left>
    <width>400</width>
-   <height>40</height>
+   <height>35</height>
    <font>font_heading_small</font>
    <textcolor>white</textcolor>
    <label>[B]Movie AuraHub[/B]</label>
@@ -23,8 +26,8 @@
         <animation effect="slide" end="260,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
 	<top>140</top>
         <width>1920</width>
-        <height>900</height>
-        <left>0</left>
+        <height>905</height>
+        <left>50</left>
         <scrolltime tween="quadratic">400</scrolltime>
         <orientation>vertical</orientation>
         <usecontrolcoords>true</usecontrolcoords>
