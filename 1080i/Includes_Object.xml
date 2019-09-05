@@ -1214,24 +1214,6 @@
           <right>0</right>
           <fadetime>2000</fadetime>
         </control>
-        <control type="group">
-          <top>-30</top>
-          <visible>Player.HasVideo</visible>
-        </control>
-      </control>
-      <control type="group">
-        <left>10</left>
-        <visible>Skin.HasSetting(DisableNetflixSubmenuBG) + Control.HasFocus(300)</visible>
-      </control>
-      <control type="group">
-        <left>10</left>
-        <right>0</right>
-        <visible>Skin.HasSetting(DisableNetflixSubmenuBG) + Control.HasFocus(302)</visible>
-      </control>
-      <control type="group">
-        <left>10</left>
-        <right>0</right>
-        <visible>Skin.HasSetting(DisableNetflixSubmenuBG) + Control.HasFocus(3001)</visible>
       </control>
     </control>
 
@@ -1249,7 +1231,8 @@
         <control type="image" id="55445">
           <height min="60" max="251">auto</height>
           <width>520</width>
-          <aligny>top</aligny>
+          <align>left</align>
+          <aspectratio align="left" aligny="center">keep</aspectratio>
           <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
           <visible>!Control.HasFocus(300) + !Control.HasFocus(30222)</visible>
         </control>
@@ -1347,7 +1330,7 @@
           <left>60</left>
           <height>50</height>
           <width>750</width>
-          <visible>String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(EnableFullEpInfo)</visible>
+          <visible>Integer.IsEqual(ListItem.PercentPlayed,0) + String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(EnableFullEpInfo)</visible>
         <control type="label">
           <width>450</width>
           <label>Aired $INFO[ListItem.Premiered(DDD MMM yyyy)] on</label>
@@ -1384,12 +1367,12 @@
         </control>
         <control type="progress">
           <visible>String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(EnableFullEpInfo) + !Integer.IsEqual(ListItem.PercentPlayed,0)</visible>
-          <top>40</top>
+          <top>10</top>
           <left>60</left>
           <left>260</left>
           <description>progress bar</description>
           <width>290</width>
-          <height>9</height>
+          <height>11</height>
           <align>center</align>
           <aligny>top</aligny>
           <texturebg colordiffuse="grey" border="2">colors/color_white.png</texturebg>
@@ -2091,26 +2074,27 @@
         <orientation>vertical</orientation>
         <usecontrolcoords>true</usecontrolcoords>
         <itemgap>0</itemgap>
+	<height>600</height>
         <control type="image" id="554450">
           <visible>!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(509) | Window.IsVisible(DialogVideoInfo.xml)]</visible>
           <left>0</left>
           <right>$PARAM[titleright]</right>
           <top>10</top>
           <bottom>10</bottom>
-          <height>218</height>
-          <width>563</width>
-          <aligny>top</aligny>
+   <height min="60" max="251">auto</height>
+          <width>520</width>
           <align>left</align>
+          <aspectratio align="left" aligny="center">keep</aspectratio>
           <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
         </control>
           <control type="textbox">
-            <visible>$EXP[DBTvideos] + String.IsEmpty(Control.GetLabel(554450))</visible>
-	    <top>-190</top>
+            <visible>$EXP[DBTvideos] + String.IsEmpty(ListItem.Art(clearlogo))</visible>
+	    <top>-200</top>
             <label>$VAR[video_heading]</label>
             <textcolor>grey</textcolor>
             <shadowcolor>black</shadowcolor>
             <font>font_heading</font>
-            <height>110</height>
+            <height min="30" max="110">auto</height>
             <width>730</width>
             <align>left</align>
             <wrapmultiline>true</wrapmultiline>
@@ -2118,7 +2102,7 @@
           </control>
           <control type="label">
             <visible>!$EXP[DBTvideos]</visible>
-            <top>-210</top>
+            <top>-200</top>
             <label>$VAR[video_heading]</label>
             <textcolor>grey</textcolor>
             <shadowcolor>black</shadowcolor>
@@ -2130,9 +2114,12 @@
             <autoscroll>true</autoscroll>
             <scroll>true</scroll>
           </control>
-
+	<control type="label">
+	   <height>20</height>
+	   <visible>$EXP[DBTvideos] + String.IsEmpty(ListItem.Art(clearlogo))</visible>
+	</control>
         <control type="grouplist">
-          <top>30</top>
+          <top>0</top>
           <height>60</height>
           <orientation>horizontal</orientation>
           <usecontrolcoords>true</usecontrolcoords>
@@ -5178,7 +5165,7 @@
         <itemgap>0</itemgap>
         <usecontrolcoords>true</usecontrolcoords>
         <scrolltime tween="linear">400</scrolltime>
-        <movement>0</movement>
+        <movement>1</movement>
         <include content="WidgetSubmenu" condition="!Skin.HasSetting(HideSubmenuWidget)">
           <param name="id" value="3001" />
           <param name="submenu" value="true" />
@@ -5412,7 +5399,7 @@
                 <align>bottom</align>
                 <height>100%</height>
                 <width>100%</width>
-                <texture colordiffuse="dimgrey">flags/flag_box.png</texture>
+                <texture colordiffuse="dimgrey">flags/square-rounded.png</texture>
               </control>
               <control type="label" id="6115">
                 <top>15</top>
@@ -5420,7 +5407,7 @@
                 <height>100%</height>
                 <width>90%</width>
                 <font>widget_trakt_title2</font>
-                <textcolor>grey</textcolor>
+                <textcolor>white</textcolor>
                 <scroll>false</scroll>
                 <label>$INFO[ListItem.Duration(h),,h] $INFO[ListItem.Duration(mm),,m]</label>
               </control>

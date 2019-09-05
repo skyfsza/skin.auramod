@@ -24,7 +24,6 @@
   <onload condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,0,absolute)</onload> 
 
     <controls>
- <include>Global_Background</include>
         <control type="list" id="9988">
             <description>hidden container for playlist background</description>
             <posx>-20</posx>

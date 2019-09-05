@@ -30,16 +30,7 @@
     <include file="Includes_Statusbar.xml" />
     <include file="IncludesBingieSearch.xml" />
     <include file="Includes_Youtube.xml" />
-<!--
-    <include condition="!Skin.HasSetting(DisableNetflixHome)" file="Includes_Topbar.xml" />
-    <include condition="Skin.HasSetting(DisableNetflixHome) + Skin.HasSetting(DisableNetflixHomeSidemenu)" file="Includes_Topbar.xml" />
-    <include condition="Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableNetflixHomeSidemenu)" file="Includes_Topbar-Netflix.xml" />
-    <include condition="Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableNetflixHomeSidemenu)" file="Includes_Home.xml" />
-
-    <include condition="Skin.HasSetting(DisableNetflixHomeSidemenu)" file="Includes_Topbar.xml" />
--->
     <include file="Includes_Topbar-Netflix.xml" />
-<!--    <include condition="!Skin.HasSetting(DisableMenuHor)" file="Includes_Home.xml" /> -->
     <include file="Includes_Home.xml" />
 
 
@@ -48,7 +39,6 @@
     <include file="Includes_Weather.xml" />
     <include condition="!Skin.HasSetting(DisableNetflixHome)" file="Includes_Widgets.xml" />
     <include condition="Skin.HasSetting(DisableNetflixHome)" file="Includes_Widgets_Netflix.xml" />
-    <include file="Includes_SerenHub.xml" />
 
     <include file="Includes_View.xml" />
     <include file="Includes_View_List.xml" />

@@ -110,7 +110,7 @@
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[widgetName]" />
-                <param name="visible" value="String.IsEqual(Container(300).ListItem.Property(id),$SKINSHORTCUTS[mainmenuid]) | Skin.HasSetting(WidgetDetach)" />
+                <param name="visible" value="[String.IsEqual(Container(300).ListItem.Property(id),$SKINSHORTCUTS[mainmenuid]) | Skin.HasSetting(WidgetDetach)]" />
             </include>
         </controls>
     </submenuOther>

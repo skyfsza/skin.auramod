@@ -996,7 +996,8 @@
             <right>$PARAM[titleright]</right>
             <height>218</height>
             <width>563</width>
-            <aligny>top</aligny>
+            <align>left</align>
+            <aspectratio align="left" aligny="center">keep</aspectratio>
             <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
           </control>
           <control type="label">
@@ -1013,26 +1014,10 @@
                   <wrapmultiline>true</wrapmultiline>
                   <scroll>true</scroll>
           </control>
-<!--
-          <control type="label">
-            <visible>String.IsEmpty(Control.GetLabel(55443))</visible>
-            <top>60</top>
-            <label>$VAR[video_heading]</label>
-            <textcolor>grey</textcolor>
-            <shadowcolor>black</shadowcolor>
-            <font>font_heading</font>
-            <width>730</width>
-            <height min="40" max="120">auto</height>
-            <align>left</align>
-            <wrapmultiline>true</wrapmultiline>
-            <autoscroll>true</autoscroll>
-            <scroll>true</scroll>
-          </control>
--->
         <!-- Netflix Info line -->
         <control type="group">
         <visible>!Control.HasFocus(9550)</visible>
-	  <top>40</top>
+	  <top>30</top>
           <height>60</height>
           <include>netflix_infoline</include>
         </control>
@@ -1050,11 +1035,18 @@
 	  <control type="label">
 	  <height>20</height>
 	  </control>
-              <control type="group">
+        <control type="group">
+          <control type="grouplist">
 	    <visible>!Control.HasFocus(9550)</visible>
-		<top>10</top>
-                <height>50</height>
-                <right>940</right>	        
+            <orientation>vertical</orientation>
+            <top>20</top>
+            <height>300</height>
+
+              <control type="group">
+            <visible>!!String.IsEmpty(ListItem.Rating) + Control.HasFocus(9550)</visible>
+                <top>10</top>
+                <height>55</height>
+                <right>940</right>
                 <include content="Object_Ratings">
                   <param name="directory" value="color" />
                   <param name="align" value="left" />
@@ -1079,16 +1071,12 @@
                 <visible>!String.IsEmpty(ListItem.Rating)</visible>
               </control>
               </control>
-        <control type="group">
-          <control type="grouplist">
-	    <visible>!Control.HasFocus(9550)</visible>
-            <orientation>vertical</orientation>
-            <top>20</top>
-            <height>300</height>
+
             <control type="group">
               <width>1200</width>
               <height min="30" max="50">auto</height>
               <visible>!String.IsEmpty(ListItem.Cast) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))</visible>
+
               <control type="image">
 		<left>-15</left>
                 <width>55</width>
@@ -1186,7 +1174,7 @@
             <onright>9601</onright>
             <onup>9570</onup>
             <ondown>9570</ondown>
-            <top>220</top>
+            <top>230</top>
             <height>270</height>
             <width>650</width>
             <!-- Search TMDB -->
@@ -1234,6 +1222,18 @@
               <visible>Control.IsVisible(9)</visible>
               <include>resume_progress</include>
             </control>
+            <control type="radiobutton" id="888">
+              <include name="netflix_button" content="netflix_button">
+                <param name="icon" value="play" />
+              </include>
+              <radiowidth>25</radiowidth>
+              <radioheight>28</radioheight>
+              <radioposx>13</radioposx>
+              <onclick>PlayMedia($ESCINFO[ListItem.FileNameAndPath],noresume)</onclick>
+              <visible>ListItem.IsResumable + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
+              <label>Play from Beginning</label>
+              <onclick>ClearProperty(BaseWindow,Home)</onclick>
+            </control>
             <!--More episodes-->
             <control type="radiobutton" id="33">
               <include name="netflix_button" content="netflix_button">
@@ -1252,7 +1252,6 @@
               <onclick condition="!String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
             </control>
             <!--More episodes-->
-<!--
             <control type="radiobutton" id="339">
               <include name="netflix_button" content="netflix_button">
                 <param name="icon" value="more_episodes" />
@@ -1260,14 +1259,29 @@
               <radiowidth>25</radiowidth>
               <radioheight>28</radioheight>
               <radioposx>13</radioposx>
-              <visible>String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)</visible>
+              <visible>!String.IsEmpty(ListItem.Property(tvshow.trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)</visible>
               <label>More Episodes</label>
               <onclick>Skin.SetString(AddonContainer,false)</onclick>
               <onclick>close</onclick>
               <onclick condition="Skin.HasSetting(EnableShowInfo) + Window.IsVisible(1138)">ActivateWindow(Home)</onclick>
-              <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)">ActivateWindow(10025,plugin://plugin.video.seren/?action=showSeasons&actionArgs=%7b%22item_type%22%3a%20%22show%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.IMDBNumber]%7d,return)</onclick>
+              <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)">ActivateWindow(10025,plugin://plugin.video.seren/?action=showSeasons&actionArgs=%7b%22item_type%22%3a%20%22show%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(tvshow.trakt_id)]%7d,return)</onclick>
             </control>
--->
+            <!--Trakt Manager-->
+            <control type="radiobutton" id="340">
+              <include name="netflix_button" content="netflix_button">
+                <param name="icon" value="trakttv" />
+              </include>
+              <radiowidth>48</radiowidth>
+              <radioheight>48</radioheight>
+              <radioposx>2</radioposx>
+              <visible>String.Contains(ListItem.Path,plugin.video.seren) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode)]</visible>
+              <label>Trakt Manager</label>
+              <onclick>Skin.SetString(AddonContainer,false)</onclick>
+              <onclick condition="Skin.HasSetting(EnableShowInfo) + Window.IsVisible(1138)">ActivateWindow(Home)</onclick>
+              <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&actionArgs=%7B%22episode%22%3A%20$INFO[ListItem.Episode]%2C%20%22item_type%22%3A%20%22episode%22%2C%20%22season%22%3A%20$INFO[ListItem.Season]%2C%20%22trakt_id%22%3A%20$INFO[ListItem.Property(tvshow.trakt_id)]%7D)</onclick>
+              <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,tvshow)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&actionArgs=%7b%22item_type%22%3a%20%22show%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(trakt_id)]%7d)</onclick>
+              <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,movie)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&actionArgs=%7b%22item_type%22%3a%20%22movie%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(trakt_id)]%7d)</onclick>
+            </control>
             <!-- Trailer-->
             <control type="radiobutton" id="34">
               <include name="netflix_button" content="netflix_button">
@@ -1550,10 +1564,10 @@
       <left>250</left>
       <description>progress bar</description>
       <width>250</width>
-      <height>9</height>
+      <height>11</height>
       <align>center</align>
       <aligny>top</aligny>
-      <texturebg colordiffuse="grey" border="2">colors/color_white.png</texturebg>
+      <texturebg colordiffuse="darkgrey" border="2">colors/color_white.png</texturebg>
       <lefttexture></lefttexture>
       <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
       <righttexture></righttexture>

@@ -531,15 +531,6 @@
                 <include condition="$PARAM[categorycondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Category_Big_Height_small</include>
 
                 <onclick condition="!Skin.HasSetting(EnableShowInfo) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]">Action(Info)</onclick>
-<!--
-                <onclick condition="!Skin.HasSetting(EnableShowInfo) + String.IsEmpty(ListItem.DBType) + [Window.IsVisible(3910) | Window.IsVisible(3920)] + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),true)">ActivateWindow(10025,$ESCINFO[Container(5055).ListItem.FileNameAndPath],return)</onclick>
-                <onclick condition="!Skin.HasSetting(EnableShowInfo) + String.IsEmpty(ListItem.DBType) + [Window.IsVisible(3910) | Window.IsVisible(3920)] + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),false)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
-                <onclick condition="!Skin.HasSetting(EnableShowInfo) + String.IsEmpty(ListItem.DBType) + [Window.IsVisible(3910) | Window.IsVisible(3920)] + !String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
-
-            	<onclick condition="Skin.HasSetting(EnableShowInfo) + [Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920)] + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),true)">ActivateWindow(10025,$ESCINFO[Container(5055).ListItem.FileNameAndPath],return)</onclick>
-              	<onclick condition="Skin.HasSetting(EnableShowInfo) + [Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920)] + String.IsEmpty(ListItem.DBID)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
-              	<onclick condition="Skin.HasSetting(EnableShowInfo) + [Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920)] + !String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
--->
 
                 <visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | Container(300).OnNext | Container(300).OnPrevious | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
                 <include content="Widget_Items" condition="!$PARAM[submenu]">
@@ -570,6 +561,7 @@
                     <param name="genrecondition" value="$PARAM[genrecondition]" />
                     <param name="search" value="$PARAM[search]" />
                 </include>
+<!--
                 <include content="Widget_Submenu" condition="$PARAM[submenu]">
                     <param name="id" value="$PARAM[id]" />
                     <param name="target" value="$PARAM[target]" />
@@ -581,6 +573,7 @@
                     <param name="sortby" value="$PARAM[sortby]" />
                     <param name="sortorder" value="$PARAM[sortorder]" />
                 </include>
+-->
             </control>
         </definition>
     </include>
@@ -650,6 +643,7 @@
                 <include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
                 <height>widget_poster_spacer</height>
                 <visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | Container(300).OnNext | Container(300).OnPrevious | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
+<!--
                 <include content="Widget_Items" condition="!$PARAM[submenu]">
                     <param name="id" value="$PARAM[id]" />
                     <param name="target" value="$PARAM[target]" />
@@ -677,6 +671,7 @@
                     <param name="genrecondition" value="$PARAM[genrecondition]" />
                     <param name="search" value="$PARAM[search]" />
                 </include>
+-->
                 <include content="Widget_Submenu" condition="$PARAM[submenu]">
                     <param name="id" value="$PARAM[id]" />
                     <param name="target" value="$PARAM[target]" />

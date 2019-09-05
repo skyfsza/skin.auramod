@@ -4,7 +4,7 @@
     <defaultcontrol always="true">50</defaultcontrol>
     <menucontrol>300</menucontrol>
     <controls>
-
+	<include>Global_Background</include>
         <include>Topbar</include>
         
         <control type="group">

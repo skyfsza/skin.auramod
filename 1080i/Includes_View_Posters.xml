@@ -1337,10 +1337,10 @@
       <control type="group">
         <include condition="Skin.HasSetting(DisableNetflixView)">View_Pad</include>
         <include condition="!Skin.HasSetting(DisableNetflixView)">Object_Episodes_Info</include>
-	<posy>60</posy>
+	<posy>50</posy>
         <control type="list" id="502">
-          <top>40</top>
-          <left>30</left>
+          <top>30</top>
+          <left>40</left>
           <visible>Container.Content(episodes) | Container.Content(seasons)</visible>
           <pagecontrol>60</pagecontrol>
           <focusposition>1</focusposition>
