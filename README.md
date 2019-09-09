@@ -1,4 +1,5 @@
 ##Offical Install Instructions##
+
  Note: Its critical you install the Auramod Repo for Proper dependencys to be met ! 
 
 Go to the Kodi file manager.
