@@ -20,7 +20,7 @@ Go into the "Look and Feel" section in the repo, and you'll find AuraMOD.
 
 ​ Make sure to follow the same setup instructions as regular Aura (install Marcelveldt's Repo, setup keys, etc) from the original Aura forum post, in order to get the full set of artwork, ratings, and features.
 
-If you wish to run the Devlopment version of auramod , PLEASE follow the above instructions 
+If you wish to run the Development version of auramod , PLEASE follow the above instructions 
 and ONLY after you may then download the zip from this github page and then install from zip in kodi 
 
 
