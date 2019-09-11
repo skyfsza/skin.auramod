@@ -1,33 +1,31 @@
-##Offical Install Instructions##
+**Official Install Instructions**
 
- Note: Its critical you install the Auramod Repo for Proper dependencys to be met ! 
+---
 
-Go to the Kodi file manager.
+ _Note: Its critical you install the Auramod Repo for Proper dependency&#39;s to be met! Do not just install the zip directly from this githubpage before at least installing the repo !_
 
-Click on "Add source"
+##### 1. Add the file source for the repo addon 
 
-The path for the source is https://skyfsza.github.io/repository.auramod/repository.auramod/ (Give it the name "AuraMOD Repo").
+Go to the Kodi file manager. Click on &quot;Add source&quot;
+The path for the source is
+**https://skyfsza.github.io/repository.auramod/repository.auramod/**
+Give it the name &quot;AuraMOD Repo&quot;
 
-Go to "Addons"
+##### 2. Install the Repo addon  from the file source
 
-In Add-ons, install an addon from zip. When it asks for the location, select "AuraMOD Repo", and install repository.auramod-1.0.1.zip.
+Go to &quot;Addons&quot;
+In Add-ons, install an addon from zip. When it asks for the location, select &quot;AuraMOD Repo&quot;, and install
+repository.auramod-1.0.1.zip
 
-Go back to Addons install, but this time, select "Install from repository"
+##### 3. Install Auramod from the installed Repo
 
-Select the "Auramod Beta Repository"
+Go back to Addons install, but this time, select &quot;Install from repository&quot;
+Select the &quot;Auramod Beta Repository&quot;
+Go into the &quot;Look and Feel&quot; section in the repo, and you&#39;ll find AuraMOD.
 
-Go into the "Look and Feel" section in the repo, and you'll find AuraMOD.
+###    Make sure to also follow the  extra setup instructions as the Original version of Aura   from the original Aura forum post, in order to get the full set of artwork, ratings, genre icons ,  and features.  [https://forum.kodi.tv/showthread.php?tid=328558](https://forum.kodi.tv/showthread.php?tid=328558)  
 
-​ Make sure to follow the same setup instructions as regular Aura (install Marcelveldt's Repo, setup keys, etc) from the original Aura forum post, in order to get the full set of artwork, ratings, and features.
-
-If you wish to run the Development version of auramod , PLEASE follow the above instructions 
-and ONLY after you may then download the zip from this github page and then install from zip in kodi 
-
+---
 
 
-
-This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 Unported License.
-To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/
-or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
-
-Icon images from iconmonstr.com see website for license terms
+ # If you wish to run the Development version of auramod. PLEASE follow the above instructions for installing the repo (steps 1 & 2) and ONLY after completing them  download the zip from this github page and then "install from zip" in kodi pointing it at the downloaded zip file 
