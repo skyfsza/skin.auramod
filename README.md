@@ -17,7 +17,13 @@ Go to &quot;Addons&quot;
 In Add-ons, install an addon from zip. When it asks for the location, select &quot;AuraMOD Repo&quot;, and install
 repository.auramod-1.0.1.zip
 
-##### 3. Install Auramod from the installed Repo
+##### 3. Install marcelveldt's repo from Auramod Repo
+Go back to Addons , but this time, select &quot;Install from repository&quot;
+Select the &quot;Auramod Beta Repository&quot;
+Select Add-on repository
+Select Marcelveldt's BETA repository
+
+##### 4. Install Auramod from Auramod Repo
 
 Go back to Addons install, but this time, select &quot;Install from repository&quot;
 Select the &quot;Auramod Beta Repository&quot;
