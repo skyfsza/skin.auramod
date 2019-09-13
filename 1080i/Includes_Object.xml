@@ -239,6 +239,7 @@
 
   <include name="Object_Episodes_Info">
     <control type="group">
+<!--
       <control type="label">
         <visible>String.IsEmpty(Control.GetLabel(5675))</visible>
         <top>25</top>
@@ -252,6 +253,22 @@
         <align>left</align>
         <wrapmultiline>true</wrapmultiline>
       </control>
+-->
+            <control type="textbox">
+        <visible>String.IsEmpty(Control.GetLabel(5675))</visible>
+            <visible>String.IsEmpty(Container(1505).ListItem.Art(clearlogo))</visible>
+            <top>25</top>
+            <left>40</left>
+            <label>[B]$VAR[video_heading][/B]</label>
+            <textcolor>grey</textcolor>
+            <shadowcolor>black</shadowcolor>
+            <font>font_heading</font>
+            <width min="200" max="500">auto</width>
+            <height min="30" max="115">auto</height>
+            <align>left</align>
+            <wrapmultiline>true</wrapmultiline>
+            <scroll>true</scroll>
+            </control>
       <control type="image" id="5675">
         <left>40</left>
         <top>-20</top>

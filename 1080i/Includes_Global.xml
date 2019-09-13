@@ -18,7 +18,7 @@
             <onup condition="Skin.HasSetting(HideSubmenuWidget)">302</onup>
             <onup condition="!Skin.HasSetting(HideSubmenuWidget)">430</onup>
             <ondown condition="Control.HasFocus(300) + Skin.HasSetting(DisableMenuHor) + [String.IsEqual(Container(300).ListItem.Property(widget),Settings) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget)]">9967</ondown>
-            <ondown condition="Control.HasFocus(300) + Skin.HasSetting(DisableMenuHor)  + String.IsEqual(Container(300).ListItem.Property(widget),Weather) | String.IsEqual(Container(211).ListItem.Property(widgetType),Weather Widget)]">9966</ondown>
+            <ondown condition="Control.HasFocus(300) + Skin.HasSetting(DisableMenuHor)  + [String.IsEqual(Container(300).ListItem.Property(widget),Weather) | String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)]">9966</ondown>
             <ondown>3000</ondown>
             <ondown condition="Control.IsVisible(3902)">3902</ondown>
             <ondown condition="!Control.IsVisible(3902)">300</ondown>
