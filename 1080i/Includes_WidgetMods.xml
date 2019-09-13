@@ -95,18 +95,6 @@
     <!-- Clearlogo -->
       <control type="group">
         <!-- Add Clearlogo to landscape Image -->
-<!--
-        <control type="image">
-          <bottom>35</bottom>
-          <right>10</right>
-          <width>45%</width>
-          <height>45%</height>
-          <aspectratio>keep</aspectratio>
-          <animation effect="slide" start="0" end="0,40" time="0" condition="String.IsEmpty(ListItem.Episode) | Skin.HasSetting(WidgetLabels)">Conditional</animation>
-          <texture background="true">$VAR[Widget_ClearLogo]</texture>
-          <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
-        </control>
--->
       </control>
             <control type="image">
                 <bottom>30</bottom>
@@ -125,7 +113,7 @@
           <height>45%</height>
           <aspectratio>keep</aspectratio>
           <texture background="true">$VAR[Widget_ClearLogo]</texture>
-          <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
+          <visible>!Skin.HasSetting(DisableNetflixSmallWidget) + !Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
         </control>
 
         <!-- Add Clearlogo to landscape Image -->
@@ -273,8 +261,8 @@
         </control>
       </control>
 
-	<control type="group">
-	<control type="label">
+      <control type="group">
+       <control type="label">
 	<top>10</top>
 	<width>40%</width>
 	<height>30</height>
@@ -283,8 +271,9 @@
 	<textcolor>black</textcolor>
 	<label>$VAR[Label_Genre]</label>
 	<scroll>false</scroll>
-	</control>
-        <control type="label">
+	<visible>$EXP[DBTvideos]</visible>
+       </control>
+       <control type="label">
 	<top>40</top>
 	<height>60</height>
         <width>40%</width>
@@ -292,32 +281,93 @@
         <font>font_medium_bold</font>
         <textcolor>black</textcolor>
         <label>$VAR[video_heading]</label>
-        </control>	
-        <control type="textbox">
-	<top>100</top>
-	<height>95</height>
-        <width>40%</width>
+       </control>	
+       <control type="textbox">
+	<top>120</top>
+	<height>120</height>
+        <width>45%</width>
         <left>53%</left>
         <font>font_tiny</font>
         <textcolor>dimgrey</textcolor>
 	<autoscroll>0</autoscroll>
         <label>$INFO[ListItem.Plot]</label>
         <visible>!String.IsEqual(ListItem.DBType,episode)</visible>
+	<scroll>true</scroll>
+       </control>
+       <control type="textbox">
+        <bottom>25</bottom>
+        <height>30</height>
+        <width>40%</width>
+        <left>53%</left>
+        <font>font_epg_timeline</font>
+        <textcolor>dimgrey</textcolor>
+        <label>[I]Premiered $INFO[ListItem.Premiered(DDD MMM yyyy)] [/I]</label>
+        <visible>$EXP[DBTvideos]</visible>
+        <visible>!Integer.IsGreater(ListItem.PercentPlayed,1)</visible>
+       </control>
+       <control type="image">   
+        <visible>$EXP[DBTvideos]</visible>
+	  <bottom>10</bottom>
+          <left>75%</left>
+          <texture colordiffuse="main_fg_100">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
+          <aspectratio>stretch</aspectratio>
+          <height>59.4</height>
+          <width>81.4</width>
+	  <visible>!Integer.IsGreater(ListItem.PercentPlayed,1)</visible>
         </control>
-        </control>
+      </control>
 
      <control type="group">
-      <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+        <visible>String.IsEqual(ListItem.DBType,episode)</visible>
        <control type="label">
-	<top>100</top>
+	<top>120</top>
 	<width>400</width>
-	<height>70</height>
+	<height>40</height>
 	<left>53%</left>
         <font>font_widgetbar_bold</font>
         <textcolor>$VAR[ColorHighlight]</textcolor>
-        <label>S$INFO[ListItem.Season]:E$INFO[ListItem.Episode] - $INFO[ListItem.Title]</label>
+        <label>Continue Watching S$INFO[ListItem.Season]:E$INFO[ListItem.Episode]</label>
 	<scroll>true</scroll>
        </control>
+       <control type="label">
+        <top>170</top>
+        <width>400</width>
+        <height>40</height>
+        <left>53%</left>
+        <font>font_widgetbar_bold</font>
+        <textcolor>$VAR[ColorHighlight]</textcolor>
+        <label>$INFO[ListItem.Title]</label>
+        <scroll>true</scroll>
+       </control>
+
+       <control type="group">
+         <visible>String.IsEqual(ListItem.DBType,episode) + [Integer.IsGreater(ListItem.PercentPlayed,1) | Integer.IsGreater(Window(Home).Property(ListItem.PercentPlayed),1)]</visible>
+        <left>53%</left>
+       <top>250</top>
+       <width>650</width>
+       <height>30</height>
+       <aligny>center</aligny>
+       <control type="progress">
+           <width>185</width>
+           <height>11</height>
+           <texturebg colordiffuse="cc515151" border="0">colors/color_white.png</texturebg>
+           <lefttexture/>
+           <midtexture colordiffuse="red" border="4">colors/color_white.png</midtexture>
+           <righttexture/>
+           <info>ListItem.PercentPlayed</info>
+       </control>
+       <control type="label">
+           <top>-12</top>
+           <left>200</left>
+           <height>25</height>
+           <width>450</width>
+           <font>Netflix_Info_main</font>
+           <textcolor>dimgrey</textcolor>
+           <label>$VAR[ListItemPercentRemained,,% remaining]</label>
+       </control>
+   </control>
+
+<!--
        <control type="textbox">
 	<top>190</top>
 	<height>95</height>
@@ -325,9 +375,11 @@
         <left>53%</left>
         <font>font_epg_timeline</font>
         <textcolor>dimgrey</textcolor>
-        <label fallback="19055">[I]Aired $INFO[ListItem.Premiered(DDD MMM yyyy)] on [/I]</label>
+        <label>[I]Aired $INFO[ListItem.Premiered(DDD MMM yyyy)] [/I]</label>
+	<visible>$EXP[DBTvideos]</visible>
        </control>
        <control type="image">
+	<visible>$EXP[DBTvideos]</visible>
           <top>180</top>
 	  <right>120</right>
           <texture colordiffuse="main_fg_100">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
@@ -335,6 +387,7 @@
           <height>54</height>
           <width>74</width>
         </control>
+-->
       </control>
     </control>
   </include>
@@ -506,7 +559,7 @@
 	<bottom>30</bottom>
         <height>45</height>
         <width>90</width>
-        <texture colordiffuse="99FF0000" flipy="true">diffuse/halfbox.png</texture>
+        <texture background="true" colordiffuse="99FF0000" flipy="true">diffuse/halfbox.png</texture>
       </control>
      <control type="textbox">
 	<bottom>10</bottom>
@@ -526,7 +579,7 @@
         <bottom>20</bottom>
         <height>30</height>
         <width>90</width>
-        <texture colordiffuse="99FF0000" flipy="true">diffuse/halfbox.png</texture>
+        <texture background="true" colordiffuse="99FF0000" flipy="true">diffuse/halfbox.png</texture>
       </control>
      <control type="textbox">
         <bottom>0</bottom>

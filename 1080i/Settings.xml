@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
 <window id="4">
-    <defaultcontrol always="true">300</defaultcontrol>
+    <defaultcontrol always="true">9967</defaultcontrol>
+<!--
     <onload condition="![Window.Previous(SettingsCategory.xml) | Window.Previous(SkinSettings.xml)] + String.IsEmpty(Window(Home).Property(MenuIconFocus))">ReplaceWindow(InterfaceSettings)</onload>
     <onload condition="![Window.Previous(SettingsCategory.xml) | Window.Previous(SkinSettings.xml)] + !String.IsEmpty(Window(Home).Property(MenuIconFocus))">$INFO[Window(Home).Property(MenuIconFocus)]</onload>
     <onload condition="Window.Previous(SettingsCategory.xml) | Window.Previous(SkinSettings.xml)">ReplaceWindow(Home)</onload>
+-->
     <controls>
+        <include>Global_Background</include>
+	<include>Topbar</include>
+        <control type="group">
+	 <left>-10</left>
+	 <top>-20</top>
+         <include>Widget_Settings</include>
+        </control>
+
     </controls>
 </window>

@@ -90,7 +90,6 @@
                 <width>458</width>
                 <include>Defs_Context_Button</include>
             </control>
-
             <control type="image">
                 <left>245</left>
                 <top>-70</top>

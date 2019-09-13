@@ -140,6 +140,15 @@
                             <include>Defs_Settings_Button</include>
                             <label>Hubs & Spotlight</label>
                         </control>
+                         <control type="togglebutton" id="9015" description="My Lists">
+                            <onfocus>SetProperty(CurrentFocus,$NUMBER[9015])</onfocus>
+                            <usealttexture>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(300)] + !Control.HasFocus(302) + Integer.IsEqual(Window.Property(CurrentFocus),9015)</usealttexture>
+                            <alttexturenofocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturenofocus>
+                            <width>450</width>
+                            <include>Defs_Settings_Button</include>
+                            <label>My Lists</label>
+                        </control>
+§
                         <control type="togglebutton" id="9002" description="Background">
                             <onfocus>SetProperty(CurrentFocus,$NUMBER[9002])</onfocus>
                             <usealttexture>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(300)] + !Control.HasFocus(302) + Integer.IsEqual(Window.Property(CurrentFocus),9002)</usealttexture>
@@ -438,6 +447,7 @@
                             <label>Configure TV Networks Hub</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=hubtvnetworks)</onclick>
                         </control>
+<!--
                         <control type="button" id="9664" description="Extra List Hubs ">
                             <textcolor>main_fg_100</textcolor>
                             <disabledcolor>main_fg_12</disabledcolor>
@@ -454,37 +464,8 @@
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <label>[B]Extra List Hubs[/B]</label>
                         </control>
-                        <control type="button" id="9660" description="Configure Movie Hub 1">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Configure Movie Lists 1</label>
-                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1101)</onclick>
-                        </control>
-                        <control type="button" id="9662" description="Configure TV Hub 1">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Configure TV Lists 1</label>
-                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1103)</onclick>
-                        </control>
-                        <control type="button" id="9574" description="Configure Misc Hub 2">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Configure My Lists 1</label>
-                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1105)</onclick>
-                        </control>
-                        <control type="button" id="9575" description="Configure Misc Hub 2">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Configure My Lists 2</label>
-                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1106)</onclick>
-                        </control>
-                        <control type="button" id="9576" description="Configure Misc Hub 2">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Configure My Lists 3</label>
-                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1107)</onclick>
-                        </control>
-                        <control type="button" id="9665" description="Media Hubs ">
+-->
+                           <control type="button" id="9665" description="Media Hubs ">
                             <textcolor>main_fg_100</textcolor>
                             <disabledcolor>main_fg_12</disabledcolor>
                             <height>80</height>
@@ -530,6 +511,45 @@
                             <label>Configure TV Netflix Hub</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=netflixhubtv)</onclick>
                         </control>
+
+                        <!-- ========== -->
+                        <!-- My List    -->
+                        <!-- ========== -->
+
+                     <control type="button" id="9660" description="Configure Movie Hub 1">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9015)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Movie Lists 1</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1101)</onclick>
+                        </control>
+                        <control type="button" id="9662" description="Configure TV Hub 1">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9015)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure TV Lists 1</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1103)</onclick>
+                        </control>
+                        <control type="button" id="9574" description="Configure Misc Hub 2">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9015)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure My Lists 1</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1105)</onclick>
+                        </control>
+                        <control type="button" id="9575" description="Configure Misc Hub 2">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9015)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure My Lists 2</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1106)</onclick>
+                        </control>
+                        <control type="button" id="9576" description="Configure Misc Hub 2">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9015)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure My Lists 3</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1107)</onclick>
+                        </control>
+
+
+
+
 
                         <!-- ========== -->
                         <!-- Background -->
@@ -1036,6 +1056,7 @@
                             <selected>!Skin.HasSetting(BounceAnimations)</selected>
                             <onclick>Skin.ToggleSetting(BounceAnimations)</onclick>
                         </control>
+<!--
                         <control type="radiobutton" id="96111" description="Display labels below widgets">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011) + !Skin.HasSetting(DisableAuraHomeLayout)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1043,6 +1064,7 @@
                             <selected>Skin.HasSetting(WidgetLabelsBelow)</selected>
                             <onclick>Skin.ToggleSetting(WidgetLabelsBelow)</onclick>
                         </control>
+-->
                       <control type="radiobutton" id="96112" description="Detatch Widgets from Main Menu">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>

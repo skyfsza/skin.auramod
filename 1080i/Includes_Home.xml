@@ -70,8 +70,8 @@
 
                         <onleft condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">9602</onleft>
 
-                        <onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widget),Settings)">9967</onright>
-                        <onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widget),Weather)">9966</onright>
+                        <onright condition="Window.IsVisible(Home) + [String.IsEqual(Container(300).ListItem.Property(widget),Settings) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget)]">9967</onright>
+                        <onright condition="Window.IsVisible(Home) + [String.IsEqual(Container(300).ListItem.Property(widget),Weather) | String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)]">9966</onright>
                         <onright condition="Window.IsVisible(script-globalsearch-main.xml)">9500</onright>
                         <onright condition="Window.IsVisible(Home) + !Skin.HasSetting(DisableAuraHomeLayout) + Integer.IsGreater(Container(330).NumItems,0)">3000</onright>
                         <onright condition="Window.IsVisible(Home) + !Integer.IsGreater(Container(30222).NumItems,0) + Integer.IsGreater(Container(330).NumItems,0)">3000</onright>
@@ -239,14 +239,14 @@
 			<onleft condition="Skin.HasSetting(DisableSubMenuVert) + Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Label,TV Shows)">SetFocus(400,0)</onleft>
 			<onleft condition="Skin.HasSetting(DisableSubMenuVert) + Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Label,Movies)">SetFocus(401,0)</onleft>
 			<onleft condition="Control.HasFocus(300) + Skin.HasSetting(DisableMenuVertFull)">302</onleft>
-			<onleft condition="!String.IsEqual(Container(300).ListItem.Property(widgetinfospotlight),true) + Skin.HasSetting(DisableMenuVertFull) + !Integer.IsGreater(Container(30222).NumItems,0) + !Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)">302</onleft>
-			<onleft condition="!Skin.HasSetting(DisableSubMenuVert) + !String.IsEqual(Container(300).ListItem.Property(widgetinfospotlight),true) + Integer.IsGreater(Container(30222).NumItems,0) + !Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)">30222</onleft>
-			<onleft condition="Skin.HasSetting(DisableMenuVertFull) + Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)">302</onleft>
+			<onleft condition="!String.IsEqual(Container(300).ListItem.Property(widgetinfospotlight),true) + Skin.HasSetting(DisableMenuVertFull) + !Integer.IsGreater(Container(30222).NumItems,0) + !Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)">302</onleft>
+			<onleft condition="!Skin.HasSetting(DisableSubMenuVert) + !String.IsEqual(Container(300).ListItem.Property(widgetinfospotlight),true) + Integer.IsGreater(Container(30222).NumItems,0) + !Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)">30222</onleft>
+			<onleft condition="Skin.HasSetting(DisableMenuVertFull) + Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)">302</onleft>
 
                         <onleft condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">9602</onleft>
 
-			<onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widget),Settings)">9967</onright>
-			<onright condition="Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widget),Weather)">9966</onright>	
+			<onright condition="Window.IsVisible(Home) + [String.IsEqual(Container(300).ListItem.Property(widget),Settings) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget)]">9967</onright>
+			<onright condition="Window.IsVisible(Home) + [String.IsEqual(Container(300).ListItem.Property(widget),Weather) | String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)]">9966</onright>	
                         <onright condition="Window.IsVisible(script-globalsearch-main.xml)">9500</onright>
                         <onright condition="Window.IsVisible(Home) + !Skin.HasSetting(DisableAuraHomeLayout) + Integer.IsGreater(Container(330).NumItems,0)">3000</onright>
                         <onright condition="Window.IsVisible(Home) + !Integer.IsGreater(Container(30222).NumItems,0) + Integer.IsGreater(Container(330).NumItems,0)">3000</onright>
@@ -873,7 +873,7 @@
            <control type="label">
                 <visible>[![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904) |Control.HasFocus(300)] + [Window.IsVisible(Home) | [!Window.IsVisible(Home) + String.IsEqual(ListItem.Property(path),Window(Home).Property(MenuIconFocus))]] + Skin.HasSetting(IconOnlyMode)] | [[Control.HasFocus(300) | Control.HasFocus(302)] + !Skin.HasSetting(IconOnlyMode)]</visible>
                 <visible>Control.HasFocus(300) + !Skin.HasSetting(DisableNetflixVertLabel)</visible>
-                <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings)</visible>
+                <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget)</visible>
                 <left>80</left>
                 <top>15</top>
                 <height>40</height>

@@ -4,7 +4,7 @@
     <definition>
       <include condition="!Skin.HasSetting(DisableViewMode.PosterWall) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml)]">View_Posters_Wall</include>
       <include condition="!Skin.HasSetting(DisableViewMode.LandscapeWall) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyPics.xml)]">View_Posters_LandscapeWall</include>
-      <include condition="Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(80AddonBrowser.xml)">View_Posters_SquareWall</include>
+      <include condition="Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(AddonBrowser.xml)">View_Posters_SquareWall</include>
       <include condition="!Skin.HasSetting(DisableViewMode.BannerWall) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml)]">View_Posters_BannerWall</include>
       <include condition="!Skin.HasSetting(DisableViewMode.PosterShowcase) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml)]">View_Posters_Showcase</include>
       <include condition="!Skin.HasSetting(DisableViewMode.SquareShowcase) + [Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyPrograms.xml)]">View_Posters_SquareShowcase</include>
@@ -15,6 +15,7 @@
       <include condition="!Skin.HasSetting(DisableViewMode.EpisodeList) + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_EpisodeList</include>
       <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_SeasonList</include>
       <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_Season</include>
+      <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_AddonList</include>
     </definition>
   </include>
   <include name="View_Posters_Wall">
@@ -154,6 +155,7 @@
         <control type="fixedlist" id="55">
 <!--          <onclick condition="!Skin.HasSetting(EnableShowInfo)">Action(Info)</onclick> -->
           <animation effect="slide" end="0,40" condition="!Skin.HasSetting(DisableNetflixView)">Conditonal</animation>
+          <animation effect="slide" end="0,-20" condition="Skin.HasSetting(DisableNetflixView)">Conditonal</animation>
           <bottom>-55</bottom>
           <right>-70</right>
           <left>-70</left>
@@ -253,6 +255,7 @@
         <control type="fixedlist" id="56">
 <!--        <onclick condition="!Skin.HasSetting(EnableShowInfo)">Action(Info)</onclick> -->
           <animation effect="slide" end="0,20" condition="!Skin.HasSetting(DisableNetflixView)">Conditonal</animation>
+          <animation effect="slide" end="0,-20" condition="Skin.HasSetting(DisableNetflixView)">Conditonal</animation>
           <bottom>-55</bottom>
           <right>-70</right>
           <left>-70</left>
@@ -826,6 +829,8 @@
           <onup>507</onup>
           <onback>507</onback>
 	  <onleft>507</onleft>
+          <onclick condition="!Skin.HasSetting(EnableShowInfo) + [String.IsEqual(Container(5022).ListItem.DBType,episode) | String.IsEqual(Container(5022).ListItem.DBType,tvshow) | String.IsEqual(Container(5022).ListItem.DBType,movie)]">Action(Info)</onclick>
+
           <itemlayout width="533.33" height="700">
             <control type="group">
               <top>$PARAM[top_offset]</top>
@@ -1103,7 +1108,6 @@
           <preloaditems>2</preloaditems>
           <scrolltime tween="quadratic">400</scrolltime>
           <onleft>504</onleft>
-          <onback>SetFocus(504,0,absolute)</onback>
           <onback>504</onback>
           <itemlayout width="1820" height="310">
             <control type="group">
@@ -1144,7 +1148,7 @@
                 <info>ListItem.PercentPlayed</info>
               </control>
               <control type="progress">
-                <visible>Integer.IsGreater(ListItem.PlayCount,0)</visible>
+                <visible>!Integer.IsGreater(ListItem.PercentPlayed,0) + Integer.IsGreater(ListItem.PlayCount,0)</visible>
                 <left>30</left>
                 <top>260</top>
                 <description>progress bar</description>

@@ -1,6 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	
+    <variable name="mylistposition">
+	<value condition="String.IsEqual(Container(211).ListItem.Property(widgetmylistposition),true)">First Widget</value>
+	<value condition="String.IsEqual(Container(211).ListItem.Property(widgetmylistposition),false)">Last Widget</value>
+    </variable>
+
+   <!-- @bingie - percent played to remaining conversion -->
+    <variable name="ListItemPercentRemained">
+        <value condition="String.IsEqual(ListItem.PercentPlayed,0)">100</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,1)">99</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,2)">98</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,3)">97</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,4)">96</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,5)">95</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,6)">94</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,7)">93</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,8)">92</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,9)">91</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,10)">90</value>
+
+        <value condition="String.IsEqual(ListItem.PercentPlayed,11)">89</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,12)">88</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,13)">87</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,14)">86</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,15)">85</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,16)">84</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,17)">83</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,18)">82</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,19)">81</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,20)">80</value>
+
+        <value condition="String.IsEqual(ListItem.PercentPlayed,21)">79</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,22)">78</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,23)">77</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,24)">76</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,25)">75</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,26)">74</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,27)">73</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,28)">72</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,29)">71</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,30)">70</value>
+
+        <value condition="String.IsEqual(ListItem.PercentPlayed,31)">69</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,32)">68</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,33)">67</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,34)">66</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,35)">65</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,36)">64</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,37)">63</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,38)">62</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,39)">61</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,40)">60</value>
+
+        <value condition="String.IsEqual(ListItem.PercentPlayed,41)">59</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,42)">58</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,43)">57</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,44)">56</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,45)">55</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,46)">54</value>
+      <value condition="String.IsEqual(ListItem.PercentPlayed,47)">53</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,48)">52</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,49)">51</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,50)">50</value>
+
+        <value condition="String.IsEqual(ListItem.PercentPlayed,51)">49</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,52)">48</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,53)">47</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,54)">46</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,55)">45</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,56)">44</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,57)">43</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,58)">42</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,59)">41</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,60)">40</value>
+
+        <value condition="String.IsEqual(ListItem.PercentPlayed,61)">39</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,62)">38</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,63)">37</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,64)">36</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,65)">35</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,66)">34</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,67)">33</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,68)">32</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,69)">31</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,70)">30</value>
+
+        <value condition="String.IsEqual(ListItem.PercentPlayed,71)">29</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,72)">28</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,73)">27</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,74)">26</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,75)">25</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,76)">24</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,77)">23</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,78)">22</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,79)">21</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,80)">20</value>
+
+        <value condition="String.IsEqual(ListItem.PercentPlayed,81)">19</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,82)">18</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,83)">17</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,84)">16</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,85)">15</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,86)">14</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,87)">13</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,88)">12</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,89)">11</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,90)">10</value>
+
+        <value condition="String.IsEqual(ListItem.PercentPlayed,91)">9</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,92)">8</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,93)">7</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,94)">6</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,95)">5</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,96)">4</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,97)">3</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,98)">2</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,99)">1</value>
+        <value condition="String.IsEqual(ListItem.PercentPlayed,100)">0</value>
+    </variable>
+
+
+
     <variable name="widget_label1">
    <value condition="String.IsEqual(ListItem.DBType,Episode)">S$INFO[ListItem.Season]:E$INFO[ListItem.Episode] - $INFO[ListItem.Title]$INFO[Container($PARAM[id]).ListItem.Label  ]</value> 
         <value>$VAR[video_heading]</value>
@@ -29,11 +150,9 @@
 
     <variable name="moviespotlightpath">
      <value condition="Window.IsActive(Home) + !String.IsEmpty(Skin.String(spotlightmovies.path))">$INFO[Skin.String(spotlightmovies.path)]</value>
-     <value condition="Window.IsActive(Home) + String.IsEmpty(Skin.String(spotlightmovies.path))">plugin://script.extendedinfo?info=upcomingmovies</value>
     </variable>
     <variable name="tvshowspotlightpath">
      <value condition="Window.IsActive(Home) + !String.IsEmpty(Skin.String(spotlighttvshows.path))">$INFO[Skin.String(spotlighttvshows.path)]</value>
-     <value condition="Window.IsActive(Home) + String.IsEmpty(Skin.String(spotlighttvshows.path))">plugin://script.extendedinfo?info=topratedtvshows</value>
     </variable> 
 
     <!-- Spotlight Info @cartmandos -->

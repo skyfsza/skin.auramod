@@ -113,7 +113,7 @@
                             <height>1</height>
                             <top>-1000</top>
                             <onclick>ActivateWindow(Weather)</onclick>
-                            <visible>String.IsEqual(Container(300).ListItem.Property(widget),Weather)</visible>
+                            <visible>String.IsEqual(Container(300).ListItem.Property(widget),Weather) | String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)</visible>
                             <animation effect="fade" end="0" condition="true">Conditional</animation>
                         </control>
 			<control type="group">
@@ -121,11 +121,11 @@
 			<visible>String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true)</visible>
 			</control>
                         <control type="group">
-                            <visible>String.IsEqual(Container(300).ListItem.Property(widget),Weather)</visible>
+                            <visible>String.IsEqual(Container(300).ListItem.Property(widget),Weather) | String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)</visible>
                             <include>Weather</include>
                         </control>
                         <control type="group">
-                            <visible>String.IsEqual(Container(300).ListItem.Property(widget),Settings)</visible>
+                            <visible>String.IsEqual(Container(300).ListItem.Property(widget),Settings) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget)</visible>
                             <include>Widget_Settings</include>
                         </control>
                     </control>
@@ -153,16 +153,18 @@
                     <height>100%</height>
                     <aspectratio aligny="center">keep</aspectratio>
                     <texture colordiffuse="main_fg_30">common/cube-16.png</texture>
+		    <visible>Window.IsVisible(Home)</visible>
                 </control>
                 <control type="label">
                     <left>2</left>
                     <textcolor>main_fg_100</textcolor>
                     <label>$LOCALIZE[31162]</label>
                     <include>Statusbar_Menubar_Items</include>
+		    <visible>Window.IsVisible(Home)</visible>
                 </control>
             </control>
             <control type="panel" id="9967">
-                <onfocus>SetProperty(WidgetFocus,1,Home)</onfocus>
+                <onfocus condition="Window.IsVisible(Home)">SetProperty(WidgetFocus,1,Home)</onfocus>
                 <top>60</top>
                 <width>1820</width>
                 <height>920</height>
@@ -171,6 +173,7 @@
                 <onup condition="Window.IsVisible(Home)">300</onup>
                 <ondown condition="Window.IsVisible(Home)">431</ondown>
                 <onback condition="Window.IsVisible(Home)">300</onback>
+                <onback condition="!Window.IsVisible(Home)">ActivateWindow(Home)</onback>
                 <orientation>horizontal</orientation>
                 <itemlayout width="455" height="283.33">
                     <include>Defs_PosterBack</include>
@@ -544,28 +547,18 @@
                 </control>
             </control>
             <control type="$PARAM[controltype]" id="$PARAM[id]">
-                <animation effect="fade" start="100" end="0" condition="Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating">Conditional</animation>
+	                <animation effect="fade" start="100" end="0" condition="Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating">Conditional</animation>
 			<onback condition="ControlGroup(5600).HasFocus">9000</onback>
 			<scrolltime tween="linear">400</scrolltime>
 			<include condition="Window.IsVisible(Home) | Window.IsVisible(3810) | Window.IsVisible(3820)">netflix_largewidgets_top</include>
 			<movement>$PARAM[movement]</movement>
 			<include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
 			<include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
-			<include condition="!$PARAM[submenu] + !Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(3820) | Window.IsVisible(2118)">Widget_Items_menu_Big_Height</include>
-			<include condition="!$PARAM[submenu] + Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + ![Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(2118)]">Widget_Items_menu_Small_Height</include>
-
+			<include condition="!Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(3820) | Window.IsVisible(2118)">Widget_Items_menu_Big_Height</include>
+			<include condition="!$PARAM[postercondition] + Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + ![Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(2118)]">Widget_Items_menu_Small_Height</include>
+                        <include condition="$PARAM[postercondition] + Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + ![Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(2118)]">Widget_Items_menu_Small_Height_poster</include>
 			<onclick condition="!Skin.HasSetting(EnableShowInfo) + [String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]">Action(Info)</onclick>
 	
-<!--
-               <onclick condition="!Skin.HasSetting(EnableShowInfo) + String.IsEmpty(ListItem.DBType) + !Window.IsVisible(Home) + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),true)">ActivateWindow(10025,$ESCINFO[Container(5055).ListItem.FileNameAndPath],return)</onclick>
-              <onclick condition="!Skin.HasSetting(EnableShowInfo) + String.IsEmpty(ListItem.DBType) + !Window.IsVisible(Home) + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),false)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
-              <onclick condition="!Skin.HasSetting(EnableShowInfo) + String.IsEmpty(ListItem.DBType) + !Window.IsVisible(Home) + !String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
-		<onclick condition="Skin.HasSetting(EnableShowInfo) + Window.IsVisible(1138)">ActivateWindow(Home)</onclick>
-		<onclick condition="!Skin.HasSetting(EnableShowInfo) + !Window.IsVisible(Home) + String.IsEqual(ListItem.Label,See More)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
-            <onclick condition="Skin.HasSetting(EnableShowInfo) + !Window.IsVisible(Home) + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),true)">ActivateWindow(10025,$ESCINFO[Container(5055).ListItem.FileNameAndPath],return)</onclick>
-              <onclick condition="Skin.HasSetting(EnableShowInfo) + !Window.IsVisible(Home) + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),false)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
-              <onclick condition="Skin.HasSetting(EnableShowInfo) + !Window.IsVisible(Home) + !String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
--->
 			<visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | Container(300).OnNext | Container(300).OnPrevious | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
 			<include content="Widget_Items" condition="!$PARAM[submenu]">
 			    <param name="id" value="$PARAM[id]" />
@@ -599,6 +592,8 @@
 	    <include name="Widget_Items_Submenu_Height"><height>140</height></include>
 	    <include name="Widget_Items_Submenu_Big_Height"><height>widget_submenu_big_spacer</height></include>
 	    <include name="Widget_Items_menu_Big_Height"><height>420</height></include>
+	    <include name="Widget_Items_menu_Small_Height"><height>210</height></include>
+	    <include name="Widget_Items_menu_Small_Height_poster"><height>270</height></include>
 
 	    <include name="Widget_Label">
 		<definition>

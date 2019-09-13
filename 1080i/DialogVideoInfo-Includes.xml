@@ -1183,7 +1183,7 @@
             <onright>9601</onright>
             <onup>9570</onup>
             <ondown>9570</ondown>
-            <top>230</top>
+            <top>280</top>
             <height>270</height>
             <width>650</width>
             <!-- Search TMDB -->
@@ -1200,9 +1200,20 @@
               <onclick>Skin.SetString(TMDB_Search,INFO[ListItem.Title])</onclick>
 	      <onclick>RunScript(plugin.video.themoviedb.helper,reset_path)</onclick>
 	      <onclick>ActivateWindow(Home)</onclick>
-
               <visible>String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
               <label>Search</label>
+            </control>
+            <control type="radiobutton" id="87">
+              <include name="netflix_button" content="netflix_button">
+                <param name="icon" value="play" />
+              </include>
+              <radiowidth>25</radiowidth>
+              <radioheight>28</radioheight>
+              <radioposx>13</radioposx>
+	      <onclick condition="!ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">PlayMedia($ESCINFO[ListItem.FileNameAndPath])</onclick> 
+              <visible>!ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
+              <label>Play  $VAR[videoinfo_play_label]</label>
+	      <onclick>ClearProperty(BaseWindow,Home)</onclick>
             </control>
             <control type="radiobutton" id="88">
               <include name="netflix_button" content="netflix_button">
@@ -1211,10 +1222,11 @@
               <radiowidth>25</radiowidth>
               <radioheight>28</radioheight>
               <radioposx>13</radioposx>
-	      <onclick>PlayMedia($ESCINFO[ListItem.FileNameAndPath])</onclick> 
-              <visible>!ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
-              <label>Play  $VAR[videoinfo_play_label]</label>
-	      <onclick>ClearProperty(BaseWindow,Home)</onclick>
+	      <onclick>close</onclick>
+              <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren)">RunPlugin(plugin://plugin.video.seren/?action=buildPlaylistWorkaround&actionArgs=%7B%22item_type%22%3A%20%22show%22%2C%20%22trakt_id%22%3A%20$INFO[ListItem.Property(trakt_id)]%7D)</onclick>
+              <visible>!String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBTYPE,tvshow) </visible>
+              <label>Quick Play</label>
+              <onclick>ClearProperty(BaseWindow,Home)</onclick>
             </control>
             <!-- Resume -->
             <control type="radiobutton" id="9">
@@ -1233,7 +1245,7 @@
             </control>
             <control type="radiobutton" id="888">
               <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="play" />
+                <param name="icon" value="play_beginning" />
               </include>
               <radiowidth>25</radiowidth>
               <radioheight>28</radioheight>
@@ -1274,22 +1286,6 @@
               <onclick>close</onclick>
               <onclick condition="Skin.HasSetting(EnableShowInfo) + Window.IsVisible(1138)">ActivateWindow(Home)</onclick>
               <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)">ActivateWindow(10025,plugin://plugin.video.seren/?action=showSeasons&actionArgs=%7b%22item_type%22%3a%20%22show%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(tvshow.trakt_id)]%7d,return)</onclick>
-            </control>
-            <!--Trakt Manager-->
-            <control type="radiobutton" id="340">
-              <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="trakttv" />
-              </include>
-              <radiowidth>48</radiowidth>
-              <radioheight>48</radioheight>
-              <radioposx>2</radioposx>
-              <visible>!String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode)]</visible>
-              <label>Trakt Manager</label>
-              <onclick>Skin.SetString(AddonContainer,false)</onclick>
-              <onclick condition="Skin.HasSetting(EnableShowInfo) + Window.IsVisible(1138)">ActivateWindow(Home)</onclick>
-              <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&actionArgs=%7B%22episode%22%3A%20$INFO[ListItem.Episode]%2C%20%22item_type%22%3A%20%22episode%22%2C%20%22season%22%3A%20$INFO[ListItem.Season]%2C%20%22trakt_id%22%3A%20$INFO[ListItem.Property(tvshow.trakt_id)]%7D)</onclick>
-              <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,tvshow)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&actionArgs=%7b%22item_type%22%3a%20%22show%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(trakt_id)]%7d)</onclick>
-              <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,movie)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&actionArgs=%7b%22item_type%22%3a%20%22movie%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(trakt_id)]%7d)</onclick>
             </control>
             <!-- Trailer-->
             <control type="radiobutton" id="34">
@@ -1356,6 +1352,22 @@
               <onclick condition="String.IsEqual(ListItem.DBType,season)">RunScript(script.extendedinfo,info=seasoninfo,tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],silent=True)</onclick>
               <onclick condition="String.IsEqual(ListItem.DBType,episode)">RunScript(script.extendedinfo,info=extendedepisodeinfo,dbid=$INFO[ListItem.DBID],tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],episode=$INFO[ListItem.Episode],silent=True)</onclick>
             </control>
+
+            <!--Trakt Manager-->
+            <control type="radiobutton" id="340">
+              <include name="netflix_button" content="netflix_button">
+                <param name="icon" value="trakttv" />
+              </include>
+              <radiowidth>48</radiowidth>
+              <radioheight>48</radioheight>
+              <radioposx>2</radioposx>
+              <visible>!String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode)]</visible>
+              <label>Trakt Manager</label>
+              <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&actionArgs=%7B%22episode%22%3A%20$INFO[ListItem.Episode]%2C%20%22item_type%22%3A%20%22episode%22%2C%20%22season%22%3A%20$INFO[ListItem.Season]%2C%20%22trakt_id%22%3A%20$INFO[ListItem.Property(tvshow.trakt_id)]%7D)</onclick>
+              <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,tvshow)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&actionArgs=%7b%22item_type%22%3a%20%22show%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(trakt_id)]%7d)</onclick>
+              <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,movie)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&actionArgs=%7b%22item_type%22%3a%20%22movie%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(trakt_id)]%7d)</onclick>
+            </control>
+
 
             <!-- Refresh -->
             <control type="radiobutton" id="6">

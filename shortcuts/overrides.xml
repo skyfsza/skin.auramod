@@ -356,19 +356,39 @@
     <property property="widgetmylistselect">My List 2</property>
     <propertySettings property="widgetmylistselect" showNone="false" buttonID="99101" title="Widget My List" />
 
+
+    <!--Widget My List Aspect -->
+    <property property="widgetmylistaspect" icon="special://skin/extras/widgettype/widget-square.png">Square</property>
+    <property property="widgetmylistaspect" icon="special://skin/extras/widgettype/widget-square.png">SquareLabel</property>
+    <property property="widgetmylistaspect" icon="special://skin/extras/widgettype/widget-poster.png">Poster</property>
+    <property property="widgetmylistaspect" icon="special://skin/extras/widgettype/widget-landscapenetflix.png">LandscapeSmall</property>
+    <property property="widgetmylistaspect" icon="special://skin/extras/widgettype/widget-category.png">Category</property>
+    <property property="widgetmylistaspect" icon="special://skin/extras/widgettype/widget-poster.png">Submenu</property>
+    <propertySettings property="widgetmylistaspect" showNone="false" buttonID="99103" title="Widget My List Aspect Ratio" />
+
+    <!-- Widget Type -->
+    <property property="widgetType">Default</property>
+    <property property="widgetType">Settings Widget</property>
+    <property property="widgetType">Weather Widget</property>
+    <propertydefault property="widgetType">Default</propertydefault>
+    <propertySettings property="widgetType" showNone="false" buttonID="99102" title="Widget Type" />
+
+
+
     <!-- Widget Hub -->
     <propertySettings toggle="widgetControl" buttonID="9911" title="Widget Control" />
+    <propertySettings toggle="widgetmylistposition" buttonID="99104" title="Widget Control" />
 
     <!-- Widget Aspect -->
-    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-poster.png" condition="!Skin.HasSetting(DisableAuraHomeLayout) | [Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixLargeWidget)]">Poster</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-poster.png">Poster</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-square.png">Square</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscape.png">Landscape</property>
-    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapewide.png">LandscapeWide</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapewide.png" condition="!Skin.HasSetting(DisableAuraHomeLayout) | [Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixLargeWidget)]">LandscapeWide</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapewideposter.png" condition="!Skin.HasSetting(DisableAuraHomeLayout) | [Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixLargeWidget)]">LandscapePoster</property>
-    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapenetflix.png">LandscapeSmall</property>
-    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapenetflix.png">LandscapePanel</property>
-    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapenetflix.png">LandscapeDetails</property>
-    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-posterdetails.png" condition="!Skin.HasSetting(DisableAuraHomeLayout)">PosterDetails</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapenetflix.png" condition="!Skin.HasSetting(DisableAuraHomeLayout) | [Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixLargeWidget)]">LandscapeSmall</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapenetflix.png" condition="!Skin.HasSetting(DisableAuraHomeLayout) | [Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixLargeWidget)]">LandscapePanel</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapenetflix.png" condition="!Skin.HasSetting(DisableAuraHomeLayout) | [Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixLargeWidget)]">LandscapeDetails</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-posterdetails.png" condition="!Skin.HasSetting(DisableAuraHomeLayout) | [Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixLargeWidget)]">PosterDetails</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-widgetlive.png">WidgetLive</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-category.png">Category</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-genres.png">Genre</property>
@@ -438,7 +458,6 @@
     <propertydefault labelID="20342" property="widgetTarget.Widget2">videos</propertydefault>
     <propertydefault labelID="20342" property="widgetName.Widget3">ExtendedInfo Top Rated</propertydefault>
     <propertydefault labelID="20342" property="widgetAspect.Widget3">$LOCALIZE[31038]</propertydefault>
-    <propertydefault labelID="20342" property="widgetPath.Widget3">plugin://script.extendedinfo?info=topratedmovies</propertydefault>
     <propertydefault labelID="20342" property="widgetTarget.Widget3">videos</propertydefault>
     <propertydefault labelID="20342" property="widgetSpotlighttype">Movies</propertydefault>
     <propertydefault labelID="20342" property="widgetspotlight">true</propertydefault>
@@ -457,7 +476,6 @@
     <propertydefault labelID="tvshows" property="widgetTarget.Widget2">videos</propertydefault>
     <propertydefault labelID="tvshows" property="widgetName.Widget3">ExtendedInfo Top Rated</propertydefault>
     <propertydefault labelID="tvshows" property="widgetAspect.Widget3">$LOCALIZE[31038]</propertydefault>
-    <propertydefault labelID="tvshows" property="widgetPath.Widget3">plugin://script.extendedinfo?info=topratedtvshows</propertydefault>
     <propertydefault labelID="tvshows" property="widgetTarget.Widget3">videos</propertydefault>
     <propertydefault labelID="tvshows" property="widgetSpotlighttype">TVShows</propertydefault>
     <propertydefault labelID="tvshows" property="widgetspotlight">true</propertydefault>
@@ -500,30 +518,39 @@
             <content>common</content>
             <shortcut label="$LOCALIZE[33060]" type="$LOCALIZE[31018]" icon="special://skin/extras/icons/power.png">ActivateWindow(shutdownmenu)</shortcut>
             <shortcut label="$LOCALIZE[31017]" type="32010">||BROWSE||script.skin.helper.service/?action=smartshortcuts</shortcut>
-            <shortcut label="Movie Lists 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1101,return)</shortcut>
-            <shortcut label="Movie Categories List" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1102,return)</shortcut>
-            <shortcut label="TV Lists 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1103,return)</shortcut>
-            <shortcut label="TV Categories List" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1104,return)</shortcut>
-            <shortcut label="My Lists 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1105,return)</shortcut>
-            <shortcut label="My Lists 2" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1106,return)</shortcut>
-            <shortcut label="My Lists 3" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1107,return)</shortcut>
+            <shortcut label="Media Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3730,return)</shortcut>
+            <shortcut label="Search" grouping="32029" icon="special://skin/extras/icons/search.png">ActivateWindow(1138,return)</shortcut>
+        </node>
+        <node label="Hubs">
+            <shortcut label="Movie Categories Hub" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2112,return)</shortcut>
+            <shortcut label="Movie Netflix Hub" grouping="32029" icon="special://skin/extras/icons/film.png">ActivateWindow(3820,return)</shortcut>
+            <shortcut label="Movie Aura Hub " grouping="32029" icon="special://skin/extras/icons/film.png">ActivateWindow(3920,return)</shortcut>
+            <shortcut label="Movie Genres Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(4010,return)</shortcut>
+            <shortcut label="TV Categories Hub" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2114,return)</shortcut>
+            <shortcut label="TV Genres Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(4020,return)</shortcut>
+            <shortcut label="TV Aura Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3910,return)</shortcut>
+            <shortcut label="TV Netflix Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3810,return)</shortcut>
+            <shortcut label="Search" grouping="32029" icon="special://skin/extras/icons/search.png">ActivateWindow(1138,return)</shortcut>
+
             <shortcut label="Movie Lists Hub 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2111,return)</shortcut>
             <shortcut label="TV Lists Hub 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2113,return)</shortcut>
             <shortcut label="My Lists Hub 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2115,return)</shortcut>
             <shortcut label="My Lists Hub 2" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2116,return)</shortcut>
             <shortcut label="My Lists Hub 3" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2117,return)</shortcut>
-            <shortcut label="Media Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3730,return)</shortcut>
-            <shortcut label="Movie Netflix Hub" grouping="32029" icon="special://skin/extras/icons/film.png">ActivateWindow(3820,return)</shortcut>
-            <shortcut label="TV Netflix Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3810,return)</shortcut>
-            <shortcut label="Movie Categories Hub" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2112,return)</shortcut>
-            <shortcut label="Movie Genres Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(4010,return)</shortcut>
-            <shortcut label="Movie Aura Hub " grouping="32029" icon="special://skin/extras/icons/film.png">ActivateWindow(3920,return)</shortcut>
-            <shortcut label="TV Categories Hub" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2114,return)</shortcut>
-            <shortcut label="TV Genres Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(4020,return)</shortcut>
-            <shortcut label="TV Networks Hub" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2118,return)</shortcut>
-            <shortcut label="TV Aura Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3910,return)</shortcut>
-            <shortcut label="Search" grouping="32029" icon="special://skin/extras/icons/search.png">ActivateWindow(1138,return)</shortcut>
         </node>
+
+        <node label="My List Dialogs">
+            <shortcut label="Movie Lists 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1101,return)</shortcut>
+            <shortcut label="Movie Categories List" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1102,return)</shortcut>
+
+            <shortcut label="TV Lists 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1103,return)</shortcut>
+            <shortcut label="TV Categories List" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1104,return)</shortcut>
+
+            <shortcut label="My Lists 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1105,return)</shortcut>
+            <shortcut label="My Lists 2" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1106,return)</shortcut>
+            <shortcut label="My Lists 3" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(1107,return)</shortcut> 
+        </node>
+
         <node label="32030">
             <content>video</content>
             <node label="32040">
@@ -621,6 +648,14 @@
     <!-- Widget Grouping -->
     <widget-groupings>
         <node label="$LOCALIZE[31183]">
+            <node label="My Lists">
+                <shortcut widget="MyMovieList1" label="My Movie List 1" icon="DefaultSets.png" widgetTarget="video">x1101</shortcut>
+                <shortcut widget="MyTVList1" label="My TV List 1" icon="DefaultSets.png" widgetTarget="video">x1103</shortcut>
+                <shortcut widget="MyMyList1" label="My List 1" icon="DefaultSets.png" widgetTarget="video">x1105</shortcut>
+                <shortcut widget="MyMyList2" label="My List 2" icon="DefaultSets.png" widgetTarget="video">x1106</shortcut>
+                <shortcut widget="MyMyList3" label="My List 3" icon="DefaultSets.png" widgetTarget="video">x1107</shortcut>
+            </node>
+
             <node label="$LOCALIZE[342]">
                 <shortcut widget="NewMovies" label="$LOCALIZE[31185]" icon="DefaultRecentlyAddedMovies.png" widgetTarget="video">special://skin/extras/playlists/NewMovies.xsp</shortcut>
                 <shortcut widget="RecentMovies" label="$LOCALIZE[31190]" icon="DefaultMusicRecentlyPlayed.png" widgetTarget="video">special://skin/extras/playlists/RecentMovies.xsp</shortcut>
@@ -632,7 +667,6 @@
                 <shortcut widget="MovieNodes" label="$LOCALIZE[31296]" icon="special://skin/extras/icons/title.png" widgetTarget="video">library://video/movies/</shortcut>
                 <shortcut widget="MovieGenres" label="$LOCALIZE[31257]" icon="DefaultGenre.png" widgetTarget="video">library://video/movies/genres.xml</shortcut>
                 <shortcut widget="MovieSets" label="$LOCALIZE[31260]" icon="DefaultSets.png" widgetTarget="video">videodb://movies/sets/</shortcut>
-                <shortcut widget="RandomWidget" label="RandomWidget" icon="DefaultSets.png" widgetTarget="video">plugin://plugin.program.widgetize/?action=random_wdiget</shortcut>
 
             </node>
             <node label="$LOCALIZE[31301]">
