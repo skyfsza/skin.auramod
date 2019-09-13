@@ -312,6 +312,14 @@
                             <onclick>Skin.ToggleSetting(EnableShowInfo)</onclick>
                             <selected>!Skin.HasSetting(EnableShowInfo)</selected>
                         </control>
+                        <control type="button" id="96701" description="Default Select Action Show Information">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
+			    <enable>!Skin.HasSetting(EnableShowInfo)</enable>
+                            <include>Defs_Settings_Button</include>
+                            <label> - Media Types</label>
+			    <onclick>ActivateWindow(1130)</onclick>
+                        </control>
+
                         <control type="radiobutton" id="9691" description="Default Loading Spinner">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
                             <include>Defs_Settings_Button</include>

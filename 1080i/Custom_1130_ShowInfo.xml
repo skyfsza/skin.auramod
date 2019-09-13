@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window type="dialog" id="1130">
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <controls>
+        <include>Global_Overlay</include>
+        <control type="group">
+            <include content="Dialog_Standard_Group">
+                <param name="width" value="820" />
+                <param name="height" value="400" />
+            </include>
+
+            <control type="label">
+                <description>Header Label</description>
+                <label>[CAPITALIZE]Show Info Media types[/CAPITALIZE]</label>
+                <include>Dialog_Standard_Header</include>
+            </control>
+
+            <control type="grouplist" id="9000">
+                <description>Control Area</description>
+                <right>20</right>
+                <width>780</width>
+                <top>100</top>
+                <height>720</height>
+                <itemgap>10</itemgap>
+                <orientation>vertical</orientation>
+                <pagecontrol>60</pagecontrol>
+                <usecontrolcoords>true</usecontrolcoords>
+                <control type="radiobutton" id="9001">
+                    <label>Movies</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(ShowInfo.Movies)</onclick>
+                    <selected>!Skin.HasSetting(ShowInfo.Movies)</selected>
+                </control>
+                <control type="radiobutton" id="9002">
+                    <label>TV Shows</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(ShowInfo.TV)</onclick>
+                    <selected>!Skin.HasSetting(ShowInfo.TV)</selected>
+                </control>
+                <control type="radiobutton" id="9003">
+                    <label>Episodes</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(ShowInfo.Episodes)</onclick>
+                    <selected>!Skin.HasSetting(ShowInfo.Episodes)</selected>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>
