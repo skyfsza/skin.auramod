@@ -500,6 +500,7 @@
         <param name="search" default="false" />
         <param name="controltype" default="fixedlist" />
         <param name="movement" default="2" />
+        <param name="mylist1" default="false" />
         <definition>
             <control type="group" id="2$PARAM[id]">
                 <visible>$PARAM[visible]</visible>
@@ -586,6 +587,7 @@
 			    <param name="squarecondition" value="$PARAM[squarecondition]" />
 			    <param name="genrecondition" value="$PARAM[genrecondition]" />
 			    <param name="search" value="$PARAM[search]" />
+			    <param name="mylist1" value="$PARAM[mylist1]" />
 			</include>
 		    </control>
 		</definition>
@@ -890,6 +892,7 @@
 		<param name="squarecondition" default="false" />
 		<param name="genrecondition" default="false" />
 	        <param name="search" default="false" />
+	        <param name="mylist1" default="false" />
 		<definition>
 		    <include content="Widget_Common">
 			<param name="top" value="$PARAM[top]" />
@@ -942,7 +945,7 @@
 		</include>
 
 
-            <include condition="!$PARAM[search]" content="Widget_ContentInclude">
+            <include condition="!$PARAM[search] + !$PARAM[mylist1]" content="Widget_ContentInclude">
                 <param name="target" value="$PARAM[target]" />
                 <param name="sortby" value="$PARAM[sortby]" />
                 <param name="sortorder" value="$PARAM[sortorder]" />
@@ -950,7 +953,20 @@
                 <param name="content" value="$PARAM[content]" />
                 <param name="limit" value="$VAR[Label_WidgetItemLimit]" />
                 <param name="id" value="$PARAM[id]" />
+                <param name="mylist1" value="$PARAM[mylist1]" />
             </include>
+            <include condition="!$PARAM[search] + $PARAM[mylist1]" content="Widget_ContentInclude_mylist1">
+                <param name="target" value="$PARAM[target]" />
+                <param name="sortby" value="$PARAM[sortby]" />
+                <param name="sortorder" value="$PARAM[sortorder]" />
+                <param name="widgetContent" value="$PARAM[widgetContent]" />
+                <param name="content" value="$PARAM[content]" />
+                <param name="limit" value="$VAR[Label_WidgetItemLimit]" />
+                <param name="id" value="$PARAM[id]" />
+                <param name="mylist1" value="$PARAM[mylist1]" />
+            </include>
+
+
 
             <include condition="$PARAM[search]" content="Widget_ContentInclude_Search">
                 <param name="target" value="$PARAM[target]" />
@@ -978,18 +994,26 @@
         </content>
     </include>
 
-	    <include name="Widget_ContentInclude">
-		<content target="$PARAM[target]" sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" limit="$PARAM[limit]">$PARAM[widgetContent]</content>
+
+    <include name="Widget_ContentInclude">
+<content target="$PARAM[target]" sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" limit="$PARAM[limit]">$PARAM[widgetContent]</content>
         <content>
             <item>
                 <label>$LOCALIZE[31373]...</label>
                 <icon>DefaultFolder.png</icon>
                 <onclick>ActivateWindow($PARAM[target],$PARAM[widgetContent],return)</onclick>
                 <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,9) + !Window.IsVisible(DialogVideoInfo.xml)</visible>
-                <visible> !Skin.HasSetting(HideShowMoreItem)</visible>
+                <visible>!Skin.HasSetting(HideShowMoreItem)</visible>
             </item>
         </content>
     </include>
+
+
+
+    <include name="Widget_ContentInclude_mylist1">
+<content target="$PARAM[target]" sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" limit="$PARAM[limit]"><include>skinshortcuts-group-$PARAM[widgetContent]</include></content>
+    </include>
+
 
     <include name="Widget_Submenu_ItemLayout">
         <param name="genres" default="false" />

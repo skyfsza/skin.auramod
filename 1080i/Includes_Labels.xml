@@ -480,6 +480,12 @@
         <value>$INFO[ListItem.MPAA]</value>
     </variable>
 
+
+   <variable name="infoline_duration">
+	<value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(h),,h] $INFO[ListItem.Duration(mm),,m]</value>
+	<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration.Hours)) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration.Minutes))">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Hours),,h] $INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Minutes),,m]</value>
+   </variable>
+
     <variable name="MPAA">
         <value condition="!String.IsEmpty(ListItem.MPAA)">$INFO[ListItem.MPAA]</value>
         <value condition="String.IsEmpty(ListItem.MPAA) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA))">$INFO[Window(Home).Property(SkinHelper.ListItem.MPAA)]</value>
@@ -707,6 +713,7 @@
     <variable name="Label_Netflix_Tagline">
         <value condition="String.IsEqual(ListItem.DBType,season)">$INFO[ListItem.Label]</value>
         <value condition="!String.IsEmpty(ListItem.Tagline)">[I]$INFO[ListItem.Tagline][/I]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Tagline))">[I]$INFO[Window(Home).Property(SkinHelper.ListItem.Tagline)][/I]</value>
         <value condition="!String.IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
         <value condition="!String.IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
         <value condition="!String.IsEmpty(ListItem.AddonDescription)">$INFO[ListItem.AddonDescription]</value>

@@ -378,7 +378,7 @@
             <left>10</left>
             <right>-20</right>
             <animation effect="fade" start="0" end="100" delay="200" time="1000" pulse="false">Visible</animation>
-            <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasMedia">Conditional</animation>
+            <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>
                 <control type="image">
                   <fadetime>500</fadetime>
                   <width>100%</width>
@@ -600,7 +600,7 @@
             <left>10</left>
             <right>-20</right>
             <animation effect="fade" start="0" end="100" delay="200" time="1000" pulse="false">Visible</animation>
-            <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasMedia">Conditional</animation>
+            <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>
                 <control type="image">
                   <fadetime>500</fadetime>
                   <width>100%</width>
@@ -1550,7 +1550,7 @@
         </control>
         <control type="image">
           <animation effect="slide" end="50,-10" condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Conditional</animation>
-          <visible>!Player.HasVideo + !Window.IsActive(4010) + !Window.IsActive(4020) + !Skin.HasSetting(DisableNetflixSubmenuBG) + [Control.HasFocus(300) | Control.HasFocus(3001) | Control.HasFocus(302) | Control.HasFocus(30222)]</visible>
+          <visible>!Player.HasVideo + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + !Window.IsActive(4010) + !Window.IsActive(4020) + !Skin.HasSetting(DisableNetflixSubmenuBG) + [Control.HasFocus(300) | Control.HasFocus(3001) | Control.HasFocus(302) | Control.HasFocus(30222)]</visible>
           <fadetime>100</fadetime>
           <width>1400</width>
           <height>787</height>
@@ -1640,7 +1640,7 @@
 		  <visible>!String.IsEmpty(Control.GetLabel(55446))</visible>
                 </control>
               <control type="label">
-                <height>30</height>
+                <height>60</height>
                 <visible>String.IsEmpty(Control.GetLabel(55446))</visible>
               </control>
                 <control type="textbox">
@@ -1690,10 +1690,10 @@
               <!-- Episode Label  -->
               <control type="label">
                 <height>40</height>
-                <visible>[String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(EnableFullEpInfo)] | [String.IsEqual(ListItem.DBType,movie) + !Integer.IsEqual(ListItem.PercentPlayed,0)]</visible>
+                <visible>[String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(EnableFullEpInfo)]</visible>
               </control>
               <control type="label">
-                <visible>[String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(EnableFullEpInfo)] | [String.IsEqual(ListItem.DBType,movie) + !Integer.IsEqual(ListItem.PercentPlayed,0)]</visible>
+                <visible>[String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(EnableFullEpInfo)]</visible>
                 <left>00</left>
                 <height>30</height>
                 <label>[B]Continue Watching[/B]</label>
@@ -1766,7 +1766,7 @@
               </control>
                 <control type="textbox">
                   <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001) + !Control.HasFocus(660)</visible>
-                  <visible>$EXP[DBTvideos] + !Skin.HasSetting(DisableNetflixView) + ![String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(EnableFullEpInfo)] + Integer.IsEqual(ListItem.PercentPlayed,0)</visible>
+                  <visible>$EXP[DBTvideos] + !Skin.HasSetting(DisableNetflixView) + ![String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(EnableFullEpInfo)]</visible>
                   <height min="20" max="180">auto</height>
                   <label fallback="19055">$VAR[Label_OverlayPlot]</label>
                   <width>640</width>
@@ -2139,6 +2139,10 @@
           <align>left</align>
           <aspectratio align="left" aligny="center">keep</aspectratio>
           <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
+        </control>
+        <control type="label">
+          <height>60</height>
+          <visible>$EXP[DBTvideos] + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(ListItem.Art(clearlogo))</visible>
         </control>
           <control type="textbox">
             <visible>$EXP[DBTvideos] + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(ListItem.Art(clearlogo))</visible>
@@ -5584,9 +5588,9 @@
             </control>
             <!-- Duration -->
             <control type="group">
-              <width>90</width>
+              <width>95</width>
               <height>30</height>
-              <visible>!String.IsEmpty(ListItem.Duration) + ![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)]</visible>
+              <visible>!String.IsEmpty(ListItem.Duration) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration.Hours)) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration.Minutes)) + ![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)]</visible>
               <control type="image">
                 <bottom>-18</bottom>
                 <animation effect="fade" time="0" end="75" condition="true">Conditional</animation>
@@ -5595,7 +5599,7 @@
                 <width>100%</width>
                 <texture colordiffuse="dimgrey">flags/square-rounded.png</texture>
               </control>
-              <control type="label" id="6115">
+              <control type="label" id="61115">
                 <top>15</top>
                 <left>10</left>
                 <height>100%</height>
@@ -5603,12 +5607,24 @@
                 <font>widget_trakt_title2</font>
                 <textcolor>white</textcolor>
                 <scroll>false</scroll>
-                <label>$INFO[ListItem.Duration(h),,h] $INFO[ListItem.Duration(mm),,m]</label>
+		<label>$VAR[infoline_duration]</label>
               </control>
             </control>
             <!-- Season Count -->
+	   <control type="group">
+              <width>140</width>
+              <height>30</height>
+              <visible>String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.Property(TotalSeasons))</visible>
+              <control type="image">
+                <bottom>-17</bottom>
+                <animation effect="fade" time="0" end="75" condition="true">Conditional</animation>
+                <align>bottom</align>
+                <height>100%</height>
+                <width>100%</width>
+                <texture colordiffuse="dimgrey">flags/square-rounded.png</texture>
+              </control>
             <control type="label">
-              <width>115</width>
+              <top>28</top>
               <textcolor>white</textcolor>
               <align>center</align>
               <font>widget_trakt_title2</font>
@@ -5616,6 +5632,7 @@
               <label>$VAR[total_seasons]</label>
               <visible>String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.Property(TotalSeasons))</visible>
             </control>
+           </control>
             <!-- Aired -->
             <control type="label">
               <width>195</width>
@@ -5630,13 +5647,14 @@
               <label>$VAR[Label_Info_NextAired_Status]</label>
               <font>font_tiny</font>
               <textcolor>$VAR[ColorHighlight2]</textcolor>
-              <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !String.IsEqual(ListItem.DBType,movie)</visible>
+              <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + String.IsEqual(ListItem.DBType,tvshow)</visible>
             </control>
           </control>
         </control>
       </control>
     </control>
   </include>
+
   <!-- Info Details Spinner @cartmandos -->
   <include name="Details_Spinner">
     <control type="grouplist">
@@ -6081,7 +6099,10 @@
 	<include condition="Skin.HasSetting(DisableMenuVertLabel)">Home_MainMenu_Layout_wLabel</include>
         <include condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabel)">Home</include>
         <include condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Topbar</include>
-
+        <control type="group">
+	<include condition="Skin.HasSetting(DisableSubMenuVert)">Home_TVHubMenu_Layout</include>
+	<include condition="Skin.HasSetting(DisableSubMenuVert)">Home_MovieHubMenu_Layout</include>
+	</control>
         <control type="group">
         <top>-10</top>
         <right>-60</right>

@@ -24,6 +24,7 @@
             <centertop>50%</centertop>
             <width>450</width>
             <height>1200</height>
+	    <visible>!Skin.HasSetting(DisableSettingsBackground)</visible>
             <control type="image">
                 <include condition="!Skin.HasSetting(DisableShadows)">Defs_Shadow_24</include>
                 <texture border="16" colordiffuse="dialog_bg_100">common/rounded-dialog.png</texture>
@@ -35,12 +36,12 @@
             <centertop>50%</centertop>
             <width>100%</width>
             <height>1200</height>
+	    <visible>!Skin.HasSetting(DisableSettingsBackground)</visible>
             <control type="image">
                 <include condition="!Skin.HasSetting(DisableShadows)">Defs_Shadow_24</include>
                 <texture border="16" colordiffuse="dimgrey">common/rounded-dialog.png</texture>
             </control>
             </control>
-
                 <control type="group">
                     <top>80</top>
                     <height>800</height>
@@ -103,7 +104,7 @@
                         <description>Button Area</description>
                         <width>450</width>
                         <top>0</top>
-                        <bottom>0</bottom>
+                        <bottom>80</bottom>
                         <itemgap>0</itemgap>
                         <include>Defs_Settings_OnLeft</include>
                         <onright>9999</onright>
@@ -597,6 +598,13 @@
                             <label>31172</label>
                             <selected>Skin.HasSetting(global.showvisualisation)</selected>
                             <onclick>Skin.ToggleSetting(global.showvisualisation)</onclick>
+                        </control>
+                        <control type="radiobutton" id="9205" description="Disable Settings background">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9002)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Disable Setings Background</label>
+                            <selected>Skin.HasSetting(DisableSettingsBackground)</selected>
+                            <onclick>Skin.ToggleSetting(DisableSettingsBackground)</onclick>
                         </control>
 
                         <!-- ================== -->
