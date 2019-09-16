@@ -479,6 +479,7 @@
 
 
      <control type="group" id="4$PARAM[id]">
+       <animation effect="slide" end="0,-45" time="0" condition="!Skin.HasSetting(SubmenuLabel)">Conditional</animation>
        <visible>Skin.HasSetting(EnableShowCaseOverlay) + Integer.IsGreater(Container($PARAM[id]).NumItems,0)</visible>
        <control type="image">
          <top>-170</top>
@@ -759,7 +760,7 @@
     <include name="Widget_Items_SquareLabel_Big_Label"><height>720</height></include>
 
     <include name="Widget_Items_LandscapePanel_Height"><height>629</height></include>
-    <include name="Widget_Items_LandscapePanel_Height_small"><height>629</height></include>
+    <include name="Widget_Items_LandscapePanel_Height_small"><height>639</height></include>
 
     <include name="Widget_Items_Landscapesmall_Big_Height"><height>520</height></include>
     <include name="Widget_Items_Landscapesmall_Big_Height_small"><height>520</height></include>
@@ -776,7 +777,7 @@
 
     <include name="Widget_Items_Poster_Big"><height>620</height></include>
     <include name="Widget_Items_Poster_Big_Label"><height>720</height></include>
-    <include name="Widget_Items_Poster_Big_small"><height>670</height></include>
+    <include name="Widget_Items_Poster_Big_small"><height>650</height></include>
 
 
 
