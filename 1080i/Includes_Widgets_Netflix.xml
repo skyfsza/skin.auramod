@@ -68,6 +68,8 @@
 	<control type="group">
        	 	<include>Spotlight_Movies_Widget</include>
         	<include>Spotlight_Tvshows_Widget</include>
+                <include>Spotlight_Tvshows_Info</include>
+                <include>Spotlight_Movies_Info</include>
 <!--                <include>Spotlight_TVNextAired_AuraWidget</include> -->
            <control type="group">
         	<left>130</left>

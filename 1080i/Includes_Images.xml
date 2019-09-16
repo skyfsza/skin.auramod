@@ -66,6 +66,23 @@
         <value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(ListItem.Art(fanart)) + System.HasAddon(script.artwork.helper) + [Window.IsVisible(Home) | Window.IsVisible(DialogVideoInfo.xml)] + [String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)]">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[ListItem.Label]</value>
         <value>$INFO[ListItem.Icon]</value>
    </variable> 
+
+
+
+   <variable name="Spotlight_Fanart_1505">
+        <value condition="!String.IsEmpty(Container(1505).ListItem.Art(fanart))">$INFO[Container(1505).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(1505).ListItem.Art(thumb))">$INFO[Container(1505).ListItem.Art(thumb)]</value>
+        <value condition="!String.IsEmpty(Container(1505).ListItem.Art(landscape))">$INFO[Container(1505).ListItem.Art(landscape)]</value>
+        <value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(ListItem.Art(fanart)) + System.HasAddon(script.artwork.helper) + [Window.IsVisible(Home) | Window.IsVisible(DialogVideoInfo.xml)] + [String.IsEqual(Container(1505).ListItem.DBTYPE,season) | String.IsEqual(Container(1505).ListItem.DBTYPE,episode)]">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[Container(1505).ListItem.Label]</value>
+   </variable>
+   <variable name="Spotlight_Fanart_1506">
+        <value condition="!String.IsEmpty(Container(1506).ListItem.Art(fanart))">$INFO[Container(1506).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(1506).ListItem.Art(thumb))">$INFO[Container(1506).ListItem.Art(thumb)]</value>
+        <value condition="!String.IsEmpty(Container(1506).ListItem.Art(landscape))">$INFO[Container(1506).ListItem.Art(landscape)]</value>
+        <value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(ListItem.Art(fanart)) + System.HasAddon(script.artwork.helper) + [Window.IsVisible(Home) | Window.IsVisible(DialogVideoInfo.xml)] + [String.IsEqual(Container(1506).ListItem.DBTYPE,season) | String.IsEqual(Container(1506).ListItem.DBTYPE,episode)]">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[Container(1506).ListItem.Label]</value>
+   </variable>
+
+
    <variable name="Image_Fanart">
         <value condition="!String.IsEmpty(ListItem.Art(landscape)) + String.IsEqual(ListItem.Art(landscape),0)">$INFO[ListItem.Art(fanart)]</value>
         <value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBType,episode)] + Skin.HasSetting(PreferFanartHome) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
@@ -169,6 +186,17 @@
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
     </variable>
+    <variable name="Widget_ClearLogo_1505">
+        <value condition="!String.IsEmpty(Container(1505).ListItem.Art(tvshow.clearlogo))">$INFO[Container(1505).ListItem.Art(tvshow.clearlogo)]</value>
+        <value condition="!String.IsEmpty(Container(1505).ListItem.Art(clearlogo))">$INFO[Container(1505).ListItem.Art(clearlogo)]</value>
+    </variable>
+
+    <variable name="Widget_ClearLogo_1506">
+        <value condition="!String.IsEmpty(Container(1506).ListItem.Art(tvshow.clearlogo))">$INFO[Container(1506).ListItem.Art(tvshow.clearlogo)]</value>
+        <value condition="!String.IsEmpty(Container(1506).ListItem.Art(clearlogo))">$INFO[Container(1506).ListItem.Art(clearlogo)]</value>
+    </variable>
+
+
     <variable name="Widget_ClearLogo">
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>

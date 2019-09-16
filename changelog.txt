@@ -1,3 +1,11 @@
+v0.9.33
+- Add Spotlight style choice for Aura Home Mode
+- Add Showcase overlay option for Landscape, LandscapePanel and Poster widgets in Aura Mode + Aura Hubs
+- Add Landscape Details widget for Aura Mode + Aura Hubs 
+- Add option to choose media type for Default Action show Info
+- Add ability to use "My Lists" as a widget.
+- Bug fixes and tweaks.
+
 v0.9.32
 - Add additional OSD buttons - cast & more, OSD cast, playlist 
 - Add side menu system for TV and Movie Hubs.

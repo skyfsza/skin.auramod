@@ -22,10 +22,10 @@
    	<animation effect="slide" end="260,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
         <top>140</top>
         <width>1920</width>
-        <height>900</height>
+        <height>935</height>
         <left>50</left>
 	<movement>1</movement>
-        <scrolltime tween="sine" easing="out">500</scrolltime>
+        <scrolltime tween="sine">700</scrolltime>
         <orientation>vertical</orientation>
         <usecontrolcoords>true</usecontrolcoords>
 	<onback>Skin.Reset(TVHubMenuFocus)</onback>

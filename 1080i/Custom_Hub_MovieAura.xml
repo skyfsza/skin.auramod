@@ -12,7 +12,7 @@
     <include>Home_MovieHubMenu_Layout</include>
    <control type="group">
    <control type="label">
-   <animation effect="slide" end="260,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
+   <animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
    <top>65</top>
    <left>60</left>
    <width>400</width>
@@ -23,12 +23,12 @@
    </control>
    </control>
    <control type="grouplist" id="5055">
-        <animation effect="slide" end="260,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
+        <animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
 	<top>140</top>
         <width>1920</width>
-        <height>905</height>
+        <height>935</height>
         <left>50</left>
-        <scrolltime tween="quadratic">400</scrolltime>
+        <scrolltime tween="sine">700</scrolltime>
         <orientation>vertical</orientation>
         <usecontrolcoords>true</usecontrolcoords>
         <onback>Skin.Reset(MovieHubMenuFocus)</onback>

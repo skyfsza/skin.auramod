@@ -42,6 +42,7 @@
         <property name="widgetSortorder" tag="property" attribute="name|widgetSortorder" />
         <property name="widgetLimit" tag="property" attribute="name|widgetLimit" />
         <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="SquareLabel">4</property>
+        <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Square">4</property>
         <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Icon">4</property>
         <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="PosterDetails">1</property>
         <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Poster">5</property>
@@ -95,7 +96,7 @@
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetAspect in 'Poster' else 'false']" />
-                <param name="landscapecondition" value="$PYTHON['true' if widgetAspect in 'Landscape' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetAspect == 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetAspect in 'LandscapeWide' else 'false']" />
                 <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetAspect in 'LandscapePoster' else 'false']" />
                 <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetAspect in 'LandscapeSmall' else 'false']" />
@@ -226,7 +227,7 @@
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetAspect in 'Poster' else 'false']" />
-                <param name="landscapecondition" value="$PYTHON['true' if widgetAspect in 'Landscape' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetAspect == 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetAspect in 'LandscapeWide' else 'false']" />
                 <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetAspect in 'LandscapePoster' else 'false']" />
                 <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetAspect in 'LandscapeSmall' else 'false']" />
@@ -354,7 +355,7 @@
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetAspect in 'Poster' else 'false']" />
-                <param name="landscapecondition" value="$PYTHON['true' if widgetAspect in 'Landscape' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetAspect == 'Landscape' else 'false']" />
                 <param name="landscapepanelcondition" value="$PYTHON['true' if widgetAspect in 'LandscapePanel' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetAspect in 'LandscapeWide' else 'false']" />
                 <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetAspect in 'LandscapePoster' else 'false']" />
@@ -399,6 +400,7 @@
             <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Poster">1</property>
             <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapePoster">1</property>
             <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Landscape">2</property>
+            <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapePanel">2</property>
             <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapeWide">1</property>
             <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapeSmall">3</property>
             <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="LandscapeDetails">1</property>
@@ -486,7 +488,7 @@
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetAspect in 'Poster' else 'false']" />
-                <param name="landscapecondition" value="$PYTHON['true' if widgetAspect in 'Landscape' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetAspect == 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetAspect in 'LandscapeWide' else 'false']" />
                 <param name="landscapepanelcondition" value="$PYTHON['true' if widgetAspect in 'LandscapePanel' else 'false']" />
                 <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetAspect in 'LandscapePoster' else 'false']" />
@@ -607,7 +609,7 @@
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
-                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect == 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
                 <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapePoster' else 'false']" />
                 <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeSmall' else 'false']" />
@@ -723,7 +725,7 @@
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
-                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect == 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
                 <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapePoster' else 'false']" />
                 <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeSmall' else 'false']" />
@@ -840,7 +842,7 @@
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
-                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect == 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
                 <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapePoster' else 'false']" />
                 <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeSmall' else 'false']" />
@@ -959,7 +961,7 @@
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
-                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect == 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
                 <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapePoster' else 'false']" />
                 <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeSmall' else 'false']" />
@@ -1078,7 +1080,7 @@
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
-                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect == 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
                 <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapePoster' else 'false']" />
                 <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeSmall' else 'false']" />
@@ -1200,7 +1202,7 @@
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
-                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect == 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
                 <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapePoster' else 'false']" />
                 <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeSmall' else 'false']" />
@@ -1316,7 +1318,7 @@
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
-                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect == 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
                 <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapePoster' else 'false']" />
                 <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeSmall' else 'false']" />
@@ -1436,7 +1438,7 @@
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
-                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect == 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
                 <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapePoster' else 'false']" />
                 <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeSmall' else 'false']" />
@@ -1553,7 +1555,7 @@
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
-                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect == 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
                 <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapePoster' else 'false']" />
                 <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeSmall' else 'false']" />
@@ -1671,7 +1673,7 @@
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
-                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect == 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
                 <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapePoster' else 'false']" />
                 <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeSmall' else 'false']" />
@@ -1789,7 +1791,7 @@
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
                 <param name="landscapepanelcondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapePanel' else 'false']" />
-                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect == 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
                 <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapePoster' else 'false']" />
                 <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeSmall' else 'false']" />
@@ -1905,7 +1907,7 @@
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="postercondition" value="$PYTHON['true' if widgetHubAspect in 'Poster' else 'false']" />
-                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect in 'Landscape' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetHubAspect == 'Landscape' else 'false']" />
                 <param name="landscapewidecondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeWide' else 'false']" />
                 <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapePoster' else 'false']" />
                 <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetHubAspect in 'LandscapeSmall' else 'false']" />

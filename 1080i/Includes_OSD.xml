@@ -270,6 +270,7 @@
                                    <width>500</width>
                                    <texture background="true">$VAR[Image_Player_Clearart]</texture>
                                    <aspectratio>keep</aspectratio>
+		                   <visible>Skin.HasSetting(ShowOSDClearArt)</visible>
                                 </control>
                             </control>
                             <control type="grouplist">

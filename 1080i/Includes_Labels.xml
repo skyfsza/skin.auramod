@@ -148,6 +148,14 @@
     <value condition="String.IsEqual(ListItem.DBType,episode)">S$INFO[ListItem.Season]: E$INFO[ListItem.Episode] - $INFO[ListItem.Label]</value>
     </variable>
 
+    <variable name="videoinfo_play_label_1505">
+    <value condition="String.IsEqual(Container(1505).ListItem.DBType,episode)">S$INFO[Container(1505).ListItem.Season]: E$INFO[Container(1505).ListItem.Episode] - $INFO[Container(1505).ListItem.Label]</value>
+    </variable>
+
+    <variable name="videoinfo_play_label_1506">
+    <value condition="String.IsEqual(Container(1506).ListItem.DBType,episode)">S$INFO[Container(1506).ListItem.Season]: E$INFO[Container(1506).ListItem.Episode] - $INFO[Container(1506).ListItem.Label]</value>
+    </variable>
+
     <variable name="moviespotlightpath">
      <value condition="Window.IsActive(Home) + !String.IsEmpty(Skin.String(spotlightmovies.path))">$INFO[Skin.String(spotlightmovies.path)]</value>
     </variable>
@@ -178,6 +186,14 @@
 	<value>[COLOR=$INFO[Skin.String(mainmenutcolor.name)]]S$INFO[ListItem.Season] E$INFO[ListItem.Episode] - $INFO[ListItem.Title][/COLOR]</value>
    </variable>   
 
+   <variable name="home_simple_episode_1505">
+        <value>[COLOR=$INFO[Skin.String(mainmenutcolor.name)]]S$INFO[Container(1505).ListItem.Season] E$INFO[Container(1505).ListItem.Episode] - $INFO[Container(1505).ListItem.Title][/COLOR]</value>
+   </variable>
+
+   <variable name="home_simple_episode_1506">
+        <value>[COLOR=$INFO[Skin.String(mainmenutcolor.name)]]S$INFO[Container(1506).ListItem.Season] E$INFO[Container(1506).ListItem.Episode] - $INFO[Container(1506).ListItem.Title][/COLOR]</value>
+   </variable>
+
     <variable name="netflix_widget_style_selected">
     <value condition="!Skin.HasSetting(DisableNetflixLargeWidget)">$LOCALIZE[31453]</value>
     <value condition="Skin.HasSetting(DisableNetflixSmallWidget)">$LOCALIZE[31454]</value>
@@ -204,6 +220,17 @@
         <value condition="!String.IsEmpty(ListItem.TvShowTitle)">$INFO[ListItem.TvShowTitle]</value>
 	<value>$INFO[ListItem.Label]</value>
     </variable>
+
+    <variable name="video_heading_1505">
+        <value condition="!String.IsEmpty(Container(1505).ListItem.TvShowTitle)">$INFO[Container(1505).ListItem.TvShowTitle]</value>
+        <value>$INFO[Container(1505).ListItem.Label]</value>
+    </variable>
+    <variable name="video_heading_1506">
+        <value condition="!String.IsEmpty(Container(1506).ListItem.TvShowTitle)">$INFO[Container(1506).ListItem.TvShowTitle]</value>
+        <value>$INFO[Container(1506).ListItem.Label]</value>
+    </variable>
+
+
     <variable name="video_heading5055">
         <value condition="!String.IsEmpty(Container(5055).ListItem.TvShowTitle)">$INFO[Container(5055).ListItem.TvShowTitle]</value>
         <value>$INFO[Container(5055).ListItem.Label]</value>
@@ -669,6 +696,20 @@
         <value>Other</value>
     </variable>
 
+    <variable name="Label_Genre_showcase">
+        <value condition="String.IsEqual(ListItem.DBType,episode)">S$INFO[ListItem.Season]: E$INFO[ListItem.Episode] - $INFO[ListItem.Label]</value>
+        <value condition="ListItem.IsCollection">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
+        <value condition="!String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
+        <value>Other</value>
+    </variable>
+
+
+    <variable name="Label_Director">
+        <value condition="!String.IsEmpty(ListItem.Director)">$INFO[ListItem.Director]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Director))">$INFO[Window(Home).Property(SkinHelper.ListItem.Director)]</value>
+    </variable>
+
     <variable name="Label_OverlayTitle">
         <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)">$INFO[Window.Property(label)]</value>
         <value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
@@ -719,7 +760,6 @@
         <value condition="!String.IsEmpty(ListItem.AddonDescription)">$INFO[ListItem.AddonDescription]</value>
         <value condition="String.IsEqual(ListItem.DBType,episode)">$VAR[videoinfo_play_label]</value>
         <value condition="String.IsEqual(ListItem.DBType,episode) + String.IsEqual(ListItem.Episode,1)">[I][COLOR=green]Season Premiere[/COLOR] $INFO[ListItem.Season, S,: ]$INFO[ListItem.Episode,E, ][/I]</value>
-
         <value condition="String.IsEqual(ListItem.DBType,season)">$INFO[ListItem.Season,Season , ]</value>
 
 <!--        <value condition="!Control.HasFocus(55) + !Control.HasFocus(56) + String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.NextEpisode.Airdate.long))">[I]New Episode on $INFO[Window(Home).Property(SkinHelper.ListItem.NextEpisode.Airdate.long)][/I]</value> -->
@@ -729,7 +769,51 @@
         <value condition="String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.Studio)">[I]$INFO[ListItem.Year,Premiered  , ] $INFO[ListItem.Studio,on , ][/I]</value>
 
         <value condition="String.IsEqual(ListItem.DBType,tvshow)">[I]$INFO[ListItem.Year,Premiered  , ] $INFO[Window(Home).Property(SkinHelper.ListItem.Studio),on , ][/I]</value>
+
     </variable>
+
+    <variable name="Label_Netflix_Tagline_1505">
+        <value condition="String.IsEqual(Container(1505).ListItem.DBType,season)">$INFO[Container(1505).ListItem.Label]</value>
+        <value condition="!String.IsEmpty(Container(1505).ListItem.Tagline)">[I]$INFO[Container(1505).ListItem.Tagline][/I]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Tagline))">[I]$INFO[Window(Home).Property(SkinHelper.ListItem.Tagline)][/I]</value>
+        <value condition="!String.IsEmpty(Container(1505).ListItem.Property(Artist_Description))">$INFO[Container(1505).ListItem.Property(Artist_Description)]</value>
+        <value condition="!String.IsEmpty(Container(1505).ListItem.Property(Album_Description))">$INFO[Container(1505).ListItem.Property(Album_Description)]</value>
+        <value condition="!String.IsEmpty(Container(1505).ListItem.AddonDescription)">$INFO[Container(1505).ListItem.AddonDescription]</value>
+        <value condition="String.IsEqual(Container(1505).ListItem.DBType,episode)">$VAR[videoinfo_play_label_1505]</value>
+        <value condition="String.IsEqual(Container(1505).ListItem.DBType,episode) + String.IsEqual(ListItem.Episode,1)">[I][COLOR=green]Season Premiere[/COLOR] $INFO[ListItem.Season, S,: ]$INFO[ListItem.Episode,E, ][/I]</value>
+
+        <value condition="String.IsEqual(Container(1505).ListItem.DBType,season)">$INFO[Container(1505).ListItem.Season,Season , ]</value>
+
+<!--        <value condition="!Control.HasFocus(55) + !Control.HasFocus(56) + String.IsEqual(Container(1505).ListItem.DBType,tvshow) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.NextEpisode.Airdate.long))">[I]New Episode on $INFO[Window(Home).Property(SkinHelper.ListItem.NextEpisode.Airdate.long)][/I]</value> -->
+
+        <value condition="String.IsEqual(Container(1505).ListItem.DBType,tvshow) + !String.IsEmpty(Container(1505).ListItem.Property(TotalSeasons))">[I]Watch Season $INFO[Container(1505).ListItem.Property(TotalSeasons)] Now[/I]</value>
+
+        <value condition="String.IsEqual(Container(1505).ListItem.DBType,tvshow) + !String.IsEmpty(Container(1505).ListItem.Studio)">[I]$INFO[Container(1505).ListItem.Year,Premiered  , ] $INFO[Container(1505).ListItem.Studio,on , ][/I]</value>
+
+        <value condition="String.IsEqual(Container(1505).ListItem.DBType,tvshow)">[I]$INFO[Container(1505).ListItem.Year,Premiered  , ] $INFO[Window(Home).Property(SkinHelper.ListItem.Studio),on , ][/I]</value>
+    </variable>
+
+    <variable name="Label_Netflix_Tagline_1506">
+        <value condition="String.IsEqual(Container(1506).ListItem.DBType,season)">$INFO[Container(1506).ListItem.Label]</value>
+        <value condition="!String.IsEmpty(Container(1506).ListItem.Tagline)">[I]$INFO[Container(1506).ListItem.Tagline][/I]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Tagline))">[I]$INFO[Window(Home).Property(SkinHelper.ListItem.Tagline)][/I]</value>
+        <value condition="!String.IsEmpty(Container(1506).ListItem.Property(Artist_Description))">$INFO[Container(1506).ListItem.Property(Artist_Description)]</value>
+        <value condition="!String.IsEmpty(Container(1506).ListItem.Property(Album_Description))">$INFO[Container(1506).ListItem.Property(Album_Description)]</value>
+        <value condition="!String.IsEmpty(Container(1506).ListItem.AddonDescription)">$INFO[Container(1506).ListItem.AddonDescription]</value>
+        <value condition="String.IsEqual(Container(1506).ListItem.DBType,episode)">$VAR[videoinfo_play_label_1506]</value>
+        <value condition="String.IsEqual(Container(1506).ListItem.DBType,episode) + String.IsEqual(ListItem.Episode,1)">[I][COLOR=green]Season Premiere[/COLOR] $INFO[ListItem.Season, S,: ]$INFO[ListItem.Episode,E, ][/I]</value>
+
+        <value condition="String.IsEqual(Container(1506).ListItem.DBType,season)">$INFO[Container(1506).ListItem.Season,Season , ]</value>
+
+<!--        <value condition="!Control.HasFocus(55) + !Control.HasFocus(56) + String.IsEqual(Container(1506).ListItem.DBType,tvshow) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.NextEpisode.Airdate.long))">[I]New Episode on $INFO[Window(Home).Property(SkinHelper.ListItem.NextEpisode.Airdate.long)][/I]</value> -->
+
+        <value condition="String.IsEqual(Container(1506).ListItem.DBType,tvshow) + !String.IsEmpty(Container(1506).ListItem.Property(TotalSeasons))">[I]Watch Season $INFO[Container(1506).ListItem.Property(TotalSeasons)] Now[/I]</value>
+
+        <value condition="String.IsEqual(Container(1506).ListItem.DBType,tvshow) + !String.IsEmpty(Container(1506).ListItem.Studio)">[I]$INFO[Container(1506).ListItem.Year,Premiered  , ] $INFO[Container(1506).ListItem.Studio,on , ][/I]</value>
+
+        <value condition="String.IsEqual(Container(1506).ListItem.DBType,tvshow)">[I]$INFO[Container(1506).ListItem.Year,Premiered  , ] $INFO[Window(Home).Property(SkinHelper.ListItem.Studio),on , ][/I]</value>
+    </variable>
+
 
     <variable name="Label_Rating">
         <value condition="!String.IsEmpty(ListItem.UserRating)">$INFO[ListItem.UserRating,,.0]</value>

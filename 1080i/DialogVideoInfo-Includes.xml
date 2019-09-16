@@ -1084,8 +1084,7 @@
             <control type="group">
               <width>1200</width>
               <height min="30" max="50">auto</height>
-              <visible>!String.IsEmpty(ListItem.Cast) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))</visible>
-
+              <visible>!String.IsEmpty(Control.GetLabel(1110))</visible>
               <control type="image">
 		<left>-15</left>
                 <width>55</width>
@@ -1095,7 +1094,7 @@
 		<aspectratio>scale</aspectratio>
               </control>
 
-              <control type="label">
+              <control type="label" id="1110">
                 <left>55</left>
                 <width>700</width>
               <height min="30" max="50">auto</height>
@@ -1110,7 +1109,7 @@
             <control type="group">
               <width>530</width>
               <height>40</height>
-              <visible>!String.IsEmpty(ListItem.Director)</visible>
+              <visible>!String.IsEmpty(Control.GetLabel(1111))</visible>
               <control type="image">
                 <left>-8</left>
                 <width>45</width>
@@ -1118,20 +1117,20 @@
                 <colordiffuse>dimgrey</colordiffuse>
                 <texture>special://skin/extras/icons/director.png</texture>
               </control>
-              <control type="label">
+              <control type="label" id="1111">
                 <height>40</height>
                 <left>55</left>
                 <font>Netflix_Info_main</font>
                 <textcolor>dimgrey</textcolor>
                 <width max="700">auto</width>
-                <label>$INFO[ListItem.Director]</label>
+                <label>$VAR[Label_Director]</label>
               </control>
             </control>
             <!-- genre -->
             <control type="group">
               <width>1200</width>
               <height>40</height>
-              <visible>!String.IsEmpty(ListItem.Genre)</visible>
+	      <visible>!String.IsEmpty(Control.GetLabel(1112))</visible>
               <control type="image">
                 <top>-3</top>
                 <left>-8</left>
@@ -1140,12 +1139,12 @@
                 <colordiffuse>dimgrey</colordiffuse>
                 <texture>dialogs/videoinfo/genre-icon.png</texture>
               </control>
-              <control type="label">
+              <control type="label" id="1112">
                 <left>55</left>
                 <width>700</width>
                 <font>Netflix_Info_main</font>
                 <align>left</align>
-                <label>$INFO[ListItem.Genre]</label>
+                <label>$VAR[Label_Genre]</label>
                 <textcolor>dimgrey</textcolor>
                 <scroll>false</scroll>
               </control>

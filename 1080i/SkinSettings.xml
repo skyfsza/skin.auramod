@@ -247,6 +247,12 @@
                         <!-- ==== -->
                         <!-- Home -->
                         <!-- ==== -->
+                        <control type="button" id="9101" description="Customise Home">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>$LOCALIZE[31109]</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
+                        </control>
                         <control type="button" id="9628" description="Select Netflix Home Style">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
                             <include>Defs_Settings_Button</include>
@@ -254,12 +260,58 @@
                             <label2>$VAR[netflix_home_style_selected]</label2>
                             <onclick>ActivateWindow(1120)</onclick>
                         </control>
-                        <control type="button" id="9101" description="Customise Home">
+                        <control type="button" id="9632" description="Choose Menu layout">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31109]</label>
-                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
+                            <label>$LOCALIZE[31433]</label>
+			    <label2>$VAR[netflix_menu_style_selected]</label2>
+                            <onclick>ActivateWindow(1125)</onclick>
                         </control>
+                        <control type="radiobutton" id="96342" description="Enable TV/Movie Submenu on left">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label> - Enable TV/Movie Submenu on left</label>
+                            <visible>!Skin.HasSetting(DisableMenuVertIcon) | Skin.HasSetting(DisableMenuVertLabel)</visible>
+                            <selected>Skin.HasSetting(DisableSubMenuVert)</selected>
+                            <onclick>Skin.ToggleSetting(DisableSubMenuVert)</onclick>
+                        </control>
+                        <control type="radiobutton" id="9634" description="Enable Sidemenu auto-hide">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label> - $LOCALIZE[31437]</label>
+                            <visible>!Skin.HasSetting(DisableMenuVertIcon) | Skin.HasSetting(DisableMenuVertFull)</visible>
+                            <selected>Skin.HasSetting(DisableNetflixHomeSidemenuHide)</selected>
+                            <onclick>Skin.ToggleSetting(DisableNetflixHomeSidemenuHide)</onclick>
+                        </control>
+                        <control type="radiobutton" id="9635" description="Enable Sumenu Background Image">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label> - $LOCALIZE[31439]</label>
+                            <visible>Skin.HasSetting(DisableNetflixHome)</visible>
+                            <enable>Skin.HasSetting(DisableNetflixHome)</enable>
+                            <selected>Skin.HasSetting(DisableNetflixSubmenuBG)</selected>
+                            <onclick>Skin.ToggleSetting(DisableNetflixSubmenuBG)</onclick>
+                        </control>
+                        <control type="radiobutton" id="9637" description="Disable Main Menu Label">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label> - $LOCALIZE[31462]</label>
+                            <visible>Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableMenuVertIcon)</visible>
+                            <enable>Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableMenuVertIcon)</enable>
+                            <selected>Skin.HasSetting(DisableNetflixVertLabel)</selected>
+                            <onclick>Skin.ToggleSetting(DisableNetflixVertLabel)</onclick>
+                        </control>
+                        <control type="radiobutton" id="9650" description="Open Category Widget on Focus">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label> - Open Category Widget on Focus</label>
+                            <visible>Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableNetflixCatWidget) + [!Skin.HasSetting(DisableMenuVertIcon) | Skin.HasSetting(DisableMenuVertLabel)]</visible>
+                            <enable>Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableNetflixCatWidget) + [!Skin.HasSetting(DisableMenuVertIcon) | Skin.HasSetting(DisableMenuVertLabel)]</enable>
+                            <selected>Skin.HasSetting(EnableCatonFocus)</selected>
+                            <onclick>Skin.ToggleSetting(EnableCatonFocus)</onclick>
+                        </control>
+
+
                          <control type="button" id="9417" description="Main Menu Highlight Color">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
                             <include>Defs_Settings_Button</include>
@@ -269,6 +321,7 @@
                             <onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
                             <onclick>RunScript(script.skin.helper.colorpicker,skinstring=mainmenutcolor.name,)</onclick>
                         </control>
+<!--
                         <control type="radiobutton" id="9102" description="Touch / Mouse enabled widgets">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
                             <include>Defs_Settings_Button</include>
@@ -277,6 +330,7 @@
                             <onclick>Skin.ToggleSetting(MouseMode)</onclick>
                             <onclick>ReloadSkin()</onclick>
                         </control>
+-->
                         <control type="button" id="9109" description="Menu focus position">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
                             <include>Defs_Settings_Button</include>
@@ -362,6 +416,12 @@
                             <alttexturefocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturefocus>
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <label>[B]Spotlight Widgets[/B]</label>
+                        </control>
+                        <control type="button" id="96691" description="Choose Spotlight Style">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Choose Spotlight Style</label>
+                            <onclick>ActivateWindow(1132)</onclick>
                         </control>
                         <control type="button" id="9668" description="Choose Movies Spotlight">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
@@ -1104,15 +1164,22 @@
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <label>[B]$LOCALIZE[31455][/B]</label>
                         </control>
-<!--
                         <control type="radiobutton" id="9107" description="Display text labels on landscape widgets">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
                             <label>$LOCALIZE[31291]</label>
+			    <enable>!Skin.HasSetting(DisableClearlogo)</enable>
                             <selected>!Skin.HasSetting(WidgetLabels)</selected>
                             <onclick>Skin.ToggleSetting(WidgetLabels)</onclick>
                         </control>
--->
+                        <control type="radiobutton" id="9621" description="Enable Showcase Overlay">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Enable Showcase Overlay</label>
+			    <visible>!Skin.HasSetting(DisableAuraHomeLayout)</visible>
+                            <selected>Skin.HasSetting(EnableShowCaseOverlay)</selected>
+                            <onclick>Skin.ToggleSetting(EnableShowCaseOverlay)</onclick>
+                        </control>
                        <control type="radiobutton" id="9108" description="Prefer fanart">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1120,19 +1187,11 @@
                             <selected>Skin.HasSetting(PreferFanartHome)</selected>
                             <onclick>Skin.ToggleSetting(PreferFanartHome)</onclick>
                         </control>
-<!--
-                        <control type="radiobutton" id="9621" description="Enable Banners on Widgets">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31419]</label>
-                            <selected>Skin.HasSetting(DisableBanners)</selected>
-                            <onclick>Skin.ToggleSetting(DisableBanners)</onclick>
-                        </control>
--->
                         <control type="radiobutton" id="9622" description="Enable Clearlogo on Widgets">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
                             <label>$LOCALIZE[31458]</label>
+			    <enable>Skin.HasSetting(WidgetLabels)</enable>
                             <selected>Skin.HasSetting(DisableClearlogo)</selected>
                             <onclick>Skin.ToggleSetting(DisableClearlogo)</onclick>
                         </control>
@@ -1247,56 +1306,7 @@
                             <onclick>ActivateWindow(1126)</onclick>
                         </control>
 -->
-                        <control type="button" id="9632" description="Choose Menu layout">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31433]</label>
-			    <label2>$VAR[netflix_menu_style_selected]</label2>
-                            <onclick>ActivateWindow(1125)</onclick>
-                        </control>
-                        <control type="radiobutton" id="96342" description="Enable TV/Movie Submenu on left">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label> - Enable TV/Movie Submenu on left</label>
-                            <visible>!Skin.HasSetting(DisableMenuVertIcon) | Skin.HasSetting(DisableMenuVertLabel)</visible>
-                            <selected>Skin.HasSetting(DisableSubMenuVert)</selected>
-                            <onclick>Skin.ToggleSetting(DisableSubMenuVert)</onclick>
-                        </control>
-                        <control type="radiobutton" id="9634" description="Enable Sidemenu auto-hide">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label> - $LOCALIZE[31437]</label>
-                            <visible>!Skin.HasSetting(DisableMenuVertIcon) | Skin.HasSetting(DisableMenuVertFull)</visible>
-                            <selected>Skin.HasSetting(DisableNetflixHomeSidemenuHide)</selected>
-                            <onclick>Skin.ToggleSetting(DisableNetflixHomeSidemenuHide)</onclick>
-                        </control>
-                        <control type="radiobutton" id="9635" description="Enable Sumenu Background Image">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label> - $LOCALIZE[31439]</label>
-                            <visible>Skin.HasSetting(DisableNetflixHome)</visible>
-                            <enable>Skin.HasSetting(DisableNetflixHome)</enable>
-                            <selected>Skin.HasSetting(DisableNetflixSubmenuBG)</selected>
-                            <onclick>Skin.ToggleSetting(DisableNetflixSubmenuBG)</onclick>
-                        </control>
-                        <control type="radiobutton" id="9637" description="Disable Main Menu Label">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label> - $LOCALIZE[31462]</label>
-                            <visible>Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableMenuVertIcon)</visible>
-                            <enable>Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableMenuVertIcon)</enable>
-                            <selected>Skin.HasSetting(DisableNetflixVertLabel)</selected>
-                            <onclick>Skin.ToggleSetting(DisableNetflixVertLabel)</onclick>
-                        </control>
-                        <control type="radiobutton" id="9650" description="Open Category Widget on Focus">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label> - Open Category Widget on Focus</label>
-                            <visible>Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableNetflixCatWidget) + [!Skin.HasSetting(DisableMenuVertIcon) | Skin.HasSetting(DisableMenuVertLabel)]</visible>
-                            <enable>Skin.HasSetting(DisableNetflixHome) + !Skin.HasSetting(DisableNetflixCatWidget) + [!Skin.HasSetting(DisableMenuVertIcon) | Skin.HasSetting(DisableMenuVertLabel)]</enable>
-                            <selected>Skin.HasSetting(EnableCatonFocus)</selected>
-                            <onclick>Skin.ToggleSetting(EnableCatonFocus)</onclick>
-                        </control>
+
 			<control type="radiobutton" id="9630" description="Enable Netflix Views">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
                             <include>Defs_Settings_Button</include>

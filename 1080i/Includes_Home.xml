@@ -224,7 +224,7 @@
 	<control type="group">
        <animation effect="slide" start="0,0" end="310,0" time="500" condition="Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)">Conditional</animation>
        <animation effect="slide" start="0,0" end="70,0" time="500" 
-							condition="Control.HasFocus(30222) | Control.HasFocus(1505) | Control.HasFocus(1506) | 
+							condition="Control.HasFocus(30222) | Control.HasFocus(1505) | Control.HasFocus(1506) | ControlGroup(505).HasFocus | ControlGroup(505).HasFocus | 
 								   [Control.HasFocus(13003) + [Integer.IsEqual(Container(13003).Position,0) + !Container(13003).HasPrevious]] |
 								   [Control.HasFocus(23003) + [Integer.IsEqual(Container(23003).Position,0) + !Container(23003).HasPrevious]] |
 								   [Control.HasFocus(33003) + [Integer.IsEqual(Container(33003).Position,0) + !Container(33003).HasPrevious]] |
