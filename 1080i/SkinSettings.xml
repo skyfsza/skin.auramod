@@ -1225,6 +1225,13 @@
                             <selected>!Skin.HasSetting(DisableCatlabel)</selected>
                             <onclick>Skin.ToggleSetting(DisableCatlabel)</onclick>
                         </control>
+                        <control type="button" id="9636" description="Choose Netflix Widget Style">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Select WidgetBar Items</label>
+                            <onclick>ActivateWindow(1133)</onclick>
+                        </control>
+<!--
                         <control type="radiobutton" id="9626" description="Enable Widget Bar Title Info ">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1269,6 +1276,7 @@
                             <selected>Skin.HasSetting(DisableWidgetMPAA)</selected>
                             <onclick>Skin.ToggleSetting(DisableWidgetMPAA)</onclick>
                         </control>
+-->
                         <!-- =============-->
                         <!-- ----PVR-------->
                         <!-- =============-->

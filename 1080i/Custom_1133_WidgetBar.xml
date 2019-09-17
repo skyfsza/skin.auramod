@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window type="dialog" id="1133">
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <controls>
+        <include>Global_Overlay</include>
+        <control type="group">
+            <include content="Dialog_Standard_Group">
+                <param name="width" value="820" />
+                <param name="height" value="800" />
+            </include>
+
+            <control type="label">
+                <description>Header Label</description>
+                <label>[CAPITALIZE]Aura Widget Bar[/CAPITALIZE]</label>
+                <include>Dialog_Standard_Header</include>
+            </control>
+
+            <control type="grouplist" id="9000">
+                <description>Control Area</description>
+                <right>20</right>
+                <width>780</width>
+                <top>100</top>
+                <height>720</height>
+                <itemgap>10</itemgap>
+                <orientation>vertical</orientation>
+                <pagecontrol>60</pagecontrol>
+                <usecontrolcoords>true</usecontrolcoords>
+                <control type="radiobutton" id="9001">
+                    <label>Title</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                            <selected>Skin.HasSetting(DisableWidgetTitle)</selected>
+                            <onclick>Skin.ToggleSetting(DisableWidgetTitle)</onclick>
+                </control>
+                <control type="radiobutton" id="9002">
+                    <label>Enable Episode Airdate</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <selected>Skin.HasSetting(DisableWidgetAirdate)</selected>
+                    <onclick>Skin.ToggleSetting(DisableWidgetAirdate)</onclick>
+                </control>
+                <control type="radiobutton" id="9003">
+                    <label>Plot</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                            <visible>!Skin.HasSetting(DisableNetflixHome)</visible>
+                            <enable>!Skin.HasSetting(DisableNetflixHome)</enable>
+                            <selected>Skin.HasSetting(DisableWidgetPlot)</selected>
+                            <onclick>Skin.ToggleSetting(DisableWidgetPlot)</onclick>
+                </control>
+                <control type="radiobutton" id="9004">
+                    <label>Ratings</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                            <selected>Skin.HasSetting(DisableWidgetIMDB)</selected>
+                            <onclick>Skin.ToggleSetting(DisableWidgetIMDB)</onclick>
+                </control>
+                <control type="radiobutton" id="9005">
+                    <label>Studio Logo</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                            <selected>Skin.HasSetting(DisableWidgetStudio)</selected>
+                            <onclick>Skin.ToggleSetting(DisableWidgetStudio)</onclick>
+                </control>
+                <control type="radiobutton" id="9006">
+                    <label>MPAA</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                            <selected>Skin.HasSetting(DisableWidgetMPAA)</selected>
+                            <onclick>Skin.ToggleSetting(DisableWidgetMPAA)</onclick>
+                </control>
+                <control type="radiobutton" id="9007">
+                    <label>Year</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                            <selected>Skin.HasSetting(DisableWidgetYear)</selected>
+                            <onclick>Skin.ToggleSetting(DisableWidgetYear)</onclick>
+                </control>
+                <control type="radiobutton" id="9008">
+                    <label>Duration</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                            <selected>Skin.HasSetting(DisableWidgetDuration)</selected>
+                            <onclick>Skin.ToggleSetting(DisableWidgetDuration)</onclick>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>
