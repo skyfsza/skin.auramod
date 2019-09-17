@@ -27,7 +27,7 @@
             <include>Animation_FadeInOut</include>
 	   <control type="group">
 	    <include>Global_Background</include>
-	    <visible>!Skin.HasSetting(DisableNetflixView) + [!Control.HasFocus(505) + !Control.HasFocus(5055) + !Control.HasFocus(55) + !Control.IsVisible(56) + !Control.HasFocus(509) + !Control.HasFocus(300) + !Control.HasFocus(504)]</visible>
+	    <visible>!Skin.HasSetting(DisableNetflixView) + [!Window.IsVisible(MyPVRChannels.xml) + !Window.IsVisible(MyPVRGuide.xml) + !Control.HasFocus(505) + !Control.HasFocus(5055) + !Control.HasFocus(55) + !Control.IsVisible(56) + !Control.HasFocus(509) + !Control.HasFocus(300) + !Control.HasFocus(504)]</visible>
 	    </control>
             <control type="group">
                 <include>View_Group</include>

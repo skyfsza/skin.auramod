@@ -6,6 +6,11 @@
     
     <views>50</views>
     <controls>
+    <control type="image">
+          <width>100%</width>
+          <height>100%</height>
+          <texture background="true" colordiffuse="FF000000">common/white.png</texture>
+    </control>
         <include>View_Library</include>
         <control type="label" id="29"><visible>false</visible></control>
 

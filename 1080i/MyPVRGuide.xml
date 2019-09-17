@@ -8,7 +8,6 @@
 
     <controls>
        <include condition="Skin.HasSetting(DisableGuideInfo)">Global_Background</include>
-        <include>View_Library</include>
         
         <control type="label" id="29"><visible>false</visible></control>
         <include condition="!Skin.HasSetting(DisableGuideInfo)">View_PVRGuide_WithInfo</include>

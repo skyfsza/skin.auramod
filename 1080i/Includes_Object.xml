@@ -3350,6 +3350,14 @@
     <param name="artwork" default="Window(Home).Property(SkinHelper.ListItem.Art.Fanart)" />
     <param name="fallback" default="ListItem.Icon" />
     <definition>
+
+    <control type="image">
+          <width>1180</width>
+          <height>530</height>
+	  <texture background="true" colordiffuse="FF000000">common/white.png</texture>
+    </control>
+
+<!--
       <control type="group">
         <left>10</left>
         <control type="group">
@@ -3357,7 +3365,7 @@
           <top>-15</top>
           <right>-90</right>
           <width>1180</width>
-          <height>550</height>
+          <height>530</height>
             <animation effect="slide" start="0" end="-30,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,2.20)">Conditional</animation>
           <animation effect="slide" start="0" end="0,-80" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
           <control type="videowindow"></control>
@@ -3365,6 +3373,41 @@
             <texture colordiffuse="ff000000" border="20">overlay/netflix_corner.png</texture>
           </control>
         </control>
+-->
+
+      <control type="group">
+        <visible>!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
+        <!-- Start Video Window -->
+        <control type="group">
+          <animation effect="slide" start="0" end="100,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
+          <animation effect="slide" start="0" end="0,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,2.20)">Conditional</animation>
+          <animation effect="slide" start="0" end="200,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,1.33)">Conditional</animation>
+          <animation effect="slide" start="0" end="95,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,1.78)">Conditional</animation>
+          <animation effect="slide" start="0" end="285,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,0.00)">Conditional</animation>
+          <visible>Player.HasVideo</visible>
+          <left>550</left>
+          <width>1080</width>
+          <height>530</height>
+          <top>10</top>
+          <bottom>5</bottom>
+          <control type="videowindow">
+            <width>100%</width>
+            <height>100%</height>
+          </control>
+          <control type="image">
+<!--
+            <animation effect="slide" start="0" end="100,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,1.78)">Conditional</animation>
+            <animation effect="slide" start="0" end="225,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,0.00)">Conditional</animation>
+            <animation effect="slide" start="0" end="-30,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,2.20)">Conditional</animation>
+            <animation effect="slide" start="0" end="-70,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,1.85)">Conditional</animation>
+            <animation effect="slide" start="0" end="-30,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,2.00)">Conditional</animation>
+            <animation effect="slide" start="0" end="-30,0" time="0" condition="Player.HasVideo + Integer.IsEmpty(VideoPlayer.VideoAspect)">Conditional</animation>
+            <animation effect="slide" start="0" end="30,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)">Conditional</animation>
+-->
+            <texture colordiffuse="ff000000" border="40">netflix/netflix_corner.png</texture>
+          </control>
+        </control>
+
         <control type="group">
           <visible>!Player.HasVideo</visible>
           <animation effect="fade" time="250">VisibleChange</animation>
@@ -5499,8 +5542,10 @@
           <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + !Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(3000)</onfocus>
           <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(30222)</onfocus>
 -->
-          <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true)">SetFocus(330,0)</onfocus>
-          <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true)">SetFocus(330,0)</onfocus>
+
+          <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(30222)</onfocus>
+          <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + !Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(330,0)</onfocus>
+          <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true)">SetFocus(30222)</onfocus>
           <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + String.IsEqual(Container(300).ListItem.Property(widgethubscrollselect),TVNetflixHub)">ActivateWindow(3810)</onfocus>
           <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + String.IsEqual(Container(300).ListItem.Property(widgethubscrollselect),TVAuraHub)">ActivateWindow(3910)</onfocus>
           <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + String.IsEqual(Container(300).ListItem.Property(widgethubscrollselect),MovieNetflixHub)">ActivateWindow(3820)</onfocus>
