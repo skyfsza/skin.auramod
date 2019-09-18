@@ -3353,7 +3353,7 @@
 
     <control type="image">
           <width>1180</width>
-          <height>530</height>
+          <height>510</height>
 	  <texture background="true" colordiffuse="FF000000">common/white.png</texture>
     </control>
 
@@ -3472,28 +3472,36 @@
         <width>450</width>
         <texture>$VAR[PVRInfoThumb]</texture>
       </control>
-      <control type="label">
-        <visible>String.IsEmpty(Control.GetLabel(55444))</visible>
-        <label>$INFO[ListItem.EpgEventTitle]$INFO[ListItem.EpisodeName, - ,]</label>
-        <height>80</height>
-        <top>20</top>
-        <aligny>top</aligny>
-        <textcolor>$VAR[ColorHighlight]</textcolor>
-        <font>netflix_heading</font>
-        <width min="200" max="900">auto</width>
-        <scroll>true</scroll>
-        <visible>!String.IsEmpty(ListItem.EpgEventTitle)</visible>
-      </control>
-      <control type="label">
-        <label>$INFO[ListItem.Label]</label>
-        <height>80</height>
-        <top>20</top>
-        <aligny>top</aligny>
-        <textcolor>main_fg_100</textcolor>
-        <font>font_showcase_title</font>
-        <visible>String.IsEmpty(ListItem.EpgEventTitle) + String.IsEmpty(Control.GetLabel(55444))</visible>
-        <bottom>40</bottom>
-      </control>
+                <control type="textbox">
+	          <visible>!String.IsEmpty(ListItem.EpgEventTitle)</visible>
+	          <visible>String.IsEmpty(Control.GetLabel(55444))</visible>
+        	  <label>$INFO[ListItem.EpgEventTitle]</label>
+                  <textcolor>grey</textcolor>
+                  <shadowcolor>black</shadowcolor>
+                  <font>font_heading_medium</font>
+                  <width>730</width>
+                  <height min="30" max="110">auto</height>
+                  <align>left</align>
+                  <aligny>center</aligny>
+                  <wrapmultiline>true</wrapmultiline>
+                  <scroll>true</scroll>
+                </control>
+                <control type="textbox">
+         	  <visible>String.IsEmpty(ListItem.EpgEventTitle) + String.IsEmpty(Control.GetLabel(55444))</visible>
+		  <label>$INFO[ListItem.Label]</label>
+                  <textcolor>grey</textcolor>
+                  <shadowcolor>black</shadowcolor>
+                  <font>font_heading_medium</font>
+                  <width>730</width>
+                  <height min="30" max="110">auto</height>
+                  <align>left</align>
+                  <aligny>center</aligny>
+                  <wrapmultiline>true</wrapmultiline>
+                  <scroll>true</scroll>
+                </control>
+
+
+
     </control>
     <control type="label">
       <top>70</top>
@@ -4186,7 +4194,6 @@
           <visible>!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB))</visible>
           <visible>$PARAM[imdb]</visible>
           <visible>!Skin.HasSetting(Ratings.IMDB) + !Skin.HasSetting(Ratings.IMDBVotes)</visible>
-          <visible>$PARAM[imdbvotes]</visible>
         </control>
         <control type="label">
           <textcolor>main_fg_70</textcolor>
@@ -4199,20 +4206,7 @@
           <visible>String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB)) + !String.IsEmpty(ListItem.RatingAndVotes)</visible>
           <visible>$PARAM[imdbvotes]</visible>
           <visible>$PARAM[imdb]</visible>
-          <visible>!Skin.HasSetting(Ratings.IMDB)</visible>
-        </control>
-        <control type="label">
-          <textcolor>main_fg_70</textcolor>
-          <top>12</top>
-          <width>auto</width>
-          <height>28</height>
-          <align>right</align>
-          <font>font_tiny</font>
-          <label>$INFO[Window(home).Property(SkinHelper.ListItem.Rating.IMDB), ,]</label>
-          <visible>!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB))</visible>
-          <visible>$PARAM[imdb]</visible>
-          <visible>!Skin.HasSetting(Ratings.IMDB)</visible>
-          <visible>!$PARAM[imdbvotes]</visible>
+          <visible>!Skin.HasSetting(Ratings.IMDB) + Skin.HasSetting(Ratings.IMDBVotes)</visible>
         </control>
         <control type="label">
           <textcolor>main_fg_70</textcolor>
@@ -4224,8 +4218,7 @@
           <label>$INFO[ListItem.Rating, ,]</label>
           <visible>String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB)) + !String.IsEmpty(ListItem.Rating)</visible>
           <visible>$PARAM[imdb]</visible>
-          <visible>!Skin.HasSetting(Ratings.IMDB)</visible>
-          <visible>!$PARAM[imdbvotes]</visible>
+          <visible>!Skin.HasSetting(Ratings.IMDB) + !Skin.HasSetting(Ratings.IMDBVotes)</visible>
         </control>
         <control type="label">
           <textcolor>main_fg_70</textcolor>
