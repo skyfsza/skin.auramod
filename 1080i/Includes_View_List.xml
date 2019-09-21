@@ -133,6 +133,51 @@
                         <param name="width" value="1820" />
                     </include>
                 </control>
+               <control type="label">
+		<top>-40</top>
+		<left>180</left>
+                <width>200</width>
+                <height>20</height>
+                <font>font_heading_small</font>
+                <textcolor>white</textcolor>
+                <label>Channel</label>
+                </control> 
+              <control type="label">
+                <top>-40</top>
+                <left>510</left>
+                <width>200</width>
+                <height>20</height>
+                <font>font_heading_small</font>
+                <textcolor>white</textcolor>
+                <label>Now</label>
+                </control>
+              <control type="label">
+                <top>-40</top>
+                <left>1300</left>
+                <width>200</width>
+                <height>20</height>
+                <font>font_heading_small</font>
+                <textcolor>white</textcolor>
+                <label>Next</label>
+                </control>
+              <control type="label">
+                <top>-40</top>
+                <left>1530</left>
+                <width>150</width>
+                <height>20</height>
+                <font>font_heading_small</font>
+                <textcolor>white</textcolor>
+                <label>Start</label>
+                </control>
+              <control type="label">
+                <top>-40</top>
+                <left>1700</left>
+                <width>200</width>
+                <height>20</height>
+                <font>font_heading_small</font>
+                <textcolor>white</textcolor>
+                <label>Ends</label>
+                </control>
             </control>
         </control>
     </include>

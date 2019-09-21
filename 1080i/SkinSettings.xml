@@ -1,7 +1,7 @@
 <window>
     <defaultcontrol always="true">300</defaultcontrol>
     <include>Defs_Settings_OnLoad</include>
-    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|hubtvnetworks|searchmenu|aurahubtv|aurahubmovies|netflixhubtv|netflixhubmovies)</onunload>
+    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|x1110|x1111|x1112|x1113|hubtvnetworks|searchmenu|aurahubtv|aurahubmovies|netflixhubtv|netflixhubmovies)</onunload>
     <onunload condition="System.HasAddon(script.colorbox)">SetProperty(NINE_manual_set,"var=main,set=$INFO[Skin.String(colorbox_main)]|var=comp,set=$INFO[Skin.String(colorbox_comp)]|var=quality,set=$INFO[Skin.String(colorbox_quality)]|var=blursize,set=$INFO[Skin.String(colorbox_blursize)]|var=bitsize,set=$INFO[Skin.String(colorbox_bitsize)]|var=pixelsize,set=$INFO[Skin.String(colorbox_pixelsize)]|var=black,set=$INFO[Skin.String(colorbox_black)]|var=white,set=$INFO[Skin.String(colorbox_white)]|var=blend,set=$INFO[Skin.String(colorbox_blend)]|var=desat,set=$INFO[Skin.String(colorbox_desat)]",home)</onunload> 
     <onload condition="String.IsEmpty(Window.Property(CurrentFocus))">SetProperty(CurrentFocus,$NUMBER[9001])</onload>
     <controls>
@@ -486,6 +486,18 @@
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <label>[B]$LOCALIZE[31463][/B]</label>
                         </control>
+                       <control type="button" id="96611" description="Select Menu Items">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Select TV Menu Items</label>
+                            <onclick>ActivateWindow(1142)</onclick>
+                        </control>
+                       <control type="button" id="96612" description="Select Menu Items">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Select Movie Menu Items</label>
+                            <onclick>ActivateWindow(1143)</onclick>
+                        </control>
                         <control type="button" id="9661" description="Configure Movie Hub 2">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
@@ -615,9 +627,30 @@
                             <label>Configure My Lists 3</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1107)</onclick>
                         </control>
-
-
-
+                        <control type="button" id="95761" description="Configure Misc Hub 2">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9015)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Addons Lists 1</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1110)</onclick>
+                        </control>
+                        <control type="button" id="95762" description="Configure Misc Hub 2">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9015)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Addons List 2</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1111)</onclick>
+                        </control>
+                        <control type="button" id="95763" description="Configure Misc Hub 2">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9015)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure LiveTV Lists 1</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1112)</onclick>
+                        </control>
+                        <control type="button" id="95764" description="Configure Misc Hub 2">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9015)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure LiveTV List 2</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1113)</onclick>
+                        </control>
 
 
                         <!-- ========== -->
@@ -1286,6 +1319,20 @@
                             <label>$LOCALIZE[31415]</label>
                             <selected>!Skin.HasSetting(DisableGuideInfo)</selected>
                             <onclick>Skin.ToggleSetting(DisableGuideInfo)</onclick>
+                        </control>
+                        <control type="radiobutton" id="96201" description="Enable Mini OSD Guide">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9012)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Enable Mini OSD Guide</label>
+                            <selected>!Skin.HasSetting(DisableMiniOSDGuide)</selected>
+                            <onclick>Skin.ToggleSetting(DisableMiniOSDGuide)</onclick>
+                        </control>
+                        <control type="radiobutton" id="96202" description="Enable Live TV OSD Channels">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9012)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Enable Live TV OSD Channels</label>
+                            <selected>!Skin.HasSetting(DisableMiniOSDChannels)</selected>
+                            <onclick>Skin.ToggleSetting(DisableMiniOSDChannels)</onclick>
                         </control>
                         <control type="radiobutton" id="9608" description="Use genre colors">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9012)</visible>

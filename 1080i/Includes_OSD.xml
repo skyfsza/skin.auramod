@@ -373,7 +373,6 @@
     </include>
 
     <include name="OSD_Controls">
-
         <control type="togglebutton" id="11">
             <centertop>50%</centertop>
             <description>Skip Back</description>
@@ -650,8 +649,8 @@
             <height>48</height>
             <label/>
             <font/>
-            <texturefocus colordiffuse="$VAR[ColorHighlight]">osd/playlist.png</texturefocus>
-            <texturenofocus colordiffuse="main_fg_70">osd/playlist.png</texturenofocus>
+            <texturefocus colordiffuse="$VAR[ColorHighlight]">osd/tvguide.png</texturefocus>
+            <texturenofocus colordiffuse="main_fg_70">osd/tvguide.png</texturenofocus>
             <onclick>Close</onclick>
             <onclick>ActivateWindow(tvguide,,return)</onclick>
             <onfocus condition="!String.IsEmpty(Window(Home).Property(OSDExtendedInfo)) + Player.Paused">Play</onfocus>

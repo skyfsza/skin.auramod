@@ -567,13 +567,6 @@
         </control>
 </control>
 
-<!--
-	<control type="image">
-		<left>-220</left>
-		<width>290</width>
-		<texture background="true" colordiffuse="dimgrey">common/white.png</texture>
-	</control>
--->
 	<control type="list" id="400">
                 <top>300</top>
                 <width>440</width>
@@ -642,21 +635,25 @@
                         <label>TV Categories</label>
                         <onclick>activatewindow(2114)</onclick>
                         <icon>special://skin/extras/icons/tv.png</icon>
+			<visible>!Skin.HasSetting(DisableMenuTVCat)</visible>
                     </item>
                     <item id="3">
                         <label>TV Genres</label>
                         <onclick>activatewindow(4020)</onclick>
                         <icon>special://skin/extras/icons/genre.png</icon>
+                        <visible>!Skin.HasSetting(DisableMenuTVGenre)</visible>
                     </item>
                     <item id="4">
                         <label>TV Networks</label>
                         <onclick>activatewindow(2118)</onclick>
                         <icon>special://skin/media/exuary/networks.png</icon>
+                        <visible>!Skin.HasSetting(DisableMenuTVNetworks)</visible>
                     </item>
                     <item id="5">
                         <label>TV Hub</label>
                         <onclick>activatewindow(3910)</onclick>
                         <icon>special://skin/extras/icons/infinity.png</icon>
+                        <visible>!Skin.HasSetting(DisableMenuTVHub)</visible>
                     </item>
 
 		</content>
@@ -771,16 +768,22 @@
                         <label>Categories</label>
                         <onclick>activatewindow(2112)</onclick>
                         <icon>special://skin/extras/icons/movie.png</icon>
+                        <onclick>Skin.HasSetting(DisableMenuMovieCat)</onclick>
+                        <visible>!Skin.HasSetting(DisableMenuMovieCat)</visible>
                     </item>
                     <item id="3">
                         <label>Movie Genres</label>
                         <onclick>activatewindow(4010)</onclick>
                         <icon>special://skin/extras/icons/genre.png</icon>
+                        <onclick>Skin.HasSetting(DisableMenuMovieGenre)</onclick>
+                        <visible>!Skin.HasSetting(DisableMenuMovieGenre)</visible>
                     </item>
                     <item id="4">
                         <label>Movie Hub</label>
                         <onclick>activatewindow(3920)</onclick>
                         <icon>special://skin/extras/icons/infinity.png</icon>
+                        <onclick>Skin.HasSetting(DisableMenuMovieHub)</onclick>
+                        <visible>!Skin.HasSetting(DisableMenuMovieHub)</visible>
                     </item>
 		</content>
      </control>

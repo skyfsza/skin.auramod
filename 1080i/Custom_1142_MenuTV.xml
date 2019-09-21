@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window type="dialog" id="1142">
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <controls>
+        <include>Global_Overlay</include>
+        <control type="group">
+            <include content="Dialog_Standard_Group">
+                <param name="width" value="820" />
+                <param name="height" value="400" />
+            </include>
+
+            <control type="label">
+                <description>Header Label</description>
+                <label>[CAPITALIZE]TV Menu[/CAPITALIZE]</label>
+                <include>Dialog_Standard_Header</include>
+            </control>
+
+            <control type="grouplist" id="9000">
+                <description>Control Area</description>
+                <right>20</right>
+                <width>780</width>
+                <top>100</top>
+                <height>720</height>
+                <itemgap>10</itemgap>
+                <orientation>vertical</orientation>
+                <pagecontrol>60</pagecontrol>
+                <usecontrolcoords>true</usecontrolcoords>
+                <control type="radiobutton" id="9001">
+                    <label>TV Categories</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(DisableMenuTVCat)</onclick>
+                    <selected>!Skin.HasSetting(DisableMenuTVCat)</selected>
+                </control>
+                <control type="radiobutton" id="9002">
+                    <label>TV Genre</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(DisableMenuTVGenre)</onclick>
+                    <selected>!Skin.HasSetting(DisableMenuTVGenre)</selected>
+                </control>
+                <control type="radiobutton" id="9003">
+                    <label>TV Networks</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(DisableMenuTVNetworks)</onclick>
+                    <selected>!Skin.HasSetting(DisableMenuTVNetworks)</selected>
+                </control>
+                <control type="radiobutton" id="9004">
+                    <label>TV Hub</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(DisableMenuTVHub)</onclick>
+                    <selected>!Skin.HasSetting(DisableMenuTVHub)</selected>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

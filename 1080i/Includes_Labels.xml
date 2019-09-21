@@ -217,6 +217,7 @@
         <value condition="!String.IsEmpty(ListItem.Cast)">$INFO[ListItem.Cast]</value>
     </variable>
     <variable name="video_heading">
+        <value condition="String.Contains(ListItem.FolderPath,pvr:)">$INFO[ListItem.Title]</value>
         <value condition="!String.IsEmpty(ListItem.TvShowTitle)">$INFO[ListItem.TvShowTitle]</value>
 	<value>$INFO[ListItem.Label]</value>
     </variable>
@@ -509,6 +510,7 @@
 
 
    <variable name="infoline_duration">
+	<value condition="String.Contains(ListItem.FolderPath,plugin.video.youtube) + String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration]</value>
 	<value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(h),,h] $INFO[ListItem.Duration(mm),,m]</value>
 	<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration.Hours)) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration.Minutes))">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Hours),,h] $INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Minutes),,m]</value>
    </variable>
@@ -697,6 +699,8 @@
     </variable>
 
     <variable name="Label_Genre_showcase">
+        <value condition="String.Contains(ListItem.FolderPath,plugin.video.youtube)">$INFO[ListItem.Artist]</value>
+        <value condition="String.Contains(ListItem.FolderPath,pvr:)">$INFO[ListItem.Label]</value>
         <value condition="String.IsEqual(ListItem.DBType,episode)">S$INFO[ListItem.Season]: E$INFO[ListItem.Episode] - $INFO[ListItem.Label]</value>
         <value condition="ListItem.IsCollection">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
         <value condition="!String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre]</value>

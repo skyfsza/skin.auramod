@@ -5,6 +5,7 @@
     <onload condition="Player.PauseEnabled + String.IsEmpty(Window(Home).Property(OSDViewMode))">SetFocus(14)</onload>
     <onload condition="!String.IsEmpty(Window(Home).Property(OSDViewMode))">SetFocus(3112)</onload>
     <onload condition="!String.IsEmpty(Window(Home).Property(OSDViewMode))">ClearProperty(OSDViewMode,Home)</onload>
+    <onload condition="VideoPlayer.Content(livetv)">SetFocus(26)</onload>
     <onunload>ClearProperty(OSDInfo,Home)</onunload>
     <onunload condition="!String.IsEmpty(Window(Home).Property(OSDExtendedInfo)) + Player.Paused">Play</onunload>
     <onunload condition="!String.IsEmpty(Window(Home).Property(OSDExtendedInfo))">ClearProperty(OSDExtendedInfo,Home)</onunload>
@@ -17,6 +18,7 @@
             <animation effect="fade" start="100" end="0" time="200" condition="Control.HasFocus(9605)">Conditional</animation>
                 
             <control type="grouplist" id="9000">
+	        <animation effect="slide" end="0,40" time="0" condition="!Skin.HasSetting(DisableMiniOSDChannels) + VideoPlayer.Content(livetv)">Conditional</animation>	
                 <include condition="!VideoPlayer.Content(musicvideos)">OSD_VideoPosition</include>
                 <include condition="VideoPlayer.Content(musicvideos)">OSD_MusicPosition</include>
                 <itemgap>32</itemgap>

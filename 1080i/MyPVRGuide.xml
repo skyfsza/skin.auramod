@@ -7,12 +7,17 @@
     <views>10</views>
 
     <controls>
-       <include condition="Skin.HasSetting(DisableGuideInfo)">Global_Background</include>
-        
+        <control type="group">
+	<width>100%</width>
+	<height>100%</height>
+	<control type="videowindow"></control>
+	<visible>Player.HasVideo + !Skin.HasSetting(DisableGuideInfo)</visible>
+	</control> 
+
         <control type="label" id="29"><visible>false</visible></control>
-        <include condition="!Skin.HasSetting(DisableGuideInfo)">View_PVRGuide_WithInfo</include>
+        <include condition="!Skin.HasSetting(DisableGuideInfo) + [[!Player.HasVideo + !Skin.HasSetting(DisableMiniOSDGuide)] | Skin.HasSetting(DisableMiniOSDGuide)]">View_PVRGuide_WithInfo</include>
+        <include condition="!Skin.HasSetting(DisableMiniOSDGuide) + !Skin.HasSetting(DisableGuideInfo) + Player.HasVideo">View_PVRGuide_Mini</include>
         <include condition="Skin.HasSetting(DisableGuideInfo)">View_PVRGuide</include>
-	<include>Topbar</include>
         <include>Defs_Options_StandardButtons</include>
         <control type="button" id="28">
             <description>Groups</description>

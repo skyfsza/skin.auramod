@@ -3395,29 +3395,19 @@
             <height>100%</height>
           </control>
           <control type="image">
-<!--
-            <animation effect="slide" start="0" end="100,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,1.78)">Conditional</animation>
-            <animation effect="slide" start="0" end="225,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,0.00)">Conditional</animation>
-            <animation effect="slide" start="0" end="-30,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,2.20)">Conditional</animation>
-            <animation effect="slide" start="0" end="-70,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,1.85)">Conditional</animation>
-            <animation effect="slide" start="0" end="-30,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,2.00)">Conditional</animation>
-            <animation effect="slide" start="0" end="-30,0" time="0" condition="Player.HasVideo + Integer.IsEmpty(VideoPlayer.VideoAspect)">Conditional</animation>
-            <animation effect="slide" start="0" end="30,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)">Conditional</animation>
--->
             <texture colordiffuse="ff000000" border="40">netflix/netflix_corner.png</texture>
           </control>
         </control>
-
         <control type="group">
           <visible>!Player.HasVideo</visible>
           <animation effect="fade" time="250">VisibleChange</animation>
           <control type="image">
-            <top>100</top>
+            <top>50</top>
             <right>150</right>
             <width>600</width>
             <height>400</height>
             <aspectratio scalediffuse="false" aligny="center">keep</aspectratio>
-            <texture background="true">$INFO[$PARAM[fallback]]</texture>
+            <texture background="true">$INFO[Container(10).ListItem.ActualIcon]</texture>
             <visible>String.IsEmpty(Control.GetLabel(33000))</visible>
           </control>
         </control>
@@ -3467,11 +3457,16 @@
       <height>80</height>
       <control type="image" id="55444">
         <top>5</top>
-        <bottom>20</bottom>
+        <bottom>40</bottom>
         <height>140</height>
         <width>450</width>
         <texture>$VAR[PVRInfoThumb]</texture>
       </control>
+	<control type="label">
+	 <height>40</height>
+         <visible>!String.IsEmpty(Control.GetLabel(55444))</visible>
+	</control>
+
                 <control type="textbox">
 	          <visible>!String.IsEmpty(ListItem.EpgEventTitle)</visible>
 	          <visible>String.IsEmpty(Control.GetLabel(55444))</visible>
@@ -3480,7 +3475,7 @@
                   <shadowcolor>black</shadowcolor>
                   <font>font_heading_medium</font>
                   <width>730</width>
-                  <height min="30" max="110">auto</height>
+                  <height min="30" max="100">auto</height>
                   <align>left</align>
                   <aligny>center</aligny>
                   <wrapmultiline>true</wrapmultiline>
@@ -3493,18 +3488,16 @@
                   <shadowcolor>black</shadowcolor>
                   <font>font_heading_medium</font>
                   <width>730</width>
-                  <height min="30" max="110">auto</height>
+                  <height min="30" max="100">auto</height>
                   <align>left</align>
                   <aligny>center</aligny>
                   <wrapmultiline>true</wrapmultiline>
                   <scroll>true</scroll>
                 </control>
 
-
-
     </control>
     <control type="label">
-      <top>70</top>
+      <top>80</top>
       <label>[B]$INFO[ListItem.ChannelName][/B] | [COLOR=$VAR[ColorHighlight2]]$LOCALIZE[19126]: [/COLOR]$INFO[ListItem.StartTime] | [COLOR=$VAR[ColorHighlight2]]$LOCALIZE[19127]: [/COLOR] $INFO[ListItem.EndTime]</label>
       <height>40</height>
       <aligny>top</aligny>
@@ -3516,7 +3509,7 @@
       <top>15</top>
       <width>900</width>
       <height min="100" max="220">auto</height>
-      <label fallback="19055">[COLOR=$VAR[ColorHighlight2]]Plot: [/COLOR]$VAR[Label_Plot]</label>
+      <label fallback="19055">$VAR[Label_Plot]</label>
       <aligny>bottom</aligny>
       <textcolor>main_fg_70</textcolor>
       <font>font_plotbox</font>
@@ -5621,7 +5614,7 @@
 
   <include name="netflix_infoline">
     <control type="group">
-     <visible>$EXP[DBTvideos] + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(660) + !String.IsEqual(ListItem.Label,See More...) + !String.IsEqual(ListItem.Label,Next)</visible>
+     <visible>[$EXP[DBTvideos] + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(660) + !String.IsEqual(ListItem.Label,See More...) + !String.IsEqual(ListItem.Label,Next)] | [String.Contains(ListItem.FolderPath,plugin.video.youtube)]</visible> 
       <height>60</height>
       <control type="grouplist">
         <orientation>horizontal</orientation>
@@ -5641,7 +5634,7 @@
           </include>
         </control>
          <control type="label">
-	      <left>-15</left>
+	      <left>-10</left>
               <width>140</width>
               <label>$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.percent.IMDB),[B],% Liked[/B]]</label>
               <textcolor>green</textcolor>
@@ -5692,7 +5685,7 @@
             <control type="group">
               <width>95</width>
               <height>30</height>
-              <visible>!String.IsEmpty(ListItem.Duration) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration.Hours)) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration.Minutes)) + ![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)]</visible>
+              <visible>[!String.IsEmpty(ListItem.Duration) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration.Hours)) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration.Minutes)) + ![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)] | String.Contains(ListItem.FolderPath,plugin.video.youtube)]</visible>
               <control type="image">
                 <bottom>-18</bottom>
                 <animation effect="fade" time="0" end="75" condition="true">Conditional</animation>

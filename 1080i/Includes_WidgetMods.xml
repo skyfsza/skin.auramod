@@ -11,7 +11,7 @@
                     <control type="image">
                         <height>100%</height>
                         <width>100%</width>
-                        <texture colordiffuse="bf000000" diffuse="diffuse/widgetposter.png">common/gradient-actor.png</texture>
+                        <texture background="true" colordiffuse="bf000000" diffuse="diffuse/widgetposter.png">common/gradient-actor.png</texture>
                         <visible>String.Contains(ListItem.FolderPath,type=person)</visible>
                    </control>
 
@@ -55,18 +55,24 @@
        <control type="image">
         <height>100%</height>
         <width>100%</width>
-        <texture colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
+        <texture background="true" colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
        </control>
        <control type="image">
         <height>100%</height>
         <width>100%</width>
-        <texture colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
+        <texture background="true" colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
        </control>
    </control>
+      <control type="image">
+        <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$INFO[ListItem.Icon]</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <visible>String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+      </control>
    <!-- Fanart Background -->
         <control type="image">
          <texture background="true" diffuse="diffuse/widgetlandscape.png" fallback="DefaultFanartFallback.jpg">$VAR[Image_Fanart]</texture>
          <aspectratio scalediffuse="false">scale</aspectratio>
+        <visible>!String.Contains(ListItem.Path,plugin.video.youtube)</visible>
         </control>
 
      <control type="group">
@@ -77,7 +83,7 @@
         <bottom>40</bottom>
         <height>45</height>
         <width>100</width>
-        <texture colordiffuse="99FF0000" flipy="true">diffuse/halfbox.png</texture>
+        <texture background="true" colordiffuse="99FF0000" flipy="true">diffuse/halfbox.png</texture>
       </control>
      <control type="textbox">
         <bottom>20</bottom>
@@ -134,7 +140,7 @@
                 <visible>!Skin.HasSetting(DisableClearlogo) + !Skin.HasSetting(WidgetLabels) | Window.IsVisible(1138)</visible>
 
                 <control type="image">
-                    <texture colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
+                    <texture background="true" colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
                 </control>
                 <control type="label">
                     <top>0</top>
@@ -153,7 +159,7 @@
                 <height>70</height>
                 <bottom>0</bottom>
                 <control type="image">
-                    <texture colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
+                    <texture background="true" colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
                 </control>
                 <control type="label">
                     <top>0</top>
@@ -198,7 +204,7 @@
       <control type="image">
         <height>100%</height>
 	<width>100%</width>
-        <texture colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
+        <texture background="true" colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
       </control>
 	<control type="group">
      <control type="textbox">
@@ -309,7 +315,7 @@
         <visible>$EXP[DBTvideos]</visible>
 	  <bottom>10</bottom>
           <left>75%</left>
-          <texture colordiffuse="main_fg_100">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
+          <texture background="true" colordiffuse="main_fg_100">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
           <aspectratio>stretch</aspectratio>
           <height>59.4</height>
           <width>81.4</width>
@@ -350,7 +356,7 @@
        <control type="progress">
            <width>185</width>
            <height>11</height>
-           <texturebg colordiffuse="cc515151" border="0">colors/color_white.png</texturebg>
+           <texturebg background="true" colordiffuse="cc515151" border="0">colors/color_white.png</texturebg>
            <lefttexture/>
            <midtexture colordiffuse="red" border="4">colors/color_white.png</midtexture>
            <righttexture/>
@@ -382,7 +388,7 @@
 	<visible>$EXP[DBTvideos]</visible>
           <top>180</top>
 	  <right>120</right>
-          <texture colordiffuse="main_fg_100">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
+          <texture background="true" colordiffuse="main_fg_100">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
           <aspectratio>stretch</aspectratio>
           <height>54</height>
           <width>74</width>
@@ -499,7 +505,7 @@
        <control type="image">
           <top>180</top>
 	  <right>120</right>
-          <texture colordiffuse="main_fg_100">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
+          <texture background="true" colordiffuse="main_fg_100">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
           <aspectratio>stretch</aspectratio>
           <height>54</height>
           <width>74</width>
@@ -531,12 +537,12 @@
        <control type="image">
         <height>100%</height>
         <width>100%</width>
-        <texture colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
+        <texture background="true" colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
        </control>
        <control type="image">
         <height>100%</height>
         <width>100%</width>
-        <texture colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
+        <texture background="true" colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
        </control>
 -->
       <control type="textbox">
@@ -639,7 +645,7 @@
         <bottom>40</bottom>
         <height>45</height>
         <width>90</width>
-        <texture colordiffuse="99FF0000" flipy="true">diffuse/halfbox.png</texture>
+        <texture background="true" colordiffuse="99FF0000" flipy="true">diffuse/halfbox.png</texture>
       </control>
      <control type="textbox">
         <bottom>20</bottom>
@@ -699,7 +705,7 @@
 	<height>60</height>
 	<visible>!Skin.HasSetting(WidgetLabels) + !Skin.HasSetting(DisableBanners) + !String.IsEmpty(ListItem.Episode)</visible>
 	<control type="image">
-          <texture colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
+          <texture background="true" colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
         </control>
         <control type="label">
           <top>0</top>
@@ -743,7 +749,7 @@
       <control type="image">
 	  <width>100%</width>
 	  <height>70%</height>
-          <texture colordiffuse="4DFFFFFF" border="10" flipy="true">diffuse/halfbox.png</texture>
+          <texture background="true" colordiffuse="4DFFFFFF" border="10" flipy="true">diffuse/halfbox.png</texture>
         </control>
 
       <control type="image">
@@ -756,7 +762,7 @@
         <bottom>0</bottom>
         <visible>![!Skin.HasSetting(DisableFakeLandscapeArt) + !String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome)]]</visible>
         <control type="image">
-          <texture colordiffuse="FF000000" border="10" flipy="true">diffuse/halfbox.png</texture>
+          <texture background="true" colordiffuse="FF000000" border="10" flipy="true">diffuse/halfbox.png</texture>
         </control>
         <!-- Add Progress Bar -->
         <control type="progress">
@@ -789,7 +795,6 @@
           <height>75</height>
           <textcolor>main_fg_70</textcolor>
           <label>$INFO[ListItem.StartTime] - $INFO[ListItem.EndTime]</label>
-          <visible>!Integer.IsEqual(ListItem.Progress,0)</visible>
         </control>
         <!-- Currently Playing Title -->
         <control type="label">
@@ -833,7 +838,7 @@
     <definition>
       <control type="image">
         <height>100%</height>
-        <texture colordiffuse="70000000" border="10" flipy="true">diffuse/halfbox.png</texture>
+        <texture background="true" colordiffuse="70000000" border="10" flipy="true">diffuse/halfbox.png</texture>
       </control>
       <control type="image">
         <left>0</left>

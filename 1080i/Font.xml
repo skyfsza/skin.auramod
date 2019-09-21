@@ -18,6 +18,13 @@
             <aspect>0.9</aspect>
         </font>
         <font>
+            <name>font_heading_medium</name>
+            <style>uppercase</style>
+            <filename>RobotoCondensed-Spaced-Caps.ttf</filename>
+            <size>35</size>
+            <aspect>0.9</aspect>
+        </font>
+        <font>
             <name>font_spaced_small</name>
             <filename>RobotoCondensed-Spaced.ttf</filename>
             <size>22</size>
