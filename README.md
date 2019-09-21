@@ -34,4 +34,4 @@ Go into the &quot;Look and Feel&quot; section in the repo, and you&#39;ll find A
 ---
 
 
- # If you wish to run the Development version of auramod. PLEASE follow the above instructions for installing the repo (steps 1 & 2) and ONLY after completing them  download the zip from this github page and then "install from zip" in kodi pointing it at the downloaded zip file 
+ # If you wish to run the Development version of auramod. PLEASE follow the above instructions for installing the repo (steps 1 - 3) and ONLY after completing them  download the zip from this github page and then "install from zip" in kodi pointing it at the downloaded zip file 
