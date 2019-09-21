@@ -3,6 +3,7 @@
     <include name="Widget_Movement">
         <param name="submenu" default="false" />
         <definition>
+<!--
             <onunfocus condition="Skin.HasSetting(DisableMenuHor) + String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + Integer.IsEqual(Container($PARAM[id]).Position,0)">SetProperty(listposition,0,home)</onunfocus>
             <onunfocus condition="Skin.HasSetting(DisableMenuHor) + String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + Integer.IsEqual(Container($PARAM[id]).Position,1)">SetProperty(listposition,3,home)</onunfocus>
             <onunfocus condition="Skin.HasSetting(DisableMenuHor) + String.IsEqual($PARAM[aspect],$LOCALIZE[31038]) + Integer.IsEqual(Container($PARAM[id]).Position,2)">SetProperty(listposition,5,home)</onunfocus>
@@ -20,6 +21,7 @@
             <onunfocus condition="Skin.HasSetting(DisableMenuHor) + $PARAM[submenu]">SetProperty(listposition,0,home)</onunfocus>
             <onunfocus condition="Skin.HasSetting(DisableMenuHor) + $PARAM[submenu]">SetProperty(landscapeposition,0,home)</onunfocus>
 
+-->
                 <onback condition="Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)">505</onback>
             <onback condition="!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious">Control.Move($PARAM[id],$INFO[Container($PARAM[id]).CurrentItem,-,])</onback>
             <onback condition="!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious">Control.Move($PARAM[id],1)</onback>
