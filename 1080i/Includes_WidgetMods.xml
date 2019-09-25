@@ -109,7 +109,7 @@
                 <right>120</right>
                 <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
                 <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
-          <visible>!String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(DisableNetflixSmallWidget) + !Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)] + [Window.IsVisible(Home) | Window.IsVisible(3810) | Window.IsVisible(3820)]</visible>
+          <visible>!String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(DisableNetflixSmallWidget) + !Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
             </control>
 
         <control type="image">
@@ -130,7 +130,7 @@
           <height>45%</height>
           <aspectratio>keep</aspectratio>
           <texture background="true">$VAR[Widget_ClearLogo]</texture>
-          <visible>Skin.HasSetting(DisableNetflixSmallWidget) + [!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo)] + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)] + [Window.IsVisible(Home) | Window.IsVisible(3810) | Window.IsVisible(3820)]</visible>
+          <visible>Skin.HasSetting(DisableNetflixSmallWidget) + [!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo)] + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
         </control>
 
             <control type="group">

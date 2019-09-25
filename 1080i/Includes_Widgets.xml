@@ -409,6 +409,7 @@
 
             <control type="group" id="338" description="Spacer"><height>160</height></control>
             <control type="group" id="339" description="Spacer"><height>40</height><visible>String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
+            <control type="group" id="355" description="Spacer"><height>40</height><visible>!Skin.HasSetting(DisableCatlabel) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible></control>
             <control type="group" id="340" description="Spacer"><height>60</height><visible>!Skin.HasSetting(SubmenuLabel)</visible></control>
             <control type="group" id="341" description="Spacer"><height>30</height><visible>Skin.HasSetting(HideSubmenuWidget)</visible></control>
             <control type="group" id="342" description="Spacer"><height>100</height><visible>!String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)</visible></control>
@@ -451,6 +452,17 @@
     <include name="Widget_movement_posterdetails"><movement>1</movement></include>
     <include name="Widget_movement"><movement>$PARAM[movement]</movement></include>
 
+    <include name="showcase_animation_widget">
+                <animation effect="slide" end="640,0" time="10" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="slide" end="640,0" time="10" reversible="true" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="zoom" start="100,100" end="130,100" time="0" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="slide" end="-20,0" time="0" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="slide" end="630,0" time="10" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+    </include>
+
     <include name="Widget">
         <param name="submenu" default="false" />
         <param name="genres" default="false" />
@@ -481,6 +493,7 @@
 
 
      <control type="group" id="4$PARAM[id]">
+	<visible>Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(Home)</visible>
        <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
        <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
        <animation effect="slide" end="0,-45" time="0" condition="!Skin.HasSetting(SubmenuLabel)">Conditional</animation>
@@ -663,15 +676,16 @@
             </control>
             <control type="$PARAM[controltype]" id="$PARAM[id]">
 
+                <animation effect="slide" end="640,0" time="10" reversible="false" sine="inout" condition="[Window.IsVisible(Home) | Window.IsVisible(3910) | Window.IsVisible(3920)] + Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="slide" end="640,0" time="10" reversible="true" sine="inout" condition="[Window.IsVisible(Home) | Window.IsVisible(3910) | Window.IsVisible(3920)] + Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="zoom" start="100,100" end="130,100" time="0" reversible="false" sine="inout" condition="[Window.IsVisible(Home) | Window.IsVisible(3910) | Window.IsVisible(3920)] + Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="slide" end="-20,0" time="0" reversible="false" sine="inout" condition="[Window.IsVisible(Home) |  Window.IsVisible(3910) | Window.IsVisible(3920)] + Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="slide" end="630,0" time="10" reversible="false" sine="inout" condition="[Window.IsVisible(Home) | Window.IsVisible(3910) | Window.IsVisible(3920)] + Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="[Window.IsVisible(Home) | Window.IsVisible(3910) | Window.IsVisible(3920)] + Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="[Window.IsVisible(Home) | Window.IsVisible(3910) | Window.IsVisible(3920)] + Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="[Window.IsVisible(Home) | Window.IsVisible(3910) | Window.IsVisible(3920)] + Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
 
-                <animation effect="slide" end="640,0" time="10" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
-                <animation effect="slide" end="640,0" time="10" reversible="true" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
-                <animation effect="zoom" start="100,100" end="130,100" time="0" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
-                <animation effect="slide" end="-20,0" time="0" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
-                <animation effect="slide" end="630,0" time="10" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
-                <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
-                <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
-                <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+
 
                 <left>-55</left>
                 <onback condition="ControlGroup(5600).HasFocus">9000</onback>
