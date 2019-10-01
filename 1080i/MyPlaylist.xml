@@ -6,7 +6,22 @@
     
     <views>50</views>
     <controls>
-        <include>Global_Background</include>
+	  <control type="group">
+	    <visible>!String.IsEmpty(VideoPlayer.TVShowTitle)"</visible>
+          <control type="videowindow">
+            <width>100%</width>
+            <height>100%</height>
+          </control>
+
+	  <control type="image">
+            <width>100%</width>
+            <height>100%</height>
+	    <texture background="true" colordiffuse="60000000">common/white.png</texture>
+          </control>
+          </control>
+
+
+        <include condition="String.IsEmpty(VideoPlayer.TVShowTitle)">Global_Background</include>
 	<include condition="String.IsEmpty(VideoPlayer.TVShowTitle)">View_Library</include>
         <include>Topbar</include>
 

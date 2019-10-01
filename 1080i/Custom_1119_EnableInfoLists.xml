@@ -7,7 +7,7 @@
         <control type="group">
             <include content="Dialog_Standard_Group">
                 <param name="width" value="820" />
-                <param name="height" value="723" />
+                <param name="height" value="793" />
             </include>
 
             <control type="label">
@@ -41,46 +41,53 @@
                     <selected>!Skin.HasSetting(VideoInfo.DirectorMovies)</selected>
                 </control>
                 <control type="radiobutton" id="9003">
-                    <label>$LOCALIZE[31401]</label>
+                    <label>Year</label>
                     <radioposx>730</radioposx>
                     <include>Dialog_Standard_ListButton</include>
-                    <onclick>Skin.ToggleSetting(VideoInfo.NextUp)</onclick>
-                    <selected>!Skin.HasSetting(VideoInfo.NextUp)</selected>
+                    <onclick>Skin.ToggleSetting(VideoInfo.Year)</onclick>
+                    <selected>!Skin.HasSetting(VideoInfo.Year)</selected>
                 </control>
                 <control type="radiobutton" id="9004">
-                    <label>$LOCALIZE[31402]</label>
+                    <label>Similar</label>
                     <radioposx>730</radioposx>
                     <include>Dialog_Standard_ListButton</include>
-                    <onclick>Skin.ToggleSetting(VideoInfo.SimilarMovies)</onclick>
-                    <selected>!Skin.HasSetting(VideoInfo.SimilarMovies)</selected>
+                    <onclick>Skin.ToggleSetting(VideoInfo.Similar)</onclick>
+                    <selected>!Skin.HasSetting(VideoInfo.Similar)</selected>
                 </control>
                 <control type="radiobutton" id="9005">
-                    <label>$LOCALIZE[31403]</label>
+                    <label>Recommended</label>
                     <radioposx>730</radioposx>
                     <include>Dialog_Standard_ListButton</include>
-                    <onclick>Skin.ToggleSetting(VideoInfo.SimilarTvShows)</onclick>
-                    <selected>!Skin.HasSetting(VideoInfo.SimilarTvShows)</selected>
+                    <onclick>Skin.ToggleSetting(VideoInfo.Recommended)</onclick>
+                    <selected>!Skin.HasSetting(VideoInfo.Recommended)</selected>
                 </control>
                 <control type="radiobutton" id="9006">
-                    <label>$LOCALIZE[31404]</label>
+                    <label>Studio</label>
                     <radioposx>730</radioposx>
                     <include>Dialog_Standard_ListButton</include>
-                    <onclick>Skin.ToggleSetting(VideoInfo.StudioMovies)</onclick>
-                    <selected>!Skin.HasSetting(VideoInfo.StudioMovies)</selected>
+                    <onclick>Skin.ToggleSetting(VideoInfo.Studio)</onclick>
+                    <selected>!Skin.HasSetting(VideoInfo.Studio)</selected>
                 </control>
                 <control type="radiobutton" id="9007">
-                    <label>$LOCALIZE[31405]</label>
+                    <label>Genre</label>
                     <radioposx>730</radioposx>
                     <include>Dialog_Standard_ListButton</include>
-                    <onclick>Skin.ToggleSetting(VideoInfo.ExtraFanart)</onclick>
-                    <selected>!Skin.HasSetting(VideoInfo.ExtraFanart)</selected>
+                    <onclick>Skin.ToggleSetting(VideoInfo.Genre)</onclick>
+                    <selected>!Skin.HasSetting(VideoInfo.Genre)</selected>
                 </control>
                 <control type="radiobutton" id="9008">
-                    <label>$LOCALIZE[31406]</label>
+                    <label>Movie Sets</label>
                     <radioposx>730</radioposx>
                     <include>Dialog_Standard_ListButton</include>
-                    <onclick>Skin.ToggleSetting(VideoInfo.SpecialFeatures)</onclick>
-                    <selected>!Skin.HasSetting(VideoInfo.SpecialFeatures)</selected>
+                    <onclick>Skin.ToggleSetting(VideoInfo.Sets)</onclick>
+                    <selected>!Skin.HasSetting(VideoInfo.Sets)</selected>
+                </control>
+                <control type="radiobutton" id="9009">
+                    <label>Youtube</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(VideoInfo.Youtube)</onclick>
+                    <selected>!Skin.HasSetting(VideoInfo.Youtube)</selected>
                 </control>
             </control>
         </control>

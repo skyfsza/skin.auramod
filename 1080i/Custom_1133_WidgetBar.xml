@@ -34,7 +34,7 @@
                             <onclick>Skin.ToggleSetting(DisableWidgetTitle)</onclick>
                 </control>
                 <control type="radiobutton" id="9002">
-                    <label>Enable Episode Airdate</label>
+                    <label>Episode Airdate</label>
                     <radioposx>730</radioposx>
                     <include>Dialog_Standard_ListButton</include>
                     <selected>Skin.HasSetting(DisableWidgetAirdate)</selected>

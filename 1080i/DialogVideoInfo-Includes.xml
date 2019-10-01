@@ -1425,7 +1425,7 @@
 	        <include condition="!Skin.HasSetting(DisableAuraHomeLayout)">widget_info_top_aura</include>
 		<width>1900</width>
                 <height>900</height>
-            <include content="Widget_TMDB">
+            <include condition="!Skin.HasSetting(VideoInfo.CastList)" content="Widget_TMDB">
                 <param name="id" value="53001" />
                 <param name="onleft" value="9570" />
                 <param name="target" value="videos" />
@@ -1440,7 +1440,7 @@
                 <param name="visible" value="!String.IsEmpty(ListItem.Label)" />
             </include>
 
-            <include content="Widget_TMDB">
+            <include condition="!Skin.HasSetting(VideoInfo.Sets)" content="Widget_TMDB">
                 <param name="id" value="53002" />
                 <param name="onleft" value="9570" />
                 <param name="target" value="videos" />
@@ -1453,7 +1453,7 @@
                 <param name="label" value="Sets" />
                 <param name="visible" value="!String.IsEmpty(ListItem.Label)" />
             </include>
-            <include content="Widget_TMDB">
+            <include condition="!Skin.HasSetting(VideoInfo.Similar)" content="Widget_TMDB">
                 <param name="id" value="53003" />
                 <param name="onleft" value="9570" />
                 <param name="target" value="videos" />
@@ -1467,7 +1467,7 @@
                 <param name="visible" value="!String.IsEmpty(ListItem.Label)" />
             </include>
 
-            <include content="Widget_TMDB">
+            <include condition="!Skin.HasSetting(VideoInfo.DirectorMovies)" content="Widget_TMDB">
                 <param name="id" value="53004" />
                 <param name="onleft" value="9570" />
                 <param name="target" value="videos" />
@@ -1478,10 +1478,10 @@
                 <param name="postercondition" value="true" />
                 <param name="controltype" value="fixedlist" />
                 <param name="label" value="$INFO[ListItem.Director,Directed By ,]" />
-                <param name="visible" value="!String.IsEmpty(ListItem.Director)" />
+                <param name="visible" value="!String.IsEmpty(ListItem.Director)"  />
             </include>
 
-            <include content="Widget_TMDB">
+            <include condition="!Skin.HasSetting(VideoInfo.Year)" content="Widget_TMDB">
                 <param name="id" value="53005" />
                 <param name="onleft" value="9570" />
                 <param name="target" value="videos" />
@@ -1495,7 +1495,7 @@
                 <param name="visible" value="!String.IsEmpty(ListItem.Year)" />
             </include>
 
-            <include content="Widget_TMDB">
+            <include condition="!Skin.HasSetting(VideoInfo.Studio)" content="Widget_TMDB">
                 <param name="id" value="53006" />
                 <param name="onleft" value="9570" />
                 <param name="target" value="videos" />
@@ -1508,7 +1508,7 @@
                 <param name="label" value="$INFO[ListItem.Studio,Studio ,]" />
                 <param name="visible" value="!String.IsEmpty(ListItem.Studio)" />
             </include>
-            <include content="Widget_TMDB">
+            <include condition="!Skin.HasSetting(VideoInfo.Recommended)" content="Widget_TMDB">
                 <param name="id" value="53007" />
                 <param name="onleft" value="9570" />
                 <param name="target" value="videos" />
@@ -1521,7 +1521,7 @@
                 <param name="label" value="Recommended" />
                 <param name="visible" value="!String.IsEmpty(ListItem.Label)" />
             </include>
-            <include content="Widget_TMDB">
+            <include condition="!Skin.HasSetting(VideoInfo.Genre)" content="Widget_TMDB">
                 <param name="id" value="53008" />
                 <param name="onleft" value="9570" />
                 <param name="target" value="videos" />
@@ -1534,7 +1534,7 @@
                 <param name="label" value="$INFO[ListItem.Genre,Genre ,]" />
                 <param name="visible" value="!String.IsEmpty(ListItem.Genre)" />
             </include>
-            <include content="Widget_TMDB">
+            <include condition="!Skin.HasSetting(VideoInfo.Youtube)" content="Widget_TMDB">
                 <param name="id" value="53009" />
                 <param name="onleft" value="9570" />
                 <param name="target" value="videos" />

@@ -46,7 +46,7 @@
             </control>
             <control type="group">
                 <include>View_Group</include>
-                <include condition="!Window.IsVisible(MyPVRChannels.xml)]">Animation_Right</include>
+                <include condition="!Window.IsVisible(MyPVRChannels.xml)">Animation_Right</include>
                 <include>Defs_InfoDialog_Visible</include>
                 <visible>!Control.HasFocus(9602)</visible>
                 <control type="group">

@@ -1,6 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
 
+
+ <include name="Widget_Items_SubmenuWidget">
+            <control type="group">
+                <control type="group">
+                    <control type="image">
+                        <texture background="true" diffuse="diffuse/submenu.png">$INFO[ListItem.Property(background)]</texture>
+                        <visible>!String.IsEmpty(ListItem.Property(background))</visible>
+                    </control>
+                    <control type="image">
+                        <texture colordiffuse="69000000" background="true">diffuse/landscape.png</texture>
+                        <visible>!String.IsEmpty(ListItem.Property(background))</visible>
+                    </control>
+                    <control type="image">
+                        <texture colordiffuse="79000000" background="true">diffuse/landscape.png</texture>
+                        <visible>!String.IsEmpty(ListItem.Property(background))</visible>
+                    </control>
+                    <control type="label">
+                        <bottom>10</bottom>
+                        <height>30</height>
+                        <align>center</align>
+                        <font>font_tiny</font>
+                        <textcolor>PosterFront_70</textcolor>
+                        <right>30</right>
+                        <left>30</left>
+                        <label>$INFO[ListItem.Label]</label>
+                        <scroll>false</scroll>
+                        <visible>Skin.HasSetting(SubmenuLabel)</visible>
+                        <visible>!Skin.HasSetting(DisableBigCat)</visible>
+                        <visible>!String.Contains(ListItem.Icon,none.png)</visible>
+                    </control>
+                    <control type="label">
+                        <centertop>60%</centertop>
+                        <height>30</height>
+                        <align>center</align>
+                        <font>font_medium_bold</font>
+                        <textcolor>PosterFront</textcolor>
+                        <right>30</right>
+                        <left>30</left>
+                        <label>$INFO[ListItem.Label]</label>
+                        <visible>String.Contains(ListItem.Icon,none.png)</visible>
+                        <visible>Skin.HasSetting(SubmenuLabel)</visible>
+                    </control>
+<!--
+                    <control type="image">
+                        <bordersize>10</bordersize>
+                        <aspectratio scalediffuse="false">keep</aspectratio>
+                        <texture background="true" diffuse="diffuse/submenu.png">$INFO[ListItem.Icon]</texture>
+                        <visible>!Skin.HasSetting(SubmenuLabel)</visible>
+                    </control>
+-->
+                    <control type="image">
+			<top>-10</top>
+                        <animation effect="slide" end="0,20" time="0" condition="Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(LargeSubmenuLabel)">Conditional</animation>
+                        <bordersize>10</bordersize>
+                        <height>125</height>
+                        <aspectratio scalediffuse="false">keep</aspectratio>
+                        <texture background="true" diffuse="diffuse/submenubig.png">$INFO[ListItem.Icon]</texture>
+                        <visible>Skin.HasSetting(SubmenuLabel)</visible>
+                        <visible>!Skin.HasSetting(DisableBigCat)</visible>
+                        <visible>!String.Contains(ListItem.Icon,none.png)</visible>
+                    </control>
+                    <control type="image">
+                        <bordersize>10</bordersize>
+                        <aspectratio scalediffuse="false">keep</aspectratio>
+                        <texture background="true" diffuse="diffuse/submenubig.png">$INFO[ListItem.Icon]</texture>
+                        <visible>Skin.HasSetting(SubmenuLabel)</visible>
+                        <visible>Skin.HasSetting(DisableBigCat)</visible>
+                        <visible>!String.Contains(ListItem.Icon,none.png)</visible>
+                    </control>
+                </control>
+            </control>
+ </include>
+
+
  <include name="Widget_Items_BigPoster">
             <control type="image">
                 <texture background="true" diffuse="diffuse/widgetposter.png">$VAR[Image_Poster]</texture>
