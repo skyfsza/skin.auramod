@@ -293,8 +293,8 @@
 				<onright>10</onright>
 	                        <onup>sendclick(28)</onup>
 				<ondown>10</ondown>
-				<onback>SetProperty(CloseFromDialogSelect,1,Home)</onback>
                                 <onback>9102</onback>
+				<onback>SetProperty(CloseFromDialogSelect,1,Home)</onback>
                                 <onback>sendclick(28)</onback>
 				<rulerlayout height="45" width="40">
 					<control type="label" id="2">
@@ -563,8 +563,8 @@
                     <height>592</height>
                     <viewtype label="19069">list</viewtype>
 		    <onup>sendclick(28)</onup>
-                    <onback>SetProperty(CloseFromDialogSelect,1,Home)</onback>
 		    <onback>9102</onback>
+                    <onback>SetProperty(CloseFromDialogSelect,1,Home)</onback>
 		    <onback>sendclick(28)</onback>
                     <!-- <progresstexture border="5" colordiffuse="bf777777">pvr/progressline-full.png</progresstexture> -->
                     <progresstexture border="5" colordiffuse="bfafb1b5">pvr/progressline-full.png</progresstexture> 
@@ -717,6 +717,17 @@
                             <textoffsetx>0</textoffsetx>
                             <font>font_tiny_bold_uppercase</font>
                             <label>$INFO[ListItem.Label]</label>
+                            <visible>!Skin.HasSetting(PVRGuideGenreName)</visible>
+                        </control>
+                      <control type="label" id="1">
+                            <left>20</left>
+                            <width>218</width>
+                            <centertop>50%</centertop>
+                            <textcolor>main_fg_100</textcolor>
+                            <textoffsetx>0</textoffsetx>
+                            <font>font_small_bold_uppercase</font>
+                            <label>$INFO[ListItem.Label]</label>
+                            <visible>Skin.HasSetting(PVRGuideGenreName)</visible>
                         </control>
                         <control type="label" id="1">
                             <left>20</left>
@@ -725,6 +736,7 @@
                             <textcolor>main_fg_70</textcolor>
                             <textoffsetx>0</textoffsetx>
                             <font>font_statusbar</font>
+                            <visible>!Skin.HasSetting(PVRGuideGenreName)</visible>
                             <label>$INFO[ListItem.Genre,[UPPERCASE],[/UPPERCASE]]</label>
                         </control>
                     </itemlayout>
@@ -779,6 +791,17 @@
                             <textoffsetx>0</textoffsetx>
                             <font>font_tiny_bold_uppercase</font>
                             <label>$INFO[ListItem.Label]</label>
+                            <visible>!Skin.HasSetting(PVRGuideGenreName)</visible>
+                        </control>
+                      <control type="label" id="1">
+                            <left>20</left>
+                            <width>218</width>
+                            <centertop>50%</centertop>
+                            <textcolor>main_fg_100</textcolor>
+                            <textoffsetx>0</textoffsetx>
+                            <font>font_small_bold_uppercase</font>
+                            <label>$INFO[ListItem.Label]</label>
+                            <visible>Skin.HasSetting(PVRGuideGenreName)</visible>
                         </control>
                         <control type="label" id="1">
                             <left>20</left>
@@ -788,6 +811,7 @@
                             <textoffsetx>0</textoffsetx>
                             <font>font_statusbar</font>
                             <label>$INFO[ListItem.Genre,[UPPERCASE],[/UPPERCASE]]</label>
+			    <visible>!Skin.HasSetting(PVRGuideGenreName)</visible>
                         </control>
                     </focusedlayout>
                 </control>
