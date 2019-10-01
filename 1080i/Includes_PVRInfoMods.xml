@@ -293,9 +293,9 @@
 				<onright>10</onright>
 	                        <onup>sendclick(28)</onup>
 				<ondown>10</ondown>
-		                <onback>ActivateWindow(Home)</onback>
-				<onback>ActivateWindow(FullScreenVideo)</onback>
-				<onback>28</onback>
+				<onback>SetProperty(CloseFromDialogSelect,1,Home)</onback>
+                                <onback>9102</onback>
+                                <onback>sendclick(28)</onback>
 				<rulerlayout height="45" width="40">
 					<control type="label" id="2">
 						<width>40</width>
@@ -561,10 +561,10 @@
                     <bottom>0</bottom>
                     <width>1980</width>
                     <height>592</height>
-                    <onleft>28</onleft>
                     <viewtype label="19069">list</viewtype>
-                    <onleft>9400</onleft>
 		    <onup>sendclick(28)</onup>
+                    <onback>SetProperty(CloseFromDialogSelect,1,Home)</onback>
+		    <onback>9102</onback>
 		    <onback>sendclick(28)</onback>
                     <!-- <progresstexture border="5" colordiffuse="bf777777">pvr/progressline-full.png</progresstexture> -->
                     <progresstexture border="5" colordiffuse="bfafb1b5">pvr/progressline-full.png</progresstexture> 

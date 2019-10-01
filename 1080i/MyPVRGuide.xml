@@ -4,6 +4,7 @@
     <background>0</background>
     <defaultcontrol always="true">10</defaultcontrol>
     
+    <onload>ClearProperty(DoCloseEPG,Home)</onload>
     <views>10</views>
 
     <controls>
@@ -23,5 +24,19 @@
             <description>Groups</description>
             <include>Defs_Hidden_Button</include>
         </control>
+<control type="button" id="9102">
+<onback condition="String.IsEmpty(Window(Home).Property(DoCloseEPG))">10</onback>
+<onback condition="String.IsEmpty(Window(Home).Property(DoCloseEPG))">SetProperty(CloseFromDialogSelect,1,Home)</onback>
+<onback condition="String.IsEmpty(Window(Home).Property(DoCloseEPG))">SendClick(28)</onback>
+    <onleft>10</onleft>
+    <onright>10</onright>
+    <ondown>10</ondown>
+    <onup>10</onup>
+    <onclick>10</onclick>
+    <visible allowhiddenfocus="true">false</visible>
+    <width>1</width>
+    <height>1</height>
+    <left>-2160</left>
+</control>
     </controls>
 </window>
