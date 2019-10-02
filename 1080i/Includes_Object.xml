@@ -592,7 +592,6 @@
   <include name="Spotlight_Tvshows_Widget">
     <control type="group">
       <control type="list" id="1505">
-        <onfocus>SetProperty(SkinHelper.WidgetContainer,1505,Home)</onfocus>
 	<animation effect="fade" start="100" end="0" time="300" condition="!Control.HasFocus(300)">Hidden</animation>
 	<animation effect="fade" start="0" end="100" delay="200" time="600" condition="!Control.HasFocus(300)">Visible</animation>
         <onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[id],Home)</onfocus>
@@ -6427,7 +6426,7 @@
                     <label>$INFO[Container($PARAM[id]).ListItem.Label,|  ]</label>
                     <include>Statusbar_Menubar_Items</include>
                     <visible>Control.HasFocus($PARAM[id]) + !$PARAM[landscapedetailscondition] + !$PARAM[landscapepanelcondition]</visible>
-		    <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetTitle) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + Skin.HasSetting(EnableShowCaseOverlay)]</visible>
+		    <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetTitle) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
 	<visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
                     <visible>Skin.HasSetting(LargeWidgetLabel)</visible>
                 </control>
@@ -6439,7 +6438,7 @@
                     <label>$INFO[Container($PARAM[id]).ListItem.Label,|  ]</label>
                     <include>Statusbar_Menubar_Items</include>
                     <visible>Control.HasFocus($PARAM[id]) + !$PARAM[landscapedetailscondition] + !$PARAM[landscapepanelcondition]</visible>
-		    <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetTitle) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + Skin.HasSetting(EnableShowCaseOverlay)]</visible>
+		    <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetTitle) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
         <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
                     <visible>!Skin.HasSetting(LargeWidgetLabel)</visible>
                 </control>
@@ -6451,7 +6450,7 @@
                     <label>$INFO[Container($PARAM[id]).ListItem.MPAA,|  ]</label>
                     <include>Statusbar_Menubar_Items</include>
                     <visible>Control.HasFocus($PARAM[id])</visible> 
-		    <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetMPAA) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + Skin.HasSetting(EnableShowCaseOverlay)]</visible>
+		    <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetMPAA) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
         <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
                     <visible>Skin.HasSetting(LargeWidgetLabel)</visible>
                 </control>
@@ -6463,7 +6462,7 @@
                     <label>$INFO[Container($PARAM[id]).ListItem.MPAA,|  ]</label>
                     <include>Statusbar_Menubar_Items</include>
                     <visible>Control.HasFocus($PARAM[id])</visible>  
-		    <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetMPAA) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + Skin.HasSetting(EnableShowCaseOverlay)]</visible>
+		    <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] +  Skin.HasSetting(DisableWidgetMPAA) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
         <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
                     <visible>!Skin.HasSetting(LargeWidgetLabel)</visible>
                 </control>
@@ -6683,11 +6682,12 @@
         <param name="controltype" default="fixedlist" />
         <param name="search" default="false" />
         <param name="movement" default="1" />
+        <param name="Showcase" default="false" />
         <definition>
 
 
      <control type="group" id="4$PARAM[id]">
-       <visible>Skin.HasSetting(EnableShowCaseOverlay) + Integer.IsGreater(Container($PARAM[id]).NumItems,0)</visible>
+       <visible>$PARAM[Showcase] + Integer.IsGreater(Container($PARAM[id]).NumItems,0)</visible>
        <control type="image">
          <top>40</top>
          <width>100%</width>
@@ -6799,22 +6799,7 @@
     </control>
    </control>
   </control>
-<!--
- <control type="image">
-     <left>20</left>
-     <top>100</top>
-     <width>500</width>
-     <height>281</height>
-     <animation effect="fade" start="0" end="100" time="400" condition="$PARAM[postercondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
-     <texture background="true">$VAR[Image_Clearart_Hub]</texture>
-     <aspectratio>keep</aspectratio>
-     <visible>$PARAM[postercondition] + Control.HasFocus($PARAM[id])</visible>
-  </control>
--->
  </control>
-
-
-
 
 
             <control type="group" id="2$PARAM[id]">
@@ -6852,14 +6837,14 @@
                 <animation effect="slide" end="-20,0" time="200" condition="$PARAM[landscapedetailscondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
                 <animation effect="zoom" start="100" end="130" time="200" condition="$PARAM[landscapedetailscondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
 -->
-                <animation effect="slide" end="640,0" time="0" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
-                <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
-                <animation effect="zoom" start="100,100" end="130,100" time="0" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
-                <animation effect="slide" end="-20,0" time="0" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
-                <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
-                <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
-                <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
-                <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="Skin.HasSetting(EnableShowCaseOverlay) + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="slide" end="640,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="zoom" start="100,100" end="130,100" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="slide" end="-20,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
 
 		<top>30</top>
                 <animation effect="fade" start="100" end="0" condition="Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating">Conditional</animation>

@@ -583,6 +583,21 @@
                     <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + !String.IsEqual(Window.Property(groupname),mainmenu)</visible>
                 </control>
 
+                <control type="radiobutton" id="9912" description="Widget Showcase">
+                    <width>100%</width>
+                    <label>Enable Widget Showcase Overlay</label>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
+                    <include>Dialog_Standard_ListButton</include>
+                    <radioposx>1130</radioposx>
+                    <selected>String.IsEqual(Container(211).ListItem.Property(widgetShowcase),true)</selected>
+                    <onclick>SetProperty(customProperty,widgetShowcase)</onclick>
+                    <onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetShowcase),true)">SetProperty(customValue,true)</onclick>
+                    <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetShowcase),true)">SetProperty(customValue,false)</onclick>
+                    <onclick>SendClick(404)</onclick>
+                    <align>left</align>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + !String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                </control>
                 <control type="label" id="9992">
                    <height>70</height>
                    <label>Global</label>
