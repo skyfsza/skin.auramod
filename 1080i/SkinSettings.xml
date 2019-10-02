@@ -659,11 +659,17 @@
                         <control type="radiobutton" id="9201" description="No fanart">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9002)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31121]</label>
+                            <label>Home Fanart</label>
                             <selected>!Skin.HasSetting(NoFanart)</selected>
                             <onclick>Skin.ToggleSetting(NoFanart)</onclick>
                         </control>
-
+                        <control type="radiobutton" id="92011" description="No fanart">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9002)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>View Fanart</label>
+                            <selected>!Skin.HasSetting(ViewNoFanart)</selected>
+                            <onclick>Skin.ToggleSetting(ViewNoFanart)</onclick>
+                        </control>
                         <control type="button" id="9202" description="Set Fallback Image">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9002)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1204,14 +1210,6 @@
 			    <enable>!Skin.HasSetting(DisableClearlogo)</enable>
                             <selected>!Skin.HasSetting(WidgetLabels)</selected>
                             <onclick>Skin.ToggleSetting(WidgetLabels)</onclick>
-                        </control>
-                        <control type="radiobutton" id="9621" description="Enable Showcase Overlay">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Enable Showcase Overlay</label>
-			    <visible>!Skin.HasSetting(DisableAuraHomeLayout)</visible>
-                            <selected>Skin.HasSetting(EnableShowCaseOverlay)</selected>
-                            <onclick>Skin.ToggleSetting(EnableShowCaseOverlay)</onclick>
                         </control>
                        <control type="radiobutton" id="9108" description="Prefer fanart">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
