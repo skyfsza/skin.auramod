@@ -1068,6 +1068,7 @@
 		    <visible>Control.HasFocus($PARAM[id])</visible>
 	            <visible>!Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB)</visible>
 	<visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(DialogVideoInfo.xml)]</visible>
+	<visible>$EXP[DBTvideos]</visible>
                     <bottom>10</bottom>
                     <height>40</height>
                <include content="Object_Ratings">
@@ -1348,6 +1349,24 @@
                     <param name="text" value="$PARAM[text]" />
                 </include>
             </itemlayout>
+           <focusedlayout width="800" height="widget_poster_height" condition="$PARAM[posterdetailscondition] + Control.HasFocus($PARAM[id])">
+                <include content="Widget_Items_FocusedLayout">
+                    <param name="id" value="$PARAM[id]" />
+                    <param name="posterdetails" value="true" />
+                    <param name="genres" value="$PARAM[genres]" />
+                    <param name="studios" value="$PARAM[studios]" />
+                    <param name="text" value="$PARAM[text]" />
+                </include>
+            </focusedlayout>
+          <focusedlayout width="widget_poster_width" height="widget_poster_height" condition="$PARAM[posterdetailscondition] + !Control.HasFocus($PARAM[id])">
+                <include content="Widget_Items_FocusedLayout">
+                    <param name="id" value="$PARAM[id]" />
+                    <param name="poster" value="true" />
+                    <param name="genres" value="$PARAM[genres]" />
+                    <param name="studios" value="$PARAM[studios]" />
+                    <param name="text" value="$PARAM[text]" />
+                </include>
+            </focusedlayout>
             <focusedlayout width="widget_poster_width" height="widget_poster_height" condition="$PARAM[postercondition]">
                 <include content="Widget_Items_FocusedLayout">
                     <param name="id" value="$PARAM[id]" />
@@ -1357,6 +1376,7 @@
                     <param name="text" value="$PARAM[text]" />
                 </include>
             </focusedlayout>
+
 
            <focusedlayout width="widget_landscapewide_width" height="widget_poster_height" condition="$PARAM[landscapewidepostercondition] + Control.HasFocus($PARAM[id])">
                 <include content="Widget_Items_FocusedLayout">
@@ -1386,24 +1406,6 @@
                 </include>
             </focusedlayout>
            <focusedlayout width="widget_poster_width" height="widget_poster_height" condition="$PARAM[landscapewidepostercondition] + !Control.HasFocus($PARAM[id])">
-                <include content="Widget_Items_FocusedLayout">
-                    <param name="id" value="$PARAM[id]" />
-                    <param name="poster" value="true" />
-                    <param name="genres" value="$PARAM[genres]" />
-                    <param name="studios" value="$PARAM[studios]" />
-                    <param name="text" value="$PARAM[text]" />
-                </include>
-            </focusedlayout>
-           <focusedlayout width="800" height="widget_poster_height" condition="$PARAM[posterdetailscondition] + Control.HasFocus($PARAM[id])">
-                <include content="Widget_Items_FocusedLayout">
-                    <param name="id" value="$PARAM[id]" />
-                    <param name="posterdetails" value="true" />
-                    <param name="genres" value="$PARAM[genres]" />
-                    <param name="studios" value="$PARAM[studios]" />
-                    <param name="text" value="$PARAM[text]" />
-                </include>
-            </focusedlayout>
-          <focusedlayout width="widget_poster_width" height="widget_poster_height" condition="$PARAM[posterdetailscondition] + !Control.HasFocus($PARAM[id])">
                 <include content="Widget_Items_FocusedLayout">
                     <param name="id" value="$PARAM[id]" />
                     <param name="poster" value="true" />
