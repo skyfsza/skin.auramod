@@ -62,6 +62,7 @@
               <include condition="Skin.HasSetting(EnableFullSpotlight)">Spotlight_Movies_Widget</include>
               <include condition="Skin.HasSetting(EnableFullSpotlight)">Spotlight_Tvshows_Widget</include>
               <control type="group">
+	      <animation effect="slide" start="0,0" end="0,80" time="0" condition="Skin.HasSetting(DisableMenuHor)">Conditonal</animation>
 	      <include content="Spotlight_MultiWidget" condition="Skin.HasSetting(EnableMultiWidgetSpotlight)">
                <param name="id" value="1506" />
                <param name="content" value="$VAR[moviemultispotlightpath]" />
@@ -70,6 +71,7 @@
 	      <left>70</left>
              </control>
               <control type="group">
+	      <animation effect="slide" start="0,0" end="0,80" time="0" condition="Skin.HasSetting(DisableMenuHor)">Conditonal</animation>
               <include content="Spotlight_MultiWidget" condition="Skin.HasSetting(EnableMultiWidgetSpotlight)">
                <param name="id" value="1505" />
                <param name="content" value="$VAR[tvshowmultispotlightpath]" />
@@ -412,6 +414,10 @@
       <control type="group" id="332" description="Spacer">
         <height>150</height>
         <visible>Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableCatlabel) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
+      </control>
+      <control type="group" id="3329" description="Spacer">
+        <height>-140</height>
+        <visible>Skin.HasSetting(DisableMenuHor) + !String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
       </control>
       <control type="group" id="333" description="Spacer">
         <height>50</height>
