@@ -156,6 +156,13 @@
     <value condition="String.IsEqual(Container(1506).ListItem.DBType,episode)">S$INFO[Container(1506).ListItem.Season]: E$INFO[Container(1506).ListItem.Episode] - $INFO[Container(1506).ListItem.Label]</value>
     </variable>
 
+    <variable name="moviemultispotlightpath">
+     <value condition="Window.IsActive(Home) + !String.IsEmpty(Skin.String(spotlightmovies.path))">$INFO[Skin.String(spotlightmovies.path)]&reload=$INFO[Window(Home).Property(widgetreload-tvshows)]</value>
+    </variable>
+    <variable name="tvshowmultispotlightpath">
+     <value condition="Window.IsActive(Home) + !String.IsEmpty(Skin.String(spotlighttvshows.path))">$INFO[Skin.String(spotlighttvshows.path)]&reload=$INFO[Window(Home).Property(widgetreload-tvshows)]</value>
+    </variable> 
+
     <variable name="moviespotlightpath">
      <value condition="Window.IsActive(Home) + !String.IsEmpty(Skin.String(spotlightmovies.path))">$INFO[Skin.String(spotlightmovies.path)]</value>
     </variable>
@@ -693,6 +700,8 @@
 
     <variable name="Label_Genre">
         <value condition="ListItem.IsCollection">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
+        <value condition="!String.IsEmpty(Container(1505).ListItem.Genre)">$INFO[Container(1505).ListItem.Genre]</value>
+        <value condition="!String.IsEmpty(Container(1506).ListItem.Genre)">$INFO[Container(1506).ListItem.Genre]</value>
         <value condition="!String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
         <value>Other</value>

@@ -589,6 +589,392 @@
           </control>
 	</include>
 
+
+  <include name="Spotlight_MultiWidget_TVShows_cast">
+
+			<control type="group">
+                                <visible>Control.IsVisible(1505) + [Control.HasFocus(1505) | Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(30222)]</visible>
+                  <animation effect="fade" time="1000">Visible</animation>
+                                <animation effect="fade" start="100" end="0" time="0" condition="Container(12).IsUpdating">Conditional</animation>
+                                <animation effect="fade" start="0" end="100" delay="500" time="700" tween="quadratic" reversible="false" condition="String.IsEqual(Skin.String(SpotFocus),true) + Control.HasFocus(30222)">Conditional</animation>
+				<width>800</width>
+                        <control type="wraplist" id="12">
+				<focusposition>0</focusposition>
+                                <top>410</top>
+                                <left>465</left>
+                                <width>800</width>
+                                <height>250</height>
+                                <onup>9001</onup>
+                                <ondown>SetFocus(800)</ondown>
+                                <orientation>horizontal</orientation>
+                                <autoscroll repeat="10000" time="5000" delay="5000">Control.HasFocus(30222) |  Control.HasFocus(1505)</autoscroll>
+                                <scrolltime easing="inout" tween="sine">300</scrolltime>
+                                <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person&amp;query=$INFO[Container(12).ListItem.Label],call_id=1137,prevent_del,delay=0.35)</onclick>
+                                <itemlayout height="184.8" width="128.8">
+                                        <control type="group">
+                                                <left>30</left>
+                                                <control type="image">
+                                                        <left>0</left>
+                                                        <top>5</top>
+                                                        <width>113.28</width>
+                                                        <height>168.78</height>
+                                                        <aspectratio align="center" aligny="center">scale</aspectratio>
+                                                        <texture background="true" fallback="DefaultActorSolid.png">$INFO[ListItem.Icon]</texture>
+                                                        <bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
+                                                        <bordersize>4</bordersize>
+                                                </control>
+                                                <control type="image">
+                                                        <left>0</left>
+                                                        <top>5</top>
+                                                        <width>109.76</width>
+                                                        <height>166.32</height>
+                                                        <aspectratio align="center" aligny="center">scale</aspectratio>
+                                                        <texture background="true" fallback="DefaultActorSolid.png" colordiffuse="79000000">common/white.png</texture>
+                                                </control>
+                                        </control>
+                                </itemlayout>
+                                <focusedlayout height="214.8" width="128.8">
+                                        <control type="group">
+                                                <left>30</left>
+                                                <control type="image">
+                                                        <left>0</left>
+                                                        <top>5</top>
+                                                        <width>109.76</width>
+                                                        <height>166.32</height>
+                                                        <aspectratio align="center" aligny="center">scale</aspectratio>
+                                                        <texture background="true" fallback="DefaultActorSolid.png">$INFO[ListItem.Icon]</texture>
+                                                        <bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
+                                                        <bordersize>4</bordersize>
+                                                        <visible>!Control.HasFocus(12)</visible>
+                                                </control>
+                                                <control type="image">
+                                                        <left>0</left>
+                                                        <top>5</top>
+                                                        <width>109.76</width>
+                                                        <height>166.32</height>
+                                                        <aspectratio align="center" aligny="center">scale</aspectratio>
+                                                        <texture background="true" fallback="DefaultActorSolid.png" colordiffuse="3000000">common/white.png</texture>
+                                                        <bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
+                                                        <bordersize>4</bordersize>
+                                                        <visible>!Control.HasFocus(12)</visible>
+                                                </control>
+                                                <control type="image">
+                                                        <left>-2</left>
+                                                        <top>3</top>
+                                                        <width>113.28</width>
+                                                        <height>168.78</height>
+                                                        <aspectratio align="center" aligny="center">scale</aspectratio>
+                                                        <texture background="true" fallback="DefaultActorSolid.png">$INFO[ListItem.Icon]</texture>
+                                                        <bordertexture colordiffuse="$VAR[ColorHighlight]">common/white.png</bordertexture>
+                                                        <bordersize>6</bordersize>
+                                                        <visible>Control.HasFocus(12)</visible>
+                                                </control>
+                                                <control type="image">
+                                                        <left>0</left>
+                                                        <top>5</top>
+                                                        <width>109.76</width>
+                                                        <height>166.32</height>
+                                                        <aspectratio align="center" aligny="center">scale</aspectratio>
+                                                        <texture background="true" fallback="DefaultActorSolid.png" colordiffuse="79000000">common/white.png</texture>
+                                                </control>
+                                                <control type="label">
+                                                        <left>0</left>
+                                                        <width>600</width>
+                                                        <height>20</height>
+                                                        <bottom>10</bottom>
+                                                        <font>font_small</font>
+                                                        <textcolor>dimgrey</textcolor>
+                                                        <label>[I][COLOR=grey]$INFO[ListItem.Label][/COLOR] as $INFO[ListItem.Label2][/I]</label>
+                                                </control>
+                     </control>
+                                </focusedlayout>
+                                <content limit="6" target="video">plugin://plugin.video.themoviedb.helper/?info=cast&amp;$VAR[Info_Param_Type_1505]&amp;$VAR[Info_Param_IMDB_or_QUERY_1505]</content>
+                        </control>
+                        </control>
+
+  </include>
+
+
+  <include name="Spotlight_MultiWidget_Movies_cast">
+		<control type="group">
+				<visible>Control.IsVisible(1506) + [Control.HasFocus(1506) | Control.HasFocus(300) | Control.HasFocus(401) | Control.HasFocus(30222)]</visible>
+				<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Container(11).IsUpdating">Conditional</animation>
+			        <animation effect="fade" start="0" end="100" delay="500" time="700" tween="quadratic" reversible="false" condition="String.IsEqual(Skin.String(SpotFocus),true) + Control.HasFocus(30222)">Conditional</animation>
+			        <animation effect="fade" start="0" end="100" delay="500" time="700" tween="quadratic" reversible="false" condition="!Control.HasFocus(30222)">Visible</animation>
+
+                        <control type="wraplist" id="11">
+                                <focusposition>0</focusposition>
+                                <top>410</top>
+                                <left>465</left>
+                                <width>800</width>
+                                <height>250</height>
+                                <onup>9001</onup>
+                                <ondown>SetFocus(800)</ondown>
+                                <orientation>horizontal</orientation>
+                                <autoscroll repeat="10000" time="5000" delay="5000">Control.HasFocus(30222) |  Control.HasFocus(1506)</autoscroll>
+                                <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person&amp;query=$INFO[Container(11).ListItem.Label],call_id=1137,prevent_del,delay=0.35)</onclick>
+                                <itemlayout height="184.8" width="128.8">
+                                        <control type="group">
+                                                <left>30</left>
+                                                <control type="image">
+                                                        <left>0</left>
+                                                        <top>5</top>
+                                                        <width>113.28</width>
+                                                        <height>168.78</height>
+                                                        <aspectratio align="center" aligny="center">scale</aspectratio>
+                                                        <texture background="true" fallback="DefaultActorSolid.png">$INFO[ListItem.Icon]</texture>
+                                                        <bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
+                                                        <bordersize>4</bordersize>
+                                                </control>
+                                                <control type="image">
+                                                        <left>0</left>
+                                                        <top>5</top>
+                                                        <width>109.76</width>
+                                                        <height>166.32</height>
+                                                        <aspectratio align="center" aligny="center">scale</aspectratio>
+                                                        <texture background="true" fallback="DefaultActorSolid.png" colordiffuse="89000000">common/white.png</texture>
+                                                </control>
+                                        </control>
+                                </itemlayout>
+                                <focusedlayout height="214.8" width="128.8">
+                                        <control type="group">
+                                                <left>30</left>
+                                                <control type="image">
+                                                        <left>0</left>
+                                                        <top>5</top>
+                                                        <width>109.76</width>
+                                                        <height>166.32</height>
+                                                        <aspectratio align="center" aligny="center">scale</aspectratio>
+                                                        <texture background="true" fallback="DefaultActorSolid.png">$INFO[ListItem.Icon]</texture>
+                                                        <bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
+                                                        <bordersize>4</bordersize>
+                                                        <visible>!Control.HasFocus(11)</visible>
+                                                </control>
+                                                <control type="image">
+                                                        <left>0</left>
+                                                        <top>5</top>
+                                                        <width>109.76</width>
+                                                        <height>166.32</height>
+                                                        <aspectratio align="center" aligny="center">scale</aspectratio>
+                                                        <texture background="true" fallback="DefaultActorSolid.png" colordiffuse="3000000">common/white.png</texture>
+                                                        <bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
+                                                        <bordersize>4</bordersize>
+                                                        <visible>!Control.HasFocus(11)</visible>
+                                                </control>
+                                                <control type="image">
+                                                        <left>-2</left>
+                                                        <top>3</top>
+                                                        <width>113.28</width>
+                                                        <height>168.78</height>
+                                                        <aspectratio align="center" aligny="center">scale</aspectratio>
+                                                        <texture background="true" fallback="DefaultActorSolid.png">$INFO[ListItem.Icon]</texture>
+                                                        <bordertexture colordiffuse="$VAR[ColorHighlight]">common/white.png</bordertexture>
+                                                        <bordersize>6</bordersize>
+                                                        <visible>Control.HasFocus(11)</visible>
+                                                </control>
+                                                <control type="image">
+                                                        <left>0</left>
+                                                        <top>5</top>
+                                                        <width>109.76</width>
+                                                        <height>166.32</height>
+                                                        <aspectratio align="center" aligny="center">scale</aspectratio>
+                                                        <texture background="true" fallback="DefaultActorSolid.png" colordiffuse="89000000">common/white.png</texture>
+                                                </control>
+                                                <control type="label">
+                                                        <left>0</left>
+                                                        <width>500</width>
+                                                        <height>20</height>
+                                                        <bottom>10</bottom>
+                                                        <font>font_small</font>
+                                                        <textcolor>dimgrey</textcolor>
+                                                        <label>[I][B]$INFO[ListItem.Label][/B] as $INFO[ListItem.Label2][/I]</label>
+                                                </control>
+                     </control>
+                                </focusedlayout>
+                                <content limit="6" target="video">plugin://plugin.video.themoviedb.helper/?info=cast&amp;$VAR[Info_Param_Type_1506]&amp;$VAR[Info_Param_IMDB_or_QUERY_1506]</content>
+
+                        </control>
+                        </control>
+  </include>
+
+
+  <include name="Spotlight_MultiWidget">
+    <param name="id" default="" />
+    <param name="content" default="" />
+    <param name="type" default="" />
+    <definition>
+     <control type="wraplist" id="$PARAM[id]">
+        <visible>[Control.HasFocus(400) | Control.HasFocus(300) | Control.HasFocus(3022) | Control.HasFocus(30221) | Control.HasFocus(30222) | Control.HasFocus($PARAM[id]) | ControlGroup(505).HasFocus] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),$PARAM[type])</visible>
+        <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)</visible>
+
+        <orientation>horizontal</orientation>
+        <onclick condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie) | Container.Content(movies) | Container.Content(tvshows)]">Action(Info)        </onclick>
+	<top>20</top>
+        <width>1900</width>
+        <height>620</height>
+        <preloaditems>2</preloaditems>
+        <animation effect="fade" start="0" end="100" time="300" condition="!Control.HasFocus(300)">Visible</animation>
+        <animation effect="slide" start="0,0" end="0,-620" time="700" tween="quadratic" condition="!Control.HasFocus(300)">Hidden</animation>
+        <animation effect="slide" start="0,-620" end="0,0" time="700" tween="quadratic" reversible="false" condition="String.IsEqual(Skin.String(SpotFocus),true) + Control.HasFocus(30222)">Conditional</animation>
+        <autoscroll time="15000">Control.HasFocus(30222) | ControlGroup(505).HasFocus</autoscroll>
+	<scrolltime>500</scrolltime>
+        <ondown condition="!Skin.HasSetting(DisableNetflixCatWidget)">30222</ondown>
+        <ondown condition="Skin.HasSetting(DisableNetflixCatWidget)">330</ondown>
+	<movement>1</movement>
+        <include content="Widget_Common">
+          <param name="top" value="$PARAM[top]" />
+          <param name="height" value="$PARAM[height]" />
+          <param name="id" value="$PARAM[id]" />
+          <param name="aspect" value="$PARAM[aspect]" />
+          <param name="widgetAspect" value="$PARAM[widgetAspect]" />
+          <param name="submenu" value="$PARAM[submenu]" />
+        </include>
+        <itemlayout width="385" height="620">
+          <control type="group">
+            <left>-25</left>
+            <right>10</right>
+            <top>0</top>
+            <bottom>-0</bottom>
+            <include>Defs_PosterBack</include>
+            <control type="group">
+              <top>10</top>
+              <right>10</right>
+              <bottom>10</bottom>
+              <left>10</left>
+              <control type="image">
+                <texture background="true" diffuse="diffuse/widgetposter.png" fallback="DefaultFanartFallback.jpg">$VAR[Image_Poster]</texture>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+              </control>
+            </control>
+            <include>View_WatchedOverlay</include>
+            <control type="image">
+              <bordersize>10</bordersize>
+              <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
+            </control>
+          </control>
+        </itemlayout>
+        <focusedlayout width="1450" height="620">
+          <control type="group">
+           <scrolltime tween="linear">400</scrolltime>
+            <left>-15</left>
+	    <right>20</right>
+            <top>0</top>
+            <bottom>-0</bottom>
+            <include>Defs_PosterBack</include>
+            <control type="group">
+              <top>10</top>
+              <right>10</right>
+              <bottom>10</bottom>
+              <left>10</left>
+              <control type="group">
+<!--
+                <control type="image">
+                  <fadetime>500</fadetime>
+                  <width>100%</width>
+                  <height>100%</height>
+                  <texture background="true" diffuse="diffuse/widgetlandscape.png" fallback="common/black-back.png">$VAR[Spotlight_Fanart]</texture>
+                  <aspectratio scalediffuse="false">scale</aspectratio>
+                </control>
+                <control type="image">
+                  <width>100%</width>
+                  <height>100%</height>
+                  <texture colordiffuse="99000000" border="10" flipy="true">diffuse/landscape.png</texture>
+                </control>
+-->
+                <control type="image">
+                  <width>100%</width>
+                  <height>100%</height>
+                  <texture colordiffuse="20000000" border="10" flipy="true">diffuse/landscape.png</texture>
+                </control>
+                <control type="group">
+                  <height min="60" max="251">auto</height>
+                  <animation effect="fade" time="0">VisibleChange</animation>
+                  <control type="image">
+                    <top>50</top>
+                    <left>50</left>
+                    <right>$PARAM[titleright]</right>
+                    <height>500</height>
+                    <width>330</width>
+                    <aligny>top</aligny>
+                    <texture background="true">$VAR[Image_Poster]</texture>
+                  </control>
+                </control>
+                <control type="image">
+		  <top>420</top>
+		  <left>1230</left>
+                  <texture colordiffuse="main_fg_100">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
+                  <height>109</height>
+                  <width>161</width>
+                  <aspectratio aligny="center" align="center">keep</aspectratio>
+		  <visible>!Container(12).IsUpdating</visible>
+		  <animation effect="fade" time="1000">Visible</animation>
+                </control>
+                <control type="group">
+                  <height min="100" max="595">auto</height>
+                  <left>40</left>
+                  <control type="group">
+                    <top>250</top>
+                    <left>400</left>
+    <control type="group">
+        <top>-200</top>
+       <control type="label">
+        <width>700</width>
+        <height>30</height>
+        <font>font_small</font>
+        <textcolor>dimgrey</textcolor>
+        <label>$VAR[Label_Genre]</label>
+        <scroll>false</scroll>
+       </control>
+       <control type="label">
+        <top>30</top>
+        <height>60</height>
+        <width>700</width>
+        <font>font_xlarge_bold</font>
+        <textcolor>grey</textcolor>
+        <label>$VAR[video_heading]</label>
+        <scroll>true</scroll>
+       </control>
+       </control>
+<!--
+                    <control type="group">
+		      <top>-30</top>
+                      <height>20</height>
+                      <visible>String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow)</visible>
+                      <control type="label">
+                        <top>-90</top>
+                        <label>$VAR[date_aired] Duration: [/COLOR][B]$VAR[Label_Duration][/B][COLOR=$VAR[ColorHighlight]] Ends: [/COLOR][B]$INFO[ListItem.EndTime][/B]</label>
+                        <width>650</width>
+                        <textcolor>grey</textcolor>
+                        <font>font_small</font>
+                      </control>
+                    </control>
+-->
+                    <control type="group">
+                      <visible>!String.IsEmpty(ListItem.Plot)</visible>
+                      <top>-80</top>
+                      <height min="20" max="170">auto</height>
+                      <control type="textbox">
+                        <label fallback="19055">$VAR[Label_Plot]</label>
+                        <width>950</width>
+                        <textcolor>dimgrey</textcolor>
+                        <font>font_plotbox</font>
+                        <autoscroll>true</autoscroll>
+                      </control>
+                    </control>
+
+<!-- end  -->
+                  </control>
+                </control>
+              </control>
+            </control>
+          </control>
+        </focusedlayout>
+        <content target="videos" sortby="year" sortorder="descending" limit="5">$PARAM[content]</content>
+      </control>
+  </definition>
+  </include>
+
+
   <include name="Spotlight_Tvshows_Widget">
     <control type="group">
       <control type="list" id="1505">
@@ -2768,9 +3154,10 @@
                 <bottom>-0</bottom>
                 <control type="group">
                     <include>Defs_PosterBack</include>
+
                     <control type="image">
                         <bordersize>10</bordersize>
-                        <texture background="true" diffuse="diffuse/submenu.png">$INFO[ListItem.Property(background)]</texture>
+                        <texture background="true" diffuse="diffuse/landscape.png">$INFO[ListItem.Property(background)]</texture>
                         <visible>!String.IsEmpty(ListItem.Property(background))</visible>
                     </control>
                     <control type="image">
@@ -2851,7 +3238,7 @@
                     <include>Defs_PosterBack</include>
                     <control type="image">
                         <bordersize>10</bordersize>
-                        <texture background="true" diffuse="diffuse/submenu.png">$INFO[ListItem.Property(background)]</texture>
+                        <texture background="true" diffuse="diffuse/landscape.png">$INFO[ListItem.Property(background)]</texture>
                         <visible>!String.IsEmpty(ListItem.Property(background))</visible>
                     </control>
                     <control type="image">
@@ -5555,6 +5942,7 @@
   <!-- @PXCL dev -->
   <include name="Logo">
     <control type="group">
+    <visible>![Skin.HasSetting(EnableMultiWidgetSpotlight) + [Control.IsVisible(1505) | Control.IsVisible(1506)]]</visible>
     <control type="group">
       <top>35</top>
       <animation type="Conditional" condition="Window.Previous(fullscreenvideo)">
@@ -5611,10 +5999,9 @@
     </control>
   </include>
 
-
   <include name="netflix_infoline">
     <control type="group">
-     <visible>[$EXP[DBTvideos] + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(660) + !String.IsEqual(ListItem.Label,See More...) + !String.IsEqual(ListItem.Label,Next)] | [String.Contains(ListItem.FolderPath,plugin.video.youtube)]</visible> 
+     <visible>[$EXP[DBTvideos] + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(660) + !String.IsEqual(Container($PARAM[id]).ListItem.Container($PARAM[id]).Label,See More...) + !String.IsEqual(Container($PARAM[id]).ListItem.Container($PARAM[id]).Label,Next)] | [String.Contains(Container($PARAM[id]).ListItem.FolderPath,plugin.video.youtube)]</visible> 
       <height>60</height>
       <control type="grouplist">
         <orientation>horizontal</orientation>
@@ -7040,17 +7427,6 @@
 			<include condition="!$PARAM[submenu] + !Skin.HasSetting(DisableNetflixLargeWidget) | Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(3820)">Widgets_Items_menu_Big_Height</include>
 			<include condition="!$PARAM[submenu] + Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + ![Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]">Widgets_Items_menu_Small_Height</include>
 			<onclick condition="!Skin.HasSetting(EnableShowInfo) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]">Action(Info)</onclick>
-<!--
-            <onclick condition="!Skin.HasSetting(EnableShowInfo) + String.IsEmpty(ListItem.DBType) + !Window.IsVisible(Home) + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),true)">ActivateWindow(10025,$ESCINFO[Container(5055).ListItem.FileNameAndPath],return)</onclick>
-              <onclick condition="!Skin.HasSetting(EnableShowInfo) + String.IsEmpty(ListItem.DBType) + !Window.IsVisible(Home) + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),false)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
-              <onclick condition="!Skin.HasSetting(EnableShowInfo) + String.IsEmpty(ListItem.DBType) + !Window.IsVisible(Home) + !String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
-
-		<onclick condition="Skin.HasSetting(EnableShowInfo) + Window.IsVisible(1138)">ActivateWindow(Home)</onclick>
-		<onclick condition="!Skin.HasSetting(EnableShowInfo) + !Window.IsVisible(Home) + String.IsEqual(ListItem.Label,See More)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
-            <onclick condition="Skin.HasSetting(EnableShowInfo) + !Window.IsVisible(Home) + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),true)">ActivateWindow(10025,$ESCINFO[Container(5055).ListItem.FileNameAndPath],return)</onclick>
-              <onclick condition="Skin.HasSetting(EnableShowInfo) + !Window.IsVisible(Home) + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),false)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
-              <onclick condition="Skin.HasSetting(EnableShowInfo) + !Window.IsVisible(Home) + !String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
--->
 			<visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | Container(300).OnNext | Container(300).OnPrevious | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
 			<include content="Widget_Items" condition="!$PARAM[submenu]">
 			    <param name="id" value="$PARAM[id]" />

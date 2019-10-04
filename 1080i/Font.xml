@@ -179,6 +179,11 @@
             <size>42</size>
         </font>
         <font>
+            <name>font_xlarge_bold</name>
+            <filename>RobotoCondensed-Bold.ttf</filename>
+            <size>50</size>
+        </font>
+        <font>
             <name>font_small</name>
             <filename>RobotoCondensed-Regular.ttf</filename>
             <size>30</size>

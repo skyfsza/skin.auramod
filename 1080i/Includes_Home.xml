@@ -234,6 +234,7 @@
                                                                    >Conditional</animation>
   <include>Home_MainMenu_Layout_wLabel_texture</include>
 		<control type="list" id="300">
+			<onfocus>Skin.SetString(SpotFocus,false)</onfocus>
 			<onfocus>Skin.Reset(TVHubMenuFocus)</onfocus>
 			<onfocus>Skin.Reset(MovieHubMenuFocus)</onfocus>
 			<onleft condition="Skin.HasSetting(DisableSubMenuVert) + Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Label,TV Shows)">SetFocus(400,0)</onleft>

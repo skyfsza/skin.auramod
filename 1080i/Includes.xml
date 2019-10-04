@@ -8,7 +8,8 @@
      <expression name="MainSubMenuHasFocus">Control.HasFocus(3001) + Control.HasFocus(302) + Control.HasFocus(30222) + Control.HasFocus(300)</expression>
      <expression name="HubMenu">Control.HasFocus(400) + Control.HasFocus(401)</expression>
      <expression name="ListHubsActive">Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsActive(2118)</expression>
-
+     <expression name="TVSpotlight">String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) + Integer.IsGreater(Container(1505).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</expression>
+     <expression name="MovieSpotlight">String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + Integer.IsGreater(Container(1506).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</expression>
 
     <include file="Defaults.xml" />
     <include file="Includes_MediaHub.xml" />

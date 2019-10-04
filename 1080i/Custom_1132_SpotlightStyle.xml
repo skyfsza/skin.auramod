@@ -47,6 +47,7 @@
                             <radioposx>630</radioposx>
                             <label>Enable Fullscreen Spotlight</label>
                             <selected>Skin.HasSetting(EnableFullSpotlight)</selected>
+                            <onclick condition="Skin.HasSetting(EnableMultiWidgetSpotlight)">Skin.ToggleSetting(EnableMultiWidgetSpotlight)</onclick>
                             <onclick condition="!Skin.HasSetting(EnableWidgetSpotlight)">Skin.ToggleSetting(EnableWidgetSpotlight)</onclick>
                             <onclick condition="!Skin.HasSetting(EnableFullSpotlight)">Skin.ToggleSetting(EnableFullSpotlight)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/spotlight_full.jpg)</onfocus>
@@ -57,9 +58,21 @@
                             <radioposx>630</radioposx>
                             <label>Enable Widget Spotlight</label>
                             <selected>!Skin.HasSetting(EnableWidgetSpotlight)</selected>
+                            <onclick condition="Skin.HasSetting(EnableMultiWidgetSpotlight)">Skin.ToggleSetting(EnableMultiWidgetSpotlight)</onclick>
                             <onclick condition="Skin.HasSetting(EnableFullSpotlight)">Skin.ToggleSetting(EnableFullSpotlight)</onclick>
                             <onclick condition="Skin.HasSetting(EnableWidgetSpotlight)">Skin.ToggleSetting(EnableWidgetSpotlight)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/spotlight_widget.jpg)</onfocus>
+                            <onclick>ReloadSkin()</onclick>
+                        </control>
+                        <control type="radiobutton" id="9003" description="Enable Widget Spotlight">
+                            <include>Dialog_Standard_ListButton</include>
+                            <radioposx>630</radioposx>
+                            <label>Enable Multi Widget Spotlight</label>
+                            <selected>Skin.HasSetting(EnableMultiWidgetSpotlight)</selected>
+                            <onclick condition="Skin.HasSetting(EnableFullSpotlight)">Skin.ToggleSetting(EnableFullSpotlight)</onclick>
+                            <onclick condition="!Skin.HasSetting(EnableWidgetSpotlight)">Skin.ToggleSetting(EnableWidgetSpotlight)</onclick>
+                            <onclick condition="!Skin.HasSetting(EnableMultiWidgetSpotlight)">Skin.ToggleSetting(EnableMultiWidgetSpotlight)</onclick>
+                            <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/spotlight_multiwidget.jpg)</onfocus>
                             <onclick>ReloadSkin()</onclick>
                         </control>
            </control>
