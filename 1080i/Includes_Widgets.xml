@@ -31,6 +31,8 @@
     </definition>
   </include>
   <include name="Widgets">
+  <include>Animation_Right</include>
+
     <include condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">nosidemenu_widget_control</include>
     <control type="group">
       <visible allowhiddenfocus="true">!$EXP[Exp_HideFurniture]</visible>
@@ -400,9 +402,14 @@
       <itemgap>0</itemgap>
       <usecontrolcoords>true</usecontrolcoords>
       <scrolltime tween="quadratic">800</scrolltime>
-      <animation effect="slide" start="0,0" end="0,-590" time="700" tween="quadratic" reversible="false" condition="[Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)]  +  String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) +  Integer.IsGreater(Container(1505).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + ControlGroup(330).HasFocus + !Control.HasFocus(30222)">Conditional</animation>
 
-      <animation effect="slide" start="0,0" end="0,-590" time="700" tween="quadratic" reversible="false" condition="[Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)]  + String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + Integer.IsGreater(Container(1506).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + ControlGroup(330).HasFocus + !Control.HasFocus(30222)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,115" time="0" tween="quadratic" reversible="false" condition="Skin.HasSetting(EnableMultiWidgetSpotlight)  +  String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + [ [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) + [Container(1505).IsUpdating | Integer.IsGreater(Container(1505).NumItems,0)]] | [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + [Container(1506).IsUpdating | Integer.IsGreater(Container(1506).NumItems,0)]]] + [Control.HasFocus(3337) | Control.HasFocus(1505) | Control.HasFocus(1506) | Control.HasFocus(400) | Control.HasFocus(401) | Control.HasFocus(300) | [Control.HasFocus(30222) + [Control.IsVisible(1505) | Control.IsVisible(1506)]]]">Conditional</animation>
+
+
+
+      <animation effect="slide" start="0,0" end="0,-590" time="700" tween="quadratic" reversible="false" condition="[Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)]  +  String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) +  Integer.IsGreater(Container(1505).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + [ControlGroup(330).HasFocus | Control.HasFocus(3337)] + !Control.HasFocus(30222)">Conditional</animation>
+
+      <animation effect="slide" start="0,0" end="0,-590" time="700" tween="quadratic" reversible="false" condition="[Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)]  + String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + Integer.IsGreater(Container(1506).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + [ControlGroup(330).HasFocus | Control.HasFocus(3337)] + !Control.HasFocus(30222)">Conditional</animation>
 
       <animation effect="slide" start="0,-590" end="0,-0" time="700" tween="quadratic" reversible="false" condition="[Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)]  + [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + Integer.IsGreater(Container(1506).NumItems,0) | String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) + Integer.IsGreater(Container(1505).NumItems,0) ] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Skin.String(SpotFocus),true) + Control.HasFocus(30222)">Conditional</animation>
 
@@ -442,7 +449,7 @@
       </control>
       <control type="group" id="355" description="Spacer">
         <height>40</height>
-        <visible>!Skin.HasSetting(DisableCatlabel) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
+        <visible>[Skin.HasSetting(EnableMultiWidgetSpotlight) | !Skin.HasSetting(DisableCatlabel)] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
       </control>
       <control type="group" id="340" description="Spacer">
         <height>60</height>
@@ -518,6 +525,8 @@
     <animation effect="fade" start="0" end="100" time="700" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
     <animation effect="fade" start="0" end="100" time="700" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
   </include>
+
+
   <include name="Widget">
     <param name="submenu" default="false" />
     <param name="genres" default="false" />
@@ -545,6 +554,7 @@
     <param name="movement" default="1" />
     <param name="focusposition" default="1" />
     <param name="Showcase" default="false" />
+    <param name="orientation" default="horizontal" />
     <definition>
       <control type="group" id="4$PARAM[id]">
         <visible>Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(Home)</visible>
@@ -724,6 +734,7 @@
         </control>
       </control>
       <control type="$PARAM[controltype]" id="$PARAM[id]">
+	<orientation>$PARAM[orientation]</orientation>
 	<onfocus>Skin.SetString(SpotFocus,true)</onfocus>
         <animation effect="slide" end="640,0" time="10" reversible="false" sine="inout" condition="[Window.IsVisible(Home) | Window.IsVisible(3910) | Window.IsVisible(3920)] + $PARAM[Showcase] + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
         <animation effect="slide" end="640,0" time="10" reversible="true" sine="inout" condition="[Window.IsVisible(Home) | Window.IsVisible(3910) | Window.IsVisible(3920)] + $PARAM[Showcase] + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
@@ -806,19 +817,6 @@
           <param name="mylist1" value="$PARAM[mylist1]" />
           <param name="Showcase" value="$PARAM[Showcase]" />
         </include>
-        <!--
-                <include content="Widget_Submenu" condition="$PARAM[submenu]">
-                    <param name="id" value="$PARAM[id]" />
-                    <param name="target" value="$PARAM[target]" />
-                    <param name="content" value="$PARAM[content]" />
-                    <param name="widgetContent" value="$PARAM[widgetContent]" />
-                    <param name="aspect" value="$PARAM[aspect]" />
-                    <param name="widgetAspect" value="$PARAM[widgetAspect]" />
-                    <param name="submenu" value="$PARAM[submenu]" />
-                    <param name="sortby" value="$PARAM[sortby]" />
-                    <param name="sortorder" value="$PARAM[sortorder]" />
-                </include>
--->
       </control>
     </definition>
   </include>
@@ -898,6 +896,7 @@
     <param name="text" default="false" />
     <definition>
       <control type="group" id="2$PARAM[id]">
+      <animation effect="slide" start="0,0" end="0,-40" time="0" tween="quadratic" reversible="false" condition="Skin.HasSetting(EnableMultiWidgetSpotlight)  +  String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + [ [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) + [Container(1505).IsUpdating | Integer.IsGreater(Container(1505).NumItems,0)]] | [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + [Container(1506).IsUpdating | Integer.IsGreater(Container(1506).NumItems,0)]]] + [Control.HasFocus(1505) | Control.HasFocus(1506) | Control.HasFocus(400) | Control.HasFocus(401) | Control.HasFocus(300) | [Control.HasFocus(30222) + [Control.IsVisible(1505) | Control.IsVisible(1506)]]]">Conditional</animation>
         <top>widget_gap</top>
         <left>-55</left>
         <visible>$PARAM[visible]</visible>
@@ -920,6 +919,8 @@
         </control>
       </control>
       <control type="list" id="$PARAM[id]">
+      <animation effect="slide" start="0,0" end="0,-40" time="0" tween="quadratic" reversible="false" condition="Skin.HasSetting(EnableMultiWidgetSpotlight)  +  String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + [ [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) + [Container(1505).IsUpdating | Integer.IsGreater(Container(1505).NumItems,0)]] | [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + [Container(1506).IsUpdating | Integer.IsGreater(Container(1506).NumItems,0)]]] + [Control.HasFocus(1505) | Control.HasFocus(1506) | Control.HasFocus(400) | Control.HasFocus(401) | Control.HasFocus(300) | [Control.HasFocus(30222) + [Control.IsVisible(1505) | Control.IsVisible(1506)]]]">Conditional</animation>
+
 	<onunfocus>Skin.SetString(SpotFocus,false)</onunfocus>
         <left>0</left>
         <movement>2</movement>

@@ -5,6 +5,7 @@
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
     <include>Home_TVHubMenu_Layout</include>
+      <include>Animation_Right</include>
     <control type="label">
       <left>80</left>
       <top>40</top>
@@ -19,6 +20,7 @@
       <animation effect="slide" end="240,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
     </control>
     <control type="list" id="505">
+      <include>Animation_Right</include>
       <animation effect="slide" end="240,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
       <animation effect="slide" end="-500,0" time="500" delay="100" condition="ControlGroup(5055).HasFocus">Conditional</animation>
       <onright>5055</onright>
@@ -69,6 +71,8 @@
     </control>
       <include>object_menuhub_includes</include>
     <control type="grouplist" id="5055">
+      <include>Animation_Right</include>
+
       <animation effect="slide" end="300,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
       <animation effect="slide" end="-430,0" time="500" condition="ControlGroup(5055).HasFocus">Conditional</animation>
       <left>420</left>

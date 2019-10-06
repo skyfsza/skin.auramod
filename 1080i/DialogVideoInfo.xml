@@ -31,6 +31,7 @@
     <onload condition="[Container.Content(movies) | Container.Content(tvshows)] + !Player.HasVideo + Skin.HasSetting(EnableVideoInfoAutoplay)">AlarmClock(trailer_delay,PlayMedia($INFO[ListItem.Trailer],false,1),00:02,silent)</onload>>
     <onunload condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunload>
     <controls>
+
       <include condition="Skin.HasSetting(SkinHelper.EnableExtraFanart)">fanart_multi</include>
 	<control type="button" id="9005">
 	 <visible allowhiddenfocus="true">false</visible>

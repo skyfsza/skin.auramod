@@ -33,6 +33,8 @@
         <value>videodb://</value>
     </variable>
    <variable name="Info_Param_IMDB_or_QUERY">
+        <value condition="String.IsEmpty(Window().Property(item.info.tvshowtitle)) + !String.IsEmpty(Window().Property(item.info.title)) + !String.IsEmpty(Window().Property(item.info.year))">query=$INFO[Window().Property(item.info.title)]&amp;year=$INFO[Window().Property(item.info.title)]</value>
+        <value condition="!String.IsEmpty(Window().Property(item.info.tvshowtitle)) + !String.IsEmpty(Window().Property(item.info.year))">query=$INFO[Window().Property(item.info.tvshowtitle)]&amp;year=$INFO[Window().Property(item.info.title)]</value>
         <value condition="[String.IsEqual(ListItem.DBType,movie) | Container.Content(movies)] + !String.IsEmpty(ListItem.Property(imdb_id))">imdb_id=$INFO[ListItem.Property(imdb_id)]</value>
         <value condition="[String.IsEqual(ListItem.DBType,movie) | Container.Content(movies)] + !String.IsEmpty(ListItem.IMDBNumber) + !String.StartsWith(ListItem.IMDBNumber,xx)">imdb_id=$INFO[ListItem.IMDBNumber]</value>
         <value condition="[String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !String.IsEmpty(ListItem.TvShowTitle)">query=$INFO[ListItem.TvShowTitle]</value>
@@ -74,6 +76,8 @@
 
 
     <variable name="Info_Param_Type">
+        <value condition="String.IsEmpty(Window().Property(item.info.season)) + !String.IsEmpty(Window().Property(item.info.title))">type=movie</value>
+        <value condition="!String.IsEmpty(Window().Property(item.info.season)) + !String.IsEmpty(Window().Property(item.info.title))">type=tv</value>
         <value condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,set) | Container.Content(movies) | Container.Content(set)">type=movie</value>
         <value condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,set) | Container.Content(movies) | Container.Content(set)">type=movie</value>
         <value condition="String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episode)">type=tv</value>

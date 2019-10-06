@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="1111">
     <defaultcontrol always="true">4000</defaultcontrol>
-    <onload condition="String.IsEqual(Skin.String(hubstartup),true)">ActivateWindow(2114)</onload>
-    <onload condition="String.IsEqual(Skin.String(hubstartup),true)">ActivateWindow(2118)</onload>
+<!--    <onload condition="String.IsEqual(Skin.String(hubstartup),true)">ActivateWindow(2114)</onload>
     <onload condition="String.IsEqual(Skin.String(hubstartup),true)">ActivateWindow(4010)</onload>
-    <onload condition="String.IsEqual(Skin.String(hubstartup),true)">ActivateWindow(2112)</onload>
-    <onload condition="String.IsEqual(Skin.String(hubstartup),true)">ActivateWindow(4020)</onload>
+    <onload condition="String.IsEqual(Skin.String(hubstartup),true)">ActivateWindow(2118)</onload> 
+    <onload condition="String.IsEqual(Skin.String(hubstartup),true)">ActivateWindow(2112)</onload> -->
+
+    <onload condition="String.IsEqual(Skin.String(hubstartup),true)">ActivateWindow(3910)</onload>
+    <onload condition="String.IsEqual(Skin.String(hubstartup),true)">ActivateWindow(3920)</onload>
+    <onload condition="String.IsEqual(Skin.String(hubstartup),true)">ActivateWindow(2114)</onload>
+    <onload condition="String.IsEqual(Skin.String(hubstartup),true)">ActivateWindow(2112)</onload> 
+
+<!--    <onload condition="String.IsEqual(Skin.String(hubstartup),true)">ActivateWindow(4020)</onload> -->
     <onload condition="String.IsEqual(Skin.String(hubstartup),true)">Skin.Reset(hubstartup)</onload>
     <onload condition="String.IsEqual(Skin.String(hubstartup),true)">ActivateWindow(Home)</onload>
     <controls>

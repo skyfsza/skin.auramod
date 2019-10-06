@@ -944,6 +944,7 @@
 
 
   <include name="DialogVideoInfo_Netflix">
+      <include>Animation_Right</include>
 
     <!-- trailer video preview -->
     <control type="group">

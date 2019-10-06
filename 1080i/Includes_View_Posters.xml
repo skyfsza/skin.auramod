@@ -551,11 +551,12 @@
         <width>440</width>
         <height>100%</height>
         <control type="label">
+	  <left>40</left>
           <width>450</width>
           <height>100</height>
           <top>-10</top>
 	  <align>center</align>
-	  <font>search_heading</font>
+	  <font>font_heading_small</font>
 	  <textcolor>grey</textcolor>
 	  <label>$INFO[Container.FolderName]</label>
 	  <scroll>true</scroll>
@@ -569,6 +570,7 @@
           <texture background="true" colordiffuse="white">special://skin/media/netflix/left-arrow.png</texture>
           <visible>Control.HasFocus(5055)</visible>
          </control>
+<!--
         <control type="image">
           <width>90</width>
           <height>120</height>
@@ -577,12 +579,13 @@
           <texture background="true" colordiffuse="white">special://skin/media/netflix/left-arrow.png</texture>
           <visible>Control.HasFocus(505)</visible>
          </control>
+-->
         <control type="list" id="505">
           <animation effect="slide" end="-500,0" time="500" condition="Control.HasFocus(5055)">Conditional</animation>
           <onright condition="!Container(5055).IsUpdating">5055</onright>
-          <height>700</height>
-          <top>140</top>
-          <left>60</left>
+          <height>790</height>
+          <top>120</top>
+          <left>40</left>
           <visible>!Container.Content(episodes)</visible>
           <include>View_NotTheseWindows</include>
           <viewtype label="$LOCALIZE[31469]">icon</viewtype>
@@ -657,10 +660,9 @@
         <onleft>504</onleft>
         <onback>SetFocus(505,0,absolute)</onback>
         <onback>505</onback>
-<!--
 	<onclick>Skin.SetString(AddonContainer,true)</onclick>
-        <onclick condition="!Skin.HasSetting(EnableShowInfo)  + [String.IsEqual(Container(5055).ListItem.DBType,tvshow) | String.IsEqual(Container(5055).ListItem.DBType,movie) | Container.Content(movies) | Container.Content(tvshows)]">Action(Info)</onclick> 
--->
+        <onclick condition="!Skin.HasSetting(EnableShowInfo) + [[String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(ShowInfo.Episodes)] | [String.IsEqual(ListItem.DBType,tvshow) + !Skin.HasSetting(ShowInfo.TV)] | [String.IsEqual(ListItem.DBType,movie) + !Skin.HasSetting(ShowInfo.Movies)]]">Action(Info)</onclick>
+
         <left>420</left>
         <movement>2</movement>
         <width>1900</width>
@@ -2662,7 +2664,7 @@
       </control>
       <control type="image">
         <bordersize>10</bordersize>
-        <aspectratio aligny="center" scalediffuse="false">scale</aspectratio>
+        <aspectratio aligny="center" scalediffuse="false">keep</aspectratio>
         <texture background="true" diffuse="diffuse/widgetposter.png">$INFO[ListItem.Icon]</texture>
         <visible>!String.StartsWith(ListItem.Icon,Default) + !ListItem.IsParentFolder</visible>
         <visible>![[Container.Content(genres) | [Container.Content(addons) + String.Contains(Container.FolderPath,Genres)]] | Container.Content(studios) | Container.Content(years) | Container.Content(directors) | Container.Content(countries) | Container.Content(tags) | Container.Content(playlists)]</visible>
@@ -2752,7 +2754,7 @@
       </control>
       <control type="image">
         <bordersize>10</bordersize>
-        <aspectratio aligny="center" scalediffuse="false">scale</aspectratio>
+        <aspectratio aligny="center" scalediffuse="false">keep</aspectratio>
         <texture background="true" diffuse="diffuse/widgetposter.png">$INFO[ListItem.Icon]</texture>
         <visible>!String.StartsWith(ListItem.Icon,Default) + !ListItem.IsParentFolder</visible>
         <visible>![[Container.Content(genres) | [Container.Content(addons) + String.Contains(Container.FolderPath,Genres)]] | Container.Content(studios) | Container.Content(years) | Container.Content(directors) | Container.Content(countries) | Container.Content(tags) | Container.Content(playlists)]</visible>
