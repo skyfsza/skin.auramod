@@ -595,7 +595,7 @@
 			<control type="group">
                                 <visible>Control.IsVisible(1505) + [Control.HasFocus(1505) | Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(30222)]</visible>
                                 <animation effect="slide" start="0,0" end="0,80" time="0" condition="Skin.HasSetting(DisableMenuHor)">Conditonal</animation>
-                                <animation effect="fade" start="100" end="0" time="0" condition="[Container(1505).OnPrevious + Container(12).IsUpdating">Conditional</animation>
+                                <animation effect="fade" start="100" end="0" time="0" condition="[Container(12).IsUpdating">Conditional</animation>
                                 <animation effect="fade" start="0" end="100" delay="500" time="700" tween="quadratic" reversible="false" condition="String.IsEqual(Skin.String(SpotFocus),true) + Control.HasFocus(30222)">Conditional</animation>
 				<width>800</width>
                         <control type="wraplist" id="12">
@@ -732,7 +732,7 @@
                                                         <width>109.76</width>
                                                         <height>166.32</height>
                                                         <aspectratio align="center" aligny="center">scale</aspectratio>
-                                                        <texture background="true" fallback="DefaultActorSolid.png" colordiffuse="89000000">common/white.png</texture>
+                                                        <texture background="true" fallback="DefaultActorSolid.png" colordiffuse="79000000">common/white.png</texture>
                                                 </control>
                                         </control>
                                 </itemlayout>
@@ -778,7 +778,7 @@
                                                         <width>109.76</width>
                                                         <height>166.32</height>
                                                         <aspectratio align="center" aligny="center">scale</aspectratio>
-                                                        <texture background="true" fallback="DefaultActorSolid.png" colordiffuse="89000000">common/white.png</texture>
+                                                        <texture background="true" fallback="DefaultActorSolid.png" colordiffuse="79000000">common/white.png</texture>
                                                 </control>
                                                 <control type="label">
                                                         <left>0</left>
