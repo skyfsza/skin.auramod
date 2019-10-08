@@ -81,6 +81,12 @@
               </include>
               <left>70</left>
              </control>
+              <include>Widget_LiveTV</include>
+             <control type="group">
+              <left>60</left>
+      	      <include condition="!Skin.HasSetting(EnableWidgetSpotlight)">Spotlight_Movies_AuraWidget</include>
+	      <include condition="!Skin.HasSetting(EnableWidgetSpotlight)">Spotlight_TV_AuraWidget</include>
+             </control>
               <include condition="Skin.HasSetting(EnableMultiWidgetSpotlight)">Spotlight_MultiWidget_Movies_cast</include> 
               <include condition="Skin.HasSetting(EnableMultiWidgetSpotlight)">Spotlight_MultiWidget_TVShows_cast</include> 
               <include condition="Skin.HasSetting(EnableFullSpotlight)">Spotlight_Tvshows_Info</include> 
@@ -122,11 +128,578 @@
               <visible>String.IsEqual(Container(300).ListItem.Property(widget),Settings) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget)</visible>
               <include>Widget_Settings</include>
             </control>
+<!--
+            <control type="group">
+              <visible>String.IsEqual(Container(300).ListItem.Label,Live TV)</visible>
+              <include>Widget_LiveTV</include>
+            </control>
+-->
           </control>
         </control>
       </control>
     </control>
   </include>
+
+  <include name="Widget_LiveTV">
+            <!-- Live TV -->
+            <control type="group" id="900">
+       	        <visible>[Control.HasFocus(400) | Control.HasFocus(401) | Control.HasFocus(300) | Control.HasFocus(3022) | Control.HasFocus(30221) | Control.HasFocus(30222) | ControlGroup(900).HasFocus] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),LiveTV)</visible>
+	
+               <animation effect="slide" start="0,0" end="0,-680" time="700" tween="quadratic" condition="!Control.HasFocus(300)">Hidden</animation>
+               <animation effect="slide" start="0,-620" end="0,0" time="700" tween="quadratic" reversible="false" condition="String.IsEqual(Skin.String(SpotFocus),true) + Control.HasFocus(30222)">Conditional</animation>
+                <description>Live TV</description>
+                <width>2320</width>
+                <height>780</height>
+
+	    <control type="label">
+ 	      <left>-40</left>
+ 	      <top>50</top>
+  	      <label>Live TV</label>
+	      <height>40</height>
+    	      <width>350</width>
+    	      <align>center</align>
+    	      <aligny>top</aligny>
+    	      <textcolor>white</textcolor>
+     	      <font>font_medium</font>
+	      <visible>!Skin.HasSetting(DisableMenuHor)</visible>
+     	   </control>
+<!--
+                <control type="button" id="925">
+                    <onleft>Control.Move(20,-1)</onleft>
+                    <onleft>525</onleft>
+                    <onright>825</onright>
+                    <onright>Control.Move(20,1)</onright>
+                    <onclick>ActivateWindow(tvchannels)</onclick>
+		    <ondown>30222</ondown>
+		    <onup>300</onup>
+                </control>
+-->
+                <control type="group" id="950">
+                    <posx>20</posx>
+                    <posy>100</posy>
+		    <animation effect="zoom" start="0,0" end="115,107" time="0" reversible="true" condition="Control.IsVisible(901)">Conditional</animation>
+                    <control type="image">
+                        <description>Bottom shadow</description>
+                        <posx>-42</posx>
+                        <posy>570</posy>
+                        <width>1627</width>
+                        <height>150</height>
+                        <texture>windows/home/item-shadow.png</texture>
+                    </control>
+                    <control type="group" id="902">
+                        <description>Currently Airing</description>
+                        <posx>339</posx>
+                        <control type="button" id="9021">
+                            <onup>Control.Move(9022,-1)</onup>
+                            <ondown>Control.Move(9022,1)</ondown>
+                            <onleft>901</onleft>
+                            <onright>903</onright>
+                            <onclick condition="!String.IsEmpty(Container(9022).ListItem.FilenameAndPath)">PlayMedia($INFO[Container(9022).ListItem.FilenameAndPath])</onclick>
+                        </control>
+                        <control type="image">
+                            <posx>-5</posx>
+                            <posy>-5</posy>
+                            <width>703</width>
+                            <height>582</height>
+                            <texture border="7">windows/home/tile.png</texture>
+                        </control>
+                        <control type="wraplist" id="9022">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>693</width>
+                            <height>573</height>
+                            <onup>925</onup>
+                            <onfocus condition="String.IsEmpty(Window.Property(ContextMenuOpen))">SetFocus(9021)</onfocus>
+                            <ondown condition="Skin.HasSetting(KioskMode)">21</ondown>
+                            <ondown condition="!Skin.HasSetting(KioskMode)">80</ondown>
+		    	    <onup>300</onup>
+                            <preloaditems>2</preloaditems>
+                            <pagecontrol>9024</pagecontrol>
+                            <viewtype label="List">List</viewtype>
+                            <scrolltime tween="cubic" easing="out">800</scrolltime>
+                            <orientation>vertical</orientation>
+                            <visible allowhiddenfocus="true">!Container(9022).IsUpdating</visible>
+                            <itemlayout width="693" height="115">
+                                <control type="image">
+                                    <description>Channel underlay</description>
+                                    <posx>0</posx>
+                                    <posy>-1</posy>
+                                    <width>700</width>
+                                    <height>113</height>
+                                    <texture>windows/common/black.png</texture>
+                                    <colordiffuse>22FFFFFF</colordiffuse>
+                                </control>
+                                <control type="image">
+                                    <posx>15</posx>
+                                    <posy>10</posy>
+                                    <width>92</width>
+                                    <height>92</height>
+                                    <aspectratio align="center">keep</aspectratio>
+                                    <texture>$INFO[ListItem.Icon]</texture>
+                                </control>
+                                <control type="label">
+                                    <posx>130</posx>
+                                    <posy>2</posy>
+                                    <width>535</width>
+                                    <height>40</height>
+                                    <info>ListItem.Label</info>
+                                    <font>Font-Condensed-S30</font>
+                                    <textcolor>white</textcolor>
+                                    <align></align>
+                                </control>
+                                <control type="label">
+                                    <posx>130</posx>
+                                    <posy>26</posy>
+                                    <width>535</width>
+                                    <height>60</height>
+                                    <label>$LOCALIZE[19030]: $INFO[ListItem.Title]</label>
+                                    <font>Font-Condensed-S29</font>
+                                    <textcolor>aawhite</textcolor>
+                                    <visible>!String.IsEmpty(ListItem.Title)</visible>
+                                    <scroll>false</scroll>
+                                    <align></align>
+                                </control>
+                                <control type="label">
+                                    <posx>130</posx>
+                                    <posy>59</posy>
+                                    <width>535</width>
+                                    <height>60</height>
+                                    <label>$INFO[ListItem.NextStartTime]: $INFO[ListItem.NextTitle]</label>
+                                    <font>Font-Condensed-S29</font>
+                                    <textcolor>dimgrey</textcolor>
+                                    <visible>!String.IsEmpty(ListItem.NextTitle)</visible>
+                                    <scroll>false</scroll>
+                                    <align></align>
+                                </control>
+                            </itemlayout>
+                            <focusedlayout width="693" height="115">
+                                <control type="image">
+                                    <posx>15</posx>
+                                    <posy>10</posy>
+                                    <width>92</width>
+                                    <height>92</height>
+                                    <aspectratio align="center">keep</aspectratio>
+                                    <texture>$INFO[ListItem.Icon]</texture>
+                                </control>
+                                <control type="label">
+                                    <posx>130</posx>
+                                    <posy>2</posy>
+                                    <width>535</width>
+                                    <height>40</height>
+                                    <info>ListItem.Label</info>
+                                    <font>Font-Condensed-S30-B</font>
+                                    <textcolor>white</textcolor>
+                                    <align></align>
+                                </control>
+                                <control type="label">
+                                    <posx>130</posx>
+                                    <posy>26</posy>
+                                    <width>535</width>
+                                    <height>60</height>
+                                    <label>$LOCALIZE[19030]: $INFO[ListItem.Title]</label>
+                                    <font>Font-Condensed-S29</font>
+                                    <textcolor>aawhite</textcolor>
+                                    <visible>!String.IsEmpty(ListItem.Title)</visible>
+                                    <align></align>
+                                </control>
+                                <control type="label">
+                                    <posx>130</posx>
+                                    <posy>59</posy>
+                                    <width>535</width>
+                                    <height>60</height>
+                                    <label>$INFO[ListItem.NextStartTime]: $INFO[ListItem.NextTitle]</label>
+                                    <font>Font-Condensed-S29</font>
+                                    <textcolor>dimgrey</textcolor>
+                                    <visible>!String.IsEmpty(ListItem.NextTitle)</visible>
+                                    <align></align>
+                                </control>
+                            </focusedlayout>
+                            <content sortby="lastplayed" sortorder="descending" target="pvr" limit="20">pvr://channels/tv/*</content>
+                        </control>
+                        <control type="group" id="9023">
+                            <visible>Container(9022).IsUpdating</visible>
+                            <control type="image">
+                                <description>Loading Back</description>
+                                <posx>313</posx>
+                                <posy>212</posy>
+                                <width>148</width>
+                                <height>148</height>
+                                <texture>windows/home/loading-back.png</texture>
+                            </control>
+                            <control type="image">
+                                <description>Loading</description>
+                                <posx>313</posx>
+                                <posy>212</posy>
+                                <width>148</width>
+                                <height>148</height>
+                                <texture>windows/home/loading.png</texture>
+                                <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+                            </control>
+                            <control type="image">
+                                <description>Title overlay</description>
+                                <posx>0</posx>
+                                <posy>508</posy>
+                                <width>693</width>
+                                <height>64</height>
+                                <colordiffuse>99000000</colordiffuse>
+                                <texture border="1">windows/common/black.png</texture>
+                            </control>
+                            <control type="label">
+                                <description>Loading label</description>
+                                <posx>20</posx>
+                                <posy>508</posy>
+                                <height>64</height>
+                                <width>693</width>
+                                <font>Font-Condensed-S31-B</font>
+                                <align>center</align>
+                                <aligny>center</aligny>
+                                <textcolor>bbwhite</textcolor>
+                                <label>Loading Channels</label>
+                                <scroll>false</scroll>
+                            </control>
+                        </control>
+                        <control type="label">
+                            <posx>0</posx>
+                            <posy>576</posy>
+                            <width>573</width>
+                            <height>25</height>
+                            <font>Font-Condensed-S20-B</font>
+                            <shadowcolor>11000000</shadowcolor>
+                            <textcolor>77white</textcolor>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textoffsetx>5</textoffsetx>
+                            <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(902).HasFocus">Conditional</animation>
+                        </control>
+                        <control type="group">
+                            <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(902).HasFocus">Conditional</animation>
+                            <visible>Integer.IsGreater(Container(9022).NumItems,0)</visible>
+                            <control type="image">
+                                <description>Scrollbar background</description>
+                                <posx>471</posx>
+                                <posy>585</posy>
+                                <width>96</width>
+                                <height>6</height>
+                                <texture border="1">views/other/scrollbar-sq.png</texture>
+                                <colordiffuse>55FFFFFF</colordiffuse>
+                            </control>
+                            <control type="scrollbar" id="9024">
+                                <description>Scrollbar</description>
+                                <posx>471</posx>
+                                <posy>585</posy>
+                                <width>96</width>
+                                <height>6</height>
+                                <orientation>horizontal</orientation>
+                                <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
+                                <texturesliderbarfocus border="1">views/other/scrollbar-sq.png</texturesliderbarfocus>
+                                <showonepage>false</showonepage>
+                            </control>
+                        </control>
+                    </control>
+                    <control type="panel" id="901">
+                        <posx>26</posx>
+                        <posy>-24</posy>
+                        <width>331</width>
+                        <height>620</height>
+                        <onleft>Control.Move(20,-1)</onleft>
+                        <onleft>300</onleft>
+                        <onright>902</onright>
+                        <ondown>30222</ondown>
+                        <onup>300</onup>
+                        <scrolltime>0</scrolltime>
+                        <itemlayout width="289" height="289">
+                            <control type="group">
+                                <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
+                                <control type="image">
+                                    <posx>19</posx>
+                                    <posy>19</posy>
+                                    <width>293</width>
+                                    <height>293</height>
+                                    <texture border="7">windows/home/tile.png</texture>
+                                    <visible>!Skin.HasSetting(HideHomeColouredTiles)</visible>
+                                </control>
+                                <control type="image">
+                                    <posx>19</posx>
+                                    <posy>19</posy>
+                                    <width>293</width>
+                                    <height>293</height>
+                                    <texture border="7">windows/home/tile-red.png</texture>
+                                    <visible>Skin.HasSetting(HideHomeColouredTiles)</visible>
+                                </control>
+                                <control type="image">
+                                    <posx>24</posx>
+                                    <posy>241</posy>
+                                    <width>283</width>
+                                    <height>66</height>
+                                    <texture border="1">windows/home/tile-overlay.png</texture>
+                                    <colordiffuse>99FFFFFF</colordiffuse>
+                                </control>
+                                <control type="image">
+                                    <posx>24</posx>
+                                    <posy>24</posy>
+                                    <width>283</width>
+                                    <height>283</height>
+                                    <texture>$INFO[ListItem.Icon]</texture>
+                                </control>
+                                <control type="label">
+                                    <posx>24</posx>
+                                    <posy>241</posy>
+                                    <width>283</width>
+                                    <height>66</height>
+                                    <label>$INFO[ListItem.Label]</label>
+                                    <font>Font-Condensed-S33</font>
+                                    <textcolor>aawhite</textcolor>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <textoffsetx>20</textoffsetx>
+                                </control>
+                            </control>
+                        </itemlayout>
+                        <focusedlayout width="289" height="289">
+                            <control type="group">
+                                <control type="image">
+                                    <posx>3</posx>
+                                    <posy>3</posy>
+                                    <width>325</width>
+                                    <height>325</height>
+                                    <texture border="40">windows/home/tile-fo.png</texture>
+                                    <animation type="Focus">
+                                        <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+                                        <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+                                    </animation>
+                                    <animation type="Unfocus">
+                                        <effect type="zoom" start="100" end="95" time="200" tween="sine" easing="inout" center="auto" />
+                                        <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+                                    </animation>
+                                </control>
+                                <control type="group">
+                                    <animation type="Focus">
+                                        <effect type="fade" start="90" end="100" time="200" tween="sine" easing="in" />
+                                    </animation>
+                                    <animation type="Unfocus">
+                                        <effect type="fade" start="100" end="90" time="200" tween="sine" easing="out" />
+                                    </animation>
+                                    <control type="image">
+                                        <posx>19</posx>
+                                        <posy>19</posy>
+                                        <width>293</width>
+                                        <height>293</height>
+                                        <texture border="7">windows/home/tile.png</texture>
+                                        <visible>Skin.HasSetting(HideHomeColouredTiles)</visible>
+                                    </control>
+                                    <control type="image">
+                                        <posx>19</posx>
+                                        <posy>19</posy>
+                                        <width>293</width>
+                                        <height>293</height>
+                                        <texture border="7">windows/home/tile-red.png</texture>
+                                        <visible>!Skin.HasSetting(HideHomeColouredTiles)</visible>
+                                    </control>
+                                    <control type="image">
+                                        <posx>24</posx>
+                                        <posy>241</posy>
+                                        <width>283</width>
+                                        <height>66</height>
+                                        <texture border="1">windows/home/tile-overlay.png</texture>
+                                        <colordiffuse>99FFFFFF</colordiffuse>
+                                    </control>
+                                    <control type="image">
+                                        <posx>24</posx>
+                                        <posy>24</posy>
+                                        <width>283</width>
+                                        <height>283</height>
+                                        <texture>$INFO[ListItem.Icon]</texture>
+                                        <animation type="Focus" reversible="false">
+                                            <effect type="zoom" end="115" time="75" tween="sine" easing="out" center="auto" />
+                                            <effect type="zoom" end="86.9565217" time="225" tween="sine" delay="100" easing="out" center="auto" />
+                                        </animation>
+                                    </control>
+                                    <control type="label">
+                                        <posx>24</posx>
+                                        <posy>241</posy>
+                                        <width>246</width>
+                                        <height>66</height>
+                                        <label>$INFO[ListItem.Label]</label>
+                                        <font>Font-Condensed-S33</font>
+                                        <textcolor>aawhite</textcolor>
+                                        <align>left</align>
+                                        <aligny>center</aligny>
+                                        <textoffsetx>20</textoffsetx>
+                                    </control>
+                                </control>
+                            </control>
+                        </focusedlayout>
+                        <content>
+                            <item id="1">
+                                <label>$LOCALIZE[19023]</label>
+                                <icon>windows/home/icons/tvshows.png</icon>
+                                <onclick>ActivateWindow(tvchannels)</onclick>
+                            </item>
+                            <item id="2">
+                                <label>$LOCALIZE[19069]</label>
+                                <icon>windows/home/icons/epg.png</icon>
+                                <onclick>ActivateWindow(tvguide)</onclick>
+                            </item>
+                        </content>
+                    </control>
+                    <control type="panel" id="903">
+                        <posx>1014</posx>
+                        <posy>-24</posy>
+                        <width>662</width>
+                        <height>620</height>
+                        <onleft>902</onleft>
+                        <onright>Control.Move(20,1)</onright>
+                        <onup>300</onup>
+                        <ondown>30222</ondown>
+                        <scrolltime>0</scrolltime>
+                        <itemlayout width="289" height="289">
+                            <control type="group">
+                                <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
+                                <control type="image">
+                                    <posx>19</posx>
+                                    <posy>19</posy>
+                                    <width>293</width>
+                                    <height>293</height>
+                                    <texture border="7">windows/home/tile.png</texture>
+                                </control>
+                                <control type="image">
+                                    <posx>24</posx>
+                                    <posy>241</posy>
+                                    <width>283</width>
+                                    <height>66</height>
+                                    <texture border="1">windows/home/tile-overlay.png</texture>
+                                    <colordiffuse>99FFFFFF</colordiffuse>
+                                </control>
+                                <control type="image">
+                                    <posx>24</posx>
+                                    <posy>24</posy>
+                                    <width>283</width>
+                                    <height>283</height>
+                                    <texture>$INFO[ListItem.Icon]</texture>
+                                </control>
+                                <control type="label">
+                                    <posx>24</posx>
+                                    <posy>241</posy>
+                                    <width>283</width>
+                                    <height>66</height>
+                                    <label>$INFO[ListItem.Label]</label>
+                                    <font>Font-Condensed-S33</font>
+                                    <textcolor>aawhite</textcolor>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <textoffsetx>20</textoffsetx>
+                                </control>
+                            </control>
+                        </itemlayout>
+                        <focusedlayout width="289" height="289">
+                            <control type="group">
+                                <control type="image">
+                                    <posx>3</posx>
+                                    <posy>3</posy>
+                                    <width>325</width>
+                                    <height>325</height>
+                                    <texture border="40">windows/home/tile-fo.png</texture>
+                                    <animation type="Focus">
+                                        <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+                                        <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+                                    </animation>
+                                    <animation type="Unfocus">
+                                        <effect type="zoom" start="100" end="95" time="200" tween="sine" easing="inout" center="auto" />
+                                        <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+                                    </animation>
+                                </control>
+                                <control type="group">
+                                    <animation type="Focus">
+                                        <effect type="fade" start="90" end="100" time="200" tween="sine" easing="in" />
+                                    </animation>
+                                    <animation type="Unfocus">
+                                        <effect type="fade" start="100" end="90" time="200" tween="sine" easing="out" />
+                                    </animation>
+                                    <control type="image">
+                                        <posx>19</posx>
+                                        <posy>19</posy>
+                                        <width>293</width>
+                                        <height>293</height>
+                                        <texture border="7">windows/home/tile.png</texture>
+                                    </control>
+                                    <control type="image">
+                                        <posx>24</posx>
+                                        <posy>241</posy>
+                                        <width>283</width>
+                                        <height>66</height>
+                                        <texture border="1">windows/home/tile-overlay.png</texture>
+                                        <colordiffuse>99FFFFFF</colordiffuse>
+                                    </control>
+                                    <control type="image">
+                                        <posx>24</posx>
+                                        <posy>24</posy>
+                                        <width>283</width>
+                                        <height>283</height>
+                                        <texture>$INFO[ListItem.Icon]</texture>
+                                        <animation type="Focus" reversible="false">
+                                            <effect type="zoom" end="115" time="75" tween="sine" easing="out" center="auto" />
+                                            <effect type="zoom" end="86.9565217" time="225" tween="sine" delay="100" easing="out" center="auto" />
+                                        </animation>
+                                    </control>
+                                    <control type="label">
+                                        <posx>24</posx>
+                                        <posy>241</posy>
+                                        <width>246</width>
+                                        <height>66</height>
+                                        <label>$INFO[ListItem.Label]</label>
+                                        <font>Font-Condensed-S33</font>
+                                        <textcolor>aawhite</textcolor>
+                                        <align>left</align>
+                                        <aligny>center</aligny>
+                                        <textoffsetx>20</textoffsetx>
+                                    </control>
+                                </control>
+                            </control>
+                        </focusedlayout>
+                        <content>
+                      	    <item id="1">
+                                <label>Radio</label>
+                                <icon>windows/home/icons/radio.png</icon>
+                                <onclick>ActivateWindow(radiochannels)</onclick>
+                            </item>
+                            <item id="2">
+                                <label>$LOCALIZE[19163]</label>
+                                <icon>windows/home/icons/recordings.png</icon>
+                                <onclick>ActivateWindow(tvrecordings)</onclick>
+                            </item>
+                            <item id="3">
+                                <label>$LOCALIZE[19040]</label>
+                                <icon>windows/home/icons/timers.png</icon>
+                                <onclick>ActivateWindow(tvtimers)</onclick>
+                            </item>
+                            <item id="4">
+                                <label>$LOCALIZE[137]</label>
+                                <icon>windows/home/icons/search-tv.png</icon>
+                                <onclick>ActivateWindow(tvsearch)</onclick>
+                            </item>
+                        </content>
+                    </control>
+                    <control type="image">
+                        <posx>318</posx>
+                        <posy>-21</posy>
+                        <width>725</width>
+                        <height>614</height>
+                        <texture border="40">windows/home/tile-fo.png</texture>
+                        <animation type="Visible">
+                            <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+                        </animation>
+                        <animation type="Hidden">
+                            <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+                        </animation>
+                        <visible>ControlGroup(902).HasFocus</visible>
+                    </control>
+                </control>
+            </control>
+
+
+	</include>
+
+
   <include name="Widget_Settings">
     <control type="group">
       <top>view_top</top>
@@ -274,127 +847,153 @@
           </control>
         </focusedlayout>
         <content>
-          <!-- Column 1 -->
-          <item id="1">
-            <description>Interface</description>
-            <label>14206</label>
-            <label2>$LOCALIZE[166] &#226;&#8364;&#162; $LOCALIZE[14222] &#226;&#8364;&#162; $LOCALIZE[360][CR]$LOCALIZE[12360] &#226;&#8364;&#162; $LOCALIZE[14224]</label2>
-            <onclick>activatewindow(InterfaceSettings)</onclick>
-            <icon>special://skin/extras/icons/skinsettings.png</icon>
-          </item>
-          <item id="5">
-            <description>Library</description>
-            <label>14202</label>
-            <label2>$LOCALIZE[14022] &#226;&#8364;&#162; $LOCALIZE[16000] &#226;&#8364;&#162; $LOCALIZE[14215][CR]$LOCALIZE[14216] &#226;&#8364;&#162; $LOCALIZE[14217]</label2>
-            <onclick>activatewindow(MediaSettings)</onclick>
-            <icon>special://skin/extras/icons/tags.png</icon>
-          </item>
-          <item id="9">
-            <description>System</description>
-            <label>13000</label>
-            <label2>$LOCALIZE[14220] &#226;&#8364;&#162; $LOCALIZE[14221] &#226;&#8364;&#162; $LOCALIZE[14125] &#226;&#8364;&#162; $LOCALIZE[24001][CR]$LOCALIZE[798] &#226;&#8364;&#162; $LOCALIZE[14095]</label2>
-            <onclick>activatewindow(SystemSettings)</onclick>
-            <icon>special://skin/extras/icons/configure.png</icon>
-          </item>
-          <!-- Column 2 -->
-          <item id="2">
-            <description>Skin Settings</description>
-            <label>20077</label>
-            <label2>$LOCALIZE[10000] &#226;&#8364;&#162; $LOCALIZE[19190] &#226;&#8364;&#162; $LOCALIZE[31339][CR]$LOCALIZE[31021] &#226;&#8364;&#162; $LOCALIZE[478] &#226;&#8364;&#162; $LOCALIZE[24996]</label2>
-            <onclick>activatewindow(skinsettings)</onclick>
-            <icon>special://skin/extras/icons/paintbrush.png</icon>
-          </item>
-          <item id="6">
-            <description>Player</description>
-            <label>14200</label>
-            <label2>$LOCALIZE[14215] &#226;&#8364;&#162; $LOCALIZE[14216] &#226;&#8364;&#162; $LOCALIZE[14087] &#226;&#8364;&#162; $LOCALIZE[14217][CR]$LOCALIZE[14218] &#226;&#8364;&#162; $LOCALIZE[37032]</label2>
-            <onclick>activatewindow(PlayerSettings)</onclick>
-            <icon>special://skin/extras/icons/equalizer.png</icon>
-          </item>
-          <item id="12">
-            <description>Services</description>
-            <label>14036</label>
-            <label2>$LOCALIZE[16000] &#226;&#8364;&#162; $LOCALIZE[14223] &#226;&#8364;&#162; $LOCALIZE[20187][CR]$LOCALIZE[1273] &#226;&#8364;&#162; $LOCALIZE[1200] &#226;&#8364;&#162; $LOCALIZE[12600]</label2>
-            <onclick>activatewindow(servicesettings)</onclick>
-            <icon>special://skin/extras/icons/network.png</icon>
-          </item>
-          <!-- Column 3 -->
-          <item id="11">
-            <description>System Info</description>
-            <label>130</label>
-            <label2>$LOCALIZE[154] &#226;&#8364;&#162; $LOCALIZE[705] &#226;&#8364;&#162; $LOCALIZE[157][CR]$LOCALIZE[13281] &#226;&#8364;&#162; $LOCALIZE[31343] &#226;&#8364;&#162; $LOCALIZE[12389]</label2>
-            <onclick>activatewindow(7)</onclick>
-            <icon>special://skin/extras/icons/sysinfo.png</icon>
-          </item>
-          <item id="8">
-            <description>PVR Settings</description>
-            <label>19191</label>
-            <label2>$LOCALIZE[16000] &#226;&#8364;&#162; $LOCALIZE[19222] &#226;&#8364;&#162; $LOCALIZE[14086][CR]$LOCALIZE[19043] &#226;&#8364;&#162; $LOCALIZE[19259]</label2>
-            <onclick>activatewindow(pvrsettings)</onclick>
-            <icon>special://skin/extras/icons/livetv.png</icon>
-          </item>
-          <item id="10">
-            <description>Addons</description>
-            <label>24001</label>
-            <label2>$LOCALIZE[24998] &#226;&#8364;&#162; $LOCALIZE[137][CR]$LOCALIZE[31344]</label2>
-            <onclick>activatewindow(AddonBrowser)</onclick>
-            <icon>special://skin/extras/icons/addon.png</icon>
-          </item>
-          <!-- Column 4 -->
-          <item id="3">
-            <description>Profiles</description>
-            <label>13200</label>
-            <label2>$LOCALIZE[10029] &#226;&#8364;&#162; $LOCALIZE[33084][CR]$LOCALIZE[10130]</label2>
-            <onclick>activatewindow(Profiles)</onclick>
-            <icon>special://skin/extras/icons/actor.png</icon>
-          </item>
-          <item id="14">
-            <description>Events</description>
-            <label>$LOCALIZE[14111]</label>
-            <label2>$LOCALIZE[31345]</label2>
-            <onclick>activatewindow(eventlog)</onclick>
-            <icon>special://skin/extras/icons/year.png</icon>
-            <visible>!System.HasAddon(service.libreelec.settings)</visible>
-          </item>
-          <item id="19">
-            <description>LibreElec</description>
-            <label>$ADDON[service.libreelec.settings 600]</label>
-            <label2>$ADDON[service.libreelec.settings 32002] &#226;&#8364;&#162; $ADDON[service.libreelec.settings 32101] &#226;&#8364;&#162; $ADDON[service.libreelec.settings 32001][CR]$ADDON[service.libreelec.settings 32100] &#226;&#8364;&#162; $ADDON[service.libreelec.settings 32331]</label2>
-            <onclick>RunScript(service.libreelec.settings)</onclick>
-            <icon>special://skin/extras/icons/libreelec.png</icon>
-            <visible>System.HasAddon(service.libreelec.settings)</visible>
-          </item>
-          <item id="13">
-            <description>Filemanager</description>
-            <label>File Manager</label>
-            <label2>$LOCALIZE[115] &#226;&#8364;&#162; $LOCALIZE[116] &#226;&#8364;&#162; $LOCALIZE[117][CR]$LOCALIZE[118] &#226;&#8364;&#162; $LOCALIZE[14226]</label2>
-            <onclick>activatewindow(filemanager)</onclick>
-            <icon>special://skin/extras/icons/files.png</icon>
-          </item>
-        </content>
+                    <!-- Column 1 -->
+                    <item id="1">
+                        <description>Interface</description>
+                        <label>14206</label>
+                        <label2>$LOCALIZE[166] • $LOCALIZE[14222] • $LOCALIZE[360][CR]$LOCALIZE[12360] • $LOCALIZE[14224]</label2>
+                        <onclick>activatewindow(InterfaceSettings)</onclick>
+                        <icon>special://skin/extras/icons/skinsettings.png</icon>
+                    </item>
+                    <item id="5">
+                        <description>Library</description>
+                        <label>14202</label>
+                        <label2>$LOCALIZE[14022] • $LOCALIZE[16000] • $LOCALIZE[14215][CR]$LOCALIZE[14216] • $LOCALIZE[14217]</label2>
+                        <onclick>activatewindow(MediaSettings)</onclick>
+                        <icon>special://skin/extras/icons/tags.png</icon>
+                    </item>
+                    
+                    <item id="9">
+                        <description>System</description>
+                        <label>13000</label>
+                        <label2>$LOCALIZE[14220] • $LOCALIZE[14221] • $LOCALIZE[14125] • $LOCALIZE[24001][CR]$LOCALIZE[798] • $LOCALIZE[14095]</label2>
+                        <onclick>activatewindow(SystemSettings)</onclick>
+                        <icon>special://skin/extras/icons/configure.png</icon>
+                    </item>
+
+                    <!-- Column 2 -->
+                    <item id="2">
+                        <description>Skin Settings</description>
+                        <label>20077</label>
+                        <label2>$LOCALIZE[10000] • $LOCALIZE[19190] • $LOCALIZE[31339][CR]$LOCALIZE[31021] • $LOCALIZE[478] • $LOCALIZE[24996]</label2>
+                        <onclick>activatewindow(skinsettings)</onclick>
+                        <icon>special://skin/extras/icons/paintbrush.png</icon>
+                    </item>
+                    <item id="6">
+                        <description>Player</description>
+                        <label>14200</label>
+                        <label2>$LOCALIZE[14215] • $LOCALIZE[14216] • $LOCALIZE[14087] • $LOCALIZE[14217][CR]$LOCALIZE[14218] • $LOCALIZE[37032]</label2>
+                        <onclick>activatewindow(PlayerSettings)</onclick>
+                        <icon>special://skin/extras/icons/equalizer.png</icon>
+                    </item>
+                    <item id="12">
+                        <description>Services</description>
+                        <label>14036</label>
+                        <label2>$LOCALIZE[16000] • $LOCALIZE[14223] • $LOCALIZE[20187][CR]$LOCALIZE[1273] • $LOCALIZE[1200] • $LOCALIZE[12600]</label2>
+                        <onclick>activatewindow(servicesettings)</onclick>
+                        <icon>special://skin/extras/icons/network.png</icon>
+                    </item>
+
+                    <!-- Column 3 -->
+                    <item id="11">
+                        <description>System Info</description>
+                        <label>130</label>
+                        <label2>$LOCALIZE[154] • $LOCALIZE[705] • $LOCALIZE[157][CR]$LOCALIZE[13281] • $LOCALIZE[31343] • $LOCALIZE[12389]</label2>
+                        <onclick>activatewindow(7)</onclick>
+                        <icon>special://skin/extras/icons/sysinfo.png</icon>
+                    </item>
+                    
+                    <item id="8">
+                        <description>PVR Settings</description>
+                        <label>19191</label>
+                        <label2>$LOCALIZE[16000] • $LOCALIZE[19222] • $LOCALIZE[14086][CR]$LOCALIZE[19043] • $LOCALIZE[19259]</label2>
+                        <onclick>activatewindow(pvrsettings)</onclick>
+                        <icon>special://skin/extras/icons/livetv.png</icon>
+                    </item>
+
+                    <item id="10">
+                        <description>Addons</description>
+                        <label>24001</label>
+                        <label2>$LOCALIZE[24998] • $LOCALIZE[137][CR]$LOCALIZE[31344]</label2>
+                        <onclick>activatewindow(AddonBrowser)</onclick>
+                        <icon>special://skin/extras/icons/addon.png</icon>
+                    </item>
+                    
+                    
+                    <!-- Column 4 -->
+                    <item id="3">
+                        <description>Profiles</description>
+                        <label>13200</label>
+                        <label2>$LOCALIZE[10029] • $LOCALIZE[33084][CR]$LOCALIZE[10130]</label2>
+                        <onclick>activatewindow(Profiles)</onclick>
+                        <icon>special://skin/extras/icons/actor.png</icon>
+                    </item>
+                    
+                    <item id="14">
+                        <description>Events</description>
+                        <label>$LOCALIZE[14111]</label>
+                        <label2>$LOCALIZE[31345]</label2>
+                        <onclick>activatewindow(eventlog)</onclick>
+                        <icon>special://skin/extras/icons/year.png</icon>
+                        <visible>!System.HasAddon(service.libreelec.settings)</visible>
+                    </item>
+                    <item id="19">
+                        <description>LibreElec</description>
+                        <label>$ADDON[service.libreelec.settings 600]</label>
+                        <label2>$ADDON[service.libreelec.settings 32002] • $ADDON[service.libreelec.settings 32101] • $ADDON[service.libreelec.settings 32001][CR]$ADDON[service.libreelec.settings 32100] • $ADDON[service.libreelec.settings 32331]</label2>
+                        <onclick>RunScript(service.libreelec.settings)</onclick>
+                        <icon>special://skin/extras/icons/libreelec.png</icon>
+                        <visible>System.HasAddon(service.libreelec.settings)</visible>
+                    </item>
+                    <item id="13">
+                        <description>Filemanager</description>
+                        <label>File Manager</label>
+                        <label2>$LOCALIZE[115] • $LOCALIZE[116] • $LOCALIZE[117][CR]$LOCALIZE[118] • $LOCALIZE[14226]</label2>
+                        <onclick>activatewindow(filemanager)</onclick>
+                        <icon>special://skin/extras/icons/files.png</icon>
+                    </item>
+       </content>
       </control>
     </control>
   </include>
   <include name="spotlight_full_top">
     <top>640</top>
   </include>
+  <include name="spotlight_widget_top">
+    <top>600</top>
+  </include>
+
   <include name="Widgets_Grouplist">
     <control type="grouplist" id="330">
       <include condition="Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)">spotlight_full_top</include>
+      <include condition="!Skin.HasSetting(EnableWidgetSpotlight)">spotlight_widget_top</include>
       <left>60</left>
+      <onup condition="[!Skin.HasSetting(EnableWidgetSpotlight) | Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)] + Window.IsVisible(Home) +  String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),LiveTV)">901</onup>
+
       <onup condition="Skin.HasSetting(EnableFullSpotlight) + Window.IsVisible(Home) + !Integer.IsGreater(Container($PARAM[id]).NumItems,0) + Integer.IsGreater(Container(1505).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),TVShows)">SetFocus(1505)</onup>
-      <onup condition="Skin.HasSetting(EnableMultiWidgetSpotlight) + Window.IsVisible(Home) + !Integer.IsGreater(Container($PARAM[id]).NumItems,0) + Integer.IsGreater(Container(1505).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),TVShows)">1505</onup>
-      <onup condition="Skin.HasSetting(EnableFullSpotlight) + Window.IsVisible(Home) + !Integer.IsGreater(Container($PARAM[id]).NumItems,0) + Integer.IsGreater(Container(1506).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),Movies)">SetFocus(1506)</onup>
-      <onup condition="Skin.HasSetting(EnableMultiWidgetSpotlight) + Window.IsVisible(Home) + !Integer.IsGreater(Container($PARAM[id]).NumItems,0) + Integer.IsGreater(Container(1506).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),Movies)">1506</onup>
+
+      <onup condition="[!Skin.HasSetting(EnableWidgetSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)] + Window.IsVisible(Home) + !Integer.IsGreater(Container($PARAM[id]).NumItems,0) + Integer.IsGreater(Container(1505).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),TVShows)">1505</onup>
+
+      <onup condition="[!Skin.HasSetting(EnableWidgetSpotlight) | Skin.HasSetting(EnableFullSpotlight)] + Window.IsVisible(Home) + Integer.IsGreater(Container(1506).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),Movies)">SetFocus(1506)</onup>
+
+      <onup condition="[!Skin.HasSetting(EnableWidgetSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)] + Window.IsVisible(Home) + !Integer.IsGreater(Container($PARAM[id]).NumItems,0) + Integer.IsGreater(Container(1506).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),Movies)">1506</onup>
+
       <onup condition="Skin.HasSetting(DisableMenuHor)">300</onup>
+
       <onup condition="!Skin.HasSetting(DisableMenuHor) + Integer.IsGreater(Container(3022).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),MoviesLists1)">SetFocus(3022)</onup>
+
       <onup condition="!Skin.HasSetting(DisableMenuHor) + Integer.IsGreater(Container(30221).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgethub),true) + String.IsEqual(Container(300).ListItem.Property(widgethubselect),TVLists1)">SetFocus(30221)</onup>
+
       <onup condition="!Skin.HasSetting(DisableMenuHor) + Integer.IsGreater(Container(30222).NumItems,0) + !String.IsEqual(Container(300).ListItem.Property(widgethub),true) | [String.IsEqual(Container(300).ListItem.Property(widgethub),true) + !Integer.IsGreater(Container(3022).NumItems,0)]">SetFocus(30222)</onup>
+
       <onup condition="!Skin.HasSetting(DisableMenuHor) + Integer.IsGreater(Container(30222).NumItems,0) + !String.IsEqual(Container(300).ListItem.Property(widgethub),true) | [String.IsEqual(Container(300).ListItem.Property(widgethub),true) + !Integer.IsGreater(Container(30221).NumItems,0)]">SetFocus(30222)</onup>
       <onup condition="!Skin.HasSetting(DisableMenuHor) + !String.IsEqual(Container(300).ListItem.Property(widgethub),true)">300</onup>
       <onleft condition="Control.HasFocus(30222) + !Skin.HasSetting(DisableMenuHor)">300</onleft>
       <onleft condition="!String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)">300</onleft>
       <onleft condition="!Skin.HasSetting(DisableMenuHor)">SetFocus(300)</onleft>
+      <onleft condition="Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableSubMenuVert) + String.IsEqual(Container(300).ListItem.Label,TV Shows)">SetFocus(400,0)</onleft>
+      <onleft condition="Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableSubMenuVert) + String.IsEqual(Container(300).ListItem.Label,Movies)">SetFocus(401,0)</onleft>
+
       <ondown>3337</ondown>
       <height>1070</height>
       <orientation>vertical</orientation>
@@ -403,23 +1002,28 @@
       <usecontrolcoords>true</usecontrolcoords>
       <scrolltime tween="quadratic">800</scrolltime>
 
-      <animation effect="slide" start="0,0" end="0,115" time="0" tween="quadratic" reversible="false" condition="Skin.HasSetting(EnableMultiWidgetSpotlight)  +  String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + [ [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) + [Container(1505).IsUpdating | Integer.IsGreater(Container(1505).NumItems,0)]] | [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + [Container(1506).IsUpdating | Integer.IsGreater(Container(1506).NumItems,0)]]] + [Control.HasFocus(3337) | Control.HasFocus(1505) | Control.HasFocus(1506) | Control.HasFocus(400) | Control.HasFocus(401) | Control.HasFocus(300) | [Control.HasFocus(30222) + [Control.IsVisible(1505) | Control.IsVisible(1506)]]]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,115" time="0" tween="quadratic" reversible="false" condition="!Skin.HasSetting(DisableMenuHor) + [Skin.HasSetting(EnableMultiWidgetSpotlight)] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),LiveTV) | [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) + [Container(1505).IsUpdating | Integer.IsGreater(Container(1505).NumItems,0)]] | [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + [Container(1506).IsUpdating | Integer.IsGreater(Container(1506).NumItems,0)]]] + [Control.HasFocus(3337) | Control.HasFocus(1505) | Control.HasFocus(1506) | Control.HasFocus(400) | Control.HasFocus(401) | Control.HasFocus(300) | ControlGroup(900).HasFocus | [Control.HasFocus(30222) + [Control.IsVisible(1505) | Control.IsVisible(1506) | Control.IsVisible(901)]]]">Conditional</animation>
+
+      <animation effect="slide" start="0,0" end="0,85" time="0" tween="quadratic" reversible="false" condition="Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(SubmenuLabel)  + [Skin.HasSetting(EnableMultiWidgetSpotlight)] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),LiveTV) | [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) + [Container(1505).IsUpdating | Integer.IsGreater(Container(1505).NumItems,0)]] | [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + [Container(1506).IsUpdating | Integer.IsGreater(Container(1506).NumItems,0)]]] + [Control.HasFocus(3337) | Control.HasFocus(1505) | Control.HasFocus(1506) | Control.HasFocus(400) | Control.HasFocus(401) | Control.HasFocus(300) | ControlGroup(900).HasFocus | [Control.HasFocus(30222) + [Control.IsVisible(1505) | Control.IsVisible(1506) | Control.IsVisible(901)]]]">Conditional</animation>
+
+<animation effect="slide" start="0,0" end="0,155" time="0" tween="quadratic" reversible="false" condition="!Skin.HasSetting(EnableWidgetSpotlight) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),LiveTV) + [ControlGroup(900).HasFocus | Control.HasFocus(300) | Control.HasFocus(30222)]">Conditional</animation>
+<animation effect="slide" start="0,0" end="0,115" time="0" tween="quadratic" reversible="false" condition="Skin.HasSetting(EnableFullSpotlight) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),LiveTV) + [ControlGroup(900).HasFocus | Control.HasFocus(300) | Control.HasFocus(30222)]">Conditional</animation>
+
+      <animation effect="slide" start="0,0" end="0,-590" time="900" tween="quadratic" reversible="false" condition="[!Skin.HasSetting(EnableWidgetSpotlight) | Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)]  +  String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),LiveTV) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + [ControlGroup(330).HasFocus | Control.HasFocus(3337)] + !Control.HasFocus(30222)">Conditional</animation>
+
+      <animation effect="slide" start="0,0" end="0,-590" time="900" tween="quadratic" reversible="false" condition="[!Skin.HasSetting(EnableWidgetSpotlight) | Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)]  +  String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) +  Integer.IsGreater(Container(1505).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + [ControlGroup(330).HasFocus | Control.HasFocus(3337)] + !Control.HasFocus(30222)">Conditional</animation>
+
+      <animation effect="slide" start="0,0" end="0,-590" time="900" tween="quadratic" reversible="false" condition="[!Skin.HasSetting(EnableWidgetSpotlight) | Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)]  + String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + Integer.IsGreater(Container(1506).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + [ControlGroup(330).HasFocus | Control.HasFocus(3337)] + !Control.HasFocus(30222)">Conditional</animation>
+
+      <animation effect="slide" start="0,-590" end="0,-0" time="900" tween="quadratic" reversible="false" condition="[!Skin.HasSetting(EnableWidgetSpotlight) | Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)]  + [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),LiveTV) | String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + Integer.IsGreater(Container(1506).NumItems,0) | String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) + Integer.IsGreater(Container(1505).NumItems,0) ] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Skin.String(SpotFocus),true) + Control.HasFocus(30222)">Conditional</animation>
 
 
-
-      <animation effect="slide" start="0,0" end="0,-590" time="700" tween="quadratic" reversible="false" condition="[Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)]  +  String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) +  Integer.IsGreater(Container(1505).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + [ControlGroup(330).HasFocus | Control.HasFocus(3337)] + !Control.HasFocus(30222)">Conditional</animation>
-
-      <animation effect="slide" start="0,0" end="0,-590" time="700" tween="quadratic" reversible="false" condition="[Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)]  + String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + Integer.IsGreater(Container(1506).NumItems,0) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + [ControlGroup(330).HasFocus | Control.HasFocus(3337)] + !Control.HasFocus(30222)">Conditional</animation>
-
-      <animation effect="slide" start="0,-590" end="0,-0" time="700" tween="quadratic" reversible="false" condition="[Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)]  + [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + Integer.IsGreater(Container(1506).NumItems,0) | String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) + Integer.IsGreater(Container(1505).NumItems,0) ] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Skin.String(SpotFocus),true) + Control.HasFocus(30222)">Conditional</animation>
-
-
-      <animation effect="slide" start="0,0" end="0,-620" time="0" condition="[Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)] + [!String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) | [String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) + !Container(1505).IsUpdating + !Integer.IsGreater(Container(1505).NumItems,0)] | [String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + !Container(1506).IsUpdating + !Integer.IsGreater(Container(1506).NumItems,0)]] ">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,-620" time="0" condition="[!Skin.HasSetting(EnableWidgetSpotlight) | Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)] + [!String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) | [String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) + !Container(1505).IsUpdating + !Integer.IsGreater(Container(1505).NumItems,0)] | [String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + !Container(1506).IsUpdating + !Integer.IsGreater(Container(1506).NumItems,0)]] ">Conditional</animation>
 
       <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
 
       <control type="group" id="332" description="Spacer">
-        <height>150</height>
+        <height>140</height>
         <visible>Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableCatlabel) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
       </control>
       <control type="group" id="3329" description="Spacer">
@@ -428,18 +1032,17 @@
       </control>
       <control type="group" id="333" description="Spacer">
         <height>50</height>
-        <visible>Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableCatlabel) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
+        <visible>Skin.HasSetting(DisableMenuHor) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),LiveTV) + !Skin.HasSetting(DisableCatlabel) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
       </control>
       <control type="group" id="334" description="Spacer">
-        <height>120</height>
+        <height>90</height>
         <visible>Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableCatlabel) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
       </control>
       <control type="group" id="335" description="Spacer">
-        <height>20</height>
-        <visible>Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableCatlabel) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
+        <height>60</height>
+        <visible>Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableCatlabel) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),LiveTV) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
       </control>
-      <include condition="!Skin.HasSetting(EnableWidgetSpotlight)">Spotlight_Movies_AuraWidget</include>
-      <include condition="!Skin.HasSetting(EnableWidgetSpotlight)">Spotlight_TV_AuraWidget</include>
+
       <control type="group" id="338" description="Spacer">
         <height>160</height>
       </control>
@@ -452,7 +1055,7 @@
         <visible>[Skin.HasSetting(EnableMultiWidgetSpotlight) | !Skin.HasSetting(DisableCatlabel)] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
       </control>
       <control type="group" id="340" description="Spacer">
-        <height>60</height>
+        <height>40</height>
         <visible>!Skin.HasSetting(SubmenuLabel)</visible>
       </control>
       <control type="group" id="341" description="Spacer">
@@ -481,15 +1084,21 @@
       <include>skinshortcuts-template-vertical-submenu</include>
 
       <control type="group" id="346">
-        <visible>!Skin.HasSetting(DisableMenuHor) + [Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)]  + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
+        <visible>!Skin.HasSetting(DisableMenuHor) + [!Skin.HasSetting(EnableWidgetSpotlight) | Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)]  + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
         <height>-60</height>
       </control>
+<!--
       <control type="group" id="351">
-        <visible>!Skin.HasSetting(DisableMenuHor) + [!Skin.HasSetting(EnableFullSpotlight) | !Skin.HasSetting(EnableFullSpotlight)] + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
+        <visible>!Skin.HasSetting(DisableMenuHor) + [!Skin.HasSetting(EnableWidgetSpotlight)] + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
         <height>-200</height>
       </control>
+-->
       <control type="group" id="352">
-        <visible>Skin.HasSetting(DisableMenuHor)</visible>
+        <visible>Skin.HasSetting(DisableMenuHor) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
+        <height>-0</height>
+      </control>
+      <control type="group" id="3521">
+        <visible>Skin.HasSetting(DisableMenuHor) + !String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
         <height>-200</height>
       </control>
     </control>
@@ -557,7 +1166,7 @@
     <param name="orientation" default="horizontal" />
     <definition>
       <control type="group" id="4$PARAM[id]">
-        <visible>Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(Home)</visible>
+        <visible>Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(Home)</visible >
         <animation effect="fade" start="0" end="100" time="700" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
         <animation effect="fade" start="0" end="100" time="700" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
         <animation effect="slide" end="0,-45" time="0" condition="!Skin.HasSetting(SubmenuLabel)">Conditional</animation>
@@ -694,7 +1303,7 @@
           <top>45</top>
           <left>-340</left>
           <height>420</height>
-          <texture background="true">special://skin/media/dialogs/loading_poster.png</texture>
+          <texture background="true">dialogs/loading_poster.png</texture>
           <aspectratio>keep</aspectratio>
           <visible>$PARAM[postercondition]</visible>
           <visible>Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(2118)</visible>
@@ -704,7 +1313,7 @@
           <top>45</top>
           <left>-200</left>
           <height>380</height>
-          <texture background="true">special://skin/media/dialogs/loading_landscape.png</texture>
+          <texture background="true">dialogs/loading_landscape.png</texture>
           <aspectratio>keep</aspectratio>
           <visible>!$PARAM[postercondition]</visible>
           <visible>Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(2118)</visible>
@@ -734,6 +1343,7 @@
         </control>
       </control>
       <control type="$PARAM[controltype]" id="$PARAM[id]">
+
 	<orientation>$PARAM[orientation]</orientation>
 	<onfocus>Skin.SetString(SpotFocus,true)</onfocus>
         <animation effect="slide" end="640,0" time="10" reversible="false" sine="inout" condition="[Window.IsVisible(Home) | Window.IsVisible(3910) | Window.IsVisible(3920)] + $PARAM[Showcase] + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
@@ -780,8 +1390,8 @@
         <include condition="$PARAM[postercondition] + Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(WidgetLabelsBelow)">Widget_Items_Poster_Big_Label</include>
         <include condition="$PARAM[posterdetailscondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Poster_Big</include>
         <include condition="$PARAM[posterdetailscondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Poster_Big_small</include>
-        <include condition="$PARAM[widgetlivecondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Landscape_Big_Height</include>
-        <include condition="$PARAM[widgetlivecondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Landscape_Big_Height_small</include>
+        <include condition="$PARAM[widgetlivecondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Live_Big_Height</include>
+        <include condition="$PARAM[widgetlivecondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Live_Big_Height_small</include>
         <include condition="$PARAM[categorycondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Category_Big_Height</include>
         <include condition="$PARAM[categorycondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Category_Big_Height_small</include>
         <onclick condition="!Skin.HasSetting(EnableShowInfo) + [[String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(ShowInfo.Episodes)] | [String.IsEqual(ListItem.DBType,tvshow) + !Skin.HasSetting(ShowInfo.TV)] | [String.IsEqual(ListItem.DBType,movie) + !Skin.HasSetting(ShowInfo.Movies)]]">Action(Info)</onclick>
@@ -845,7 +1455,7 @@
     <height>629</height>
   </include>
   <include name="Widget_Items_LandscapePanel_Height_small">
-    <height>639</height>
+    <height>629</height>
   </include>
   <include name="Widget_Items_Landscapesmall_Big_Height">
     <height>520</height>
@@ -858,6 +1468,12 @@
   </include>
   <include name="Widget_Items_genre_Big_Height_small">
     <height>690</height>
+  </include>
+  <include name="Widget_Items_Live_Big_Height">
+    <height>565</height>
+  </include>
+  <include name="Widget_Items_Live_Big_Height_small">
+    <height>595</height>
   </include>
   <include name="Widget_Items_Landscape_Big_Height">
     <height>595</height>
@@ -881,13 +1497,13 @@
     <height>480</height>
   </include>
   <include name="Widget_Items_Poster_Big">
-    <height>620</height>
+    <height>610</height>
   </include>
   <include name="Widget_Items_Poster_Big_Label">
     <height>720</height>
   </include>
   <include name="Widget_Items_Poster_Big_small">
-    <height>650</height>
+    <height>640</height>
   </include>
   <include name="WidgetSubmenu">
     <param name="submenu" default="false" />
@@ -896,7 +1512,7 @@
     <param name="text" default="false" />
     <definition>
       <control type="group" id="2$PARAM[id]">
-      <animation effect="slide" start="0,0" end="0,-40" time="0" tween="quadratic" reversible="false" condition="Skin.HasSetting(EnableMultiWidgetSpotlight)  +  String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + [ [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) + [Container(1505).IsUpdating | Integer.IsGreater(Container(1505).NumItems,0)]] | [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + [Container(1506).IsUpdating | Integer.IsGreater(Container(1506).NumItems,0)]]] + [Control.HasFocus(1505) | Control.HasFocus(1506) | Control.HasFocus(400) | Control.HasFocus(401) | Control.HasFocus(300) | [Control.HasFocus(30222) + [Control.IsVisible(1505) | Control.IsVisible(1506)]]]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,-40" time="0" tween="quadratic" reversible="false" condition="Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(EnableMultiWidgetSpotlight)  +  String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + [ [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) + [Container(1505).IsUpdating | Integer.IsGreater(Container(1505).NumItems,0)]] | [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + [Container(1506).IsUpdating | Integer.IsGreater(Container(1506).NumItems,0)]]] + [Control.HasFocus(1505) | Control.HasFocus(1506) | Control.HasFocus(400) | Control.HasFocus(401) | Control.HasFocus(300) | [Control.HasFocus(30222) + [Control.IsVisible(1505) | Control.IsVisible(1506)]]]">Conditional</animation>
         <top>widget_gap</top>
         <left>-55</left>
         <visible>$PARAM[visible]</visible>
@@ -919,7 +1535,7 @@
         </control>
       </control>
       <control type="list" id="$PARAM[id]">
-      <animation effect="slide" start="0,0" end="0,-40" time="0" tween="quadratic" reversible="false" condition="Skin.HasSetting(EnableMultiWidgetSpotlight)  +  String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + [ [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) + [Container(1505).IsUpdating | Integer.IsGreater(Container(1505).NumItems,0)]] | [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + [Container(1506).IsUpdating | Integer.IsGreater(Container(1506).NumItems,0)]]] + [Control.HasFocus(1505) | Control.HasFocus(1506) | Control.HasFocus(400) | Control.HasFocus(401) | Control.HasFocus(300) | [Control.HasFocus(30222) + [Control.IsVisible(1505) | Control.IsVisible(1506)]]]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,-40" time="0" tween="quadratic" reversible="false" condition="Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(EnableMultiWidgetSpotlight)  +  String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + [ [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) + [Container(1505).IsUpdating | Integer.IsGreater(Container(1505).NumItems,0)]] | [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + [Container(1506).IsUpdating | Integer.IsGreater(Container(1506).NumItems,0)]]] + [Control.HasFocus(1505) | Control.HasFocus(1506) | Control.HasFocus(400) | Control.HasFocus(401) | Control.HasFocus(300) | [Control.HasFocus(30222) + [Control.IsVisible(1505) | Control.IsVisible(1506)]]]">Conditional</animation>
 
 	<onunfocus>Skin.SetString(SpotFocus,false)</onunfocus>
         <left>0</left>
@@ -991,7 +1607,7 @@
         <height>40</height>
         <orientation>horizontal</orientation>
         <usecontrolcoords>true</usecontrolcoords>
-        <itemgap>20</itemgap>
+	<itemgap>5</itemgap>
         <control type="image">
           <width>16</width>
           <height>100%</height>
@@ -1025,6 +1641,7 @@
           <visible>!String.IsEqual(Container($PARAM[id]).ListItem.Label,Container($PARAM[id]).ListItem.Artist) + !String.IsEmpty(Container($PARAM[id]).ListItem.Artist)</visible>
           <visible>!Skin.HasSetting(WidgetsLabel.DisableArtist)</visible>
         </control>
+
         <!-- Add Title, Rating and Plot to Widget Bar -->
         <control type="label">
           <top>-2</top>
@@ -1085,6 +1702,7 @@
           <label>$INFO[Container($PARAM[id]).ListItem.MPAA,| ]</label>
           <include>Statusbar_Menubar_Items</include>
           <visible>Control.HasFocus($PARAM[id])</visible>
+          <visible>$EXP[DBTvideos]</visible>
           <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] + Skin.HasSetting(DisableWidgetMPAA) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
           <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <visible>!Skin.HasSetting(LargeWidgetLabel)</visible>
@@ -1095,6 +1713,7 @@
           <label>$VAR[infoline_duration,| ]</label>
           <include>Statusbar_Menubar_Items</include>
           <visible>Control.HasFocus($PARAM[id])</visible>
+          <visible>$EXP[DBTvideos]</visible>
           <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] + Skin.HasSetting(DisableWidgetDuration) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
           <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <visible>Skin.HasSetting(LargeWidgetLabel)</visible>
@@ -1106,6 +1725,7 @@
           <label>$VAR[infoline_duration,| ]</label>
           <include>Statusbar_Menubar_Items</include>
           <visible>Control.HasFocus($PARAM[id])</visible>
+          <visible>$EXP[DBTvideos]</visible>
           <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] + Skin.HasSetting(DisableWidgetDuration) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
           <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <visible>!Skin.HasSetting(LargeWidgetLabel)</visible>
@@ -1135,11 +1755,13 @@
         <!-- Add Ratings -->
         <control type="grouplist">
           <visible>Control.HasFocus($PARAM[id])</visible>
+          <visible>$EXP[DBTvideos]</visible>
           <visible>!Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB)</visible>
           <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(DialogVideoInfo.xml)]</visible>
           <visible>$EXP[DBTvideos]</visible>
           <bottom>10</bottom>
           <height>40</height>
+	  <left>10</left>
           <include content="Object_Ratings">
             <param name="directory" value="color" />
             <param name="align" value="left" />
@@ -1159,6 +1781,7 @@
         </control>
         <control type="grouplist">
           <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetStudio) + !Skin.HasSetting(DisableWidgetIMDB)</visible>
+          <visible>$EXP[DBTvideos]</visible>
           <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <visible>$EXP[DBTvideos]</visible>
           <bottom>10</bottom>
@@ -1185,6 +1808,7 @@
           <left>5</left>
           <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <visible>Control.HasFocus($PARAM[id]) + Skin.HasSetting(DisableWidgetPlot) + !Skin.HasSetting(DisableWidgetIMDB) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
+          <visible>$EXP[DBTvideos]</visible>
           <textcolor>main_fg_70</textcolor>
           <height>20</height>
           <top>10</top>

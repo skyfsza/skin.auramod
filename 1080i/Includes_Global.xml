@@ -15,13 +15,20 @@
             <visible>Skin.HasSetting(HideSubmenuWidget)</visible>
         </control>
         <control type="list" id="300">
+<!--
             <onup condition="Skin.HasSetting(HideSubmenuWidget)">302</onup>
-            <onup condition="!Skin.HasSetting(HideSubmenuWidget)">430</onup>
+            <onup condition="!Skin.HasSetting(HideSubmenuWidget)">302</onup>
+-->
             <ondown condition="Control.HasFocus(300) + Skin.HasSetting(DisableMenuHor) + [String.IsEqual(Container(300).ListItem.Property(widget),Settings) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget)]">9967</ondown>
             <ondown condition="Control.HasFocus(300) + Skin.HasSetting(DisableMenuHor)  + [String.IsEqual(Container(300).ListItem.Property(widget),Weather) | String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)]">9966</ondown>
-            <ondown>3000</ondown>
+            <ondown condition="String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),LiveTV)">SetFocus(901)</ondown>
+            <ondown condition="String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + [[String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) + [Container(1505).IsUpdating | Integer.IsGreater(Container(1505).NumItems,0)]] | [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + [Container(1506).IsUpdating | Integer.IsGreater(Container(1506).NumItems,0)]]]">30222</ondown>
+	    <ondown>3000</ondown>
             <ondown condition="Control.IsVisible(3902)">3902</ondown>
             <ondown condition="!Control.IsVisible(3902)">300</ondown>
+            <onfocus>Skin.SetString(SpotFocus,false)</onfocus>
+            <onfocus>Skin.Reset(TVHubMenuFocus)</onfocus>
+            <onfocus>Skin.Reset(MovieHubMenuFocus)</onfocus>
             <onfocus>ClearProperty(WidgetFocus,Home)</onfocus>
             <onfocus>ClearProperty(WidgetLoading,Home)</onfocus>
             <onfocus>AlarmClock(SetLoad,SetProperty(WidgetLoading,1,Home),00:00,silent)</onfocus>
@@ -209,6 +216,7 @@
 
     <variable name="Global_Background_Image_Var">
         <value condition="[[Window.IsVisible(home) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather)] + Skin.HasSetting(NoFanart)] | ListItem.IsParentFolder">$VAR[Global_Background_Image_NoFanart]</value>
+        <value condition="Window.IsVisible(home) + ControlGroup(900).HasFocus">$VAR[Global_Background_Image_NoFanart]</value>
        <value condition="Window.IsVisible(MyVideoNav.xml) + !Control.IsVisible(505) +  [String.Contains(Container.FolderPath,library://video/serenmytv) | String.Contains(Container.FolderPath,library://video/serendiscovertv)]">special://skin/extras/backgrounds/grey-background.jpg</value>
        <value condition="Window.IsVisible(MyVideoNav.xml) + !Control.IsVisible(505) +  [String.Contains(Container..FolderPath,library://video/serenmymovies) | String.Contains(Container.FolderPath,library://video/serendiscovermovies)]">special://skin/extras/backgrounds/grey-background.jpg</value>
         <value condition="$EXP[TVSpotlight] + [Control.HasFocus(30222) | Control.HasFocus(400) | Control.HasFocus(401) | Control.HasFocus(300)] + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget) + Window.IsVisible(home) + !String.IsEmpty(Container(1505).ListItem.Art(fanart))">$INFO[Container(1505).ListItem.Art(fanart)]</value>

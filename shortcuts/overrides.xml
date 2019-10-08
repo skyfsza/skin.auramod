@@ -336,6 +336,7 @@
     <!-- Widget Spotlight -->
     <property property="widgetSpotlighttype">Movies</property>
     <property property="widgetSpotlighttype">TVShows</property>
+    <property property="widgetSpotlighttype">LiveTV</property>
     <propertySettings property="widgetSpotlighttype" showNone="false" buttonID="9906" title="Spotlight Widget" />
 
     <!-- Widget Hub -->

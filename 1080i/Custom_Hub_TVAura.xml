@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="3910">
+  <defaultcontrol>7777</defaultcontrol>
   <onload condition="String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(5055)</onload>
   <onload condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,4,absolute)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
@@ -29,11 +30,18 @@
         <scrolltime tween="sine">700</scrolltime>
         <orientation>vertical</orientation>
         <usecontrolcoords>true</usecontrolcoords>
-	<onback>Skin.Reset(TVHubMenuFocus)</onback>
-        <onback>ActivateWindow(Home)</onback>
+        <onback condition="!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious">Control.Move($PARAM[id],$INFO[Container($PARAM[id]).CurrentItem,-,])</onback>
+        <onback condition="!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious">Control.Move($PARAM[id],1)</onback>
+	<onback condition="Integer.IsEqual(Container($PARAM[id]).Position,0) | !Container($PARAM[id]).HasPrevious">Skin.Reset(TVHubMenuFocus)</onback>
+        <onback condition="Integer.IsEqual(Container($PARAM[id]).Position,0) | !Container($PARAM[id]).HasPrevious">ActivateWindow(Home)</onback>
         <onleft>SetFocus(400,4)</onleft>
         <include>skinshortcuts-template-aurahubtv</include>
     </control>
     <include>Home_TVHubMenu_Layout</include>
+    <control type="button" id="7777">
+       <visible allowhiddenfocus="true">false</visible>
+  	<onfocus condition="String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(5055)</onfocus>
+  	<onfocus condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,4,absolute)</onfocus>
+    </control>
   </controls>
 </window>

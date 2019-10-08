@@ -667,7 +667,7 @@
             <label/>
             <font/>
             <texturefocus colordiffuse="$VAR[ColorHighlight]">special://skin/extras/icons/livetv.png</texturefocus>
-            <texturenofocus colordiffuse="main_fg_70">osd/tvguide.png</texturenofocus>
+            <texturenofocus colordiffuse="main_fg_70">special://skin/extras/icons/livetv.png</texturenofocus>
             <onclick>Close</onclick>
             <onclick>ActivateWindow(pvrosdchannels,,return)</onclick>
             <onfocus condition="!String.IsEmpty(Window(Home).Property(OSDExtendedInfo)) + Player.Paused">Play</onfocus>

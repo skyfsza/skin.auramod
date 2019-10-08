@@ -271,7 +271,6 @@
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
                             <include>Defs_Settings_Button</include>
                             <label> - Enable TV/Movie Submenu on left</label>
-                            <visible>!Skin.HasSetting(DisableMenuVertIcon) | Skin.HasSetting(DisableMenuVertLabel)</visible>
                             <selected>Skin.HasSetting(DisableSubMenuVert)</selected>
                             <onclick>Skin.ToggleSetting(DisableSubMenuVert)</onclick>
                         </control>
