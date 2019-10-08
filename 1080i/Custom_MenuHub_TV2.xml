@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="2114">
-  <onload condition="String.IsEmpty(Skin.String(TVMainMenuFocus))">SetFocus(300,$INFO[Skin.String(TVMainMenuFocus)],absolute)</onload>
   <onload condition="String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(505)</onload>
-  <onload condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,$INFO[Skin.String(TVHubMenuFocus)],absolute)</onload>
+  <onload condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,1,absolute)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
-    <control type="list" id="300">
-            <itemlayout width="10" />
-            <focusedlayout width="10" />
-            <content><include>skinshortcuts-mainmenu</include></content>
-    </control>
     <include>Home_TVHubMenu_Layout</include>
       <include>Animation_Right</include>
     <control type="label">
@@ -33,7 +27,7 @@
       <height>900</height>
       <top>140</top>
       <left>80</left>
-      <onleft>SetFocus(400,$INFO[Skin.String(TVHubMenuFocus)])</onleft>
+      <onleft>SetFocus(400,1)</onleft>
       <onback>Skin.Reset(TVHubMenuFocus)</onback>
       <onback>ActivateWindow(Home)</onback>
       <viewtype label="$LOCALIZE[31469]">icon</viewtype>
