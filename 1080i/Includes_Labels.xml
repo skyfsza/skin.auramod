@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	
+    <variable name="osdcast">
+	<value condition="String.IsEmpty(VideoPlayer.DBID) + VideoPlayer.Content(movies)">$INFO[VideoPlayer.Label]</value>
+	<value condition="String.IsEmpty(VideoPlayer.DBID) + [VideoPlayer.Content(tvshows) | VideoPlayer.Content(episodes)]">$INFO[VideoPlayer.TvShowTitle]</value>
+    </variable>
+    <variable name="osdcasttype">
+        <value condition="String.IsEmpty(VideoPlayer.DBID) + VideoPlayer.Content(movies)">movie</value>
+        <value condition="String.IsEmpty(VideoPlayer.DBID) + [VideoPlayer.Content(tvshows) | VideoPlayer.Content(episodes)]">tv</value>
+    </variable> 
+
     <variable name="mylistposition">
 	<value condition="String.IsEqual(Container(211).ListItem.Property(widgetmylistposition),true)">First Widget</value>
 	<value condition="String.IsEqual(Container(211).ListItem.Property(widgetmylistposition),false)">Last Widget</value>

@@ -76,7 +76,7 @@
 			</control>
 			<control type="list" id="11">
 				<top>60</top>
-				<left>420</left>
+				<left>425</left>
 				<width>1400</width>
 				<height>350</height>
 				<onup>9001</onup>
@@ -128,7 +128,7 @@
 						</control>
 					</control>
 				</focusedlayout>
-				<content target="video">plugin://plugin.video.themoviedb.helper/?info=cast&amp;type=tv&amp;query=$INFO[VideoPlayer.TvShowTitle]</content>
+				<content target="video">plugin://plugin.video.themoviedb.helper/?info=cast&amp;type=$VAR[osdcasttype]&amp;query=$VAR[osdcast]</content>
 			</control>
 			<control type="label">
 				<include content="ItemLeft" condition="![Skin.HasSetting(SmallOSDVideo) + Window.IsVisible(fullscreenvideo) + !Window.IsActive(fullscreeninfo)]">
