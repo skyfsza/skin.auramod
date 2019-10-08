@@ -1,3 +1,11 @@
+v0.9.44
+- Add new Aura Home Spotlight type
+- Add new Aura Home Live TV spotlight (credit to xperience1080 devs)
+- Rework Aura Home spotlight / home movement
+- Add Aeon Nox style OSD channels and Mini OSD (credit to Aeon nox devs)
+- Live TV EPG tweaks and fixes.
+- Bug fixes and tweaks. 
+
 v0.9.33
 - Add Spotlight style choice for Aura Home Mode
 - Add Showcase overlay option for Landscape, LandscapePanel and Poster widgets in Aura Mode + Aura Hubs
