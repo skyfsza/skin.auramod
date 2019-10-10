@@ -21,7 +21,7 @@
    </control>
       <control type="grouplist" id="5055">
         <include>Animation_Right</include>
-   	<animation effect="slide" end="260,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
+   	<animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
         <top>140</top>
         <width>1920</width>
         <height>935</height>

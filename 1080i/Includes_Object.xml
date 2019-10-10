@@ -836,7 +836,7 @@
      <control type="wraplist" id="$PARAM[id]">
 
         <animation effect="fade" start="0" end="100" time="1000" reversible="false" condition="String.IsEqual(Skin.String(SpotFocus),true) + Control.HasFocus(300)">Visible</animation>
-        <visible>[Control.HasFocus(400) | Control.HasFocus(401) | Control.HasFocus(300) | Control.HasFocus(3022) | Control.HasFocus(30221) | Control.HasFocus(30222) | Control.HasFocus($PARAM[id]) | ControlGroup(505).HasFocus] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),$PARAM[type])</visible>
+        <visible>[[Control.HasFocus(3337) + String.IsEqual(Skin.String(SpotFocus),false)] | Control.HasFocus(400) | Control.HasFocus(401) | Control.HasFocus(300) | Control.HasFocus(3022) | Control.HasFocus(30221) | Control.HasFocus(30222) | Control.HasFocus($PARAM[id]) | ControlGroup(505).HasFocus] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),$PARAM[type])</visible>
         <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)</visible>
 
         <orientation>horizontal</orientation>
@@ -6009,6 +6009,7 @@
           <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(30222)</onfocus>
 -->
 
+	  <onfocus>Skin.Reset(SpotFocus)</onfocus>
           <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(30222)</onfocus>
           <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + !Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(330,0)</onfocus>
           <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + Integer.IsGreater(Container(330).NumItems,0)">SetFocus(330,0)</onfocus>

@@ -13,8 +13,8 @@
     <control type="grouplist" id="5055">
      <animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
      <onback>ActivateWindow(Home)</onback>
-     <onleft>SetFocus(400,3)</onleft>
-     <scrolltime tween="linear">400</scrolltime>
+<!--     <onleft>SetFocus(400,3)</onleft> -->
+     <scrolltime tween="linear">600</scrolltime>
      <posy>580</posy>
     <orientation>vertical</orientation>
     <itemgap>0</itemgap>
@@ -22,36 +22,6 @@
     <left>-40</left>
     <movement>0</movement>
     <include>skinshortcuts-template-netflixhubtv</include>
-   <control type="group" id="661">
-   <height>120</height>
    </control>
-  <control type="fixedlist" id="660">
-      <left>60</left>
-      <scrolltime tween="sine" easing="out">500</scrolltime> 
-      <height>350</height>
-      <orientation>horizontal</orientation>
-      <onup>650</onup>
-      <width>1980</width>
-      <preloaditems>2</preloaditems>
-      <itemlayout width="373.33" height="200" condition="Skin.HasSetting(SubmenuLabel)">
-        <include content="Widget_Hub_ItemLayout">
-          <param name="category" value="true" />
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </itemlayout>
-      <focusedlayout width="373.33" height="200" condition="Skin.HasSetting(SubmenuLabel)">
-        <include content="Widget_Hub_FocusedLayout">
-          <param name="id" value="660" />
-          <param name="category" value="true" />
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </focusedlayout>
-      <include>Home_Widget_HubMenu_TVItems</include>
-    </control>
-    </control>
   </controls>
 </window>

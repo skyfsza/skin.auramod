@@ -2,6 +2,7 @@
 <window type="window" id="2114">
   <onload condition="String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(505)</onload>
   <onload condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,1,absolute)</onload>
+  <onload>Skn.Reset(CatMove)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
     <include>Home_TVHubMenu_Layout</include>
@@ -29,11 +30,12 @@
       <left>80</left>
       <onleft>SetFocus(400,1)</onleft>
       <onback>Skin.Reset(TVHubMenuFocus)</onback>
+      <onback>Skin.Reset(CatMove)</onback>
       <onback>ActivateWindow(Home)</onback>
       <viewtype label="$LOCALIZE[31469]">icon</viewtype>
       <scrolltime tween="sine" easing="out">500</scrolltime>
       <itemgap>10</itemgap>
-      <itemlayout width="350" height="75">
+      <itemlayout width="400" height="75">
         <control type="group">
           <control type="label">
             <left>30</left>
@@ -44,11 +46,11 @@
           </control>
         </control>
       </itemlayout>
-      <focusedlayout width="350" height="70">
+      <focusedlayout width="400" height="70">
         <control type="group">
           <control type="group">
             <height>70</height>
-            <width>350</width>
+            <width>400</width>
             <left>10</left>
             <control type="image">
               <align>left</align>
@@ -72,7 +74,6 @@
       <include>object_menuhub_includes</include>
     <control type="grouplist" id="5055">
       <include>Animation_Right</include>
-
       <animation effect="slide" end="300,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
       <animation effect="slide" end="-430,0" time="500" condition="ControlGroup(5055).HasFocus">Conditional</animation>
       <left>420</left>
@@ -80,7 +81,6 @@
       <width>100%</width>
       <onleft>505</onleft>
       <onback>505</onback>
-      <ondown>5055</ondown>
       <orientation>vertical</orientation>
       <include>skinshortcuts-template-x1104</include>
     </control>

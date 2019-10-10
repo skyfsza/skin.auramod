@@ -15,9 +15,104 @@
       <include condition="!Skin.HasSetting(DisableViewMode.EpisodeList) + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_EpisodeList</include>
       <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_SeasonList</include>
       <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_Season</include>
-      <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_AddonList</include>
+      <include condition="!Container.Content(episodes) + !Container.Content(tvshows) + !Container.Content(movies) + !Container.Content(seasons) + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_AddonList</include>
+      <include condition="!Container.Content(episodes) + !Container.Content(tvshows) + !Container.Content(movies) + !Container.Content(seasons) + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_MenuListLandscape</include>
+      <include condition="!Container.Content(episodes) + !Container.Content(tvshows) + !Container.Content(movies) + !Container.Content(seasons) + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_MenuListPoster</include>
+      <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_MediaInfo</include>
     </definition>
   </include>
+
+
+    <include name="View_Posters_MediaInfo">
+        <control type="group">
+            <visible>Control.IsVisible(512)</visible>
+            <control type="group">
+                <right>view_pad</right>
+                <top>view_pad</top>
+                <bottom>view_pad</bottom>
+              <control type="panel" id="512">
+		<height>1000</height>
+		<width>1100</width>
+                <left>800</left>
+		<movement>1</movement>
+		<scrolltime>500</scrolltime>
+                <visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons) | Container.Content(artists) | Container.Content(videos) | $EXP[Exp_IsPluginAdvancedLauncher]</visible>
+                <include>View_NotTheseWindows</include>
+                <viewtype label="$LOCALIZE[31474]">list</viewtype>
+                <include content="View_Forced">
+                <param name="string" value="$LOCALIZE[31474]" />
+                </include>
+
+          <include content="View_Posters_Layout">
+            <param name="id" value="512" />
+            <param name="orientation" value="vertical" />
+            <param name="posters_nolabel" default="true" />
+          </include>
+		    
+            </control>
+
+            <control type="group">
+		<visible>Control.IsVisible(512)</visible>
+                <height>450</height>
+                <control type="group">
+                    <width>800</width>
+		    <left>40</left>
+                    <control type="group">
+                        <left>-10</left>
+                        <right>-10</right>
+                        <bottom>-10</bottom>
+                        <top>-10</top>
+                        <include>Defs_PosterBack</include>
+                        <control type="image">
+                            <bordersize>10</bordersize>
+                            <aspectratio aligny="center" scalediffuse="false">scale</aspectratio>
+                            <texture background="true" diffuse="diffuse/mediainfo.png">$VAR[Image_Fanart]</texture>
+                        </control>
+                        <control type="image">
+                            <bottom>40</bottom>
+                            <left>125</left>
+                            <right>125</right>
+                            <height>150</height>
+                            <aspectratio aligny="bottom">keep</aspectratio>
+                            <texture background="true">$VAR[Image_ClearLogo]</texture>
+                            <visible>!Skin.HasSetting(DisableFakeLandscapeArt)</visible>
+                            <visible>String.IsEmpty(ListItem.Art(landscape)) + String.IsEmpty(ListItem.Art(tvshow.landscape)) + String.IsEmpty(ListItem.Art(season.landscape))</visible>
+                            <visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+                        </control>
+                        <include content="Defs_PictureBack">
+                            <param name="diffuse" value="diffuse/mediainfo.png" />
+                            <param name="showtext" value="false" />
+                            <param name="colordiffuse" value="ffffffff" />
+                        </include>
+                    </control>
+                    <control type="image">
+                        <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
+                    </control>
+                </control>
+                </control>
+
+            <control type="group">
+                <top>490</top>
+		<width>800</width>
+		<left>40</left>
+		<visible>Control.IsVisible(512)</visible>
+                <include content="Object_Info">
+                    <param name="id" value="512" />
+                    <param name="width" value="1654" />
+                    <param name="discart" value="true" />
+                    <param name="hdsd_flag" value="true" />
+                    <param name="plot_height" value="130" />
+                    <param name="imdbvotes" value="false" />
+                    <param name="top250" value="false" />
+                </include>
+                </control>
+            </control>
+
+        </control>
+    </include>
+
+
+
   <include name="View_Posters_Wall">
     <control type="group">
       <visible>Control.IsVisible(51)</visible>
@@ -197,6 +292,7 @@
       </control>
     </control>
   </include>
+
   <include name="View_Posters_LandscapeShowcasePanel">
     <control type="group">
       <visible>Control.IsVisible(509)</visible>
@@ -540,6 +636,173 @@
     </control>
   </include>
 
+
+  <include name="View_Posters_MenuListPoster">
+    <control type="group">
+      <visible>Control.IsVisible(511)</visible>
+      <visible>!Container.Content(episodes) + !Container.Content(tvshows) + !Container.Content(movies) + !Container.Content(seasons)</visible>
+      <control type="group">
+        <control type="fixedlist" id="511">
+	  <focusposition>0</focusposition>
+	  <movement>0</movement>
+          <height>790</height>
+          <top>20</top>
+          <left>60</left>
+          <visible>!Container.Content(episodes)</visible>
+          <include>View_NotTheseWindows</include>
+          <viewtype label="$LOCALIZE[31473]">icon</viewtype>
+          <scrolltime tween="sine" easing="out">500</scrolltime>
+	  <orientation>horizontal</orientation>
+	  <ondown>5057</ondown>
+	  <onleft>511</onleft>
+	  <onright>511</onright>
+	  <onup>300</onup>
+          <include content="View_Forced">
+            <param name="string" value="$LOCALIZE[31473]" />
+          </include>
+          <include content="View_Posters_Layout">
+            <param name="id" value="511" />
+            <param name="menu_list" default="true" />
+          </include>
+        </control>
+
+     <control type="group"> 
+          <visible>[Control.HasFocus(300) | Control.HasFocus(511) | Control.HasFocus(5057)] +  !Container(511).ListItem.IsParentFolder</visible>
+	  <posy>90</posy>
+           <control type="group">
+		<visible>Container(5057).IsUpdating</visible>
+                <height>170</height>
+                <width>720</width>
+		<centerleft>50%</centerleft>
+		<centertop>50%</centertop>
+                    <control type="image">
+                        <visible>Skin.HasSetting(EnableDefaultSpinner)</visible>
+                        <texture>netflix/loading.gif</texture>
+                        <aspectratio>keep</aspectratio>
+                    </control>
+                   <control type="image">
+                        <visible>!Skin.HasSetting(EnableDefaultSpinner)</visible>
+                        <animation effect="rotate" condition="true" start="0" end="360" loop="true" time="1000" center="auto">Conditional</animation>
+                        <texture colordiffuse="$VAR[ColorHighlight2]">dialog/loading-spinner.png</texture>
+                        <aspectratio>keep</aspectratio>
+                        <animation effect="fade" condition="true" start="0" end="75" pulse="true" time="1000">Conditional</animation>
+                    </control>
+           </control>
+
+      <control type="panel" id="5057">
+	<animation effect="fade" start="100" end="10" time="50" condition="Container(5057).IsUpdating">Conditional</animation>
+        <onleft>5057</onleft>
+        <onback>511</onback>
+	<onup>511</onup>
+	<onclick>Skin.SetString(AddonContainer,true)</onclick>
+        <onclick condition="!Skin.HasSetting(EnableShowInfo) + [[String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(ShowInfo.Episodes)] | [String.IsEqual(ListItem.DBType,tvshow) + !Skin.HasSetting(ShowInfo.TV)] | [String.IsEqual(ListItem.DBType,movie) + !Skin.HasSetting(ShowInfo.Movies)]]">Action(Info)</onclick>
+        <left>-10</left>
+        <movement>2</movement>
+        <width>1900</width>
+        <height>1080</height>
+        <orientation>vertical</orientation>
+        <preloaditems>2</preloaditems>
+        <scrolltime tween="linear">400</scrolltime>
+          <include content="View_Posters_Layout">
+            <param name="id" value="5057" />
+            <param name="orientation" value="vertical" />
+            <param name="posters" default="true" />
+          </include>
+          <content target="videos">$INFO[Container(511).ListItem.FolderPath]</content>
+        </control>
+       </control>
+      </control>
+    </control>
+  </include>
+
+
+
+
+
+  <include name="View_Posters_MenuListLandscape">
+    <control type="group">
+      <visible>Control.IsVisible(510)</visible>
+      <visible>!Container.Content(episodes) + !Container.Content(tvshows) + !Container.Content(movies) + !Container.Content(seasons)</visible>
+      <control type="group">
+        <control type="fixedlist" id="510">
+	  <focusposition>0</focusposition>
+	  <movement>0</movement>
+          <height>790</height>
+          <top>20</top>
+          <left>60</left>
+          <visible>!Container.Content(episodes)</visible>
+          <include>View_NotTheseWindows</include>
+          <viewtype label="$LOCALIZE[31472]">icon</viewtype>
+          <scrolltime tween="sine" easing="out">500</scrolltime>
+	  <orientation>horizontal</orientation>
+	  <ondown>5056</ondown>
+	  <onleft>510</onleft>
+	  <onright>510</onright>
+	  <onup>300</onup>
+          <include content="View_Forced">
+            <param name="string" value="$LOCALIZE[31472]" />
+          </include>
+          <include content="View_Posters_Layout">
+            <param name="id" value="510" />
+            <param name="menu_list" default="true" />
+          </include>
+        </control>
+
+     <control type="group"> 
+          <visible>[Control.HasFocus(300) | Control.HasFocus(510) | Control.HasFocus(5056)] +  !Container(510).ListItem.IsParentFolder</visible>
+	  <posy>90</posy>
+
+           <control type="group">
+		<visible>Container(5056).IsUpdating</visible>
+                <height>170</height>
+                <width>720</width>
+		<centerleft>50%</centerleft>
+		<centertop>50%</centertop>
+                    <control type="image">
+                        <visible>Skin.HasSetting(EnableDefaultSpinner)</visible>
+                        <texture>netflix/loading.gif</texture>
+                        <aspectratio>keep</aspectratio>
+                    </control>
+                   <control type="image">
+                        <visible>!Skin.HasSetting(EnableDefaultSpinner)</visible>
+                        <animation effect="rotate" condition="true" start="0" end="360" loop="true" time="1000" center="auto">Conditional</animation>
+                        <texture colordiffuse="$VAR[ColorHighlight2]">dialog/loading-spinner.png</texture>
+                        <aspectratio>keep</aspectratio>
+                        <animation effect="fade" condition="true" start="0" end="75" pulse="true" time="1000">Conditional</animation>
+                    </control>
+           </control>
+
+      <control type="panel" id="5056">
+	<animation effect="fade" start="100" end="10" time="50" condition="Container(5056).IsUpdating">Conditional</animation>
+        <onleft>5056</onleft>
+        <onback>510</onback>
+	<onup>510</onup>
+	<onclick>Skin.SetString(AddonContainer,true)</onclick>
+        <onclick condition="!Skin.HasSetting(EnableShowInfo) + [[String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(ShowInfo.Episodes)] | [String.IsEqual(ListItem.DBType,tvshow) + !Skin.HasSetting(ShowInfo.TV)] | [String.IsEqual(ListItem.DBType,movie) + !Skin.HasSetting(ShowInfo.Movies)]]">Action(Info)</onclick>
+
+        <left>-10</left>
+        <movement>2</movement>
+        <width>1900</width>
+        <height>1080</height>
+        <orientation>vertical</orientation>
+        <preloaditems>2</preloaditems>
+        <scrolltime tween="linear">400</scrolltime>
+
+          <include content="View_Posters_Layout">
+            <param name="id" value="5056" />
+            <param name="orientation" value="vertical" />
+            <param name="landscape_small" default="true" />
+          </include>
+          <content target="videos" sortby="year" sortorder="descending" condition="Container(510).OnNext">$INFO[Container(510).ListItem.FolderPath]</content>
+        </control>
+       </control>
+      </control>
+    </control>
+  </include>
+
+
+
+
   <include name="View_Posters_AddonList">
     <control type="group">
       <visible>Control.IsVisible(505)</visible>
@@ -626,7 +889,7 @@
           <left>500</left>
           <top>-60</top>
           <aspectratio scalediffuse="false">scale</aspectratio>
-          <visible>[Control.HasFocus(505) | Control.HasFocus(5055)] + [[Container(5055).IsUpdating + !Integer.IsGreater(Container(5055).NumItems,0)] | String.IsEmpty(Container(5055).ListItem.Art(fanart))]</visible>
+          <visible>[Control.HasFocus(300) | Control.HasFocus(505) | Control.HasFocus(5055)] + [[Container(5055).IsUpdating + !Integer.IsGreater(Container(5055).NumItems,0)] | String.IsEmpty(Container(5055).ListItem.Art(fanart))]</visible>
         </control>
         <control type="image">
           <animation effect="fade" start="10" end="100">Visible</animation>
@@ -651,7 +914,7 @@
       </control>
       <control type="group"> 
           <animation effect="slide" end="-400,0" time="500" condition="Control.HasFocus(5055)">Conditional</animation>
-          <visible>[Control.HasFocus(505) | Control.HasFocus(5055)] +  !Container(505).ListItem.IsParentFolder</visible>
+          <visible>[Control.HasFocus(300) | Control.HasFocus(505) | Control.HasFocus(5055)] +  !Container(505).ListItem.IsParentFolder</visible>
           <animation effect="fade" start="100" end="0" condition="Container(5055).IsUpdating">Conditional</animation>
 	  <posy>540</posy>
 
@@ -1339,7 +1602,7 @@
 
   <include name="View_Posters_EpisodeList">
     <control type="group">
-      <visible>Control.IsVisible(502) + [Container.Content(episodes) | Container.Content(seasons)]</visible>
+      <visible>Container.Content(episodes) | Container.Content(seasons)</visible>
       <control type="group">
         <include condition="Skin.HasSetting(DisableNetflixView)">View_Pad</include>
         <include condition="!Skin.HasSetting(DisableNetflixView)">Object_Episodes_Info</include>
@@ -1425,6 +1688,7 @@
     <param name="top_offset" default="0" />
     <param name="bottom_offset" default="0" />
     <param name="posters" default="false" />
+    <param name="posters_nolabel" default="false" />
     <param name="posters_big" default="false" />
     <param name="square" default="false" />
     <param name="square_small" default="false" />
@@ -1432,6 +1696,7 @@
     <param name="landscape_small" default="false" />
     <param name="season_list" default="false" />
     <param name="season_showcase_list" default="false" />
+    <param name="menu_list" default="false" />
     <param name="episode_list" default="false" />
     <param name="episode_list_netflix" default="false" />
     <param name="banner" default="false" />
@@ -1482,6 +1747,38 @@
           </control>
         </control>
       </focusedlayout>
+
+      <itemlayout width="260" height="390" condition="$PARAM[posters_nolabel]">
+        <control type="group">
+          <left>view_pad</left>
+          <right>-view_pad</right>
+          <top>$PARAM[top_offset]</top>
+          <bottom>$PARAM[bottom_offset]</bottom>
+          <control type="group">
+            <height>380</height>
+            <include>View_Posters_Itemlayout_Artwork</include>
+          </control>
+        </control>
+      </itemlayout>
+      <focusedlayout width="260" height="390" condition="$PARAM[posters_nolabel]">
+        <control type="group">
+          <top>$PARAM[top_offset]</top>
+          <bottom>$PARAM[bottom_offset]</bottom>
+          <left>view_pad</left>
+          <right>-view_pad</right>
+          <include>Animation_FocusBounce</include>
+          <control type="group">
+            <height>380</height>
+            <include>View_Posters_Focusedlayout_Artwork</include>
+            <!-- Highlight -->
+            <control type="group">
+              <visible>Control.HasFocus($PARAM[id])</visible>
+              <include>View_Selectbox</include>
+            </control>
+          </control>
+        </control>
+      </focusedlayout>
+
       <itemlayout width="400" condition="$PARAM[posters_big]">
         <control type="group">
           <left>view_pad</left>
@@ -1627,6 +1924,73 @@
           </control>
         </control>
       </focusedlayout>
+      <itemlayout width="350" height="70" condition="$PARAM[menu_list]">
+        <control type="group">
+          <control type="label">
+	    <width>330</width>
+            <label>$INFO[ListItem.Label]</label>
+            <align>center</align>
+            <font>font_small</font>
+            <textcolor>main_fg_70</textcolor>
+          </control>
+        </control>
+      </itemlayout>
+      <focusedlayout width="850" height="70" condition="$PARAM[menu_list]">
+        <control type="group">
+        <control type="togglebutton">
+            <width>auto</width>
+            <align>left</align>
+            <height>view_pad</height>
+            <onclick>$INFO[Container(510).ListItem.Property(path)]</onclick>
+            <usealttexture>Control.HasFocus(510)</usealttexture>
+            <font>font_topbar</font>
+            <textcolor>Selected</textcolor>
+            <textoffsetx>1</textoffsetx>
+            <texturenofocus />
+            <texturefocus colordiffuse="$VAR[ColorHighlight]" border="8">common/underline2.png</texturefocus>
+            <alttexturenofocus colordiffuse="$VAR[ColorHighlight]" border="8">common/underline2.png</alttexturenofocus>
+            <alttexturefocus colordiffuse="$VAR[ColorHighlight]" border="8">common/underline2.png</alttexturefocus>
+            <label>$INFO[ListItem.Label]</label>
+            <visible>!Control.HasFocus(510)</visible>
+        </control>
+        <control type="togglebutton">
+            <width>auto</width>
+            <align>left</align>
+            <height>view_pad</height>
+            <onclick>$INFO[Container(510).ListItem.Property(path)]</onclick>
+            <usealttexture>Control.HasFocus(510)</usealttexture>
+            <font>font_topbar</font>
+            <textcolor>Selected</textcolor>
+            <textoffsetx>1</textoffsetx>
+            <texturenofocus />
+            <texturefocus colordiffuse="$VAR[ColorHighlight]" border="8">common/underline2.png</texturefocus>
+            <alttexturenofocus colordiffuse="$VAR[ColorHighlight]" border="8">common/underline2.png</alttexturenofocus>
+            <alttexturefocus colordiffuse="$VAR[ColorHighlight]" border="8">common/underline2.png</alttexturefocus>
+            <label>$INFO[ListItem.Label]</label>
+            <visible>Control.HasFocus(510)</visible>
+        </control>
+
+<!--
+          <control type="label">
+	    <width>800</width>
+            <label>$INFO[ListItem.Label]</label>
+            <align>left</align>
+            <font>font_topbar</font>
+            <textcolor>white</textcolor>
+	    <visible>!Control.HasFocus(510)</visible>
+          </control>
+          <control type="label">
+            <width>800</width>
+            <label>$INFO[ListItem.Label]</label>
+            <align>left</align>
+            <font>font_topbar</font>
+            <textcolor>$VAR[ColorHighlight]</textcolor>
+	    <visible>Control.HasFocus(510)</visible>
+          </control>
+-->
+        </control>
+      </focusedlayout>
+
       <itemlayout width="240" height="70" condition="$PARAM[season_showcase_list]">
         <control type="group">
           <control type="label">

@@ -646,7 +646,7 @@
                     <height>60</height>
                     <control type="image">
                         <visible>Skin.HasSetting(EnableDefaultSpinner)</visible>
-                        <texture>special://skin/media/netflix/loading.gif</texture>
+                        <texture>netflix/loading.gif</texture>
                         <aspectratio>keep</aspectratio>
                     </control>
                     <control type="image">
