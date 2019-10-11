@@ -7,18 +7,31 @@
       <include condition="Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(AddonBrowser.xml)">View_Posters_SquareWall</include>
       <include condition="!Skin.HasSetting(DisableViewMode.BannerWall) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml)]">View_Posters_BannerWall</include>
       <include condition="!Skin.HasSetting(DisableViewMode.PosterShowcase) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml)]">View_Posters_Showcase</include>
+
       <include condition="!Skin.HasSetting(DisableViewMode.SquareShowcase) + [Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyPrograms.xml)]">View_Posters_SquareShowcase</include>
+
       <include condition="!Skin.HasSetting(DisableViewMode.LandscapeShowcase) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_LandscapeShowcase</include>
-      <include condition="!Skin.HasSetting(DisableViewMode.LandscapeShowcase) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_LandscapeShowcasePanel</include>
-      <include condition="!Skin.HasSetting(DisableViewMode.BigPosters) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml)]">View_Posters_BigPosters</include>
-      <include condition="!Skin.HasSetting(DisableViewMode.Lovefilm) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_Lovefilm</include>
-      <include condition="!Skin.HasSetting(DisableViewMode.EpisodeList) + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_EpisodeList</include>
-      <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_SeasonList</include>
-      <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_Season</include>
-      <include condition="!Container.Content(episodes) + !Container.Content(tvshows) + !Container.Content(movies) + !Container.Content(seasons) + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_AddonList</include>
-      <include condition="!Container.Content(episodes) + !Container.Content(tvshows) + !Container.Content(movies) + !Container.Content(seasons) + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_MenuListLandscape</include>
-      <include condition="!Container.Content(episodes) + !Container.Content(tvshows) + !Container.Content(movies) + !Container.Content(seasons) + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_MenuListPoster</include>
       <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_MediaInfo</include>
+
+      <include condition="!Skin.HasSetting(DisableViewMode.LandscapeShowcase) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_LandscapeShowcasePanel</include>
+
+      <include condition="!Skin.HasSetting(DisableViewMode.BigPosters) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml)]">View_Posters_BigPosters</include>
+
+      <include condition="!Skin.HasSetting(DisableViewMode.Lovefilm) + [Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_Lovefilm</include>
+
+      <include condition="!Skin.HasSetting(DisableViewMode.EpisodeList) + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_EpisodeList</include>
+
+      <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_SeasonList</include>
+
+      <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_Season</include>
+
+      <include condition="[Container.Content(addons) | String.IsEmpty(Container.Content)]  + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_AddonList</include>
+
+      <include condition="[Container.Content(addons) | String.IsEmpty(Container.Content)]  + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_MenuListLandscape</include>
+
+      <include condition="[Container.Content(addons) | String.IsEmpty(Container.Content)]  + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_MenuListPoster</include>
+
+
     </definition>
   </include>
 
@@ -248,7 +261,6 @@
         <include condition="Skin.HasSetting(DisableNetflixView)">View_Pad</include>
         <include condition="!Skin.HasSetting(DisableNetflixView)">View_Pad_Netflix</include>
         <control type="fixedlist" id="55">
-<!--          <onclick condition="!Skin.HasSetting(EnableShowInfo)">Action(Info)</onclick> -->
           <animation effect="slide" end="0,40" condition="!Skin.HasSetting(DisableNetflixView)">Conditonal</animation>
           <animation effect="slide" end="0,-20" condition="Skin.HasSetting(DisableNetflixView)">Conditonal</animation>
           <bottom>-55</bottom>
@@ -264,6 +276,7 @@
           <pagecontrol>60</pagecontrol>
           <onleft>55</onleft>
           <onright>55</onright>
+	  <onup>300</onup>
           <include condition="!Skin.HasSetting(DisableNetflixView)">trailer_down</include>
           <include content="View_Forced">
             <param name="string" value="$LOCALIZE[31161]" />
@@ -349,7 +362,6 @@
         <include condition="Skin.HasSetting(DisableNetflixView)">View_Pad</include>
         <include condition="!Skin.HasSetting(DisableNetflixView)">View_Pad_Netflix</include>
         <control type="fixedlist" id="56">
-<!--        <onclick condition="!Skin.HasSetting(EnableShowInfo)">Action(Info)</onclick> -->
           <animation effect="slide" end="0,20" condition="!Skin.HasSetting(DisableNetflixView)">Conditonal</animation>
           <animation effect="slide" end="0,-20" condition="Skin.HasSetting(DisableNetflixView)">Conditonal</animation>
           <bottom>-55</bottom>
@@ -640,9 +652,9 @@
   <include name="View_Posters_MenuListPoster">
     <control type="group">
       <visible>Control.IsVisible(511)</visible>
-      <visible>!Container.Content(episodes) + !Container.Content(tvshows) + !Container.Content(movies) + !Container.Content(seasons)</visible>
       <control type="group">
         <control type="fixedlist" id="511">
+          <visible>[Container.Content(addons) | String.IsEmpty(Container.Content)]</visible>
 	  <focusposition>0</focusposition>
 	  <movement>0</movement>
           <height>790</height>
@@ -694,8 +706,9 @@
         <onleft>5057</onleft>
         <onback>511</onback>
 	<onup>511</onup>
-	<onclick>Skin.SetString(AddonContainer,true)</onclick>
-        <onclick condition="!Skin.HasSetting(EnableShowInfo) + [[String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(ShowInfo.Episodes)] | [String.IsEqual(ListItem.DBType,tvshow) + !Skin.HasSetting(ShowInfo.TV)] | [String.IsEqual(ListItem.DBType,movie) + !Skin.HasSetting(ShowInfo.Movies)]]">Action(Info)</onclick>
+	<include content="view_widget_onclick" condition="!Skin.HasSetting(EnableShowInfo)">
+            <param name="id" value="5057" />
+	</include>
         <left>-10</left>
         <movement>2</movement>
         <width>1900</width>
@@ -715,16 +728,12 @@
     </control>
   </include>
 
-
-
-
-
   <include name="View_Posters_MenuListLandscape">
     <control type="group">
       <visible>Control.IsVisible(510)</visible>
-      <visible>!Container.Content(episodes) + !Container.Content(tvshows) + !Container.Content(movies) + !Container.Content(seasons)</visible>
       <control type="group">
         <control type="fixedlist" id="510">
+          <visible>[Container.Content(addons) | String.IsEmpty(Container.Content)]</visible>
 	  <focusposition>0</focusposition>
 	  <movement>0</movement>
           <height>790</height>
@@ -777,8 +786,9 @@
         <onleft>5056</onleft>
         <onback>510</onback>
 	<onup>510</onup>
-	<onclick>Skin.SetString(AddonContainer,true)</onclick>
-        <onclick condition="!Skin.HasSetting(EnableShowInfo) + [[String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(ShowInfo.Episodes)] | [String.IsEqual(ListItem.DBType,tvshow) + !Skin.HasSetting(ShowInfo.TV)] | [String.IsEqual(ListItem.DBType,movie) + !Skin.HasSetting(ShowInfo.Movies)]]">Action(Info)</onclick>
+        <include content="view_widget_onclick" condition="!Skin.HasSetting(EnableShowInfo)">
+            <param name="id" value="5056" />
+        </include>
 
         <left>-10</left>
         <movement>2</movement>
@@ -806,7 +816,6 @@
   <include name="View_Posters_AddonList">
     <control type="group">
       <visible>Control.IsVisible(505)</visible>
-      <visible>!Container.Content(episodes) + !Container.Content(tvshows) + !Container.Content(movies) + !Container.Content(seasons)</visible>
       <control type="group">
        <control type="group">
           <animation effect="slide" end="-500,0" time="500" condition="Control.HasFocus(5055)">Conditional</animation>
@@ -844,6 +853,7 @@
          </control>
 -->
         <control type="list" id="505">
+      <visible>[Container.Content(addons) | String.IsEmpty(Container.Content)]</visible>
           <animation effect="slide" end="-500,0" time="500" condition="Control.HasFocus(5055)">Conditional</animation>
           <onright condition="!Container(5055).IsUpdating">5055</onright>
           <height>790</height>
@@ -923,8 +933,9 @@
         <onleft>504</onleft>
         <onback>SetFocus(505,0,absolute)</onback>
         <onback>505</onback>
-	<onclick>Skin.SetString(AddonContainer,true)</onclick>
-        <onclick condition="!Skin.HasSetting(EnableShowInfo) + [[String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(ShowInfo.Episodes)] | [String.IsEqual(ListItem.DBType,tvshow) + !Skin.HasSetting(ShowInfo.TV)] | [String.IsEqual(ListItem.DBType,movie) + !Skin.HasSetting(ShowInfo.Movies)]]">Action(Info)</onclick>
+        <include content="view_widget_onclick" condition="!Skin.HasSetting(EnableShowInfo)">
+            <param name="id" value="5055" />
+        </include>
 
         <left>420</left>
         <movement>2</movement>
@@ -970,6 +981,11 @@
         <onleft>504</onleft>
         <onback>SetFocus(505,0,absolute)</onback>
         <onback>505</onback>
+
+        <include content="view_widget_onclick" condition="!Skin.HasSetting(EnableShowInfo)">
+            <param name="id" value="5055" />
+        </include>
+
 <!--
 	<onclick>Skin.SetString(AddonContainer,true)</onclick>
         <onclick condition="!Skin.HasSetting(EnableShowInfo)  + [String.IsEqual(Container(5055).ListItem.DBType,tvshow) | String.IsEqual(Container(5055).ListItem.DBType,movie) | Container.Content(movies) | Container.Content(tvshows)]">Action(Info)</onclick> 
@@ -1094,7 +1110,9 @@
           <onup>507</onup>
           <onback>507</onback>
 	  <onleft>507</onleft>
-          <onclick condition="!Skin.HasSetting(EnableShowInfo) + [String.IsEqual(Container(5022).ListItem.DBType,episode) | String.IsEqual(Container(5022).ListItem.DBType,tvshow) | String.IsEqual(Container(5022).ListItem.DBType,movie)]">Action(Info)</onclick>
+        <include content="view_widget_onclick" condition="!Skin.HasSetting(EnableShowInfo)">
+            <param name="id" value="5022" />
+        </include>
 
           <itemlayout width="533.33" height="700">
             <control type="group">
@@ -1602,6 +1620,7 @@
 
   <include name="View_Posters_EpisodeList">
     <control type="group">
+      <visible>Control.IsVisible(502)</visible>
       <visible>Container.Content(episodes) | Container.Content(seasons)</visible>
       <control type="group">
         <include condition="Skin.HasSetting(DisableNetflixView)">View_Pad</include>
