@@ -597,10 +597,10 @@
                                 <animation effect="fade" start="0" end="100" time="1000" condition="String.IsEqual(Skin.String(SpotFocus),true) + Control.HasFocus(300)">Visible</animation>
                                 <visible>Control.IsVisible(1505) + [Control.HasFocus(1505) | Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(30222)]</visible>
                                 <animation effect="slide" start="0,0" end="0,80" time="0" condition="Skin.HasSetting(DisableMenuHor)">Conditonal</animation>
-                                <animation effect="fade" start="100" end="0" time="0" condition="Container(12).IsUpdating">Conditional</animation>
+                                <animation effect="fade" start="100" end="0" time="0" condition="Container(7712).IsUpdating">Conditional</animation>
                                 <animation effect="fade" start="0" end="100" delay="600" time="700" tween="quadratic" reversible="false" condition="String.IsEqual(Skin.String(SpotFocus),true) + Control.HasFocus(30222)">Conditional</animation>
 				<width>800</width>
-                        <control type="wraplist" id="12">
+                        <control type="wraplist" id="7712">
 				<focusposition>0</focusposition>
                                 <top>490</top>
                                 <left>465</left>
@@ -651,7 +651,7 @@
                                                         <texture background="true" fallback="DefaultActorSolid.png">$INFO[ListItem.Icon]</texture>
                                                         <bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
                                                         <bordersize>4</bordersize>
-                                                        <visible>!Control.HasFocus(12)</visible>
+                                                        <visible>!Control.HasFocus(7712)</visible>
                                                 </control>
                                                 <control type="image">
                                                         <left>0</left>
@@ -662,7 +662,7 @@
                                                         <texture background="true" fallback="DefaultActorSolid.png" colordiffuse="3000000">common/white.png</texture>
                                                         <bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
                                                         <bordersize>4</bordersize>
-                                                        <visible>!Control.HasFocus(12)</visible>
+                                                        <visible>!Control.HasFocus(7712)</visible>
                                                 </control>
                                                 <control type="image">
                                                         <left>-2</left>
@@ -673,7 +673,7 @@
                                                         <texture background="true" fallback="DefaultActorSolid.png">$INFO[ListItem.Icon]</texture>
                                                         <bordertexture colordiffuse="$VAR[ColorHighlight]">common/white.png</bordertexture>
                                                         <bordersize>6</bordersize>
-                                                        <visible>Control.HasFocus(12)</visible>
+                                                        <visible>Control.HasFocus(7712)</visible>
                                                 </control>
                                                 <control type="image">
                                                         <left>0</left>
@@ -711,10 +711,10 @@
 		                </animation> 
 				<visible>Control.IsVisible(1506) + [Control.HasFocus(1506) | Control.HasFocus(300) | Control.HasFocus(401) | Control.HasFocus(30222)]</visible>
 		                <animation effect="slide" start="0,0" end="0,80" time="0" condition="Skin.HasSetting(DisableMenuHor)">Conditonal</animation>
-				<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Container(11).IsUpdating">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Container(7711).IsUpdating">Conditional</animation>
 			        <animation effect="fade" start="0" end="100" delay="600" time="700" tween="quadratic" reversible="false" condition="String.IsEqual(Skin.String(SpotFocus),true) + Control.HasFocus(30222)">Conditional</animation>
 
-                        <control type="wraplist" id="11">
+                        <control type="wraplist" id="7711">
                                 <focusposition>0</focusposition>
                                 <top>490</top>
                                 <left>465</left>
@@ -724,7 +724,7 @@
                                 <ondown>SetFocus(800)</ondown>
                                 <orientation>horizontal</orientation>
                                 <autoscroll repeat="10000" time="5000" delay="5000">Control.HasFocus(30222) |  Control.HasFocus(1506)</autoscroll>
-                                <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person&amp;query=$INFO[Container(11).ListItem.Label],call_id=1137,prevent_del,delay=0.35)</onclick>
+                                <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person&amp;query=$INFO[Container(7711).ListItem.Label],call_id=1137,prevent_del,delay=0.35)</onclick>
                                 <itemlayout height="184.8" width="128.8">
                                         <control type="group">
                                                 <left>30</left>
@@ -760,7 +760,7 @@
                                                         <texture background="true" fallback="DefaultActorSolid.png">$INFO[ListItem.Icon]</texture>
                                                         <bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
                                                         <bordersize>4</bordersize>
-                                                        <visible>!Control.HasFocus(11)</visible>
+                                                        <visible>!Control.HasFocus(7711)</visible>
                                                 </control>
                                                 <control type="image">
                                                         <left>0</left>
@@ -771,7 +771,7 @@
                                                         <texture background="true" fallback="DefaultActorSolid.png" colordiffuse="3000000">common/white.png</texture>
                                                         <bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
                                                         <bordersize>4</bordersize>
-                                                        <visible>!Control.HasFocus(11)</visible>
+                                                        <visible>!Control.HasFocus(7711)</visible>
                                                 </control>
                                                 <control type="image">
                                                         <left>-2</left>
@@ -782,7 +782,7 @@
                                                         <texture background="true" fallback="DefaultActorSolid.png">$INFO[ListItem.Icon]</texture>
                                                         <bordertexture colordiffuse="$VAR[ColorHighlight]">common/white.png</bordertexture>
                                                         <bordersize>6</bordersize>
-                                                        <visible>Control.HasFocus(11)</visible>
+                                                        <visible>Control.HasFocus(7711)</visible>
                                                 </control>
                                                 <control type="image">
                                                         <left>0</left>
@@ -1200,10 +1200,35 @@
   <!-- TV Next Aired Spotlight --> 
   <include name="Spotlight_TVNextAired_AuraWidget">
     <control type="group" id="51507">
+    <visible>$EXP[NextUpTVSpotlight]</visible>
+      <visible>[ControlGroup(51507).HasFocus | Control.HasFocus(400) | Control.HasFocus(401) | Control.HasFocus(300) | ControlGroup(51507).HasFocus | Control.HasFocus(30221) | Control.HasFocus(30222)] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)</visible>
+<animation effect="slide" start="0,0" end="0,60" time="0" tween="quadratic" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,-40" time="0" tween="quadratic" reversible="false" condition="Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(EnableWidgetSpotlight) + $EXP[NextUpTVSpotlight] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
+
+       <animation effect="slide" start="0,0" end="0,-680" time="900" tween="quadratic" condition="!Control.HasFocus(300) + !Control.HasFocus(1505)">Hidden</animation>
+
+       <animation effect="slide" start="0,-620" end="0,0" time="900" tween="quadratic" reversible="false" condition="String.IsEqual(Skin.String(SpotFocus),true) + Control.HasFocus(30222)">Conditional</animation>
+
+            <control type="label">
+              <left>70</left>
+              <top>-50</top>
+              <label>[B]My TV Calendar[/B]</label>
+              <height>40</height>
+              <width>350</width>
+              <align>left</align>
+              <aligny>top</aligny>
+              <textcolor>white</textcolor>
+              <font>font_heading_top</font>
+              <visible>!Skin.HasSetting(DisableMenuHor)</visible>
+           </control>
+
+      <top>100</top>
       <width>1920</width>
       <height>190</height>
+      <onup>300</onup>
       <onup condition="Window.IsVisible(Custom_Hub_Media.xml)">54</onup>
       <ondown condition="Window.IsVisible(Custom_Hub_Media.xml)">5412</ondown>
+
       <control type="button" id="41507">
         <onfocus condition="String.Contains(System.Date,Monday)">SetFocus(10)</onfocus>
         <onfocus condition="String.Contains(System.Date,Tuesday)">SetFocus(11)</onfocus>
@@ -1213,21 +1238,22 @@
         <onfocus condition="String.Contains(System.Date,Saturday)">SetFocus(15)</onfocus>
         <onfocus condition="String.Contains(System.Date,Sunday)">SetFocus(16)</onfocus>
       </control>
-<!--
       <control type="group" id="31507">
         <control type="image">
-          <width>1750</width>
-          <height>190</height>
+	  <left>60</left>
+          <width>1820</width>
+          <height>600</height>
           <texture colordiffuse="50000000" background="true">diffuse/landscape.png</texture>
         </control>
       </control>
--->
       <control type="grouplist" id="1507">
+	<scrolltime>500</scrolltime>
         <orientation>horizontal</orientation>
-        <width>1620</width>
-        <height>360</height>
+        <width>1780</width>
+        <height>530</height>
 	<left>60</left>
-        <onup>54</onup>
+        <itemgap>20</itemgap>
+        <onup>300</onup>
 	<onup condition="Window.IsVisible(Custom_Hub_Media.xml)">54</onup>
         <include content="NextAiredUpcomingWidget">
           <param name="id" value="10" />
@@ -6298,25 +6324,37 @@
           <height>50</height>
           <width>310</width>
           <font>font_small_bold</font>
+          <textcolor>$VAR[ColorHighlight]</textcolor>
+	  <shadowcolor>dimgrey</shadowcolor>
+          <label>$PARAM[day]</label>
+	  <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0)</visible>
+	  <visible>String.Contains(System.Date,$PARAM[day])</visible>
+        </control>
+        <control type="label">
+          <align>center</align>
+          <height>50</height>
+          <width>310</width>
+          <font>font_small_bold</font>
           <textcolor>grey</textcolor>
 	  <shadowcolor>dimgrey</shadowcolor>
           <label>$PARAM[day]</label>
 	  <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0)</visible>
+	  <visible>!String.Contains(System.Date,$PARAM[day])</visible>
         </control>
       </control>
       <control type="list" id="$PARAM[id]">
-	  <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0)</visible>
+        <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0)</visible>
         <movement>4</movement>
         <orientation>vertical</orientation>
-        <width>310</width>
-        <height>340</height>
+        <width>320</width>
+        <height>530</height>
         <scrolltime>200</scrolltime>
+	<onup condition="Skin.HasSetting(DisableMenuHor)">300</onup>
         <onup condition="Window.IsVisible(Custom_Hub_Media.xml)">54</onup>
         <ondown condition="Window.Isvisible(Custom_Hub_Media.xml)">5412</ondown>
         <ondown condition="Window.Isvisible(Home)">330</ondown>
-        <onleft condition="Window.Isvisible(Home)">300</onleft>
         <itemgap>5</itemgap>
-        <itemlayout height="145">
+        <itemlayout height="165">
           <control type="image">
             <top>50</top>
             <left>15</left>
@@ -6345,7 +6383,7 @@
             <label>$INFO[ListItem.Label2]</label>
           </control>
         </itemlayout>
-        <focusedlayout height="145">
+        <focusedlayout height="165">
           <control type="image">
             <top>50</top>
             <left>15</left>
@@ -6354,6 +6392,8 @@
             <texture background="true">$INFO[ListItem.Icon]</texture>
           </control>
           <control type="image">
+            <height>135</height>
+	    <left>10</left>
             <top>50</top>
             <width>310</width>
             <texture colordiffuse="white" border="20">common/outline.png</texture>
@@ -6386,27 +6426,28 @@
             <label>$INFO[Window(Home).Property(NextAired.1.Label)]$INFO[Window(Home).Property(NextAired.1.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.1.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.1.NextDay)] at $INFO[Window(Home).Property(NextAired.1.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.1.Art(banner))]</icon>
-            <onclick></onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.1.Label)],call_id=1137,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.1.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="2">
             <label>$INFO[Window(Home).Property(NextAired.2.Label)]$INFO[Window(Home).Property(NextAired.2.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.2.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.2.NextDay)] at $INFO[Window(Home).Property(NextAired.2.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.2.Art(banner))]</icon>
-            <onclick>ActivateWindow(Videos,$INFO[Window(Home).Property(NextAired.2.Library)],Return)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.2.Label)],call_id=1137,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.2.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="3">
             <label>$INFO[Window(Home).Property(NextAired.3.Label)]$INFO[Window(Home).Property(NextAired.3.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.3.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.3.NextDay)] at $INFO[Window(Home).Property(NextAired.3.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.3.Art(banner))]</icon>
-            <onclick>ActivateWindow(Videos,$INFO[Window(Home).Property(NextAired.3.Library)],Return)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.3.Label)],call_id=1137,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.3.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="4">
             <label>$INFO[Window(Home).Property(NextAired.4.Label)]$INFO[Window(Home).Property(NextAired.4.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.4.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.4.NextDay)] at $INFO[Window(Home).Property(NextAired.4.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.4.Art(banner))]</icon>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.4.Label)],call_id=1137,delay=0.35)</onclick>
             <onclick>ActivateWindow(Videos,$INFO[Window(Home).Property(NextAired.4.Library)],Return)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.4.NextDate),$PARAM[dayshort])</visible>
           </item>
@@ -6414,57 +6455,78 @@
             <label>$INFO[Window(Home).Property(NextAired.5.Label)]$INFO[Window(Home).Property(NextAired.5.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.5.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.5.NextDay)] at $INFO[Window(Home).Property(NextAired.5.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.5.Art(banner))]</icon>
-            <onclick>ActivateWindow(Videos,$INFO[Window(Home).Property(NextAired.5.Library)],Return)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.5.Label)],call_id=1137,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.5.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="6">
             <label>$INFO[Window(Home).Property(NextAired.6.Label)]$INFO[Window(Home).Property(NextAired.6.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.6.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.6.NextDay)] at $INFO[Window(Home).Property(NextAired.6.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.6.Art(banner))]</icon>
-            <onclick>ActivateWindow(Videos,$INFO[Window(Home).Property(NextAired.6.Library)],Return)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.6.Label)],call_id=1137,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.6.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="7">
             <label>$INFO[Window(Home).Property(NextAired.7.Label)]$INFO[Window(Home).Property(NextAired.7.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.7.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.7.NextDay)] at $INFO[Window(Home).Property(NextAired.7.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.7.Art(banner))]</icon>
-            <onclick>ActivateWindow(Videos,$INFO[Window(Home).Property(NextAired.7.Library)],Return)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.7.Label)],call_id=1137,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.7.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="8">
             <label>$INFO[Window(Home).Property(NextAired.8.Label)]$INFO[Window(Home).Property(NextAired.8.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.8.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.8.NextDay)] at $INFO[Window(Home).Property(NextAired.8.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.8.Art(banner))]</icon>
-            <onclick>ActivateWindow(Videos,$INFO[Window(Home).Property(NextAired.8.Library)],Return)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.8.Label)],call_id=1137,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.8.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="9">
             <label>$INFO[Window(Home).Property(NextAired.9.Label)]$INFO[Window(Home).Property(NextAired.9.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.9.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.9.NextDay)] at $INFO[Window(Home).Property(NextAired.9.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.9.Art(banner))]</icon>
-            <onclick>ActivateWindow(Videos,$INFO[Window(Home).Property(NextAired.9.Library)],Return)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.9.Label)],call_id=1137,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.9.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="10">
             <label>$INFO[Window(Home).Property(NextAired.10.Label)]$INFO[Window(Home).Property(NextAired.10.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.10.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.10.NextDay)] at $INFO[Window(Home).Property(NextAired.10.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.10.Art(banner))]</icon>
-            <onclick>ActivateWindow(Videos,$INFO[Window(Home).Property(NextAired.10.Library)],Return)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.10.Label)],call_id=1137,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.10.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="11">
             <label>$INFO[Window(Home).Property(NextAired.11.Label)]$INFO[Window(Home).Property(NextAired.11.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.11.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.11.NextDay)] at $INFO[Window(Home).Property(NextAired.11.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.11.Art(banner))]</icon>
-            <onclick>ActivateWindow(Videos,$INFO[Window(Home).Property(NextAired.11.Library)],Return)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.11.Label)],call_id=1137,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.11.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="12">
             <label>$INFO[Window(Home).Property(NextAired.12.Label)]$INFO[Window(Home).Property(NextAired.12.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.12.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.12.NextDay)] at $INFO[Window(Home).Property(NextAired.12.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.12.Art(banner))]</icon>
-            <onclick>ActivateWindow(Videos,$INFO[Window(Home).Property(NextAired.12.Library)],Return)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.12.Label)],call_id=1137,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.12.NextDate),$PARAM[dayshort])</visible>
+          </item>
+          <item id="13">
+            <label>$INFO[Window(Home).Property(NextAired.13.Label)]$INFO[Window(Home).Property(NextAired.13.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.13.NextEpisodeNumber),E,)]</label>
+            <label2>$INFO[Window(Home).Property(NextAired.13.NextDay)] at $INFO[Window(Home).Property(NextAired.13.ShortTime)]</label2>
+            <icon>$INFO[Window(Home).Property(NextAired.13.Art(banner))]</icon>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.13.Label)],call_id=1137,delay=0.35)</onclick>
+            <visible>String.Contains(Window(Home).Property(NextAired.13.NextDate),$PARAM[dayshort])</visible>
+          </item>
+          <item id="14">
+            <label>$INFO[Window(Home).Property(NextAired.14.Label)]$INFO[Window(Home).Property(NextAired.14.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.14.NextEpisodeNumber),E,)]</label>
+            <label2>$INFO[Window(Home).Property(NextAired.14.NextDay)] at $INFO[Window(Home).Property(NextAired.14.ShortTime)]</label2>
+            <icon>$INFO[Window(Home).Property(NextAired.14.Art(banner))]</icon>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.14.Label)],call_id=1137,delay=0.35)</onclick>
+            <visible>String.Contains(Window(Home).Property(NextAired.14.NextDate),$PARAM[dayshort])</visible>
+          </item>
+          <item id="15">
+            <label>$INFO[Window(Home).Property(NextAired.15.Label)]$INFO[Window(Home).Property(NextAired.15.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.15.NextEpisodeNumber),E,)]</label>
+            <label2>$INFO[Window(Home).Property(NextAired.15.NextDay)] at $INFO[Window(Home).Property(NextAired.15.ShortTime)]</label2>
+            <icon>$INFO[Window(Home).Property(NextAired.15.Art(banner))]</icon>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.15.Label)],call_id=1137,delay=0.35)</onclick>
+            <visible>String.Contains(Window(Home).Property(NextAired.15.NextDate),$PARAM[dayshort])</visible>
           </item>
         </content>
       </control>
@@ -7707,5 +7769,12 @@
         </definition>
     </include>
 
+   <include name="view_widget_onclick">
+        <param name="id" default="" />
+        <definition>
+        <onclick>Skin.SetString(AddonContainer,true)</onclick>
+        <onclick condition="!Skin.HasSetting(EnableShowInfo) + [[String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) + !Skin.HasSetting(ShowInfo.Episodes)] | [String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow) + !Skin.HasSetting(ShowInfo.TV)] | [String.IsEqual(Container($PARAM[id]).ListItem.DBType,movie) + !Skin.HasSetting(ShowInfo.Movies)]]">Action(Info)</onclick>
+        </definition>
+   </include>
 
 </includes>
