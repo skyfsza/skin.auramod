@@ -151,7 +151,7 @@
 
      <control type="group">
         <animation effect="slide" end="0,20" time="0" condition="Skin.HasSetting(DisableNetflixSmallWidget)">Conditional</animation>
-        <visible>Skin.HasSetting(WidgetLabels) + String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(ListItem.Art(clearlogo)</visible>
+        <visible>String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(ListItem.Art(clearlogo)) + !Skin.HasSetting(WidgetLabels)</visible>
       <control type="image">
         <left>0</left>
         <bottom>40</bottom>
@@ -164,7 +164,6 @@
         <left>4</left>
         <height>55</height>
         <width>85</width>
-        <visible>Skin.HasSetting(WidgetLabels) + String.IsEqual(ListItem.DBType,episode)</visible>
         <label>[I]$INFO[ListItem.Season, S,: ]$INFO[ListItem.Episode,E, ][/I]</label>
         <textcolor>white</textcolor>
         <font>widget_overlaybutton</font>
@@ -211,7 +210,7 @@
                 <height>70</height>
                 <bottom>0</bottom>
                 <visible>![!Skin.HasSetting(DisableFakeLandscapeArt) + !String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome)]]</visible>
-                <visible>[!Skin.HasSetting(DisableClearlogo) | Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(clearlogo)] + !Skin.HasSetting(WidgetLabels) | Window.IsVisible(1138)</visible>
+                <visible>[!Skin.HasSetting(DisableClearlogo) | Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(clearlogo))] + !Skin.HasSetting(WidgetLabels) | Window.IsVisible(1138)</visible>
 
                 <control type="image">
                     <texture background="true" colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
@@ -636,7 +635,7 @@
                 <height>50</height>
                 <bottom>0</bottom>
                 <visible>![!Skin.HasSetting(DisableFakeLandscapeArt) + !String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome)]]</visible>
-                <visible>[!Skin.HasSetting(DisableClearlogo) | Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(clearlogo)] + !Skin.HasSetting(WidgetLabels) | Window.IsVisible(1138)</visible>
+                <visible>[!Skin.HasSetting(DisableClearlogo) | Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(clearlogo))] + !Skin.HasSetting(WidgetLabels) | Window.IsVisible(1138)</visible>
 
                 <control type="image">
                     <texture background="true" colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
@@ -656,7 +655,7 @@
 
 
      <control type="group">
-       <visible>String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(ListItem.Art(clearlogo) + [[Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixSmallWidget)] | !Skin.HasSetting(DisableAuraHomeLayout)]</visible>
+       <visible>!Skin.HasSetting(WidgetLabels) + String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(ListItem.Art(clearlogo)) + [[Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixSmallWidget)] | !Skin.HasSetting(DisableAuraHomeLayout)]</visible>
       <control type="image">
         <left>0</left>
 	<bottom>30</bottom>
@@ -676,7 +675,7 @@
      </control>
 
      <control type="group">
-       <visible>String.IsEqual(ListItem.DBType,episode) + [Skin.HasSetting(DisableAuraHomeLayout) + Skin.HasSetting(DisableNetflixSmallWidget)]</visible>
+       <visible>!Skin.HasSetting(WidgetLabels) + !String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEqual(ListItem.DBType,episode) + [Skin.HasSetting(DisableAuraHomeLayout) + Skin.HasSetting(DisableNetflixSmallWidget)]</visible>
       <control type="image">
         <left>0</left>
         <bottom>20</bottom>

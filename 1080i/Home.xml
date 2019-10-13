@@ -20,6 +20,7 @@
     <onload condition="!String.IsEmpty(Skin.String(TMDB_Search))">ActivateWindow(1136)</onload>
     <onload>Skin.SetString(AddonContainer,false)</onload>
     <onload>Skin.SetString(SpotFocus,false)</onload>
+    <onunload>ClearProperty(spothubscroll)</onunload>
     <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
   
   <onload condition="!String.IsEmpty(Skin.String(MovieHubMenuFocus))">SetFocus(401,0,absolute)</onload> 

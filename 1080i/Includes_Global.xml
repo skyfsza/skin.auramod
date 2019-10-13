@@ -22,11 +22,13 @@
             <ondown condition="Control.HasFocus(300) + Skin.HasSetting(DisableMenuHor) + [String.IsEqual(Container(300).ListItem.Property(widget),Settings) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget)]">9967</ondown>
             <ondown condition="Control.HasFocus(300) + Skin.HasSetting(DisableMenuHor)  + [String.IsEqual(Container(300).ListItem.Property(widget),Weather) | String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)]">9966</ondown>
             <ondown condition="String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),LiveTV)">SetFocus(901)</ondown>
-            <ondown condition="String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + [[String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),TVShows) + [Container(1505).IsUpdating | Integer.IsGreater(Container(1505).NumItems,0)]] | [String.IsEqual(Container(300).ListItem.Property(widgetspotlighttype),Movies) + [Container(1506).IsUpdating | Integer.IsGreater(Container(1506).NumItems,0)]]]">30222</ondown>
+            <ondown condition="[$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[NextUpTVSpotlight]]">330</ondown>
+            <ondown>ClearProperty(spotback)</ondown>
 	    <ondown>3000</ondown>
             <ondown condition="Control.IsVisible(3902)">3902</ondown>
             <ondown condition="!Control.IsVisible(3902)">300</ondown>
-            <onfocus>Skin.SetString(SpotFocus,false)</onfocus>
+	    <onunfocus>ClearProperty(spotback)</onunfocus>
+            <onfocus>SetProperty(SpotFocus,true,Home)</onfocus>
             <onfocus>Skin.Reset(TVHubMenuFocus)</onfocus>
             <onfocus>Skin.Reset(MovieHubMenuFocus)</onfocus>
             <onfocus>ClearProperty(WidgetFocus,Home)</onfocus>

@@ -59,8 +59,9 @@
                     <include condition="!Skin.HasSetting(DisableMenuVertLabel)">Home_Iconbar_Texture</include>
 
                     <control type="list" id="300">
-			<onfocus>Skin.Reset(TVHubMenuFocus)</onfocus>
-			<onfocus>Skin.Reset(MovieHubMenuFocus)</onfocus>
+                        <onfocus>SetProperty(SpotFocus,true,Home)</onfocus>
+                        <onfocus>Skin.Reset(TVHubMenuFocus)</onfocus>
+                        <onfocus>Skin.Reset(MovieHubMenuFocus)</onfocus>
 			<onleft condition="Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Label,TV Shows) + Skin.HasSetting(DisableSubMenuVert)">SetFocus(400,0)</onleft>
 			<onleft condition="Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Label,Movies) + Skin.HasSetting(DisableSubMenuVert)">SetFocus(401,0)</onleft>
 			<onleft condition="Control.HasFocus(300) + Skin.HasSetting(DisableMenuVertFull)">302</onleft>
@@ -236,7 +237,7 @@
                                                                    >Conditional</animation>
   <include>Home_MainMenu_Layout_wLabel_texture</include>
 		<control type="list" id="300">
-			<onfocus>Skin.SetString(SpotFocus,false)</onfocus>
+			<onfocus>SetProperty(SpotFocus,true,Home)</onfocus>
 			<onfocus>Skin.Reset(TVHubMenuFocus)</onfocus>
 			<onfocus>Skin.Reset(MovieHubMenuFocus)</onfocus>
 			<onleft condition="Skin.HasSetting(DisableSubMenuVert) + Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Label,TV Shows)">SetFocus(400,0)</onleft>
@@ -252,6 +253,8 @@
 			<onright condition="Window.IsVisible(Home) + [String.IsEqual(Container(300).ListItem.Property(widget),Settings) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget)]">9967</onright>
 			<onright condition="Window.IsVisible(Home) + [String.IsEqual(Container(300).ListItem.Property(widget),Weather) | String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)]">9966</onright>	
                         <onright condition="Window.IsVisible(script-globalsearch-main.xml)">9500</onright>
+			<onright condition="$EXP[NextUpTVSpotlight] + String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true) + Integer.IsGreater(Container(30222).NumItems,0)">30222</onright>
+			<onright condition="$EXP[NextUpTVSpotlight] + !String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true) | !Integer.IsGreater(Container(30222).NumItems,0)">330</onright>
                         <onright condition="Window.IsVisible(Home) + !Skin.HasSetting(DisableAuraHomeLayout) + Integer.IsGreater(Container(330).NumItems,0)">3000</onright>
                         <onright condition="Window.IsVisible(Home) + !Integer.IsGreater(Container(30222).NumItems,0) + Integer.IsGreater(Container(330).NumItems,0)">3000</onright>
 
@@ -266,6 +269,7 @@
                         <onleft>300</onleft>
                         <onright condition="[Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">50</onright>
                         <onright condition="Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">9500</onright>
+		        <onright>ClearProperty(spotback)</onright>
 
                         <include>Global_Overlay</include>
                         <include>Defs_InfoDialog_Visible</include>

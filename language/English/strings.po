@@ -2251,4 +2251,19 @@ msgstr ""
 #: /1080i/SkinSettings.xml
 msgctxt "#31471"
 msgid "Enable Vertical Icon w/ Labels"
-msgstrsgstr
+msgstr ""
+
+#: /1080i/Includes_View_Posters.xml
+msgctxt "#31472"
+msgid "List Landscape"
+msgstr ""
+
+#: /1080i/Includes_View_Posters.xml
+msgctxt "#31473"
+msgid "List Poster"
+msgstr ""
+
+#: /1080i/Includes_View_Posters.xml
+msgctxt "#31474"
+msgid "Poster MediaInfo"
+msgstr ""

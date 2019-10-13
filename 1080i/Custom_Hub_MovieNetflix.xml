@@ -1,50 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="3820">
-  <defaultcontrol always="true">4000</defaultcontrol>
-  <onload>AlarmClock(focusWidgets,SetFocus(323233),00:00,silent)</onload>
+  <defaultcontrol always="true">5055</defaultcontrol>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
-    <include>Animation_FadeInOut</include>
     <include>Object_Home_Netflix</include>
-   <control type="grouplist" id="323233">
-    <scrolltime tween="quadratic">400</scrolltime>
+<!--
+   <control type="group">
+    <include>Home_HubMenu_Layout</include>
+    <visible>Control.HasFocus(400)</visible>
+   </control>
+-->
+    <control type="grouplist" id="5055">
+     <animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
+     <onback>ActivateWindow(Home)</onback>
+<!--     <onleft>SetFocus(400,3)</onleft> -->
+     <scrolltime tween="linear">600</scrolltime>
+     <posy>580</posy>
     <orientation>vertical</orientation>
     <itemgap>0</itemgap>
     <usecontrolcoords>true</usecontrolcoords>
-    <posy>590</posy>
     <left>-40</left>
-    <include>netflixhub_movies_widgets</include>
     <movement>0</movement>
-   <control type="group" id="661">
-   <height>120</height>
+    <include>skinshortcuts-template-netflixhubmovies</include>
    </control>
-  <control type="fixedlist" id="660">
-      <left>60</left>
-      <scrolltime tween="sine" easing="out">500</scrolltime>
-      <height>350</height>
-      <orientation>horizontal</orientation>
-      <onup>650</onup>
-      <width>1980</width>
-      <preloaditems>2</preloaditems>
-      <itemlayout width="373.33" height="200" condition="Skin.HasSetting(SubmenuLabel)">
-        <include content="Widget_Hub_ItemLayout">
-          <param name="category" value="true" />
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </itemlayout>
-      <focusedlayout width="373.33" height="200" condition="Skin.HasSetting(SubmenuLabel)">
-        <include content="Widget_Hub_FocusedLayout">
-          <param name="id" value="660" />
-          <param name="category" value="true" />
-          <param name="genres" value="$PARAM[genres]" />
-          <param name="studios" value="$PARAM[studios]" />
-          <param name="text" value="$PARAM[text]" />
-        </include>
-      </focusedlayout>
-      <include>Home_Widget_HubMenu_MovieItems</include>
-    </control>
-    </control>
   </controls>
 </window>

@@ -60,6 +60,7 @@
         <value condition="String.Contains(ListItem.Label,Genres)">special://skin/media/exuary/tvlist/genres-background.jpg</value>
    </variable> 
    <variable name="Spotlight_Fanart">
+        <value condition="String.IsEmpty(ListItem.DBType) + !String.IsEmpty(ListItem.Property(background)) + [Window.IsVisible(3810) | Window.IsVisible(3820)] ">$INFO[ListItem.Property(background)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>

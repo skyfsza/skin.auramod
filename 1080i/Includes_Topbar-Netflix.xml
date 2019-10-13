@@ -63,6 +63,7 @@
 	    <visible>[Skin.HasSetting(DisableNetflixHome) + [Control.HasFocus(300) | Control.HasFocus(302)]] | !Skin.HasSetting(DisableNetflixHome)</visible>
         </control>
         <control type="togglebutton">
+            <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)">ClearProperty(spotback)</onfocus>
             <width>auto</width>
             <align>left</align>
             <height>view_pad</height>

@@ -36,7 +36,7 @@
 	<control type="button" id="9005">
 	 <visible allowhiddenfocus="true">false</visible>
             <onfocus condition="!Skin.HasSetting(UseExtendedInfoDialog)">SetFocus(8000)</onfocus>
-	    <onfocus>SetFocus(9570)</onfocus>
+	    <onfocus>SetFocus(9570,0)</onfocus>
 	</control>
         <control type="group">
         <include>Global_Background</include>
