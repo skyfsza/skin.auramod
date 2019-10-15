@@ -2925,6 +2925,8 @@
       <top>385</top>
     </control>
   </include>
+
+
   <include name="View_Landscape_Artwork">
     <include>Defs_PosterBack</include>
 <!--
@@ -2947,7 +2949,7 @@
         <visible>String.Contains(ListItem.Path,plugin.video.youtube)</visible>
       </control>
 
-
+<!--
     <control type="image">
       <bottom>20</bottom>
       <left>75</left>
@@ -2959,6 +2961,27 @@
       <visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows)</visible>
       <visible>!Control.IsVisible(52) + !Control.IsVisible(502)</visible> 
     </control>
+-->
+        <control type="image">
+          <bottom>30</bottom>
+          <top>170</top>
+          <left>120</left>
+          <right>120</right>
+          <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
+          <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
+          <visible>!Control.IsVisible(507) + !Control.IsVisible(507) + !String.IsEqual(ListItem.DBType,episode)  + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
+       </control>
+
+        <control type="image">
+          <bottom>0</bottom>
+          <right>10</right>
+          <width>45%</width>
+          <height>45%</height>
+          <aspectratio>keep</aspectratio>
+          <texture background="true">$VAR[Widget_ClearLogo]</texture>
+          <visible>!Control.IsVisible(507) + !Control.IsVisible(502) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
+        </control>
+
     <include>Defs_PictureBack</include>
     <include>View_WatchedOverlay</include>
    <control type="group">

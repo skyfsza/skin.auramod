@@ -291,7 +291,7 @@
 				<rulerunit>6</rulerunit>
 				<onleft>10</onleft>
 				<onright>10</onright>
-	                        <onup>sendclick(28)</onup>
+	                        <onup>10</onup>
 				<ondown>10</ondown>
                                 <onback>9102</onback>
 				<onback>SetProperty(CloseFromDialogSelect,1,Home)</onback>
@@ -562,7 +562,6 @@
                     <width>1980</width>
                     <height>592</height>
                     <viewtype label="19069">list</viewtype>
-		    <onup>sendclick(28)</onup>
 		    <onback>9102</onback>
                     <onback>SetProperty(CloseFromDialogSelect,1,Home)</onback>
 		    <onback>sendclick(28)</onback>

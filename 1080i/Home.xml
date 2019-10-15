@@ -12,14 +12,16 @@
     <onload>AlarmClock(SkinSplashStarted,SetProperty(SkinSplashStarted,1,home),00:01,silent,false)</onload>
     <onload>ClearProperty(WidgetLoading,Home)</onload>
     <onload>AlarmClock(SetLoad,SetProperty(WidgetLoading,1,Home),00:00,silent)</onload> 
-    <onload condition="!Skin.HasSetting(EnableMultiWidgetSpotlight) + String.IsEmpty(Skin.String(TVHubMenuFocus)) + String.IsEmpty(Skin.String(MovieHubMenuFocus)) + Integer.IsGreater(Container(1505).NumItems,0)">Control.Move(1505,1)</onload>
+<!--    <onload condition="!Skin.HasSetting(EnableMultiWidgetSpotlight) + String.IsEmpty(Skin.String(TVHubMenuFocus)) + String.IsEmpty(Skin.String(MovieHubMenuFocus)) + Integer.IsGreater(Container(1505).NumItems,0)">Control.Move(1505,1)</onload>
     <onload condition="!Skin.HasSetting(EnableMultiWidgetSpotlight) + String.IsEmpty(Skin.String(TVHubMenuFocus)) + String.IsEmpty(Skin.String(MovieHubMenuFocus)) + Integer.IsGreater(Container(1506).NumItems,0)">Control.Move(1506,1)</onload>
+-->
+    <onload>ClearProperty(spotback)</onload>
     <onload condition="!Skin.HasSetting(LockHubWidgets)">Skin.ToggleSetting(LockHubWidgets)</onload>
     <onload condition="Skin.HasSetting(AutoLibraryHome)">UpdateLibrary(video,,true)</onload>
     <onload condition="Skin.HasSetting(MouseMode)">Skin.ToggleSetting(MouseMode)</onload>
     <onload condition="!String.IsEmpty(Skin.String(TMDB_Search))">ActivateWindow(1136)</onload>
     <onload>Skin.SetString(AddonContainer,false)</onload>
-    <onload>Skin.SetString(SpotFocus,false)</onload>
+    <onunload>SetProperty(SpotReturnHome,true,Home)</onunload>
     <onunload>ClearProperty(spothubscroll)</onunload>
     <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
   

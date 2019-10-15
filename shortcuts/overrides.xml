@@ -336,6 +336,7 @@
     <!-- Widget Spotlight -->
     <property property="widgetSpotlighttype">Movies</property>
     <property property="widgetSpotlighttype">TVShows</property>
+    <property property="widgetSpotlighttype">NextAiredTV</property>
     <property property="widgetSpotlighttype">LiveTV</property>
     <propertySettings property="widgetSpotlighttype" showNone="false" buttonID="9906" title="Spotlight Widget" />
 
@@ -403,6 +404,7 @@
     <property property="widgetHubAspect" icon="special://skin/extras/widgettype/widget-poster.png">LandscapePoster</property>
     <property property="widgetHubAspect" icon="special://skin/extras/widgettype/widget-landscape.png">Landscape</property>
     <property property="widgetHubAspect" icon="special://skin/extras/widgettype/widget-landscape.png">LandscapePanel</property>
+    <property property="widgetHubAspect" icon="special://skin/extras/backgrounds/viewmodes/submenu-large.jpg">Submenu</property>
     <propertySettings property="widgetHubAspect" showNone="false" buttonID="9905" title="Widget Hub Aspect Ratio" />
 
     <!-- Widget Target -->

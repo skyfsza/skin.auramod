@@ -416,10 +416,18 @@
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <label>[B]Spotlight Widgets[/B]</label>
                         </control>
+                       <control type="radiobutton" id="96692" description="Enable Spotlight">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Enable Spotlights</label>
+                            <onclick>Skin.ToggleSetting(EnableSpotlight)</onclick>
+                            <selected>Skin.HasSetting(EnableSpotlight)</selected>
+                        </control>
                         <control type="button" id="96691" description="Choose Spotlight Style">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
                             <label>Choose Spotlight Style</label>
+			    <enable>Skin.HasSetting(EnableSpotlight)</enable>
                             <onclick>ActivateWindow(1132)</onclick>
                         </control>
                         <control type="button" id="9668" description="Choose Movies Spotlight">
@@ -430,6 +438,7 @@
 			    <onclick condition="String.IsEmpty(Skin.String(spotlightmovies.label))">RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=spotlightmovies.label&amp;skinWidgetTarget=spotlightmovies.target&amp;skinWidgetPath=spotlightmovies.path)</onclick>
 		            <onclick condition="!String.IsEmpty(Skin.String(spotlightmovies.label))">Skin.Reset(spotlightmovies.label)</onclick>
 		            <onclick condition="!String.IsEmpty(Skin.String(spotlightmovies.path))">Skin.Reset(spotlightmovies.path)</onclick>
+			    <enable>Skin.HasSetting(EnableSpotlight)</enable>
                         </control>
                         <control type="button" id="9669" description="Choose TV Shows Spotlight">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
@@ -439,6 +448,7 @@
                             <onclick condition="String.IsEmpty(Skin.String(spotlighttvshows.label))">RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=spotlighttvshows.label&amp;skinWidgetTarget=spotlighttvshows.target&amp;skinWidgetPath=spotlighttvshows.path)</onclick>
                             <onclick condition="!String.IsEmpty(Skin.String(spotlighttvshows.label))">Skin.Reset(spotlighttvshows.label)</onclick>
                             <onclick condition="!String.IsEmpty(Skin.String(spotlighttvshows.path))">Skin.Reset(spotlighttvshows.path)</onclick>
+			    <enable>Skin.HasSetting(EnableSpotlight)</enable>
                         </control>
                         <control type="button" id="96671" description="Search">
                             <textcolor>main_fg_100</textcolor>
@@ -1206,7 +1216,6 @@
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
                             <label>$LOCALIZE[31291]</label>
-                            <selected>!Skin.HasSetting(WidgetLabels)</selected>
                             <onclick>Skin.ToggleSetting(WidgetLabels)</onclick>
                         </control>
                        <control type="radiobutton" id="9108" description="Prefer fanart">

@@ -27,7 +27,7 @@
 	    <ondown>3000</ondown>
             <ondown condition="Control.IsVisible(3902)">3902</ondown>
             <ondown condition="!Control.IsVisible(3902)">300</ondown>
-	    <onunfocus>ClearProperty(spotback)</onunfocus>
+            <onfocus>ClearProperty(SpotReturnHome)</onfocus>
             <onfocus>SetProperty(SpotFocus,true,Home)</onfocus>
             <onfocus>Skin.Reset(TVHubMenuFocus)</onfocus>
             <onfocus>Skin.Reset(MovieHubMenuFocus)</onfocus>
