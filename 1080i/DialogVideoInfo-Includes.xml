@@ -976,6 +976,7 @@
       <pauseatend>10000</pauseatend>
       <randomize>false</randomize>
       <loop>no</loop>
+      <visible>!String.Contains(ListItem.Art(fanart),w1280None)</visible>
       </control>
       <control type="image">
 	<width>130%</width>

@@ -1899,7 +1899,18 @@
             <left>10</left>
             <right>10</right>
             <top>265</top>
-            <visible>!Skin.HasSetting(DisableViewText)</visible>
+            <visible>!Skin.HasSetting(DisableViewText) + !Control.IsVisible(510)</visible>
+          </control>
+          <control type="label">
+            <label>$INFO[ListItem.Year]</label>
+            <align>right</align>
+            <aligny>top</aligny>
+            <font>font_statusbar</font>
+            <textcolor>main_fg_70</textcolor>
+            <left>10</left>
+            <right>10</right>
+            <top>265</top>
+            <visible>!Skin.HasSetting(DisableViewText) + Control.IsVisible(510)</visible>
           </control>
         </control>
       </itemlayout>
@@ -1939,7 +1950,18 @@
             <left>10</left>
             <right>10</right>
             <top>265</top>
-            <visible>!Skin.HasSetting(DisableViewText)</visible>
+            <visible>!Skin.HasSetting(DisableViewText) + !Control.IsVisible(510)</visible>
+          </control>
+          <control type="label">
+            <label>$INFO[ListItem.Year]</label>
+            <align>right</align>
+            <aligny>top</aligny>
+            <font>font_statusbar</font>
+            <textcolor>main_fg_70</textcolor>
+            <left>10</left>
+            <right>10</right>
+            <top>265</top>
+            <visible>!Skin.HasSetting(DisableViewText) + Control.IsVisible(510)</visible>
           </control>
         </control>
       </focusedlayout>

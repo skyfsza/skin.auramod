@@ -131,12 +131,6 @@
               <visible>String.IsEqual(Container(300).ListItem.Property(widget),Settings) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget)</visible>
               <include>Widget_Settings</include>
             </control>
-<!--
-            <control type="group">
-              <visible>String.IsEqual(Container(300).ListItem.Label,Live TV)</visible>
-              <include condition="Skin.HasSetting(EnableSpotlight)">Widget_LiveTV</include>
-            </control>
--->
           </control>
         </control>
       </control>
@@ -148,8 +142,10 @@
             <control type="group" id="900">
        	        <visible>[String.IsEqual(Container(330).CurrentItem,1) | Control.HasFocus(400) | Control.HasFocus(401) | Control.HasFocus(300) | Control.HasFocus(3022) | Control.HasFocus(30221) | Control.HasFocus(30222) | ControlGroup(900).HasFocus] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),LiveTV)</visible>
 	
-               <animation effect="slide" start="0,0" end="0,-680" time="700" tween="quadratic" condition="!Control.HasFocus(300)">Hidden</animation>
-               <animation effect="slide" start="0,-620" end="0,0" time="700" tween="quadratic" reversible="false" condition="!String.IsEqual(Window(Home).Property(SpotFocus),true) + String.IsEqual(Container(330).CurrentItem,1)">Conditional</animation>
+        <animation effect="fade" start="0" end="100" time="300" condition="!Control.HasFocus(300)">Visible</animation>
+        <animation effect="slide" start="0,0" end="0,-80" time="0" tween="quadratic" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>
+        <animation effect="slide" start="0,-50" end="0,-720" time="800" reversible="false" tween="quadratic" condition="!Control.HasFocus(300) + String.IsEmpty(Window(Home).Property(SpotReturnHome)) + String.IsEmpty(Window(Home).Property(spothubscroll))">Hidden</animation>
+        <animation effect="slide" start="0,-620" end="0,0" time="900" delay="100" tween="quadratic" reversible="false" condition="String.IsEmpty(Window(Home).Property(SpotReturnHome)) + !String.IsEqual(Window(Home).Property(SpotFocus),true) + String.IsEqual(Container(330).CurrentItem,1) + String.IsEmpty(Window(Home).Property(spothubscroll))">Conditional</animation>
                 <description>Live TV</description>
                 <width>2320</width>
                 <height>780</height>
@@ -166,17 +162,6 @@
      	      <font>font_medium</font>
 	      <visible>!Skin.HasSetting(DisableMenuHor)</visible>
      	   </control>
-<!--
-                <control type="button" id="925">
-                    <onleft>Control.Move(20,-1)</onleft>
-                    <onleft>525</onleft>
-                    <onright>825</onright>
-                    <onright>Control.Move(20,1)</onright>
-                    <onclick>ActivateWindow(tvchannels)</onclick>
-		    <ondown>30222</ondown>
-		    <onup>300</onup>
-                </control>
--->
                 <control type="group" id="950">
                     <posx>20</posx>
                     <posy>100</posy>
@@ -213,8 +198,6 @@
                             <height>573</height>
                             <onup>925</onup>
                             <onfocus condition="String.IsEmpty(Window.Property(ContextMenuOpen))">SetFocus(9021)</onfocus>
-                            <ondown condition="Skin.HasSetting(KioskMode)">21</ondown>
-                            <ondown condition="!Skin.HasSetting(KioskMode)">80</ondown>
 		    	    <onup>300</onup>
                             <preloaditems>2</preloaditems>
                             <pagecontrol>9024</pagecontrol>
@@ -276,6 +259,15 @@
                                 </control>
                             </itemlayout>
                             <focusedlayout width="693" height="115">
+                             <control type="image">
+                                    <description>Channel underlay</description>
+                                    <posx>0</posx>
+                                    <posy>-1</posy>
+                                    <width>700</width>
+                                    <height>113</height>
+                                    <texture background="true">windows/common/black.png</texture>
+                                    <colordiffuse>$VAR[ColorHighlight2]</colordiffuse>
+                                </control>
                                 <control type="image">
                                     <posx>15</posx>
                                     <posy>10</posy>
@@ -1001,29 +993,31 @@
       <onleft condition="Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableSubMenuVert) + String.IsEqual(Container(300).ListItem.Label,TV Shows)">SetFocus(400,0)</onleft>
       <onleft condition="Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableSubMenuVert) + String.IsEqual(Container(300).ListItem.Label,Movies)">SetFocus(401,0)</onleft>
       <ondown>3337</ondown>
+
      <!--Slide Submenu + Widgets down when Spotlights enabled and Home Menu + Submenu focused. -->
       <animation effect="slide" start="0,0" end="0,500" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
       <animation effect="slide" start="0,0" end="0,20" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
       <animation effect="slide" start="0,0" end="0,85" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(SubmenuLabel) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,420" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) +[$EXP[NextUpTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,90" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + $EXP[LiveTVSpotlight] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,150" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,420" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[NextUpTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,90" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(EnableMultiWidgetSpotlight) + $EXP[LiveTVSpotlight] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,150" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
 
      <!--Slide Submenu + Widgets up when Spotlights enabled and Widgets focused. -->
       <animation effect="slide" start="0,0" end="0,-500" time="900" tween="quadratic" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
       <animation effect="slide" start="0,0" end="0,-20" time="900" tween="quadratic" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
       <animation effect="slide" start="0,0" end="0,-85" time="900" tween="quadratic" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(SubmenuLabel) +  [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
       <animation effect="slide" start="0,0" end="0,-420" time="900" tween="quadratic" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[NextUpTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,-90" time="900" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + $EXP[LiveTVSpotlight] + $EXP[HomeSpotscrolldown]">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,-150" time="900" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,-90" time="900" reversible="false" condition="!Skin.HasSetting(EnableMultiWidgetSpotlight) + Skin.HasSetting(EnableSpotlight) + $EXP[LiveTVSpotlight] + $EXP[HomeSpotscrolldown]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,-150" time="900" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
 
      <!--Slide Submenu + Widgets down when Spotlights enabled and scrolling up from Widgets to Submenu. -->
       <animation effect="slide" start="0,-500" end="0,0" time="900" tween="quadratic" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrollup]">Conditional</animation>
       <animation effect="slide" start="0,-20" end="0,0" time="900" tween="quadratic" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrollup]">Conditional</animation>
       <animation effect="slide" start="0,-85" end="0,0" time="900" tween="quadratic" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(SubmenuLabel) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrollup]">Conditional</animation>
       <animation effect="slide" start="0,-420" end="0,0" time="900" tween="quadratic" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[NextUpTVSpotlight]] + !String.IsEqual(Window(Home).Property(SpotFocus),true) + String.IsEqual(Container(330).CurrentItem,1) + String.IsEmpty(Window(Home).Property(spothubscroll))">Conditional</animation>
+<!--
       <animation effect="slide" start="0,-90" end="0,0" time="900" condition="Skin.HasSetting(EnableSpotlight) + $EXP[LiveTVSpotlight] + $EXP[HomeSpotscrollup]">Conditional</animation>
-
+-->
       <control type="group" id="331" description="Spacer">
         <height>250</height>
       </control>
@@ -1848,17 +1842,17 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </itemlayout>
-      <itemlayout width="310" height="310" condition="$PARAM[squarecondition]">
+      <itemlayout width="366" height="210" condition="$PARAM[categorycondition]">
         <include content="Widget_Items_ItemLayout">
-          <param name="poster" value="true" />
+          <param name="category" value="true" />
           <param name="genres" value="$PARAM[genres]" />
           <param name="studios" value="$PARAM[studios]" />
           <param name="text" value="$PARAM[text]" />
         </include>
       </itemlayout>
-      <itemlayout width="366" height="210" condition="$PARAM[categorycondition]">
+      <itemlayout width="310" height="310" condition="$PARAM[squarecondition]">
         <include content="Widget_Items_ItemLayout">
-          <param name="category" value="true" />
+          <param name="poster" value="true" />
           <param name="genres" value="$PARAM[genres]" />
           <param name="studios" value="$PARAM[studios]" />
           <param name="text" value="$PARAM[text]" />
@@ -2614,7 +2608,7 @@
           <include condition="$PARAM[text] + !$PARAM[genres] + !$PARAM[studios]">Widget_Items_Text</include>
           <include condition="$PARAM[squarelabel] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_Square</include>
           <include condition="!$PARAM[poster] + !$PARAM[category] + !$PARAM[submenuwidget] + !$PARAM[landscape] + !$PARAM[squarelabel] + !$PARAM[landscapedetails] + !$PARAM[landscapenetflix] + !$PARAM[landscapepanel] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] + !$PARAM[landscapewide] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !$PARAM[square]">Widget_Items_Default</include>
-          <include condition="[$PARAM[poster] + !$PARAM[category] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]] | [!$PARAM[submenuwidget] + !$PARAM[landscape] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] + !$PARAM[landscapewide] + !$PARAM[squarelabel] + !$PARAM[landscapedetails] + !$PARAM[landscapenetflix] + !$PARAM[landscapepanel] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !$PARAM[square]]" content="Widget_Items_Poster">
+          <include condition="[$PARAM[poster] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]] | [!$PARAM[category] + !$PARAM[submenuwidget] + !$PARAM[landscape] + !$PARAM[widgetlive] + !$PARAM[landscapewideposter] + !$PARAM[posterdetails] + !$PARAM[landscapewide] + !$PARAM[squarelabel] + !$PARAM[landscapedetails] + !$PARAM[landscapenetflix] + !$PARAM[landscapepanel] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text] + !$PARAM[square]]" content="Widget_Items_Poster">
             <param name="poster" value="$PARAM[poster]" />
           </include>
           <include condition="$PARAM[landscape] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_Landscape</include>
