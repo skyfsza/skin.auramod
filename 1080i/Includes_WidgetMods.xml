@@ -270,28 +270,45 @@
   <!-- Start Netflix Showcase Widget -->
   <include name="Widget_Items_Category">
     <control type="group">
+     <control type="image">
+	<centerleft>50%</centerleft>
+	<centertop>45%</centertop>
+	<width>75%</width>
+	<height>75%</height>
+	<texture background="true">$VAR[Image_Clearart_Widget]</texture>
+    </control>
+
+     <control type="group">
+       <visible>String.IsEqual(ListItem.DBType,episode)</visible>
       <control type="image">
-        <texture background="true" fallback="special://skin/extras/backgrounds/global_blue.jpg">$VAR[category_widget]</texture>
-        <aspectratio scalediffuse="false">scale</aspectratio>
+        <left>0</left>
+        <bottom>0</bottom>
+        <height>30</height>
+        <width>100%</width>
+        <texture background="true" colordiffuse="FF000000" flipy="true">common/white.png</texture>
       </control>
-      <control type="image">
-        <height>100%</height>
-	<width>100%</width>
-        <texture background="true" colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
-      </control>
-	<control type="group">
-     <control type="textbox">
-	<left>50</left>
-        <textcolor>grey</textcolor>
-        <shadowcolor>black</shadowcolor>
-        <font>font_small_bold</font>
-        <width min="100" max="250">auto</width>
-	<aligny>center</aligny>
-        <align>center</align>
-        <label>$INFO[ListItem.Label]</label>
-        <wrapmultiline>true</wrapmultiline>
-     </control> 
-        </control> 
+     <control type="label">
+        <bottom>5</bottom>
+	<align>center</align>
+        <height>25</height>
+<!--        <label>$INFO[ListItem.TvShowTitle] - $INFO[ListItem.Season, S,: ]$INFO[ListItem.Episode,E, ]</label> -->
+	<label>Season $INFO[ListItem.Season] Episode $INFO[ListItem.Episode]</label>
+        <textcolor>white</textcolor>
+        <font>font_widget_plot</font>
+     </control>
+<!--
+     <control type="label">
+        <bottom>5</bottom>
+	<right>10</right>
+	<align>right</align>
+        <height>25</height>
+        <width>200</width>
+        <label>[I]$INFO[ListItem.Premiered(DDD MMM yyyy)][/I]</label>
+        <textcolor>white</textcolor>
+        <font>font_widget_plot</font>
+     </control>
+-->
+     </control>
    </control>
    </include>
 
@@ -847,7 +864,7 @@
 
       <control type="image">
         <height>70%</height>
-        <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Image_Poster]</texture>
+        <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[widgetliveart]</texture>
         <aspectratio scalediffuse="false">keep</aspectratio>
       </control>
       <control type="group">

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+     <variable name="widgetliveart">
+	<value condition="!Skin.HasSetting(EnableWidgetLiveIcon)">$INFO[ListItem.Icon]</value>
+	<value condition="Skin.HasSetting(EnableWidgetLiveIcon)">$INFO[ListItem.Art(thumb)]</value>
+     </variable>
      <variable name="Image_Clearart_Hub">
 	<value condition="!String.IsEmpty(ListItem.Art(clearart))">$INFO[ListItem.Art(clearart)]</value>
 	<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Clearart))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Clearart)]</value>
