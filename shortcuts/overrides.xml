@@ -364,7 +364,7 @@
     <property property="widgetmylistaspect" icon="special://skin/extras/widgettype/widget-square.png">SquareLabel</property>
     <property property="widgetmylistaspect" icon="special://skin/extras/widgettype/widget-poster.png">Poster</property>
     <property property="widgetmylistaspect" icon="special://skin/extras/widgettype/widget-landscapenetflix.png">LandscapeSmall</property>
-    <property property="widgetmylistaspect" icon="special://skin/extras/widgettype/widget-category.png">Category</property>
+    <property property="widgetmylistaspect" icon="special://skin/extras/widgettype/widget-category.png">Logo</property>
     <property property="widgetmylistaspect" icon="special://skin/extras/widgettype/widget-poster.png">Submenu</property>
     <propertySettings property="widgetmylistaspect" showNone="false" buttonID="99103" title="Widget My List Aspect Ratio" />
 
@@ -393,7 +393,7 @@
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-landscapenetflix.png" condition="!Skin.HasSetting(DisableAuraHomeLayout) | [Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixLargeWidget)]">LandscapeDetails</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-posterdetails.png" condition="!Skin.HasSetting(DisableAuraHomeLayout) | [Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixLargeWidget)]">PosterDetails</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-widgetlive.png">WidgetLive</property>
-    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-category.png">Category</property>
+    <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-category.png">Logo</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-genres.png">Genre</property>
     <property property="widgetAspect" icon="special://skin/extras/backgrounds/viewmodes/submenu-large.jpg">Submenu</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-poster.png" condition="!Skin.HasSetting(DisableAuraHomeLayout) | [Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixLargeWidget)]">SquareLabel</property>

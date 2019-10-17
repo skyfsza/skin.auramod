@@ -8,12 +8,12 @@
     <include>Home_TVHubMenu_Layout</include>
       <include>Animation_Right</include>
     <control type="label">
-      <left>80</left>
+      <left>90</left>
       <top>40</top>
       <label>Categories</label>
       <height>40</height>
       <width>350</width>
-      <align>center</align>
+      <align>left</align>
       <aligny>top</aligny>
       <textcolor>white</textcolor>
       <font>font_heading_small</font>
@@ -75,8 +75,8 @@
     <control type="grouplist" id="5055">
       <include>Animation_Right</include>
       <animation effect="slide" end="300,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
-      <animation effect="slide" end="-430,0" time="500" condition="ControlGroup(5055).HasFocus">Conditional</animation>
-      <left>420</left>
+      <animation effect="slide" end="-480,0" time="500" delay="100" condition="ControlGroup(5055).HasFocus">Conditional</animation>
+      <left>480</left>
       <posy>620</posy>
       <width>100%</width>
       <onleft>505</onleft>

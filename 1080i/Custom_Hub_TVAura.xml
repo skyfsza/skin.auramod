@@ -35,6 +35,8 @@
 	<onback condition="Integer.IsEqual(Container($PARAM[id]).Position,0) | !Container($PARAM[id]).HasPrevious">Skin.Reset(TVHubMenuFocus)</onback>
         <onback condition="Integer.IsEqual(Container($PARAM[id]).Position,0) | !Container($PARAM[id]).HasPrevious">ActivateWindow(Home)</onback>
         <onleft>SetFocus(400,4)</onleft>
+	<onup>5055</onup>
+	<ondown>5055</ondown>
         <include>skinshortcuts-template-aurahubtv</include>
     </control>
     <include>Home_TVHubMenu_Layout</include>

@@ -20,7 +20,6 @@
      <expression name="HomeSpotscrolldown">String.IsEmpty(Window(Home).Property(SpotReturnHome)) + [ControlGroup(330).HasFocus + !Control.HasFocus(3337)] + Integer.IsGreater(Container(330).CurrentItem,1) + String.IsEmpty(Window(Home).Property(spothubscroll))</expression>
 
     <include file="Defaults.xml" />
-    <include file="Includes_MediaHub.xml" />
     <include file="DialogButtonMenu-Includes.xml" />
     <include file="DialogVideoInfo-Includes.xml" />
     <include file="Includes_ImagesMods.xml" />
@@ -38,23 +37,16 @@
     <include file="Includes_OSD.xml" />
     <include file="Includes_Statusbar.xml" />
     <include file="IncludesBingieSearch.xml" />
-    <include file="Includes_Youtube.xml" />
     <include file="Includes_Topbar-Netflix.xml" />
     <include file="Includes_Home.xml" />
-
-
-
     <include file="Includes_VideoLyrics.xml" />
     <include file="Includes_Weather.xml" />
     <include condition="!Skin.HasSetting(DisableNetflixHome)" file="Includes_Widgets.xml" />
     <include condition="Skin.HasSetting(DisableNetflixHome)" file="Includes_Widgets_Netflix.xml" />
-
     <include file="Includes_View.xml" />
     <include file="Includes_View_List.xml" />
     <include file="Includes_View_Posters.xml" />
-
     <include file="script-skinshortcuts-includes.xml"/>
-
     <include file="Constants_Main.xml" />
     <include condition="Skin.HasSetting(MouseMode)" file="Constants_Home_Mouse.xml" />
     <include condition="!Skin.HasSetting(MouseMode) + !Skin.HasSetting(SubmenuLabel)" file="Constants_Home_NoMouse.xml" />

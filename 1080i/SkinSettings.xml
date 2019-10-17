@@ -537,24 +537,6 @@
                             <label>Configure TV Networks Hub</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=hubtvnetworks)</onclick>
                         </control>
-<!--
-                        <control type="button" id="9664" description="Extra List Hubs ">
-                            <textcolor>main_fg_100</textcolor>
-                            <disabledcolor>main_fg_12</disabledcolor>
-                            <height>80</height>
-                            <textoffsetx>view_pad</textoffsetx>
-                            <textureup flipy="true" colordiffuse="panel_fg_30">buttons/spin-down.png</textureup>
-                            <texturedown colordiffuse="panel_fg_30">buttons/spin-down.png</texturedown>
-                            <textureupfocus flipy="true" colordiffuse="panel_fg_100">buttons/spin-down.png</textureupfocus>
-                            <texturedownfocus colordiffuse="panel_fg_100">buttons/spin-down.png</texturedownfocus>
-                            <textureradiofocus colordiffuse="panel_fg_70">buttons/radio-on.png</textureradiofocus>
-                            <textureradionofocus colordiffuse="panel_fg_12">buttons/radio-off.png</textureradionofocus>
-                            <texturefocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</texturefocus>
-                            <alttexturefocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturefocus>
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
-                            <label>[B]Extra List Hubs[/B]</label>
-                        </control>
--->
                            <control type="button" id="9665" description="Media Hubs ">
                             <textcolor>main_fg_100</textcolor>
                             <disabledcolor>main_fg_12</disabledcolor>
@@ -941,16 +923,6 @@
                             <label2>$VAR[Label_WatchedIndicatorStyle]</label2>
                             <onclick>Skin.ToggleSetting(LightWatchedOverlay)</onclick>
                         </control>
-
-<!--
-                        <control type="radiobutton" id="9507" description="Plot overlay">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31379]</label>
-                            <selected>Skin.HasSetting(AutoPlotOverlay)</selected>
-                            <onclick>Skin.ToggleSetting(AutoPlotOverlay)</onclick>
-                        </control>
--->
                         <control type="button" id="9508" description="Enable viewmodes">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1115,15 +1087,6 @@
                             <selected>!Skin.HasSetting(HideSubmenuWidget)</selected>
                             <onclick>Skin.ToggleSetting(HideSubmenuWidget)</onclick>
                         </control>
-<!--
-                         <control type="radiobutton" id="9157" description="Enable multi-row Categories Widget">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011) + Skin.HasSetting(DisableNetflixHome) + Skin.HasSetting(SubmenuLabel)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31457]</label>
-                            <selected>Skin.HasSetting(SubmenuWidgetPanel)</selected>
-                            <onclick>Skin.ToggleSetting(SubmenuWidgetPanel)</onclick>
-                        </control>
--->
                         <control type="radiobutton" id="9561" description="Disable Category Widget">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1139,16 +1102,6 @@
                             <label>Choose Category Widget Size</label>
                             <onclick>ActivateWindow(1140)</onclick>
                         </control>
-<!--
-                        <control type="radiobutton" id="9105" description="Enable Large Category Widget">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011) + !Skin.HasSetting(DisableNetflixCatWidget)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31371]</label>
-                            <selected>Skin.HasSetting(SubmenuLabel)</selected>
-                            <onclick>Skin.ToggleSetting(SubmenuLabel)</onclick>
-                            <onclick>ReloadSkin()</onclick>
-                        </control>
--->
                          <control type="radiobutton" id="9619" description="Disable Categories widget labels">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011) + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(DisableNetflixCatWidget)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1180,15 +1133,6 @@
                             <selected>!Skin.HasSetting(BounceAnimations)</selected>
                             <onclick>Skin.ToggleSetting(BounceAnimations)</onclick>
                         </control>
-<!--
-                        <control type="radiobutton" id="96111" description="Display labels below widgets">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011) + !Skin.HasSetting(DisableAuraHomeLayout)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Display labels below widgets</label>
-                            <selected>Skin.HasSetting(WidgetLabelsBelow)</selected>
-                            <onclick>Skin.ToggleSetting(WidgetLabelsBelow)</onclick>
-                        </control>
--->
                       <control type="radiobutton" id="96112" description="Detatch Widgets from Main Menu">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1268,52 +1212,6 @@
                             <label>Select WidgetBar Items</label>
                             <onclick>ActivateWindow(1133)</onclick>
                         </control>
-<!--
-                        <control type="radiobutton" id="9626" description="Enable Widget Bar Title Info ">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31427]</label>
-                            <selected>Skin.HasSetting(DisableWidgetTitle)</selected>
-                            <onclick>Skin.ToggleSetting(DisableWidgetTitle)</onclick>
-                        </control>
-                        <control type="radiobutton" id="9629" description="Enable Widget Bar Episode Airdate ">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Enable Episode Airdate on Widget Bar</label>
-                            <selected>Skin.HasSetting(DisableWidgetAirdate)</selected>
-                            <onclick>Skin.ToggleSetting(DisableWidgetAirdate)</onclick>
-                        </control>
-			<control type="radiobutton" id="9624" description="Enable Widget Bar Plot Info">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31413]</label>
-                            <visible>!Skin.HasSetting(DisableNetflixHome)</visible>
-                            <enable>!Skin.HasSetting(DisableNetflixHome)</enable>
-                            <selected>Skin.HasSetting(DisableWidgetPlot)</selected>
-                            <onclick>Skin.ToggleSetting(DisableWidgetPlot)</onclick>
-                        </control>
-			<control type="radiobutton" id="9625" description="Enable Widget Bar IMDB Info">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31426]</label>
-                            <selected>Skin.HasSetting(DisableWidgetIMDB)</selected>
-                            <onclick>Skin.ToggleSetting(DisableWidgetIMDB)</onclick>
-                        </control>
-                        <control type="radiobutton" id="96251" description="Enable Widget Bar Studio logo">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Enable Widget Bar Studio logo</label>
-                            <selected>Skin.HasSetting(DisableWidgetStudio)</selected>
-                            <onclick>Skin.ToggleSetting(DisableWidgetStudio)</onclick>
-                        </control>
-                        <control type="radiobutton" id="96252" description="Enable Widget Bar MPAA">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Enable Widget Bar MPAA</label>
-                            <selected>Skin.HasSetting(DisableWidgetMPAA)</selected>
-                            <onclick>Skin.ToggleSetting(DisableWidgetMPAA)</onclick>
-                        </control>
--->
                         <!-- =============-->
                         <!-- ----PVR-------->
                         <!-- =============-->
@@ -1338,6 +1236,13 @@
                             <selected>!Skin.HasSetting(DisableMiniOSDChannels)</selected>
                             <onclick>Skin.ToggleSetting(DisableMiniOSDChannels)</onclick>
                         </control>
+                        <control type="radiobutton" id="96203" description="Use Channel Icon on Widget Live TV">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9012)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Use Channel Icon on Widget Live TV</label>
+                            <selected>!Skin.HasSetting(EnableWidgetLiveIcon)</selected>
+                            <onclick>Skin.ToggleSetting(EnableWidgetLiveIcon)</onclick>
+                        </control>
                         <control type="radiobutton" id="9608" description="Use genre colors">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9012)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1356,16 +1261,6 @@
                         <!-- =============-->
                         <!-- Netflix View--->
                         <!-- =============-->
-<!--
-                        <control type="button" id="9636" description="Choose Netflix Widget Style">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013) + Skin.HasSetting(DisableNetflixHome)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31452]</label>
-                            <label2>$VAR[netflix_widget_style_selected]</label2>
-                            <onclick>ActivateWindow(1126)</onclick>
-                        </control>
--->
-
 			<control type="radiobutton" id="9630" description="Enable Netflix Views">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
                             <include>Defs_Settings_Button</include>
