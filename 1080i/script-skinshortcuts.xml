@@ -192,6 +192,7 @@
                     <texturenofocus colordiffuse="dialog_fg_30">buttons/add.png</texturenofocus>
                     <texturefocus colordiffuse="Selected">buttons/add.png</texturefocus>
                     <onback condition="!String.IsEmpty(Window.Property(SetWidgets))">AlarmClock(reopen,RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu),00:00,silent)</onback>
+                    <visible>[!String.IsEqual(Window.Property(groupname),pvrspot) + !Integer.IsGreater(Container(211).NumItems,11)]</visible>
                 </control>
                 <control type="button" id="303" description="Up">
                     <width>64</width>
