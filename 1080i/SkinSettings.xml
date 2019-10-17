@@ -455,6 +455,7 @@
                             <include>Defs_Settings_Button</include>
                             <label>Configure LiveTV Spotlight</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=pvrspot)</onclick>
+                            <enable>Skin.HasSetting(EnableSpotlight)</enable>
                         </control>
                         <control type="button" id="96671" description="Search">
                             <textcolor>main_fg_100</textcolor>
