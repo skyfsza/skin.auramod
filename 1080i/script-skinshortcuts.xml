@@ -324,7 +324,7 @@
                     <align>left</align>
                     <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
                     <include>Dialog_Standard_Right_Buttons</include>
-                    <visible>!String.EndsWith(Window.Property(groupname),.1) + !String.Contains(Window.Property(groupname),netflixhubmovies) + !String.Contains(Window.Property(groupname),netflixhubtv)</visible>
+                    <visible>!String.EndsWith(Window.Property(groupname),.1) + !String.Contains(Window.Property(groupname),netflixhubmovies) + !String.Contains(Window.Property(groupname),netflixhubtv) + !String.IsEqual(Window.Property(groupname),pvrspot)</visible>
                 </control>
 		<control type="label" id="9991">
 		   <height>70</height>
@@ -579,7 +579,7 @@
                     <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetControl),true)">SetProperty(customValue,false)</onclick>
                     <onclick>SendClick(404)</onclick>
                     <align>left</align>
-                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + !String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + !String.IsEqual(Window.Property(groupname),pvrspot)  + !String.IsEqual(Window.Property(groupname),mainmenu)</visible>
                 </control>
 
                 <control type="radiobutton" id="9912" description="Widget Showcase">
@@ -595,7 +595,7 @@
                     <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetShowcase),true)">SetProperty(customValue,false)</onclick>
                     <onclick>SendClick(404)</onclick>
                     <align>left</align>
-                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + !String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + !String.IsEqual(Window.Property(groupname),mainmenu) + !String.IsEqual(Window.Property(groupname),pvrspot)</visible>
                 </control>
                 <control type="label" id="9992">
                    <height>70</height>
@@ -610,7 +610,7 @@
                     <align>left</align>
                     <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
                     <include>Dialog_Standard_Right_Buttons</include>
-                    <visible>!String.EndsWith(Window.Property(groupname),.1) + !String.Contains(Window.Property(groupname),netflixhubmovies) | !String.Contains(Window.Property(groupname),netflixhubtv)</visible>
+                    <visible>!String.EndsWith(Window.Property(groupname),.1) + !String.Contains(Window.Property(groupname),netflixhubmovies) | !String.Contains(Window.Property(groupname),netflixhubtv) + !String.IsEqual(Window.Property(groupname),pvrspot)</visible>
                 </control>
 
 

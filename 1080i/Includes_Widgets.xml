@@ -560,21 +560,22 @@
                                     <colordiffuse>99FFFFFF</colordiffuse>
                                 </control>
                                 <control type="image">
-                                    <posx>24</posx>
-                                    <posy>24</posy>
-                                    <width>283</width>
-                                    <height>283</height>
+				    <centerleft>60%</centerleft>
+				    <centertop>47%</centertop>
+                                    <width>223</width>
+                                    <height>223</height>
                                     <texture>$INFO[ListItem.Icon]</texture>
+				    <aspectratio>scale</aspectratio>
                                 </control>
                                 <control type="label">
-                                    <posx>24</posx>
-                                    <posy>241</posy>
+				    <bottom>0</bottom>
+                                    <centerleft>60%</centerleft>
                                     <width>283</width>
-                                    <height>66</height>
+                                    <height>36</height>
                                     <label>$INFO[ListItem.Label]</label>
                                     <font>Font-Condensed-S33</font>
                                     <textcolor>aawhite</textcolor>
-                                    <align>left</align>
+                                    <align>center</align>
                                     <aligny>center</aligny>
                                     <textoffsetx>20</textoffsetx>
                                 </control>
@@ -619,54 +620,37 @@
                                         <texture border="1">windows/home/tile-overlay.png</texture>
                                         <colordiffuse>99FFFFFF</colordiffuse>
                                     </control>
-                                    <control type="image">
-                                        <posx>24</posx>
-                                        <posy>24</posy>
-                                        <width>283</width>
-                                        <height>283</height>
-                                        <texture>$INFO[ListItem.Icon]</texture>
+
+                                <control type="image">
+                                    <centerleft>60%</centerleft>
+                                    <centertop>47%</centertop>
+                                    <width>223</width>
+                                    <height>223</height>
+                                    <texture>$INFO[ListItem.Icon]</texture>
+                                    <aspectratio>scale</aspectratio>
                                         <animation type="Focus" reversible="false">
                                             <effect type="zoom" end="115" time="75" tween="sine" easing="out" center="auto" />
                                             <effect type="zoom" end="86.9565217" time="225" tween="sine" delay="100" easing="out" center="auto" />
                                         </animation>
-                                    </control>
-                                    <control type="label">
-                                        <posx>24</posx>
-                                        <posy>241</posy>
-                                        <width>246</width>
-                                        <height>66</height>
-                                        <label>$INFO[ListItem.Label]</label>
-                                        <font>Font-Condensed-S33</font>
-                                        <textcolor>aawhite</textcolor>
-                                        <align>left</align>
-                                        <aligny>center</aligny>
-                                        <textoffsetx>20</textoffsetx>
-                                    </control>
+                                </control>
+                                <control type="label">
+                                    <bottom>0</bottom>
+                                    <centerleft>60%</centerleft>
+                                    <width>283</width>
+                                    <height>36</height>
+                                    <label>$INFO[ListItem.Label]</label>
+                                    <font>Font-Condensed-S33</font>
+                                    <textcolor>aawhite</textcolor>
+                                    <align>center</align>
+                                    <aligny>center</aligny>
+                                    <textoffsetx>20</textoffsetx>
+                                </control>
                                 </control>
                             </control>
                         </focusedlayout>
-                        <content>
-                      	    <item id="1">
-                                <label>Radio</label>
-                                <icon>windows/home/icons/radio.png</icon>
-                                <onclick>ActivateWindow(radiochannels)</onclick>
-                            </item>
-                            <item id="2">
-                                <label>$LOCALIZE[19163]</label>
-                                <icon>windows/home/icons/recordings.png</icon>
-                                <onclick>ActivateWindow(tvrecordings)</onclick>
-                            </item>
-                            <item id="3">
-                                <label>$LOCALIZE[19040]</label>
-                                <icon>windows/home/icons/timers.png</icon>
-                                <onclick>ActivateWindow(tvtimers)</onclick>
-                            </item>
-                            <item id="4">
-                                <label>$LOCALIZE[137]</label>
-                                <icon>windows/home/icons/search-tv.png</icon>
-                                <onclick>ActivateWindow(tvsearch)</onclick>
-                            </item>
-                        </content>
+		      <content>
+		        <include>skinshortcuts-group-pvrspot</include>
+		      </content>
                     </control>
                     <control type="image">
                         <posx>318</posx>
@@ -1012,9 +996,8 @@
       <animation effect="slide" start="0,-20" end="0,0" time="700" tween="linear" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrollup]">Conditional</animation>
       <animation effect="slide" start="0,-85" end="0,0" time="700" tween="linear" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(SubmenuLabel) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrollup]">Conditional</animation>
       <animation effect="slide" start="0,-420" end="0,0" time="700" tween="linear" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[NextUpTVSpotlight]] + !String.IsEqual(Window(Home).Property(SpotFocus),true) + String.IsEqual(Container(330).CurrentItem,1) + String.IsEmpty(Window(Home).Property(spothubscroll))">Conditional</animation>
-<!--
-      <animation effect="slide" start="0,-90" end="0,0" time="900" condition="Skin.HasSetting(EnableSpotlight) + $EXP[LiveTVSpotlight] + $EXP[HomeSpotscrollup]">Conditional</animation>
--->
+
+
       <control type="group" id="331" description="Spacer">
         <height>250</height>
       </control>
@@ -1030,6 +1013,7 @@
         <height>20</height>
         <visible>$EXP[noSubMenu]</visible>
       </control>
+
       <include content="WidgetSubmenu" condition="!Skin.HasSetting(HideSubmenuWidget)">
         <param name="id" value="30222" />
         <param name="submenu" value="true" />
@@ -1415,10 +1399,10 @@
     <height>615</height>
   </include>
   <include name="Widget_Items_Category_Big_Height">
-    <height>450</height>
+    <height>440</height>
   </include>
   <include name="Widget_Items_Category_Big_Height_small">
-    <height>495</height>
+    <height>485</height>
   </include>
   <include name="Widget_Items_SubmenuWidget_Big_Height">
     <height>450</height>
