@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<defaultID>radio</defaultID>
+		<label>32087</label>
+		<label2>Common menu item</label2>
+		<icon>special://skin/extras/icons/radio.png</icon>
+		<thumb />
+		<action>ActivateWindow(RadioGuide)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>19163</defaultID>
+		<label>19163</label>
+		<label2>Live TV</label2>
+		<icon>special://skin/extras/icons/tv.png</icon>
+		<thumb>special://skin/extras/icons/recordings.png</thumb>
+		<action>ActivateWindow(TVRecordings)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>19040</defaultID>
+		<label>19040</label>
+		<label2>Live TV</label2>
+		<icon>special://skin/extras/icons/tv.png</icon>
+		<thumb>special://skin/extras/icons/timer.png</thumb>
+		<action>ActivateWindow(TVTimers)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>137</defaultID>
+		<label>137</label>
+		<label2>Live TV</label2>
+		<icon>special://skin/extras/icons/tv.png</icon>
+		<thumb>special://skin/extras/icons/tv-search.png</thumb>
+		<action>ActivateWindow(TVSearch)</action>
+	</shortcut>
+</shortcuts>
