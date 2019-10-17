@@ -40,6 +40,35 @@
       <visible allowhiddenfocus="true">!$EXP[Exp_HideFurniture]</visible>
       <include>Animation_FadeInOut</include>
       <control type="group">
+
+
+     <!--Slide Submenu + Widgets down when Spotlights enabled and Home Menu + Submenu focused. -->
+      <animation effect="slide" start="0,0" end="0,500" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
+<!--      <animation effect="slide" start="0,0" end="0,-100" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + $EXP[LiveTVSpotlight] + $EXP[noSubMenu] + $EXP[HomeSpotFocusContainers]">Conditional</animation> -->
+      <animation effect="slide" start="0,0" end="0,20" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,85" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(SubmenuLabel) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]]  + $EXP[HomeSpotFocusContainers]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,420" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[NextUpTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
+<!--      <animation effect="slide" start="0,0" end="0,90" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(EnableMultiWidgetSpotlight) + $EXP[LiveTVSpotlight] + $EXP[HomeSpotFocusContainers]">Conditional</animation> -->
+      <animation effect="slide" start="0,0" end="0,150" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) +  [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
+
+     <!--Slide Submenu + Widgets up when Spotlights enabled and Widgets focused. -->
+      <animation effect="slide" start="0,0" end="0,-500" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,-20" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,-85" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(SubmenuLabel) +  [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,-450" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[NextUpTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
+<!--      <animation effect="slide" start="0,0" end="0,-90" time="700" tween="linear" reversible="false" condition="!Skin.HasSetting(EnableMultiWidgetSpotlight) + Skin.HasSetting(EnableSpotlight) + $EXP[LiveTVSpotlight] + $EXP[HomeSpotscrolldown]">Conditional</animation> -->
+      <animation effect="slide" start="0,0" end="0,-150" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
+
+
+     <!--Slide Submenu + Widgets down when Spotlights enabled and scrolling up from Widgets to Submenu. -->
+<!--
+      <animation effect="slide" start="0,-500" end="0,0" time="700" delay="50" tween="linear" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrollup]">Conditional</animation>
+      <animation effect="slide" start="0,-20" end="0,0" time="700" tween="linear" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrollup]">Conditional</animation>
+      <animation effect="slide" start="0,-85" end="0,0" time="700" tween="linear" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(SubmenuLabel) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrollup]">Conditional</animation>
+      <animation effect="slide" start="0,-420" end="0,0" time="700" tween="linear" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[NextUpTVSpotlight]] + !String.IsEqual(Window(Home).Property(SpotFocus),true) + String.IsEqual(Container(330).CurrentItem,1) + String.IsEmpty(Window(Home).Property(spothubscroll))">Conditional</animation>
+--> 
+
+
         <!--                <include>Animation_Right</include> -->
         <include>Defs_InfoDialog_Visible</include>
         <include content="Object_UpDownInfoArrows">
@@ -71,6 +100,7 @@
                <param name="id" value="1506" />
                <param name="content" value="$VAR[moviemultispotlightpath]" />
                <param name="type" value="Movies" />
+               <param name="visible" value="$EXP[MovieSpotlight]" />
               </include>
 	      <left>70</left>
              </control>
@@ -80,6 +110,7 @@
                <param name="id" value="1505" />
                <param name="content" value="$VAR[tvshowmultispotlightpath]" />
                <param name="type" value="TVShows" />
+               <param name="visible" value="$EXP[TVSpotlight]" />
               </include>
               <left>70</left>
              </control>
@@ -140,18 +171,14 @@
   <include name="Widget_LiveTV">
             <!-- Live TV -->
             <control type="group" id="900">
-       	        <visible>[String.IsEqual(Container(330).CurrentItem,1) | Control.HasFocus(400) | Control.HasFocus(401) | Control.HasFocus(300) | Control.HasFocus(3022) | Control.HasFocus(30221) | Control.HasFocus(30222) | ControlGroup(900).HasFocus] + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),LiveTV)</visible>
-	
+      <visible>$EXP[LiveTVSpotlight]</visible>
+      <animation effect="slide" start="0,0" end="0,105" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(DisableMenuHor) + [$EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
       <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
-
-        <animation effect="fade" start="0" end="100" time="300" condition="!Control.HasFocus(300)">Visible</animation>
-        <animation effect="slide" start="0,0" end="0,-620" time="600" reversible="false" tween="linear" condition="!Control.HasFocus(300) + String.IsEmpty(Window(Home).Property(SpotReturnHome)) + String.IsEmpty(Window(Home).Property(spothubscroll))">Hidden</animation>
-        <animation effect="slide" start="0,-620" end="0,0" time="700" delay="50" tween="linear" reversible="false" condition="String.IsEmpty(Window(Home).Property(SpotReturnHome)) + !String.IsEqual(Window(Home).Property(SpotFocus),true) + String.IsEqual(Container(330).CurrentItem,1) + String.IsEmpty(Window(Home).Property(spothubscroll))">Conditional</animation>
 
                 <description>Live TV</description>
                 <width>2320</width>
                 <height>780</height>
-
+		<top>-760</top>
 	    <control type="label">
  	      <left>-40</left>
  	      <top>50</top>
@@ -168,6 +195,7 @@
                     <posx>20</posx>
                     <posy>100</posy>
 		    <animation effect="zoom" start="0,0" end="115,107" time="0" reversible="true" condition="Control.IsVisible(901)">Conditional</animation>
+<!--
                     <control type="image">
                         <description>Bottom shadow</description>
                         <posx>-42</posx>
@@ -176,6 +204,7 @@
                         <height>150</height>
                         <texture>windows/home/item-shadow.png</texture>
                     </control>
+-->
                     <control type="group" id="902">
                         <description>Currently Airing</description>
                         <posx>339</posx>
@@ -974,30 +1003,7 @@
 
       <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
 
-
-     <!--Slide Submenu + Widgets down when Spotlights enabled and Home Menu + Submenu focused. -->
-      <animation effect="slide" start="0,0" end="0,500" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,20" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,85" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(SubmenuLabel) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,420" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[NextUpTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,90" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(EnableMultiWidgetSpotlight) + $EXP[LiveTVSpotlight] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,150" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
-
-     <!--Slide Submenu + Widgets up when Spotlights enabled and Widgets focused. -->
-      <animation effect="slide" start="0,0" end="0,-500" time="700" tween="linear" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,-20" time="700" tween="linear" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,-85" time="700" tween="linear" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(SubmenuLabel) +  [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,-420" time="700" tween="linear" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[NextUpTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,-90" time="700" tween="linear" reversible="false" condition="!Skin.HasSetting(EnableMultiWidgetSpotlight) + Skin.HasSetting(EnableSpotlight) + $EXP[LiveTVSpotlight] + $EXP[HomeSpotscrolldown]">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,-150" time="700" tween="linear" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
-
-     <!--Slide Submenu + Widgets down when Spotlights enabled and scrolling up from Widgets to Submenu. -->
-      <animation effect="slide" start="0,-500" end="0,0" time="700" delay="50" tween="linear" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrollup]">Conditional</animation>
-      <animation effect="slide" start="0,-20" end="0,0" time="700" tween="linear" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrollup]">Conditional</animation>
-      <animation effect="slide" start="0,-85" end="0,0" time="700" tween="linear" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(SubmenuLabel) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrollup]">Conditional</animation>
-      <animation effect="slide" start="0,-420" end="0,0" time="700" tween="linear" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[NextUpTVSpotlight]] + !String.IsEqual(Window(Home).Property(SpotFocus),true) + String.IsEqual(Container(330).CurrentItem,1) + String.IsEmpty(Window(Home).Property(spothubscroll))">Conditional</animation>
-
-
+   
       <control type="group" id="331" description="Spacer">
         <height>250</height>
       </control>
@@ -1010,8 +1016,8 @@
         <visible>Skin.HasSetting(DisableMenuHor)</visible>
       </control>
       <control type="group" id="334" description="Spacer">
-        <height>20</height>
-        <visible>$EXP[noSubMenu]</visible>
+        <height>40</height>
+        <visible>$EXP[noSubMenu] + [[!Skin.HasSetting(DisableMenuHor) + !$EXP[LiveTVSpotlight]] | Skin.HasSetting(DisableMenuHor)]</visible>
       </control>
 
       <include content="WidgetSubmenu" condition="!Skin.HasSetting(HideSubmenuWidget)">
@@ -1269,7 +1275,6 @@
         <animation effect="fade" start="0" end="100" time="700" reversible="false" sine="inout" condition="[Window.IsVisible(Home) | Window.IsVisible(3910) | Window.IsVisible(3920)] + $PARAM[Showcase] + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
         <left>-55</left>
         <onback condition="ControlGroup(5600).HasFocus">9000</onback>
-        <onback condition="Integer.IsGreater(Container(330).CurrentItem,2)">SetProperty(spotback,true,Home)</onback>
         <animation effect="fade" start="100" end="0" condition="Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating">Conditional</animation>
         <include condition="$PARAM[Showcase]">Widget_Movement_Showcase</include>
         <movement>$PARAM[movement]</movement>
@@ -1526,7 +1531,7 @@
         <control type="label">
           <top>-2</top>
           <textcolor>$VAR[ColorHighlight2]</textcolor>
-          <label>$INFO[Container($PARAM[id]).ListItem.Label,| ]</label>
+          <label>$VAR[widget_label]</label>
           <include>Statusbar_Menubar_Items</include>
           <visible>Control.HasFocus($PARAM[id])</visible>
           <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] + Skin.HasSetting(DisableWidgetTitle) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
@@ -1537,7 +1542,7 @@
           <top>-2</top>
           <font>font_widgetbar_bold</font>
           <textcolor>$VAR[ColorHighlight2]</textcolor>
-          <label>$INFO[Container($PARAM[id]).ListItem.Label,| ]</label>
+          <label>$VAR[widget_label]</label>
           <include>Statusbar_Menubar_Items</include>
           <visible>Control.HasFocus($PARAM[id])</visible>
           <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] + Skin.HasSetting(DisableWidgetTitle) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>

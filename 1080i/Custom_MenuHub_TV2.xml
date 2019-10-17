@@ -5,8 +5,9 @@
   <onload>Skn.Reset(CatMove)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
-    <include>Home_TVHubMenu_Layout</include>
       <include>Animation_Right</include>
+      <include>object_menuhub_includes</include>
+      <include>Home_TVHubMenu_Layout</include>
     <control type="label">
       <left>90</left>
       <top>40</top>
@@ -35,6 +36,7 @@
       <viewtype label="$LOCALIZE[31469]">icon</viewtype>
       <scrolltime tween="sine" easing="out">500</scrolltime>
       <itemgap>10</itemgap>
+      
       <itemlayout width="400" height="75">
         <control type="group">
           <control type="label">
@@ -71,7 +73,6 @@
         <include>skinshortcuts-group-x1104</include>
       </content>
     </control>
-      <include>object_menuhub_includes</include>
     <control type="grouplist" id="5055">
       <include>Animation_Right</include>
       <animation effect="slide" end="300,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	
+    <variable name="widget_label">
+	<value condition="String.IsEmpty(ListItem.ChannelName)">$INFO[Container($PARAM[id]).ListItem.Label,| ]</value>
+	<value condition="!String.IsEmpty(ListItem.ChannelName)">$INFO[Container($PARAM[id]).ListItem.Title,| ]</value>
+	<value>$INFO[Container($PARAM[id]).ListItem.Label,| ]</value>
+    </variable>
+
     <variable name="osdcast">
 	<value condition="String.IsEmpty(VideoPlayer.DBID) + VideoPlayer.Content(movies)">$INFO[VideoPlayer.Label]</value>
 	<value condition="String.IsEmpty(VideoPlayer.DBID) + [VideoPlayer.Content(tvshows) | VideoPlayer.Content(episodes)]">$INFO[VideoPlayer.TvShowTitle]</value>

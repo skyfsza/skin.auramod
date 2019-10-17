@@ -192,7 +192,6 @@
                     <texturenofocus colordiffuse="dialog_fg_30">buttons/add.png</texturenofocus>
                     <texturefocus colordiffuse="Selected">buttons/add.png</texturefocus>
                     <onback condition="!String.IsEmpty(Window.Property(SetWidgets))">AlarmClock(reopen,RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu),00:00,silent)</onback>
-                    <visible>[!String.IsEqual(Window.Property(groupname),pvrspot) + !Integer.IsGreater(Container(211).NumItems,11)]</visible>
                 </control>
                 <control type="button" id="303" description="Up">
                     <width>64</width>
@@ -281,7 +280,7 @@
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <align>left</align>
                     <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
-                    <visible>!String.EndsWith(Window.Property(groupname),.1) + !String.Contains(Window.Property(groupname),netflixhubmovies) + !String.Contains(Window.Property(groupname),netflixhubtv)</visible>
+                    <visible>!String.EndsWith(Window.Property(groupname),.1) + !String.Contains(Window.Property(groupname),netflixhubmovies) + !String.Contains(Window.Property(groupname),netflixhubtv) </visible>
                     <include>Dialog_Standard_Right_Buttons</include>
                 </control>
                 <control type="button" id="307" description="Custom">

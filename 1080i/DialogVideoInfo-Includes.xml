@@ -1223,7 +1223,6 @@
               <radiowidth>25</radiowidth>
               <radioheight>28</radioheight>
               <radioposx>13</radioposx>
-	      <onclick>close</onclick>
               <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren)">RunPlugin(plugin://plugin.video.seren/?action=buildPlaylistWorkaround&actionArgs=%7B%22item_type%22%3A%20%22show%22%2C%20%22trakt_id%22%3A%20$INFO[ListItem.Property(trakt_id)]%7D)</onclick>
               <visible>!String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBTYPE,tvshow) </visible>
               <label>Quick Play</label>
