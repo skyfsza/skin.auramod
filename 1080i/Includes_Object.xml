@@ -1218,7 +1218,6 @@
       <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
 
         <animation effect="fade" start="0" end="100" time="300" condition="!Control.HasFocus(300)">Visible</animation>
-        <animation effect="slide" start="0,0" end="0,-80" time="0" tween="linear" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>
         <animation effect="slide" start="0,0" end="0,-420" time="600" reversible="false" tween="linear" condition="!Control.HasFocus(300) + String.IsEmpty(Window(Home).Property(SpotReturnHome)) + String.IsEmpty(Window(Home).Property(spothubscroll))">Hidden</animation>
         <animation effect="slide" start="0,-420" end="0,0" time="700" delay="50" tween="linear" reversible="false" condition="String.IsEmpty(Window(Home).Property(SpotReturnHome)) + !String.IsEqual(Window(Home).Property(SpotFocus),true) + String.IsEqual(Container(330).CurrentItem,1) + String.IsEmpty(Window(Home).Property(spothubscroll))">Conditional</animation>
 
@@ -1314,7 +1313,6 @@
       <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
 
         <animation effect="fade" start="0" end="100" time="300" condition="!Control.HasFocus(300)">Visible</animation>
-        <animation effect="slide" start="0,0" end="0,-80" time="0" tween="quadratic" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>
         <animation effect="slide" start="0,-50" end="0,-720" time="600" reversible="false" tween="linear" condition="!Control.HasFocus(300) + String.IsEmpty(Window(Home).Property(SpotReturnHome)) + String.IsEmpty(Window(Home).Property(spothubscroll))">Hidden</animation>
         <animation effect="slide" start="0,-620" end="0,0" time="700" delay="100" tween="linear" reversible="false" condition="String.IsEmpty(Window(Home).Property(SpotReturnHome)) + !String.IsEqual(Window(Home).Property(SpotFocus),true) + String.IsEqual(Container(330).CurrentItem,1) + String.IsEmpty(Window(Home).Property(spothubscroll))">Conditional</animation>
 
@@ -1349,7 +1347,6 @@
 
 
         <animation effect="fade" start="0" end="100" time="300" condition="!Control.HasFocus(300)">Visible</animation>
-        <animation effect="slide" start="0,0" end="0,-80" time="0" tween="linear" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>
         <animation effect="slide" start="0,0" end="0,-420" time="400" reversible="false" tween="linear" condition="!Control.HasFocus(300) + String.IsEmpty(Window(Home).Property(SpotReturnHome)) + String.IsEmpty(Window(Home).Property(spothubscroll))">Hidden</animation>
         <animation effect="slide" start="0,-620" end="0,0" time="700" delay="100" tween="linear" reversible="false" condition="String.IsEmpty(Window(Home).Property(SpotReturnHome)) + !String.IsEqual(Window(Home).Property(SpotFocus),true) + String.IsEqual(Container(330).CurrentItem,1) + String.IsEmpty(Window(Home).Property(spothubscroll))">Conditional</animation>
 
@@ -1527,7 +1524,6 @@
   <include name="Spotlight_Movies_AuraWidget">
     <control type="group" id="21506">
         <animation effect="fade" start="0" end="100" time="300" condition="!Control.HasFocus(300)">Visible</animation>
-        <animation effect="slide" start="0,0" end="0,-80" time="0" tween="quadratic" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>
         <animation effect="slide" start="0,-50" end="0,-720" time="600" reversible="false" tween="linear" condition="!Control.HasFocus(300) + String.IsEmpty(Window(Home).Property(SpotReturnHome)) + String.IsEmpty(Window(Home).Property(spothubscroll))">Hidden</animation>
         <animation effect="slide" start="0,-620" end="0,0" time="700" delay="100" tween="linear" reversible="false" condition="String.IsEmpty(Window(Home).Property(SpotReturnHome)) + !String.IsEqual(Window(Home).Property(SpotFocus),true) + String.IsEqual(Container(330).CurrentItem,1) + String.IsEmpty(Window(Home).Property(spothubscroll))">Conditional</animation>
 
@@ -1565,7 +1561,6 @@
        <animation effect="fade" start="0" end="100" time="700" condition="String.IsEqual(Window(Home).Property(SpotFocus),true) + Control.HasFocus(300)">Visible</animation>
 -->
         <animation effect="fade" start="0" end="100" time="300" condition="!Control.HasFocus(300)">Visible</animation>
-        <animation effect="slide" start="0,0" end="0,-80" time="0" tween="linear" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>
         <animation effect="slide" start="0,0" end="0,-420" time="400" reversible="false" tween="linear" condition="!Control.HasFocus(300) + String.IsEmpty(Window(Home).Property(SpotReturnHome)) + String.IsEmpty(Window(Home).Property(spothubscroll))">Hidden</animation>
         <animation effect="slide" start="0,-620" end="0,0" time="700" delay="100" tween="linear" reversible="false" condition="String.IsEmpty(Window(Home).Property(SpotReturnHome)) + !String.IsEqual(Window(Home).Property(SpotFocus),true) + String.IsEqual(Container(330).CurrentItem,1) + String.IsEmpty(Window(Home).Property(spothubscroll))">Conditional</animation>
 
