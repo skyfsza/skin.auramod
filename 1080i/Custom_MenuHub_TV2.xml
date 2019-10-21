@@ -9,7 +9,7 @@
       <include>object_menuhub_includes</include>
       <include>Home_TVHubMenu_Layout</include>
     <control type="label">
-      <left>90</left>
+      <left>110</left>
       <top>40</top>
       <label>Categories</label>
       <height>40</height>

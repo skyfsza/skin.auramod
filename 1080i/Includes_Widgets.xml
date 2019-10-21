@@ -32,6 +32,16 @@
   </include>
 
 
+  <include name="spotlightfull_aura_top">
+     <top>-750</top>
+  </include>
+  <include name="spotlightfull_buttons_aura_top">
+     <top>-350</top>
+  </include>
+  <include name="spotlightfull_buttons_top">
+     <top>390</top>
+  </include>
+
   <include name="Widgets">
   <include>Animation_Right</include>
 
@@ -92,8 +102,13 @@
             <top>0</top>
             <bottom>0</bottom>
             <control type="group">
+            <control type="group">
+	      <include condition="!Skin.HasSetting(DisableAuraHomeLayout)">spotlightfull_aura_top</include>
               <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableFullSpotlight)">Spotlight_Movies_Widget</include>
               <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableFullSpotlight)">Spotlight_Tvshows_Widget</include>
+              <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableFullSpotlight)">Spotlight_Tvshows_Info</include> 
+              <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableFullSpotlight)">Spotlight_Movies_Info</include>
+	   </control>
               <control type="group">
 	      <animation effect="slide" start="0,0" end="0,80" time="0" condition="Skin.HasSetting(DisableMenuHor)">Conditonal</animation>
 	      <include content="Spotlight_MultiWidget" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight)">
@@ -123,18 +138,18 @@
              </control>
               <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight)">Spotlight_MultiWidget_Movies_cast</include> 
               <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight)">Spotlight_MultiWidget_TVShows_cast</include> 
-              <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableFullSpotlight)">Spotlight_Tvshows_Info</include> 
-              <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableFullSpotlight)">Spotlight_Movies_Info</include>
               <control type="group">
+	      <include condition="Skin.HasSetting(DisableAuraHomeLayout)">spotlightfull_buttons_top</include>
+	      <include condition="!Skin.HasSetting(DisableAuraHomeLayout)">spotlightfull_buttons_aura_top</include>
                 <left>130</left>
-                <top>390</top>
                 <animation effect="slide" end="0,-10" time="10" condition="String.IsEmpty(Container(1505).ListItem.Art(clearlogo))">Conditional</animation>
                 <animation effect="slide" end="0,40" time="0" condition="String.IsEqual(Container(1505).ListItem.DBType,episode)">Conditional</animation>
                 <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableFullSpotlight)">Spotlight_Tvshows_buttons</include>
               </control>
               <control type="group">
+              <include condition="Skin.HasSetting(DisableAuraHomeLayout)">spotlightfull_buttons_top</include>
+              <include condition="!Skin.HasSetting(DisableAuraHomeLayout)">spotlightfull_buttons_aura_top</include>
                 <left>130</left>
-                <top>390</top>
                 <animation effect="slide" end="0,-10" time="10" condition="String.IsEmpty(Container(1506).ListItem.Art(clearlogo))">Conditional</animation>
                 <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableFullSpotlight)">Spotlight_Movies_buttons</include>
               </control>
@@ -1216,6 +1231,7 @@
         <visible>$PARAM[visible]</visible>
         <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
         <height>40</height>
+<!--
         <control type="image" id="35055">
           <top>45</top>
           <left>-340</left>
@@ -1236,6 +1252,7 @@
           <visible>Window.IsVisible(2111)| Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(2118)</visible>
           <visible>!Integer.IsGreater(Container($PARAM[id]).NumItems,0) + Container($PARAM[id]).IsUpdating</visible>
         </control>
+-->
         <include content="Widget_Label">
           <param name="id" value="$PARAM[id]" />
           <param name="label" value="$PARAM[label]" />

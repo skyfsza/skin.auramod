@@ -1379,6 +1379,7 @@
                 <visible>!String.IsEmpty(ListItem.MPAA)</visible>
                 </control>
                 <control type="label">
+		  <top>-28</top>
                   <left>30</left>
                   <height>100%</height>
                   <width>90%</width>
@@ -7243,6 +7244,7 @@
 
      <control type="group" id="4$PARAM[id]">
        <visible>$PARAM[Showcase] + Integer.IsGreater(Container($PARAM[id]).NumItems,0)</visible>
+
        <control type="image">
          <top>40</top>
          <width>100%</width>
@@ -7269,6 +7271,7 @@
 	<top>50</top>
    <control type="group">
        <visible>[$PARAM[postercondition] + Control.HasFocus($PARAM[id])] | [$PARAM[landscapepanelcondition] + Control.HasFocus($PARAM[id])] | [$PARAM[landscapecondition] + Control.HasFocus($PARAM[id])]</visible>
+       <animation effect="fade" start="0" end="100"  time="400" delay="100" reversible="false">Visible</animation>
        <control type="label">
         <top>10</top>
         <width>500</width>
@@ -7397,11 +7400,12 @@
                 <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
                 <animation effect="zoom" start="100,100" end="130,100" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
                 <animation effect="slide" end="-20,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
-                <animation effect="slide" end="630,0" time="400" reversible="true" sine="inout" condition="$PARAM[Showcase] + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="slide" end="630,0" time="500" reversible="true" sine="inout" condition="$PARAM[Showcase] + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+<!--
                 <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
                 <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
                 <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
-
+-->
 		<top>30</top>
                 <animation effect="fade" start="100" end="0" condition="Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating">Conditional</animation>
 		<movement>$PARAM[movement]</movement>

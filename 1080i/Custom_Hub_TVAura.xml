@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="3910">
-  <defaultcontrol>7777</defaultcontrol>
   <onload condition="String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(5055)</onload>
   <onload condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,4,absolute)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
@@ -40,6 +39,7 @@
         <include>skinshortcuts-template-aurahubtv</include>
     </control>
     <include>Home_TVHubMenu_Layout</include>
+
     <control type="button" id="7777">
        <visible allowhiddenfocus="true">false</visible>
   	<onfocus condition="String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(5055)</onfocus>

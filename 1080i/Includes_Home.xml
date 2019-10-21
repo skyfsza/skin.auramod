@@ -211,6 +211,15 @@
                     <colordiffuse>89000000</colordiffuse>
                     <aspectratio>stretch</aspectratio>
                     <texture background="true">common/white.png</texture>
+		    <visible>!Skin.HasSetting(DisableAuraHomeLayout)</visible>
+                </control>
+                <control type="image">
+                    <left>0</left>
+                    <height>100%</height>
+                    <colordiffuse>FF000000</colordiffuse>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">common/white.png</texture>
+		    <visible>Skin.HasSetting(DisableAuraHomeLayout)</visible>
                 </control>
                 <control type="image">
                     <left>311</left>

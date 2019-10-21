@@ -66,23 +66,24 @@
                     </control>
 
 	<control type="group">
-       	 	<include>Spotlight_Movies_Widget</include>
-        	<include>Spotlight_Tvshows_Widget</include>
-                <include>Spotlight_Tvshows_Info</include>
-                <include>Spotlight_Movies_Info</include>
-<!--                <include>Spotlight_TVNextAired_AuraWidget</include> -->
+	<control type="group">
+       	 	<include condition="Skin.HasSetting(EnableSpotlight)">Spotlight_Movies_Widget</include>
+        	<include condition="Skin.HasSetting(EnableSpotlight)">Spotlight_Tvshows_Widget</include>
+                <include condition="Skin.HasSetting(EnableSpotlight)">Spotlight_Tvshows_Info</include>
+                <include condition="Skin.HasSetting(EnableSpotlight)">Spotlight_Movies_Info</include>
+            </control>
            <control type="group">
         	<left>130</left>
         	<top>390</top> 
         	<animation effect="slide" end="0,-10" time="10" condition="String.IsEmpty(Container(1505).ListItem.Art(clearlogo))">Conditional</animation>
         	<animation effect="slide" end="0,40" time="0" condition="String.IsEqual(Container(1505).ListItem.DBType,episode)">Conditional</animation>
-        	<include>Spotlight_Tvshows_buttons</include>
+        	<include condition="Skin.HasSetting(EnableSpotlight)">Spotlight_Tvshows_buttons</include>
             </control>
            <control type="group">
         	<left>130</left>
         	<top>390</top>
         	<animation effect="slide" end="0,-10" time="10" condition="String.IsEmpty(Container(1506).ListItem.Art(clearlogo))">Conditional</animation>
-        	<include>Spotlight_Movies_buttons</include>
+        	<include condition="Skin.HasSetting(EnableSpotlight)">Spotlight_Movies_buttons</include>
            </control>
        </control>
 	

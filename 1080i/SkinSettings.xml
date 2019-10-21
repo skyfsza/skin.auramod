@@ -424,7 +424,7 @@
                             <selected>Skin.HasSetting(EnableSpotlight)</selected>
                         </control>
                         <control type="button" id="96691" description="Choose Spotlight Style">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <visible>!Skin.HasSetting(DisableAuraHomeLayout) + Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
                             <label>Choose Spotlight Style</label>
 			    <enable>Skin.HasSetting(EnableSpotlight)</enable>
@@ -451,7 +451,7 @@
 			    <enable>Skin.HasSetting(EnableSpotlight)</enable>
                         </control>
                         <control type="button" id="96781" description="Configure LiveTV Spotlight">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014) + !Skin.HasSetting(DisableAuraHomeLayout)</visible>
                             <include>Defs_Settings_Button</include>
                             <label>Configure LiveTV Spotlight</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=pvrspot)</onclick>
@@ -703,6 +703,23 @@
                             <selected>Skin.HasSetting(DisableSettingsBackground)</selected>
                             <onclick>Skin.ToggleSetting(DisableSettingsBackground)</onclick>
                         </control>
+
+                    <control type="button" id="9206" description="Set Timer Per Image">
+                        <visible>Integer.IsEqual(Window.Property(CurrentFocus),9002)</visible>
+                        <include>Defs_Settings_Button</include>
+                        <label>Set Timer Per Image</label>
+                        <label2>$INFO[Skin.String(AutoScroll)]</label2>
+                        <onclick condition="!System.HasAddon(script.toolbox)">InstallAddon(script.toolbox)</onclick>
+                        <onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31475])</onclick>
+                        <onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(AutoScroll,$LOCALIZE[31475]))</onclick>
+                        <onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31476])</onclick>
+                        <onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(AutoScroll,$LOCALIZE[31476]))</onclick>
+                        <onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31477])</onclick>
+                        <onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(AutoScroll,$LOCALIZE[31477]))</onclick>
+                        <onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31478])</onclick>
+                        <onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(AutoScroll,$LOCALIZE[31478]))</onclick>
+                        <onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31128])</onclick>
+                    </control>
 
                         <!-- ================== -->
                         <!-- Background Effects -->
@@ -1167,6 +1184,7 @@
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
                             <label>$LOCALIZE[31291]</label>
+                            <selected>!Skin.HasSetting(WidgetLabels)</selected>
                             <onclick>Skin.ToggleSetting(WidgetLabels)</onclick>
                         </control>
                        <control type="radiobutton" id="9108" description="Prefer fanart">
