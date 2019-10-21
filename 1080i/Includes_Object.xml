@@ -5951,6 +5951,8 @@
         <posy>580</posy>
         <onleft>300</onleft>
         <ondown>3337</ondown>
+	<onup condition="$EXP[TVSpotlight] + $EXP[noSubMenu]">SetFocus(1505)</onup>
+	<onup condition="$EXP[MovieSpotlight] + $EXP[noSubMenu]">SetFocus(1506)</onup>
         <orientation>vertical</orientation>
         <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)</visible>
         <itemgap>0</itemgap>
@@ -7400,7 +7402,7 @@
                 <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
                 <animation effect="zoom" start="100,100" end="130,100" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
                 <animation effect="slide" end="-20,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
-                <animation effect="slide" end="630,0" time="500" reversible="true" sine="inout" condition="$PARAM[Showcase] + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="slide" end="630,0" time="500" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
 <!--
                 <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
                 <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>

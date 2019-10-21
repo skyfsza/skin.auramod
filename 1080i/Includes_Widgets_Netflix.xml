@@ -66,6 +66,7 @@
                     </control>
 
 	<control type="group">
+		<visible>Control.HasFocus(300) | Control.HasFocus(30222) | ControlGroup(505).HasFocus | ControlGroup(506).HasFocus | Control.HasFocus(1505) | Control.HasFocus(1506)</visible>
 	<control type="group">
        	 	<include condition="Skin.HasSetting(EnableSpotlight)">Spotlight_Movies_Widget</include>
         	<include condition="Skin.HasSetting(EnableSpotlight)">Spotlight_Tvshows_Widget</include>
