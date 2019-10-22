@@ -457,6 +457,17 @@
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=pvrspot)</onclick>
                             <enable>Skin.HasSetting(EnableSpotlight)</enable>
                         </control>
+<!--
+                        <control type="button" id="96782" description="Color Highlight">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <enable>Skin.HasSetting(EnableSpotlight)</enable>
+                            <label> - LiveTV Button Color</label>
+                            <label2>$INFO[Skin.String(pvrspot.color)]</label2>
+                            <onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
+                            <onclick>RunScript(script.skin.helper.colorpicker,skinstring=pvrspot.color)</onclick>
+                        </control>
+-->
                         <control type="button" id="96671" description="Search">
                             <textcolor>main_fg_100</textcolor>
                             <disabledcolor>main_fg_12</disabledcolor>

@@ -206,7 +206,7 @@
   <include name="Object_Seasons_Info">
     <control type="group">
       <control type="label">
-        <visible>String.IsEmpty(Container(504).ListItem.Art(clearlogo))</visible>
+        <visible>String.IsEmpty(Container(504).ListItem.Art(clearlogo)) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
         <top>25</top>
         <left>40</left>
         <label>$VAR[video_heading]</label>
@@ -914,7 +914,7 @@
           <include content="Object_StarRating">
             <param name="height" value="50" />
             <param name="width" value="50" />
-            <param name="rating_prop" value="Container(1505).ListItem.Rating" />
+            <param name="rating_prop" value="Container($PARAM[id]).ListItem.Rating" />
           </include>
 	<visible>Control.IsVisible(1505)</visible>
         </control>
@@ -1354,10 +1354,12 @@
                 <include content="Object_StarRating">
                   <param name="height" value="50" />
                   <param name="width" value="50" />
+                  <param name="rating_prop" value="Container(1505).ListItem.Rating" />
                 </include>
               </control>
               <!-- Year -->
               <control type="label">
+		<top>-50</top>
                 <left>220</left>
                 <width>60</width>
                 <label>$INFO[ListItem.Year]</label>
@@ -1392,6 +1394,7 @@
               </control>
               <!-- Season Count -->
               <control type="label">
+		<top>-55</top>
                 <animation effect="slide" end="-100,0" time="0" condition="String.IsEmpty(Container(1506).ListItem.MPAA)">Conditional</animation>
                 <width>115</width>
                 <left>400</left>
@@ -1576,10 +1579,12 @@
                 <include content="Object_StarRating" condition="![Skin.HasSetting(DisableInfoRatings)]">
                   <param name="height" value="50" />
                   <param name="width" value="50" />
+		  <param name="rating_prop" value="Container(1506).ListItem.Rating" />
                 </include>
               </control>
               <!-- Year -->
               <control type="label">
+                <top>-50</top>
                 <left>220</left>
                 <width>60</width>
                 <label>$INFO[ListItem.Year]</label>
@@ -1601,6 +1606,7 @@
                   <texture colordiffuse="dimgrey">flags/flag_box_rating_classic.png</texture>
                 </control>
                 <control type="label">
+                  <top>-27</top>
                   <left>30</left>
                   <height>100%</height>
                   <width>90%</width>
@@ -1612,6 +1618,7 @@
               </control>
               <!-- Season Count -->
               <control type="label">
+                <top>-55</top>
                 <width>115</width>
                 <left>400</left>
                 <textcolor>white</textcolor>
@@ -2675,10 +2682,10 @@
         </control>
         <control type="label">
           <height>20</height>
-          <visible>$EXP[DBTvideos] + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(ListItem.Art(clearlogo))</visible>
+	   <visible>$EXP[DBTvideos] + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))</visible>
         </control>
           <control type="textbox">
-            <visible>$EXP[DBTvideos] + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(ListItem.Art(clearlogo))</visible>
+            <visible>$EXP[DBTvideos] + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))</visible>
 	    <top>-200</top>
             <label>$VAR[video_heading]</label>
             <textcolor>grey</textcolor>
@@ -2706,7 +2713,7 @@
           </control>
 	<control type="label">
 	   <height>20</height>
-	   <visible>$EXP[DBTvideos] + String.IsEmpty(ListItem.Art(clearlogo))</visible>
+	   <visible>$EXP[DBTvideos] + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))</visible>
 	</control>
         <control type="grouplist">
           <top>0</top>

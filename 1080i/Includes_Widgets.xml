@@ -156,6 +156,10 @@
             </control>
             <include>Widgets_Grouplist</include>
             <include>WidgetHubScroll</include>
+            <control type="button" id="9999">
+	      <onfocus>SetFocus(30222)</onfocus>
+	      <onfocus>SetFocus(300)</onfocus>
+	    </control> 
             <control type="button" id="9966">
               <onleft>300</onleft>
               <onright>300</onright>
@@ -210,16 +214,6 @@
                     <posx>20</posx>
                     <posy>100</posy>
 		    <animation effect="zoom" start="0,0" end="115,107" time="0" reversible="true" condition="Control.IsVisible(901)">Conditional</animation>
-<!--
-                    <control type="image">
-                        <description>Bottom shadow</description>
-                        <posx>-42</posx>
-                        <posy>570</posy>
-                        <width>1627</width>
-                        <height>150</height>
-                        <texture>windows/home/item-shadow.png</texture>
-                    </control>
--->
                     <control type="group" id="902">
                         <description>Currently Airing</description>
                         <posx>339</posx>
@@ -305,6 +299,15 @@
                                 </control>
                             </itemlayout>
                             <focusedlayout width="693" height="115">
+                                <control type="image">
+                                    <description>Channel underlay</description>
+                                    <posx>0</posx>
+                                    <posy>-1</posy>
+                                    <width>700</width>
+                                    <height>113</height>
+                                    <texture>common/white.png</texture>
+                                    <colordiffuse>62287BA8</colordiffuse>
+                                </control>
                                 <control type="image">
                                     <posx>15</posx>
                                     <posy>10</posy>
@@ -563,17 +566,18 @@
                             </control>
                         </focusedlayout>
                         <content>
-                            <item id="1">
-                                <label>$LOCALIZE[19023]</label>
-                                <icon>windows/home/icons/tvshows.png</icon>
-                                <onclick>ActivateWindow(tvchannels)</onclick>
-                            </item>
-                            <item id="2">
+		            <item id="1">
                                 <label>$LOCALIZE[19069]</label>
                                 <icon>windows/home/icons/epg.png</icon>
                                 <onclick>ActivateWindow(tvguide)</onclick>
                             </item>
-                        </content>
+
+                            <item id="2">
+                                <label>$LOCALIZE[19023]</label>
+                                <icon>windows/home/icons/tvshows.png</icon>
+                                <onclick>ActivateWindow(tvchannels)</onclick>
+                            </item>
+                       </content>
                     </control>
                     <control type="panel" id="903">
                         <posx>1014</posx>
@@ -1008,6 +1012,7 @@
       <onup condition="!Skin.HasSetting(DisableMenuHor) + Integer.IsGreater(Container(30222).NumItems,0) + !String.IsEqual(Container(300).ListItem.Property(widgethub),true) | [String.IsEqual(Container(300).ListItem.Property(widgethub),true) + !Integer.IsGreater(Container(3022).NumItems,0)]">SetFocus(30222)</onup>
       <onup condition="!Skin.HasSetting(DisableMenuHor) + Integer.IsGreater(Container(30222).NumItems,0) + !String.IsEqual(Container(300).ListItem.Property(widgethub),true) | [String.IsEqual(Container(300).ListItem.Property(widgethub),true) + !Integer.IsGreater(Container(30221).NumItems,0)]">SetFocus(30222)</onup>
       <onup condition="!Skin.HasSetting(DisableMenuHor) + !String.IsEqual(Container(300).ListItem.Property(widgethub),true)">300</onup>
+      <onleft condition="!$EXP[noSubMenu] + [$EXP[MovieSpotlight] | $EXP[TVSpotlight]]">9999</onleft>
       <onleft condition="Control.HasFocus(30222) + !Skin.HasSetting(DisableMenuHor)">300</onleft>
       <onleft condition="!String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)">300</onleft>
       <onleft condition="!Skin.HasSetting(DisableMenuHor)">SetFocus(300)</onleft>
