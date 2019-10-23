@@ -226,6 +226,7 @@
     <value condition="Skin.HasSetting(DisableMenuVertFull)">$LOCALIZE[31450]</value>
     <value condition="Skin.HasSetting(DisableMenuHor)">$LOCALIZE[31451]</value>
     <value condition="Skin.HasSetting(DisableMenuVertLabel)">$LOCALIZE[31471]</value>
+    <value condition="Skin.HasSetting(DisableMenuVertLabelOnly)">$LOCALIZE[31479]</value>
     </variable>
 
     <variable name="netflix_home_style_selected">

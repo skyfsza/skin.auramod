@@ -2267,3 +2267,28 @@ msgstr ""
 msgctxt "#31474"
 msgid "Poster MediaInfo"
 msgstr ""
+
+#: /1080i/Includes_View_Posters.xml
+msgctxt "#31475"
+msgid "4 seconds"
+msgstr ""
+
+#: /1080i/Includes_View_Posters.xml
+msgctxt "#31476"
+msgid "8 seconds"
+msgstr ""
+
+#: /1080i/Includes_View_Posters.xml
+msgctxt "#31477"
+msgid "16 seconds"
+msgstr ""
+
+#: /1080i/Includes_View_Posters.xml
+msgctxt "#31478"
+msgid "30 seconds"
+msgstr ""
+
+#: /1080i/SkinSettings.xml
+msgctxt "#31479"
+msgid "Enable Vertical Label"
+msgstr ""

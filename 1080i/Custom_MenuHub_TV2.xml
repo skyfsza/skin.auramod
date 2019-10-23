@@ -44,28 +44,30 @@
             <label>$INFO[ListItem.Label]</label>
             <align>left</align>
             <font>font_small</font>
-            <textcolor>main_fg_70</textcolor>
+            <textcolor>dimgrey</textcolor>
           </control>
         </control>
       </itemlayout>
-      <focusedlayout width="400" height="70">
+      <focusedlayout width="400" height="85">
         <control type="group">
           <control type="group">
             <height>70</height>
             <width>400</width>
             <left>10</left>
+<!--
             <control type="image">
               <align>left</align>
               <aspectratio align="left" aligny="top">stretch</aspectratio>
               <texture background="true" colordiffuse="grey">diffuse/landscape.png</texture>
             </control>
+-->
           </control>
           <control type="label">
             <left>30</left>
             <label>$INFO[ListItem.Label]</label>
             <align>left</align>
-            <font>font_small_bold</font>
-            <textcolor>black</textcolor>
+            <font>font_large_bold</font>
+            <textcolor>white</textcolor>
           </control>
         </control>
       </focusedlayout>

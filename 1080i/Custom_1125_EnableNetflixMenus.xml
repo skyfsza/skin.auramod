@@ -50,8 +50,10 @@
 		            <onclick condition="Skin.HasSetting(DisableMenuVertFull)">Skin.ToggleSetting(DisableMenuVertIcon)</onclick>
 		            <onclick condition="Skin.HasSetting(DisableMenuVertLabel)">Skin.ToggleSetting(DisableMenuVertIcon)</onclick>
 		            <onclick condition="Skin.HasSetting(DisableMenuHor)">Skin.ToggleSetting(DisableMenuVertIcon)</onclick>
+		            <onclick condition="Skin.HasSetting(DisableMenuVertLabelOnly)">Skin.ToggleSetting(DisableMenuVertIcon)</onclick>
 
                             <onclick condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Skin.ToggleSetting(DisableNetflixHomeSidemenu)</onclick>
+                            <onclick condition="Skin.HasSetting(DisableMenuVertLabelOnly)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onclick>
                             <onclick condition="Skin.HasSetting(DisableMenuVertLabel)">Skin.ToggleSetting(DisableMenuVertLabel)</onclick>
                             <onclick condition="Skin.HasSetting(DisableMenuVertFull)">Skin.ToggleSetting(DisableMenuVertFull)</onclick>
                             <onclick condition="Skin.HasSetting(DisableMenuHor)">Skin.ToggleSetting(DisableMenuHor)</onclick>
@@ -67,8 +69,10 @@
                             <onclick condition="!Skin.HasSetting(DisableMenuVertIcon)">Skin.ToggleSetting(DisableMenuVertFull)</onclick>
                             <onclick condition="Skin.HasSetting(DisableMenuHor)">Skin.ToggleSetting(DisableMenuVertFull)</onclick>
                             <onclick condition="Skin.HasSetting(DisableMenuVertLabel)">Skin.ToggleSetting(DisableMenuVertFull)</onclick>
+                            <onclick condition="Skin.HasSetting(DisableMenuVertLabelOnly)">Skin.ToggleSetting(DisableMenuVertFull)</onclick>
 
                             <onclick condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Skin.ToggleSetting(DisableNetflixHomeSidemenu)</onclick>
+                            <onclick condition="Skin.HasSetting(DisableMenuVertLabelOnly)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onclick>
                             <onclick condition="!Skin.HasSetting(DisableMenuVertIcon)">Skin.ToggleSetting(DisableMenuVertIcon)</onclick>
                             <onclick condition="Skin.HasSetting(DisableMenuHor)">Skin.ToggleSetting(DisableMenuHor)</onclick>
                             <onclick condition="Skin.HasSetting(DisableMenuVertLabel)">Skin.ToggleSetting(DisableMenuVertLabel)</onclick>
@@ -84,8 +88,10 @@
                             <onclick condition="!Skin.HasSetting(DisableMenuVertIcon)">Skin.ToggleSetting(DisableMenuHor)</onclick>
                             <onclick condition="Skin.HasSetting(DisableMenuVertFull)">Skin.ToggleSetting(DisableMenuHor)</onclick>
                             <onclick condition="Skin.HasSetting(DisableMenuVertLabel)">Skin.ToggleSetting(DisableMenuHor)</onclick>
+                            <onclick condition="Skin.HasSetting(DisableMenuVertLabelOnly)">Skin.ToggleSetting(DisableMenuHor)</onclick>
 
                             <onclick condition="!Skin.HasSetting(DisableNetflixHomeSidemenu)">Skin.ToggleSetting(DisableNetflixHomeSidemenu)</onclick>
+                            <onclick condition="Skin.HasSetting(DisableMenuVertLabelOnly)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onclick>
                             <onclick condition="!Skin.HasSetting(DisableMenuVertIcon)">Skin.ToggleSetting(DisableMenuVertIcon)</onclick>
                             <onclick condition="Skin.HasSetting(DisableMenuVertFull)">Skin.ToggleSetting(DisableMenuVertFull)</onclick>
                             <onclick condition="Skin.HasSetting(DisableMenuVertLabel)">Skin.ToggleSetting(DisableMenuVertLabel)</onclick>
@@ -103,8 +109,10 @@
                             <onclick condition="Skin.HasSetting(DisableMenuVertFull)">Skin.ToggleSetting(DisableMenuVertLabel)</onclick>
                             <onclick condition="Skin.HasSetting(DisableMenuHor)">Skin.ToggleSetting(DisableMenuVertLabel)</onclick>
                             <onclick condition="!Skin.HasSetting(DisableMenuVertIcon)">Skin.ToggleSetting(DisableMenuVertLabel)</onclick>
+                            <onclick condition="Skin.HasSetting(DisableMenuVertLabelOnly)">Skin.ToggleSetting(DisableMenuVertLabel)</onclick>
 
                             <onclick condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Skin.ToggleSetting(DisableNetflixHomeSidemenu)</onclick>
+                            <onclick condition="Skin.HasSetting(DisableMenuVertLabelOnly)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onclick>
                             <onclick condition="!Skin.HasSetting(DisableMenuVertIcon)">Skin.ToggleSetting(DisableMenuVertIcon)</onclick>
                             <onclick condition="Skin.HasSetting(DisableMenuVertFull)">Skin.ToggleSetting(DisableMenuVertFull)</onclick>
                             <onclick condition="Skin.HasSetting(DisableMenuHor)">Skin.ToggleSetting(DisableMenuHor)</onclick>
@@ -112,7 +120,25 @@
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/menu-vertical-label.jpg)</onfocus>
                             <onclick>ReloadSkin()</onclick>
                         </control>
+                       <control type="radiobutton" id="9005" description="Enable Vertical Label">
+                            <include>Dialog_Standard_ListButton</include>
+                            <radioposx>630</radioposx>
+                            <label>$LOCALIZE[31479]</label>
+                            <selected>Skin.HasSetting(DisableMenuVertLabelOnly)</selected>
+                            <onclick condition="Skin.HasSetting(DisableMenuVertFull)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onclick>
+                            <onclick condition="Skin.HasSetting(DisableMenuHor)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onclick>
+                            <onclick condition="!Skin.HasSetting(DisableMenuVertIcon)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onclick>
+                            <onclick condition="Skin.HasSetting(DisableMenuVertLabel)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onclick>
 
+                            <onclick condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Skin.ToggleSetting(DisableNetflixHomeSidemenu)</onclick>
+                            <onclick condition="Skin.HasSetting(DisableMenuVertLabel)">Skin.ToggleSetting(DisableMenuVertLabel)</onclick>
+                            <onclick condition="!Skin.HasSetting(DisableMenuVertIcon)">Skin.ToggleSetting(DisableMenuVertIcon)</onclick>
+                            <onclick condition="Skin.HasSetting(DisableMenuVertFull)">Skin.ToggleSetting(DisableMenuVertFull)</onclick>
+                            <onclick condition="Skin.HasSetting(DisableMenuHor)">Skin.ToggleSetting(DisableMenuHor)</onclick>
+                            <onclick condition="Skin.HasSetting(IconOnlyMode)">Skin.ToggleSetting(IconOnlyMode)</onclick>
+                            <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/menu-vertical-label-only.jpg)</onfocus>
+                            <onclick>ReloadSkin()</onclick>
+                        </control>
            </control>
         </control>
     </controls>

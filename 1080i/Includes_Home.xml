@@ -232,6 +232,106 @@
 </control>
 </include>
 
+    <include name="Home_MainMenu_Layout_wLabel_only">
+	<control type="group">
+       <animation effect="slide" start="0,0" end="310,0" time="500" condition="Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)">Conditional</animation>
+       <animation effect="slide" start="0,0" end="70,0" time="500" 
+							condition="ControlGroup(900).HasFocus | Control.HasFocus(30222) | Control.HasFocus(1505) | Control.HasFocus(1506) | ControlGroup(505).HasFocus | ControlGroup(505).HasFocus | 
+								   [Control.HasFocus(13003) + [Integer.IsEqual(Container(13003).Position,0) + !Container(13003).HasPrevious]] |
+								   [Control.HasFocus(23003) + [Integer.IsEqual(Container(23003).Position,0) + !Container(23003).HasPrevious]] |
+								   [Control.HasFocus(33003) + [Integer.IsEqual(Container(33003).Position,0) + !Container(33003).HasPrevious]] |
+								   [Control.HasFocus(43003) + [Integer.IsEqual(Container(43003).Position,0) + !Container(43003).HasPrevious]] |
+                                                                   [Control.HasFocus(53003) + [Integer.IsEqual(Container(53003).Position,0) + !Container(53003).HasPrevious]] |
+                                                                   [Control.HasFocus(63003) + [Integer.IsEqual(Container(63003).Position,0) + !Container(63003).HasPrevious]]" 
+                                                                   >Conditional</animation>
+		<control type="list" id="300">
+		        <onfocus>ClearProperty(SpotReturnHome)</onfocus>
+			<onfocus>ClearProperty(spothubscroll)</onfocus>
+			<onfocus>SetProperty(SpotFocus,true,Home)</onfocus>
+			<onfocus>Skin.Reset(TVHubMenuFocus)</onfocus>
+			<onfocus>Skin.Reset(MovieHubMenuFocus)</onfocus>
+			<onleft condition="Skin.HasSetting(DisableSubMenuVert) + Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Label,TV Shows)">SetFocus(400,0)</onleft>
+			<onleft condition="Skin.HasSetting(DisableSubMenuVert) + Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Label,Movies)">SetFocus(401,0)</onleft>
+			<onleft condition="Control.HasFocus(300) + Skin.HasSetting(DisableMenuVertFull)">302</onleft>
+			<onleft condition="!String.IsEqual(Container(300).ListItem.Property(widgetinfospotlight),true) + Skin.HasSetting(DisableMenuVertFull) + !Integer.IsGreater(Container(30222).NumItems,0) + !Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)">302</onleft>
+			<onleft condition="!Skin.HasSetting(DisableSubMenuVert) + !String.IsEqual(Container(300).ListItem.Property(widgetinfospotlight),true) + Integer.IsGreater(Container(30222).NumItems,0) + !Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)">30222</onleft>
+			<onleft condition="Skin.HasSetting(DisableMenuVertFull) + Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)">302</onleft>
+
+                        <onleft condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">9602</onleft>
+
+			<onright condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(DisableAuraHomeLayout) + Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Label,Live TV)">901</onright>
+			<onright condition="Window.IsVisible(Home) + [String.IsEqual(Container(300).ListItem.Property(widget),Settings) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget)]">9967</onright>
+			<onright condition="Window.IsVisible(Home) + [String.IsEqual(Container(300).ListItem.Property(widget),Weather) | String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)]">9966</onright>	
+                        <onright condition="Window.IsVisible(script-globalsearch-main.xml)">9500</onright>
+			<onright condition="Skin.HasSetting(EnableSpotlight) + $EXP[NextUpTVSpotlight] + String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true) + Integer.IsGreater(Container(30222).NumItems,0)">30222</onright>
+			<onright condition="Skin.HasSetting(EnableSpotlight) + $EXP[NextUpTVSpotlight] + !String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true) | !Integer.IsGreater(Container(30222).NumItems,0)">330</onright>
+                        <onright condition="Window.IsVisible(Home) + !Skin.HasSetting(DisableAuraHomeLayout) + Integer.IsGreater(Container(330).NumItems,0)">3000</onright>
+                        <onright condition="Window.IsVisible(Home) + !Integer.IsGreater(Container(30222).NumItems,0) + Integer.IsGreater(Container(330).NumItems,0)">3000</onright>
+
+                        <onright condition="Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + Integer.IsGreater(Container(30222).NumItems,0)">30222</onright>
+                        <onright condition="Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + !Integer.IsGreater(Container(30222).NumItems,0)">3000</onright>
+                        <onright condition="!Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + Integer.IsGreater(Container(330).NumItems,0)">330</onright>
+                        <onright condition="!Skin.HasSetting(EnableCatonFocus) + Window.IsVisible(Home) + Integer.IsGreater(Container(30222).NumItems,0) + !Integer.IsGreater(Container(330).NumItems,0)">30222</onright>
+                        <onright condition="Window.IsVisible(SettingsProfile.xml)">4</onright>
+                        <onright condition="Window.IsVisible(SettingsCategory.xml)">3</onright>
+                        <onright condition="Window.IsVisible(SkinSettings.xml)">9100</onright>
+                        <onright condition="Window.IsVisible(SettingsSystemInfo.xml)">50</onright>
+                        <onleft>300</onleft>
+                        <onright condition="[Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">50</onright>
+                        <onright condition="Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">9500</onright>
+		        <onright>ClearProperty(spotback)</onright>
+
+                        <include>Global_Overlay</include>
+                        <include>Defs_InfoDialog_Visible</include>
+
+		<centertop>60%</centertop>
+                <width>310</width>
+		<include>IconOnly_Height</include>
+	        <preloaditems>2</preloaditems>
+       	        <orientation>vertical</orientation>
+        	<scrolltime>0</scrolltime>
+		<left>-310</left>
+
+      <itemlayout width="240" height="75">
+        <control type="group">
+          <control type="label">
+            <left>30</left>
+            <label>$INFO[ListItem.Label]</label>
+            <align>right</align>
+            <font>font_small</font>
+            <textcolor>dimgrey</textcolor>
+          </control>
+        </control>
+      </itemlayout>
+      <focusedlayout width="240" height="85">
+        <control type="group">
+          <control type="group">
+            <height>70</height>
+            <width>400</width>
+            <left>10</left>
+          </control>
+          <control type="label">
+            <left>30</left>
+            <label>$INFO[ListItem.Label]</label>
+            <align>right</align>
+            <font>font_large_bold</font>
+            <textcolor>white</textcolor>
+          </control>
+        </control>
+      </focusedlayout>
+
+
+		<content>
+		<include>skinshortcuts-mainmenu</include>
+		</content>
+	</control>
+	</control>
+    </include>
+
+
+
+
+
     <include name="Home_MainMenu_Layout_wLabel">
 	<control type="group">
        <animation effect="slide" start="0,0" end="310,0" time="500" condition="Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)">Conditional</animation>

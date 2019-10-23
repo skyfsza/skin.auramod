@@ -1039,7 +1039,7 @@
         <height>100%</height>
     <control type="group">
       <control type="label">
-        <visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(ListItem.Art(clearlogo))</visible>
+        <visible>String.IsEmpty(Control.GetLabel(56752))</visible>
         <top>50</top>
         <centerleft>50%</centerleft>
         <label>$VAR[video_heading]</label>
@@ -1050,7 +1050,7 @@
         <height min="50" max="150">auto</height>
         <align>left</align>
       </control>
-      <control type="image" id="56751">
+      <control type="image" id="56752">
 	<centerleft>50%</centerleft>
         <top>0</top>
         <height>281</height>
@@ -1083,8 +1083,8 @@
             <param name="season_showcase_list" default="true" />
           </include>
         </control>
-        <control type="group" id="25022">
-          <visible>Container(5022).IsUpdating + !Window.IsVisible(DialogBusy.xml)</visible>
+        <control type="group" id="250221">
+          <visible>Container(50221).IsUpdating + !Window.IsVisible(DialogBusy.xml)</visible>
           <control type="group">
             <height>40</height>
             <top>550</top>
@@ -1094,9 +1094,9 @@
             </include>
           </control>
         </control>
-        <control type="list" id="5022">
+        <control type="list" id="50221">
           <visible>Control.IsVisible(507) + !Container(507).ListItem.IsParentFolder</visible>
-          <animation effect="fade" start="100" end="0" condition="Container(5022).IsUpdating">Conditional</animation>
+          <animation effect="fade" start="100" end="0" condition="Container(50221).IsUpdating">Conditional</animation>
 	  <left>60</left>
 	  <itemgap>100</itemgap>
           <movement>3</movement>
@@ -2991,7 +2991,7 @@
           <right>120</right>
           <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
           <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
-          <visible>!Control.IsVisible(507) + !Control.IsVisible(507) + !String.IsEqual(ListItem.DBType,episode)  + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
+          <visible>!Control.IsVisible(507) + !Control.IsVisible(502) + !Control.IsVisible(504) + !String.IsEqual(ListItem.DBType,season) + !String.IsEqual(ListItem.DBType,episode)  + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
        </control>
 
         <control type="image">
@@ -3001,8 +3001,30 @@
           <height>45%</height>
           <aspectratio>keep</aspectratio>
           <texture background="true">$VAR[Widget_ClearLogo]</texture>
-          <visible>!Control.IsVisible(507) + !Control.IsVisible(502) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
+          <visible>!Control.IsVisible(507) + !Control.IsVisible(502) + !Control.IsVisible(504) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
         </control>
+
+            <control type="group">
+                <height>70</height>
+                <bottom>0</bottom>
+                <visible>!String.IsEqual(ListItem.DBType,episode) + !String.IsEqual(ListItem.DBType,season) + [!Skin.HasSetting(DisableClearlogo) | Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))] + !Skin.HasSetting(WidgetLabels) | Window.IsVisible(1138)</visible>
+
+                <control type="image">
+                    <texture background="true" colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
+                </control>
+                <control type="label">
+                    <top>0</top>
+                    <bottom>0</bottom>
+                    <left>20</left>
+                    <right>20</right>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <font>font_tiny_bold</font>
+                    <textcolor>main_fg_70</textcolor>
+                    <label>$VAR[Label_Widget]</label>
+                </control>
+            </control>
+
 
     <include>Defs_PictureBack</include>
     <include>View_WatchedOverlay</include>
@@ -3035,6 +3057,7 @@
       <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
     </control>
   </include>
+
   <include name="View_Posters_Text">
     <control type="label">
       <label>$INFO[ListItem.Label]</label>

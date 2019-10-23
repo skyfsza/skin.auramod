@@ -728,6 +728,8 @@
       <right>view_pad</right>
       <bottom>view_pad</bottom>
       <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuVertIcon) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
+        <animation effect="slide" end="40,0" time="500" delay="0" condition="Skin.HasSetting(DisableMenuVertLabelOnly) + [!Control.HasFocus(300) | !Control.HasFocus(400) | !Control.HasFocus(401)]" reversible="true">Conditional</animation>
+
       <control type="grouplist">
         <top>20</top>
         <left>10</left>

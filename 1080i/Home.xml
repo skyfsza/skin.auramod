@@ -20,6 +20,7 @@
     <onload condition="Skin.HasSetting(AutoLibraryHome)">UpdateLibrary(video,,true)</onload>
     <onload condition="Skin.HasSetting(MouseMode)">Skin.ToggleSetting(MouseMode)</onload>
     <onload condition="!String.IsEmpty(Skin.String(TMDB_Search))">ActivateWindow(1136)</onload>
+    <onload condition="!Skin.HasSetting(DisableInfoRatings)">Skin.ToggleSetting(DisableInfoRatings)</onload>
     <onload>Skin.SetString(AddonContainer,false)</onload>
     <onunload>SetProperty(SpotReturnHome,true,Home)</onunload>
     <onunload>ClearProperty(spothubscroll)</onunload>

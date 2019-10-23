@@ -691,7 +691,13 @@
                             <onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetImage(fanart.fallback))</onclick>
                             <onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31150])</onclick>
                         </control>
-
+                        <control type="radiobutton" id="92111" description="Zoom Effect">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9002)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Zoom Effect</label>
+                            <selected>Skin.HasSetting(animation_bg)</selected>
+                            <onclick>Skin.ToggleSetting(animation_bg)</onclick>
+                        </control>
                         <control type="radiobutton" id="9203" description="Show video in background">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9002)</visible>
                             <include>Defs_Settings_Button</include>
@@ -979,6 +985,7 @@
                             <onclick>ActivateWindow(1119)</onclick>
                         </control>
 
+<!--
                         <control type="radiobutton" id="9511" description="Show media flags instead of ratings in library views">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
                             <include>Defs_Settings_Button</include>
@@ -986,7 +993,7 @@
                             <onclick>Skin.ToggleSetting(DisableInfoRatings)</onclick>
                             <selected>Skin.HasSetting(DisableInfoRatings)</selected>
                         </control>
-
+-->
                         <control type="radiobutton" id="9512" description="Monochrome Flags">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
                             <include>Defs_Settings_Button</include>
