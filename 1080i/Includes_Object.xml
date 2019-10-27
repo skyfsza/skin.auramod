@@ -639,7 +639,6 @@
       <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabelOnly) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
 
 
-			        <animation effect="slide" start="0,0" end="0,-80" time="0" tween="quadratic" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>  
 			        <animation effect="fade" start="0" end="100" time="400" condition="!String.IsEqual(Window(Home).Property(SpotFocus),true) + Control.HasFocus(300)">Visible</animation>
 			        <animation type="Conditonal" condition="Control.HasFocus(1506)" reversible="false">
 			        <effect type="zoom" end="105" time="75" tween="sine" easing="out" center="auto" />
