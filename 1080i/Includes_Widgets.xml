@@ -81,11 +81,6 @@
 
         <!--                <include>Animation_Right</include> -->
         <include>Defs_InfoDialog_Visible</include>
-        <include content="Object_UpDownInfoArrows">
-          <param name="id" value="330" />
-          <param name="hasprevious" value="false" />
-          <param name="hasnext" value="!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)" />
-        </include>
         <control type="group">
           <left>-10</left>
           <right>-400</right>
@@ -192,7 +187,7 @@
             <control type="group" id="900">
       <visible>$EXP[LiveTVSpotlight]</visible>
       <animation effect="slide" start="0,0" end="0,105" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(DisableMenuHor) + [$EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
-      <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
+      <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabelOnly) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
 
                 <description>Live TV</description>
                 <width>2320</width>
@@ -1018,12 +1013,13 @@
       <onleft condition="Control.HasFocus(30222) + !Skin.HasSetting(DisableMenuHor)">300</onleft>
       <onleft condition="!String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)">300</onleft>
       <onleft condition="!Skin.HasSetting(DisableMenuHor)">SetFocus(300)</onleft>
-      <onleft condition="Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableSubMenuVert) + String.IsEqual(Container(300).ListItem.Label,TV Shows)">SetFocus(400,0)</onleft>
-      <onleft condition="Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableSubMenuVert) + String.IsEqual(Container(300).ListItem.Label,Movies)">SetFocus(401,0)</onleft>
+      <onleft condition="Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableSubMenuVert) + String.IsEqual(Container(300).ListItem.Property(menulist),TV Menu) + String.IsEqual(Container(300).ListItem.Property(menuonleft),true)">SetFocus(400,0)</onleft>
+      <onleft condition="Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableSubMenuVert) + String.IsEqual(Container(300).ListItem.Property(menulist),Movie Menu) + String.IsEqual(Container(300).ListItem.Property(menuonleft),true)">SetFocus(401,0)</onleft>
       <ondown>3337</ondown>
 
 
-      <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
+      <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabelOnly) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
+
 
    
       <control type="group" id="331" description="Spacer">
@@ -2711,6 +2707,7 @@
         <include>View_WatchedOverlay</include>
         <control type="group">
           <include>View_Selectbox</include>
+
         </control>
         <control type="group">
           <animation type="Focus" reversible="false">

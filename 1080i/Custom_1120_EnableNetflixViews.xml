@@ -86,14 +86,11 @@
 
                             <onclick condition="Skin.HasSetting(DisableWidgetPlot)">Skin.ToggleSetting(DisableWidgetPlot)</onclick>
 
-<!--                            <onclick condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Skin.ToggleSetting(DisableNetflixHomeSidemenu)</onclick> -->
                             <onclick condition="Skin.HasSetting(DisableNetflixView)">Skin.ToggleSetting(DisableNetflixView)</onclick>
                             <onclick condition="Skin.HasSetting(DisableNetflixVideoInfo)">Skin.ToggleSetting(DisableNetflixVideoInfo)</onclick>
-<!--                            <onclick condition="Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Skin.ToggleSetting(DisableNetflixHomeSidemenuHide)</onclick> -->
                             <onclick condition="Skin.HasSetting(DisableNetflixSubmenuBG)">Skin.ToggleSetting(DisableNetflixSubmenuBG)</onclick>
 		            <onclick condition="!Skin.HasSetting(SubmenuLabel)">Skin.ToggleSetting(SubmenuLabel)</onclick>
 		            <onclick condition="!Skin.HasSetting(DisableNetflixVertLabel)">Skin.ToggleSetting(DisableNetflixVertLabel)</onclick>
-                            <onclick condition="!Skin.HasSetting(WidgetLabels)">Skin.ToggleSetting(WidgetLabels)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/netflixdefault.jpg)</onfocus>
                             <onclick>ReloadSkin()</onclick>
                         </control>
@@ -115,14 +112,11 @@
 
                             <onclick condition="Skin.HasSetting(DisableWidgetPlot)">Skin.ToggleSetting(DisableWidgetPlot)</onclick>
 
-<!--                            <onclick condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Skin.ToggleSetting(DisableNetflixHomeSidemenu)</onclick> -->
                             <onclick condition="Skin.HasSetting(DisableNetflixView)">Skin.ToggleSetting(DisableNetflixView)</onclick>
                             <onclick condition="Skin.HasSetting(DisableNetflixVideoInfo)">Skin.ToggleSetting(DisableNetflixVideoInfo)</onclick>
-<!--                            <onclick condition="Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Skin.ToggleSetting(DisableNetflixHomeSidemenuHide)</onclick> -->
                             <onclick condition="!Skin.HasSetting(DisableNetflixSubmenuBG)">Skin.ToggleSetting(DisableNetflixSubmenuBG)</onclick>
                             <onclick condition="!Skin.HasSetting(SubmenuLabel)">Skin.ToggleSetting(SubmenuLabel)</onclick>
                             <onclick condition="!Skin.HasSetting(DisableNetflixVertLabel)">Skin.ToggleSetting(DisableNetflixVertLabel)</onclick>
-                            <onclick condition="!Skin.HasSetting(WidgetLabels)">Skin.ToggleSetting(WidgetLabels)</onclick>
                             <onclick>ReloadSkin()</onclick>
 	                    <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/netflixalt.jpg)</onfocus>
                         </control>
@@ -144,28 +138,14 @@
 
                             <onclick condition="Skin.HasSetting(DisableWidgetPlot)">Skin.ToggleSetting(DisableWidgetPlot)</onclick>
 
-<!--                            <onclick condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Skin.ToggleSetting(DisableNetflixHomeSidemenu)</onclick> -->
                             <onclick condition="Skin.HasSetting(DisableNetflixVideoInfo)">Skin.ToggleSetting(DisableNetflixVideoInfo)</onclick>
-<!--                            <onclick condition="Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Skin.ToggleSetting(DisableNetflixHomeSidemenuHide)</onclick> -->
                             <onclick condition="Skin.HasSetting(DisableNetflixView)">Skin.ToggleSetting(DisableNetflixView)</onclick>
                             <onclick condition="Skin.HasSetting(DisableNetflixSubmenuBG)">Skin.ToggleSetting(DisableNetflixSubmenuBG)</onclick>
                           <onclick condition="!Skin.HasSetting(SubmenuLabel)">Skin.ToggleSetting(SubmenuLabel)</onclick>
                             <onclick condition="!Skin.HasSetting(DisableNetflixVertLabel)">Skin.ToggleSetting(DisableNetflixVertLabel)</onclick>
-                            <onclick condition="!Skin.HasSetting(WidgetLabels)">Skin.ToggleSetting(WidgetLabels)</onclick>
                             <onclick>ReloadSkin()</onclick>
 	                    <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/netflix-mixed/netflixmixed1.gif)</onfocus>
                         </control>
-<!--
-                        <control type="radiobutton" id="9005" description="Enable Trakt Simple Mode">
-                            <include>Dialog_Standard_ListButton</include>
-                            <radioposx>630</radioposx>
-                            <label>Trakt Simple Mode</label>
-                            <selected>Skin.HasSetting(DisableTraktMode)</selected>
-                            <onclick>Skin.ToggleSetting(DisableTraktMode)</onclick>
-                            <onclick>ReloadSkin()</onclick>
-                            <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/netflix-mixed/netflixmixed1.gif)</onfocus>
-                        </control>
--->
            </control>
         </control>
     </controls>

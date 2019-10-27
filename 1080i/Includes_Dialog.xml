@@ -380,6 +380,7 @@
     <!-- Settings Panel -->
     <!-- ============== -->
     <include name="Dialog_Settings_Panel">
+<!--
         <animation type="WindowOpen" reversible="false" condition="!Window.Previous(SettingsCategory.xml) + !Window.Previous(SkinSettings.xml) + !Window.Previous(SettingsProfile.xml) + !Window.Previous(SettingsSystemInfo.xml)">
             <effect type="fade" start="0" end="100" time="300" tween="sine" easing="out"/>
             <effect type="slide" start="320" end="0" time="400" tween="cubic" easing="out" />
@@ -388,6 +389,7 @@
             <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
             <effect type="slide" start="0" end="320" time="300" tween="cubic" easing="out" />
         </animation>
+-->
         <left>0</left>
         <right>0</right>
         <top>view_top</top>

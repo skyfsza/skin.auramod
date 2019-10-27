@@ -45,5 +45,10 @@
   	<onfocus condition="String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(5055)</onfocus>
   	<onfocus condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,4,absolute)</onfocus>
     </control>
+  <include content="Object_UpDownInfoArrows">
+     <param name="id" value="5055" />
+     <param name="top" value="90" />
+  </include>
+
   </controls>
 </window>

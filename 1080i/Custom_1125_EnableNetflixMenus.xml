@@ -117,6 +117,7 @@
                             <onclick condition="Skin.HasSetting(DisableMenuVertFull)">Skin.ToggleSetting(DisableMenuVertFull)</onclick>
                             <onclick condition="Skin.HasSetting(DisableMenuHor)">Skin.ToggleSetting(DisableMenuHor)</onclick>
                             <onclick condition="Skin.HasSetting(IconOnlyMode)">Skin.ToggleSetting(IconOnlyMode)</onclick>
+                            <onclick condition="Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Skin.ToggleSetting(DisableNetflixHomeSidemenuHide)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/menu-vertical-label.jpg)</onfocus>
                             <onclick>ReloadSkin()</onclick>
                         </control>
@@ -136,6 +137,7 @@
                             <onclick condition="Skin.HasSetting(DisableMenuVertFull)">Skin.ToggleSetting(DisableMenuVertFull)</onclick>
                             <onclick condition="Skin.HasSetting(DisableMenuHor)">Skin.ToggleSetting(DisableMenuHor)</onclick>
                             <onclick condition="Skin.HasSetting(IconOnlyMode)">Skin.ToggleSetting(IconOnlyMode)</onclick>
+                            <onclick condition="!Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Skin.ToggleSetting(DisableNetflixHomeSidemenuHide)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/menu-vertical-label-only.jpg)</onfocus>
                             <onclick>ReloadSkin()</onclick>
                         </control>

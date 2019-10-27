@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+     <variable name="liked_percent">
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating.Percent))">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating.Percent)]$VAR[liked_percent_symbol] Liked[/B]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.percent.IMDB))">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.percent.IMDB)]$VAR[liked_percent_symbol] Liked[/B]</value>
+     </variable>
+     <variable name="liked_percent_symbol">
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating.Percent)) + !String.Contains(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating.Percent),%)">%</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating.Percent)) + String.Contains(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating.Percent),%)"></value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.percent.IMDB))">%</value>
+     </variable> 
+
      <variable name="widgetliveart">
 	<value condition="!Skin.HasSetting(EnableWidgetLiveIcon)">$INFO[ListItem.Icon]</value>
 	<value condition="Skin.HasSetting(EnableWidgetLiveIcon)">$INFO[ListItem.Art(thumb)]</value>
@@ -115,6 +125,7 @@
     </variable>
 
     <variable name="Image_MainMenu_fanart_aurahub"> 
+        <value condition="Window.IsVisible(MyVideoNav.xml) + !String.IsEmpty(Container(5055).ListItem.Art(fanart)) + Control.IsVisible(5055)">$INFO[Container(5055).ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(Container(6051).ListItem.Art(fanart)) + Control.IsVisible(6051)">$INFO[Container(6051).ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(Container(6052).ListItem.Art(fanart)) + Control.IsVisible(6052)">$INFO[Container(6052).ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(Container(6053).ListItem.Art(fanart)) + Control.IsVisible(6053)">$INFO[Container(6053).ListItem.Art(fanart)]</value>

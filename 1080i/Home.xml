@@ -5,7 +5,7 @@
     <!--<onload condition="String.IsEqual(Skin.String(hubstartup),true) + Skin.HasSetting(HubOnStartup) + ![Container(1505).IsUpdating + Container(1506).IsUpdating + Container(13003).IsUpdating + Container(13004).IsUpdating + Container(13005).IsUpdating + Container(13006).IsUpdating + Container(13007).IsUpdating + Container(23003).IsUpdating + Container(23004).IsUpdating + Container(23005).IsUpdating + Container(23006).IsUpdating + Container(23007).IsUpdating + Container(33003).IsUpdating + Container(33004).IsUpdating + Container(33005).IsUpdating + Container(33006).IsUpdating + Container(33007).IsUpdating + Container(43003).IsUpdating + Container(43004).IsUpdating + Container(43005).IsUpdating + Container(43006).IsUpdating + Container(43007).IsUpdating + Container(53003).IsUpdating + Container(53004).IsUpdating + Container(53005).IsUpdating + Container(53006).IsUpdating + Container(53007).IsUpdating + Container(63003).IsUpdating + Container(63004).IsUpdating + Container(63005).IsUpdating + Container(63006).IsUpdating + Container(63007).IsUpdating]">AlarmClock(LoadHubs,ActivateWindow(1111),00:01,silent)</onload> -->
     <onload>RunScript(plugin.video.themoviedb.helper,reset_path)</onload>
     <onload condition="Skin.HasSetting(EnableWetherRadar)">RunScript(special://skin/extras/weather.py)</onload> 
-    <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|x1110|x1111|x1112|x1113|hubtvnetworks|searchmenu|aurahubtv|aurahubmovies|netflixhubtv|netflixhubmovies|pvrspot)</onload>
+    <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|x1110|x1111|x1112|x1113|hubtvnetworks|searchmenu|aurahubtv|aurahubmovies|netflixhubtv|netflixhubmovies|pvrspot|tvhubmenu|moviehubmenu)</onload>
     <onload condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs)">Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
     <onload condition="!Skin.HasSetting(SkinHelper.EnableMusicArt)">Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
     <onload>ClearProperty(HomeFocus,Home)</onload>
@@ -21,6 +21,8 @@
     <onload condition="Skin.HasSetting(MouseMode)">Skin.ToggleSetting(MouseMode)</onload>
     <onload condition="!String.IsEmpty(Skin.String(TMDB_Search))">ActivateWindow(1136)</onload>
     <onload condition="!Skin.HasSetting(DisableInfoRatings)">Skin.ToggleSetting(DisableInfoRatings)</onload>
+    <onload condition="Skin.HasSetting(AutoLibraryHome)">Skin.ToggleSetting(AutoLibraryHome)</onload>
+    <onload condition="Skin.HasSetting(HubOnStartup)">Skin.ToggleSetting(HubOnStartup)</onload>
     <onload>Skin.SetString(AddonContainer,false)</onload>
     <onunload>SetProperty(SpotReturnHome,true,Home)</onunload>
     <onunload>ClearProperty(spothubscroll)</onunload>

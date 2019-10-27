@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="4010">
-  <onload condition="String.IsEmpty(Skin.String(MovieHubMenuFocus))">SetFocus(505)</onload>
-  <onload condition="!String.IsEmpty(Skin.String(MovieHubMenuFocus))">SetFocus(401,2,absolute)</onload>
+  <onload condition="String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(505)</onload>
+  <onload condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(401,2,absolute)</onload>
+  <onload>Skn.Reset(CatMove)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
-    <include>Home_MovieHubMenu_Layout</include>
+      <include>Animation_Right</include>
+      <include>object_menuhub_includes</include>
+      <include>Home_MovieHubMenu_Layout</include>
     <control type="label">
-      <left>80</left>
+      <left>110</left>
       <top>40</top>
-      <label>Movie Genres</label>
+      <label>Categories</label>
       <height>40</height>
       <width>350</width>
-      <align>center</align>
+      <align>left</align>
       <aligny>top</aligny>
       <textcolor>white</textcolor>
       <font>font_heading_small</font>
@@ -19,46 +22,45 @@
       <animation effect="slide" end="240,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
     </control>
     <control type="list" id="505">
-      <animation effect="slide" end="250,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
-      <animation effect="slide" end="-500,0" time="500" condition="ControlGroup(5055).HasFocus">Conditional</animation>
+      <include>Animation_Right</include>
+      <animation effect="slide" end="240,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
+      <animation effect="slide" end="-500,0" time="500" delay="100" condition="ControlGroup(5055).HasFocus">Conditional</animation>
       <onright>5055</onright>
-      <onback>Skin.Reset(MovieHubMenuFocus)</onback>
-      <onback>ActivateWindow(Home)</onback>
-      <onleft>SetFocus(401,2)</onleft>
       <height>900</height>
       <top>140</top>
       <left>80</left>
+      <onleft>SetFocus(401,2)</onleft>
+      <onback>Skin.Reset(TVHubMenuFocus)</onback>
+      <onback>Skin.Reset(CatMove)</onback>
+      <onback>ActivateWindow(Home)</onback>
       <viewtype label="$LOCALIZE[31469]">icon</viewtype>
       <scrolltime tween="sine" easing="out">500</scrolltime>
-      <itemlayout width="350" height="70">
+      <itemgap>10</itemgap>
+      
+      <itemlayout width="400" height="75">
         <control type="group">
           <control type="label">
             <left>30</left>
             <label>$INFO[ListItem.Label]</label>
             <align>left</align>
             <font>font_small</font>
-            <textcolor>main_fg_70</textcolor>
+            <textcolor>dimgrey</textcolor>
           </control>
         </control>
       </itemlayout>
-      <focusedlayout width="350" height="70">
+      <focusedlayout width="400" height="85">
         <control type="group">
           <control type="group">
             <height>70</height>
-            <width>350</width>
+            <width>400</width>
             <left>10</left>
-            <control type="image">
-              <align>left</align>
-              <aspectratio align="left" aligny="top">stretch</aspectratio>
-              <texture background="true" colordiffuse="grey">diffuse/landscape.png</texture>
-            </control>
           </control>
           <control type="label">
             <left>30</left>
             <label>$INFO[ListItem.Label]</label>
             <align>left</align>
-            <font>font_small_bold</font>
-            <textcolor>black</textcolor>
+            <font>font_large_bold</font>
+            <textcolor>white</textcolor>
           </control>
         </control>
       </focusedlayout>
@@ -66,15 +68,15 @@
         <include>skinshortcuts-group-x1108</include>
       </content>
     </control>
-      <include>object_menuhub_includes</include>
-
-   <control type="grouplist" id="5055">
+    <control type="grouplist" id="5055">
+      <include>Animation_Right</include>
       <animation effect="slide" end="300,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
-      <animation effect="slide" end="-430,0" time="500" condition="ControlGroup(5055).HasFocus">Conditional</animation>
-      <left>420</left>
+      <animation effect="slide" end="-480,0" time="500" delay="100" condition="ControlGroup(5055).HasFocus">Conditional</animation>
+      <left>480</left>
       <posy>620</posy>
       <width>100%</width>
       <onleft>505</onleft>
+      <onback>505</onback>
       <orientation>vertical</orientation>
       <include>skinshortcuts-template-x1108</include>
     </control>

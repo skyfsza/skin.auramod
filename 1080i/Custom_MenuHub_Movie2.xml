@@ -30,7 +30,7 @@
       <top>140</top>
       <left>80</left>
       <onleft>SetFocus(401,1)</onleft>
-      <onback>Skin.Reset(TVHubMenuFocus)</onback>
+      <onback>Skin.Reset(MovieHubMenuFocus)</onback>
       <onback>Skin.Reset(CatMove)</onback>
       <onback>ActivateWindow(Home)</onback>
       <viewtype label="$LOCALIZE[31469]">icon</viewtype>

@@ -54,13 +54,6 @@
             <height>70</height>
             <width>400</width>
             <left>10</left>
-<!--
-            <control type="image">
-              <align>left</align>
-              <aspectratio align="left" aligny="top">stretch</aspectratio>
-              <texture background="true" colordiffuse="grey">diffuse/landscape.png</texture>
-            </control>
--->
           </control>
           <control type="label">
             <left>30</left>
@@ -87,5 +80,8 @@
       <orientation>vertical</orientation>
       <include>skinshortcuts-template-x1104</include>
     </control>
+  <include content="Object_UpDownInfoArrows">
+     <param name="id" value="5055" />
+  </include>
   </controls>
 </window>

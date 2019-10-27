@@ -1,13 +1,13 @@
 <window>
     <defaultcontrol always="true">300</defaultcontrol>
     <include>Defs_Settings_OnLoad</include>
-    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|x1110|x1111|x1112|x1113|hubtvnetworks|searchmenu|aurahubtv|aurahubmovies|netflixhubtv|netflixhubmovies|pvrspot)</onunload>
+    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|x1110|x1111|x1112|x1113|hubtvnetworks|searchmenu|aurahubtv|aurahubmovies|netflixhubtv|netflixhubmovies|pvrspot|tvhubmenu|moviehubmenu)</onunload>
     <onunload condition="System.HasAddon(script.colorbox)">SetProperty(NINE_manual_set,"var=main,set=$INFO[Skin.String(colorbox_main)]|var=comp,set=$INFO[Skin.String(colorbox_comp)]|var=quality,set=$INFO[Skin.String(colorbox_quality)]|var=blursize,set=$INFO[Skin.String(colorbox_blursize)]|var=bitsize,set=$INFO[Skin.String(colorbox_bitsize)]|var=pixelsize,set=$INFO[Skin.String(colorbox_pixelsize)]|var=black,set=$INFO[Skin.String(colorbox_black)]|var=white,set=$INFO[Skin.String(colorbox_white)]|var=blend,set=$INFO[Skin.String(colorbox_blend)]|var=desat,set=$INFO[Skin.String(colorbox_desat)]",home)</onunload> 
     <onload condition="String.IsEmpty(Window.Property(CurrentFocus))">SetProperty(CurrentFocus,$NUMBER[9001])</onload>
     <controls>
 
         <include>Global_Background</include>
-
+        <include>Animation_Right</include>
         <control type="group">
             <include>Dialog_Settings_Panel</include>
             <control type="group">
@@ -517,13 +517,13 @@
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
                             <label>Select TV Menu Items</label>
-                            <onclick>ActivateWindow(1142)</onclick>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=tvhubmenu)</onclick>
                         </control>
                        <control type="button" id="96612" description="Select Menu Items">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
                             <label>Select Movie Menu Items</label>
-                            <onclick>ActivateWindow(1143)</onclick>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=moviehubmenu)</onclick>
                         </control>
                         <control type="button" id="9661" description="Configure Movie Hub 2">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
@@ -1006,6 +1006,7 @@
                         <!-- ============= -->
                         <!-- Miscellaneous -->
                         <!-- ============= -->
+<!--
                         <control type="radiobutton" id="9699" description="Auto library update">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9006)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1020,6 +1021,7 @@
                             <selected>Skin.HasSetting(HubOnStartup)</selected>
                             <onclick>Skin.ToggleSetting(HubOnStartup)</onclick>
                         </control>
+-->
                         <control type="radiobutton" id="9605" description="Kiosk Mode">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9006)</visible>
                             <include>Defs_Settings_Button</include>

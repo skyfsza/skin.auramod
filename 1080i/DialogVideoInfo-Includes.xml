@@ -977,6 +977,7 @@
       <randomize>false</randomize>
       <loop>no</loop>
       <visible>!String.Contains(ListItem.Art(fanart),w1280None)</visible>
+      <include>animation_image_zoom</include>
       </control>
       <control type="image">
 	<width>130%</width>
