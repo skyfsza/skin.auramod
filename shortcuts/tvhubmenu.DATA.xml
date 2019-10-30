@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<defaultID>tvcategorieshub</defaultID>
+		<label>TV Categories</label>
+		<label2>Custom item</label2>
+		<icon>special://skin/extras/icons/clipboard.png</icon>
+		<thumb>special://skin/extras/icons/sort.png</thumb>
+		<action>ActivateWindow(2114,return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>tvaurahub</defaultID>
+		<label>TV Aura Hub</label>
+		<label2>Custom item</label2>
+		<icon>special://skin/extras/icons/tv.png</icon>
+		<thumb />
+		<action>ReplaceWindow(3910,return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>tvnetflixhub</defaultID>
+		<label>TV Netflix Hub</label>
+		<label2 />
+		<icon>special://skin/extras/icons/tv.png</icon>
+		<thumb />
+		<action>ActivateWindow(3810,return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>TV Genres</label>
+		<label2>Videos</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>special://skin/extras/icons/genres.png</thumb>
+		<action>ActivateWindow(Videos,"library://video/serentvgenre/",return)</action>
+	</shortcut>
+</shortcuts>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<defaultID>moviecategorieshub</defaultID>
+		<label>Movie Categories</label>
+		<label2>Custom item</label2>
+		<icon>special://skin/extras/icons/clipboard.png</icon>
+		<thumb>special://skin/extras/icons/sort.png</thumb>
+		<action>ActivateWindow(2112,return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>movieaurahub</defaultID>
+		<label>Movie Aura Hub </label>
+		<label2 />
+		<icon>special://skin/extras/icons/film.png</icon>
+		<thumb />
+		<action>ActivateWindow(3920,return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>movienetflixhub</defaultID>
+		<label>Movie Netflix Hub</label>
+		<label2 />
+		<icon>special://skin/extras/icons/film.png</icon>
+		<thumb />
+		<action>ActivateWindow(3820,return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Movie Genres</label>
+		<label2>Videos</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>special://skin/extras/icons/genres.png</thumb>
+		<action>ActivateWindow(Videos,"library://video/serenmoviegenre/",return)</action>
+	</shortcut>
+</shortcuts>

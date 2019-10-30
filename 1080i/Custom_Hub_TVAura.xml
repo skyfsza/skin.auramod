@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="3910">
-  <onload condition="String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(5055)</onload>
-  <onload condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,4,absolute)</onload>
+  <defaultcontrol>5050</defaultcontrol>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
     <include>Global_Background</include>
@@ -19,6 +18,23 @@
    <label>[B]TV AuraHub[/B]</label>
    </control> 
    </control>
+    <control type="button" id="5051">
+     <centerleft>50%</centerleft>
+     <centertop>50%</centertop>
+     <width>700</width>
+     <height>60</height>
+     <label>Hub is Empty - Click to Add Items</label>
+     <textcolor>white</textcolor>
+     <focusedcolor>White</focusedcolor>
+     <texturefocus colordiffuse="$VAR[ColorHighlight]" border="16">common/white.png</texturefocus>
+     <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=aurahubtv)</onclick>
+     <visible>!Integer.IsGreater(Container(5055).NumItems,0) + !Container(5055).IsUpating</visible>
+    </control>
+    <control type="button" id="5050">
+     <onfocus condition="!Integer.IsGreater(Container(5055).NumItems,0) + !Container(5055).IsUpating">SetFocus(5051)</onfocus>
+     <onfocus condition="Integer.IsGreater(Container(5055).NumItems,0) | [!Integer.IsGreater(Container(5055).NumItems,0) + Container(5055).IsUpating]">SetFocus(5055)]</onfocus>
+    </control> 
+
       <control type="grouplist" id="5055">
         <include>Animation_Right</include>
    	<animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>

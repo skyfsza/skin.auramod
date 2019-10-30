@@ -3,6 +3,7 @@
     <defaultcontrol always="true">313</defaultcontrol>
     <onload condition="!Skin.HasSetting(WidgetsInit)">AlarmClock(Clickit,Action(Close),00:01,silent)</onload>
     <onunload condition="!Skin.HasSetting(WidgetsInit)">Skin.ToggleSetting(WidgetsInit)</onunload>
+    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|x1110|x1111|x1112|x1113|hubtvnetworks|searchmenu|aurahubtv|aurahubmovies|netflixhubtv|netflixhubmovies|pvrspot|tvhubmenu|moviehubmenu)</onunload>
     <controls>
 
         <include>Global_Background</include>
