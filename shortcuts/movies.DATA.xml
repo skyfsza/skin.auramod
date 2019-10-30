@@ -6,23 +6,7 @@
     <label2>Custom item</label2>
     <icon>special://skin/extras/icons/film.png</icon>
     <thumb>special://skin/extras/icons/clipboard.png</thumb>
-    <action>ActivateWindow(1101,return)</action>
-  </shortcut>
-  <shortcut>
-    <defaultID>aurahub2</defaultID>
-    <label>Genres Hub</label>
-    <label2>Custom item</label2>
-    <icon>special://skin/extras/icons/tv.png</icon>
-    <thumb>special://skin/media/exuary/genres.png</thumb>
-    <action>ActivateWindow(4010,return)</action>
-  </shortcut>
-  <shortcut>
-    <defaultID>netflixhub</defaultID>
-    <label>MediaHub</label>
-    <label2>Custom item</label2>
-    <icon>special://skin/extras/icons/tv.png</icon>
-    <thumb>special://skin/extras/icons/emby.png</thumb>
-    <action>ActivateWindow(3730,return)</action>
+    <action>ActivateWindow(2112,return)</action>
   </shortcut>
   <shortcut>
     <defaultID>movienetflixhub</defaultID>
@@ -39,6 +23,14 @@
     <icon>special://skin/extras/icons/film.png</icon>
     <thumb />
     <action>ActivateWindow(3920,return)</action>
+  </shortcut>
+  <shortcut>
+    <defaultID>aurahub2</defaultID>
+    <label>Genres Hub</label>
+    <label2>Custom item</label2>
+    <icon>special://skin/extras/icons/tv.png</icon>
+    <thumb>special://skin/media/exuary/genres.png</thumb>
+    <action>ActivateWindow(4010,return)</action>
   </shortcut>
   <shortcut>
     <label>20386</label>

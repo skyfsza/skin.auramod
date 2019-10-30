@@ -6,23 +6,15 @@
     <label2>Custom item</label2>
     <icon>special://skin/extras/icons/tv.png</icon>
     <thumb>special://skin/extras/icons/clipboard.png</thumb>
-    <action>ActivateWindow(1103,return)</action>
-  </shortcut>
-  <shortcut>
-    <defaultID>aurahub2</defaultID>
-    <label>Genres Hub</label>
-    <label2>Custom item</label2>
-    <icon>special://skin/extras/icons/tv.png</icon>
-    <thumb>special://skin/media/exuary/genres.png</thumb>
-    <action>ActivateWindow(4020,return)</action>
+    <action>ActivateWindow(2114,return)</action>
   </shortcut>
   <shortcut>
     <defaultID>netflixhub</defaultID>
-    <label>MediaHub</label>
+    <label>TV Aura Hub</label>
     <label2>Custom item</label2>
     <icon>special://skin/extras/icons/tv.png</icon>
     <thumb>special://skin/extras/icons/emby.png</thumb>
-    <action>ActivateWindow(3730,return)</action>
+    <action>ActivateWindow(3910,return)</action>
   </shortcut>
   <shortcut>
     <defaultID>tvnetflixhub</defaultID>
@@ -33,12 +25,12 @@
     <action>ActivateWindow(3810,return)</action>
   </shortcut>
   <shortcut>
-    <defaultID>tvaurahub</defaultID>
-    <label>TV Aura Hub</label>
-    <label2 />
+    <defaultID>aurahub2</defaultID>
+    <label>Genres Hub</label>
+    <label2>Custom item</label2>
     <icon>special://skin/extras/icons/tv.png</icon>
-    <thumb />
-    <action>ActivateWindow(3910,return)</action>
+    <thumb>special://skin/media/exuary/genres.png</thumb>
+    <action>ActivateWindow(4020,return)</action>
   </shortcut>
   <shortcut>
     <label>20387</label>
