@@ -24,12 +24,4 @@
 		<thumb />
 		<action>ActivateWindow(3810,return)</action>
 	</shortcut>
-	<shortcut>
-		<defaultID />
-		<label>TV Genres</label>
-		<label2>Videos</label2>
-		<icon>DefaultShortcut.png</icon>
-		<thumb>special://skin/extras/icons/genres.png</thumb>
-		<action>ActivateWindow(Videos,"library://video/serentvgenre/",return)</action>
-	</shortcut>
 </shortcuts>

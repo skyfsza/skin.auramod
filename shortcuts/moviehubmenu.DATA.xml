@@ -24,12 +24,4 @@
 		<thumb />
 		<action>ActivateWindow(3820,return)</action>
 	</shortcut>
-	<shortcut>
-		<defaultID />
-		<label>Movie Genres</label>
-		<label2>Videos</label2>
-		<icon>DefaultShortcut.png</icon>
-		<thumb>special://skin/extras/icons/genres.png</thumb>
-		<action>ActivateWindow(Videos,"library://video/serenmoviegenre/",return)</action>
-	</shortcut>
 </shortcuts>
