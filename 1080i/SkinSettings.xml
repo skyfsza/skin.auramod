@@ -7,7 +7,7 @@
     <controls>
 
         <include>Global_Background</include>
-        <include>Animation_Right</include>
+
         <control type="group">
             <include>Dialog_Settings_Panel</include>
             <control type="group">
@@ -117,6 +117,7 @@
                             <include>Defs_Settings_Button</include>
                             <label>10000</label>
                         </control>
+<!--
                          <control type="togglebutton" id="9013" description="Netflix View">
                             <onfocus>SetProperty(CurrentFocus,$NUMBER[9013])</onfocus>
                             <usealttexture>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(300)] + !Control.HasFocus(302) + Integer.IsEqual(Window.Property(CurrentFocus),9013)</usealttexture>
@@ -125,6 +126,7 @@
                             <include>Defs_Settings_Button</include>
                             <label>$LOCALIZE[31435]</label>
                         </control>
+-->
                          <control type="togglebutton" id="9011" description="Widgets">
                             <onfocus>SetProperty(CurrentFocus,$NUMBER[9011])</onfocus>
                             <usealttexture>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(300)] + !Control.HasFocus(302) + Integer.IsEqual(Window.Property(CurrentFocus),9011)</usealttexture>
@@ -133,6 +135,15 @@
                             <include>Defs_Settings_Button</include>
                             <label>$LOCALIZE[31423]</label>
                         </control>
+                        <control type="togglebutton" id="9005" description="Views">
+                            <onfocus>SetProperty(CurrentFocus,$NUMBER[9005])</onfocus>
+                            <usealttexture>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(300)] + !Control.HasFocus(302) + Integer.IsEqual(Window.Property(CurrentFocus),9005)</usealttexture>
+                            <alttexturenofocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturenofocus>
+                            <width>450</width>
+                            <include>Defs_Settings_Button</include>
+                            <label>Library Views</label>
+                        </control>
+
                          <control type="togglebutton" id="9014" description="Hubs & Spotlight">
                             <onfocus>SetProperty(CurrentFocus,$NUMBER[9014])</onfocus>
                             <usealttexture>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(300)] + !Control.HasFocus(302) + Integer.IsEqual(Window.Property(CurrentFocus),9014)</usealttexture>
@@ -149,7 +160,23 @@
                             <include>Defs_Settings_Button</include>
                             <label>My Lists</label>
                         </control>
-§
+                         <control type="togglebutton" id="9012" description="General Mods">
+                            <onfocus>SetProperty(CurrentFocus,$NUMBER[9012])</onfocus>
+                            <usealttexture>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(300)] + !Control.HasFocus(302) + Integer.IsEqual(Window.Property(CurrentFocus),9012)</usealttexture>
+                            <alttexturenofocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturenofocus>
+                            <width>450</width>
+                            <include>Defs_Settings_Button</include>
+                            <label>$LOCALIZE[31436]</label>
+                        </control>
+
+                        <control type="togglebutton" id="9007" description="OSD">
+                            <onfocus>SetProperty(CurrentFocus,$NUMBER[9007])</onfocus>
+                            <usealttexture>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(300)] + !Control.HasFocus(302) + Integer.IsEqual(Window.Property(CurrentFocus),9007)</usealttexture>
+                            <alttexturenofocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturenofocus>
+                            <width>450</width>
+                            <include>Defs_Settings_Button</include>
+                            <label>31270</label>
+                        </control>
                         <control type="togglebutton" id="9002" description="Background">
                             <onfocus>SetProperty(CurrentFocus,$NUMBER[9002])</onfocus>
                             <usealttexture>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(300)] + !Control.HasFocus(302) + Integer.IsEqual(Window.Property(CurrentFocus),9002)</usealttexture>
@@ -177,15 +204,6 @@
                             <label>$LOCALIZE[31021]</label>
                         </control>
 
-                        <control type="togglebutton" id="9005" description="Views">
-                            <onfocus>SetProperty(CurrentFocus,$NUMBER[9005])</onfocus>
-                            <usealttexture>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(300)] + !Control.HasFocus(302) + Integer.IsEqual(Window.Property(CurrentFocus),9005)</usealttexture>
-                            <alttexturenofocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturenofocus>
-                            <width>450</width>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[14022]</label>
-                        </control>
-
                         <control type="togglebutton" id="9006" description="Miscellaneous">
                             <onfocus>SetProperty(CurrentFocus,$NUMBER[9006])</onfocus>
                             <usealttexture>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(300)] + !Control.HasFocus(302) + Integer.IsEqual(Window.Property(CurrentFocus),9006)</usealttexture>
@@ -193,24 +211,6 @@
                             <width>450</width>
                             <include>Defs_Settings_Button</include>
                             <label>$LOCALIZE[31024]</label>
-                        </control>
-			
-                         <control type="togglebutton" id="9012" description="General Mods">
-                            <onfocus>SetProperty(CurrentFocus,$NUMBER[9012])</onfocus>
-                            <usealttexture>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(300)] + !Control.HasFocus(302) + Integer.IsEqual(Window.Property(CurrentFocus),9012)</usealttexture>
-                            <alttexturenofocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturenofocus>
-                            <width>450</width>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31436]</label>
-                        </control>
-
-                        <control type="togglebutton" id="9007" description="OSD">
-                            <onfocus>SetProperty(CurrentFocus,$NUMBER[9007])</onfocus>
-                            <usealttexture>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(300)] + !Control.HasFocus(302) + Integer.IsEqual(Window.Property(CurrentFocus),9007)</usealttexture>
-                            <alttexturenofocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturenofocus>
-                            <width>450</width>
-                            <include>Defs_Settings_Button</include>
-                            <label>31270</label>
                         </control>
 
                         <control type="togglebutton" id="9008" description="Dependencies">
@@ -309,17 +309,16 @@
                             <selected>Skin.HasSetting(EnableCatonFocus)</selected>
                             <onclick>Skin.ToggleSetting(EnableCatonFocus)</onclick>
                         </control>
-
-
-                         <control type="button" id="9417" description="Main Menu Highlight Color">
+                        <control type="button" id="9109" description="Menu focus position">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
                             <include>Defs_Settings_Button</include>
-                            <enable>!Skin.HasSetting(CycleColors)</enable>
-                            <label>31416</label>
-                            <label2>$INFO[Skin.String(mainmenutcolor.name)]</label2>
-                            <onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
-                            <onclick>RunScript(script.skin.helper.colorpicker,skinstring=mainmenutcolor.name,)</onclick>
+                            <label> - $LOCALIZE[31372]</label>
+                            <label2>$INFO[Skin.String(MenuPos)]</label2>
+                            <onclick condition="String.IsEmpty(Skin.String(MenuPos))">Skin.SetNumeric(MenuPos)</onclick>
+                            <onclick condition="!String.IsEmpty(Skin.String(MenuPos))">Skin.Reset(MenuPos)</onclick>
                         </control>
+
+
 <!--
                         <control type="radiobutton" id="9102" description="Touch / Mouse enabled widgets">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
@@ -330,35 +329,6 @@
                             <onclick>ReloadSkin()</onclick>
                         </control>
 -->
-                        <control type="button" id="9109" description="Menu focus position">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31372]</label>
-                            <label2>$INFO[Skin.String(MenuPos)]</label2>
-                            <onclick condition="String.IsEmpty(Skin.String(MenuPos))">Skin.SetNumeric(MenuPos)</onclick>
-                            <onclick condition="!String.IsEmpty(Skin.String(MenuPos))">Skin.Reset(MenuPos)</onclick>
-                        </control>
-                        <control type="radiobutton" id="9607" description="Minimal Busy Loader">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31015]</label>
-                            <selected>Skin.HasSetting(MinimalBusyLoader)</selected>
-                            <onclick>Skin.ToggleSetting(MinimalBusyLoader)</onclick>
-                        </control>
-                        <control type="radiobutton" id="9618" description="Enable skin helper artwork lookups for addons">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31425]</label>
-                            <onclick>Skin.ToggleSetting(SkinHelper.EnableExtendedArt)</onclick>
-                            <selected>Skin.HasSetting(SkinHelper.EnableExtendedArt)</selected>
-                        </control>
-                        <control type="radiobutton" id="9659" description="Enable Power Menu bar">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Enable Power Menu Bar Style</label>
-                            <onclick>Skin.ToggleSetting(EnablePowerMenuBar)</onclick>
-                            <selected>Skin.HasSetting(EnablePowerMenuBar)</selected>
-                        </control>
                         <control type="radiobutton" id="9670" description="Default Select Action Show Information">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
                             <include>Defs_Settings_Button</include>
@@ -374,21 +344,6 @@
 			    <onclick>ActivateWindow(1130)</onclick>
                         </control>
 
-                        <control type="radiobutton" id="9691" description="Default Loading Spinner">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Use Aura Default loading icon</label>
-                            <onclick>Skin.ToggleSetting(EnableDefaultSpinner)</onclick>
-                            <selected>!Skin.HasSetting(EnableDefaultSpinner)</selected>
-                        </control>
-                         <control type="button" id="9693" description="Select Loading icon">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Select Loading gif</label>
-                            <label2>$INFO[Skin.String(loadingspinner.icon)]</label2>
-                            <enable>Skin.HasSetting(EnableDefaultSpinner)</enable>
-                            <onclick>RunScript(script.skin.helper.service,action=selectimage,skinstring=loadingspinner.icon)</onclick>
-                        </control>
                        <control type="radiobutton" id="9692" description="Enable Time & Weather header on Home">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
                             <include>Defs_Settings_Button</include>
@@ -400,6 +355,34 @@
                         <!-- ========== -->
                         <!-- --Hubs---- -->
                         <!-- ========== -->
+                           <control type="button" id="9665" description="Media Hubs ">
+                            <textcolor>main_fg_100</textcolor>
+                            <disabledcolor>main_fg_12</disabledcolor>
+                            <height>80</height>
+                            <textoffsetx>view_pad</textoffsetx>
+                            <textureup flipy="true" colordiffuse="panel_fg_30">buttons/spin-down.png</textureup>
+                            <texturedown colordiffuse="panel_fg_30">buttons/spin-down.png</texturedown>
+                            <textureupfocus flipy="true" colordiffuse="panel_fg_100">buttons/spin-down.png</textureupfocus>
+                            <texturedownfocus colordiffuse="panel_fg_100">buttons/spin-down.png</texturedownfocus>
+                            <textureradiofocus colordiffuse="panel_fg_70">buttons/radio-on.png</textureradiofocus>
+                            <textureradionofocus colordiffuse="panel_fg_12">buttons/radio-off.png</textureradionofocus>
+                            <texturefocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</texturefocus>
+                            <alttexturefocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturefocus>
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <label>[B]$LOCALIZE[31464][/B]</label>
+                        </control>
+                        <control type="button" id="96791" description="Configure TV Hubs">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure TV Hubs</label>
+                            <onclick>ActivateWindow(1127)</onclick>
+                        </control>
+                        <control type="button" id="96792" description="Configure Movie Hubs">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Movie Hubs</label>
+                            <onclick>ActivateWindow(1126)</onclick>
+                        </control>
                         <control type="button" id="9667" description="Spotlight Widgets">
                             <textcolor>main_fg_100</textcolor>
                             <disabledcolor>main_fg_12</disabledcolor>
@@ -525,82 +508,6 @@
                             <label>Select Movie Menu Items</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=moviehubmenu)</onclick>
                         </control>
-                        <control type="button" id="9661" description="Configure Movie Hub 2">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Configure Movie Categories</label>
-                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1102)</onclick>
-                        </control>
-                        <control type="button" id="9675" description="Configure Movie Genres Hub">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Configure Movie Genres Hub</label>
-                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1108)</onclick>
-                        </control>
-                        <control type="button" id="9663" description="Configure TV Hub 2">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Configure TV Categories</label>
-                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1104)</onclick>
-                        </control>
-                        <control type="button" id="9677" description="Configure TV Genres Hub">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Configure TV Genres Hub</label>
-                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1109)</onclick>
-                        </control>
-                        <control type="button" id="96771" description="Configure TV Genres Hub">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Configure TV Networks Hub</label>
-                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=hubtvnetworks)</onclick>
-                        </control>
-                           <control type="button" id="9665" description="Media Hubs ">
-                            <textcolor>main_fg_100</textcolor>
-                            <disabledcolor>main_fg_12</disabledcolor>
-                            <height>80</height>
-                            <textoffsetx>view_pad</textoffsetx>
-                            <textureup flipy="true" colordiffuse="panel_fg_30">buttons/spin-down.png</textureup>
-                            <texturedown colordiffuse="panel_fg_30">buttons/spin-down.png</texturedown>
-                            <textureupfocus flipy="true" colordiffuse="panel_fg_100">buttons/spin-down.png</textureupfocus>
-                            <texturedownfocus colordiffuse="panel_fg_100">buttons/spin-down.png</texturedownfocus>
-                            <textureradiofocus colordiffuse="panel_fg_70">buttons/radio-on.png</textureradiofocus>
-                            <textureradionofocus colordiffuse="panel_fg_12">buttons/radio-off.png</textureradionofocus>
-                            <texturefocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</texturefocus>
-                            <alttexturefocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturefocus>
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
-                            <label>[B]$LOCALIZE[31464][/B]</label>
-                        </control>
-                      <control type="button" id="9676" description="Configure Media Hub">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Configure Media Hub</label>
-                            <onclick>ActivateWindow(1060)</onclick>
-                        </control>
-                        <control type="button" id="9671" description="Configure Movie Aura Hub">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Configure Movie Aura Hub</label>
-                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=aurahubmovies)</onclick>
-                        </control>
-                      <control type="button" id="9674" description="Configure Movie Netflix Hub">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Configure Movie Netflix Hub</label>
-                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=netflixhubmovies)</onclick>
-                        </control>
-                      <control type="button" id="9672" description="Configure Aura Hub 2">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Configure TV Aura Hub</label>
-                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=aurahubtv)</onclick>
-                        </control>
-                      <control type="button" id="9673" description="Configure TV Netflix Hub">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Configure TV Netflix Hub</label>
-                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=netflixhubtv)</onclick>
-                        </control>
 
                         <!-- ========== -->
                         <!-- My List    -->
@@ -691,13 +598,6 @@
                             <onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetImage(fanart.fallback))</onclick>
                             <onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31150])</onclick>
                         </control>
-                        <control type="radiobutton" id="92111" description="Zoom Effect">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9002)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Zoom Effect</label>
-                            <selected>Skin.HasSetting(animation_bg)</selected>
-                            <onclick>Skin.ToggleSetting(animation_bg)</onclick>
-                        </control>
                         <control type="radiobutton" id="9203" description="Show video in background">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9002)</visible>
                             <include>Defs_Settings_Button</include>
@@ -775,6 +675,14 @@
                             <onclick>Skin.ToggleSetting(DisableVignette)</onclick>
                         </control>
 
+                        <control type="radiobutton" id="92111" description="Zoom Effect">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9003)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Zoom Effect</label>
+                            <selected>Skin.HasSetting(animation_bg)</selected>
+                            <onclick>Skin.ToggleSetting(animation_bg)</onclick>
+                        </control>
+
                         <control type="radiobutton" id="9304" description="Blur background fanart">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9003)</visible>
                             <include>Defs_Settings_Button</include>
@@ -836,6 +744,16 @@
                         <!-- ====== -->
                         <!-- Colors -->
                         <!-- ====== -->
+                         <control type="button" id="9417" description="Main Menu Highlight Color">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9004)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <enable>!Skin.HasSetting(CycleColors)</enable>
+                            <label>31416</label>
+                            <label2>$INFO[Skin.String(mainmenutcolor.name)]</label2>
+                            <onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
+                            <onclick>RunScript(script.skin.helper.colorpicker,skinstring=mainmenutcolor.name,)</onclick>
+                        </control>
+
                         <control type="button" id="9401" description="Color Highlight">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9004)</visible>
                             <include>Defs_Settings_Button</include>
@@ -917,53 +835,6 @@
                         <!-- ======= -->
                         <!-- Library -->
                         <!-- ======= -->
-                        <control type="radiobutton" id="9501">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
-                            <label>$LOCALIZE[31022]</label>
-                            <include>Defs_Settings_Button</include>
-                            <selected>Skin.HasSetting(SkinHelper.EnableAnimatedPosters)</selected>
-                            <onclick>Skin.ToggleSetting(SkinHelper.EnableAnimatedPosters)</onclick>
-                        </control>
-
-                        <control type="radiobutton" id="9502">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
-                            <label>$LOCALIZE[31255]</label>
-                            <onclick>Skin.ToggleSetting(DisableFakeLandscapeArt)</onclick>
-                            <selected>!Skin.HasSetting(DisableFakeLandscapeArt)</selected>
-                            <include>Defs_Settings_Button</include>
-                        </control>
-
-                        <control type="radiobutton" id="9503" description="Enable View Text">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31042]</label>
-                            <selected>!Skin.HasSetting(DisableViewText)</selected>
-                            <onclick>Skin.ToggleSetting(DisableViewText)</onclick>
-                        </control>
-
-                        <control type="radiobutton" id="9504" description="Disable plot outline">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31307]</label>
-                            <selected>Skin.HasSetting(PlotOutline)</selected>
-                            <onclick>Skin.ToggleSetting(PlotOutline)</onclick>
-                        </control>
-
-                        <control type="radiobutton" id="9505" description="Disable watched indicators">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31317]</label>
-                            <selected>!Skin.HasSetting(DisableWatchedOverlay)</selected>
-                            <onclick>Skin.ToggleSetting(DisableWatchedOverlay)</onclick>
-                        </control>
-
-                        <control type="button" id="9506" description="Watched Indicators">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31319]</label>
-                            <label2>$VAR[Label_WatchedIndicatorStyle]</label2>
-                            <onclick>Skin.ToggleSetting(LightWatchedOverlay)</onclick>
-                        </control>
                         <control type="button" id="9508" description="Enable viewmodes">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
                             <include>Defs_Settings_Button</include>
@@ -985,6 +856,125 @@
                             <onclick>ActivateWindow(1119)</onclick>
                         </control>
 
+
+			<control type="radiobutton" id="9630" description="Enable Netflix Views">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>$LOCALIZE[31428]</label>
+                            <visible>!Skin.HasSetting(DisableNetflixHome)</visible>
+                            <enable>!Skin.HasSetting(DisableNetflixHome)</enable>
+                            <selected>!Skin.HasSetting(DisableNetflixView)</selected>
+                            <onclick>Skin.ToggleSetting(DisableNetflixView)</onclick>
+                        </control>
+                        <control type="radiobutton" id="9639" description="Down key starts trailer in Netflix Showcase Views">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label> - $LOCALIZE[31466]</label>
+                            <visible>!Skin.HasSetting(DisableNetflixView)</visible>
+                            <enable>!Skin.HasSetting(DisableNetflixView)</enable>
+                            <selected>Skin.HasSetting(EnableTrailerOnDown)</selected>
+                            <onclick>Skin.ToggleSetting(EnableTrailerOnDown)</onclick>
+                        </control>
+
+ 
+                        <control type="radiobutton" id="9631" description="Enable Netflix Video Info">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>$LOCALIZE[31432]</label>
+                            <visible>!Skin.HasSetting(DisableNetflixHome)</visible>
+                            <enable>!Skin.HasSetting(DisableNetflixHome)</enable>
+                            <selected>!Skin.HasSetting(DisableNetflixVideoInfo)</selected>
+                            <onclick>Skin.ToggleSetting(DisableNetflixVideoInfo)</onclick>
+                            <onclick condition="Skin.HasSetting(EnableVideoInfoAutoplay)">Skin.ToggleSetting(EnableVideoInfoAutoplay)</onclick>
+                        </control>
+
+                        <control type="radiobutton" id="9638" description="Enable Video Info Trailer auto-play">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label> - $LOCALIZE[31461]</label>
+                            <visible>!Skin.HasSetting(DisableNetflixVideoInfo)</visible>
+                            <enable>!Skin.HasSetting(DisableNetflixVideoInfo)</enable>
+                            <selected>Skin.HasSetting(EnableVideoInfoAutoplay)</selected>
+                            <onclick>Skin.ToggleSetting(EnableVideoInfoAutoplay)</onclick>
+                        </control>
+
+
+                        <control type="radiobutton" id="9658" description="Enable Low Spotlight Info">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>$LOCALIZE[31459]</label>
+                            <visible>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed)</visible>
+                            <enable>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed)</enable>
+                            <selected>Skin.HasSetting(DisableNetflixLowSpotlight)</selected>
+                            <onclick>Skin.ToggleSetting(DisableNetflixLowSpotlight)</onclick>
+                        </control>
+                        <control type="radiobutton" id="9640" description="Show full Spotlight info for Episodes">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Show full Spotlight info for Episodes</label>
+                            <visible>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed) | Skin.HasSetting(DisableNetflixHome)</visible>
+                            <enable>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed) | Skin.HasSetting(DisableNetflixHome)</enable>
+                            <selected>Skin.HasSetting(EnableFullEpInfo)</selected>
+                            <onclick>Skin.ToggleSetting(EnableFullEpInfo)</onclick>
+                        </control>
+                        <control type="radiobutton" id="9686" description="Disable Spotlight Trailer auto-play">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Disable Spotlight Trailer auto-play</label>
+                            <visible>Skin.HasSetting(DisableNetflixHome)</visible>
+                            <selected>Skin.HasSetting(DisableSpotlightAutoplay)</selected>
+                            <onclick>Skin.ToggleSetting(DisableSpotlightAutoplay)</onclick>
+                        </control>
+
+<!--
+                       <control type="radiobutton" id="9501">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <label>$LOCALIZE[31022]</label>
+                            <include>Defs_Settings_Button</include>
+                            <selected>Skin.HasSetting(SkinHelper.EnableAnimatedPosters)</selected>
+                            <onclick>Skin.ToggleSetting(SkinHelper.EnableAnimatedPosters)</onclick>
+                        </control>
+
+                        <control type="radiobutton" id="9502">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <label>$LOCALIZE[31255]</label>
+                            <onclick>Skin.ToggleSetting(DisableFakeLandscapeArt)</onclick>
+                            <selected>!Skin.HasSetting(DisableFakeLandscapeArt)</selected>
+                            <include>Defs_Settings_Button</include>
+                        </control>
+-->
+                        <control type="radiobutton" id="9503" description="Enable View Text">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>$LOCALIZE[31042]</label>
+                            <selected>!Skin.HasSetting(DisableViewText)</selected>
+                            <onclick>Skin.ToggleSetting(DisableViewText)</onclick>
+                        </control>
+
+<!--
+                        <control type="radiobutton" id="9504" description="Disable plot outline">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>$LOCALIZE[31307]</label>
+                            <selected>Skin.HasSetting(PlotOutline)</selected>
+                            <onclick>Skin.ToggleSetting(PlotOutline)</onclick>
+                        </control>
+-->
+                        <control type="radiobutton" id="9505" description="Disable watched indicators">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>$LOCALIZE[31317]</label>
+                            <selected>!Skin.HasSetting(DisableWatchedOverlay)</selected>
+                            <onclick>Skin.ToggleSetting(DisableWatchedOverlay)</onclick>
+                        </control>
+
+                        <control type="button" id="9506" description="Watched Indicators">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>$LOCALIZE[31319]</label>
+                            <label2>$VAR[Label_WatchedIndicatorStyle]</label2>
+                            <onclick>Skin.ToggleSetting(LightWatchedOverlay)</onclick>
+                        </control>
 <!--
                         <control type="radiobutton" id="9511" description="Show media flags instead of ratings in library views">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
@@ -1022,6 +1012,43 @@
                             <onclick>Skin.ToggleSetting(HubOnStartup)</onclick>
                         </control>
 -->
+                        <control type="radiobutton" id="9607" description="Minimal Busy Loader">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9006)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>$LOCALIZE[31015]</label>
+                            <selected>Skin.HasSetting(MinimalBusyLoader)</selected>
+                            <onclick>Skin.ToggleSetting(MinimalBusyLoader)</onclick>
+                        </control>
+                        <control type="radiobutton" id="9618" description="Enable skin helper artwork lookups for addons">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9006)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>$LOCALIZE[31425]</label>
+                            <onclick>Skin.ToggleSetting(SkinHelper.EnableExtendedArt)</onclick>
+                            <selected>Skin.HasSetting(SkinHelper.EnableExtendedArt)</selected>
+                        </control>
+                        <control type="radiobutton" id="9659" description="Enable Power Menu bar">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9006)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Enable Power Menu Bar Style</label>
+                            <onclick>Skin.ToggleSetting(EnablePowerMenuBar)</onclick>
+                            <selected>Skin.HasSetting(EnablePowerMenuBar)</selected>
+                        </control>
+                        <control type="radiobutton" id="9691" description="Default Loading Spinner">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9006)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Use Aura Default loading icon</label>
+                            <onclick>Skin.ToggleSetting(EnableDefaultSpinner)</onclick>
+                            <selected>!Skin.HasSetting(EnableDefaultSpinner)</selected>
+                        </control>
+                         <control type="button" id="9693" description="Select Loading icon">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9006)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Select Loading gif</label>
+                            <label2>$INFO[Skin.String(loadingspinner.icon)]</label2>
+                            <enable>Skin.HasSetting(EnableDefaultSpinner)</enable>
+                            <onclick>RunScript(script.skin.helper.service,action=selectimage,skinstring=loadingspinner.icon)</onclick>
+                        </control>
+
                         <control type="radiobutton" id="9605" description="Kiosk Mode">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9006)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1108,7 +1135,7 @@
                         <!-- =============-->
                         <!-- Widget Mods---->
                         <!-- =============-->
-                        <control type="button" id="9657" description="Widget General ">
+                        <control type="button" id="96571" description="Widget General ">
                             <textcolor>main_fg_100</textcolor>
                             <disabledcolor>main_fg_12</disabledcolor>
                             <height>80</height>
@@ -1122,7 +1149,7 @@
                             <texturefocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</texturefocus>
                             <alttexturefocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturefocus>
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
-                            <label>[B]$LOCALIZE[31456][/B]</label>
+                            <label>[B]Submenu / Categories Widget[/B]</label>
                         </control>
                          <control type="radiobutton" id="9104" description="Display categories widget">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011) + !Skin.HasSetting(DisableNetflixHome)</visible>
@@ -1153,6 +1180,23 @@
                             <selected>!Skin.HasSetting(DisableBigCat)</selected>
                             <onclick>Skin.ToggleSetting(DisableBigCat)</onclick>
                         </control>
+                        <control type="button" id="9657" description="Widget General ">
+                            <textcolor>main_fg_100</textcolor>
+                            <disabledcolor>main_fg_12</disabledcolor>
+                            <height>80</height>
+                            <textoffsetx>view_pad</textoffsetx>
+                            <textureup flipy="true" colordiffuse="panel_fg_30">buttons/spin-down.png</textureup>
+                            <texturedown colordiffuse="panel_fg_30">buttons/spin-down.png</texturedown>
+                            <textureupfocus flipy="true" colordiffuse="panel_fg_100">buttons/spin-down.png</textureupfocus>
+                            <texturedownfocus colordiffuse="panel_fg_100">buttons/spin-down.png</texturedownfocus>
+                            <textureradiofocus colordiffuse="panel_fg_70">buttons/radio-on.png</textureradiofocus>
+                            <textureradionofocus colordiffuse="panel_fg_12">buttons/radio-off.png</textureradionofocus>
+                            <texturefocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</texturefocus>
+                            <alttexturefocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturefocus>
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
+                            <label>[B]$LOCALIZE[31456][/B]</label>
+                        </control>
+
                          <control type="button" id="9103" description="Widget Item Limit">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1306,79 +1350,6 @@
                         <!-- =============-->
                         <!-- Netflix View--->
                         <!-- =============-->
-			<control type="radiobutton" id="9630" description="Enable Netflix Views">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31428]</label>
-                            <visible>!Skin.HasSetting(DisableNetflixHome)</visible>
-                            <enable>!Skin.HasSetting(DisableNetflixHome)</enable>
-                            <selected>!Skin.HasSetting(DisableNetflixView)</selected>
-                            <onclick>Skin.ToggleSetting(DisableNetflixView)</onclick>
-                        </control>
-                        <control type="radiobutton" id="9631" description="Enable Netflix Video Info">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31432]</label>
-                            <visible>!Skin.HasSetting(DisableNetflixHome)</visible>
-                            <enable>!Skin.HasSetting(DisableNetflixHome)</enable>
-                            <selected>!Skin.HasSetting(DisableNetflixVideoInfo)</selected>
-                            <onclick>Skin.ToggleSetting(DisableNetflixVideoInfo)</onclick>
-                            <onclick condition="Skin.HasSetting(EnableVideoInfoAutoplay)">Skin.ToggleSetting(EnableVideoInfoAutoplay)</onclick>
-                        </control>
-                        <control type="radiobutton" id="9658" description="Enable Low Spotlight Info">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31459]</label>
-                            <visible>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed)</visible>
-                            <enable>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed)</enable>
-                            <selected>Skin.HasSetting(DisableNetflixLowSpotlight)</selected>
-                            <onclick>Skin.ToggleSetting(DisableNetflixLowSpotlight)</onclick>
-                        </control>
-                        <control type="radiobutton" id="9640" description="Show full Spotlight info for Episodes">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Show full Spotlight info for Episodes</label>
-                            <visible>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed) | Skin.HasSetting(DisableNetflixHome)</visible>
-                            <enable>Skin.HasSetting(DisableNetflixHomeAlt) | Skin.HasSetting(DisableNetflixHomeMixed) | Skin.HasSetting(DisableNetflixHome)</enable>
-                            <selected>Skin.HasSetting(EnableFullEpInfo)</selected>
-                            <onclick>Skin.ToggleSetting(EnableFullEpInfo)</onclick>
-                        </control>
-                        <control type="radiobutton" id="9686" description="Disable Spotlight Trailer auto-play">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Disable Spotlight Trailer auto-play</label>
-                            <visible>Skin.HasSetting(DisableNetflixHome)</visible>
-                            <selected>Skin.HasSetting(DisableSpotlightAutoplay)</selected>
-                            <onclick>Skin.ToggleSetting(DisableSpotlightAutoplay)</onclick>
-                        </control>
-                        <control type="radiobutton" id="9638" description="Enable Video Info Trailer auto-play">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31461]</label>
-                            <visible>!Skin.HasSetting(DisableNetflixVideoInfo)</visible>
-                            <enable>!Skin.HasSetting(DisableNetflixVideoInfo)</enable>
-                            <selected>Skin.HasSetting(EnableVideoInfoAutoplay)</selected>
-                            <onclick>Skin.ToggleSetting(EnableVideoInfoAutoplay)</onclick>
-                        </control>
-                        <control type="radiobutton" id="9639" description="Down key starts trailer in Netflix Showcase Views">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31466]</label>
-                            <visible>!Skin.HasSetting(DisableNetflixView)</visible>
-                            <enable>!Skin.HasSetting(DisableNetflixView)</enable>
-                            <selected>Skin.HasSetting(EnableTrailerOnDown)</selected>
-                            <onclick>Skin.ToggleSetting(EnableTrailerOnDown)</onclick>
-                        </control>
-
-                        <control type="radiobutton" id="9689" description="Use Posters in Addon View">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9013)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>Use Posters in Addon View</label>
-                            <selected>Skin.HasSetting(EnableAddonViewPoster)</selected>
-                            <onclick>Skin.ToggleSetting(EnableAddonViewPoster)</onclick>
-                        </control>
-
-
 
 
                         <!-- ================= -->

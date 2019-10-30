@@ -885,7 +885,7 @@
 	            <scroll>true</scroll>
                </control>
               </control>
-             <control type="group">
+         <control type="group">
           <width>200</width>
           <left>-5</left>
           <top>-150</top>
@@ -2021,7 +2021,7 @@
   </include>
 
   <include name="Object_Home_Netflix">
-    <visible>Control.HasFocus(300) | Control.HasFocus(302) | Control.HasFocus(30222) | ControlGroup(330).HasFocus | Window.IsActive(4010) | Window.IsActive(4020) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsActive(2118)</visible>
+    <visible>Control.HasFocus(300) | Control.HasFocus(302) | Control.HasFocus(30222) | ControlGroup(330).HasFocus | Window.IsActive(4010) | Window.IsActive(4020) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsActive(2118) | Window.IsVisible(MyVideoNav.xml)</visible>
     <control type="group">
       <animation effect="slide" end="60,0" condition="!Skin.HasSetting(DisableNetflixHomeSidemenu)">Conditional</animation>
       <animation effect="slide" end="60,0" condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Conditional</animation>
@@ -2038,13 +2038,12 @@
         <width>100%</width>
         <height>100%</height>
         <texture background="true" colordiffuse="FF000000">common/white.png</texture>
-        <visible>![Skin.HasSetting(DisableNetflixSubmenuBG) + [Control.HasFocus(300) | Control.HasFocus(302) | Control.HasFocus(30222)]]</visible>
-
+        <visible>!Window.IsVisible(MyVideoNav.xml) + ![Skin.HasSetting(DisableNetflixSubmenuBG) + [Control.HasFocus(300) | Control.HasFocus(302) | Control.HasFocus(30222)]]</visible>
       </control> 
         <control type="multiimage">
           <animation effect="slide" end="50,-10" condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Conditional</animation>
           <animation effect="slide" end="20,0" condition="Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
-          <visible>!Player.HasVideo + $EXP[DBTvideos]</visible>
+          <visible>!Player.HasVideo + $EXP[DBTvideosImage]</visible>
           <width>1400</width>
           <height>800</height>
           <left>500</left>
@@ -2073,7 +2072,7 @@
 
         <control type="image">
           <animation effect="slide" end="50,-10" condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Conditional</animation>
-          <visible>!Player.HasVideo + $EXP[DBTother] + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(300) + !Control.HasFocus(3001) </visible>
+          <visible>!Player.HasVideo + [$EXP[DBTother] | !String.IsEmpty(ListItem.ChannelName)] + [Window.IsVisible(Home) + [!Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(300) + !Control.HasFocus(3001)] | [Window.IsVisible(MyVideoNav.xml)]]</visible>
           <fadetime>100</fadetime>
           <width>1400</width>
           <height>800</height>
@@ -2097,12 +2096,12 @@
         </control>
       </control>
       <control type="group">
-        <visible>!Control.HasFocus(660) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)</visible>
+        <visible>[Window.IsVisible(Home) + [!Control.HasFocus(660) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)]] | !Window.IsVisible(Home)</visible>
         <animation effect="slide" end="0,-30" condition="Skin.HasSetting(DisableNetflixSmallWidget)">Conditional</animation>
         <animation effect="slide" end="400,-10" time="500" condition="Window.IsActive(4010)">Conditional</animation>
         <animation effect="slide" end="400,-10" time="500" condition="Window.IsActive(4020)">Conditional</animation>
         <animation effect="slide" end="440,0" time="500" condition="Window.IsActive(3810) | Window.IsActive(3820)">Conditional</animation>
-        <animation effect="slide" end="400,0" time="500" condition="Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsActive(2118)">Conditional</animation>
+        <animation effect="slide" end="400,0" time="500" condition="Window.IsVisible(MyVideoNav.xml) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsActive(2118)">Conditional</animation>
         <top>590</top>
         <height>184</height>
         <right>480</right>
@@ -2171,7 +2170,7 @@
                   <aligny>top</aligny>
                   <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
 	          <animation effect="fade" start="0" end="100" time="500">Visible</animation>
-                  <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(660)</visible>
+                 <visible>[Window.IsVisible(Home) + [!Control.HasFocus(660) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)]] | !Window.IsVisible(Home)</visible>
 		  <visible>!String.IsEmpty(Control.GetLabel(55446))</visible>
                 </control>
               <control type="label">
@@ -2179,7 +2178,7 @@
                 <visible>String.IsEmpty(Control.GetLabel(55446))</visible>
               </control>
                 <control type="textbox">
-                  <visible>String.IsEmpty(Control.GetLabel(55446)) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(660)</visible>
+        <visible>String.IsEmpty(Control.GetLabel(55446)) + [[Window.IsVisible(Home) + [!Control.HasFocus(660) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)]] | !Window.IsVisible(Home)]</visible>
 		  <visible>$EXP[DBTvideos]</visible>
                   <label>$VAR[video_heading]</label>
                   <textcolor>grey</textcolor>
@@ -2193,7 +2192,7 @@
                   <scroll>true</scroll>
                 </control>
                 <control type="label">
-                  <visible>String.IsEmpty(Control.GetLabel(55446)) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(660)</visible>
+        <visible>String.IsEmpty(Control.GetLabel(55446)) + [[Window.IsVisible(Home) + [!Control.HasFocus(660) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)]] | !Window.IsVisible(Home)]</visible>
 		  <visible>!$EXP[DBTvideos]</visible>
                   <label>$VAR[video_heading]</label>
                   <textcolor>grey</textcolor>
@@ -2262,45 +2261,9 @@
               </control>
               <control type="label">
                 <height>20</height>
-                <visible>String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(EnableFullEpInfo) + !Integer.IsEqual(ListItem.PercentPlayed,0)</visible>
-              </control>
-              <control type="label">
-                <height>40</height>
-                <visible>String.IsEqual(ListItem.DBType,movie) + !Integer.IsEqual(ListItem.PercentPlayed,0)</visible>
-              </control>
-                        <control type="group">
-                            <visible>!Skin.HasSetting(EnableFullEpInfo) + [String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) ]  + [Integer.IsGreater(ListItem.PercentPlayed,1) | Integer.IsGreater(Window(Home).Property(ListItem.PercentPlayed),1)]</visible>
-                            <top>10</top>
-                            <width>650</width>
-                            <height>30</height>
-                            <aligny>center</aligny>
-                            <control type="progress">
-                                <width>185</width>
-                                <height>11</height>
-                                <texturebg colordiffuse="cc515151" border="0">colors/color_white.png</texturebg>
-                                <lefttexture/>
-                                <midtexture colordiffuse="red" border="4">colors/color_white.png</midtexture>
-                                <righttexture/>
-                                <info>ListItem.PercentPlayed</info>
-                            </control>
-                            <control type="label">
-                                <top>-12</top>
-                                <left>200</left>
-                                <height>25</height>
-                                <width>450</width>
-                                <font>Netflix_Info_main</font>
-                                <textcolor>grey</textcolor>
-                                <label>$VAR[ListItemPercentRemained,,% remaining]</label>
-                            </control>
-                        </control>
-
-
-
-              <control type="label">
-                <height>20</height>
               </control>
                 <control type="textbox">
-                  <visible>!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001) + !Control.HasFocus(660)</visible>
+        <visible>[Window.IsVisible(Home) + [!Control.HasFocus(660) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)]] | !Window.IsVisible(Home)</visible>
                   <visible>$EXP[DBTvideos] + !Skin.HasSetting(DisableNetflixView) + ![String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(EnableFullEpInfo)]</visible>
                   <height min="20" max="180">auto</height>
                   <label fallback="19055">$VAR[Label_OverlayPlot]</label>
@@ -2309,7 +2272,6 @@
                   <textcolor>dimgrey</textcolor>
                   <font>widget_trakt_title</font>
           	  <autoscroll delay="5000" time="1500" repeat="5000">true</autoscroll>
-
                 </control>
              <control type="label">
                 <height>30</height>
@@ -2326,7 +2288,36 @@
                   <textcolor>dimgrey</textcolor>
                   <font>font_tiny</font>
                 </control>
+              <control type="label">
+                <height>40</height>
+                <visible>!Integer.IsEqual(ListItem.PercentPlayed,0)</visible>
               </control>
+              <control type="group">
+                  <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) ]  + [Integer.IsGreater(ListItem.PercentPlayed,1) | Integer.IsGreater(Window(Home).Property(ListItem.PercentPlayed),1)]</visible>
+                   <top>10</top>
+                   <width>650</width>
+                   <height>30</height>
+                   <aligny>center</aligny>
+                   <control type="progress">
+                   <width>185</width>
+                   <height>11</height>
+                   <texturebg colordiffuse="cc515151" border="0">colors/color_white.png</texturebg>
+                   <lefttexture/>
+                   <midtexture colordiffuse="red" border="4">colors/color_white.png</midtexture>
+                   <righttexture/>
+                   <info>ListItem.PercentPlayed</info>
+              </control>
+              <control type="label">
+                    <top>-12</top>
+                    <left>200</left>
+                    <height>25</height>
+                    <width>450</width>
+                    <font>Netflix_Info_main</font>
+                    <textcolor>grey</textcolor>
+                    <label>$VAR[ListItemPercentRemained,,% remaining]</label>
+              </control>
+             </control>
+          </control>
         </control>
       </control>
     </control>
@@ -2412,10 +2403,11 @@
               <width>200</width>
               <left>-5</left>
               <top>-20</top>
-              <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Rating) + !Skin.HasSetting(DisableStarRating)</visible>
-              <include content="Object_StarRating" condition="![Skin.HasSetting(DisableInfoRatings)]">
+              <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Rating)</visible>
+              <include content="Object_StarRating">
                 <param name="height" value="50" />
                 <param name="width" value="50" />
+                <param name="rating_prop" value="Container($PARAM[id]).ListItem.Rating" />
               </include>
             </control>
             <control type="group">
@@ -2540,10 +2532,6 @@
               <height>46</height>
               <width>46</width>
               <control type="image">
-                <!--
-              <animation effect="fade" time="150">Visible</animation>
-              <animation effect="fade" time="0" end="60" condition="true">Conditional</animation>
--->
                 <align>left</align>
                 <aligny>center</aligny>
                 <texture>$VAR[DetailsSpinImage,netflix/spinner/,.png]</texture>
@@ -2551,9 +2539,6 @@
               </control>
             </control>
             <control type="textbox" id="841">
-              <!--
-            <animation effect="fade" time="150">Visible</animation>
--->
               <height>75</height>
               <width>550</width>
               <label>$VAR[NetflixDetailsSpin]</label>
@@ -3661,6 +3646,7 @@
       </include>
     </control>
   </include>
+
   <include name="Object_UpDownInfoArrows">
     <param name="id" default="9000" />
     <param name="hasprevious" default="true" />
@@ -6062,91 +6048,6 @@
     </control>
 </include>
 
-<include name="home_no_trakt">
-	<include>Global_Background</include>
-
-        <animation time="0" effect="fade" start="100" end="0" condition="System.HasAlarm(loadinfo)">Conditional</animation>
-      <control type="group">
-        <animation effect="slide" end="40,0" time="500" 
-                                                        condition="!Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableMenuVertLabel) +  
-					   [Control.HasFocus(30222) | Control.HasFocus(1505) | Control.HasFocus(1506) | ControlGroup(505).HasFocus | ControlGroup(900).HasFocus | 
-					    ControlGroup(505).HasFocus  |
-                                           [Control.HasFocus(13003) + [Integer.IsEqual(Container(13003).Position,0) + !Container(13003).HasPrevious]] |
-				           [Control.HasFocus(23003) + [Integer.IsEqual(Container(23003).Position,0) + !Container(23003).HasPrevious]] |
-                                           [Control.HasFocus(33003) + [Integer.IsEqual(Container(33003).Position,0) + !Container(33003).HasPrevious]] |
-                                           [Control.HasFocus(43003) + [Integer.IsEqual(Container(43003).Position,0) + !Container(43003).HasPrevious]] |
-                                           [Control.HasFocus(53003) + [Integer.IsEqual(Container(53003).Position,0) + !Container(53003).HasPrevious]] |
-                                           [Control.HasFocus(63003) + [Integer.IsEqual(Container(63003).Position,0) + !Container(63003).HasPrevious]]]" 
-                                           >Conditional</animation>
-
-        <animation effect="slide" end="280,0" time="500" delay="0" condition="Skin.HasSetting(DisableMenuVertLabel) +  [Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)]" reversible="true">Conditional</animation>
-        <animation effect="slide" end="250,0" time="500" delay="0" condition="Skin.HasSetting(DisableMenuVertLabelOnly) + [Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)]" reversible="true">Conditional</animation>
-        <include>Widgets</include>
-        <include>Object_PlotOverlay</include>
-        <include condition="Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(SubmenuWidgetPanel) + !Skin.HasSetting(DisableNetflixCatWidget) + !Skin.HasSetting(LargeSubmenuLabel)">submenu_widget_fixed</include>
-        <include condition="Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(SubmenuWidgetPanel) + !Skin.HasSetting(DisableNetflixCatWidget) + Skin.HasSetting(LargeSubmenuLabel)">submenu_widget_thumb</include>
-     </control>
-	<include condition="Skin.HasSetting(DisableMenuVertLabel)">Home_MainMenu_Layout_wLabel</include>
-	<include condition="Skin.HasSetting(DisableMenuVertLabelOnly)">Home_MainMenu_Layout_wLabel_only</include>
-        <include condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabel) + !Skin.HasSetting(DisableMenuVertLabelOnly)">Home</include>
-        <include condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Topbar</include>
-        <control type="group">
-	<include condition="Skin.HasSetting(DisableSubMenuVert)">Home_TVHubMenu_Layout</include>
-	<include condition="Skin.HasSetting(DisableSubMenuVert)">Home_MovieHubMenu_Layout</include>
-	</control>
-        <include content="Object_UpDownInfoArrows">
-          <param name="id" value="330" />
-          <param name="hasprevious" value="false" />
-          <param name="hasnext" value="!Skin.HasSetting(DisableAuraHomeLayout) + Control.HasFocus(30222)" />
-          <param name="bottom" value="-10" />
-        </include>
-        <control type="group">
-        <top>-10</top>
-        <right>-60</right>
-        <include>Logo</include>
-        <visible>!Window.IsVisible(DialogNotification.xml) + !Window.IsVisible(DialogButtonMenu.xml) + !Window.IsVisible(DialogBusy.xml) + Skin.HasSetting(EnableHomeHeader)</visible>
-        </control>
-        <control type="button" id="4000">
-            <visible allowhiddenfocus="true">false</visible>
-            <width>1</width>
-            <height>1</height>
-            <onleft>300</onleft>
-            <onright>300</onright>
-            <onup>300</onup>
-            <ondown>3000</ondown>
-  <onfocus condition="!String.IsEmpty(Skin.String(MovieHubMenuFocus))">SetFocus(401,0,absolute)</onfocus>
-  <onfocus condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,0,absolute)</onfocus>  
-	    <onfocus condition="String.IsEmpty(Skin.String(MovieHubMenuFocus)) + String.IsEmpty(Skin.String(TVHubMenuFocus)) + Integer.IsGreater(Container(330).NumItems,0) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)">SetFocus(330)</onfocus>
-	    <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widget),Settings) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) | String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)">SetFocus(300)</onfocus>
-            <onfocus condition="!Integer.IsGreater(Container(330).NumItems,0) + String.IsEmpty(Skin.String(MovieHubMenuFocus)) + String.IsEmpty(Skin.String(TVHubMenuFocus)) + !String.IsEmpty(Skin.String(MenuPos))">SetFocus(300,$INFO[Skin.String(MenuPos)])</onfocus>
-            <onfocus condition="!Integer.IsGreater(Container(330).NumItems,0) + String.IsEmpty(Skin.String(MovieHubMenuFocus)) + String.IsEmpty(Skin.String(TVHubMenuFocus)) + String.IsEmpty(Skin.String(MenuPos))">SetFocus(300)</onfocus>
-        </control>
-
-        <control type="image" description="Background">
-            <include>Dimensions_Fullscreen</include>
-            <texture background="true" colordiffuse="ff000000">common/white.png</texture>
-            <visible>String.IsEmpty(Window(Home).Property(SkinSplashStarted)) | Integer.IsEqual(Container(300).NumItems,0) | Container(300).IsUpdating</visible>
-            <animation effect="fade" start="100" end="0" delay="600" time="600" tween="quadratic">Hidden</animation>
-            <visible>String.IsEmpty(Skin.String(StartupPlaylist))</visible>
-        </control>
-        <control type="image" description="Background">
-            <include>Dimensions_Fullscreen</include>
-            <texture background="true" fallback="special://skin/fanart.jpg">$INFO[Skin.String(StartupSplash)]</texture>
-            <visible>String.IsEmpty(Window(Home).Property(SkinSplashStarted)) | Integer.IsEqual(Container(300).NumItems,0) | Container(300).IsUpdating</visible>
-            <animation effect="fade" start="100" end="0" time="600" tween="quadratic">Hidden</animation>
-            <visible>String.IsEmpty(Skin.String(StartupPlaylist))</visible>
-        </control>
-        <control type="group">
-            <top>800</top>
-            <visible>String.IsEmpty(Skin.String(StartupPlaylist))</visible>
-            <visible>String.IsEmpty(Window(Home).Property(SkinSplashStarted)) | Integer.IsEqual(Container(300).NumItems,0) | Container(300).IsUpdating</visible>
-            <animation effect="fade" start="100" end="0" time="600" tween="quadratic">Hidden</animation>
-            <include content="Defs_BusySpinner">
-                <param name="label" value="$LOCALIZE[31348]..." />
-            </include>
-        </control>
-</include>
-
     <include name="netflix_largewidgets_top"><top>40</top></include>
     <include name="netflix_largewidgets_height"><height>40</height></include>
     <include name="netflix_smallwidgets_top"><top>-40</top></include>
@@ -6706,20 +6607,11 @@
             <control type="$PARAM[controltype]" id="$PARAM[id]">
 		
 		<left>-55</left>
-<!--
-                <animation effect="slide" end="-20,0" time="200" condition="$PARAM[landscapedetailscondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
-                <animation effect="zoom" start="100" end="130" time="200" condition="$PARAM[landscapedetailscondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
--->
                 <animation effect="slide" end="640,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
                 <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
                 <animation effect="zoom" start="100,100" end="130,100" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
                 <animation effect="slide" end="-20,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
                 <animation effect="slide" end="630,0" time="500" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
-<!--
-                <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
-                <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
-                <animation effect="fade" start="0" end="100"  time="700" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
--->
 		<top>30</top>
                 <animation effect="fade" start="100" end="0" condition="Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating">Conditional</animation>
 		<movement>$PARAM[movement]</movement>
@@ -6728,54 +6620,46 @@
                 <scrolltime tween="linear">400</scrolltime>
                 <include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
                 <include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
-                <include condition="$PARAM[landscapepanelcondition]">Widget_AuraHub_width_landscapepanel</include>
-                <include condition="$PARAM[bigpostercondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_bigposter</include>
-                <include condition="$PARAM[bigpostercondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_bigposter_small</include>
-		<include condition="!$PARAM[bigpostercondition] + !$PARAM[landscapepanelcondition]">AuraWidget_Items_Default</include>
-                <include condition="$PARAM[landscapepanelcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height</include>
-                <include condition="$PARAM[landscapepanelcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height</include>
-<!--
-                <include condition="$PARAM[landscapewidepostercondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big</include>
-                <include condition="$PARAM[landscapewidepostercondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
-                <include condition="$PARAM[landscapepanelcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height</include>
-                <include condition="$PARAM[landscapepanelcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height</include>
-                <include condition="$PARAM[landscapenetflixcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscapesmall_Big_Height</include>
-                <include condition="$PARAM[landscapenetflixcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscapesmall_Big_Height_small</include>
+		<include condition="!Skin.HasSetting(AuraHubSpacingSmall) + !$PARAM[bigpostercondition] + !$PARAM[landscapepanelcondition]">AuraWidget_Items_Default</include>
+                <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height</include>
+                <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height</include>
+                <include condition="!Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition]">Widget_AuraHub_width_landscapepanel</include>
 
-                <include condition="$PARAM[landscapedetailscondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscapesmall_Big_Height</include>
-                <include condition="$PARAM[landscapedetailsondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscapesmall_Big_Height_small</include>
-                <include condition="$PARAM[landscapewidecondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Poster_Big</include>
-                <include condition="$PARAM[landscapewidecondition] + Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Poster_Big_Label</include>
-                <include condition="$PARAM[landscapewidecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
-                <include condition="$PARAM[genrecondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_genre_Big_Height</include>
-                <include condition="$PARAM[genrecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_genre_Big_Height_small</include>
-                <include condition="$PARAM[landscapecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height_small</include>
-                <include condition="$PARAM[landscapecondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Landscape_Big_Height</include>
-                <include condition="$PARAM[landscapecondition] + Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Landscape_Big_Height_Label</include>
-                <include condition="$PARAM[postercondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big</include>
-                <include condition="$PARAM[postercondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
-                <include condition="$PARAM[posterdetailscondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big</include>
-                <include condition="$PARAM[posterdetailscondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
-                <include condition="$PARAM[squarecondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big</include>
-                <include condition="$PARAM[squarecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
-                <include condition="$PARAM[widgetlivecondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height</include>
-                <include condition="$PARAM[widgetlivecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height_small</include>
-                <include condition="$PARAM[categorycondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Category_Big_Height</include>
-                <include condition="$PARAM[categorycondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Category_Big_Height_small</include>
--->
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarelabelcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SquareLabel_Big</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarelabelcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SquareLabel_Big_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarecondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Square_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Square_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidepostercondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidepostercondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapenetflixcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscapesmall_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapenetflixcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscapesmall_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapedetailscondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapedetailscondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidecondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Poster_Big</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidecondition] + Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Poster_Big_Label</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[genrecondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_genre_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[genrecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_genre_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[submenucondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SubmenuWidget_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[submenucondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SubmenuWidget_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapecondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Landscape_Big_Height</include>
+        <include condition="$Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapecondition] + Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Landscape_Big_Height_Label</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[postercondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Poster_Big</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[postercondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[posterdetailscondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[posterdetailscondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[widgetlivecondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Live_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[widgetlivecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Live_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[categorycondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Category_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[categorycondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Category_Big_Height_small</include>
+
+
 
                 <onback condition="ControlGroup(5055).HasFocus">505</onback>
                 <onclick condition="!Skin.HasSetting(EnableShowInfo) + [[String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(ShowInfo.Episodes)] | [String.IsEqual(ListItem.DBType,tvshow) + !Skin.HasSetting(ShowInfo.TV)] | [String.IsEqual(ListItem.DBType,movie) + !Skin.HasSetting(ShowInfo.Movies)]]">Action(Info)</onclick>
-
-<!--
-                <onclick condition="!Skin.HasSetting(EnableShowInfo) + String.IsEmpty(ListItem.DBType) + [Window.IsVisible(3910) | Window.IsVisible(3920)] + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),true)">ActivateWindow(10025,$ESCINFO[Container(5055).ListItem.FileNameAndPath],return)</onclick>
-                <onclick condition="!Skin.HasSetting(EnableShowInfo) + String.IsEmpty(ListItem.DBType) + [Window.IsVisible(3910) | Window.IsVisible(3920)] + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),false)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
-                <onclick condition="!Skin.HasSetting(EnableShowInfo) + String.IsEmpty(ListItem.DBType) + [Window.IsVisible(3910) | Window.IsVisible(3920)] + !String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
-
-            	<onclick condition="Skin.HasSetting(EnableShowInfo) + [Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920)] + String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),true)">ActivateWindow(10025,$ESCINFO[Container(5055).ListItem.FileNameAndPath],return)</onclick>
-              	<onclick condition="Skin.HasSetting(EnableShowInfo) + [Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920)] + String.IsEmpty(ListItem.DBID)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
-              	<onclick condition="Skin.HasSetting(EnableShowInfo) + [Window.IsVisible(1138) | Window.IsVisible(3910) | Window.IsVisible(3920)] + !String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
--->
 
                 <visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | Container(300).OnNext | Container(300).OnPrevious | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
                 <include content="Widget_Items" condition="!$PARAM[submenu]">
@@ -6824,18 +6708,24 @@
     <include name="AuraWidget_Items_LandscapePanel_Height_small"><height>529</height></include>
     <include name="AuraWidget_Items_Landscapesmall_Big_Height"><height>550</height></include>
     <include name="AuraWidget_Items_Landscapesmall_Big_Height_small"><height>500</height></include>
-    <include name="AuraWidget_Items_genre_Big_Height"><height>610</height></include>
-    <include name="AuraWidget_Items_genre_Big_Height_small"><height>690</height></include>
-    <include name="AuraWidget_Items_Landscape_Big_Height"><height>585</height></include>
+    <include name="AuraWidget_Items_genre_Big_Height"><height>380</height></include>
+    <include name="AuraWidget_Items_genre_Big_Height_small"><height>425</height></include>
+    <include name="AuraWidget_Items_Landscape_Big_Height"><height>360</height></include>
     <include name="AuraWidget_Items_Landscape_Big_Height_Label"><height>610</height></include>
-    <include name="AuraWidget_Items_Category_Big_Height"><height>450</height></include>
-    <include name="AuraWidget_Items_Poster_Big"><height>620</height></include>
+    <include name="AuraWidget_Items_Poster_Big"><height>380</height></include>
     <include name="AuraWidget_Items_Poster_Big_Label"><height>720</height></include>
     <include name="AuraWidget_Items_Poster_bigposter"><height>520</height></include>
     <include name="AuraWidget_Items_Poster_Big_small"><height>670</height></include>
     <include name="AuraWidget_Items_Landscape_Big_Height_small"><height>625</height></include>
-    <include name="AuraWidget_Items_Category_Big_Height_small"><height>480</height></include>
+    <include name="AuraWidget_Items_Category_Big_Height"><height>380</height></include>
+    <include name="AuraWidget_Items_Category_Big_Height_small"><height>425</height></include>
     <include name="AuraWidget_Items_Default"><height>425</height></include>
+    <include name="AuraHub_top"><top>140</top></include>
+    <include name="AuraHub_Small_top"><top>100</top></include>
+    <include name="AuraHub_height"><height>935</height></include>
+    <include name="AuraHub_Small_height"><height>975</height></include>
+
+
 
 
   <include name="Widget_Netflixhub">
@@ -6875,28 +6765,6 @@ al</animation>
                     <param name="content" value="$PARAM[content]" />
                     <param name="widgetContent" value="$PARAM[widgetContent]" />
                 </include>
-<!--
-            <control type="image" id="35055">
-                <top>85</top>
-                <left>-380</left>
-                <height>360</height>
-                <texture background="true">special://skin/media/dialogs/loading_poster_netflix.png</texture>
-                <aspectratio>keep</aspectratio>
-                <visible>$PARAM[postercondition]</visible>
-                <visible>!Window.IsVisible(Home) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + !Window.IsVisible(3810) + !Window.IsVisible(3820)</visible>
-                <visible>!Integer.IsGreater(Container($PARAM[id]).NumItems,0) + Container($PARAM[id]).IsUpdating</visible>
-           </control>
-            <control type="image" id="35055">
-                <top>85</top>
-                <left>-360</left>
-                <height>360</height>
-                <texture background="true">special://skin/media/dialogs/loading_landscape_netflix.png</texture>
-                <aspectratio>keep</aspectratio>
-                <visible>!$PARAM[postercondition]</visible>
-                <visible>!Window.IsVisible(Home) + !Window.IsVisible(1138) + !Window.IsVisible(3910) + !Window.IsVisible(3920) + !Window.IsVisible(3810) + !Window.IsVisible(3820)</visible>
-                <visible>!Integer.IsGreater(Container($PARAM[id]).NumItems,0) +  Container($PARAM[id]).IsUpdating</visible>
-           </control>
--->
                 <control type="group">
                     <animation effect="slide" end="-80,40" time="0" condition="[Window.IsActive(4010) | Window.IsActive(4020) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117)] + !Window.IsVisible(1138) + !Window.IsVisible(Home) + $PARAM[postercondition]">Conditional</animation>
                     <animation effect="slide" end="-390,40" time="0" condition="[Window.IsActive(4010) | Window.IsActive(4020) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117)] + !Window.IsVisible(1138) + !Window.IsVisible(Home) + !$PARAM[postercondition]">Conditional</animation>

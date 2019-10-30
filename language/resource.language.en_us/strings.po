@@ -548,7 +548,7 @@ msgid "Current Menu"
 msgstr ""
 
 msgctxt "#31109"
-msgid "Customise home menu"
+msgid "Customise Home Menu & Widgets"
 msgstr ""
 
 msgctxt "#31110"
@@ -2044,7 +2044,7 @@ msgstr
 
 #: /1080i/SkinSettings.xml
 msgctxt "#31428"
-msgid "Enable Netflix Library View"
+msgid "Enable Netflix style Showcase Views"
 msgstr
 
 msgctxt "#31429"
@@ -2240,7 +2240,7 @@ msgstr ""
 
 #: /1080i/Includes_View_Posters.xml
 msgctxt "#31469"
-msgid "Addon List"
+msgid "Side List Poster"
 msgstr ""
 
 #: /1080i/Includes_View_Posters.xml
@@ -2292,3 +2292,14 @@ msgstr ""
 msgctxt "#31479"
 msgid "Enable Vertical Label"
 msgstr ""
+
+#: /1080i/Includes_View_Posters.xml
+msgctxt "#31480"
+msgid "Side List Panel"
+msgstr ""
+
+#: /1080i/Includes_View_Posters.xml
+msgctxt "#31481"
+msgid "Netflix Landscape Showcase"
+msgstr ""
+

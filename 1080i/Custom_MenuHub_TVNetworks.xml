@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="2118">
-  <onload condition="String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(505)</onload>
-  <onload condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,3,absolute)</onload>
-  <onload>Skn.Reset(CatMove)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
+  <defaultcontrol>505</defaultcontrol>
   <controls>
       <include>Animation_Right</include>
       <include>object_menuhub_includes</include>
@@ -11,7 +9,7 @@
     <control type="label">
       <left>110</left>
       <top>40</top>
-      <label>Categories</label>
+      <label>Networks</label>
       <height>40</height>
       <width>350</width>
       <align>left</align>
@@ -29,7 +27,7 @@
       <height>900</height>
       <top>140</top>
       <left>80</left>
-      <onleft>SetFocus(400,3)</onleft>
+      <onleft>SetFocus(400)</onleft>
       <onback>Skin.Reset(TVHubMenuFocus)</onback>
       <onback>Skin.Reset(CatMove)</onback>
       <onback>ActivateWindow(Home)</onback>

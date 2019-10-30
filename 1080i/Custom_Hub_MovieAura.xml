@@ -6,12 +6,13 @@
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
     <include>Global_Background</include>
+    <include>Home_MovieHubMenu_Layout</include>
+   <control type="group">
+    <animation effect="slide" end="0,-40" time="0" condition="Skin.HasSetting(AuraHubSpacingSmall)">Conditional</animation>
     <control type="group">
     <right>-50</right>
     <include>Logo</include>
     </control>
-    <include>Home_MovieHubMenu_Layout</include>
-   <control type="group">
    <control type="label">
    <animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
    <top>65</top>
@@ -26,9 +27,11 @@
    <control type="grouplist" id="5055">
         <include>Animation_Right</include>
         <animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
-	<top>140</top>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall)">AuraHub_Small_top</include>
+        <include condition="!Skin.HasSetting(AuraHubSpacingSmall)">AuraHub_top</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall)">AuraHub_Small_height</include>
+        <include condition="!Skin.HasSetting(AuraHubSpacingSmall)">AuraHub_height</include>
         <width>1920</width>
-        <height>935</height>
         <left>50</left>
         <scrolltime tween="sine">700</scrolltime>
         <orientation>vertical</orientation>

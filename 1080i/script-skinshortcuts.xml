@@ -521,10 +521,10 @@
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <include>Dialog_Standard_ListButton</include>
                     <radioposx>830</radioposx>
-                    <selected>String.IsEqual(Container(211).ListItem.Property(widgetmylist),true)</selected>
-                    <onclick>SetProperty(customProperty,widgetmylist)</onclick>
-                    <onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetmylist),true)">SetProperty(customValue,true)</onclick>
-                    <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetmylist),true)">SetProperty(customValue,false)</onclick>
+                    <selected>String.IsEqual(Container(211).ListItem.Property(menuonleft),true)</selected>
+                    <onclick>SetProperty(customProperty,menuonleft)</onclick>
+                    <onclick condition="!String.IsEqual(Container(211).ListItem.Property(menuonleft),true)">SetProperty(customValue,true)</onclick>
+                    <onclick condition="String.IsEqual(Container(211).ListItem.Property(menuonleft),true)">SetProperty(customValue,false)</onclick>
                     <onclick>SendClick(404)</onclick>
                     <align>left</align>
                     <visible>String.IsEqual(Window.Property(groupname),mainmenu) + !Skin.HasSetting(DisableAuraHomeLayout)</visible>
@@ -534,9 +534,9 @@
                    <width>100%</width>
                     <height>66</height>
                     <label> - Choose List</label>
-                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + String.IsEqual(Container(211).ListItem.Property(widgetmylist),true) + !Skin.HasSetting(DisableAuraHomeLayout)</visible>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + String.IsEqual(Container(211).ListItem.Property(menuonleft),true) + !Skin.HasSetting(DisableAuraHomeLayout)</visible>
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
-                    <label2>$INFO[Container(211).ListItem.Property(widgetmylistselect)]</label2>
+                    <label2>$INFO[Container(211).ListItem.Property(menuonleftselect)]</label2>
                     <align>left</align>
                     <include>Dialog_Standard_Right_Buttons</include>
                 </control>
@@ -544,27 +544,54 @@
                    <width>100%</width>
                     <height>66</height>
                     <label> - Widget Aspect</label>
-                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + String.IsEqual(Container(211).ListItem.Property(widgetmylist),true) + !Skin.HasSetting(DisableAuraHomeLayout)</visible>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + String.IsEqual(Container(211).ListItem.Property(menuonleft),true) + !Skin.HasSetting(DisableAuraHomeLayout)</visible>
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
-                    <label2>$INFO[Container(211).ListItem.Property(widgetmylistaspect)]</label2>
+                    <label2>$INFO[Container(211).ListItem.Property(menuonleftaspect)]</label2>
                     <align>left</align>
                     <include>Dialog_Standard_Right_Buttons</include>
                 </control>
-
-
                 <control type="button" id="99104" description="List Widget Aspect">
                    <width>100%</width>
                     <height>66</height>
                     <label> - Widget Location</label>
-                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + String.IsEqual(Container(211).ListItem.Property(widgetmylist),true) + !Skin.HasSetting(DisableAuraHomeLayout)</visible>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + String.IsEqual(Container(211).ListItem.Property(menuonleft),true) + !Skin.HasSetting(DisableAuraHomeLayout)</visible>
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
-                    <label2>$INFO[Skin.String(widgetmylistposition)]</label2>
+                    <label2>$INFO[Skin.String(menuonleftposition)]</label2>
                     <align>left</align>
-                    <onclick condition="!String.IsEqual(Skin.String(widgetmylistposition),true)">Skin.SetString(widgetmylistposition,First Widget)</onclick>
-                    <onclick condition="String.IsEqual(Skin.String(widgetmylistposition),true)">Skin.SetString(widgetmylistposition,Last Widget)</onclick>
+                    <onclick condition="!String.IsEqual(Skin.String(menuonleftposition),true)">Skin.SetString(menuonleftposition,First Widget)</onclick>
+                    <onclick condition="String.IsEqual(Skin.String(menuonleftposition),true)">Skin.SetString(menuonleftposition,Last Widget)</onclick>
                     <include>Dialog_Standard_Right_Buttons</include>
                 </control>
 -->
+                <control type="radiobutton" id="9919" description="My List Widget">
+                    <width>100%</width>
+                    <label>Enable Menu on Left</label>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
+                    <include>Dialog_Standard_ListButton</include>
+                    <radioposx>830</radioposx>
+                    <selected>String.IsEqual(Container(211).ListItem.Property(menuonleft),true)</selected>
+                    <onclick>SetProperty(customProperty,menuonleft)</onclick>
+                    <onclick condition="!String.IsEqual(Container(211).ListItem.Property(menuonleft),true)">SetProperty(customValue,true)</onclick>
+                    <onclick condition="String.IsEqual(Container(211).ListItem.Property(menuonleft),true)">SetProperty(customValue,false)</onclick>
+                    <onclick>SendClick(404)</onclick>
+                    <align>left</align>
+                    <visible>String.IsEqual(Window.Property(groupname),mainmenu) + !Skin.HasSetting(DisableAuraHomeLayout)</visible>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
+                </control>
+                <control type="button" id="99101" description="Choose List">
+                   <width>100%</width>
+                    <height>66</height>
+                    <label> - Choose Menu</label>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + String.IsEqual(Container(211).ListItem.Property(menuonleft),true) + !Skin.HasSetting(DisableAuraHomeLayout)</visible>
+                    <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
+                    <label2>$INFO[Container(211).ListItem.Property(menulist)]</label2>
+                    <align>left</align>
+                    <include>Dialog_Standard_Right_Buttons</include>
+                </control>
+
+
+
                 <control type="radiobutton" id="9911" description="Widget Control">
                     <width>100%</width>
                     <label>Disable Fixed Focus</label>

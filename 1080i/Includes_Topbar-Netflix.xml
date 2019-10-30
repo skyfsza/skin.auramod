@@ -63,7 +63,6 @@
 	    <visible>[Skin.HasSetting(DisableNetflixHome) + [Control.HasFocus(300) | Control.HasFocus(302)]] | !Skin.HasSetting(DisableNetflixHome)</visible>
         </control>
         <control type="togglebutton">
-            <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true)">ClearProperty(spotback)</onfocus>
             <width>auto</width>
             <align>left</align>
             <height>view_pad</height>
@@ -194,7 +193,7 @@
                             <visible>Skin.HasSetting(MouseMode) + ![Window.IsVisible(script-globalsearch.xml) | Window.IsVisible(Home)]</visible>
                         </control>
                         <control type="label">
-			    <visible>![!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(502) | Control.IsVisible(505) | Control.HasFocus(5055) | Control.IsVisible(507) | Control.IsVisible(504) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(509)]]  + !Window.IsVisible(MyPVRChannels.xml) + !Window.IsVisible(MyPVRGuide.xml)</visible>
+			    <visible>![!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(502) | Control.IsVisible(505) | Control.IsVisible(506) | Control.HasFocus(5055) | Control.IsVisible(507) | Control.IsVisible(504) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(509)]]  + !Window.IsVisible(MyPVRChannels.xml) + !Window.IsVisible(MyPVRGuide.xml)</visible>
                             <top>0</top>
                             <width max="1140">auto</width>
                             <font>font_topbar</font>

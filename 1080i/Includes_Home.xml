@@ -244,6 +244,17 @@
                                                                    [Control.HasFocus(53003) + [Integer.IsEqual(Container(53003).Position,0) + !Container(53003).HasPrevious]] |
                                                                    [Control.HasFocus(63003) + [Integer.IsEqual(Container(63003).Position,0) + !Container(63003).HasPrevious]]" 
                                                                    >Conditional</animation>
+                <control type="image">
+	            <left>-325</left>
+                    <left>0</left>
+                    <height>100%</height>
+		    <width>310</width>
+                    <colordiffuse>FF000000</colordiffuse>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">common/white.png</texture>
+                    <visible>Skin.HasSetting(DisableNetflixHomeDefault)</visible>
+                </control>
+
 		<control type="list" id="300">
 		        <onfocus>ClearProperty(SpotReturnHome)</onfocus>
 			<onfocus>ClearProperty(spothubscroll)</onfocus>
@@ -353,8 +364,14 @@
 			<onfocus>SetProperty(SpotFocus,true,Home)</onfocus>
 			<onfocus>Skin.Reset(TVHubMenuFocus)</onfocus>
 			<onfocus>Skin.Reset(MovieHubMenuFocus)</onfocus>
+                        <onleft condition="String.IsEqual(Container(300).ListItem.Property(menulist),TV Menu) + String.IsEqual(Container(300).ListItem.Property(menuonleft),true)">SetFocus(400,0)</onleft>
+                        <onleft condition="String.IsEqual(Container(300).ListItem.Property(menulist),Movie Menu) + String.IsEqual(Container(300).ListItem.Property(menuonleft),true)">SetFocus(401,0)</onleft>
+
+
+<!--
 			<onleft condition="Skin.HasSetting(DisableSubMenuVert) + Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Label,TV Shows)">SetFocus(400,0)</onleft>
 			<onleft condition="Skin.HasSetting(DisableSubMenuVert) + Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Label,Movies)">SetFocus(401,0)</onleft>
+-->
 			<onleft condition="Control.HasFocus(300) + Skin.HasSetting(DisableMenuVertFull)">302</onleft>
 			<onleft condition="!String.IsEqual(Container(300).ListItem.Property(widgetinfospotlight),true) + Skin.HasSetting(DisableMenuVertFull) + !Integer.IsGreater(Container(30222).NumItems,0) + !Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)">302</onleft>
 			<onleft condition="!Skin.HasSetting(DisableSubMenuVert) + !String.IsEqual(Container(300).ListItem.Property(widgetinfospotlight),true) + Integer.IsGreater(Container(30222).NumItems,0) + !Skin.HasSetting(IconOnlyMode) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)">30222</onleft>

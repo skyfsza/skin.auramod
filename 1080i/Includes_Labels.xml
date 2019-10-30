@@ -192,6 +192,7 @@
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250),0)">awards</value>
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(ListItem.Director)">director</value>
         <value condition="!String.IsEmpty(ListItem.Genre)">genre</value>
+        <value condition="Window.IsVisible(MyVideoNav.xml) + !String.IsEmpty(Container(5055).ListItem.Cast)">star</value>
     </variable>
 
    <!-- Spotlight buttons @cartmandos -->
@@ -201,6 +202,7 @@
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250),0)">[I]Ranked $INFO[Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)] in IMDB Top 250[/I]</value>
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(ListItem.Director)">[I]Directed by $INFO[ListItem.Director][/I]</value>
         <value condition="!String.IsEmpty(ListItem.Genre)">[I]$INFO[ListItem.Genre][/I]</value>
+        <value condition="Window.IsVisible(MyVideoNav.xml) + !String.IsEmpty(Container(5055).ListItem.Cast)">[I]$INFO[Container(5055).ListItem.Cast][/I]</value>
     </variable>
 
 
@@ -257,7 +259,9 @@
 
     <variable name="video_heading5055">
         <value condition="!String.IsEmpty(Container(5055).ListItem.TvShowTitle)">$INFO[Container(5055).ListItem.TvShowTitle]</value>
-        <value>$INFO[Container(5055).ListItem.Label]</value>
+        <value condition="!String.IsEmpty(Container(5055).ListItem.Label)">$INFO[Container(5055).ListItem.Label]</value>
+        <value condition="!String.IsEmpty(Container(5056).ListItem.TvShowTitle)">$INFO[Container(5056).ListItem.TvShowTitle]</value>
+        <value condition="!String.IsEmpty(Container(5056).ListItem.Label)">$INFO[Container(5056).ListItem.Label]</value>
     </variable>
     <variable name="date_aired">
         <value condition="String.IsEqual(ListItem.DBType,episode)">[COLOR=$VAR[ColorHighlight]]Aired: [/COLOR][B]$INFO[ListItem.Premiered(dd MMM yyyy)][COLOR=$VAR[ColorHighlight]][/B]</value>

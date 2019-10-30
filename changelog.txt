@@ -1,4 +1,8 @@
-v0.9.44
+v0.9.35
+- Add new Vertical side menu option
+- Settings cleanup
+
+v0.9.34
 - Add new Aura Home Spotlight type
 - Add new Aura Home Live TV spotlight (credit to xperience1080 devs)
 - Rework Aura Home spotlight / home movement

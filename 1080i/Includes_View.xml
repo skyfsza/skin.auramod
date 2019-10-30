@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-    <include name="View_ViewIDs"><views>50,500,501,503,51,52,53,512,55,56,509,54,57,58,59,502,504,505,507,510,511</views></include>
+    <include name="View_ViewIDs"><views>50,500,501,503,51,52,53,512,55,56,509,54,57,58,59,502,504,505,506,507,510,511</views></include>
 
     <include name="View_Group">
         <top>view_pad</top>

@@ -1,24 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="3810">
   <defaultcontrol always="true">5055</defaultcontrol>
-<!--
-  <onload condition="Window.Previous(Home) | String.IsEmpty(Skin.String(HubMenuFocus))">AlarmClock(focusWidgets,SetFocus(5055),00:00,silent)</onload>
-  <onload condition="!Window.Previous(Home) + !String.IsEmpty(Skin.String(HubMenuFocus))">SetFocus(400,3,absolute)</onload>
--->
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <onunload>ClearProperty(spothubscroll)</onunload>
   <controls>
     <include>Object_Home_Netflix</include>
-<!--
-   <control type="group">
-    <include>Home_HubMenu_Layout</include>
-    <visible>Control.HasFocus(400)</visible>
-   </control>
--->
     <control type="grouplist" id="5055">
      <animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
      <onback>ActivateWindow(Home)</onback>
-<!--     <onleft>SetFocus(400,3)</onleft> -->
      <scrolltime tween="linear">600</scrolltime>
      <posy>580</posy>
     <orientation>vertical</orientation>

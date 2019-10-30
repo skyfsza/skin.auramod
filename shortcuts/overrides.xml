@@ -531,6 +531,7 @@
             <shortcut label="Movie Genres Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(4010,return)</shortcut>
             <shortcut label="TV Categories Hub" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2114,return)</shortcut>
             <shortcut label="TV Genres Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(4020,return)</shortcut>
+            <shortcut label="TV Networks Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(2118,return)</shortcut>
             <shortcut label="TV Aura Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3910,return)</shortcut>
             <shortcut label="TV Netflix Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3810,return)</shortcut>
             <shortcut label="Search" grouping="32029" icon="special://skin/extras/icons/search.png">ActivateWindow(1138,return)</shortcut>

@@ -25,7 +25,8 @@
 
       <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_Season</include>
 
-      <include condition="[Container.Content(addons) | String.IsEmpty(Container.Content)]  + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_AddonList</include>
+      <include condition="[Container.Content(addons) | String.IsEmpty(Container.Content)]  + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_AddonList_Poster</include>
+      <include condition="[Container.Content(addons) | String.IsEmpty(Container.Content)]  + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_AddonList_Landscape</include>
 
       <include condition="[Container.Content(addons) | String.IsEmpty(Container.Content)]  + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_MenuListLandscape</include>
 
@@ -810,10 +811,183 @@
     </control>
   </include>
 
+  <include name="View_Posters_AddonList_Landscape">
+    <control type="group">
+      <visible>Control.IsVisible(506)</visible>
+      <control type="group">
+    <control type="image">
+      <include>Animation_Right</include>
+      <animation effect="slide" end="250,0" time="500" condition="Control.HasFocus(400) | Control.HasFocus(401)">Conditional</animation>
+      <animation effect="fade" start="100" end="0" time="400">Hidden</animation>
+      <animation effect="fade" start="0" end="100" delay="50" time="600" condition="Control.HaFocus(506)">Conditional</animation>
+      <texture background="true">$VAR[Image_MainMenu_fanart_aurahub]</texture>
+      <fadetime>500</fadetime>
+      <top>-60</top>
+      <right>0</right>
+      <width>100%</width>
+      <height>1080</height>
+      <aspectratio scalediffuse="false">scale</aspectratio>
+      <visible>[Control.HasFocus(300) | Control.HasFocus(401) | Control.HasFocus(400) | Control.HasFocus(506)] </visible>
+    </control>
+    <control type="image">
+      <animation effect="fade" start="10" end="100" time="6000" condition="Control.HasFocus(5056)">Conditional</animation>
+      <fadetime>500</fadetime>
+      <width>1420</width>
+      <height>630</height>
+      <left>550</left>
+      <top>-60</top>
+      <texture background="true" diffuse="Right Corner.png">$INFO[Container(5056).ListItem.Art(fanart)]</texture>
+      <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
+      <visible>Control.HasFocus(5056)</visible>
+   </control>
+    <control type="image">
+      <animation effect="fade" start="100" end="0" time="400">Hidden</animation>
+      <animation effect="slide" end="250,0" time="500" condition="Control.HasFocus(400) | Control.HasFocus(401)">Conditional</animation>
+      <top>-60</top>
+      <right>0</right>
+      <width>100%</width>
+      <height>1080</height>
+      <texture flipx="true" colordiffuse="ff000000" border="15">overlay/gradient_overlay_info.png</texture>
+      <texture background="true" colordiffuse="c9000000">common/white.png</texture>
+      <visible>[Control.HasFocus(300) | Control.HasFocus(401) | Control.HasFocus(400) | Control.HasFocus(506)] </visible>
+     </control>
+
+
+        <control type="fixedlist" id="506">
+	  <onfocus>ClearProperty(SkinHelper.WidgetContainer)</onfocus>
+          <visible>[Container.Content(addons) | String.IsEmpty(Container.Content)]</visible>
+          <animation effect="slide" end="-500,0" time="500" condition="Control.HasFocus(5056)">Conditional</animation>
+          <onright condition="!Container(5056).IsUpdating">5056</onright>
+          <height>840</height>
+          <top>100</top>
+          <left>40</left>
+	  <focusposition>5</focusposition>
+          <visible>!Container.Content(episodes)</visible>
+          <include>View_NotTheseWindows</include>
+          <viewtype label="$LOCALIZE[31480]">icon</viewtype>
+          <include>Animation_FocusBounce_Small</include>
+          <scrolltime tween="sine" easing="out">500</scrolltime>
+          <include content="View_Forced">
+            <param name="string" value="$LOCALIZE[31480]" />
+          </include>
+          <include content="View_Posters_Layout">
+            <param name="id" value="506" />
+            <param name="orientation" value="vertical" />
+            <param name="addon_list" default="true" />
+          </include>
+        </control>
+
+       <control type="group">
+          <animation effect="slide" end="-500,0" time="500" condition="Control.HasFocus(5056)">Conditional</animation>
+	<visible>!Container.Content(episodes) + !Container.Content(tvshows) + !Container.Content(movies) + !Container.Content(seasons)</visible>
+        <control type="label">
+	  <left>60</left>
+          <width>500</width>
+          <height>100</height>
+          <top>-40</top>
+	  <align>left</align>
+	  <font>font_heading_small</font>
+	  <textcolor>grey</textcolor>
+	  <label>$INFO[Container.FolderName]</label>
+	  <scroll>true</scroll>
+	  <visible>Control.HasFocus(506)</visible>
+        </control>
+        </control> 
+        <control type="image">
+          <width>90</width>
+          <height>120</height>
+          <top>720</top>
+          <left>1</left>
+          <texture background="true" colordiffuse="white">netflix/left-arrow.png</texture>
+          <visible>Control.HasFocus(5056)</visible>
+         </control>
+        <control type="group" id="25056">
+          <visible>Container(5056).IsUpdating + !Window.IsVisible(DialogBusy.xml)</visible>
+	  <control type="image">
+          <top>540</top>
+	  <left>480</left>
+	  <texture background="true">special://skin/media/dialogs/season_loading_pannel.png</texture>
+	  </control>
+          <control type="group">
+            <height>40</height>
+            <top>550</top>
+            <left>-200</left>
+            <include content="Defs_BusySpinner_Side">
+              <param name="label" value="$LOCALIZE[31138]..." />
+            </include>
+          </control>
+        </control>
+      <control type="group">
+        <animation effect="fade" start="0" end="100" delay="100" time="500" condition="Control.HasFocus(5056)">Conditional</animation>
+	<visible>Control.HasFocus(5056)</visible>
+	<left>60</left>
+	<top>-20</top>
+       <include content="addon_view_infospotlight">
+         <param name="id" value="5056" />
+       </include>
+      </control>
+      <control type="group"> 
+          <animation effect="slide" end="-400,0" time="500" condition="Control.HasFocus(5056)">Conditional</animation>
+          <visible>[Control.HasFocus(300) | Control.HasFocus(506) | Control.HasFocus(5056)] +  !Container(506).ListItem.IsParentFolder</visible>
+          <animation effect="fade" start="100" end="0" condition="Container(5056).IsUpdating">Conditional</animation>
+	  <posy>540</posy>
+
+
+      <control type="panel" id="5056">
+	<visible>Control.IsVisible(506)</visible>
+        <onleft>504</onleft>
+        <onback>506</onback>
+
+        <include content="view_widget_onclick" condition="!Skin.HasSetting(EnableShowInfo)">
+            <param name="id" value="5056" />
+        </include>
+
+	<top>40</top>
+        <left>420</left>
+        <movement>2</movement>
+        <width>1900</width>
+        <height>430</height>
+        <orientation>vertical</orientation>
+        <preloaditems>2</preloaditems>
+        <scrolltime tween="linear">400</scrolltime>
+
+        <include content="Widget_Common">
+          <param name="top" value="$PARAM[top]" />
+          <param name="height" value="$PARAM[height]" />
+          <param name="id" value="5056" />
+          <param name="aspect" value="landscape" />
+          <param name="widgetAspect" value="landscapenetflix" />
+          <param name="submenu" value="$PARAM[submenu]" />
+        </include>
+
+        <itemlayout width="366" height="210">
+          <include content="Widget_Items_ItemLayout">
+            <param name="landscapenetflix" value="true" />
+            <param name="genres" value="$PARAM[genres]" />
+            <param name="studios" value="$PARAM[studios]" />
+            <param name="text" value="$PARAM[text]" />
+          </include>
+        </itemlayout>
+        <focusedlayout width="366" height="210">
+          <include content="Widget_Items_FocusedLayout">
+            <param name="id" value="5056" />
+            <param name="landscapenetflix" value="true" />
+            <param name="genres" value="$PARAM[genres]" />
+            <param name="studios" value="$PARAM[studios]" />
+            <param name="text" value="$PARAM[text]" />
+          </include>
+        </focusedlayout>
+          <content target="videos" sortby="year" sortorder="descending">$INFO[Container(506).ListItem.FolderPath]</content>
+        </control>
+       </control>
+      </control>
+    </control>
+  </include>
 
 
 
-  <include name="View_Posters_AddonList">
+
+  <include name="View_Posters_AddonList_Poster">
     <control type="group">
       <visible>Control.IsVisible(505)</visible>
       <control type="group">
@@ -827,9 +1001,9 @@
       <top>-60</top>
       <right>0</right>
       <width>100%</width>
-      <height>100%</height>
+      <height>1080</height>
       <aspectratio scalediffuse="false">scale</aspectratio>
-      <visible>[Control.HasFocus(401) | Control.HasFocus(400) | Control.HasFocus(505)]</visible>
+      <visible>[Control.HasFocus(401) | Control.HasFocus(400) | Control.HasFocus(300) | Control.HasFocus(505)]</visible>
     </control>
     <control type="image">
       <animation effect="fade" start="10" end="100" time="6000" condition="Control.HasFocus(5055)">Conditional</animation>
@@ -848,19 +1022,22 @@
       <right>0</right>
       <top>-60</top>
       <width>100%</width>
-      <height>100%</height>
+      <height>1080</height>
       <texture flipx="true" colordiffuse="ff000000" border="15">overlay/gradient_overlay_info.png</texture>
       <texture background="true" colordiffuse="c9000000">common/white.png</texture>
-      <visible>[Control.HasFocus(401) | Control.HasFocus(400) | Control.HasFocus(505)] </visible>
+      <visible>[Control.HasFocus(401) | Control.HasFocus(400) | Control.HasFocus(300) | Control.HasFocus(505)]</visible>
      </control>
 
-        <control type="list" id="505">
-      <visible>[Container.Content(addons) | String.IsEmpty(Container.Content)]</visible>
+
+        <control type="fixedlist" id="505">
+	  <onfocus>ClearProperty(SkinHelper.WidgetContainer)</onfocus>
+          <visible>[Container.Content(addons) | String.IsEmpty(Container.Content)]</visible>
           <animation effect="slide" end="-500,0" time="500" condition="Control.HasFocus(5055)">Conditional</animation>
           <onright condition="!Container(5055).IsUpdating">5055</onright>
-          <height>790</height>
-          <top>120</top>
+          <height>840</height>
+          <top>100</top>
           <left>40</left>
+	  <focusposition>5</focusposition>
           <visible>!Container.Content(episodes)</visible>
           <include>View_NotTheseWindows</include>
           <viewtype label="$LOCALIZE[31469]">icon</viewtype>
@@ -895,12 +1072,11 @@
         <control type="image">
           <width>90</width>
           <height>120</height>
-          <top>620</top>
+          <top>720</top>
           <left>1</left>
           <texture background="true" colordiffuse="white">netflix/left-arrow.png</texture>
           <visible>Control.HasFocus(5055)</visible>
          </control>
-
         <control type="group" id="25055">
           <visible>Container(5055).IsUpdating + !Window.IsVisible(DialogBusy.xml)</visible>
 	  <control type="image">
@@ -917,7 +1093,6 @@
             </include>
           </control>
         </control>
-
       <control type="group">
         <animation effect="fade" start="0" end="100" delay="100" time="500" condition="Control.HasFocus(5055)">Conditional</animation>
 	<visible>Control.HasFocus(5055)</visible>
@@ -926,22 +1101,19 @@
        <include content="addon_view_infospotlight">
          <param name="id" value="5055" />
        </include>
-
       </control>
       <control type="group"> 
           <animation effect="slide" end="-400,0" time="500" condition="Control.HasFocus(5055)">Conditional</animation>
           <visible>[Control.HasFocus(300) | Control.HasFocus(505) | Control.HasFocus(5055)] +  !Container(505).ListItem.IsParentFolder</visible>
           <animation effect="fade" start="100" end="0" condition="Container(5055).IsUpdating">Conditional</animation>
 	  <posy>540</posy>
-
       <control type="fixedlist" id="5055">
-	<visible>Skin.HasSetting(EnableAddonViewPoster)</visible>
+	<visible>Control.IsVisible(505)</visible>
         <onleft>504</onleft>
         <onback>505</onback>
         <include content="view_widget_onclick" condition="!Skin.HasSetting(EnableShowInfo)">
             <param name="id" value="5055" />
         </include>
-
 	<top>40</top>
         <left>420</left>
         <movement>2</movement>
@@ -983,7 +1155,7 @@
 
 
       <control type="panel" id="5055">
-	<visible>!Skin.HasSetting(EnableAddonViewPoster)</visible>
+	<visible>Skin.HasSetting(EnableAddonViewPoster)</visible>
         <onleft>504</onleft>
         <onback>SetFocus(505,0,absolute)</onback>
         <onback>505</onback>
@@ -3037,7 +3209,7 @@
             <control type="group">
                 <height>70</height>
                 <bottom>0</bottom>
-                <visible>!String.IsEqual(ListItem.DBType,episode) + !String.IsEqual(ListItem.DBType,season) + [!Skin.HasSetting(DisableClearlogo) | Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))] + !Skin.HasSetting(WidgetLabels) | Window.IsVisible(1138)</visible>
+                <visible>!Control.IsVisible(52) + !String.IsEqual(ListItem.DBType,episode) + !String.IsEqual(ListItem.DBType,season) + [!Skin.HasSetting(DisableClearlogo) | Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))] + !Skin.HasSetting(WidgetLabels) | Window.IsVisible(1138)</visible>
 
                 <control type="image">
                     <texture background="true" colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>

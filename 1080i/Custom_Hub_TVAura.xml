@@ -5,8 +5,9 @@
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
     <include>Global_Background</include>
-    <include>Logo</include>
    <control type="group">
+    <animation effect="slide" end="0,-40" time="0" condition="Skin.HasSetting(TVAuraHubSpacingSmall)">Conditional</animation>
+    <include>Logo</include>
    <control type="label">
    <animation effect="slide" end="260,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
    <top>65</top>
@@ -21,9 +22,11 @@
       <control type="grouplist" id="5055">
         <include>Animation_Right</include>
    	<animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
-        <top>140</top>
+        <include condition="Skin.HasSetting(TVAuraHubSpacingSmall)">AuraHub_Small_top</include>
+        <include condition="!Skin.HasSetting(TVAuraHubSpacingSmall)">AuraHub_top</include>
+        <include condition="Skin.HasSetting(TVAuraHubSpacingSmall)">AuraHub_Small_height</include>
+        <include condition="!Skin.HasSetting(TVAuraHubSpacingSmall)">AuraHub_height</include>
         <width>1920</width>
-        <height>935</height>
         <left>50</left>
 	<movement>1</movement>
         <scrolltime tween="sine">700</scrolltime>
