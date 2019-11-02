@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
 <window type="dialog" id="1127">
-    <defaultcontrol always="true">9000</defaultcontrol>
+    <defaultcontrol always="true">8000</defaultcontrol>
     <!-- <onunload>AlarmClock(reloadskin,ReloadSkin(),00:00,silent,false)</onunload> -->
     <controls>
         <include>Global_Overlay</include>
         <control type="group">
             <include content="Dialog_Standard_Group">
                 <param name="width" value="1800" />
-                <param name="height" value="716" />
+                <param name="height" value="726" />
             </include>
 
             <control type="label">
                 <description>Header Label</description>
                 <label>[CAPITALIZE]TV Hub Configuration[/CAPITALIZE]</label>
+		<textcolor>grey</textcolor>
+		<shadowcolor>dimgrey</shadowcolor>
+		<font>font_heading_small</font>
                 <include>Dialog_Standard_Header</include>
             </control>
             <!-- Image -->
@@ -28,11 +31,11 @@
                 </control>
                 <control type="image">
                     <aspectratio scalediffuse="false">center</aspectratio>
-                    <visible>[Control.HasFocus(9001) + !String.Contains(Control.GetLabel(9001),*)] | [Control.HasFocus(9002) + !String.Contains(Control.GetLabel(9002),*)] | [Control.HasFocus(9003) + !String.Contains(Control.GetLabel(9003),*)] | [Control.HasFocus(9004) + !String.Contains(Control.GetLabel(9004),*)] | [Control.HasFocus(9005) + !String.Contains(Control.GetLabel(9005),*)] | [Control.HasFocus(9006) + !String.Contains(Control.GetLabel(9006),*)] | [Control.HasFocus(9007) + !String.Contains(Control.GetLabel(9007),*)] | [Control.HasFocus(9008) + !String.Contains(Control.GetLabel(9008),*)] | [Control.HasFocus(9009) + !String.Contains(Control.GetLabel(9009),*)] | [Control.HasFocus(9010) + !String.Contains(Control.GetLabel(9010),*)]</visible>
+                    <visible>[Control.HasFocus(8001) + !String.Contains(Control.GetLabel(9001),*)] | [Control.HasFocus(9002) + !String.Contains(Control.GetLabel(9002),*)] | [Control.HasFocus(9003) + !String.Contains(Control.GetLabel(9003),*)] | [Control.HasFocus(9004) + !String.Contains(Control.GetLabel(9004),*)] | [Control.HasFocus(9005) + !String.Contains(Control.GetLabel(9005),*)] | [Control.HasFocus(9006) + !String.Contains(Control.GetLabel(9006),*)] | [Control.HasFocus(9007) + !String.Contains(Control.GetLabel(9007),*)] | [Control.HasFocus(9008) + !String.Contains(Control.GetLabel(9008),*)] | [Control.HasFocus(9009) + !String.Contains(Control.GetLabel(9009),*)] | [Control.HasFocus(9010) + !String.Contains(Control.GetLabel(9010),*)]</visible>
                 </control>
             </control>
 
-            <control type="grouplist" id="9000">
+            <control type="grouplist" id="8000">
                 <description>Control Area</description>
                 <right>20</right>
                 <width>680</width>
@@ -42,41 +45,41 @@
                 <orientation>vertical</orientation>
                 <pagecontrol>60</pagecontrol>
                 <usecontrolcoords>true</usecontrolcoords>
-                       <control type="button" id="9001" description="Configure TV Lists Items">
+                       <control type="button" id="8001" description="TV Lists Items">
                             <include>Dialog_Standard_ListButton</include>
-                            <label>Configure TV Lists Hub Items</label>
+                            <label>TV Lists Hub Items</label>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/hub-tv-categories.jpg)</onfocus>
             		     <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1104)</onclick>
                         </control>
-                        <control type="button" id="9002" description="TV Aura Hub Items">
+                        <control type="button" id="8002" description="TV Aura Hub Items">
                             <include>Dialog_Standard_ListButton</include>
-                            <label>Configure TV Aura Hub Items</label>
+                            <label>TV Aura Hub Items</label>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/hub-tv-aura.jpg)</onfocus>
 			    <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=aurahubtv)</onclick> 
                         </control>
-                        <control type="radiobutton" id="90021" description="TV Aura Hub Items">
+                        <control type="radiobutton" id="80021" description="TV Aura Hub Items">
                             <include>Dialog_Standard_ListButton</include>
                             <radioposx>630</radioposx>
                             <label> - Enable Small Widget spacing</label>
-                            <selected>Skin.HasSetting(TVAuraHubSpacingSmall)</selected>
-                            <onclick>Skin.ToggleSetting(TVAuraHubSpacingSmall)</onclick>
+                            <selected>Skin.HasSetting(AuraHubSpacingSmall)</selected>
+                            <onclick>Skin.ToggleSetting(AuraHubSpacingSmall)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/hub-tv-aura-small.jpg)</onfocus>
                         </control>
-                        <control type="button" id="9003" description="TV Netflix Hub Items">
+                        <control type="button" id="8003" description="TV Netflix Hub Items">
                             <include>Dialog_Standard_ListButton</include>
-                            <label>Configure TV Netflix Hub Items</label>
+                            <label>TV Netflix Hub Items</label>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/hub-tv-netflix.jpg)</onfocus>
 			    <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=netflixhubtv)</onclick>
                         </control>
-                        <control type="button" id="9004" description="TV Genre Hub Items">
+                        <control type="button" id="8004" description="TV Genre Hub Items">
                             <include>Dialog_Standard_ListButton</include>
-                            <label>Configure TV Genre Hub Items</label>
+                            <label>TV Genre Hub Items</label>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/hub-tv-genres.jpg)</onfocus>
 			    <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1109)</onclick>
                         </control>
-                        <control type="button" id="9005" description="TV Networks Hub Items">
+                        <control type="button" id="8005" description="TV Networks Hub Items">
                             <include>Dialog_Standard_ListButton</include>
-                            <label>Configure TV Networks Hub Items</label>
+                            <label>TV Networks Hub Items</label>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/hub-tv-networks.jpg)</onfocus>
 			    <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=hubtvnetworks)</onclick>
                         </control>

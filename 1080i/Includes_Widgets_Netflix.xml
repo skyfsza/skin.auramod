@@ -130,7 +130,8 @@
                         </control>
                         <control type="group">
                             <visible>String.IsEqual(Container(300).ListItem.Property(widget),Settings) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget)</visible>
-                            <include>Widget_Settings</include>
+              <include condition="Skin.HasSetting(SettingsNew)">Widget_Settings</include>
+              <include condition="!Skin.HasSetting(SettingsNew)">Widget_Settings_New</include>
                         </control>
                     </control>
                 </control>

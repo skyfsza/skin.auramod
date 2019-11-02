@@ -379,6 +379,7 @@
                 <param name="categorycondition" value="$PYTHON['true' if widgetAspect in 'Logo' else 'false']" />
                 <param name="squarelabelcondition" value="$PYTHON['true' if widgetAspect in 'SquareLabel' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetAspect in 'Genre' else 'false']" />
+                <param name="submenucondition" value="$PYTHON['true' if widgetAspect in 'Submenu' else 'false']" />
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetAspect in 'LandscapePanel' else 'fixedlist']" />
@@ -517,6 +518,7 @@
                 <param name="categorycondition" value="$PYTHON['true' if widgetAspect in 'Logo' else 'false']" />
                 <param name="squarelabelcondition" value="$PYTHON['true' if widgetAspect in 'SquareLabel' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetAspect in 'Genre' else 'false']" />
+                <param name="submenucondition" value="$PYTHON['true' if widgetAspect in 'Submenu' else 'false']" />
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />

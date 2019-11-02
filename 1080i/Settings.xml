@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
 <window id="4">
-    <defaultcontrol always="true">9967</defaultcontrol>
+    <backgroundcolor>FF2B2B2B</backgroundcolor>
+
+    <defaultcontrol always="true">9900</defaultcontrol>
 <!--
     <onload condition="![Window.Previous(SettingsCategory.xml) | Window.Previous(SkinSettings.xml)] + String.IsEmpty(Window(Home).Property(MenuIconFocus))">ReplaceWindow(InterfaceSettings)</onload>
     <onload condition="![Window.Previous(SettingsCategory.xml) | Window.Previous(SkinSettings.xml)] + !String.IsEmpty(Window(Home).Property(MenuIconFocus))">$INFO[Window(Home).Property(MenuIconFocus)]</onload>
     <onload condition="Window.Previous(SettingsCategory.xml) | Window.Previous(SkinSettings.xml)">ReplaceWindow(Home)</onload>
 -->
     <controls>
+
+	<control type="button" id="9900">
+	<visible allowhiddenfocus="true">false</visible>
+	<onfocus condition="Skin.HasSetting(SettingsNew)">SetFocus(9967)</onfocus>
+	<onfocus condition="!Skin.HasSetting(SettingsNew)">SetFocus(9001)</onfocus>
+        <onback>ActivateWindow(Home)</onback>
+	</control>
         <include>Global_Background</include>
 	<include>Topbar</include>
         <control type="group">
+    <animation type="WindowOpen" reversible="false">
+      <effect type="fade" start="0" end="100" time="300" tween="sine" easing="out" />
+    </animation>
+    <animation type="WindowClose" reversible="false">
+      <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+    </animation>
 	 <left>-10</left>
-	 <top>-20</top>
-         <include>Widget_Settings</include>
+	 <animation effect="slide" end="-40,0" time="0" condition="Skin.HasSetting(SettingsNew)">Conditional</animation>
+         <include condition="Skin.HasSetting(SettingsNew)">Widget_Settings</include>
+         <include condition="!Skin.HasSetting(SettingsNew)">Widget_Settings_New</include>
         </control>
 
     </controls>

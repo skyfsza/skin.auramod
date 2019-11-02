@@ -3,10 +3,9 @@
     <defaultcontrol always="true">313</defaultcontrol>
     <onload condition="!Skin.HasSetting(WidgetsInit)">AlarmClock(Clickit,Action(Close),00:01,silent)</onload>
     <onunload condition="!Skin.HasSetting(WidgetsInit)">Skin.ToggleSetting(WidgetsInit)</onunload>
-    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|x1110|x1111|x1112|x1113|hubtvnetworks|searchmenu|aurahubtv|aurahubmovies|netflixhubtv|netflixhubmovies|pvrspot|tvhubmenu|moviehubmenu)</onunload>
+    <onunload condition="!Window.IsVisible(SkinSettings.xml) + !Window.IsVisible(script-skinshortcuts.xml) + !Window.IsVisible(Settings.xml)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|x1110|x1111|x1112|x1113|hubtvnetworks|searchmenu|aurahubtv|aurahubmovies|netflixhubtv|netflixhubmovies|pvrspot|tvhubmenu|moviehubmenu)</onunload>
     <controls>
 
-        <include>Global_Background</include>
         <include>Global_Overlay</include>
         <control type="group">
             <visible>!Skin.HasSetting(WidgetsInit)</visible>
@@ -23,7 +22,7 @@
             <centerleft>50%</centerleft>
             <centertop>50%</centertop>
             <width>1880</width>
-            <height>726</height>
+            <height>800</height>
             <control type="image">
                 <include condition="!Skin.HasSetting(DisableShadows)">Defs_Shadow_24</include>
                 <texture border="16" colordiffuse="dialog_bg_100">common/rounded-dialog.png</texture>
@@ -84,7 +83,7 @@
                 <left>15</left>
                 <top>90</top>
                 <width>580</width>
-                <height>621</height>
+                <height>695</height>
                 <onup>211</onup>
                 <onleft>noop</onleft>
                 <onright>9100</onright>
@@ -221,7 +220,7 @@
                 <right>15</right>
                 <top>90</top>
                 <width>1250</width>
-                <height>621</height>
+                <height>695</height>
                 <orientation>vertical</orientation>
                <itemgap>3</itemgap>
 
@@ -242,11 +241,10 @@
                     <align>left</align>
                     <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
                     <label>Choose Widget</label>
-<!--                    <label2>$INFO[Container(211).ListItem.Property(path)]</label2> -->
                     <onclick>SetProperty(custom-grouping,widget)</onclick>
                     <onclick>SendClick(401)</onclick>
                     <include>Dialog_Standard_Right_Buttons</include>
-                    <visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),searchmenu) | String.IsEqual(Window.Property(groupname),aurahubtv) | String.IsEqual(Window.Property(groupname),aurahubmovies) | String.IsEqual(Window.Property(groupname),hubtvnetworks) | String.Contains(Window.Property(groupname),netflixhubmovies) | String.Contains(Window.Property(groupname),netflixhubtv)</visible>
+                    <visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),searchmenu) | String.IsEqual(Window.Property(groupname),aurahubtv) | String.IsEqual(Window.Property(groupname),aurahubmovies) | String.IsEqual(Window.Property(groupname),hubtvnetworks) | String.Contains(Window.Property(groupname),netflixhubmovies) | String.Contains(Window.Property(groupname),netflixhubtv) | String.Contains(Window.Property(groupname),x110)</visible>
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
 
                     <onback condition="String.IsEmpty(Container(211).ListItem.Property(widgetTarget)) + [String.Contains(Container(211).ListItem.Property(path),musicdb://) | String.Contains(Container(211).ListItem.Property(path),library://music) | String.Contains(Container(211).ListItem.Property(path),sources://music) | String.Contains(Container(211).ListItem.Property(path),plugin://plugin.audio)]">SetProperty(customProperty,widgetTarget)</onback>
@@ -281,7 +279,7 @@
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <align>left</align>
                     <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
-                    <visible>!String.EndsWith(Window.Property(groupname),.1) + !String.Contains(Window.Property(groupname),netflixhubmovies) + !String.Contains(Window.Property(groupname),netflixhubtv) </visible>
+                    <visible>!String.EndsWith(Window.Property(groupname),.1) + !String.Contains(Window.Property(groupname),netflixhubmovies) + !String.Contains(Window.Property(groupname),netflixhubtv) + !String.Contains(Window.Property(groupname),aurahubmovies) + !String.Contains(Window.Property(groupname),aurahubtv) + !String.Contains(Window.Property(groupname),x110) </visible>
                     <include>Dialog_Standard_Right_Buttons</include>
                 </control>
                 <control type="button" id="307" description="Custom">
@@ -663,7 +661,7 @@
                 <right>15</right>
                 <top>90</top>
                 <width>1250</width>
-                <height>621</height>
+                <height>695</height>
                 <orientation>vertical</orientation>
                 <itemgap>3</itemgap>
                 <control type="togglebutton" id="312" description="Widget">

@@ -245,12 +245,25 @@
 	       <bottom>50</bottom>
                <height>520</height>
                <centerleft>65%</centerleft>
+	
+	    <control type="image">
+		<centertop>45%</centertop>
+                <centerleft>59%</centerleft>
+                <width>1010</width>
+                <height>610</height>
+		<texture background="true">special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window(2600).Property(Radar)]/background.png</texture>
+		<visible>Skin.HasSetting(EnableOzWetherRadar)</visible>
+	   </control>
 	    <control type="multiimage">
 		<centertop>45%</centertop>
 		<centerleft>59%</centerleft>
 		<width>1010</width>
 		<height>610</height>
-		<imagepath>special://masterprofile/addon_data/scripts/weather/</imagepath>
+		<imagepath>$VAR[weather_radar]</imagepath>
+		<pauseatend>1000</pauseatend>
+		<timeperimage>500</timeperimage>
+		<loop>yes</loop>
+		<randomize>false</randomize>
       	    </control>
 	    <!-- Diffuse overlay, "69" in colordiffuse is 69% - set higher / lower to reduce or increase overlay -->
             <control type="image">

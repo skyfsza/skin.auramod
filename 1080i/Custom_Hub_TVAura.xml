@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="3910">
   <defaultcontrol>5050</defaultcontrol>
+  <onload>SetFocus(5050)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
     <include>Global_Background</include>
    <control type="group">
-    <animation effect="slide" end="0,-40" time="0" condition="Skin.HasSetting(TVAuraHubSpacingSmall)">Conditional</animation>
+    <animation effect="slide" end="0,-40" time="0" condition="Skin.HasSetting(AuraHubSpacingSmall)">Conditional</animation>
     <include>Logo</include>
    <control type="label">
    <animation effect="slide" end="260,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
@@ -38,10 +39,10 @@
       <control type="grouplist" id="5055">
         <include>Animation_Right</include>
    	<animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
-        <include condition="Skin.HasSetting(TVAuraHubSpacingSmall)">AuraHub_Small_top</include>
-        <include condition="!Skin.HasSetting(TVAuraHubSpacingSmall)">AuraHub_top</include>
-        <include condition="Skin.HasSetting(TVAuraHubSpacingSmall)">AuraHub_Small_height</include>
-        <include condition="!Skin.HasSetting(TVAuraHubSpacingSmall)">AuraHub_height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall)">AuraHub_Small_top</include>
+        <include condition="!Skin.HasSetting(AuraHubSpacingSmall)">AuraHub_top</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall)">AuraHub_Small_height</include>
+        <include condition="!Skin.HasSetting(AuraHubSpacingSmall)">AuraHub_height</include>
         <width>1920</width>
         <left>50</left>
 	<movement>1</movement>
@@ -51,8 +52,7 @@
         <onback condition="!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious">Control.Move($PARAM[id],$INFO[Container($PARAM[id]).CurrentItem,-,])</onback>
         <onback condition="!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious">Control.Move($PARAM[id],1)</onback>
 	<onback condition="Integer.IsEqual(Container($PARAM[id]).Position,0) | !Container($PARAM[id]).HasPrevious">Skin.Reset(TVHubMenuFocus)</onback>
-        <onback condition="Integer.IsEqual(Container($PARAM[id]).Position,0) | !Container($PARAM[id]).HasPrevious">ActivateWindow(Home)</onback>
-        <onleft>SetFocus(400,4)</onleft>
+        <onleft>SetFocus(400,2)</onleft>
 	<onup>5055</onup>
 	<ondown>5055</ondown>
         <include>skinshortcuts-template-aurahubtv</include>

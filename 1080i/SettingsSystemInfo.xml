@@ -9,6 +9,7 @@
             <centertop>50%</centertop>
             <width>450</width>
             <height>1200</height>
+            <visible>!Skin.HasSetting(DisableSettingsBackground)</visible>
             <control type="image">
                 <include condition="!Skin.HasSetting(DisableShadows)">Defs_Shadow_24</include>
                 <texture border="16" colordiffuse="dialog_bg_100">common/rounded-dialog.png</texture>
@@ -20,9 +21,10 @@
             <centertop>50%</centertop>
             <width>100%</width>
             <height>1200</height>
+            <visible>!Skin.HasSetting(DisableSettingsBackground)</visible>
             <control type="image">
                 <include condition="!Skin.HasSetting(DisableShadows)">Defs_Shadow_24</include>
-                <texture border="16" colordiffuse="dimgrey">common/rounded-dialog.png</texture>
+                <texture border="16" colordiffuse="darkgrey">common/rounded-dialog.png</texture>
             </control>
             </control>
 

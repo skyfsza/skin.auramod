@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+     <variable name="weather_radar">
+	<value condition="Skin.HasSetting(EnableOzWetherRadar)">special://profile/addon_data/weather.ozweather/currentloop/$INFO[Window(2600).Property(Radar)]/</value>
+	<value condition="!Skin.HasSetting(EnableOzWetherRadar)">special://masterprofile/addon_data/scripts/weather/</value>
+     </variable>
      <variable name="liked_percent">
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating.Percent))">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating.Percent)]$VAR[liked_percent_symbol] Liked[/B]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.percent.IMDB))">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.percent.IMDB)]$VAR[liked_percent_symbol] Liked[/B]</value>
@@ -54,7 +58,6 @@
        <value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(ListItem.Art(fanart1)) + !String.IsEmpty(Control.GetLabel(398045))">$INFO[Control.GetLabel(398045)]</value>
        <value>$VAR[Spotlight_Fanart]</value>
    </variable>
-
    <variable name="loading_spinner">
        <value condition="String.IsEmpty(Skin.String(loadingspinner.icon))">netflix/loading.gif</value>
        <value condition="!String.IsEmpty(Skin.String(loadingspinner.icon))">$INFO[Skin.String(loadingspinner.icon)]</value>
@@ -105,6 +108,7 @@
 
 
    <variable name="Image_Fanart">
+        <value condition="String.Contains(ListItem.Path,plugin.video.twitch) + !String.IsEmpty(ListItem.Art(poster)">$INFO[ListItem.Art(poster)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(landscape)) + String.IsEqual(ListItem.Art(landscape),0)">$INFO[ListItem.Art(fanart)]</value>
         <value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBType,episode)] + Skin.HasSetting(PreferFanartHome) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
         <value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBType,episode)] + !Skin.HasSetting(PreferFanartHome) + !String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
@@ -126,6 +130,7 @@
 
     <variable name="Image_MainMenu_fanart_aurahub"> 
         <value condition="Window.IsVisible(MyVideoNav.xml) + !String.IsEmpty(Container(5055).ListItem.Art(fanart)) + Control.IsVisible(5055)">$INFO[Container(5055).ListItem.Art(fanart)]</value>
+        <value condition="Window.IsVisible(MyVideoNav.xml) + !String.IsEmpty(Container(5056).ListItem.Art(fanart)) + Control.IsVisible(5056)">$INFO[Container(5056).ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(Container(6051).ListItem.Art(fanart)) + Control.IsVisible(6051)">$INFO[Container(6051).ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(Container(6052).ListItem.Art(fanart)) + Control.IsVisible(6052)">$INFO[Container(6052).ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(Container(6053).ListItem.Art(fanart)) + Control.IsVisible(6053)">$INFO[Container(6053).ListItem.Art(fanart)]</value>

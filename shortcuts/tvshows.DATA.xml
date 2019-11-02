@@ -9,7 +9,7 @@
     <action>ActivateWindow(2114,return)</action>
   </shortcut>
   <shortcut>
-    <defaultID>netflixhub</defaultID>
+    <defaultID>tvaurahub</defaultID>
     <label>TV Aura Hub</label>
     <label2>Custom item</label2>
     <icon>special://skin/extras/icons/tv.png</icon>
@@ -25,7 +25,7 @@
     <action>ActivateWindow(3810,return)</action>
   </shortcut>
   <shortcut>
-    <defaultID>aurahub2</defaultID>
+    <defaultID>tvgenrehub</defaultID>
     <label>Genres Hub</label>
     <label2>Custom item</label2>
     <icon>special://skin/extras/icons/tv.png</icon>

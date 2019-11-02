@@ -39,6 +39,14 @@
     <ondown condition="!Control.IsVisible(509) + Skin.HasSetting(EnableTrailerOnDown) + Player.HasVideo">fullscreen</ondown>
     <onup condition="!Control.IsVisible(509) + Skin.HasSetting(EnableTrailerOnDown) + Player.HasVideo">Stop</onup>
   </include>
+  <include name="trailer_down5055">
+    <!-- play yt trailer if scraped empty -->
+    <ondown condition="!Control.IsVisible(509) + Skin.HasSetting(EnableTrailerOnDown) + !Player.HasVideo + !String.IsEmpty(Container(5055).ListItem.Trailer)">PlayMedia($INFO[Container(5055).ListItem.Trailer],false,1)</ondown>
+    <ondown condition="!Control.IsVisible(509) + !Skin.HasSetting(EnableTrailerOnDown)">9601</ondown>
+    <!-- get fullscreen , <tab>FullScreen</tab> -->
+    <ondown condition="!Control.IsVisible(509) + Skin.HasSetting(EnableTrailerOnDown) + Player.HasVideo">fullscreen</ondown>
+    <onup condition="!Control.IsVisible(509) + Skin.HasSetting(EnableTrailerOnDown) + Player.HasVideo">Stop</onup>
+  </include>
   <include name="Animation_FocusBounce">
     <animation type="Focus" condition="!Skin.HasSetting(BounceAnimations)" reversible="false">
       <effect type="zoom" end="110" time="75" tween="sine" easing="out" center="auto" />

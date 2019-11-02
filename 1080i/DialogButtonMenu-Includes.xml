@@ -13,7 +13,7 @@
 					<effect type="slide" start="0,-80" end="0" delay="900" tween="Cubic" easing="out" time="200"/>
 				</animation>
 				<control type="image">
-					<left>50</left>
+					<left>260</left>
 					<top>100</top>
 					<width>500</width>
 					<height>340</height>
@@ -22,7 +22,7 @@
 
 				<control type="list" id="2">
 					<description>Control Area</description>
-					<left>50</left>
+					<left>260</left>
 					<top>100</top>
 					<width>500</width>
 					<height>350</height>
@@ -104,14 +104,14 @@
 					<effect type="slide" start="0,-80" end="0" delay="900" tween="Cubic" easing="out" time="200"/>
 				</animation>
 				<control type="image">
-					<left>260</left>
+					<left>50</left>
 					<top>100</top>
 					<width>500</width>
 					<height>340</height>
 					<texture colordiffuse="darkgrey" border="9">common/Card_bg_white.png</texture>
 				</control>
 				<control type="list" id="6">
-					<left>260</left>
+					<left>50</left>
 					<top>100</top>
 					<width>500</width>
 					<height>350</height>
@@ -164,6 +164,90 @@
 			</control>
 
 			<control type="group">
+				<visible>Container(1).HasFocus(4) + !Skin.HasSetting(oldshutdownmenu)</visible>
+				<animation type="Visible">
+					<effect type="slide" start="0,-80" end="0" tween="Cubic" easing="out" time="200"/>
+				</animation>
+				<animation type="WindowOpen">
+					<effect type="slide" start="0,-80" end="0" delay="900" tween="Cubic" easing="out" time="200"/>
+				</animation>
+				<control type="image">
+					<left>470</left>
+					<top>100</top>
+					<width>500</width>
+					<height>340</height>
+					<texture colordiffuse="darkgrey" border="9">common/Card_bg_white.png</texture>
+				</control>
+				<control type="list" id="7">
+					<left>470</left>
+					<top>100</top>
+					<width>500</width>
+					<height>350</height>
+					<onup>1</onup>
+					<onleft>Control.Move(1,-1)</onleft>
+					<onright>Control.Move(1,1)</onright>
+					<onleft>1</onleft>
+					<onright>1</onright>
+					<orientation>vertical</orientation>
+					<itemlayout width="500" height="80">
+						<control type="label">
+							<left>40</left>
+							<height>100</height>
+							<font>Font-Condensed-S30-B</font>
+							<align>left</align>
+							<textcolor>white</textcolor>
+							<label>$INFO[ListItem.Label]</label> 
+						</control>
+					</itemlayout>
+					<focusedlayout width="500" height="80">
+						<control type="image">
+							<height>100</height>
+							<texture colordiffuse="ffB71C1C" border="9">common/Card_bg_white.png</texture>
+							<visible>Control.HasFocus(7)</visible>
+						</control>
+						<control type="label">
+							<left>40</left>
+							<height>100</height>
+							<font>Font-Condensed-S30-B</font>
+							<align>left</align>
+							<textcolor>white</textcolor>
+							<label>$INFO[ListItem.Label]</label> 
+							<visible>!Control.HasFocus(7)</visible>
+						</control>
+						<control type="label">
+							<left>40</left>
+							<height>100</height>
+							<font>Font-Condensed-S30-B</font>
+							<align>left</align>
+							<textcolor>white</textcolor>
+							<label>$INFO[ListItem.Label]</label> 
+							<visible>Control.HasFocus(7)</visible>
+						</control>
+					</focusedlayout>
+					<content>
+                                                <item>
+                                                        <label>Main Menu Config</label>
+                                                        <onclick>Dialog.Close(all,true)</onclick>
+                                                        <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
+                                                        <thumb>dialogs/charms/charm_shutdown.png</thumb>
+                                                </item>
+                                                <item>
+                                                        <label>TV Hubs Config</label>
+                                                        <onclick>Dialog.Close(all,true)</onclick>
+							<onclick>ActivateWindow(1127)</onclick>
+                                                        <thumb>dialogs/charms/charm_shutdown.png</thumb>
+                                                </item>
+                                                <item>
+                                                        <label>Movie Hubs Config</label>
+                                                        <onclick>Dialog.Close(all,true)</onclick>
+							<onclick>ActivateWindow(1126)</onclick>
+                                                        <thumb>dialogs/charms/charm_shutdown.png</thumb>
+                                                </item>
+					</content>
+				</control>
+			</control>
+
+			<control type="group">
 				<animation type="WindowOpen">
 					<effect type="slide" start="2000" end="0,0" center="100" tween="Cubic" easing="inout" time="1000"/>
 				</animation>
@@ -186,6 +270,7 @@
 					<ondown condition="Container(1).HasFocus(1)">Control.SetFocus(2,0)</ondown>
 					<ondown condition="Container(1).HasFocus(2)">Control.SetFocus(4,0)</ondown>
 					<ondown condition="Container(1).HasFocus(3)">Control.SetFocus(6,0)</ondown>
+					<ondown condition="Container(1).HasFocus(4)">Control.SetFocus(7,0)</ondown>
 					<defaultcontrol>1</defaultcontrol>
 					<orientation>horizontal</orientation>
 					<animation type="WindowOpen">
@@ -235,16 +320,22 @@
 						</control>
 					</focusedlayout>
 					<content>
+						<item id="3">
+							<label>$LOCALIZE[33060]</label>
+							<thumb>dialogs/charms/charm_shutdown.png</thumb>
+						</item>
 						<item id="1">
 							<label>Home</label>
 							<onclick>Dialog.Close(all,true)</onclick>
 							<onclick>ActivateWindow(Home)</onclick>
 							<thumb>dialogs/charms/charm_home.png</thumb>
 						</item>
-						<item id="3">
-							<label>$LOCALIZE[33060]</label>
-							<thumb>dialogs/charms/charm_shutdown.png</thumb>
-						</item>
+                                                <item id="4">
+                                                        <label>Settings</label>
+                                                        <onclick>Dialog.Close(all,true)</onclick>
+                                                        <onclick>ActivateWindow(InterfaceSettings)</onclick>
+                                                        <thumb>dialogs/charms/charm_shutdown.png</thumb>
+                                                </item>
 					</content>
 				</control>
 			</control>

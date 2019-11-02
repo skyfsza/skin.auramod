@@ -56,7 +56,7 @@
       <animation effect="slide" start="0,0" end="0,500" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
 <!--      <animation effect="slide" start="0,0" end="0,-100" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + $EXP[LiveTVSpotlight] + $EXP[noSubMenu] + $EXP[HomeSpotFocusContainers]">Conditional</animation> -->
       <animation effect="slide" start="0,0" end="0,20" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,85" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(SubmenuLabel) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]]  + $EXP[HomeSpotFocusContainers]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,85" time="0" reversible="false" condition="!Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(SubmenuLabel) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]]  + $EXP[HomeSpotFocusContainers]">Conditional</animation>
       <animation effect="slide" start="0,0" end="0,420" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[NextUpTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
 <!--      <animation effect="slide" start="0,0" end="0,90" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(EnableMultiWidgetSpotlight) + $EXP[LiveTVSpotlight] + $EXP[HomeSpotFocusContainers]">Conditional</animation> -->
       <animation effect="slide" start="0,0" end="0,150" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) +  [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
@@ -64,7 +64,7 @@
      <!--Slide Submenu + Widgets up when Spotlights enabled and Widgets focused. -->
       <animation effect="slide" start="0,0" end="0,-500" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
       <animation effect="slide" start="0,0" end="0,-20" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
-      <animation effect="slide" start="0,0" end="0,-85" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(SubmenuLabel) +  [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,-85" time="700" tween="linear" reversible="true" condition="!Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(SubmenuLabel) +  [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
       <animation effect="slide" start="0,0" end="0,-450" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[NextUpTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
 <!--      <animation effect="slide" start="0,0" end="0,-90" time="700" tween="linear" reversible="false" condition="!Skin.HasSetting(EnableMultiWidgetSpotlight) + Skin.HasSetting(EnableSpotlight) + $EXP[LiveTVSpotlight] + $EXP[HomeSpotscrolldown]">Conditional</animation> -->
       <animation effect="slide" start="0,0" end="0,-150" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
@@ -174,7 +174,8 @@
             </control>
             <control type="group">
               <visible>String.IsEqual(Container(300).ListItem.Property(widget),Settings) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget)</visible>
-              <include>Widget_Settings</include>
+              <include condition="Skin.HasSetting(SettingsNew)">Widget_Settings</include>
+              <include condition="!Skin.HasSetting(SettingsNew)">Widget_Settings_New</include>
             </control>
           </control>
         </control>
@@ -1027,11 +1028,11 @@
       </control>
       <control type="group" id="332" description="Spacer">
         <height>50</height>
-	<visible>!Skin.HasSetting(SubmenuLabel)</visible>
+	<visible>[!Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(DisableCatlabel)] | [!Skin.HasSetting(SubmenuLabel) +  [$EXP[TVSpotlight] | $EXP[MovieSpotlight]]]</visible>
       </control>
       <control type="group" id="333" description="Spacer">
         <height>60</height>
-        <visible>Skin.HasSetting(DisableMenuHor)</visible>
+        <visible>Skin.HasSetting(DisableMenuHor) </visible>
       </control>
       <control type="group" id="334" description="Spacer">
         <height>40</height>
@@ -1376,10 +1377,10 @@
     <height>440</height>
   </include>
   <include name="Widget_Items_Square_Big_Height_small">
-    <height>570</height>
+    <height>565</height>
   </include>
   <include name="Widget_Items_Square_Height">
-    <height>570</height>
+    <height>520</height>
   </include>
   <include name="Widget_Items_SquareLabel_Big">
     <height>600</height>

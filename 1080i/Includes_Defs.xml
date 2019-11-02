@@ -314,7 +314,7 @@
                 <top>$PARAM[pad]</top>
                 <bordersize>10</bordersize>
                 <texture border="5" colordiffuse="$PARAM[gradientcolordiffuse]">common/gradientcurve.png</texture>
-                <visible>Skin.HasSetting(PosterBackGradient)</visible>
+                <visible>!Skin.HasSetting(PosterBackGradient)</visible>
             </control>
         </definition>
     </include>
