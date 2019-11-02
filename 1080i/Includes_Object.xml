@@ -1362,8 +1362,9 @@
               </control>
            <control type="group">
 	      <animation effect="slide" end="-110,0" time="0" condition="String.IsEmpty(Container(1506).ListItem.MPAA)">Conditional</animation>
+              <animation effect="slide" end="-190,0" time="0" condition="String.IsEmpty(Container(1505).ListItem.Rating)">Conditional</animation>
               <top>252</top>
-              <left>215</left>
+              <left>410</left>
               <width>140</width>
               <height>30</height>
               <visible>String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.Property(TotalSeasons))</visible>
