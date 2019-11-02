@@ -4849,6 +4849,7 @@
         <control type="group">
           <include>Animation_FadeIn</include>
           <visible>Control.HasFocus(9601) + $PARAM[visible] + !Skin.HasSetting(DisableNetflixVideoInfo)</visible>
+<!--
           <control type="image">
             <width>100%</width>
             <height>100%</height>
@@ -4861,6 +4862,35 @@
             <texture background="true" diffuse="overlay/gradient_overlay_info.png">$VAR[Spotlight_Fanart]</texture>
             <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
           </control>
+-->
+    <control type="group">
+      <control type="image">
+        <width>100%</width>
+        <height>100%</height>
+        <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>
+        <texture background="true" colordiffuse="FF000000">common/white.png</texture>
+        <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
+      </control>
+      <control type="multiimage">
+        <width>100%</width>
+        <height>100%</height>
+      <imagepath background="true">$VAR[fanart_multi_fadelabel]</imagepath>
+      <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>
+      <aspectratio scalediffuse="true" align="right" aligny="top">scale</aspectratio>
+      <timeperimage>2000</timeperimage>
+      <fadetime>2000</fadetime>
+      <pauseatend>10000</pauseatend>
+      <randomize>false</randomize>
+      <loop>no</loop>
+      <visible>!String.Contains(ListItem.Art(fanart),w1280None)</visible>
+      <include>animation_image_zoom</include>
+      </control>
+      <control type="image">
+        <width>130%</width>
+        <texture flipx="true" colordiffuse="ff000000" border="15">overlay/gradient_overlay_info.png</texture>
+        <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>
+      </control>
+    </control>
           <control type="image">
             <width>100%</width>
             <height>100%</height>
@@ -4922,6 +4952,7 @@
               <height>90</height>
             </control>
             <control type="group">
+	      <animation effect="zoom" end="150" time="0" condition="Control.IsVisible(9601)">Conditional</animation>
               <height>80</height>
               <right>950</right>
               <include content="Object_Ratings" condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(Home.xml) | Window.IsVisible(script-globalsearch.xml)">
@@ -7522,7 +7553,7 @@ al</animation>
 						<thumb>settings/tv.png</thumb>
 					</item>
 					<item>
-						<label>Library</label>
+						<label>Media Settings</label>
 						<onclick>ActivateWindow(MediaSettings)</onclick>
 						<thumb>settings/library.png</thumb>
 					</item>
