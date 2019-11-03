@@ -4850,13 +4850,13 @@
         <control type="group">
           <include>Animation_FadeIn</include>
           <visible>Control.HasFocus(9601) + $PARAM[visible] + !Skin.HasSetting(DisableNetflixVideoInfo)</visible>
-<!--
           <control type="image">
             <width>100%</width>
             <height>100%</height>
             <texture background="true" colordiffuse="FF000000" flipy="true">common/white.png</texture>
             <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
           </control>
+<!--
           <control type="image">
             <width>100%</width>
             <height>100%</height>
@@ -4876,7 +4876,6 @@
         <width>100%</width>
         <height>100%</height>
       <imagepath background="true">$VAR[fanart_multi_fadelabel]</imagepath>
-      <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>
       <aspectratio scalediffuse="true" align="right" aligny="top">scale</aspectratio>
       <timeperimage>2000</timeperimage>
       <fadetime>2000</fadetime>
@@ -7441,8 +7440,6 @@ al</animation>
 	        <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuVertIcon) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
                 <animation effect="slide" end="40,0" time="500" delay="0" condition="Skin.HasSetting(DisableMenuVertLabelOnly) + [!Control.HasFocus(300) | !Control.HasFocus(400) | !Control.HasFocus(401)]" reversible="true">Conditional</animation>
 
-
-
 		<!--> Row 1 <!-->
 			<control type="label">
 				<top>50</top>
@@ -7537,10 +7534,9 @@ al</animation>
                                         </item>
 
 					<item>
-						<label>Network</label>
-						<onclick>ActivateWindow(servicesettings)</onclick>
-						<thumb>settings/net.png</thumb>
-						<visible>System.InternetState</visible>
+                                                <label>Services</label>
+                                                <onclick>activatewindow(servicesettings)</onclick>
+                                                <icon>special://skin/extras/icons/network.png</icon>
 					</item>
 					<item>
 						<label>LOCALIZE[705]</label>
@@ -7549,7 +7545,7 @@ al</animation>
 						<visible>!System.InternetState</visible>
 					</item>
 					<item>
-						<label>Display & audio</label>
+						<label>Player</label>
 						<onclick>ActivateWindow(playersettings)</onclick>
 						<thumb>settings/tv.png</thumb>
 					</item>
@@ -7563,16 +7559,6 @@ al</animation>
 						<onclick>ActivateWindow(PVRSettings)</onclick>
 						<icon>settings/PVR.png</icon>
 					</item>
-            			        <item>
-			                        <label>Player</label>
-                        			<onclick>activatewindow(PlayerSettings)</onclick>
-			                        <icon>special://skin/extras/icons/equalizer.png</icon>
-                    			</item>
-		                        <item>
-                        			<label>Services</label>
-                        			<onclick>activatewindow(servicesettings)</onclick>
-			                        <icon>special://skin/extras/icons/network.png</icon>
-                    		        </item>
                                         <item>
                                                 <label>Accounts</label>
                                                 <onclick>ActivateWindow(profiles)</onclick>
