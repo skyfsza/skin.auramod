@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
   <include name="animation_image_zoom">
-    <animation effect="zoom" start="110" end="130" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
-    <animation effect="slide" start="-10,-10" end="20,20" time="7000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
-    <animation effect="rotate" center="360,640" start="-2" end="2" time="11000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+    <animation effect="zoom" start="100" end="130" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+    <animation effect="slide" start="-8,-8" end="15,15" time="6000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
   </include>
   <include name="Animation_FadeOut_Delay">
     <animation effect="fade" end="0" start="100" time="1" delay="300">Hidden</animation>

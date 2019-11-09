@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+
+    <include name="spotlight_config_height">
+        <height>470</height>
+    </include>
+    <include name="spotlight_config_height_custom">
+        <height>600</height>
+    </include>
     <include name="Defs_PauseAtEnd_Value">
         <pauseatend>$PARAM[time]</pauseatend>
     </include>

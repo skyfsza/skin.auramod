@@ -25,6 +25,10 @@
   <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
   <onload condition="!String.IsEmpty(Skin.String(MovieHubMenuFocus))">SetFocus(401,0,absolute)</onload>
   <onload condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,0,absolute)</onload>
+  <onunload>Skin.SetString(similar_movies_traktid,$INFO[Container(12341).ListItem.Property(trakt_id)])</onunload>
+  <onunload>Skin.SetString(similar_movies_label,$INFO[Container(12341).ListItem.Label])</onunload>
+  <onunload>Skin.SetString(similar_tv_traktid,$INFO[Container(12342).ListItem.Property(tvshow.trakt_id)])</onunload>
+  <onunload>Skin.SetString(similar_tv_label,$INFO[Container(12342).ListItem.TvShowTitle])</onunload>
   <controls>
     <control type="list" id="9988">
       <description>hidden container for playlist background</description>
@@ -47,6 +51,7 @@
     <include>Global_Background</include>
     <animation time="0" effect="fade" start="100" end="0" condition="System.HasAlarm(loadinfo)">Conditional</animation>
     <control type="group">
+
       <animation effect="slide" end="40,0" time="500" condition="!Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableMenuVertLabel) + [Control.HasFocus(30222) | Control.HasFocus(1505) | Control.HasFocus(1506) | ControlGroup(505).HasFocus | ControlGroup(900).HasFocus | ControlGroup(505).HasFocus | [Control.HasFocus(13003) + [Integer.IsEqual(Container(13003).Position,0) + !Container(13003).HasPrevious]] | [Control.HasFocus(23003) + [Integer.IsEqual(Container(23003).Position,0) + !Container(23003).HasPrevious]] | [Control.HasFocus(33003) + [Integer.IsEqual(Container(33003).Position,0) + !Container(33003).HasPrevious]] | [Control.HasFocus(43003) + [Integer.IsEqual(Container(43003).Position,0) + !Container(43003).HasPrevious]] | [Control.HasFocus(53003) + [Integer.IsEqual(Container(53003).Position,0) + !Container(53003).HasPrevious]] | [Control.HasFocus(63003) + [Integer.IsEqual(Container(63003).Position,0) + !Container(63003).HasPrevious]]]">Conditional</animation>
       <animation effect="slide" end="280,0" time="500" delay="0" condition="Skin.HasSetting(DisableMenuVertLabel) + [Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)]" reversible="true">Conditional</animation>
       <animation effect="slide" end="250,0" time="500" delay="0" condition="Skin.HasSetting(DisableMenuVertLabelOnly) + [Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)]" reversible="true">Conditional</animation>
@@ -57,8 +62,8 @@
     </control>
     <include condition="Skin.HasSetting(DisableMenuVertLabel)">Home_MainMenu_Layout_wLabel</include>
     <include condition="Skin.HasSetting(DisableMenuVertLabelOnly)">Home_MainMenu_Layout_wLabel_only</include>
-    <include condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabel) + !Skin.HasSetting(DisableMenuVertLabelOnly)">Home</include>
-    <include condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Topbar</include>
+    <include condition="Skin.HasSetting(DisableMenuVertFull) | !Skin.HasSetting(DisableMenuVertIcon)">Home</include>
+    <include condition="Skin.HasSetting(DisableMenuHor)">Topbar</include>
     <control type="group">
       <include>Home_TVHubMenu_Layout</include>
       <include>Home_MovieHubMenu_Layout</include>
@@ -75,6 +80,10 @@
       <include>Logo</include>
       <visible>!Window.IsVisible(DialogNotification.xml) + !Window.IsVisible(DialogButtonMenu.xml) + !Window.IsVisible(DialogBusy.xml) + Skin.HasSetting(EnableHomeHeader)</visible>
     </control>
+    <include>fadelabel_spotlight_list_tv</include>
+    <include>fadelabel_spotlight_list_movies</include>
+    <include condition="Skin.HasSetting(EnableSuggestedWidget)">similar_movies_list</include>
+    <include condition="Skin.HasSetting(EnableSuggestedWidget)">similar_tv_list</include>
     <control type="button" id="4000">
       <visible allowhiddenfocus="true">false</visible>
       <width>1</width>

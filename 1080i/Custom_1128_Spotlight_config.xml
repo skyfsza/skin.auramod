@@ -11,9 +11,8 @@
         <control type="group">
             <include content="Dialog_Standard_Group">
                 <param name="width" value="820" />
-                <param name="height" value="500" />
+                <param name="height" value="730" />
             </include>
-
             <control type="label">
                 <description>Header Label</description>
                 <label>[CAPITALIZE]Home Spotlight Config[/CAPITALIZE]</label>
@@ -28,7 +27,7 @@
                 <right>20</right>
                 <width>780</width>
                 <top>100</top>
-                <height>500</height>
+		<height>600</height>
                 <itemgap>10</itemgap>
                 <orientation>vertical</orientation>
                 <pagecontrol>60</pagecontrol>
@@ -56,6 +55,14 @@
                             <onclick condition="!String.IsEmpty(Skin.String(spotlightmovies.path))">Skin.Reset(spotlightmovies.path)</onclick>
                             <enable>Skin.HasSetting(EnableSpotlight)</enable>
                         </control>
+                        <control type="button" id="80031" description="Choose Movies Spotlight">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label> - Configure Custom Movie Lists</label>
+                            <onclick>ActivateWindow(1161)</onclick>
+                            <visible>String.IsEqual(Skin.String(spotlightmovies.label),Spotlight Movies)</visible>
+                            <visible>!Skin.HasSetting(DisableAuraHomeLayout)</visible>
+                            <enable>Skin.HasSetting(EnableSpotlight)</enable>
+                        </control>
                         <control type="button" id="8004" description="Choose TV Shows Spotlight">
                             <include>Dialog_Standard_ListButton</include>
                             <label>TV Shows Content</label>
@@ -65,7 +72,24 @@
                             <onclick condition="!String.IsEmpty(Skin.String(spotlighttvshows.path))">Skin.Reset(spotlighttvshows.path)</onclick>
                             <enable>Skin.HasSetting(EnableSpotlight)</enable>
                         </control>
-                        <control type="button" id="8005" description="Configure LiveTV Spotlight">
+                        <control type="button" id="80041" description="Choose TV Spotlight">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label> - Configure Custom TV Lists</label>
+                            <onclick>ActivateWindow(1160)</onclick>
+                            <visible>String.IsEqual(Skin.String(spotlighttvshows.label),Spotlight TV)</visible>
+                            <visible>!Skin.HasSetting(DisableAuraHomeLayout)</visible>
+                            <enable>Skin.HasSetting(EnableSpotlight)</enable>
+                        </control>
+                        <control type="radiobutton" id="8005" description="Enable Random Spotlight">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label>Spotlight Random Sorting</label>
+                            <radioposx>730</radioposx>
+                            <selected>Skin.HasSetting(EnableSpotlightRandom)</selected>
+                            <onclick>Skin.ToggleSetting(EnableSpotlightRandom)</onclick>
+                            <enable>Skin.HasSetting(EnableSpotlight)</enable>
+                        </control>
+
+                        <control type="button" id="8006" description="Configure LiveTV Spotlight">
                             <include>Dialog_Standard_ListButton</include>
                             <label>Configure LiveTV Spotlight</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=pvrspot)</onclick>

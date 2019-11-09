@@ -1189,6 +1189,20 @@
             <top>280</top>
             <height>270</height>
             <width>650</width>
+            <!-- Play OpenMeta -->
+            <control type="radiobutton" id="889">
+              <include name="netflix_button" content="netflix_button">
+                <param name="icon" value="play" />
+              </include>
+              <radiowidth>25</radiowidth>
+              <radioheight>28</radioheight>
+              <radioposx>13</radioposx>
+              <onclick>Dialog.Close(all,force)</onclick>
+	      <onclick>RunPlugin(plugin://plugin.video.openmeta/movies/play/imdb/$INFO[ListItem.IMDBNumber])</onclick>
+              <visible>System.HasAddon(plugin.video.openmeta) + String.IsEqual(ListItem.DBType,movie) + String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
+              <label>Play</label>
+            </control>
+
             <!-- Search TMDB -->
             <control type="radiobutton" id="89">
               <include name="netflix_button" content="netflix_button">

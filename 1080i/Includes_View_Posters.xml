@@ -1116,11 +1116,11 @@
         </include>
 	<top>40</top>
         <left>420</left>
-        <movement>2</movement>
         <width>1900</width>
         <height>420</height>
         <orientation>horizontal</orientation>
         <preloaditems>2</preloaditems>
+	<movement>5</movement>
         <scrolltime tween="linear">400</scrolltime>
 
         <include content="Widget_Common">
@@ -1149,7 +1149,7 @@
             <param name="text" value="$PARAM[text]" />
           </include>
         </focusedlayout>
-          <content target="videos" sortby="year" sortorder="descending">$INFO[Container(505).ListItem.FolderPath]</content>
+          <content target="videos" sortby="year" sortorder="descending">$INFO[ListItem.FolderPath]</content>
         </control>
 
 
@@ -3153,39 +3153,18 @@
 
   <include name="View_Landscape_Artwork">
     <include>Defs_PosterBack</include>
-<!--
-    <control type="image">
-      <aspectratio aligny="center" scalediffuse="false">scale</aspectratio>
-      <texture background="true" diffuse="diffuse/landscape.png">$VAR[Image_Fanart]</texture>
-    </control>
--->
       <control type="image">
         <bordersize>10</bordersize>
         <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$VAR[Image_Fanart]</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
         <visible>!String.Contains(ListItem.Path,plugin.video.youtube)</visible>
       </control>
-
       <control type="image">
         <bordersize>10</bordersize>
         <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$INFO[ListItem.Icon]</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
         <visible>String.Contains(ListItem.Path,plugin.video.youtube)</visible>
       </control>
-
-<!--
-    <control type="image">
-      <bottom>20</bottom>
-      <left>75</left>
-      <right>75</right>
-      <aspectratio aligny="bottom">keep</aspectratio>
-      <texture background="true">$VAR[Image_ClearLogo]</texture>
-      <visible>!Skin.HasSetting(DisableFakeLandscapeArt)</visible>
-      <visible>!Control.IsVisible(507) + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb) + !String.Contains(ListItem.Art(fanart),tvthumb)]</visible>
-      <visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows)</visible>
-      <visible>!Control.IsVisible(52) + !Control.IsVisible(502)</visible> 
-    </control>
--->
         <control type="image">
           <bottom>30</bottom>
           <top>170</top>
@@ -3193,7 +3172,7 @@
           <right>120</right>
           <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
           <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
-          <visible>!Control.IsVisible(507) + !Control.IsVisible(502) + !Control.IsVisible(504) + !String.IsEqual(ListItem.DBType,season) + !String.IsEqual(ListItem.DBType,episode)  + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
+          <visible>!Control.IsVaisible(507) + !Control.IsVisible(502) + !Control.IsVisible(504) + !String.IsEqual(ListItem.DBType,season) + !String.IsEqual(ListItem.DBType,episode)  + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
        </control>
 
         <control type="image">
@@ -3203,7 +3182,7 @@
           <height>45%</height>
           <aspectratio>keep</aspectratio>
           <texture background="true">$VAR[Widget_ClearLogo]</texture>
-          <visible>!Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogContextMenu.xml) + !Control.IsVisible(507) + !Control.IsVisible(502) + !Control.IsVisible(504) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
+          <visible>!Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogContextMenu.xml) + !Window.IsVisible(DialogBusy.xml) + !Control.IsVisible(507) + !Control.IsVisible(502) + !Control.IsVisible(504) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
         </control>
 
             <control type="group">

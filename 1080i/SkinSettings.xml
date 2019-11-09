@@ -423,6 +423,14 @@
 		            <onclick condition="!String.IsEmpty(Skin.String(spotlightmovies.path))">Skin.Reset(spotlightmovies.path)</onclick>
 			    <enable>Skin.HasSetting(EnableSpotlight)</enable>
                         </control>
+                        <control type="button" id="96694" description="Configure Custom Movie Lists">
+                            <visible>!Skin.HasSetting(DisableAuraHomeLayout) + Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Custom Movie Lists</label>
+                            <visible>String.IsEqual(Skin.String(spotlightmovies.label),Spotlight Movies)</visible>
+                            <onclick>ActivateWindow(1161)</onclick>
+                        </control>
+
                         <control type="button" id="9669" description="Choose TV Shows Spotlight">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <include>Defs_Settings_Button</include>
@@ -432,6 +440,13 @@
                             <onclick condition="!String.IsEmpty(Skin.String(spotlighttvshows.label))">Skin.Reset(spotlighttvshows.label)</onclick>
                             <onclick condition="!String.IsEmpty(Skin.String(spotlighttvshows.path))">Skin.Reset(spotlighttvshows.path)</onclick>
 			    <enable>Skin.HasSetting(EnableSpotlight)</enable>
+                        </control>
+                        <control type="button" id="96693" description="Configure Custom TV Lists">
+                            <visible>!Skin.HasSetting(DisableAuraHomeLayout) + Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Custom TV Lists</label>
+			    <visible>String.IsEqual(Skin.String(spotlighttvshows.label),Spotlight TV)</visible>
+                            <onclick>ActivateWindow(1160)</onclick>
                         </control>
                         <control type="button" id="96781" description="Configure LiveTV Spotlight">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014) + !Skin.HasSetting(DisableAuraHomeLayout)</visible>
@@ -678,7 +693,7 @@
                         <control type="radiobutton" id="92111" description="Zoom Effect">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9003)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Zoom Effect</label>
+                            <label>Animate fanart (zoom & pan ) </label>
                             <selected>Skin.HasSetting(animation_bg)</selected>
                             <onclick>Skin.ToggleSetting(animation_bg)</onclick>
                         </control>
@@ -996,15 +1011,13 @@
                         <!-- ============= -->
                         <!-- Miscellaneous -->
                         <!-- ============= -->
-<!--
-                        <control type="radiobutton" id="9699" description="Auto library update">
+                        <control type="radiobutton" id="9699" description="Aura Mode Widget Gap">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9006)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Auto update library on Home load</label>
-                            <selected>Skin.HasSetting(AutoLibraryHome)</selected>
-                            <onclick>Skin.ToggleSetting(AutoLibraryHome)</onclick>
+                            <label>Disable Aura Home Widget gap</label>
+                            <selected>Skin.HasSetting(DisableAuraModeGap)</selected>
+                            <onclick>Skin.ToggleSetting(DisableAuraModeGap)</onclick>
                         </control>
--->
                         <control type="radiobutton" id="96991" description="AuraMod Settings Style">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9006)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1309,6 +1322,48 @@
                             <label>Select WidgetBar Items</label>
                             <onclick>ActivateWindow(1133)</onclick>
                         </control>
+                        <control type="button" id="96361" description="Suggested Movie/TV Widget ">
+                            <textcolor>main_fg_100</textcolor>
+                            <disabledcolor>main_fg_12</disabledcolor>
+                            <height>80</height>
+                            <textoffsetx>view_pad</textoffsetx>
+                            <textureup flipy="true" colordiffuse="panel_fg_30">buttons/spin-down.png</textureup>
+                            <texturedown colordiffuse="panel_fg_30">buttons/spin-down.png</texturedown>
+                            <textureupfocus flipy="true" colordiffuse="panel_fg_100">buttons/spin-down.png</textureupfocus>
+                            <texturedownfocus colordiffuse="panel_fg_100">buttons/spin-down.png</texturedownfocus>
+                            <textureradiofocus colordiffuse="panel_fg_70">buttons/radio-on.png</textureradiofocus>
+                            <textureradionofocus colordiffuse="panel_fg_12">buttons/radio-off.png</textureradionofocus>
+                            <texturefocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</texturefocus>
+                            <alttexturefocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturefocus>
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011) + System.HasAddon(plugin.video.seren)</visible>
+                            <label>[B]Suggested Movie/TV Widget[/B]</label>
+                        </control>
+                        <control type="radiobutton" id="96362" description="Enable Suggested Movies/TV Widget">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011) + System.HasAddon(plugin.video.seren)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Enable Suggested Movies/TV Widget</label>
+                            <selected>Skin.HasSetting(EnableSuggestedWidget)</selected>
+                            <onclick>Skin.ToggleSetting(EnableSuggestedWidget)</onclick>
+                        </control>
+                        <control type="button" id="96363" description="Choose Movies List">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011) + Skin.HasSetting(EnableSuggestedWidget) + System.HasAddon(plugin.video.seren)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Choose Movies List</label>
+                            <label2>$INFO[Skin.String(similarmovies.label)]</label2>
+                            <onclick condition="String.IsEmpty(Skin.String(similarmovies.label))">RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=similarmovies.label&amp;skinWidgetTarget=similarmovies.target&amp;skinWidgetPath=similarmovies.path)</onclick>
+                            <onclick condition="!String.IsEmpty(Skin.String(similarmovies.label))">Skin.Reset(similarmovies.label)</onclick>
+                            <onclick condition="!String.IsEmpty(Skin.String(similarmovies.path))">Skin.Reset(similarmovies.path)</onclick>
+                        </control>
+                        <control type="button" id="96364" description="Choose TV List">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011) + Skin.HasSetting(EnableSuggestedWidget) + System.HasAddon(plugin.video.seren)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Choose TV List</label>
+                            <label2>$INFO[Skin.String(similartv.label)]</label2>
+                            <onclick condition="String.IsEmpty(Skin.String(similartv.label))">RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=similartv.label&amp;skinWidgetTarget=similartv.target&amp;skinWidgetPath=similartv.path)</onclick>
+                            <onclick condition="!String.IsEmpty(Skin.String(similartv.label))">Skin.Reset(similartv.label)</onclick>
+                            <onclick condition="!String.IsEmpty(Skin.String(similartv.path))">Skin.Reset(similartv.path)</onclick>
+                        </control>
+
                         <!-- =============-->
                         <!-- ----PVR-------->
                         <!-- =============-->

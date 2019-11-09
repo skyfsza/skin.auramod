@@ -2,7 +2,6 @@
 <!-- Foundation -->
 <window id="4">
     <backgroundcolor>FF2B2B2B</backgroundcolor>
-
     <defaultcontrol always="true">9900</defaultcontrol>
 <!--
     <onload condition="![Window.Previous(SettingsCategory.xml) | Window.Previous(SkinSettings.xml)] + String.IsEmpty(Window(Home).Property(MenuIconFocus))">ReplaceWindow(InterfaceSettings)</onload>

@@ -43,14 +43,6 @@
                         <visible>String.Contains(ListItem.Icon,none.png)</visible>
                         <visible>Skin.HasSetting(SubmenuLabel)</visible>
                     </control>
-<!--
-                    <control type="image">
-                        <bordersize>10</bordersize>
-                        <aspectratio scalediffuse="false">keep</aspectratio>
-                        <texture background="true" diffuse="diffuse/submenu.png">$INFO[ListItem.Icon]</texture>
-                        <visible>!Skin.HasSetting(SubmenuLabel)</visible>
-                    </control>
--->
                     <control type="image">
 			<top>-10</top>
                         <animation effect="slide" end="0,20" time="0" condition="Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(LargeSubmenuLabel)">Conditional</animation>
@@ -114,9 +106,6 @@
                         <visible>String.Contains(ListItem.FolderPath,type=person)</visible>
                     </control>
     </include>
-
-
-
 
     <include name="Widget_Items_Landscape">
      <control type="group">
@@ -207,7 +196,7 @@
         </control>
 
             <control type="group">
-                <height>70</height>
+                <height>50</height>
                 <bottom>0</bottom>
                 <visible>![!Skin.HasSetting(DisableFakeLandscapeArt) + !String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome)]]</visible>
                 <visible>[!Skin.HasSetting(DisableClearlogo) | Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(clearlogo))] + !Skin.HasSetting(WidgetLabels) | Window.IsVisible(1138)</visible>
@@ -291,23 +280,10 @@
         <bottom>5</bottom>
 	<align>center</align>
         <height>25</height>
-<!--        <label>$INFO[ListItem.TvShowTitle] - $INFO[ListItem.Season, S,: ]$INFO[ListItem.Episode,E, ]</label> -->
 	<label>Season $INFO[ListItem.Season] Episode $INFO[ListItem.Episode]</label>
         <textcolor>white</textcolor>
         <font>font_widget_plot</font>
      </control>
-<!--
-     <control type="label">
-        <bottom>5</bottom>
-	<right>10</right>
-	<align>right</align>
-        <height>25</height>
-        <width>200</width>
-        <label>[I]$INFO[ListItem.Premiered(DDD MMM yyyy)][/I]</label>
-        <textcolor>white</textcolor>
-        <font>font_widget_plot</font>
-     </control>
--->
      </control>
    </control>
    </include>
@@ -346,8 +322,6 @@
         <control type="image">
           <bottom>35</bottom>
 	  <left>10</left>
-<!--	  <top>5</top>
-	  <centerleft>50%</centerleft> -->
           <width>50%</width>
           <height>50%</height>
           <aspectratio>keep</aspectratio>
@@ -462,28 +436,6 @@
            <label>$VAR[ListItemPercentRemained,,% remaining]</label>
        </control>
    </control>
-
-<!--
-       <control type="textbox">
-	<top>190</top>
-	<height>95</height>
-        <width>40%</width>
-        <left>53%</left>
-        <font>font_epg_timeline</font>
-        <textcolor>dimgrey</textcolor>
-        <label>[I]Aired $INFO[ListItem.Premiered(DDD MMM yyyy)] [/I]</label>
-	<visible>$EXP[DBTvideos]</visible>
-       </control>
-       <control type="image">
-	<visible>$EXP[DBTvideos]</visible>
-          <top>180</top>
-	  <right>120</right>
-          <texture background="true" colordiffuse="main_fg_100">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
-          <aspectratio>stretch</aspectratio>
-          <height>54</height>
-          <width>74</width>
-        </control>
--->
       </control>
     </control>
   </include>
@@ -620,21 +572,8 @@
       <control type="group">
         <visible>[Control.IsVisible(505) | Control.HasFocus(5055)] + String.IsEmpty(Container(5055).ListItem.Art(fanart)) + String.IsEmpty(Container(5055).ListItem.Year) + [String.IsEmpty(Container(5055).ListItem.TvShowTitle) | String.IsEmpty(Container(5055).ListItem.Title)]</visible>
        <control type="image">
-   <!--     <texture background="true" fallback="special://skin/extras/backgrounds/global_blue.jpg">$VAR[category_widget]</texture> -->
           <texture background="true">common/widget_blank.png</texture>
        </control>
-<!--
-       <control type="image">
-        <height>100%</height>
-        <width>100%</width>
-        <texture background="true" colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
-       </control>
-       <control type="image">
-        <height>100%</height>
-        <width>100%</width>
-        <texture background="true" colordiffuse="99000000" flipy="true">diffuse/landscape.png</texture>
-       </control>
--->
       <control type="textbox">
         <centerleft>50%</centerleft>
         <textcolor>grey</textcolor>
@@ -652,7 +591,7 @@
                 <height>50</height>
                 <bottom>0</bottom>
                 <visible>![!Skin.HasSetting(DisableFakeLandscapeArt) + !String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome)]]</visible>
-                <visible>[!Skin.HasSetting(DisableClearlogo) | Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(clearlogo))] + !Skin.HasSetting(WidgetLabels) | Window.IsVisible(1138)</visible>
+                <visible>!String.Contains(ListItem.Path,plugin.video.youtube) + [!Skin.HasSetting(DisableClearlogo) | Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(clearlogo))] + !Skin.HasSetting(WidgetLabels) | Window.IsVisible(1138)</visible>
 
                 <control type="image">
                     <texture background="true" colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
@@ -672,7 +611,7 @@
 
 
      <control type="group">
-       <visible>!Skin.HasSetting(WidgetLabels) + String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(ListItem.Art(clearlogo)) + [[Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixSmallWidget)] | !Skin.HasSetting(DisableAuraHomeLayout)]</visible>
+       <visible>!String.Contains(ListItem.Path,plugin.video.youtube) + !Skin.HasSetting(WidgetLabels) + String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(ListItem.Art(clearlogo)) + [[Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixSmallWidget)] | !Skin.HasSetting(DisableAuraHomeLayout)]</visible>
       <control type="image">
         <left>0</left>
 	<bottom>30</bottom>
@@ -692,7 +631,7 @@
      </control>
 
      <control type="group">
-       <visible>!Skin.HasSetting(WidgetLabels) + !String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEqual(ListItem.DBType,episode) + [Skin.HasSetting(DisableAuraHomeLayout) + Skin.HasSetting(DisableNetflixSmallWidget)]</visible>
+       <visible>!String.Contains(ListItem.Path,plugin.video.youtube) + !Skin.HasSetting(WidgetLabels) + !String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEqual(ListItem.DBType,episode) + [Skin.HasSetting(DisableAuraHomeLayout) + Skin.HasSetting(DisableNetflixSmallWidget)]</visible>
       <control type="image">
         <left>0</left>
         <bottom>20</bottom>
@@ -978,7 +917,6 @@
         <font>font_posterdetail_small</font>
         <textcolor>main_fg_100</textcolor>
         <label>$VAR[date_aired]  Length: [/COLOR][B]$VAR[Label_Duration][/B][COLOR=$VAR[ColorHighlight]]  Ends: [/COLOR][B]$INFO[ListItem.EndTime][/B]</label> 
-<!--        <label>$VAR[Label_ShowCase_InfoLine]</label> -->
 	<visible>!String.IsEqual(ListItem.Label,See More...)</visible> 
       </control>
 	<control type="textbox">

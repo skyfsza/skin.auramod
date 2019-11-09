@@ -108,7 +108,7 @@
 
 
    <variable name="Image_Fanart">
-        <value condition="String.Contains(ListItem.Path,plugin.video.twitch) + !String.IsEmpty(ListItem.Art(poster)">$INFO[ListItem.Art(poster)]</value>
+        <value condition="String.Contains(ListItem.Path,plugin.video.twitch) + !String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(landscape)) + String.IsEqual(ListItem.Art(landscape),0)">$INFO[ListItem.Art(fanart)]</value>
         <value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBType,episode)] + Skin.HasSetting(PreferFanartHome) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
         <value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBType,episode)] + !Skin.HasSetting(PreferFanartHome) + !String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
@@ -214,6 +214,18 @@
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
     </variable>
+
+    <variable name="addon_view_infospotlight_clearlogo">
+        <value condition="!String.IsEmpty(Container(5055).ListItem.Art(tvshow.clearlogo))">$INFO[Container(5055).ListItem.Art(tvshow.clearlogo)]</value>
+        <value condition="!String.IsEmpty(Container(5055).ListItem.Art(clearlogo))">$INFO[Container(5055).ListItem.Art(clearlogo)]</value>
+        <value condition="!String.IsEmpty(Container(5056).ListItem.Art(tvshow.clearlogo))">$INFO[Container(5056).ListItem.Art(tvshow.clearlogo)]</value>
+        <value condition="!String.IsEmpty(Container(5056).ListItem.Art(clearlogo))">$INFO[Container(5056).ListItem.Art(clearlogo)]</value>
+        <value condition="Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Art(tvshow.clearlogo))">$INFO[Container(1505).ListItem.Art(tvshow.clearlogo)]</value>
+        <value condition="Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Art(clearlogo))">$INFO[Container(1505).ListItem.Art(clearlogo)]</value>
+        <value condition="Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Art(clearlogo))">$INFO[Container(1506).ListItem.Art(clearlogo)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</value>
+    </variable>
+
     <variable name="Widget_ClearLogo_1505">
         <value condition="!String.IsEmpty(Container(1505).ListItem.Art(tvshow.clearlogo))">$INFO[Container(1505).ListItem.Art(tvshow.clearlogo)]</value>
         <value condition="!String.IsEmpty(Container(1505).ListItem.Art(clearlogo))">$INFO[Container(1505).ListItem.Art(clearlogo)]</value>
