@@ -26,9 +26,13 @@
   <onload condition="!String.IsEmpty(Skin.String(MovieHubMenuFocus))">SetFocus(401,0,absolute)</onload>
   <onload condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,0,absolute)</onload>
   <onunload>Skin.SetString(similar_movies_traktid,$INFO[Container(12341).ListItem.Property(trakt_id)])</onunload>
+  <onunload>Skin.SetString(similar_movies2_traktid,$INFO[Container(12341).ListItemAbsolute(2).Property(trakt_id)])</onunload>
   <onunload>Skin.SetString(similar_movies_label,$INFO[Container(12341).ListItem.Label])</onunload>
+  <onunload>Skin.SetString(similar_movies2_label,$INFO[Container(12341).ListItemAbsolute(2).Label])</onunload>
   <onunload>Skin.SetString(similar_tv_traktid,$INFO[Container(12342).ListItem.Property(tvshow.trakt_id)])</onunload>
+  <onunload>Skin.SetString(similar_tv2_traktid,$INFO[Container(12342).ListItemAbsolute(2).Property(tvshow.trakt_id)])</onunload>
   <onunload>Skin.SetString(similar_tv_label,$INFO[Container(12342).ListItem.TvShowTitle])</onunload>
+  <onunload>Skin.SetString(similar_tv2_label,$INFO[Container(12342).ListItemAbsolute(2).TvShowTitle])</onunload>
   <controls>
     <control type="list" id="9988">
       <description>hidden container for playlist background</description>

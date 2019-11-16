@@ -2,7 +2,7 @@
 <window type="window" id="2114">
   <onload condition="String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(505)</onload>
   <onload condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,1,absolute)</onload>
-  <onload>Skn.Reset(CatMove)</onload>
+  <onload>Skin.Reset(CatMove)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
       <include>Animation_Right</include>

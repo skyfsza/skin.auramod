@@ -112,10 +112,10 @@
               <left>256</left>
               <width>$PARAM[width]</width>
               <animation effect="slide" end="-256" condition="Skin.HasSetting(DisableStarRating)">Conditional</animation>
-              <include content="Object_Ratings" condition="Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(Home.xml) | Window.IsVisible(script-globalsearch.xml)">
-          <param name="directory" value="monochrome" />
+        <include content="Object_Ratings">
+          <param name="directory" value="" />
           <param name="align" value="right" />
-          <param name="width" value="700" />
+          <param name="width" value="$PARAM[width]" />
           <param name="rottentomatoes" value="true" />
           <param name="imdbvotes" value="true" />
           <param name="usermeter" value="false" />
@@ -127,7 +127,7 @@
           <param name="top250" value="false" />
           <param name="plot" value="false" />
           <param name="studio" value="true" />
-              </include>
+        </include>
             </control>
           </control>
         </control>
@@ -3585,15 +3585,15 @@
               <param name="directory" value="color" />
               <param name="align" value="left" />
               <param name="width" value="1000" />
-              <param name="rottentomatoes" value="false" />
-              <param name="imdbvotes" value="false" />
-              <param name="usermeter" value="false" />
+              <param name="rottentomatoes" value="true" />
+              <param name="imdbvotes" value="true" />
+              <param name="usermeter" value="true" />
               <param name="imdb" value="true" />
-              <param name="tmdb" value="false" />
-              <param name="tvdb" value="false" />
-              <param name="metacritic" value="false" />
+              <param name="tmdb" value="true" />
+              <param name="tvdb" value="true" />
+              <param name="metacritic" value="true" />
               <param name="oscars" value="true" />
-              <param name="top250" value="false" />
+              <param name="top250" value="true" />
             </include>
           </control>
         </control>
@@ -7397,7 +7397,7 @@
   <include name="similar_movies_list">
       <control type="list" id="12341">
 	<content sortby="random">$INFO[Skin.String(similarmovies.path)]</content>
-	<autoscroll time="30000">true</autoscroll> <!-- Time to show each image, in milliseconds -->
+	<autoscroll time="120000">true</autoscroll> <!-- Time to show each image, in milliseconds -->
 	<itemlayout />
 	<focusedlayout />
   </control>
@@ -7405,7 +7405,7 @@
   <include name="similar_tv_list">
       <control type="list" id="12342">
         <content sortby="random">$INFO[Skin.String(similartv.path)]</content>
-        <autoscroll time="30000">true</autoscroll> <!-- Time to show each image, in milliseconds -->
+        <autoscroll time="120000">true</autoscroll> <!-- Time to show each image, in milliseconds -->
         <itemlayout />
         <focusedlayout />
   </control>

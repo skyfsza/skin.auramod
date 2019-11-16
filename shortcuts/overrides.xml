@@ -684,6 +684,7 @@
                 <shortcut widget="MovieGenres" label="$LOCALIZE[31257]" icon="DefaultGenre.png" widgetTarget="video">library://video/movies/genres.xml</shortcut>
                 <shortcut widget="MovieSets" label="$LOCALIZE[31260]" icon="DefaultSets.png" widgetTarget="video">videodb://movies/sets/</shortcut>
                 <shortcut widget="SimilarSerenMovies" label="Because you watched $VAR[similarserenmovie]" icon="DefaultSets.png" widgetTarget="video">$VAR[similar_movie_content]</shortcut>
+                <shortcut widget="SimilarSerenMovies 2" label="Because you watched $VAR[similarserenmovie2]" icon="DefaultSets.png" widgetTarget="video">$VAR[similar_movie2_content]</shortcut>
                 <shortcut widget="RandomSerenMovies" label="Spotlight Movies" icon="DefaultSets.png" widgetTarget="video">videodb://movies/sets/</shortcut>
 
             </node>
@@ -696,6 +697,7 @@
                 <shortcut widget="TvShowNodes" label="$LOCALIZE[31297]" icon="special://skin/extras/icons/title.png" widgetTarget="video">library://video/tvshows/</shortcut>
                 <shortcut widget="TvShowGenres" label="$LOCALIZE[31274]" icon="DefaultGenre.png" widgetTarget="video">library://video/tvshows/genres.xml</shortcut>
                 <shortcut widget="SimilarSerenTV" label="Because you watched $VAR[similarserentv]" icon="DefaultSets.png" widgetTarget="video">$VAR[similar_tv_content]</shortcut>
+                <shortcut widget="SimilarSerenTV 2" label="Because you watched $VAR[similarserentv2]" icon="DefaultSets.png" widgetTarget="video">$VAR[similar_tv2_content]</shortcut>
                 <shortcut widget="RandomSerenTV" label="Spotlight TV" icon="DefaultGenre.png" widgetTarget="video">noop</shortcut>
             </node>
             <node label="$LOCALIZE[20360]">

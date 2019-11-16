@@ -252,7 +252,7 @@
                     <colordiffuse>FF000000</colordiffuse>
                     <aspectratio>stretch</aspectratio>
                     <texture background="true">common/white.png</texture>
-                    <visible>Skin.HasSetting(DisableNetflixHomeDefault)</visible>
+                    <visible>Skin.HasSetting(DisableNetflixHomeDefault) + !Skin.HasSetting(DisableNetflixSubmenuBG)</visible>
                 </control>
 
 		<control type="list" id="300">
