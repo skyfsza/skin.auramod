@@ -941,7 +941,6 @@
                             <onclick>Skin.ToggleSetting(DisableSpotlightAutoplay)</onclick>
                         </control>
 
-<!--
                        <control type="radiobutton" id="9501">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
                             <label>$LOCALIZE[31022]</label>
@@ -949,6 +948,7 @@
                             <selected>Skin.HasSetting(SkinHelper.EnableAnimatedPosters)</selected>
                             <onclick>Skin.ToggleSetting(SkinHelper.EnableAnimatedPosters)</onclick>
                         </control>
+<!--
 
                         <control type="radiobutton" id="9502">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>

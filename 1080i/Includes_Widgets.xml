@@ -478,7 +478,7 @@
         <include condition="$PARAM[categorycondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Category_Big_Height</include>
         <include condition="$PARAM[categorycondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Category_Big_Height_small</include>
         <onclick condition="!Skin.HasSetting(EnableShowInfo) + [[String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(ShowInfo.Episodes)] | [String.IsEqual(ListItem.DBType,tvshow) + !Skin.HasSetting(ShowInfo.TV)] | [String.IsEqual(ListItem.DBType,movie) + !Skin.HasSetting(ShowInfo.Movies)]]">Action(Info)</onclick>
-        <visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | Container(300).OnNext | Container(300).OnPrevious | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
+        <visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
         <include content="Widget_Items" condition="!$PARAM[submenu]">
           <param name="id" value="$PARAM[id]" />
           <param name="target" value="$PARAM[target]" />
@@ -622,6 +622,8 @@
         </control>
       </control>
       <control type="list" id="$PARAM[id]">
+       <onfocus condition="Control.IsVisible(1505)">SetProperty(SkinHelper.WidgetContainer,1505,Home)</onfocus>
+       <onfocus condition="Control.IsVisible(1506)">SetProperty(SkinHelper.WidgetContainer,1506,Home)</onfocus>
         <onunfocus>ClearProperty(SpotFocus)</onunfocus>
         <left>0</left>
         <movement>2</movement>
@@ -881,13 +883,13 @@
     <preloaditems>2</preloaditems>
     <onfocus>SetProperty(WidgetFocus,1,Home)</onfocus>
     <onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[id],Home)</onfocus>
-    <include content="Widget_Movement" condition="!Skin.HasSetting(SubmenuLabel)">
+    <include content="Widget_Movement" condition="!Skin.HasSetting(SubmenuLabel) + !Window.IsVisible(3910)">
       <param name="id" value="$PARAM[id]" />
       <param name="aspect" value="$PARAM[aspect]" />
       <param name="widgetAspect" value="$PARAM[widgetAspect]" />
       <param name="submenu" value="$PARAM[submenu]" />
     </include>
-    <include content="Widget_Movement" condition="Skin.HasSetting(SubmenuLabel)">
+    <include content="Widget_Movement" condition="Skin.HasSetting(SubmenuLabel) + !Window.IsVisible(3910)">
       <param name="id" value="$PARAM[id]" />
       <param name="aspect" value="$PARAM[aspect]" />
       <param name="widgetAspect" value="$PARAM[widgetAspect]" />
@@ -2159,7 +2161,8 @@
           <onleft>Control.Move(20,-1)</onleft>
           <onleft>300</onleft>
           <onright>902</onright>
-          <ondown>30222</ondown>
+          <ondown condition="!$EXP[noSubMenu]">30222</ondown>
+          <ondown condition="$EXP[noSubMenu]">330</ondown>
           <onup>300</onup>
           <scrolltime>0</scrolltime>
           <itemlayout width="289" height="289">
@@ -2305,7 +2308,8 @@
           <onleft>902</onleft>
           <onright>Control.Move(20,1)</onright>
           <onup>300</onup>
-          <ondown>30222</ondown>
+          <ondown condition="!$EXP[noSubMenu]">30222</ondown>
+          <ondown condition="$EXP[noSubMenu]">330</ondown>
           <scrolltime>0</scrolltime>
           <itemlayout width="289" height="289">
             <control type="group">

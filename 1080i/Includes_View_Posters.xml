@@ -854,7 +854,7 @@
 
 
         <control type="fixedlist" id="506">
-	  <onfocus>ClearProperty(SkinHelper.WidgetContainer)</onfocus>
+	  <onfocus>ClearProperty(SkinHelper.WidgetContainer,Home)</onfocus>
           <visible>[Container.Content(addons) | String.IsEmpty(Container.Content)]</visible>
           <animation effect="slide" end="-500,0" time="500" condition="Control.HasFocus(5056)">Conditional</animation>
           <onright condition="!Container(5056).IsUpdating">5056</onright>
@@ -920,7 +920,7 @@
       <control type="group">
         <animation effect="fade" start="0" end="100" delay="100" time="500" condition="Control.HasFocus(5056)">Conditional</animation>
 	<visible>Control.HasFocus(5056)</visible>
-	<left>60</left>
+	<left>80</left>
 	<top>-20</top>
        <include content="addon_view_infospotlight">
          <param name="id" value="5056" />
@@ -932,9 +932,8 @@
           <animation effect="fade" start="100" end="0" condition="Container(5056).IsUpdating">Conditional</animation>
 	  <posy>540</posy>
 
-
       <control type="panel" id="5056">
-	<visible>Control.IsVisible(506)</visible>
+	<visible>Control.IsVisible(506) + !String.Contains(Container(506).ListItem.Label,Search)</visible>
         <onleft>504</onleft>
         <onback>506</onback>
 
@@ -1030,7 +1029,7 @@
 
 
         <control type="fixedlist" id="505">
-	  <onfocus>ClearProperty(SkinHelper.WidgetContainer)</onfocus>
+	  <onfocus>ClearProperty(SkinHelper.WidgetContainer,Home)</onfocus>
           <visible>[Container.Content(addons) | String.IsEmpty(Container.Content)]</visible>
           <animation effect="slide" end="-500,0" time="500" condition="Control.HasFocus(5055)">Conditional</animation>
           <onright condition="!Container(5055).IsUpdating">5055</onright>
@@ -1108,7 +1107,7 @@
           <animation effect="fade" start="100" end="0" condition="Container(5055).IsUpdating">Conditional</animation>
 	  <posy>540</posy>
       <control type="fixedlist" id="5055">
-	<visible>Control.IsVisible(505)</visible>
+	<visible>Control.IsVisible(505) + !String.Contains(Container(505).ListItem.Label,Search)</visible>
         <onleft>504</onleft>
         <onback>505</onback>
         <include content="view_widget_onclick" condition="!Skin.HasSetting(EnableShowInfo)">
@@ -1121,7 +1120,7 @@
         <orientation>horizontal</orientation>
         <preloaditems>2</preloaditems>
 	<movement>5</movement>
-        <scrolltime tween="linear">400</scrolltime>
+        <scrolltime tween="linearContainer(5056).ListItem.Label">400</scrolltime>
 
         <include content="Widget_Common">
           <param name="top" value="$PARAM[top]" />
@@ -1154,6 +1153,7 @@
 
 
 
+<!--
       <control type="panel" id="5055">
 	<visible>Skin.HasSetting(EnableAddonViewPoster)</visible>
         <onleft>504</onleft>
@@ -1201,6 +1201,7 @@
         </focusedlayout>
           <content target="videos" sortby="year" sortorder="descending">$INFO[Container(505).ListItem.FolderPath]</content>
         </control>
+-->
        </control>
       </control>
     </control>

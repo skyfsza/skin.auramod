@@ -2,12 +2,13 @@
 <!-- Foundation -->
 <window id="0">
   <defaultcontrol always="true">4000</defaultcontrol>
-  <!--<onload condition="String.IsEqual(Skin.String(hubstartup),true) + Skin.HasSetting(HubOnStartup) + ![Container(1505).IsUpdating + Container(1506).IsUpdating + Container(13003).IsUpdating + Container(13004).IsUpdating + Container(13005).IsUpdating + Container(13006).IsUpdating + Container(13007).IsUpdating + Container(23003).IsUpdating + Container(23004).IsUpdating + Container(23005).IsUpdating + Container(23006).IsUpdating + Container(23007).IsUpdating + Container(33003).IsUpdating + Container(33004).IsUpdating + Container(33005).IsUpdating + Container(33006).IsUpdating + Container(33007).IsUpdating + Container(43003).IsUpdating + Container(43004).IsUpdating + Container(43005).IsUpdating + Container(43006).IsUpdating + Container(43007).IsUpdating + Container(53003).IsUpdating + Container(53004).IsUpdating + Container(53005).IsUpdating + Container(53006).IsUpdating + Container(53007).IsUpdating + Container(63003).IsUpdating + Container(63004).IsUpdating + Container(63005).IsUpdating + Container(63006).IsUpdating + Container(63007).IsUpdating]">AlarmClock(LoadHubs,ActivateWindow(1111),00:01,silent)</onload> -->
   <onload>RunScript(plugin.video.themoviedb.helper,reset_path)</onload>
   <onload condition="Skin.HasSetting(EnableWetherRadar)">RunScript(special://skin/extras/weather.py)</onload>
   <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|x1110|x1111|x1112|x1113|hubtvnetworks|searchmenu|aurahubtv|aurahubmovies|netflixhubtv|netflixhubmovies|pvrspot|tvhubmenu|moviehubmenu)</onload>
   <onload condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs)">Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
   <onload condition="!Skin.HasSetting(SkinHelper.EnableMusicArt)">Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
+    <onload condition="Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">Skin.SetBool(SkinHelper.EnableAnimatedPosters)</onload>
+    <onload condition="!Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">Skin.Reset(SkinHelper.EnableAnimatedPosters)</onload>
   <onload>ClearProperty(HomeFocus,Home)</onload>
   <onload>AlarmClock(SkinSplashStarted,SetProperty(SkinSplashStarted,1,home),00:01,silent,false)</onload>
   <onload>ClearProperty(WidgetLoading,Home)</onload>
@@ -26,13 +27,13 @@
   <onload condition="!String.IsEmpty(Skin.String(MovieHubMenuFocus))">SetFocus(401,0,absolute)</onload>
   <onload condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,0,absolute)</onload>
   <onunload>Skin.SetString(similar_movies_traktid,$INFO[Container(12341).ListItem.Property(trakt_id)])</onunload>
-  <onunload>Skin.SetString(similar_movies2_traktid,$INFO[Container(12341).ListItemAbsolute(2).Property(trakt_id)])</onunload>
+  <onunload>Skin.SetString(similar_movies2_traktid,$INFO[Container(12341).ListItem(2).Property(trakt_id)])</onunload>
   <onunload>Skin.SetString(similar_movies_label,$INFO[Container(12341).ListItem.Label])</onunload>
-  <onunload>Skin.SetString(similar_movies2_label,$INFO[Container(12341).ListItemAbsolute(2).Label])</onunload>
+  <onunload>Skin.SetString(similar_movies2_label,$INFO[Container(12341).ListItem(2).Label])</onunload>
   <onunload>Skin.SetString(similar_tv_traktid,$INFO[Container(12342).ListItem.Property(tvshow.trakt_id)])</onunload>
-  <onunload>Skin.SetString(similar_tv2_traktid,$INFO[Container(12342).ListItemAbsolute(2).Property(tvshow.trakt_id)])</onunload>
+  <onunload>Skin.SetString(similar_tv2_traktid,$INFO[Container(12342).ListItem(2).Property(tvshow.trakt_id)])</onunload>
   <onunload>Skin.SetString(similar_tv_label,$INFO[Container(12342).ListItem.TvShowTitle])</onunload>
-  <onunload>Skin.SetString(similar_tv2_label,$INFO[Container(12342).ListItemAbsolute(2).TvShowTitle])</onunload>
+  <onunload>Skin.SetString(similar_tv2_label,$INFO[Container(12342).ListItem(2).TvShowTitle])</onunload>
   <controls>
     <control type="list" id="9988">
       <description>hidden container for playlist background</description>
@@ -53,9 +54,8 @@
     <!--Multi Image fadelabel and Global Background -->
     <include condition="Skin.HasSetting(SkinHelper.EnableExtraFanart)">fanart_multi</include>
     <include>Global_Background</include>
-    <animation time="0" effect="fade" start="100" end="0" condition="System.HasAlarm(loadinfo)">Conditional</animation>
     <control type="group">
-
+        <animation time="0" effect="fade" start="100" end="0" condition="System.HasAlarm(loadinfo)">Conditional</animation>
       <animation effect="slide" end="40,0" time="500" condition="!Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableMenuVertLabel) + [Control.HasFocus(30222) | Control.HasFocus(1505) | Control.HasFocus(1506) | ControlGroup(505).HasFocus | ControlGroup(900).HasFocus | ControlGroup(505).HasFocus | [Control.HasFocus(13003) + [Integer.IsEqual(Container(13003).Position,0) + !Container(13003).HasPrevious]] | [Control.HasFocus(23003) + [Integer.IsEqual(Container(23003).Position,0) + !Container(23003).HasPrevious]] | [Control.HasFocus(33003) + [Integer.IsEqual(Container(33003).Position,0) + !Container(33003).HasPrevious]] | [Control.HasFocus(43003) + [Integer.IsEqual(Container(43003).Position,0) + !Container(43003).HasPrevious]] | [Control.HasFocus(53003) + [Integer.IsEqual(Container(53003).Position,0) + !Container(53003).HasPrevious]] | [Control.HasFocus(63003) + [Integer.IsEqual(Container(63003).Position,0) + !Container(63003).HasPrevious]]]">Conditional</animation>
       <animation effect="slide" end="280,0" time="500" delay="0" condition="Skin.HasSetting(DisableMenuVertLabel) + [Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)]" reversible="true">Conditional</animation>
       <animation effect="slide" end="250,0" time="500" delay="0" condition="Skin.HasSetting(DisableMenuVertLabelOnly) + [Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)]" reversible="true">Conditional</animation>

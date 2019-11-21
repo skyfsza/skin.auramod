@@ -354,10 +354,9 @@
         <!-- Showcase title font -->
         <font>
             <name>font_showcase_title</name>
-            <filename>RobotoCondensed-Bold.ttf</filename>
+            <filename>RobotoCondensed-Regular.ttf</filename>
             <size>64</size>
             <aspect>0.9</aspect>
-            <style>bold</style>
         </font>
         <font>
             <name>font_title</name>

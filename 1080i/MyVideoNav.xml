@@ -15,7 +15,6 @@
         <include>Object_PlotOverlay</include>
         <include>View_Library</include>
         <include>Topbar</include> 
- 
         <!-- Hidden Buttons -->
         <include>Defs_Options_StandardButtons</include>
         <control type="button" id="8">

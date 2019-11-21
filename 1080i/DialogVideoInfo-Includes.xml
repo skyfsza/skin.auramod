@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Foundation -->
 <includes>
+
   <include name="DialogVideoInfo_Aura">
     <control type="list" id="300">
       <top>30</top>
@@ -938,15 +939,17 @@
     </control>
   </include>
 
- <include name="widget_info_top_aura"><top>140</top></include> 
- <include name="widget_info_top_netflix"><top>120</top></include> 
 
 
+  <include name="widget_info_top_aura">
+    <top>140</top>
+  </include>
+  <include name="widget_info_top_netflix">
+    <top>120</top>
+  </include>
 
   <include name="DialogVideoInfo_Netflix">
-      <include>Animation_Right</include>
-
-    <!-- trailer video preview -->
+   <control type="group">
     <control type="group">
       <top>0</top>
       <width>100%</width>
@@ -957,6 +960,7 @@
         <texture flipx="true" colordiffuse="ff000000" border="15">overlay/gradient_overlay_info.png</texture>
       </control>
     </control>
+    <!-- Fanart Background -->
     <control type="group">
       <control type="image">
         <width>100%</width>
@@ -968,112 +972,120 @@
       <control type="multiimage">
         <width>100%</width>
         <height>100%</height>
-      <imagepath background="true">$VAR[fanart_multi_fadelabel]</imagepath>
-      <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>
-      <aspectratio scalediffuse="true" align="right" aligny="top">scale</aspectratio>
-      <timeperimage>2000</timeperimage>
-      <fadetime>2000</fadetime>
-      <pauseatend>10000</pauseatend>
-      <randomize>false</randomize>
-      <loop>no</loop>
-      <visible>!String.Contains(ListItem.Art(fanart),w1280None)</visible>
-      <include>animation_image_zoom</include>
+        <imagepath background="true">$VAR[fanart_multi_fadelabel]</imagepath>
+        <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>
+        <aspectratio scalediffuse="true" align="right" aligny="top">scale</aspectratio>
+        <timeperimage>2000</timeperimage>
+        <fadetime>2000</fadetime>
+        <pauseatend>10000</pauseatend>
+        <randomize>false</randomize>
+        <loop>no</loop>
+        <visible>!String.Contains(ListItem.Art(fanart),w1280None)</visible>
+        <include>animation_image_zoom</include>
       </control>
       <control type="image">
-	<width>130%</width>
+        <width>130%</width>
         <texture flipx="true" colordiffuse="ff000000" border="15">overlay/gradient_overlay_info.png</texture>
         <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>
       </control>
+     <control type="image">
+      <visible>Control.HasFocus(9601) | ControlGroup(9000).HasFocus | Control.HasFocus(8999)</visible>
+	<animation effect="fade" start="10" end="100" time="300">Visible</animation>
+        <texture background="true" colordiffuse="69000000">common/white.png</texture>
+        <width>100%</width>
+        <height>100%</height>
+      </control>
     </control>
-       <control type="image" id="7878">
-          <right>20</right>
-          <bottom>50</bottom>
-          <texture background="true">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
-          <aspectratio>stretch</aspectratio>
-          <height>108</height>
-          <width>150</width>
-        </control>
+    <control type="image" id="7878">
+      <right>20</right>
+      <bottom>50</bottom>
+      <texture background="true">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
+      <aspectratio>stretch</aspectratio>
+      <height>108</height>
+      <width>150</width>
+    </control>
     <!-- Clearlogo and Fallback Title -->
     <control type="group">
       <left>20</left>
-        <visible>!ControlGroup(9000).HasFocus</visible>
       <control type="grouplist">
         <itemgap>0</itemgap>
         <usecontrolcoords>true</usecontrolcoords>
         <orientation>vertical</orientation>
-	<height>1500</height>
+        <height>1500</height>
         <left>10</left>
-          <control type="image" id="55443">
-            <left>0</left>
-            <right>$PARAM[titleright]</right>
-            <height>218</height>
-            <width>563</width>
-            <align>left</align>
-            <aspectratio align="left" aligny="center">keep</aspectratio>
-            <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
-          </control>
-          <control type="label">
-            <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)] + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
-            <top>-190</top>
-            <label>$VAR[video_heading]</label>
-                  <textcolor>grey</textcolor>
-                  <shadowcolor>black</shadowcolor>
-                  <font>font_heading</font>
-                  <width>730</width>
-                  <height min="30" max="110">auto</height>
-                  <align>left</align>
-                  <aligny>center</aligny>
-                  <wrapmultiline>true</wrapmultiline>
-                  <scroll>true</scroll>
-          </control>
+        <control type="image" id="55443">
+          <left>0</left>
+          <right>$PARAM[titleright]</right>
+          <height>218</height>
+          <width>563</width>
+          <align>left</align>
+          <aspectratio align="left" aligny="center">keep</aspectratio>
+          <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
+        </control>
+        <control type="label">
+          <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)] + String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
+          <top>-190</top>
+          <label>$VAR[video_heading]</label>
+          <textcolor>grey</textcolor>
+          <shadowcolor>black</shadowcolor>
+          <font>font_showcase_title</font>
+          <width>730</width>
+          <height min="30" max="110">auto</height>
+          <align>left</align>
+          <aligny>center</aligny>
+          <wrapmultiline>true</wrapmultiline>
+          <scroll>true</scroll>
+        </control>
         <!-- Netflix Info line -->
         <control type="group">
-        <visible>!Control.HasFocus(9550)</visible>
-	  <top>30</top>
+          <visible>!Control.HasFocus(8999) + !ControlGroup(9000).HasFocus</visible>
+          <visible>!Control.HasFocus(9550)</visible>
+          <top>30</top>
           <height>60</height>
           <include>netflix_infoline</include>
         </control>
         <!-- Plot and Tagline -->
-          <control type="textbox">
-	    <top>10</top>
-            <visible>!Control.HasFocus(9550)</visible>
-            <label fallback="19055">$VAR[Label_OverlayPlot]</label>
-	    <height min="60" max="158">auto</height>
-            <width>750</width>
-            <aligny>top</aligny>
-            <textcolor>dimgrey</textcolor>
-            <font>widget_trakt_title</font>
-          </control>
-	  <control type="label">
-	  <height>20</height>
-	  </control>
+        <control type="textbox">
+          <top>10</top>
+          <visible>!Control.HasFocus(9550)</visible>
+          <label fallback="19055">$VAR[Label_OverlayPlot]</label>
+          <height min="60" max="158">auto</height>
+          <width>750</width>
+          <aligny>top</aligny>
+          <textcolor>dimgrey</textcolor>
+          <font>widget_trakt_title</font>
+          <visible>!Control.HasFocus(9601) + !Control.HasFocus(8999) + !ControlGroup(9000).HasFocus</visible>
+        </control>
+        <control type="label">
+          <height>20</height>
+        </control>
         <control type="group">
+         <visible>!Control.HasFocus(9601) + !Control.HasFocus(8999) + !ControlGroup(9000).HasFocus</visible>
           <control type="grouplist">
-	    <visible>!Control.HasFocus(9550)</visible>
+            <visible>!Control.HasFocus(9550)</visible>
             <orientation>vertical</orientation>
             <top>20</top>
             <height>300</height>
-
-              <control type="group">
-            <visible>!String.IsEmpty(ListItem.Rating) + !Control.HasFocus(9550)</visible>
-                <top>10</top>
-                <height>55</height>
-                <right>940</right>
-                <include content="Object_Ratings">
-                  <param name="directory" value="color" />
-                  <param name="align" value="left" />
-                  <param name="width" value="$PARAM[width]" />
-                  <param name="rottentomatoes" value="true" />
-                  <param name="imdbvotes" value="true" />
-                  <param name="usermeter" value="false" />
-                  <param name="imdb" value="$PARAM[imdb]" />
-                  <param name="tmdb" value="$PARAM[tmdb]" />
-                  <param name="metacritic" value="true" />
-                  <param name="oscars" value="true" />
-                  <param name="top250" value="false" />
-                  <param name="plot" value="false" />
-                  <param name="studio" value="false" />
-                </include>
+            <control type="group">
+              <visible>!String.IsEmpty(ListItem.Rating) + !Control.HasFocus(9550)</visible>
+              <top>10</top>
+              <height>55</height>
+              <right>940</right>
+              <include content="Object_Ratings">
+                <param name="directory" value="color" />
+                <param name="align" value="left" />
+                <param name="width" value="$PARAM[width]" />
+                <param name="rottentomatoes" value="true" />
+                <param name="imdbvotes" value="true" />
+                <param name="usermeter" value="false" />
+                <param name="imdb" value="$PARAM[imdb]" />
+                <param name="tmdb" value="$PARAM[tmdb]" />
+                <param name="metacritic" value="true" />
+                <param name="oscars" value="true" />
+                <param name="top250" value="false" />
+                <param name="plot" value="false" />
+                <param name="studio" value="false" />
+              </include>
               <control type="image">
                 <top>10</top>
                 <width>30</width>
@@ -1082,25 +1094,23 @@
                 <texture>flags/rating.png</texture>
                 <visible>!String.IsEmpty(ListItem.Rating)</visible>
               </control>
-              </control>
-
+            </control>
             <control type="group">
               <width>1200</width>
               <height min="30" max="50">auto</height>
               <visible>!String.IsEmpty(Control.GetLabel(1110))</visible>
               <control type="image">
-		<left>-15</left>
+                <left>-15</left>
                 <width>55</width>
                 <height>55</height>
                 <colordiffuse>dimgrey</colordiffuse>
                 <texture>special://skin/extras/icons/person3.png</texture>
-		<aspectratio>scale</aspectratio>
+                <aspectratio>scale</aspectratio>
               </control>
-
               <control type="label" id="1110">
                 <left>55</left>
                 <width>700</width>
-              <height min="30" max="50">auto</height>
+                <height min="30" max="50">auto</height>
                 <font>Netflix_Info_main</font>
                 <label>$VAR[cast_list]</label>
                 <textcolor>dimgrey</textcolor>
@@ -1133,7 +1143,7 @@
             <control type="group">
               <width>1200</width>
               <height>40</height>
-	      <visible>!String.IsEmpty(Control.GetLabel(1112))</visible>
+              <visible>!String.IsEmpty(Control.GetLabel(1112))</visible>
               <control type="image">
                 <top>-3</top>
                 <left>-8</left>
@@ -1177,404 +1187,476 @@
         </control>
 
         <!-- Buttons -->
-        <control type="group">
-          <control type="grouplist" id="9570">
-	    <focusposition>0</focusposition>
-	    <visible allowhiddenfocus="true">!Control.HasFocus(9550)</visible>
-            <orientation>vertical</orientation>
-            <onleft>9601</onleft>
-            <onright>9601</onright>
-            <onup>9570</onup>
-            <ondown>9570</ondown>
-            <top>280</top>
-            <height>270</height>
-            <width>650</width>
-            <!-- Play OpenMeta -->
-            <control type="radiobutton" id="889">
-              <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="play" />
-              </include>
-              <radiowidth>25</radiowidth>
-              <radioheight>28</radioheight>
-              <radioposx>13</radioposx>
-              <onclick>Dialog.Close(all,force)</onclick>
-	      <onclick>RunPlugin(plugin://plugin.video.openmeta/movies/play/imdb/$INFO[ListItem.IMDBNumber])</onclick>
-              <visible>System.HasAddon(plugin.video.openmeta) + String.IsEqual(ListItem.DBType,movie) + String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
-              <label>Play</label>
-            </control>
-
-            <!-- Search TMDB -->
-            <control type="radiobutton" id="89">
-              <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="play" />
-              </include>
-              <radiowidth>25</radiowidth>
-              <radioheight>28</radioheight>
-              <radioposx>13</radioposx>
-              <onclick>Dialog.Close(all,force)</onclick>
-              <onclick>Skin.Reset(TMDBSearchTerm)</onclick>
-              <onclick>Skin.SetString(CustomSearchTerm,$INFO[ListItem.Title])</onclick>
-              <onclick>Skin.SetString(TMDB_Search,INFO[ListItem.Title])</onclick>
-	      <onclick>RunScript(plugin.video.themoviedb.helper,reset_path)</onclick>
-	      <onclick>ActivateWindow(Home)</onclick>
-              <visible>String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
-              <label>Search</label>
-            </control>
-            <control type="radiobutton" id="87">
-              <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="play" />
-              </include>
-              <radiowidth>25</radiowidth>
-              <radioheight>28</radioheight>
-              <radioposx>13</radioposx>
-	      <onclick condition="!ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">PlayMedia($ESCINFO[ListItem.FileNameAndPath])</onclick> 
-              <visible>!ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
-              <label>Play  $VAR[videoinfo_play_label]</label>
-	      <onclick>ClearProperty(BaseWindow,Home)</onclick>
-            </control>
-            <control type="radiobutton" id="88">
-              <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="play" />
-              </include>
-              <radiowidth>25</radiowidth>
-              <radioheight>28</radioheight>
-              <radioposx>13</radioposx>
-              <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren)">RunPlugin(plugin://plugin.video.seren/?action=buildPlaylistWorkaround&actionArgs=%7B%22item_type%22%3A%20%22show%22%2C%20%22trakt_id%22%3A%20$INFO[ListItem.Property(trakt_id)]%7D)</onclick>
-              <visible>!String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBTYPE,tvshow) </visible>
-              <label>Quick Play</label>
-              <onclick>ClearProperty(BaseWindow,Home)</onclick>
-            </control>
-            <!-- Resume -->
-            <control type="radiobutton" id="9">
-              <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="play" />
-              </include>
-              <radiowidth>25</radiowidth>
-              <radioheight>28</radioheight>
-              <radioposx>13</radioposx>
-              <visible>ListItem.IsResumable</visible>
-              <label>Resume</label>
-            </control>
-            <control type="group" id="332">
-              <visible>Control.IsVisible(9)</visible>
-              <include>resume_progress</include>
-            </control>
-            <control type="radiobutton" id="888">
-              <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="play_beginning" />
-              </include>
-              <radiowidth>25</radiowidth>
-              <radioheight>28</radioheight>
-              <radioposx>13</radioposx>
-              <onclick>PlayMedia($ESCINFO[ListItem.FileNameAndPath],noresume)</onclick>
-              <visible>ListItem.IsResumable + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
-              <label>Play from Beginning</label>
-              <onclick>ClearProperty(BaseWindow,Home)</onclick>
-            </control>
-            <!--More episodes-->
-            <control type="radiobutton" id="33">
-              <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="more_episodes" />
-              </include>
-              <radiowidth>25</radiowidth>
-              <radioheight>28</radioheight>
-              <radioposx>13</radioposx>
-              <visible>!String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)]</visible>
-              <label>More Episodes</label>
-              <onclick>Skin.SetString(AddonContainer,false)</onclick>
-              <onclick>close</onclick>
-              <onclick condition="Skin.HasSetting(EnableShowInfo) + Window.IsVisible(1138)">ActivateWindow(Home)</onclick>
-              <onclick condition="String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),true)">ActivateWindow(10025,$ESCINFO[Container(5055).ListItem.FileNameAndPath],return)</onclick>
-              <onclick condition="String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),false)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
-              <onclick condition="!String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
-            </control>
-            <!--More episodes-->
-            <control type="radiobutton" id="339">
-              <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="more_episodes" />
-              </include>
-              <radiowidth>25</radiowidth>
-              <radioheight>28</radioheight>
-              <radioposx>13</radioposx>
-              <visible>!String.IsEmpty(ListItem.Property(tvshow.trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)</visible>
-              <label>More Episodes</label>
-              <onclick>Skin.SetString(AddonContainer,false)</onclick>
-              <onclick>close</onclick>
-              <onclick condition="Skin.HasSetting(EnableShowInfo) + Window.IsVisible(1138)">ActivateWindow(Home)</onclick>
-              <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)">ActivateWindow(10025,plugin://plugin.video.seren/?action=showSeasons&actionArgs=%7b%22item_type%22%3a%20%22show%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(tvshow.trakt_id)]%7d,return)</onclick>
-            </control>
-            <!-- Trailer-->
-            <control type="radiobutton" id="34">
-              <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="director" />
-              </include>
-              <radiowidth>45</radiowidth>
-              <radioheight>48</radioheight>
-              <radioposx>2</radioposx>
-              <visible>!Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]</visible>
-              <label>Trailer</label>
-              <onclick condition="!Player.HasVideo + !String.IsEmpty(ListItem.Trailer) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]">PlayMedia($INFO[ListItem.Trailer],1)</onclick>
-              <onclick condition="!Player.HasVideo + String.IsEmpty(ListItem.Trailer)">Playmedia($INFO[Window(Home).Property(SkinHelper.ListItem.Trailer)],1)</onclick>
-              <onclick condition="!Player.HasVideo">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
-              <onclick condition="!Player.HasVideo">SetProperty(TrailerPlaying,fullscreen,home)</onclick>
-            </control>
-            <!-- Fullscreen -->
-            <control type="radiobutton" id="35">
-              <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="fullscreen" />
-              </include>
-              <radiowidth>45</radiowidth>
-              <radioheight>48</radioheight>
-              <radioposx>2</radioposx>
-              <visible>Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]</visible>
-              <label>Fullscreen</label>
-              <onclick condition="Player.HasVideo">FullScreen</onclick>
-              <onclick condition="Player.HasVideo">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
-            </control>
-            <!-- Stop -->
-            <control type="radiobutton" id="36">
-              <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="stop" />
-              </include>
-              <radiowidth>45</radiowidth>
-              <radioheight>48</radioheight>
-              <radioposx>2</radioposx>
-              <label>Stop</label>
-              <visible>Player.HasVideo</visible>
-              <onclick>Stop</onclick>
-            </control>
-           <control type="radiobutton" id="38">
-              <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="actors" />
-              </include>
-              <radiowidth>45</radiowidth>
-              <radioheight>48</radioheight>
-              <radioposx>2</radioposx>
-              <label>Cast & More</label>
-              <onclick>SetFocus(9000)</onclick>
-	      <visible>!Skin.HasSetting(VideoInfo.Disable)</visible>
-            </control>
-
-            <!-- Extended Info  -->
-            <control type="radiobutton" id="37">
-              <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="info" />
-              </include>
-              <radiowidth>25</radiowidth>
-              <radioheight>28</radioheight>
-              <radioposx>8</radioposx>
-              <label>Extended Info</label>
-              <onclick condition="String.IsEqual(ListItem.DBType,movie)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onclick>
-              <onclick condition="String.IsEqual(ListItem.DBType,tvshow)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.TvShowTitle])</onclick>
-              <onclick condition="String.IsEqual(ListItem.DBType,season)">RunScript(script.extendedinfo,info=seasoninfo,tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],silent=True)</onclick>
-              <onclick condition="String.IsEqual(ListItem.DBType,episode)">RunScript(script.extendedinfo,info=extendedepisodeinfo,dbid=$INFO[ListItem.DBID],tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],episode=$INFO[ListItem.Episode],silent=True)</onclick>
-            </control>
-
-            <!--Trakt Manager-->
-            <control type="radiobutton" id="340">
-              <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="trakttv" />
-              </include>
-              <radiowidth>48</radiowidth>
-              <radioheight>48</radioheight>
-              <radioposx>2</radioposx>
-              <visible>!String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode)]</visible>
-              <label>Trakt Manager</label>
-              <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&actionArgs=%7B%22episode%22%3A%20$INFO[ListItem.Episode]%2C%20%22item_type%22%3A%20%22episode%22%2C%20%22season%22%3A%20$INFO[ListItem.Season]%2C%20%22trakt_id%22%3A%20$INFO[ListItem.Property(tvshow.trakt_id)]%7D)</onclick>
-              <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,tvshow)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&actionArgs=%7b%22item_type%22%3a%20%22show%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(trakt_id)]%7d)</onclick>
-              <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,movie)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&actionArgs=%7b%22item_type%22%3a%20%22movie%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(trakt_id)]%7d)</onclick>
-            </control>
-
-
-            <!-- Refresh -->
-            <control type="radiobutton" id="6">
-              <visible>Control.IsEnabled(6)</visible>
-              <label>184</label>
-              <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="sinchronize" />
-              </include>
-              <radiowidth>25</radiowidth>
-              <radioheight>28</radioheight>
-              <radioposx>8</radioposx>
-           </control>
-            <!-- Choose Artwork -->
-            <control type="radiobutton" id="10">
-              <visible>Control.IsEnabled(10)</visible>
-	      <visible>!String.IsEmpty(ListItem.DBID)</visible>
-              <label>Choose Artwork</label>
-              <include name="netflix_button" content="netflix_button">
-                <param name="icon" value="pictures" />
-              </include>
-              <radiowidth>25</radiowidth>
-              <radioheight>28</radioheight>
-              <radioposx>8</radioposx>
-           </control>
-         </control>
+        <control type="grouplist" id="9570">
+          <visible allowhiddenfocus="true">!Control.HasFocus(8999) + !ControlGroup(9000).HasFocus</visible>
+          <visible allowhiddenfocus="true">!Control.HasFocus(9601) + !Control.HasFocus(9550)</visible>
+          <orientation>vertical</orientation>
+          <onleft>9601</onleft>
+          <onright>9601</onright>
+          <onup>9570</onup>
+          <ondown>9570</ondown>
+          <top>280</top>
+          <height>270</height>
+          <width>650</width>
+          <!-- Play OpenMeta -->
+          <control type="radiobutton" id="889">
+            <include name="netflix_button" content="netflix_button">
+              <param name="icon" value="play" />
+            </include>
+            <radiowidth>25</radiowidth>
+            <radioheight>28</radioheight>
+            <radioposx>13</radioposx>
+            <onclick>Dialog.Close(all,force)</onclick>
+            <onclick>RunPlugin(plugin://plugin.video.openmeta/movies/play/imdb/$INFO[ListItem.IMDBNumber])</onclick>
+            <visible>System.HasAddon(plugin.video.openmeta) + String.IsEqual(ListItem.DBType,movie) + String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
+            <label>Play</label>
+          </control>
+          <!-- Search TMDB -->
+          <control type="radiobutton" id="89">
+            <include name="netflix_button" content="netflix_button">
+              <param name="icon" value="search" />
+            </include>
+            <radiowidth>45</radiowidth>
+            <radioheight>48</radioheight>
+            <radioposx>2</radioposx>
+            <onclick>Dialog.Close(all,force)</onclick>
+            <onclick>Skin.Reset(TMDBSearchTerm)</onclick>
+            <onclick>Skin.SetString(CustomSearchTerm,$INFO[ListItem.Title])</onclick>
+            <onclick>Skin.SetString(TMDB_Search,INFO[ListItem.Title])</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,reset_path)</onclick>
+            <onclick>ActivateWindow(Home)</onclick>
+            <visible>String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
+            <label>Search</label>
+          </control>
+          <control type="radiobutton" id="87">
+            <include name="netflix_button" content="netflix_button">
+              <param name="icon" value="play" />
+            </include>
+            <radiowidth>25</radiowidth>
+            <radioheight>28</radioheight>
+            <radioposx>13</radioposx>
+            <onclick condition="!ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">PlayMedia($ESCINFO[ListItem.FileNameAndPath])</onclick>
+            <visible>!ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
+            <label>Play $VAR[videoinfo_play_label]</label>
+            <onclick>ClearProperty(BaseWindow,Home)</onclick>
+          </control>
+          <control type="radiobutton" id="88">
+            <include name="netflix_button" content="netflix_button">
+              <param name="icon" value="play" />
+            </include>
+            <radiowidth>25</radiowidth>
+            <radioheight>28</radioheight>
+            <radioposx>13</radioposx>
+            <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren)">RunPlugin(plugin://plugin.video.seren/?action=buildPlaylistWorkaround&amp;actionArgs=%7B%22item_type%22%3A%20%22show%22%2C%20%22trakt_id%22%3A%20$INFO[ListItem.Property(trakt_id)]%7D)</onclick>
+            <visible>!String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
+            <label>Quick Play</label>
+            <onclick>ClearProperty(BaseWindow,Home)</onclick>
+          </control>
+          <!-- Resume -->
+          <control type="radiobutton" id="9">
+            <include name="netflix_button" content="netflix_button">
+              <param name="icon" value="play" />
+            </include>
+            <radiowidth>25</radiowidth>
+            <radioheight>28</radioheight>
+            <radioposx>13</radioposx>
+            <visible>ListItem.IsResumable</visible>
+            <label>Resume</label>
+          </control>
+          <control type="group" id="332">
+            <visible>Control.IsVisible(9)</visible>
+            <include>resume_progress</include>
+          </control>
+          <control type="radiobutton" id="888">
+            <include name="netflix_button" content="netflix_button">
+              <param name="icon" value="play_beginning" />
+            </include>
+            <radiowidth>25</radiowidth>
+            <radioheight>28</radioheight>
+            <radioposx>13</radioposx>
+            <onclick>PlayMedia($ESCINFO[ListItem.FileNameAndPath],noresume)</onclick>
+            <visible>ListItem.IsResumable + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
+            <label>Play from Beginning</label>
+            <onclick>ClearProperty(BaseWindow,Home)</onclick>
+          </control>
+          <!--More episodes-->
+          <control type="radiobutton" id="33">
+            <include name="netflix_button" content="netflix_button">
+              <param name="icon" value="more_episodes" />
+            </include>
+            <radiowidth>25</radiowidth>
+            <radioheight>28</radioheight>
+            <radioposx>13</radioposx>
+            <visible>!String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)]</visible>
+            <label>More Episodes</label>
+            <onclick>Skin.SetString(AddonContainer,false)</onclick>
+            <onclick>close</onclick>
+            <onclick condition="Skin.HasSetting(EnableShowInfo) + Window.IsVisible(1138)">ActivateWindow(Home)</onclick>
+            <onclick condition="String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),true)">ActivateWindow(10025,$ESCINFO[Container(5055).ListItem.FileNameAndPath],return)</onclick>
+            <onclick condition="String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),false)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
+            <onclick condition="!String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
+          </control>
+          <!--More episodes-->
+          <control type="radiobutton" id="339">
+            <include name="netflix_button" content="netflix_button">
+              <param name="icon" value="more_episodes" />
+            </include>
+            <radiowidth>25</radiowidth>
+            <radioheight>28</radioheight>
+            <radioposx>13</radioposx>
+            <visible>!String.IsEmpty(ListItem.Property(tvshow.trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)</visible>
+            <label>More Episodes</label>
+            <onclick>Skin.SetString(AddonContainer,false)</onclick>
+            <onclick>close</onclick>
+            <onclick condition="Skin.HasSetting(EnableShowInfo) + Window.IsVisible(1138)">ActivateWindow(Home)</onclick>
+            <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)">ActivateWindow(10025,plugin://plugin.video.seren/?action=showSeasons&amp;actionArgs=%7b%22item_type%22%3a%20%22show%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(tvshow.trakt_id)]%7d,return)</onclick>
+          </control>
+          <!-- Trailer-->
+          <control type="radiobutton" id="34">
+            <include name="netflix_button" content="netflix_button">
+              <param name="icon" value="director" />
+            </include>
+            <radiowidth>45</radiowidth>
+            <radioheight>48</radioheight>
+            <radioposx>2</radioposx>
+            <visible>!Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]</visible>
+            <label>Trailer</label>
+            <onclick condition="!Player.HasVideo + !String.IsEmpty(ListItem.Trailer) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]">PlayMedia($INFO[ListItem.Trailer],1)</onclick>
+            <onclick condition="!Player.HasVideo + String.IsEmpty(ListItem.Trailer)">Playmedia($INFO[Window(Home).Property(SkinHelper.ListItem.Trailer)],1)</onclick>
+            <onclick condition="!Player.HasVideo">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
+            <onclick condition="!Player.HasVideo">SetProperty(TrailerPlaying,fullscreen,home)</onclick>
+          </control>
+          <!-- Fullscreen -->
+          <control type="radiobutton" id="35">
+            <include name="netflix_button" content="netflix_button">
+              <param name="icon" value="fullscreen" />
+            </include>
+            <radiowidth>45</radiowidth>
+            <radioheight>48</radioheight>
+            <radioposx>2</radioposx>
+            <visible>Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]</visible>
+            <label>Fullscreen</label>
+            <onclick condition="Player.HasVideo">FullScreen</onclick>
+            <onclick condition="Player.HasVideo">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
+          </control>
+          <!-- Stop -->
+          <control type="radiobutton" id="36">
+            <include name="netflix_button" content="netflix_button">
+              <param name="icon" value="stop" />
+            </include>
+            <radiowidth>45</radiowidth>
+            <radioheight>48</radioheight>
+            <radioposx>2</radioposx>
+            <label>Stop</label>
+            <visible>Player.HasVideo</visible>
+            <onclick>Stop</onclick>
+          </control>
+          <control type="radiobutton" id="38">
+            <include name="netflix_button" content="netflix_button">
+              <param name="icon" value="actors" />
+            </include>
+            <radiowidth>45</radiowidth>
+            <radioheight>48</radioheight>
+            <radioposx>2</radioposx>
+            <label>Cast &amp; More</label>
+            <onclick>SetFocus(8999,0)</onclick>
+            <visible>!Skin.HasSetting(VideoInfo.Disable)</visible>
+          </control>
+          <!-- Extended Info  -->
+          <control type="radiobutton" id="37">
+            <include name="netflix_button" content="netflix_button">
+              <param name="icon" value="info" />
+            </include>
+            <radiowidth>25</radiowidth>
+            <radioheight>28</radioheight>
+            <radioposx>8</radioposx>
+            <label>Extended Info</label>
+            <onclick condition="String.IsEqual(ListItem.DBType,movie)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onclick>
+            <onclick condition="String.IsEqual(ListItem.DBType,tvshow)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.TvShowTitle])</onclick>
+            <onclick condition="String.IsEqual(ListItem.DBType,season)">RunScript(script.extendedinfo,info=seasoninfo,tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],silent=True)</onclick>
+            <onclick condition="String.IsEqual(ListItem.DBType,episode)">RunScript(script.extendedinfo,info=extendedepisodeinfo,dbid=$INFO[ListItem.DBID],tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],episode=$INFO[ListItem.Episode],silent=True)</onclick>
+          </control>
+          <!--Trakt Manager-->
+          <control type="radiobutton" id="340">
+            <include name="netflix_button" content="netflix_button">
+              <param name="icon" value="trakttv" />
+            </include>
+            <radiowidth>48</radiowidth>
+            <radioheight>48</radioheight>
+            <radioposx>2</radioposx>
+            <visible>!String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode)]</visible>
+            <label>Trakt Manager</label>
+            <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&amp;actionArgs=%7B%22episode%22%3A%20$INFO[ListItem.Episode]%2C%20%22item_type%22%3A%20%22episode%22%2C%20%22season%22%3A%20$INFO[ListItem.Season]%2C%20%22trakt_id%22%3A%20$INFO[ListItem.Property(tvshow.trakt_id)]%7D)</onclick>
+            <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,tvshow)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&amp;actionArgs=%7b%22item_type%22%3a%20%22show%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(trakt_id)]%7d)</onclick>
+            <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,movie)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&amp;actionArgs=%7b%22item_type%22%3a%20%22movie%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(trakt_id)]%7d)</onclick>
+          </control>
+          <!-- Refresh -->
+          <control type="radiobutton" id="6">
+            <visible>Control.IsEnabled(6)</visible>
+            <visible>!String.IsEmpty(ListItem.DBID)</visible>
+            <label>184</label>
+            <include name="netflix_button" content="netflix_button">
+              <param name="icon" value="sinchronize" />
+            </include>
+            <radiowidth>25</radiowidth>
+            <radioheight>28</radioheight>
+            <radioposx>8</radioposx>
+          </control>
+          <!-- Choose Artwork -->
+          <control type="radiobutton" id="10">
+            <visible>Control.IsEnabled(10)</visible>
+            <visible>!String.IsEmpty(ListItem.DBID)</visible>
+            <label>Choose Artwork</label>
+            <include name="netflix_button" content="netflix_button">
+              <param name="icon" value="pictures" />
+            </include>
+            <radiowidth>25</radiowidth>
+            <radioheight>28</radioheight>
+            <radioposx>8</radioposx>
+          </control>
         </control>
       </control>
-    <control type="group">
-      <include content="Object_PlotOverlay">
-        <param name="visible" value="!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)" />
-      </include>
+      <control type="group">
+        <include content="Object_PlotOverlay">
+          <param name="visible" value="!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)" />
+        </include>
+      </control>
     </control>
+
+      <include>Logo</include>
+      <control type="list" id="8999">
+	<onleft>9570</onleft>
+        <ondown>8999</ondown>
+        <onright>9000</onright>
+        <onback>9570</onback>
+        <visible allowhiddenfocus="true">Control.HasFocus(8999) | ControlGroup(9000).HasFocus</visible>
+        <orientation>vertical</orientation>
+        <top>280</top>
+        <left>40</left>
+        <itemlayout width="240" height="75">
+          <control type="label">
+            <label>$INFO[ListItem.Label]</label>
+            <align>left</align>
+            <font>font_medium</font>
+            <textcolor>dimgrey</textcolor>
+          </control>
+        </itemlayout>
+        <focusedlayout width="250" height="80">
+          <control type="label">
+            <align>left</align>
+            <label>$INFO[ListItem.Label]</label>
+            <font>font_large_bold</font>
+            <textcolor>$VAR[ColorHighlight]</textcolor>
+          </control>
+        </focusedlayout>
+        <content>
+          <item id="1">
+            <label>Cast</label>
+            <visible>Integer.IsGreater(Container(53001).NumItems,0) | Container(53001).IsUpdating</visible>
+          </item>
+          <item id="2">
+            <label>Sets</label>
+            <visible>!String.IsEmpty(ListItem.Set) + [Integer.IsGreater(Container(53002).NumItems,0) | Container(53002).IsUpdating]</visible>
+          </item>
+          <item id="3">
+            <label>Similar</label>
+            <visible>Integer.IsGreater(Container(53003).NumItems,0) | Container(53003).IsUpdating</visible>
+          </item>
+          <item id="4">
+            <label>Recommended</label>
+            <visible>Integer.IsGreater(Container(53007).NumItems,0) | Container(53007).IsUpdating</visible>
+          </item>
+          <item id="5">
+            <label>By Director</label>
+            <visible>!String.IsEmpty(ListItem.Genre) + [Integer.IsGreater(Container(53004).NumItems,0) | Container(53004).IsUpdating]</visible>
+          </item>
+          <item id="6">
+            <label>By Studio</label>
+            <visible>!String.IsEmpty(ListItem.Studio) + [Integer.IsGreater(Container(53006).NumItems,0) | Container(53006).IsUpdating]</visible>
+          </item>
+          <item id="7">
+            <label>By Year</label>
+            <visible>Integer.IsGreater(Container(53005).NumItems,0) | Container(53005).IsUpdating</visible>
+          </item>
+          <item id="8">
+            <label>By Genre</label>
+            <visible>!String.IsEmpty(ListItem.Genre) + [Integer.IsGreater(Container(53008).NumItems,0) | Container(53008).IsUpdating]</visible>
+          </item>
+        </content>
+      </control>
+
+      <control type="grouplist" id="9000">
+        <scrolltime tween="sine" easing="out">500</scrolltime>
+        <visible allowhiddenfocus="true">Control.HasFocus(8999) | ControlGroup(9000).HasFocus</visible>
+        <orientation>vertical</orientation>
+        <top>260</top>
+        <left>260</left>
+        <onback>9570</onback>
+        <include condition="Skin.HasSetting(DisableAuraHomeLayout)">widget_info_top_netflix</include>
+        <include condition="!Skin.HasSetting(DisableAuraHomeLayout)">widget_info_top_aura</include>
+        <width>1900</width>
+        <height>900</height>
+        <onup>8999</onup>
+        <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.CastList)" content="Widget_TMDB">
+          <param name="id" value="53001" />
+          <param name="onleft" value="8999" />
+          <param name="onup" value="8999" />
+          <param name="target" value="videos" />
+          <param name="sortby" value="" />
+          <param name="sortorder" value="" />
+          <param name="onclick2" value="RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person&amp;query=$INFO[ListItem.Label],call_id=1137,prevent_del,delay=0.35)" />
+          <param name="content" value="plugin://plugin.video.themoviedb.helper/?info=cast&amp;$VAR[Info_Param_Type]&amp;$VAR[Info_Param_IMDB_or_QUERY]" />
+          <param name="widgetContent" value="plugin://plugin.video.themoviedb.helper/?info=cast&amp;$VAR[Info_Param_Type]&amp;$VAR[Info_Param_IMDB_or_QUERY]" />
+          <param name="postercondition" value="true" />
+          <param name="controltype" value="panel" />
+          <param name="orientation" value="vertical" />
+          <param name="height" value="880" />
+          <param name="width" value="1800" />
+          <param name="label" value="Cast" />
+          <param name="visible" value="String.IsEqual(Container(8999).ListItem.Label,Cast) + !String.IsEmpty(ListItem.Label)" />
+        </include>
+        <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.Sets)" content="Widget_TMDB">
+          <param name="id" value="53002" />
+          <param name="onleft" value="8999" />
+          <param name="onup" value="8999" />
+          <param name="target" value="videos" />
+          <param name="sortby" value="" />
+          <param name="sortorder" value="" />
+          <param name="content" value="$VAR[Info_Sets]" />
+          <param name="widgetContent" value="$VAR[Info_Sets]" />
+          <param name="postercondition" value="true" />
+          <param name="controltype" value="panel" />
+          <param name="orientation" value="vertical" />
+          <param name="height" value="880" />
+          <param name="width" value="1800" />
+          <param name="label" value="Sets" />
+          <param name="visible" value="String.IsEqual(Container(8999).ListItem.Label,Sets) + !String.IsEmpty(ListItem.Label)" />
+        </include>
+        <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.Similar)" content="Widget_TMDB">
+          <param name="id" value="53003" />
+          <param name="onleft" value="8999" />
+          <param name="onup" value="8999" />
+          <param name="target" value="videos" />
+          <param name="sortby" value="" />
+          <param name="sortorder" value="" />
+          <param name="content" value="$VAR[Info_Similar]" />
+          <param name="widgetContent" value="$VAR[Info_Similar]" />
+          <param name="postercondition" value="true" />
+          <param name="controltype" value="panel" />
+          <param name="orientation" value="vertical" />
+          <param name="height" value="880" />
+          <param name="width" value="1800" />
+          <param name="label" value="Similar" />
+          <param name="visible" value="String.IsEqual(Container(8999).ListItem.Label,Similar) + !String.IsEmpty(ListItem.Label)" />
+        </include>
+        <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.DirectorMovies)" content="Widget_TMDB">
+          <param name="id" value="53004" />
+          <param name="onleft" value="8999" />
+          <param name="target" value="videos" />
+          <param name="onup" value="8999" />
+          <param name="sortby" value="" />
+          <param name="sortorder" value="" />
+          <param name="content" value="$VAR[Info_FromDirector]" />
+          <param name="widgetContent" value="$VAR[Info_FromDirector]" />
+          <param name="postercondition" value="true" />
+          <param name="controltype" value="panel" />
+          <param name="orientation" value="vertical" />
+          <param name="height" value="880" />
+          <param name="width" value="1800" />
+          <param name="label" value="$INFO[ListItem.Director,Directed By ,]" />
+          <param name="visible" value="String.IsEqual(Container(8999).ListItem.Label,By Director) + !String.IsEmpty(ListItem.Director)" />
+        </include>
+        <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.Year)" content="Widget_TMDB">
+          <param name="id" value="53005" />
+          <param name="onleft" value="8999" />
+          <param name="target" value="videos" />
+          <param name="onup" value="8999" />
+          <param name="sortby" value="" />
+          <param name="sortorder" value="" />
+          <param name="content" value="$VAR[Info_FromYear]" />
+          <param name="widgetContent" value="$VAR[Info_FromYear]" />
+          <param name="postercondition" value="true" />
+          <param name="controltype" value="panel" />
+          <param name="orientation" value="vertical" />
+          <param name="height" value="880" />
+          <param name="width" value="1800" />
+          <param name="label" value="From $INFO[ListItem.Year]" />
+          <param name="visible" value="String.IsEqual(Container(8999).ListItem.Label,By Year) + !String.IsEmpty(ListItem.Year)" />
+        </include>
+        <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.Studio)" content="Widget_TMDB">
+          <param name="id" value="53006" />
+          <param name="onup" value="8999" />
+          <param name="onleft" value="8999" />
+          <param name="target" value="videos" />
+          <param name="sortby" value="" />
+          <param name="sortorder" value="" />
+          <param name="content" value="$VAR[Info_FromStudio]" />
+          <param name="widgetContent" value="$VAR[Info_FromStudio]" />
+          <param name="postercondition" value="true" />
+          <param name="controltype" value="panel" />
+          <param name="orientation" value="vertical" />
+          <param name="height" value="880" />
+          <param name="width" value="1800" />
+          <param name="label" value="$INFO[ListItem.Studio]" />
+          <param name="visible" value="String.IsEqual(Container(8999).ListItem.Label,By Studio) + !String.IsEmpty(ListItem.Studio)" />
+        </include>
+        <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.Recommended)" content="Widget_TMDB">
+          <param name="id" value="53007" />
+          <param name="onup" value="8999" />
+          <param name="onleft" value="8999" />
+          <param name="target" value="videos" />
+          <param name="sortby" value="" />
+          <param name="sortorder" value="" />
+          <param name="content" value="$VAR[Info_Recommended]" />
+          <param name="widgetContent" value="$VAR[Info_Recommended]" />
+          <param name="postercondition" value="true" />
+          <param name="controltype" value="panel" />
+          <param name="orientation" value="vertical" />
+          <param name="height" value="880" />
+          <param name="width" value="1800" />
+          <param name="label" value="Recommended" />
+          <param name="visible" value="String.IsEqual(Container(8999).ListItem.Label,Recommended) + !String.IsEmpty(ListItem.Label)" />
+        </include>
+        <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.Genre)" content="Widget_TMDB">
+          <param name="id" value="53008" />
+          <param name="onleft" value="8999" />
+          <param name="onup" value="8999" />
+          <param name="target" value="videos" />
+          <param name="sortby" value="" />
+          <param name="sortorder" value="" />
+          <param name="content" value="$VAR[Info_FromGenre]" />
+          <param name="widgetContent" value="$VAR[Info_FromGenre]" />
+          <param name="postercondition" value="true" />
+          <param name="controltype" value="panel" />
+          <param name="orientation" value="vertical" />
+          <param name="height" value="880" />
+          <param name="width" value="1800" />
+          <param name="label" value="$INFO[ListItem.Genre]" />
+          <param name="visible" value="String.IsEqual(Container(8999).ListItem.Label,By Genre) + !String.IsEmpty(ListItem.Genre)" />
+        </include>
+        <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.Youtube)" content="Widget_TMDB">
+          <param name="id" value="53009" />
+          <param name="onleft" value="8999" />
+          <param name="onup" value="8999" />
+          <param name="target" value="videos" />
+          <param name="sortby" value="" />
+          <param name="sortorder" value="" />
+          <param name="content" value="$VAR[Info_Youtube]" />
+          <param name="widgetContent" value="$VAR[Info_Youtube]" />
+          <param name="postercondition" value="false" />
+          <param name="landscapenetflixcondition" value="true" />
+          <param name="controltype" value="panel" />
+          <param name="orientation" value="vertical" />
+          <param name="height" value="880" />
+          <param name="width" value="1800" />
+          <param name="label" value="" />
+          <param name="onclick2" value="PlayMedia($INFO[Container(53007).ListItem.FileNameAndPath])" />
+          <param name="visible" value="!String.IsEmpty(ListItem.Label)" />
+        </include>
+      </control>
+      <include>Object_UpDownInfoArrows</include>
     </control>
-
-	<control type="group">
-
-        <control type="label">
-            <left>80</left>
-            <top>60</top>
-            <label>[B]More Info[/B]</label>
-            <height>40</height>
-            <width>800</width>
-            <aligny>top</aligny>
-            <textcolor>white</textcolor>
-            <font>font_heading_small</font>
-       </control>
-	<include>Logo</include>
-	<visible>ControlGroup(9000).HasFocus</visible>
-
-        <control type="grouplist" id="9000">
-                <scrolltime tween="sine" easing="out">500</scrolltime>
-		<visible allowhiddenfocus="true">ControlGroup(9000).HasFocus</visible>
-                <orientation>vertical</orientation>
-                <left>10</left>
-	        <include condition="Skin.HasSetting(DisableAuraHomeLayout)">widget_info_top_netflix</include>
-	        <include condition="!Skin.HasSetting(DisableAuraHomeLayout)">widget_info_top_aura</include>
-		<width>1900</width>
-                <height>900</height>
-            <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.CastList)" content="Widget_TMDB">
-                <param name="id" value="53001" />
-                <param name="onleft" value="9570" />
-                <param name="target" value="videos" />
-                <param name="sortby" value="" />
-                <param name="sortorder" value="" />
-                <param name="onclick2" value="RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person&amp;query=$INFO[ListItem.Label],call_id=1137,prevent_del,delay=0.35)" />
-                <param name="content" value="plugin://plugin.video.themoviedb.helper/?info=cast&amp;$VAR[Info_Param_Type]&amp;$VAR[Info_Param_IMDB_or_QUERY]" />
-                <param name="widgetContent" value="plugin://plugin.video.themoviedb.helper/?info=cast&amp;$VAR[Info_Param_Type]&amp;$VAR[Info_Param_IMDB_or_QUERY]" />
-                <param name="postercondition" value="true" />
-                <param name="controltype" value="fixedlist" />
-                <param name="label" value="Cast" />
-                <param name="visible" value="!String.IsEmpty(ListItem.Label)" />
-            </include>
-
-            <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.Sets)" content="Widget_TMDB">
-                <param name="id" value="53002" />
-                <param name="onleft" value="9570" />
-                <param name="target" value="videos" />
-                <param name="sortby" value="" />
-                <param name="sortorder" value="" />
-                <param name="content" value="$VAR[Info_Sets]" />
-                <param name="widgetContent" value="$VAR[Info_Sets]" />
-                <param name="postercondition" value="true" />
-                <param name="controltype" value="fixedlist" />
-                <param name="label" value="Sets" />
-                <param name="visible" value="!String.IsEmpty(ListItem.Label)" />
-            </include>
-            <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.Similar)" content="Widget_TMDB">
-                <param name="id" value="53003" />
-                <param name="onleft" value="9570" />
-                <param name="target" value="videos" />
-                <param name="sortby" value="" />
-                <param name="sortorder" value="" />
-                <param name="content" value="$VAR[Info_Similar]" />
-                <param name="widgetContent" value="$VAR[Info_Similar]" />
-                <param name="postercondition" value="true" />
-                <param name="controltype" value="fixedlist" />
-                <param name="label" value="Similar" />
-                <param name="visible" value="!String.IsEmpty(ListItem.Label)" />
-            </include>
-
-            <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.DirectorMovies)" content="Widget_TMDB">
-                <param name="id" value="53004" />
-                <param name="onleft" value="9570" />
-                <param name="target" value="videos" />
-                <param name="sortby" value="" />
-                <param name="sortorder" value="" />
-                <param name="content" value="$VAR[Info_FromDirector]" />
-                <param name="widgetContent" value="$VAR[Info_FromDirector]" />
-                <param name="postercondition" value="true" />
-                <param name="controltype" value="fixedlist" />
-                <param name="label" value="$INFO[ListItem.Director,Directed By ,]" />
-                <param name="visible" value="!String.IsEmpty(ListItem.Director)"  />
-            </include>
-
-            <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.Year)" content="Widget_TMDB">
-                <param name="id" value="53005" />
-                <param name="onleft" value="9570" />
-                <param name="target" value="videos" />
-                <param name="sortby" value="" />
-                <param name="sortorder" value="" />
-                <param name="content" value="$VAR[Info_FromYear]" />
-                <param name="widgetContent" value="$VAR[Info_FromYear]" />
-                <param name="postercondition" value="true" />
-                <param name="controltype" value="fixedlist" />
-                <param name="label" value="$INFO[ListItem.Year,Year ,]" />
-                <param name="visible" value="!String.IsEmpty(ListItem.Year)" />
-            </include>
-
-            <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.Studio)" content="Widget_TMDB">
-                <param name="id" value="53006" />
-                <param name="onleft" value="9570" />
-                <param name="target" value="videos" />
-                <param name="sortby" value="" />
-                <param name="sortorder" value="" />
-                <param name="content" value="$VAR[Info_FromStudio]" />
-                <param name="widgetContent" value="$VAR[Info_FromStudio]" />
-                <param name="postercondition" value="true" />
-                <param name="controltype" value="fixedlist" />
-                <param name="label" value="$INFO[ListItem.Studio,Studio ,]" />
-                <param name="visible" value="!String.IsEmpty(ListItem.Studio)" />
-            </include>
-            <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.Recommended)" content="Widget_TMDB">
-                <param name="id" value="53007" />
-                <param name="onleft" value="9570" />
-                <param name="target" value="videos" />
-                <param name="sortby" value="" />
-                <param name="sortorder" value="" />
-                <param name="content" value="$VAR[Info_Recommended]" />
-                <param name="widgetContent" value="$VAR[Info_Recommended]" />
-                <param name="postercondition" value="true" />
-                <param name="controltype" value="fixedlist" />
-                <param name="label" value="Recommended" />
-                <param name="visible" value="!String.IsEmpty(ListItem.Label)" />
-            </include>
-            <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.Genre)" content="Widget_TMDB">
-                <param name="id" value="53008" />
-                <param name="onleft" value="9570" />
-                <param name="target" value="videos" />
-                <param name="sortby" value="" />
-                <param name="sortorder" value="" />
-                <param name="content" value="$VAR[Info_FromGenre]" />
-                <param name="widgetContent" value="$VAR[Info_FromGenre]" />
-                <param name="postercondition" value="true" />
-                <param name="controltype" value="fixedlist" />
-                <param name="label" value="$INFO[ListItem.Genre,Genre ,]" />
-                <param name="visible" value="!String.IsEmpty(ListItem.Genre)" />
-            </include>
-            <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.Youtube)" content="Widget_TMDB">
-                <param name="id" value="53009" />
-                <param name="onleft" value="9570" />
-                <param name="target" value="videos" />
-                <param name="sortby" value="" />
-                <param name="sortorder" value="" />
-                <param name="content" value="$VAR[Info_Youtube]" />
-                <param name="widgetContent" value="$VAR[Info_Youtube]" />
-                <param name="postercondition" value="false" />
-                <param name="landscapenetflixcondition" value="true" />
-                <param name="controltype" value="fixedlist" />
-                <param name="label" value="Youtube" />
-                <param name="onclick2" value="PlayMedia($INFO[Container(53007).ListItem.FileNameAndPath])" />
-                <param name="visible" value="!String.IsEmpty(ListItem.Label)" />
-            </include>
-          </control>
-	  <include>Object_UpDownInfoArrows</include>
-          </control>
-
-
-
   </include>
-
   <include name="netflix_button">
     <param name="icon" default="" />
     <definition>
@@ -1597,7 +1679,7 @@
     </definition>
   </include>
   <include name="resume_progress">
-    <control type="progress">
+    <control type="progress" id="3333">
       <top>-40</top>
       <left>250</left>
       <description>progress bar</description>
@@ -1612,5 +1694,4 @@
       <info>ListItem.PercentPlayed</info>
     </control>
   </include>
-
 </includes>

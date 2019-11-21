@@ -7,24 +7,13 @@
     <onload>ClearProperty(Header_Left_Text)</onload>
     <onload>ClearProperty(Header_Center_Text)</onload>
     <onload>ClearProperty(OSD_Menu,Home)</onload>
+    <onunload condition="Window.IsVisible(1134)">RunScript(plugin.video.themoviedb.helper,del_path,call_id=1137)</onunload>
     <onunload>ClearProperty(FilePath,home)</onunload>
     <onunload>ClearProperty(OSD_Menu,Home)</onunload>
-    <onunload condition="Window.IsVisible(1134)">RunScript(plugin.video.themoviedb.helper,del_path,call_id=1137)</onunload>
     <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo) + [String.IsEqual(ListItem.DBType,movie) | Container.Content(movies)]">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onload>
     <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo) + [String.IsEqual(ListItem.DBType,tvshow) | Container.Content(tvshows)]">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.TvShowTitle])</onload>
     <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo) + [String.IsEqual(ListItem.DBType,season) | Container.Content(seasons)]">RunScript(script.extendedinfo,info=seasoninfo,tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],silent=True)</onload>
    <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo) + [String.IsEqual(ListItem.DBType,episode) | Container.Content(episodes)]">RunScript(script.extendedinfo,info=extendedepisodeinfo,dbid=$INFO[ListItem.DBID],tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],episode=$INFO[ListItem.Episode],silent=True)</onload>
-
-<!--
-    <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo) + Container.Content(movies) + Skin.String(ListItem.IMDBNumber)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],imdb_id=$INFO[ListItem.IMDBNumber],name=$INFO[ListItem.Title])</onload>
-    <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo) + Container.Content(movies) + !Skin.String(ListItem.IMDBNumber)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onload>
-    <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo) + Container.Content(tvshows) + Skin.String(ListItem.IMDBNumber) + Skin.String(ListItem.TVShowTitle)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],tvdb_id=$INFO[ListItem.IMDBNumber],name=$INFO[ListItem.TVShowTitle])</onload>
-    <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo) + Container.Content(tvshows) + !Skin.String(ListItem.IMDBNumber) + Skin.String(ListItem.TVShowTitle)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.TVShowTitle])</onload>
-    <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo) + Container.Content(tvshows) + Skin.String(ListItem.IMDBNumber) + !Skin.String(ListItem.TVShowTitle)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],tvdb_id=$INFO[ListItem.IMDBNumber],name=$INFO[ListItem.Title])</onload>
-    <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo) + Container.Content(tvshows) + !Skin.String(ListItem.IMDBNumber) + !Skin.String(ListItem.TVShowTitle)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onload>
-    <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo) + Container.Content(seasons)">RunScript(script.extendedinfo,info=seasoninfo,tvshow=$INFO[ListItem.TVShowTitle],dbid=$INFO[ListItem.DBID],season=$INFO[ListItem.Season])</onload>
-    <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo) + Container.Content(episodes)">RunScript(script.extendedinfo,info=extendedepisodeinfo,tvshow=$INFO[ListItem.TVShowTitle],dbid=$INFO[ListItem.DBID],episode=$INFO[ListItem.Episode],season=$INFO[ListItem.Season])</onload>
--->
 <onload condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">ClearProperty(BaseWindow,Home)</onload>
     <onload>ClearProperty(TrailerPlaying,Home)</onload>
     <onunload>ClearProperty(TrailerPlaying,Home)</onunload>
@@ -36,7 +25,7 @@
 	<control type="button" id="9005">
 	 <visible allowhiddenfocus="true">false</visible>
             <onfocus condition="!Skin.HasSetting(UseExtendedInfoDialog)">SetFocus(8000)</onfocus>
-	    <onfocus>SetFocus(9570,0)</onfocus>
+	    <onfocus>Control.SetFocus(9570,0)</onfocus>
 	</control>
         <control type="group">
         <include>Global_Background</include>

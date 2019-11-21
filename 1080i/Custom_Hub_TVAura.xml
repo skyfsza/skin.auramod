@@ -36,6 +36,11 @@
      <onfocus condition="Integer.IsGreater(Container(5055).NumItems,0) | [!Integer.IsGreater(Container(5055).NumItems,0) + Container(5055).IsUpating]">SetFocus(5055)]</onfocus>
     </control> 
 
+    <control type="button" id="5555">
+     <onright>5055</onright>
+     <onfocus>SetFocus(5055)</onfocus>
+    </control>
+
       <control type="grouplist" id="5055">
         <include>Animation_Right</include>
    	<animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
@@ -49,9 +54,6 @@
         <scrolltime tween="sine">700</scrolltime>
         <orientation>vertical</orientation>
         <usecontrolcoords>true</usecontrolcoords>
-        <onback condition="!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious">Control.Move($PARAM[id],$INFO[Container($PARAM[id]).CurrentItem,-,])</onback>
-        <onback condition="!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious">Control.Move($PARAM[id],1)</onback>
-	<onback condition="Integer.IsEqual(Container($PARAM[id]).Position,0) | !Container($PARAM[id]).HasPrevious">Skin.Reset(TVHubMenuFocus)</onback>
         <onleft>SetFocus(400,2)</onleft>
 	<onup>5055</onup>
 	<ondown>5055</ondown>

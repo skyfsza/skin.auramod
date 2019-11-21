@@ -239,12 +239,19 @@
         <value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))">star</value>
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250),0)">awards</value>
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(ListItem.Director)">director</value>
+        <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Control.IsVisible(505) + !String.IsEmpty(Container(5055).ListItem.Director) + !String.IsEmpty(Container(5055).ListItem.Director)">director</value>
+        <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Control.IsVisible(506) + !String.IsEmpty(Container(5056).ListItem.Director) + !String.IsEmpty(Container(5056).ListItem.Director)">director</value>
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Director)">director</value>
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Director)">director</value>
         <value condition="!String.IsEmpty(ListItem.Genre)">genre</value>
         <value condition="Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Genre)">genre</value>
         <value condition="Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Genre)">genre</value>
-        <value condition="Window.IsVisible(MyVideoNav.xml) + !String.IsEmpty(Container(5055).ListItem.Cast)">star</value>
+        <value condition="Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Cast)">star</value>
+        <value condition="Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Cast)">star</value>
+        <value condition="Control.IsVisible(505) + !String.IsEmpty(Container(5055).ListItem.Genre)">genre</value>
+        <value condition="Control.IsVisible(506) + !String.IsEmpty(Container(5056).ListItem.Genre)">genre</value>
+        <value condition="Control.IsVisible(505) + !String.IsEmpty(Container(5055).ListItem.Cast)">star</value>
+        <value condition="Control.IsVisible(506) + !String.IsEmpty(Container(5056).ListItem.Cast)">star</value>
     </variable>
 
    <!-- Spotlight buttons @cartmandos -->
@@ -255,10 +262,17 @@
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(ListItem.Director)">[I]Directed by $INFO[ListItem.Director][/I]</value>
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Director)">[I]Directed by $INFO[Container(1505).ListItem.Director][/I]</value>
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Director)">[I]Directed by $INFO[Container(1506).ListItem.Director][/I]</value>
+        <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Control.IsVisible(505) + !String.IsEmpty(Container(5055).ListItem.Director)">[I]Directed by $INFO[Container(5055).ListItem.Director][/I]</value>
+        <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Control.IsVisible(506) + !String.IsEmpty(Container(5056).ListItem.Director)">[I]Directed by $INFO[Container(5056).ListItem.Director][/I]</value>
         <value condition="!String.IsEmpty(ListItem.Genre)">[I]$INFO[ListItem.Genre][/I]</value>
         <value condition="Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Genre)">[I]$INFO[Container(1505).ListItem.Genre][/I]</value>
         <value condition="Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Genre)">[I]$INFO[Container(1506).ListItem.Genre][/I]</value>
-        <value condition="Window.IsVisible(MyVideoNav.xml) + !String.IsEmpty(Container(5055).ListItem.Cast)">[I]$INFO[Container(5055).ListItem.Cast][/I]</value>
+        <value condition="Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Genre)">[I]$INFO[Container(1505).ListItem.Cast][/I]</value>
+        <value condition="Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Genre)">[I]$INFO[Container(1506).ListItem.Cast][/I]</value>
+        <value condition="Control.IsVisible(505) + !String.IsEmpty(Container(5055).ListItem.Genre)">[I]$INFO[Container(5055).ListItem.Genre][/I]</value>
+        <value condition="Control.IsVisible(506) + !String.IsEmpty(Container(5056).ListItem.Genre)">[I]$INFO[Container(5056).ListItem.Genre][/I]</value>
+        <value condition="Control.IsVisible(505) + !String.IsEmpty(Container(5055).ListItem.Cast)">[I]$INFO[Container(5055).ListItem.Cast][/I]</value>
+        <value condition="Control.IsVisible(506) + !String.IsEmpty(Container(5056).ListItem.Cast)">[I]$INFO[Container(5056).ListItem.Cast][/I]</value>
     </variable>
 
 
@@ -318,10 +332,10 @@
        <value>$INFO[ListItem.RatingAndVotes, ,]</value>
     </variable>
     <variable name="video_heading5055">
-        <value condition="!String.IsEmpty(Container(5055).ListItem.TvShowTitle)">$INFO[Container(5055).ListItem.TvShowTitle]</value>
-        <value condition="!String.IsEmpty(Container(5055).ListItem.Label)">$INFO[Container(5055).ListItem.Label]</value>
-        <value condition="!String.IsEmpty(Container(5056).ListItem.TvShowTitle)">$INFO[Container(5056).ListItem.TvShowTitle]</value>
-        <value condition="!String.IsEmpty(Container(5056).ListItem.Label)">$INFO[Container(5056).ListItem.Label]</value>
+        <value condition="Control.IsVisible(505) + !String.IsEmpty(Container(5055).ListItem.TvShowTitle)">$INFO[Container(5055).ListItem.TvShowTitle]</value>
+        <value condition="Control.IsVisible(505) + !String.IsEmpty(Container(5055).ListItem.Label)">$INFO[Container(5055).ListItem.Label]</value>
+        <value condition="Control.IsVisible(506) + !String.IsEmpty(Container(5056).ListItem.TvShowTitle)">$INFO[Container(5056).ListItem.TvShowTitle]</value>
+        <value condition="Control.IsVisible(506) + !String.IsEmpty(Container(5056).ListItem.Label)">$INFO[Container(5056).ListItem.Label]</value>
         <value condition="Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.TvShowTitle)">$INFO[Container(1505).ListItem.TvShowTitle]</value>
         <value condition="Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Label)">$INFO[Container(1505).ListItem.Label]</value>
         <value condition="Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.TvShowTitle)">$INFO[Container(1506).ListItem.TvShowTitle]</value>
@@ -608,7 +622,8 @@
 
     <variable name="MPAA">
         <value condition="!String.IsEmpty(ListItem.MPAA)">$INFO[ListItem.MPAA]</value>
-        <value condition="String.IsEmpty(ListItem.MPAA) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA))">$INFO[Window(Home).Property(SkinHelper.ListItem.MPAA)]</value>
+        <value condition="!String.IsEmpty(Container(5055).ListItem.MPAA)">$INFO[Container(5055).ListItem.MPAA]</value>
+        <value condition="String.IsEmpty(ListItem.MPAA) + String.IsEmpty(Container(5055).ListItem.MPAA) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA))">$INFO[Window(Home).Property(SkinHelper.ListItem.MPAA)]</value>
     </variable>
 
     <variable name="Label_Settings_Header">

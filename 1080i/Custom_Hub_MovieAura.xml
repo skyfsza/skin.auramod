@@ -36,6 +36,10 @@
      <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=aurahubmovies)</onclick>
      <visible>!Integer.IsGreater(Container(5055).NumItems,0) + !Container(5055).IsUpating</visible>
     </control>
+    <control type="button" id="5555">
+     <onright>5055</onright>
+     <onfocus>SetFocus(5055)</onfocus>
+    </control>
     <control type="button" id="5050">
      <onfocus condition="!Integer.IsGreater(Container(5055).NumItems,0) + !Container(5055).IsUpating">SetFocus(5051)</onfocus>
      <onfocus condition="Integer.IsGreater(Container(5055).NumItems,0) | [!Integer.IsGreater(Container(5055).NumItems,0) + Container(5055).IsUpating]">SetFocus(5055)]</onfocus>
