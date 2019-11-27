@@ -591,7 +591,7 @@
                 <height>50</height>
                 <bottom>0</bottom>
                 <visible>![!Skin.HasSetting(DisableFakeLandscapeArt) + !String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome)]]</visible>
-                <visible>!String.Contains(ListItem.Path,plugin.video.youtube) + [!Skin.HasSetting(DisableClearlogo) | Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(clearlogo))] + !Skin.HasSetting(WidgetLabels) | Window.IsVisible(1138)</visible>
+                <visible>!String.Contains(ListItem.Path,plugin.video.youtube) + [!Skin.HasSetting(DisableClearlogo) | Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(tvshow.clearlogo)) +  String.IsEmpty(ListItem.Art(clearlogo))] + !Skin.HasSetting(WidgetLabels) | Window.IsVisible(1138)</visible>
 
                 <control type="image">
                     <texture background="true" colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
@@ -611,7 +611,7 @@
 
 
      <control type="group">
-       <visible>!String.Contains(ListItem.Path,plugin.video.youtube) + !Skin.HasSetting(WidgetLabels) + String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(ListItem.Art(clearlogo)) + [[Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixSmallWidget)] | !Skin.HasSetting(DisableAuraHomeLayout)]</visible>
+       <visible>!String.Contains(ListItem.Path,plugin.video.youtube) + !Skin.HasSetting(WidgetLabels) + String.IsEqual(ListItem.DBType,episode) + [!String.IsEmpty(ListItem.Art(clearlogo)) | !String.IsEmpty(ListItem.DBID) + !String.IsEmpty(ListItem.Art(tvshow.clearlogo))] + [[Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixSmallWidget)] | !Skin.HasSetting(DisableAuraHomeLayout)]</visible>
       <control type="image">
         <left>0</left>
 	<bottom>30</bottom>

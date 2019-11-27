@@ -40,6 +40,11 @@
         </definition>
     </include>
 
+    <variable name="videoinfo_onclick_episode">
+	<value condition="!Container(53011).ListItem.IsResumable">PlayMedia($ESCINFO[Container(53011).ListItem.FileNameAndPath])</value>
+	<value condition="Container(53011).ListItem.IsResumable">PlayMedia($ESCINFO[Container(53011).ListItem.FileNameAndPath],resume)</value>
+    </variable>
+
     <variable name="showcase_movement">
 	<value condition="Skin.HasSetting(EnableShowCaseOverlay)">1</value>
 	<value condition="!Skin.HasSetting(EnableShowCaseOverlay)">$PARAM[movement]</value>
@@ -159,7 +164,7 @@
     </variable>
 
     <variable name="Info_FromStudio">
-        <value condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | Container.Content(movies)] + System.HasAddon(plugin.video.themoviedb.helper)">plugin://plugin.video.themoviedb.helper?info=discover&amp;type=movie&amp;with_companies=$INFO[ListItem.Studio]</value>
+        <value condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | Container.Content(movies)] + System.HasAddon(plugin.video.themoviedb.helper)">plugin://plugin.video.themoviedb.helper?info=discover&amp;$VAR[Info_Param_Type]&amp;with_companies=$INFO[ListItem.Studio]</value>
         <value condition="Container.Content(movies)">videodb://movies/titles/?xsp=%7b%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22studio%22%2c%22operator%22%3a%22is%22%2c%22value%22%3a%5b%22$INFO[ListItem.Studio]%22%5d%7d%5d%7d%2c%22type%22%3a%22movies%22%7d</value>
     </variable>
 

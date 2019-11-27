@@ -1030,13 +1030,14 @@
 
         <control type="fixedlist" id="505">
 	  <onfocus>ClearProperty(SkinHelper.WidgetContainer,Home)</onfocus>
-          <visible>[Container.Content(addons) | String.IsEmpty(Container.Content)]</visible>
+          <visible>[Container.Content(playlists) | Container.Content(addons) | String.IsEmpty(Container.Content)]</visible>
           <animation effect="slide" end="-500,0" time="500" condition="Control.HasFocus(5055)">Conditional</animation>
           <onright condition="!Container(5055).IsUpdating">5055</onright>
           <height>840</height>
           <top>100</top>
-          <left>40</left>
+          <left>20</left>
 	  <focusposition>5</focusposition>
+	  <movement>5</movement>
           <visible>!Container.Content(episodes)</visible>
           <include>View_NotTheseWindows</include>
           <viewtype label="$LOCALIZE[31469]">icon</viewtype>
@@ -2323,7 +2324,7 @@
         </control>
       </focusedlayout>
 
-      <itemlayout width="400" height="75" condition="$PARAM[addon_list]">
+      <itemlayout width="420" height="75" condition="$PARAM[addon_list]">
         <control type="group">
           <control type="label">
             <left>30</left>
@@ -2334,7 +2335,7 @@
           </control>
         </control>
       </itemlayout>
-      <focusedlayout width="400" height="85" condition="$PARAM[addon_list]">
+      <focusedlayout width="420" height="85" condition="$PARAM[addon_list]">
         <control type="group">
           <control type="label">
             <left>30</left>
@@ -2364,7 +2365,7 @@
             <shadowcolor>black</shadowcolor>
             <textcolor>white</textcolor>
             <label>S$INFO[ListItem.Season]:E$INFO[ListItem.Episode]</label>
-            <visible>!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)</visible>
+            <visible>!Container.Content(Seasons) + !String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)</visible>
             <animation effect="slide" end="0,20" time="0" condition="!Integer.IsGreater(ListItem.PercentPlayed,0) + !Integer.IsGreater(ListItem.PlayCount,0)">Conditional</animation>
           </control>
           <control type="progress">
@@ -2479,7 +2480,7 @@
             <shadowcolor>black</shadowcolor>
             <textcolor>white</textcolor>
             <label>S$INFO[ListItem.Season]:E$INFO[ListItem.Episode]</label>
-            <visible>!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)</visible>
+            <visible>!Container.Content(Seasons) + !String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)</visible>
             <animation effect="slide" end="0,20" time="0" condition="!Integer.IsGreater(ListItem.PercentPlayed,0) + !Integer.IsGreater(ListItem.PlayCount,0)">Conditional</animation>
           </control>
           <control type="progress">
@@ -3173,7 +3174,7 @@
           <right>120</right>
           <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
           <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
-          <visible>!Control.IsVaisible(507) + !Control.IsVisible(502) + !Control.IsVisible(504) + !String.IsEqual(ListItem.DBType,season) + !String.IsEqual(ListItem.DBType,episode)  + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
+          <visible>!Window.IsVisible(DialogVideoInfo.xml) + !Control.IsVaisible(507) + !Control.IsVisible(502) + !Control.IsVisible(504) + !String.IsEqual(ListItem.DBType,season) + !String.IsEqual(ListItem.DBType,episode)  + Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(landscape))</visible>
        </control>
 
         <control type="image">
@@ -3183,7 +3184,7 @@
           <height>45%</height>
           <aspectratio>keep</aspectratio>
           <texture background="true">$VAR[Widget_ClearLogo]</texture>
-          <visible>!Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogContextMenu.xml) + !Window.IsVisible(DialogBusy.xml) + !Control.IsVisible(507) + !Control.IsVisible(502) + !Control.IsVisible(504) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
+          <visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogContextMenu.xml) + !Window.IsVisible(DialogBusy.xml) + !Control.IsVisible(507) + !Control.IsVisible(502) + !Control.IsVisible(504) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
         </control>
 
             <control type="group">

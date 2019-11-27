@@ -1919,22 +1919,6 @@
             <wrapmultiline>true</wrapmultiline>
             <scroll>true</scroll>
           </control>
-<!--
-          <control type="label">
-            <visible>[String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,movie) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,season) | String.IsEmpty(Container($PARAM[id]).ListItem.DBType,set) | !String.IsEmpty(Container($PARAM[id]).ListItem.ChannelName)] + String.IsEmpty(Control.GetLabel(3$PARAM[id]))</visible>
-            <top>-210</top>
-            <label>$VAR[video_heading5055]</label>
-            <textcolor>grey</textcolor>
-            <shadowcolor>black</shadowcolor>
-            <font>netflix_heading</font>
-            <width min="200" max="600">auto</width>
-            <height min="50" max="150">auto</height>
-            <align>left</align>
-            <wrapmultiline>true</wrapmultiline>
-            <autoscroll>true</autoscroll>
-            <scroll>true</scroll>
-          </control>
--->
           <control type="label">
             <visible>![String.IsEqual(Container($PARAM[id]).ListItem.DBType,movie) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,season) | String.IsEmpty(Container($PARAM[id]).ListItem.DBType,set) | !String.IsEmpty(Container($PARAM[id]).ListItem.ChannelName)] + String.IsEmpty(Container($PARAM[id]).ListItem.Art(clearlogo))</visible>
             <top>-210</top>
@@ -1999,7 +1983,7 @@
                 <control type="group">
                   <width>100</width>
                   <height>30</height>
-                  <visible>!String.IsEmpty(Control.GetLabel(6115))</visible>
+                  <visible>!String.IsEmpty(Control.GetLabel(6$PARAM[id])) + !String.IsEmpty(Container($PARAM[id]).ListItem.Title)</visible>
                   <control type="image">
                     <bottom>-18</bottom>
                     <animation effect="fade" time="0" end="75" condition="true">Conditional</animation>
@@ -2008,7 +1992,7 @@
                     <width>100%</width>
                     <texture colordiffuse="dimgrey">flags/flag_box_mpaa.png</texture>
                   </control>
-                  <control type="label" id="6115">
+                  <control type="label" id="6$PARAM[id]">
                     <top>15</top>
                     <left>30</left>
                     <height>100%</height>
@@ -3943,7 +3927,7 @@
           <width>64</width>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>!String.IsEmpty(ListItem.Studio)</visible>
-          <visible>!Control.IsVisible(1505) | Control.IsVisible(1506)</visible>
+          <visible>!Control.IsVisible(1505) + !Control.IsVisible(1506) + !Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
         <control type="image">
           <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(Container(1505).ListItem.Studio)">Conditional</animation>
@@ -4458,13 +4442,13 @@
             <control type="textbox" id="9609">
               <left>10</left>
               <description>textarea</description>
-              <height min="100" max="900">auto</height>
+              <height min="100" max="600">auto</height>
               <width>90%</width>
               <align>left</align>
               <textcolor>main_fg_70</textcolor>
               <font>font_overlay_plotbox</font>
               <label fallback="19055">$VAR[Label_OverlayPlot]</label>
-              <autoscroll delay="8000" time="4000" repeat="12000">false</autoscroll>
+              <autoscroll delay="8000" time="4000" repeat="12000">true</autoscroll>
               <visible>![Window.IsVisible(2111) | Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117)]</visible>
             </control>
             <control type="textbox" id="9609">
@@ -4499,6 +4483,7 @@
                 <param name="oscars" value="true" />
                 <param name="top250" value="true" />
                 <param name="plot" value="false" />
+                <param name="studio" value="false" />
               </include>
             </control>
           </control>
@@ -7373,4 +7358,258 @@
         <focusedlayout />
   </control>
   </include>
+  
+  <include name="episode_list">
+    <param name="id" default="" />
+    <param name="visible" default="" />
+    <param name="content" default="" />
+    <param name="onclick" default="" />
+    <param name="onclick2" default="" />
+    <definition>
+      <control type="group" id="2$PARAM[id]">
+        <visible>$PARAM[visible]</visible>
+        <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
+        <control type="group">
+          <include condition="Skin.HasSetting(MouseMode)">Widget_Busy_Top_Mouse</include>
+          <include>Widget_Label_height_hub</include>
+          <left>-395</left>
+          <include condition="Skin.HasSetting(DisableAuraHomeLayout)">widget_label_top</include>
+          <include content="Defs_BusySpinner">
+            <param name="label" value="$LOCALIZE[31138]..." />
+          </include>
+          <visible>[Container($PARAM[id]).IsUpdating + !Integer.IsGreater(Container($PARAM[id]).NumItems,0)] | [Window.IsVisible(DialogVideoInfo.xml) + Container($PARAM[id]).IsUpdating]</visible>
+        </control>
+      </control>
+        <control type="list" id="$PARAM[id]">
+	  <animation effect="fade" start="100" end="0" time="0" condition="Container($PARAM[id]).IsUpdating">Conditional</animation>
+          <width>1500</width>
+          <height>900</height>
+          <visible>$PARAM[visible]</visible>
+          <onleft>8999</onleft>
+	  <onclick>$PARAM[onclick]</onclick>
+	  <onclick>$PARAM[onclick2]</onclick>
+	  <onup>$PARAM[id]</onup>
+	  <ondown>$PARAM[id]</ondown>
+     <itemlayout width="1820" height="310">
+        <control type="group">
+          <left>60</left>
+          <control type="group">
+            <height>300</height>
+            <width>518</width>
+            <include>View_Landscape_Artwork</include>
+          </control>
+          <control type="label">
+            <top>160</top>
+            <left>30</left>
+            <font>font_medium_bold</font>
+            <shadowcolor>black</shadowcolor>
+            <textcolor>white</textcolor>
+            <label>S$INFO[ListItem.Season]:E$INFO[ListItem.Episode]</label>
+            <visible>!Container.Content(Seasons) + !String.IsEqual(ListItem.DBType,season) + !String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)</visible>
+            <animation effect="slide" end="0,20" time="0" condition="!Integer.IsGreater(ListItem.PercentPlayed,0) + !Integer.IsGreater(ListItem.PlayCount,0)">Conditional</animation>
+          </control>
+          <control type="progress">
+            <visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
+            <left>30</left>
+            <top>260</top>
+            <description>progress bar</description>
+            <width>430</width>
+            <height>9</height>
+            <align>center</align>
+            <texturebg colordiffuse="white" border="2">colors/color_white.png</texturebg>
+            <lefttexture></lefttexture>
+            <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
+            <righttexture></righttexture>
+            <info>ListItem.PercentPlayed</info>
+            <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+          </control>
+          <control type="progress">
+            <visible>Integer.IsGreater(ListItem.PlayCount,0)</visible>
+            <left>30</left>
+            <top>260</top>
+            <description>progress bar</description>
+            <width>430</width>
+            <height>9</height>
+            <align>center</align>
+            <texturebg colordiffuse="red" border="2">colors/color_white.png</texturebg>
+            <lefttexture></lefttexture>
+            <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
+            <righttexture></righttexture>
+            <info>ListItem.PercentPlayed</info>
+            <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+          </control>
+          <control type="group">
+            <height>300</height>
+            <left>538</left>
+            <visible>!ListItem.IsParentFolder</visible>
+            <control type="label">
+              <left>0</left>
+              <label>$INFO[ListItem.Label]</label>
+              <height>80</height>
+              <aligny>top</aligny>
+              <textcolor>main_fg_100</textcolor>
+              <shadowcolor>black</shadowcolor>
+              <font>font_medium_bold</font>
+            </control>
+            <control type="group">
+              <top>60</top>
+              <control type="image">
+                <left>0</left>
+                <top>10</top>
+                <width>37</width>
+                <height>24</height>
+                <texture colordiffuse="main_fg_100">$VAR[Image_HDSD]</texture>
+                <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+              </control>
+              <control type="label">
+                <left>37</left>
+                <label>|</label>
+                <width>40</width>
+                <align>center</align>
+                <height>40</height>
+                <aligny>top</aligny>
+                <textcolor>$VAR[ColorHighlight]</textcolor>
+                <font>font_small</font>
+                <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+              </control>
+              <control type="label">
+                <animation effect="slide" condition="![Container.Content(movies) | Container.Content(episodes)]" end="-73">Conditional</animation>
+                <left>73</left>
+                <width>auto</width>
+                <label>$VAR[Label_ShowCase_InfoLine]$INFO[ListItem.Rating, | [COLOR=main_fg_100],[/COLOR]]</label>
+                <height>40</height>
+                <aligny>top</aligny>
+                <textcolor>$VAR[ColorHighlight]</textcolor>
+                <font>font_small</font>
+              </control>
+            </control>
+            <control type="textbox">
+              <top>120</top>
+              <label fallback="19055">$VAR[Label_Plot]</label>
+              <bottom>10</bottom>
+              <aligny>top</aligny>
+              <textcolor>main_fg_70</textcolor>
+              <shadowcolor>black</shadowcolor>
+              <font>font_plotbox</font>
+              <autoscroll>false</autoscroll>
+            </control>
+          </control>
+        </control>
+      </itemlayout>
+      <focusedlayout width="1820" height="310">
+        <control type="group">
+          <left>60</left>
+          <control type="group">
+            <include>Animation_FocusBounce_Small</include>
+            <height>300</height>
+            <width>518</width>
+            <include>View_Landscape_Artwork</include>
+            <!-- Highlight -->
+            <control type="group">
+              <visible>Control.HasFocus($PARAM[id])</visible>
+              <include>View_Selectbox</include>
+            </control>
+          </control>
+          <control type="label">
+            <top>160</top>
+            <left>30</left>
+            <font>font_medium_bold</font>
+            <shadowcolor>black</shadowcolor>
+            <textcolor>white</textcolor>
+            <label>S$INFO[ListItem.Season]:E$INFO[ListItem.Episode]</label>
+            <visible>!Container.Content(Seasons) + !String.IsEqual(ListItem.DBType,season) + !String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)</visible>
+            <animation effect="slide" end="0,20" time="0" condition="!Integer.IsGreater(ListItem.PercentPlayed,0) + !Integer.IsGreater(ListItem.PlayCount,0)">Conditional</animation>
+          </control>
+          <control type="progress">
+            <visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
+            <left>30</left>
+            <top>260</top>
+            <description>progress bar</description>
+            <width>430</width>
+            <height>9</height>
+            <align>center</align>
+            <texturebg colordiffuse="white" border="2">colors/color_white.png</texturebg>
+            <lefttexture></lefttexture>
+            <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
+            <righttexture></righttexture>
+            <info>ListItem.PercentPlayed</info>
+            <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+          </control>
+          <control type="progress">
+            <visible>Integer.IsGreater(ListItem.PlayCount,0)</visible>
+            <left>30</left>
+            <top>260</top>
+            <description>progress bar</description>
+            <width>430</width>
+            <height>9</height>
+            <align>center</align>
+            <texturebg colordiffuse="red" border="2">colors/color_white.png</texturebg>
+            <lefttexture></lefttexture>
+            <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
+            <righttexture></righttexture>
+            <info>ListItem.PercentPlayed</info>
+            <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+          </control>
+          <control type="group">
+            <height>300</height>
+            <left>538</left>
+            <visible>!ListItem.IsParentFolder</visible>
+            <control type="label">
+              <left>0</left>
+              <label>$INFO[ListItem.Label]</label>
+              <height>80</height>
+              <aligny>top</aligny>
+              <shadowcolor>black</shadowcolor>
+              <textcolor>main_fg_100</textcolor>
+              <font>font_medium_bold</font>
+            </control>
+            <control type="group">
+              <top>60</top>
+              <control type="image">
+                <left>0</left>
+                <top>10</top>
+                <width>37</width>
+                <height>24</height>
+                <texture colordiffuse="main_fg_100">$VAR[Image_HDSD]</texture>
+                <visible>Container.Content(movies) | Container.Content(episodes)</visible>
+              </control>
+              <control type="label">
+                <left>37</left>
+                <label>|</label>
+                <width>40</width>
+                <align>center</align>
+                <height>40</height>
+                <aligny>top</aligny>
+                <textcolor>$VAR[ColorHighlight]</textcolor>
+                <font>font_small</font>
+                <visible>Container.Content(movies) | Container.Content(episodes)</visible>
+              </control>
+              <control type="label">
+                <animation effect="slide" condition="![Container.Content(movies) | Container.Content(episodes)]" end="-73">Conditional</animation>
+                <left>73</left>
+                <width>100%</width>
+                <label>$VAR[Label_ShowCase_InfoLine]$INFO[ListItem.Rating, | [COLOR=main_fg_100],[/COLOR]]</label>
+                <height>40</height>
+                <aligny>top</aligny>
+                <textcolor>$VAR[ColorHighlight]</textcolor>
+                <font>font_small</font>
+              </control>
+            </control>
+            <control type="textbox">
+              <top>120</top>
+              <label fallback="19055">$VAR[Label_Plot]</label>
+              <bottom>10</bottom>
+              <aligny>top</aligny>
+              <shadowcolor>black</shadowcolor>
+              <textcolor>main_fg_70</textcolor>
+              <font>font_plotbox</font>
+            </control>
+          </control>
+        </control>
+      </focusedlayout>
+      <content target="videos" sortby="episode" sortorder="ascending">$PARAM[content]</content>
+     </control>
+   </definition>
+  </include>
+
 </includes>

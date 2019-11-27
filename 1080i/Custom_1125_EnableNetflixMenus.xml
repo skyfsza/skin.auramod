@@ -120,6 +120,15 @@
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/menu-vertical-label.jpg)</onfocus>
                             <onclick>ReloadSkin()</onclick>
                         </control>
+                       <control type="radiobutton" id="90041" description="Enable Vertical Icon wLabel">
+                            <include>Dialog_Standard_ListButton</include>
+                            <radioposx>630</radioposx>
+                            <label> - Disable menu background color</label>
+			    <visible>Skin.HasSetting(DisableMenuVertLabel)</visible>
+                            <selected>Skin.HasSetting(DisableMenuVertLabelBG)</selected>
+                            <onclick>Skin.ToggleSetting(DisableMenuVertLabelBG)</onclick>
+                            <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/menu-vertical-label.jpg)</onfocus>
+                        </control>
                        <control type="radiobutton" id="9005" description="Enable Vertical Label">
                             <include>Dialog_Standard_ListButton</include>
                             <radioposx>630</radioposx>

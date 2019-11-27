@@ -205,32 +205,34 @@
    <control type="group">
       <width>310</width>
       <left>-315</left>
-                <control type="image">
-                    <left>0</left>
-                    <height>100%</height>
-                    <colordiffuse>89000000</colordiffuse>
-                    <aspectratio>stretch</aspectratio>
-                    <texture background="true">common/white.png</texture>
-		    <visible>!Skin.HasSetting(DisableAuraHomeLayout)</visible>
-                </control>
-                <control type="image">
-                    <left>0</left>
-                    <height>100%</height>
-                    <colordiffuse>FF000000</colordiffuse>
-                    <aspectratio>stretch</aspectratio>
-                    <texture background="true">common/white.png</texture>
-		    <visible>Skin.HasSetting(DisableAuraHomeLayout)</visible>
-                </control>
-                <control type="image">
-                    <left>311</left>
-                    <height>100%</height>
-                    <width>1</width>
-                    <colordiffuse>dimgray</colordiffuse>
-                    <aspectratio>stretch</aspectratio>
-                    <texture background="true">diffuse/gradient_seperator.png</texture>
-                </control>
-</control>
-</include>
+         <visible>!Skin.HasSetting(DisableMenuVertLabelBG)</visible>
+	 
+     <control type="image">
+         <left>0</left>
+         <height>100%</height>
+         <colordiffuse>89000000</colordiffuse>
+         <aspectratio>stretch</aspectratio>
+         <texture background="true">common/white.png</texture>
+         <visible>!Skin.HasSetting(DisableAuraHomeLayout)</visible>
+     </control>
+     <control type="image">
+         <left>0</left>
+         <height>100%</height>
+         <colordiffuse>FF000000</colordiffuse>
+         <aspectratio>stretch</aspectratio>
+         <texture background="true">common/white.png</texture>
+  	 <visible>Skin.HasSetting(DisableAuraHomeLayout)</visible>
+     </control>
+     <control type="image">
+         <left>311</left>
+         <height>100%</height>
+         <width>1</width>
+         <colordiffuse>dimgray</colordiffuse>
+         <aspectratio>stretch</aspectratio>
+         <texture background="true">diffuse/gradient_seperator.png</texture>
+     </control>
+   </control>
+  </include>
 
     <include name="Home_MainMenu_Layout_wLabel_only">
 	<control type="group">
@@ -431,6 +433,11 @@
 	    </control>
         </itemlayout>
         <focusedlayout height="75" width="240">
+        <control type="button">
+            <visible allowhiddenfocus="true">false</visible>
+           <onfocus condition="Control.IsVisible(1505)">SetProperty(SkinHelper.WidgetContainer,1505,Home)</onfocus>
+           <onfocus condition="Control.IsVisible(1506)">SetProperty(SkinHelper.WidgetContainer,1506,Home)</onfocus>
+        </control>
             <control type="image">
                 [[Control.HasFocus(23003) + String.IsEqual(Container(23003).Position,0)] | [Control.HasFocus(23004) + String.IsEqual(Container(23004).Position,0)] | [Control.HasFocus(23005) + String.IsEqual(Container(23005).Position,0)]]<left>240</left>
                 <width>home_icon</width>

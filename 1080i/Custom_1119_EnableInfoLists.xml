@@ -26,6 +26,8 @@
                 <orientation>vertical</orientation>
                 <pagecontrol>60</pagecontrol>
                 <usecontrolcoords>true</usecontrolcoords>
+		<onup>9000</onup>
+		<ondown>9000</ondown>
                 <control type="radiobutton" id="9010">
                     <label>Disable All</label>
                     <radioposx>730</radioposx>
@@ -104,6 +106,22 @@
                     <onclick>Skin.ToggleSetting(VideoInfo.Youtube)</onclick>
                     <selected>!Skin.HasSetting(VideoInfo.Youtube)</selected>
 		    <enable>!Skin.HasSetting(VideoInfo.Disable)</enable>
+                </control>
+                <control type="radiobutton" id="9011">
+                    <label>Seasons</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(VideoInfo.Seasons)</onclick>
+                    <selected>Skin.HasSetting(VideoInfo.Seasons)</selected>
+                    <enable>!Skin.HasSetting(VideoInfo.Disable)</enable>
+                </control>
+                <control type="radiobutton" id="9012">
+                    <label>Episodes</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(VideoInfo.Episodes)</onclick>
+                    <selected>Skin.HasSetting(VideoInfo.Episodes)</selected>
+                    <enable>!Skin.HasSetting(VideoInfo.Disable)</enable>
                 </control>
             </control>
         </control>

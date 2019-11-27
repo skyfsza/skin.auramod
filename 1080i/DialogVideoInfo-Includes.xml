@@ -991,7 +991,7 @@
      <control type="image">
       <visible>Control.HasFocus(9601) | ControlGroup(9000).HasFocus | Control.HasFocus(8999)</visible>
 	<animation effect="fade" start="10" end="100" time="300">Visible</animation>
-        <texture background="true" colordiffuse="69000000">common/white.png</texture>
+        <texture background="true" colordiffuse="89000000">common/white.png</texture>
         <width>100%</width>
         <height>100%</height>
       </control>
@@ -1049,15 +1049,15 @@
           <top>10</top>
           <visible>!Control.HasFocus(9550)</visible>
           <label fallback="19055">$VAR[Label_OverlayPlot]</label>
-          <height min="60" max="158">auto</height>
+          <height min="60" max="246">auto</height>
           <width>750</width>
           <aligny>top</aligny>
           <textcolor>dimgrey</textcolor>
-          <font>widget_trakt_title</font>
+          <font>font_plotbox</font>
           <visible>!Control.HasFocus(9601) + !Control.HasFocus(8999) + !ControlGroup(9000).HasFocus</visible>
         </control>
         <control type="label">
-          <height>20</height>
+          <height>15</height>
         </control>
         <control type="group">
          <visible>!Control.HasFocus(9601) + !Control.HasFocus(8999) + !ControlGroup(9000).HasFocus</visible>
@@ -1195,8 +1195,8 @@
           <onright>9601</onright>
           <onup>9570</onup>
           <ondown>9570</ondown>
-          <top>280</top>
-          <height>270</height>
+          <top>300</top>
+          <height>202.5</height>
           <width>650</width>
           <!-- Play OpenMeta -->
           <control type="radiobutton" id="889">
@@ -1311,6 +1311,17 @@
             <onclick condition="Skin.HasSetting(EnableShowInfo) + Window.IsVisible(1138)">ActivateWindow(Home)</onclick>
             <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)">ActivateWindow(10025,plugin://plugin.video.seren/?action=showSeasons&amp;actionArgs=%7b%22item_type%22%3a%20%22show%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(tvshow.trakt_id)]%7d,return)</onclick>
           </control>
+          <control type="radiobutton" id="38">
+            <include name="netflix_button" content="netflix_button">
+              <param name="icon" value="actors" />
+            </include>
+            <radiowidth>45</radiowidth>
+            <radioheight>48</radioheight>
+            <radioposx>2</radioposx>
+            <label>Cast &amp; More</label>
+            <onclick>SetFocus(8999,0)</onclick>
+            <visible>!Skin.HasSetting(VideoInfo.Disable)</visible>
+          </control>
           <!-- Trailer-->
           <control type="radiobutton" id="34">
             <include name="netflix_button" content="netflix_button">
@@ -1350,17 +1361,6 @@
             <label>Stop</label>
             <visible>Player.HasVideo</visible>
             <onclick>Stop</onclick>
-          </control>
-          <control type="radiobutton" id="38">
-            <include name="netflix_button" content="netflix_button">
-              <param name="icon" value="actors" />
-            </include>
-            <radiowidth>45</radiowidth>
-            <radioheight>48</radioheight>
-            <radioposx>2</radioposx>
-            <label>Cast &amp; More</label>
-            <onclick>SetFocus(8999,0)</onclick>
-            <visible>!Skin.HasSetting(VideoInfo.Disable)</visible>
           </control>
           <!-- Extended Info  -->
           <control type="radiobutton" id="37">
@@ -1433,6 +1433,8 @@
         <orientation>vertical</orientation>
         <top>280</top>
         <left>40</left>
+        <animation effect="fade" start="0" end="1000" time="400">Visible</animation>
+
         <itemlayout width="240" height="75">
           <control type="label">
             <label>$INFO[ListItem.Label]</label>
@@ -1446,7 +1448,8 @@
             <align>left</align>
             <label>$INFO[ListItem.Label]</label>
             <font>font_large_bold</font>
-            <textcolor>$VAR[ColorHighlight]</textcolor>
+            <textcolor>white</textcolor>
+	    <shadowcolor>dimgrey</shadowcolor>
           </control>
         </focusedlayout>
         <content>
@@ -1455,34 +1458,42 @@
             <visible>Integer.IsGreater(Container(53001).NumItems,0) | Container(53001).IsUpdating</visible>
           </item>
           <item id="2">
+            <label>Seasons</label>
+            <visible>[Integer.IsGreater(Container(53000).NumItems,0) | Container(53000).IsUpdating]</visible>
+          </item>
+          <item id="10">
+            <label>Episodes</label>
+            <visible>[Integer.IsGreater(Container(53011).NumItems,0) | Container(53011).IsUpdating] + !Skin.HasSetting(VideoInfo.Disable) + Skin.HasSetting(VideoInfo.Episodes) + String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBType,episode) + String.Contains(ListItem.Path,plugin.video.seren)</visible>
+          </item>
+          <item id="3">
             <label>Sets</label>
             <visible>!String.IsEmpty(ListItem.Set) + [Integer.IsGreater(Container(53002).NumItems,0) | Container(53002).IsUpdating]</visible>
           </item>
-          <item id="3">
+          <item id="4">
             <label>Similar</label>
             <visible>Integer.IsGreater(Container(53003).NumItems,0) | Container(53003).IsUpdating</visible>
           </item>
-          <item id="4">
+          <item id="5">
             <label>Recommended</label>
             <visible>Integer.IsGreater(Container(53007).NumItems,0) | Container(53007).IsUpdating</visible>
           </item>
-          <item id="5">
+          <item id="6">
             <label>By Director</label>
             <visible>!String.IsEmpty(ListItem.Genre) + [Integer.IsGreater(Container(53004).NumItems,0) | Container(53004).IsUpdating]</visible>
           </item>
-          <item id="6">
+          <item id="7">
             <label>By Studio</label>
             <visible>!String.IsEmpty(ListItem.Studio) + [Integer.IsGreater(Container(53006).NumItems,0) | Container(53006).IsUpdating]</visible>
           </item>
-          <item id="7">
+          <item id="8">
             <label>By Year</label>
             <visible>Integer.IsGreater(Container(53005).NumItems,0) | Container(53005).IsUpdating</visible>
           </item>
-          <item id="8">
+          <item id="9">
             <label>By Genre</label>
             <visible>!String.IsEmpty(ListItem.Genre) + [Integer.IsGreater(Container(53008).NumItems,0) | Container(53008).IsUpdating]</visible>
           </item>
-        </content>
+	</content>
       </control>
 
       <control type="grouplist" id="9000">
@@ -1496,7 +1507,24 @@
         <include condition="!Skin.HasSetting(DisableAuraHomeLayout)">widget_info_top_aura</include>
         <width>1900</width>
         <height>900</height>
-        <onup>8999</onup>
+        <animation effect="fade" start="0" end="1000" time="400">Visible</animation>
+       <include condition="!Skin.HasSetting(VideoInfo.Disable) + Skin.HasSetting(VideoInfo.Seasons) + String.IsEmpty(ListItem.DBID) + !String.IsEqual(ListItem.DBType,movie)" content="episode_list">
+          <param name="id" value="53000" />
+          <param name="visible" value="String.IsEqual(Container(8999).ListItem.Label,Seasons)" />
+          <param name="content" value="$VAR[seasons_content_videoinfo]" />
+	  <param name="onclick" value="Dialog.Close(all,force)" />
+	  <param name="onclick2" value="ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)" />
+        </include>
+
+       <include condition="!Skin.HasSetting(VideoInfo.Disable) + Skin.HasSetting(VideoInfo.Episodes) + String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBType,episode) + String.Contains(ListItem.Path,plugin.video.seren)" content="episode_list">
+          <param name="id" value="53011" />
+          <param name="visible" value="String.IsEqual(Container(8999).ListItem.Label,Episodes)" />
+          <param name="content" value="plugin://plugin.video.seren/?action=seasonEpisodes&actionArgs=%7B%22item_type%22%3A%20%22season%22%2C%20%22trakt_id%22%3A%20$INFO[ListItem.Property(tvshow.trakt_id)]%2C%20%22season%22%3A%20$INFO[ListItem.Season]%7D" />
+          <param name="onclick" value="Dialog.Close(all,force)" />
+          <param name="onclick2" value="$VAR[videoinfo_onclick_episode]" />
+          <param name="onup" value="53011" />
+        </include>
+
         <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.CastList)" content="Widget_TMDB">
           <param name="id" value="53001" />
           <param name="onleft" value="8999" />
@@ -1515,7 +1543,7 @@
           <param name="label" value="Cast" />
           <param name="visible" value="String.IsEqual(Container(8999).ListItem.Label,Cast) + !String.IsEmpty(ListItem.Label)" />
         </include>
-        <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.Sets)" content="Widget_TMDB">
+        <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.Sets) + String.IsEqual(ListItem.DBType,movie)" content="Widget_TMDB">
           <param name="id" value="53002" />
           <param name="onleft" value="8999" />
           <param name="onup" value="8999" />
@@ -1583,7 +1611,7 @@
           <param name="label" value="From $INFO[ListItem.Year]" />
           <param name="visible" value="String.IsEqual(Container(8999).ListItem.Label,By Year) + !String.IsEmpty(ListItem.Year)" />
         </include>
-        <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.Studio)" content="Widget_TMDB">
+        <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.Studio) + String.IsEqual(ListItem.DBType,movie)" content="Widget_TMDB">
           <param name="id" value="53006" />
           <param name="onup" value="8999" />
           <param name="onleft" value="8999" />

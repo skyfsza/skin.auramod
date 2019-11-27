@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	
+    <variable name="seasons_content_videoinfo">
+         <value condition="String.IsEqual(ListItem.DBType,episode) + String.Contains(ListItem.FolderPath,plugin.video.seren)">plugin://plugin.video.seren/?action=showSeasons&amp;actionArgs=%7b%22item_type%22%3a%20%22show%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(tvshow.trakt_id)]%7d</value>
+	<value condition="String.IsEqual(ListItem.DBType,tvshow)">$INFO[ListItem.FolderPath]</value>
+    </variable>
+
     <variable name="similar_movie_content">
         <value condition="!String.IsEmpty(Skin.String(similar_movies_traktid))">plugin://plugin.video.seren/?action=moviesRelated&actionArgs=$INFO[Skin.String(similar_movies_traktid)]</value>
     </variable>
@@ -622,6 +627,8 @@
 
     <variable name="MPAA">
         <value condition="!String.IsEmpty(ListItem.MPAA)">$INFO[ListItem.MPAA]</value>
+        <value condition="!String.IsEmpty(Container(1505).ListItem.MPAA)">$INFO[Container(1505).ListItem.MPAA]</value>
+        <value condition="!String.IsEmpty(Container(1506).ListItem.MPAA)">$INFO[Container(1506).ListItem.MPAA]</value>
         <value condition="!String.IsEmpty(Container(5055).ListItem.MPAA)">$INFO[Container(5055).ListItem.MPAA]</value>
         <value condition="String.IsEmpty(ListItem.MPAA) + String.IsEmpty(Container(5055).ListItem.MPAA) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA))">$INFO[Window(Home).Property(SkinHelper.ListItem.MPAA)]</value>
     </variable>
