@@ -3168,15 +3168,14 @@
         <visible>String.Contains(ListItem.Path,plugin.video.youtube)</visible>
       </control>
         <control type="image">
-          <bottom>30</bottom>
-          <top>170</top>
-          <left>120</left>
-          <right>120</right>
+          <centertop>55%</centertop>
+          <centerleft>50%</centerleft>
+          <width>50%</width>
+          <height>50%</height>
           <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
           <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
-          <visible>!Window.IsVisible(DialogVideoInfo.xml) + !Control.IsVaisible(507) + !Control.IsVisible(502) + !Control.IsVisible(504) + !String.IsEqual(ListItem.DBType,season) + !String.IsEqual(ListItem.DBType,episode)  + Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(landscape))</visible>
+          <visible>!Window.IsVisible(DialogVideoInfo.xml) + !Control.IsVaisible(507) + !Control.IsVisible(502) + !Control.IsVisible(504) + !String.IsEqual(ListItem.DBType,season) + !String.IsEqual(ListItem.DBType,episode)  + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
        </control>
-
         <control type="image">
           <bottom>0</bottom>
           <right>10</right>
