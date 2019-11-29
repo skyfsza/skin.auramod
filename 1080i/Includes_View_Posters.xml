@@ -1239,7 +1239,7 @@
       </control>
       </control>
         <control type="list" id="507">
-          <ondown>5022</ondown>
+          <ondown>50221</ondown>
           <height>100</height>
 	  <width>1800</width>
           <top>280</top>
@@ -1288,7 +1288,7 @@
           <onback>507</onback>
 	  <onleft>507</onleft>
         <include content="view_widget_onclick" condition="!Skin.HasSetting(EnableShowInfo)">
-            <param name="id" value="5022" />
+            <param name="id" value="50221" />
         </include>
 
           <itemlayout width="533.33" height="700">
@@ -1300,18 +1300,6 @@
                 <width>533.33</width>
                 <include>View_Landscape_Artwork</include>
               </control>
-<!--
-              <control type="label">
-                <top>250</top>
-                <left>30</left>
-                <font>font_medium_bold</font>
-                <textcolor>white</textcolor>
-                <shadowcolor>black</shadowcolor>
-                <label>S$INFO[ListItem.Season]:E$INFO[ListItem.Episode]</label>
-                <visible>!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)</visible>
-                <animation effect="slide" end="0,20" time="0" condition="!Integer.IsGreater(ListItem.PercentPlayed,0) + !Integer.IsGreater(ListItem.PlayCount,0)">Conditional</animation>
-              </control>
--->
               <control type="progress">
                 <visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
                 <left>30</left>
@@ -1417,18 +1405,6 @@
                   <visible>Control.HasFocus(5022)</visible>
                 </control>
               </control>
-<!--
-              <control type="label">
-                <top>160</top>
-                <left>30</left>
-                <font>font_medium_bold</font>
-                <shadowcolor>black</shadowcolor>
-                <textcolor>white</textcolor>
-                <label>S$INFO[ListItem.Season]:E$INFO[ListItem.Episode]</label>
-                <visible>!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)</visible>
-                <animation effect="slide" end="0,20" time="0" condition="!Integer.IsGreater(ListItem.PercentPlayed,0) + !Integer.IsGreater(ListItem.PlayCount,0)">Conditional</animation>
-              </control>
--->
               <control type="progress">
                 <visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
                 <left>30</left>

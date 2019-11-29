@@ -439,7 +439,7 @@
            <onfocus condition="Control.IsVisible(1506)">SetProperty(SkinHelper.WidgetContainer,1506,Home)</onfocus>
         </control>
             <control type="image">
-                [[Control.HasFocus(23003) + String.IsEqual(Container(23003).Position,0)] | [Control.HasFocus(23004) + String.IsEqual(Container(23004).Position,0)] | [Control.HasFocus(23005) + String.IsEqual(Container(23005).Position,0)]]<left>240</left>
+                <left>240</left>
                 <width>home_icon</width>
                 <texture colordiffuse="main_fg_100">$INFO[ListItem.Icon]</texture>
             </control>
