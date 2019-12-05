@@ -7669,14 +7669,14 @@
                 <visible>$PARAM[visible]</visible>
                 <include content="Object_IconicButton_Left">
                     <param name="visible" value="Control.HasFocus($PARAM[id])" />
-                    <param name="texture" value="special://skin/extras/common/buttonshadow-fo.png" />
+                    <param name="texture" value="common/buttonshadow-fo.png" />
                     <param name="icon" value="$PARAM[icon]" />
                     <param name="colordiffuse-icon" value="e7ededed" />
                     <param name="colordiffuse-texture" value="ff333333" />
                 </include>
                 <include content="Object_IconicButton_Left">
                     <param name="visible" value="!Control.HasFocus($PARAM[id])" />
-                    <param name="texture" value="special://skin/extras/common/buttonshadow-nf.png" />
+                    <param name="texture" value="common/buttonshadow-nf.png" />
                     <param name="icon" value="$PARAM[icon]" />
                     <param name="colordiffuse-icon" value="b3333333" />
                     <param name="colordiffuse-texture" value="1f333333" />
@@ -7689,8 +7689,8 @@
                 <ondown>50</ondown>
                 <onup>9601</onup>
                 <height>90</height>
-                <texturenofocus border="0,24,0,24" flipx="true" colordiffuse="1f333333">special://skin/extras/common/buttonshadow-mid-nf.png</texturenofocus>
-                <texturefocus border="0,24,0,24" flipx="true" colordiffuse="ff333333">special://skin/extras/common/buttonshadow-mid-fo.png</texturefocus>
+                <texturenofocus border="0,24,0,24" flipx="true" colordiffuse="1f333333">common/buttonshadow-mid-nf.png</texturenofocus>
+                <texturefocus border="0,24,0,24" flipx="true" colordiffuse="ff333333">common/buttonshadow-mid-fo.png</texturefocus>
                 <font>font_info_buttons</font>
                 <label>$PARAM[label]</label>
                 <textoffsetx>0</textoffsetx>
@@ -7705,12 +7705,12 @@
                 <visible>$PARAM[visible]</visible>
                 <include content="Object_IconicButton_Right">
                     <param name="visible" value="Control.HasFocus($PARAM[id])" />
-                    <param name="texture" value="special://skin/extras/common/buttonshadow-fo.png" />
+                    <param name="texture" value="common/buttonshadow-fo.png" />
                     <param name="colordiffuse-texture" value="ff333333" />
                 </include>
                 <include content="Object_IconicButton_Right">
                     <param name="visible" value="!Control.HasFocus($PARAM[id])" />
-                    <param name="texture" value="special://skin/extras/common/buttonshadow-nf.png" />
+                    <param name="texture" value="common/buttonshadow-nf.png" />
                     <param name="colordiffuse-texture" value="1f333333" />
                 </include>
             </control>
