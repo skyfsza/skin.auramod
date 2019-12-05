@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1157">
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <controls>
+        <include>Global_Overlay</include>
+        <control type="group">
+            <include content="Dialog_Standard_Group">
+                <param name="width" value="820" />
+                <param name="height" value="793" />
+            </include>
+
+            <control type="label">
+                <description>Header Label</description>
+                <label>[CAPITALIZE]VideoInfo Buttons[/CAPITALIZE]</label>
+                <include>Dialog_Standard_Header</include>
+            </control>
+
+            <control type="grouplist" id="9000">
+                <description>Control Area</description>
+                <right>20</right>
+                <width>780</width>
+                <top>100</top>
+                <height>672</height>
+                <itemgap>10</itemgap>
+                <orientation>vertical</orientation>
+                <pagecontrol>60</pagecontrol>
+                <usecontrolcoords>true</usecontrolcoords>
+		<onup>9000</onup>
+		<ondown>9000</ondown>
+                <control type="radiobutton" id="9001">
+                    <label>More Episodes</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(VideoInfoButton.MoreEps)</onclick>
+                    <selected>!Skin.HasSetting(VideoInfoButton.MoreEps)</selected>
+                </control>
+                <control type="radiobutton" id="9002">
+                    <label>Cast & More</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(VideoInfoButton.CastMore)</onclick>
+                    <selected>!Skin.HasSetting(VideoInfoButton.CastMore)</selected>
+                </control>
+                <control type="radiobutton" id="9003">
+                    <label>Trailer</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(VideoInfoButton.Trailer)</onclick>
+                    <selected>!Skin.HasSetting(VideoInfoButton.Trailer)</selected>
+                </control>
+                <control type="radiobutton" id="9004">
+                    <label>Extended Info</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(VideoInfoButton.EIS)</onclick>
+                    <selected>!Skin.HasSetting(VideoInfoButton.EIS)</selected>
+                </control>
+                <control type="radiobutton" id="9005">
+                    <label>Add to Watchlist</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(VideoInfoButton.Watchlist)</onclick>
+                    <selected>!Skin.HasSetting(VideoInfoButton.Watchlist)</selected>
+                </control>
+                <control type="radiobutton" id="9006">
+                    <label>Choose Artwork</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(VideoInfoButton.Art)</onclick>
+                    <selected>!Skin.HasSetting(VideoInfoButton.Art)</selected>
+                </control>
+                <control type="radiobutton" id="9007">
+                    <label>Refresh</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(VideoInfoButton.Refresh)</onclick>
+                    <selected>!Skin.HasSetting(VideoInfoButton.Refresh)</selected>
+                </control>
+                <control type="radiobutton" id="9008">
+                    <label>Trakt Manager</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(VideoInfoButton.Trakt)</onclick>
+                    <selected>!Skin.HasSetting(VideoInfoButton.Trakt)</selected>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

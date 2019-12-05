@@ -6,7 +6,6 @@
   <onload condition="String.IsEmpty(Skin.String(TMDB_Search)) + !Skin.HasSetting(EnableSearchDefaultKB) + Window.Previous(1136)">Skin.SetString(CustomSearchTerm,$INFO[ListItem.Label])</onload>
   <onunload>Skin.Reset(TMDB_Search)</onunload>
   <onunload>ClearProperty(SuggestionPath)</onunload>
-<!--  <onload condition="!Window.Previous(1136)">Close</onload> -->
   <controls>
 <control type="group">
 <top>50</top>

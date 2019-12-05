@@ -3,7 +3,12 @@
 	
     <variable name="seasons_content_videoinfo">
          <value condition="String.IsEqual(ListItem.DBType,episode) + String.Contains(ListItem.FolderPath,plugin.video.seren)">plugin://plugin.video.seren/?action=showSeasons&amp;actionArgs=%7b%22item_type%22%3a%20%22show%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(tvshow.trakt_id)]%7d</value>
+	 <value condition="String.IsEqual(ListItem.DBType,tvshow) + String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">plugin://plugin.video.themoviedb.helper/?info=seasons&amp;type=tv&amp;tmdb_id=$INFO[ListItem.Property(tmdb_id)]</value>
 	<value condition="String.IsEqual(ListItem.DBType,tvshow)">$INFO[ListItem.FolderPath]</value>
+    </variable>
+
+    <variable name="nextup_content_videoinfo">
+         <value condition="String.IsEqual(ListItem.DBType,tvshow) + String.IsEmpty(ListItem.DBID)">plugin://plugin.video.themoviedb.helper/?info=trakt_upnext&amp;tmdb_id=$INFO[ListItem.Property(tmdb_id)]&amp;type=tv</value>
     </variable>
 
     <variable name="similar_movie_content">
@@ -257,6 +262,7 @@
         <value condition="Control.IsVisible(506) + !String.IsEmpty(Container(5056).ListItem.Genre)">genre</value>
         <value condition="Control.IsVisible(505) + !String.IsEmpty(Container(5055).ListItem.Cast)">star</value>
         <value condition="Control.IsVisible(506) + !String.IsEmpty(Container(5056).ListItem.Cast)">star</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))">genre</value>
     </variable>
 
    <!-- Spotlight buttons @cartmandos -->
@@ -278,6 +284,7 @@
         <value condition="Control.IsVisible(506) + !String.IsEmpty(Container(5056).ListItem.Genre)">[I]$INFO[Container(5056).ListItem.Genre][/I]</value>
         <value condition="Control.IsVisible(505) + !String.IsEmpty(Container(5055).ListItem.Cast)">[I]$INFO[Container(5055).ListItem.Cast][/I]</value>
         <value condition="Control.IsVisible(506) + !String.IsEmpty(Container(5056).ListItem.Cast)">[I]$INFO[Container(5056).ListItem.Cast][/I]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))">[I]$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)][/I]</value>
     </variable>
 
 
@@ -622,8 +629,16 @@
    <variable name="infoline_duration">
 	<value condition="String.Contains(ListItem.FolderPath,plugin.video.youtube) + String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration]</value>
 	<value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(h),,h] $INFO[ListItem.Duration(mm),,m]</value>
-	<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration.Hours)) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration.Minutes))">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Hours),,h] $INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Minutes),,m]</value>
+	<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration))">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Hours),,h] $INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Minutes),,m]</value>
    </variable>
+
+    <variable name="infoview_duration">
+        <value condition="!String.IsEmpty(Container($PARAM[id]).ListItem.MPAA)">$INFO[Container($PARAM[id]).ListItem.Duration(h),,h] $INFO[Container($PARAM[id]).ListItem.Duration(mm),,m]</value>
+        <value condition="!String.IsEmpty(Container(5055).ListItem.MPAA)">$INFO[Container(5055).ListItem.Duration(h),,h] $INFO[Container(5055).ListItem.Duration(mm),,m]</value>
+        <value condition="!String.IsEmpty(Container(5056).ListItem.MPAA)">$INFO[Container(5056).ListItem.Duration(h),,h] $INFO[Container(5056).ListItem.Duration(mm),,m]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration))">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Hours),,h] $INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Minutes),,m]</value>
+    </variable>
+
 
     <variable name="MPAA">
         <value condition="!String.IsEmpty(ListItem.MPAA)">$INFO[ListItem.MPAA]</value>

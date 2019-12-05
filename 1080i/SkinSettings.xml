@@ -867,10 +867,15 @@
                         <control type="button" id="9510" description="Enable video info lists">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31407]</label>
+                            <label>Enable / disable Video Info lists</label>
                             <onclick>ActivateWindow(1119)</onclick>
                         </control>
-
+                        <control type="button" id="95110" description="Enable video info buttons">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Enable / disable Video Info buttons</label>
+                            <onclick>ActivateWindow(1157)</onclick>
+                        </control>
 
 			<control type="radiobutton" id="9630" description="Enable Netflix Views">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
@@ -1322,7 +1327,7 @@
                             <label>Select WidgetBar Items</label>
                             <onclick>ActivateWindow(1133)</onclick>
                         </control>
-                        <control type="button" id="96361" description="Suggested Movie/TV Widget ">
+                        <control type="button" id="96361" description="Seren Suggested Movie/TV Widget ">
                             <textcolor>main_fg_100</textcolor>
                             <disabledcolor>main_fg_12</disabledcolor>
                             <height>80</height>

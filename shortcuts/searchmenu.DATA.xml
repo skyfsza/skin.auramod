@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+	<shortcut>
+		<defaultID />
+		<label>Library Movies</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,"videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</action>
+	</shortcut>
+        <shortcut>
+                <defaultID />
+                <label>Library TV Shows</label>
+                <label2>Custom item</label2>
+                <icon>DefaultShortcut.png</icon>
+                <thumb />
+                <action>ActivateWindow(Videos,"videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</action>
+        </shortcut>
+        <shortcut>
+                <defaultID />
+                <label>TMDB Movies</label>
+                <label2>Custom item</label2>
+                <icon>DefaultShortcut.png</icon>
+                <thumb>image://%2fstorage%2femulated%2f0%2fAndroid%2fdata%2forg.xbmc.kodi%2ffiles%2f.kodi%2faddons%2fplugin.video.seren%2ftemp-icon.png/</thumb>
+                <action>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper?info=search&amp;type=movie&amp;query=$INFO[Skin.String(CustomSearchTerm)]",return)</action>
+        </shortcut>
+        <shortcut>
+                <defaultID />
+                <label>TMDB TV Shows</label>
+                <label2>Custom item</label2>
+                <icon>DefaultShortcut.png</icon>
+                <thumb>image://%2fstorage%2femulated%2f0%2fAndroid%2fdata%2forg.xbmc.kodi%2ffiles%2f.kodi%2faddons%2fplugin.video.seren%2ftemp-icon.png/</thumb>
+                <action>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper?info=search&amp;type=tv&amp;query=$INFO[Skin.String(CustomSearchTerm)]",return)</action>
+        </shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Seren Movies</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://%2fstorage%2femulated%2f0%2fAndroid%2fdata%2forg.xbmc.kodi%2ffiles%2f.kodi%2faddons%2fplugin.video.seren%2ftemp-icon.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesSearchResults&amp;actionArgs=$INFO[Skin.String(CustomSearchTerm)]",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Seren TV Shows</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://%2fstorage%2femulated%2f0%2fAndroid%2fdata%2forg.xbmc.kodi%2ffiles%2f.kodi%2faddons%2fplugin.video.seren%2ftemp-icon.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsSearchResults&amp;actionArgs=$INFO[Skin.String(CustomSearchTerm)]",return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Youtube</label>
+		<label2>Custom item</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>special://skin/extras/icons/youtube.png</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.youtube/kodion/search/query/?q=",return)</action>
+	</shortcut>
+</shortcuts>

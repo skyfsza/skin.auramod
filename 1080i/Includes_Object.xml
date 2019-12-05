@@ -819,14 +819,14 @@
                     <control type="image">
                       <top>-115</top>
                       <left>270</left>
-                      <width>115</width>
+                      <width>120</width>
                       <height>30</height>
                       <texture colordiffuse="dimgrey">flags/flag_box_rating_classic.png</texture>
                       <visible>!String.IsEmpty(Container(1505).ListItem.MPAA) | !String.IsEmpty(Container(1506).ListItem.MPAA)</visible>
                     </control>
                     <control type="label">
                       <top>-550</top>
-                      <left>305</left>
+                      <left>310</left>
                       <width>90</width>
                       <label>$INFO[Container($PARAM[id]).ListItem.MPAA]</label>
                       <textcolor>white</textcolor>
@@ -1189,7 +1189,7 @@
         <height>620</height>
         <top>-660</top>
         <left>10</left>
-        <onclick condition="!Skin.HasSetting(EnableShowInfo) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]">Action(Info)</onclick>
+        <onclick condition="!Skin.HasSetting(EnableShowInfo) + [[String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(ShowInfo.Episodes)] | [String.IsEqual(ListItem.DBType,tvshow) + !Skin.HasSetting(ShowInfo.TV)] | [String.IsEqual(ListItem.DBType,movie) + !Skin.HasSetting(ShowInfo.Movies)]]">Action(Info)</onclick>
         <itemlayout width="1750" height="620"></itemlayout>
         <focusedlayout width="1810" height="620">
           <control type="group">
@@ -1981,7 +1981,7 @@
                 </control>
                 <!-- MPAA -->
                 <control type="group">
-                  <width>100</width>
+                  <width>120</width>
                   <height>30</height>
                   <visible>!String.IsEmpty(Control.GetLabel(6$PARAM[id])) + !String.IsEmpty(Container($PARAM[id]).ListItem.Title)</visible>
                   <control type="image">
@@ -1994,20 +1994,20 @@
                   </control>
                   <control type="label" id="6$PARAM[id]">
                     <top>15</top>
-                    <left>30</left>
+                    <left>35</left>
                     <height>100%</height>
                     <width>90%</width>
                     <font>widget_trakt_title2</font>
                     <textcolor>grey</textcolor>
                     <scroll>false</scroll>
-                    <label>$VAR[MPAA]</label>
+                    <label fallback=" N/A">$VAR[MPAA]</label>
                   </control>
                 </control>
                 <!-- Duration -->
                 <control type="group">
-                  <width>90</width>
+                  <width>100</width>
                   <height>30</height>
-                  <visible>!String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow) + !String.IsEmpty(Container($PARAM[id]).ListItem.Duration)</visible>
+                  <visible>!String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration))</visible>
                   <control type="image">
                     <bottom>-18</bottom>
                     <animation effect="fade" time="0" end="75" condition="true">Conditional</animation>
@@ -2024,7 +2024,7 @@
                     <font>widget_trakt_title2</font>
                     <textcolor>grey</textcolor>
                     <scroll>false</scroll>
-                    <label>$INFO[Container($PARAM[id]).ListItem.Duration(h),,h] $INFO[Container($PARAM[id]).ListItem.Duration(mm),,m]</label>
+                    <label>$VAR[infoview_duration]</label>
                   </control>
                 </control>
                 <!-- Season Count -->
@@ -5030,7 +5030,7 @@
             </control>
             <!-- MPAA -->
             <control type="group">
-              <width>110</width>
+              <width>120</width>
               <height>30</height>
               <visible>!String.IsEmpty(Control.GetLabel(6115))</visible>
               <control type="image">
@@ -5056,7 +5056,7 @@
             <control type="group">
               <width>95</width>
               <height>30</height>
-              <visible>[!String.IsEmpty(ListItem.Duration) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration.Hours)) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration.Minutes)) + ![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)] | String.Contains(ListItem.FolderPath,plugin.video.youtube)]</visible>
+              <visible>[!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration)) + !String.IsEqual(ListItem.DBType,tvshow) + !String.IsEqual(ListItem.DBType,season)] | String.Contains(ListItem.FolderPath,plugin.video.youtube)</visible>
               <control type="image">
                 <bottom>-18</bottom>
                 <animation effect="fade" time="0" end="75" condition="true">Conditional</animation>
@@ -5755,6 +5755,27 @@
           <include>Statusbar_Menubar_Items</include>
           <visible>Control.HasFocus($PARAM[id]) + !$PARAM[landscapedetailscondition] + !$PARAM[landscapepanelcondition]</visible>
           <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] + Skin.HasSetting(DisableWidgetTitle) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
+          <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
+          <visible>!Skin.HasSetting(LargeWidgetLabel)</visible>
+        </control>
+        <control type="label">
+          <top>-2</top>
+          <textcolor>$VAR[ColorHighlight2]</textcolor>
+          <label>$INFO[Container($PARAM[id]).ListItem.Year,| ]</label>
+          <include>Statusbar_Menubar_Items</include>
+          <visible>Control.HasFocus($PARAM[id])</visible>
+          <visible>!String.IsEqual(ListItem.DBType,episode) + ![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] + Skin.HasSetting(DisableWidgetYear) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
+          <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
+          <visible>Skin.HasSetting(LargeWidgetLabel)</visible>
+        </control>
+        <control type="label">
+          <top>-2</top>
+          <font>font_widgetbar_bold</font>
+          <textcolor>$VAR[ColorHighlight2]</textcolor>
+          <label>$INFO[Container($PARAM[id]).ListItem.Year,| ]</label>
+          <include>Statusbar_Menubar_Items</include>
+          <visible>Control.HasFocus($PARAM[id])</visible>
+          <visible>!String.IsEqual(ListItem.DBType,episode) + ![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] + Skin.HasSetting(DisableWidgetYear) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
           <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <visible>!Skin.HasSetting(LargeWidgetLabel)</visible>
         </control>
@@ -7390,6 +7411,7 @@
 	  <onclick>$PARAM[onclick2]</onclick>
 	  <onup>$PARAM[id]</onup>
 	  <ondown>$PARAM[id]</ondown>
+          <scrolltime>500</scrolltime>
      <itemlayout width="1820" height="310">
         <control type="group">
           <left>60</left>
@@ -7459,7 +7481,7 @@
                 <width>37</width>
                 <height>24</height>
                 <texture colordiffuse="main_fg_100">$VAR[Image_HDSD]</texture>
-                <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+                <visible>Container.Content(movies) | Container.Content(episodes)</visible>
               </control>
               <control type="label">
                 <left>37</left>
@@ -7470,7 +7492,7 @@
                 <aligny>top</aligny>
                 <textcolor>$VAR[ColorHighlight]</textcolor>
                 <font>font_small</font>
-                <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+                <visible>Container.Content(movies) | Container.Content(episodes)</visible>
               </control>
               <control type="label">
                 <animation effect="slide" condition="![Container.Content(movies) | Container.Content(episodes)]" end="-73">Conditional</animation>

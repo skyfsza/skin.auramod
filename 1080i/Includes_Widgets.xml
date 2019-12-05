@@ -424,7 +424,7 @@
           <include content="Defs_BusySpinner">
             <param name="label" value="$LOCALIZE[31138]..." />
           </include>
-          <visible>[Container($PARAM[id]).IsUpdating + !Integer.IsGreater(Container($PARAM[id]).NumItems,0)] | [Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating]</visible>
+          <visible>[Container($PARAM[id]).IsUpdating + !Integer.IsGreater(Container($PARAM[id]).NumItems,0)]</visible>
         </control>
       </control>
       <control type="$PARAM[controltype]" id="$PARAM[id]">
@@ -439,7 +439,6 @@
         <animation effect="slide" end="630,0" time="500" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
         <left>-55</left>
         <onback condition="ControlGroup(5600).HasFocus">9000</onback>
-        <animation effect="fade" start="100" end="0" condition="Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating">Conditional</animation>
         <include condition="$PARAM[Showcase]">Widget_Movement_Showcase</include>
         <movement>$PARAM[movement]</movement>
         <top>widget_top</top>
@@ -1028,7 +1027,7 @@
       </itemlayout>
       <itemlayout width="310" height="310" condition="$PARAM[squarecondition]">
         <include content="Widget_Items_ItemLayout">
-          <param name="poster" value="true" />
+          <param name="square" value="true" />
           <param name="genres" value="$PARAM[genres]" />
           <param name="studios" value="$PARAM[studios]" />
           <param name="text" value="$PARAM[text]" />
@@ -1172,7 +1171,7 @@
       <focusedlayout width="310" height="310" condition="$PARAM[squarecondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
-          <param name="poster" value="true" />
+          <param name="square" value="true" />
           <param name="genres" value="$PARAM[genres]" />
           <param name="studios" value="$PARAM[studios]" />
           <param name="text" value="$PARAM[text]" />
@@ -1659,7 +1658,6 @@
     <param name="color" default="PosterFront_70" />
     <definition>
       <control type="group">
-        <height>260</height>
         <control type="image">
           <top>0</top>
           <left>0</left>
@@ -1698,6 +1696,16 @@
           <texture background="true" colordiffuse="$PARAM[color]">$INFO[ListItem.Icon]</texture>
           <aspectratio scalediffuse="false">keep</aspectratio>
           <visible>String.Contains(ListItem.Icon,/extras/icons/)</visible>
+        </control>
+        <control type="textbox">
+            <left>50</left>
+            <right>50</right>
+            <align>center</align>
+            <aligny>center</aligny>
+            <font>font_medium_bold</font>
+            <textcolor>grey</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+            <visible>String.IsEqual(ListItem.DBType,country) | String.IsEqual(ListItem.DBType,director) | String.IsEqual(ListItem.DBType,year) | [String.IsEmpty(ListItem.DBType) + String.IsEmpty(ListItem.Icon)]</visible>
         </control>
         <include content="Defs_PictureBack">
           <param name="diffuse" value="diffuse/widgetsquare.png" />
@@ -1795,7 +1803,7 @@
           <include condition="$PARAM[landscapenetflix] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeNetflix</include>
           <include condition="$PARAM[landscapepanel] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeNetflix</include>
           <include condition="$PARAM[landscapedetails] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeDetails</include>
-          <include condition="$PARAM[square] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_Poster</include>
+          <include condition="$PARAM[square] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_Square</include>
           <include condition="$PARAM[category] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_Category</include>
           <include condition="$PARAM[submenuwidget] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_SubmenuWidget</include>
         </control>
@@ -1870,7 +1878,7 @@
           <include condition="$PARAM[landscapenetflix] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeNetflix</include>
           <include condition="$PARAM[landscapepanel] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeNetflix</include>
           <include condition="$PARAM[landscapedetails] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeDetails_Focused</include>
-          <include condition="$PARAM[square] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_Poster</include>
+          <include condition="$PARAM[square] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_Square</include>
           <include condition="$PARAM[category] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_Category</include>
           <include condition="$PARAM[submenuwidget] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_SubmenuWidget</include>
         </control>
