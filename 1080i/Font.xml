@@ -372,6 +372,13 @@
             <style>bold</style>
         </font>
         <font>
+            <name>font_title_small</name>
+            <filename>RobotoCondensed-Bold.ttf</filename>
+            <size>40</size>
+            <aspect>0.9</aspect>
+            <style>bold</style>
+        </font>
+        <font>
             <name>font_topbar</name>
             <filename>RobotoCondensed-Bold.ttf</filename>
             <size>40</size>
