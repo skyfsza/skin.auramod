@@ -184,6 +184,12 @@
             <size>50</size>
         </font>
         <font>
+            <name>font_info_buttons</name>
+            <filename>RobotoCondensed-Bold-Caps.ttf</filename>
+            <size>20</size>
+            <style>uppercase</style>
+        </font>
+        <font>
             <name>font_small</name>
             <filename>RobotoCondensed-Regular.ttf</filename>
             <size>30</size>
@@ -881,15 +887,6 @@
             <style>bold</style>
             <aspect>0.8</aspect>
             <size>64</size>
-            <aspect>0.9</aspect>
-            <style>bold</style>
-        </font>
-        <font>
-            <name>font_title</name>
-            <filename>Arial.ttf</filename>
-            <style>bold</style>
-            <aspect>0.8</aspect>
-            <size>48</size>
             <aspect>0.9</aspect>
             <style>bold</style>
         </font>
