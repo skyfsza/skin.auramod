@@ -1185,6 +1185,7 @@
         <ondown condition="!Skin.HasSetting(DisableNetflixCatWidget)">30222</ondown>
         <ondown condition="Skin.HasSetting(DisableNetflixCatWidget)">330</ondown>
         <onup>300</onup>
+	<onback>300</onback>
         <onleft>300</onleft>
         <height>620</height>
         <top>-660</top>
@@ -2153,7 +2154,7 @@
       <control type="group">
         <!-- trailer window -->
         <control type="group">
-          <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+          <visible>!Window.IsVisible(DialogVideoInfo.xml) + !Skin.HasSetting(DisableNetflixShowcaseOverlay)</visible>
           <animation effect="slide" start="0" end="100,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
           <animation effect="slide" start="0" end="0,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,2.20)">Conditional</animation>
           <animation effect="slide" start="0" end="200,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,1.33)">Conditional</animation>
@@ -2184,7 +2185,7 @@
       <!-- Add Netflix view Fanart with corner diffuse -->
       <control type="group">
         <control type="multiimage">
-          <visible>!Skin.HasSetting(DisableNetflixView) + !Player.HasVideo + [Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(509)]</visible>
+          <visible>!Skin.HasSetting(DisableNetflixView) + !Skin.HasSetting(DisableNetflixShowcaseOverlay) + !Player.HasVideo + [Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(509)]</visible>
           <width>1440</width>
           <height>650</height>
           <right>0</right>
@@ -2293,9 +2294,19 @@
           <height>10</height>
         </control>
         <control type="textbox">
-          <visible>$EXP[DBTvideos] + !Skin.HasSetting(DisableNetflixView)</visible>
+          <visible>$EXP[DBTvideos] + !Skin.HasSetting(DisableNetflixView) + !Skin.HasSetting(DisableNetflixShowcaseOverlay)</visible>
           <label fallback="19055">$VAR[Label_OverlayPlot]</label>
           <width>630</width>
+          <height min="20" max="175">auto</height>
+          <aligny>top</aligny>
+          <textcolor>dimgrey</textcolor>
+          <font>font_small</font>
+          <autoscroll delay="5000" time="1500" repeat="5000">true</autoscroll>
+        </control>
+        <control type="textbox">
+          <visible>$EXP[DBTvideos] + Skin.HasSetting(DisableNetflixShowcaseOverlay)</visible>
+          <label fallback="19055">$VAR[Label_OverlayPlot]</label>
+          <width>1130</width>
           <height min="20" max="175">auto</height>
           <aligny>top</aligny>
           <textcolor>dimgrey</textcolor>

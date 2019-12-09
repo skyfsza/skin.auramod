@@ -633,9 +633,9 @@
    </variable>
 
     <variable name="infoview_duration">
-        <value condition="!String.IsEmpty(Container($PARAM[id]).ListItem.MPAA)">$INFO[Container($PARAM[id]).ListItem.Duration(h),,h] $INFO[Container($PARAM[id]).ListItem.Duration(mm),,m]</value>
-        <value condition="!String.IsEmpty(Container(5055).ListItem.MPAA)">$INFO[Container(5055).ListItem.Duration(h),,h] $INFO[Container(5055).ListItem.Duration(mm),,m]</value>
-        <value condition="!String.IsEmpty(Container(5056).ListItem.MPAA)">$INFO[Container(5056).ListItem.Duration(h),,h] $INFO[Container(5056).ListItem.Duration(mm),,m]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Duration)">$INFO[Container.ListItem.Duration(h),,h] $INFO[Container.ListItem.Duration(mm),,m]</value>
+        <value condition="!String.IsEmpty(Container(5055).ListItem.Duration)">$INFO[Container(5055).ListItem.Duration(h),,h] $INFO[Container(5055).ListItem.Duration(mm),,m]</value>
+        <value condition="!String.IsEmpty(Container(5056).ListItem.Duration)">$INFO[Container(5056).ListItem.Duration(h),,h] $INFO[Container(5056).ListItem.Duration(mm),,m]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration))">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Hours),,h] $INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Minutes),,m]</value>
     </variable>
 
