@@ -255,6 +255,8 @@
       </control>
     </control>
   </include>
+ <include name="showcase_pagecontrol"><pagecontrol>60</pagecontrol></include>
+
   <include name="View_Posters_Showcase">
     <control type="group">
       <visible>Control.IsVisible(55)</visible>
@@ -274,11 +276,11 @@
           <visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | $EXP[Exp_IsPluginAdvancedLauncher]</visible>
           <viewtype label="$LOCALIZE[31161]">showcase</viewtype>
           <include>View_Movement_Vertical</include>
-          <pagecontrol>60</pagecontrol>
           <onleft>55</onleft>
           <onright>55</onright>
 	  <onup>300</onup>
-          <include condition="!Skin.HasSetting(DisableNetflixView)">trailer_down</include>
+          <include condition="!Skin.HasSetting(EnableTrailerOnDown)">showcase_pagecontrol</include>
+          <include condition="Skin.HasSetting(EnableTrailerOnDown)">trailer_down</include>
           <include content="View_Forced">
             <param name="string" value="$LOCALIZE[31161]" />
           </include>

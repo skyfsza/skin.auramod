@@ -957,6 +957,7 @@
       <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="!Player.HasVideo">Conditional</animation>
       <control type="videowindow"></control>
       <control type="image">
+      <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Skin.HasSetting(VideoInfo.HideTrailer) + !String.IsEmpty(Window(Home).Property(TrailerPlaying))">Conditional</animation>
         <texture flipx="true" colordiffuse="ff000000" border="15">overlay/gradient_overlay_info.png</texture>
       </control>
     </control>
@@ -965,7 +966,7 @@
       <control type="image">
         <width>100%</width>
         <height>100%</height>
-        <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>
+        <animation effect="fade" start="100" end="0" delay="200" time="2000" reversible="false" pulse="false" condition="Player.HasVideo">Conditional</animation>
         <texture background="true" colordiffuse="FF000000">common/white.png</texture>
         <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
       </control>
@@ -973,7 +974,7 @@
         <width>100%</width>
         <height>100%</height>
         <imagepath background="true">$VAR[fanart_multi_fadelabel]</imagepath>
-        <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>
+        <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" reversible="false" condition="Player.HasVideo">Conditional</animation>
         <aspectratio scalediffuse="true" align="right" aligny="top">scale</aspectratio>
         <timeperimage>2000</timeperimage>
         <fadetime>2000</fadetime>
@@ -986,10 +987,11 @@
       <control type="image">
         <width>130%</width>
         <texture flipx="true" colordiffuse="ff000000" border="15">overlay/gradient_overlay_info.png</texture>
-        <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Player.HasVideo">Conditional</animation>
+        <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" reversible="false" condition="Player.HasVideo">Conditional</animation>
       </control>
      <control type="image">
-      <visible>Control.HasFocus(9601) | ControlGroup(9000).HasFocus | Control.HasFocus(8999)</visible>
+      <visible>Control.HasFocus(9601) | Skin.HasSetting(VideoInfo.LargePlot) | ControlGroup(9000).HasFocus | Control.HasFocus(8999)</visible>
+      <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Skin.HasSetting(VideoInfo.HideTrailer) + !String.IsEmpty(Window(Home).Property(TrailerPlaying))">Conditional</animation>
 	<animation effect="fade" start="10" end="100" time="300">Visible</animation>
         <texture background="true" colordiffuse="89000000">common/white.png</texture>
         <width>100%</width>
@@ -1008,6 +1010,7 @@
     <control type="group">
       <left>20</left>
       <control type="grouplist">
+      <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Skin.HasSetting(VideoInfo.HideTrailer) + !String.IsEmpty(Window(Home).Property(TrailerPlaying))">Conditional</animation>
         <itemgap>0</itemgap>
         <usecontrolcoords>true</usecontrolcoords>
         <orientation>vertical</orientation>
@@ -1047,20 +1050,61 @@
         <!-- Plot and Tagline -->
         <control type="textbox">
           <top>10</top>
-          <visible>!Control.HasFocus(9550)</visible>
-          <label fallback="19055">$VAR[Label_OverlayPlot]</label>
+          <visible>!Skin.HasSetting(VideoInfo.LargePlot) + !Control.HasFocus(9550)</visible>
+          <label fallback="19055">[COLOR=white]$VAR[Label_Netflix_Tagline][CR][/COLOR]$INFO[ListItem.Artist,[B],[/B][CR]]$VAR[Label_Plot]</label>
           <height min="60" max="246">auto</height>
           <width>750</width>
           <aligny>top</aligny>
           <textcolor>dimgrey</textcolor>
           <font>font_plotbox</font>
+          <autoscroll delay="5000" time="1500" repeat="5000">true</autoscroll>
           <visible>!Control.HasFocus(9601) + !Control.HasFocus(8999) + !ControlGroup(9000).HasFocus</visible>
         </control>
+        <control type="textbox">
+          <left>0</left>
+          <description>textarea</description>
+          <height min="100" max="400">auto</height>
+          <width>90%</width>
+          <align>left</align>
+          <textcolor>main_fg_70</textcolor>
+          <font>font_overlay_plotbox</font>
+          <label fallback="19055">[COLOR=white]$VAR[Label_Netflix_Tagline][CR][/COLOR]$INFO[ListItem.Artist,[B],[/B][CR]]$VAR[Label_Plot]</label>
+          <visible>!Control.HasFocus(9601) + !Control.HasFocus(8999) + !ControlGroup(9000).HasFocus</visible>
+          <visible>Skin.HasSetting(VideoInfo.LargePlot) + !Control.HasFocus(9550)</visible>
+          <autoscroll delay="5000" time="1500" repeat="5000">false</autoscroll>
+        </control>
+	<control type="label">
+	   <height>40</height>
+           <visible>Skin.HasSetting(VideoInfo.LargePlot) + !Control.HasFocus(9550)</visible>
+           <visible>!Control.HasFocus(9601) + !Control.HasFocus(8999) + !ControlGroup(9000).HasFocus</visible>
+	</control>
+            <control type="group">
+              <animation effect="zoom" end="150" time="0" condition="Skin.HasSetting(VideoInfo.LargePlot)">Conditional</animation>
+              <height>80</height>
+              <right>980</right>
+              <visible>Skin.HasSetting(VideoInfo.LargePlot) + !Control.HasFocus(9550)</visible>
+              <visible>!Control.HasFocus(9601) + !Control.HasFocus(8999) + !ControlGroup(9000).HasFocus</visible>
+              <include content="Object_Ratings" condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(Home.xml) | Window.IsVisible(script-globalsearch.xml)">
+                <param name="directory" value="color" />
+                <param name="align" value="left" />
+                <param name="width" value="$PARAM[width]" />
+                <param name="rottentomatoes" value="true" />
+                <param name="imdbvotes" value="true" />
+                <param name="usermeter" value="true" />
+                <param name="imdb" value="true" />
+                <param name="tmdb" value="true" />
+                <param name="metacritic" value="true" />
+                <param name="oscars" value="true" />
+                <param name="top250" value="true" />
+                <param name="plot" value="false" />
+                <param name="studio" value="false" />
+              </include>
+            </control>
         <control type="label">
           <height>15</height>
         </control>
         <control type="group">
-         <visible>!Control.HasFocus(9601) + !Control.HasFocus(8999) + !ControlGroup(9000).HasFocus</visible>
+         <visible>!Skin.HasSetting(VideoInfo.LargePlot) + !Control.HasFocus(9601) + !Control.HasFocus(8999) + !ControlGroup(9000).HasFocus</visible>
           <control type="grouplist">
             <visible>!Control.HasFocus(9550)</visible>
             <orientation>vertical</orientation>
@@ -1185,6 +1229,8 @@
             </control>
           </control>
         </control>
+      </control>
+
 
         <!-- Buttons -->
         <control type="grouplist" id="9570">
@@ -1195,7 +1241,7 @@
           <onright>9601</onright>
           <onup>9570</onup>
           <ondown>9570</ondown>
-          <top>300</top>
+          <bottom>5</bottom>
           <height>202.5</height>
           <width>650</width>
           <!-- Play wTMDBHelper -->
@@ -1236,7 +1282,7 @@
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
             <onclick condition="!ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">PlayMedia($ESCINFO[ListItem.FileNameAndPath])</onclick>
-            <visible>!ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
+            <visible>[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
             <label>Play $VAR[videoinfo_play_label]</label>
             <onclick>ClearProperty(BaseWindow,Home)</onclick>
           </control>
@@ -1428,7 +1474,8 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
             <radioposx>8</radioposx>
           </control>
         </control>
-      </control>
+
+
       <control type="group">
         <include content="Object_PlotOverlay">
           <param name="visible" value="!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)" />

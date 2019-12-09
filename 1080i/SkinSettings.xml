@@ -863,7 +863,7 @@
                             <label>$LOCALIZE[31312]</label>
                             <onclick>ActivateWindow(1118)</onclick>
                         </control>
-
+<!--
                         <control type="button" id="9510" description="Enable video info lists">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
                             <include>Defs_Settings_Button</include>
@@ -876,7 +876,13 @@
                             <label>Enable / disable Video Info buttons</label>
                             <onclick>ActivateWindow(1157)</onclick>
                         </control>
-
+-->
+                        <control type="button" id="95110" description="Configure VideoInfo">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Netflix VideoInfo</label>
+                            <onclick>ActivateWindow(1158)</onclick>
+                        </control>
 			<control type="radiobutton" id="9630" description="Enable Netflix Views">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
                             <include>Defs_Settings_Button</include>
@@ -889,9 +895,7 @@
                         <control type="radiobutton" id="9639" description="Down key starts trailer in Netflix Showcase Views">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label> - $LOCALIZE[31466]</label>
-                            <visible>!Skin.HasSetting(DisableNetflixView)</visible>
-                            <enable>!Skin.HasSetting(DisableNetflixView)</enable>
+                            <label>Down key starts trailer in Showcase Views</label>
                             <selected>Skin.HasSetting(EnableTrailerOnDown)</selected>
                             <onclick>Skin.ToggleSetting(EnableTrailerOnDown)</onclick>
                         </control>
