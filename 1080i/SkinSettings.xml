@@ -892,6 +892,15 @@
                             <selected>!Skin.HasSetting(DisableNetflixView)</selected>
                             <onclick>Skin.ToggleSetting(DisableNetflixView)</onclick>
                         </control>
+                        <control type="radiobutton" id="96301" description="Enable Netflix Views">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Disable Netflix Showcase Overlay</label>
+                            <visible>!Skin.HasSetting(DisableNetflixView)</visible>
+                            <enable>!Skin.HasSetting(DisableNetflixView)</enable>
+                            <selected>Skin.HasSetting(DisableNetflixShowcaseOverlay)</selected>
+                            <onclick>Skin.ToggleSetting(DisableNetflixShowcaseOverlay)</onclick>
+                        </control>
                         <control type="radiobutton" id="9639" description="Down key starts trailer in Netflix Showcase Views">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
                             <include>Defs_Settings_Button</include>
@@ -899,7 +908,6 @@
                             <selected>Skin.HasSetting(EnableTrailerOnDown)</selected>
                             <onclick>Skin.ToggleSetting(EnableTrailerOnDown)</onclick>
                         </control>
-
  
                         <control type="radiobutton" id="9631" description="Enable Netflix Video Info">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
