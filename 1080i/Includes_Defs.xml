@@ -2,6 +2,10 @@
 <includes>
 
 
+    <variable name="autocomplete">
+        <value>plugin://plugin.video.youtube/kodion/search/list/</value>
+        <value>plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Control.GetLabel(312).index(1)]&amp;&amp;limit=9</value>
+    </variable>
     <variable name="Play_tmdb">
 	<value condition="String.IsEqual(ListItem.DBType,episode)">RunPlugin(plugin://plugin.video.themoviedb.helper/?info=play&amp;season=$INFO[ListItem.Season]&amp;type=episode&amp;episode=$INFO[ListItem.Episode]&amp;tmdb_id=$INFO[ListItem.Property(tmdb_id)])</value>
 	<value condition="String.IsEqual(ListItem.DBType,movie)">RunPlugin(plugin://plugin.video.themoviedb.helper/?info=play&amp;type=movie&amp;tmdb_id=$INFO[ListItem.Property(tmdb_id)])</value>

@@ -1281,8 +1281,19 @@
             <radiowidth>25</radiowidth>
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
-            <onclick condition="!ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">PlayMedia($ESCINFO[ListItem.FileNameAndPath])</onclick>
-            <visible>[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
+            <onclick condition="String.IsEmpty(ListItem.DBID) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">PlayMedia($ESCINFO[ListItem.FileNameAndPath])</onclick>
+            <visible>String.IsEmpty(ListItem.DBID) + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
+            <label>Play $VAR[videoinfo_play_label]</label>
+            <onclick>ClearProperty(BaseWindow,Home)</onclick>
+          </control>
+          <control type="radiobutton" id="8">
+            <include name="netflix_button" content="netflix_button">
+              <param name="icon" value="play" />
+            </include>
+            <radiowidth>25</radiowidth>
+            <radioheight>28</radioheight>
+            <radioposx>13</radioposx>
+            <visible>!String.IsEmpty(ListItem.DBID) +  [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
             <label>Play $VAR[videoinfo_play_label]</label>
             <onclick>ClearProperty(BaseWindow,Home)</onclick>
           </control>
@@ -1340,7 +1351,7 @@
             <onclick condition="Skin.HasSetting(EnableShowInfo) + Window.IsVisible(1138)">ActivateWindow(Home)</onclick>
             <onclick condition="String.IsEmpty(ListItem.DBID) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper) + String.IsEqual(Skin.String(AddonContainer),true)">ActivateWindow(10025,$ESCINFO[Container(5055).ListItem.FileNameAndPath],return)</onclick>
             <onclick condition="String.IsEmpty(ListItem.DBID) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper) + String.IsEqual(Skin.String(AddonContainer),false)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
-            <onclick condition="String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">SetFocus(8999,2)</onclick>
+            <onclick condition="String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">SetFocus(8999,1)</onclick>
             <onclick condition="!String.IsEmpty(ListItem.DBID) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
           </control>
           <!--More episodes-->
@@ -1514,6 +1525,11 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
           </control>
         </focusedlayout>
         <content>
+
+          <item id="13">
+            <label>More Info</label>
+	    <visible>String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper) + !String.IsEmpty(ListItem.Property(rottentomatoes_consensus))</visible>
+          </item>
           <item id="1">
             <label>Cast</label>
             <visible>Integer.IsGreater(Container(53001).NumItems,0) | Container(53001).IsUpdating</visible>
@@ -1561,6 +1577,243 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
           </item>
 	</content>
       </control>
+
+
+		<!------- TOMATO BLOCK -------->
+		
+		<control type="group">
+			<description>Tomato Block</description>
+		        <top>100</top>
+        		<left>360</left>
+			<visible>Control.HasFocus(8999) + String.IsEqual(Container(8999).ListItem.Label,More Info)</visible>
+			<visible>String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper) + !String.IsEmpty(ListItem.Property(rottentomatoes_consensus))</visible>
+			<control type="grouplist"><!-- START First Column -->
+				<description>First Column</description>
+				
+				<left>130</left>
+				<top>215</top>
+				<control type="group">
+					<height>36</height>
+					<control type="label">
+						<height>36</height>
+						<font>font_large_bold</font>
+						<scroll>true</scroll>
+						<scrollspeed>15</scrollspeed>
+						<textcolor>white</textcolor>
+						<label fallback="19055">[B]$VAR[videoinfo_rtmeter]%[/B]</label>
+						<aligny>center</aligny>
+					</control>
+				</control>
+				<control type="group">
+					<height>36</height>
+					<control type="label">
+						<top>40</top>
+						<height>36</height>
+						<font>font_large_bold</font>
+						<scroll>true</scroll>
+						<scrollspeed>15</scrollspeed>
+						<textcolor>white</textcolor>
+						<label fallback="19055">[B]$VAR[videoinfo_usermeter]%[/B] [LIGHT]liked it[/LIGHT]</label>
+						<aligny>center</aligny>
+					</control>
+				</control>
+			</control><!-- END First Column -->
+			
+			<control type="grouplist"><!-- START Second Column -->
+				<description>Second Column</description>
+				
+				<left>510</left>
+				<top>220</top>
+				
+				<control type="group">
+					<height>36</height>
+					<control type="label">
+						<width>100%</width>
+						<height>36</height>
+						<font>font_tiny</font>
+						<textcolor>white</textcolor>
+						<label>[B]Box Office[/B]</label>
+						<aligny>center</aligny>
+					</control>
+					<control type="label">
+                                                <width>auto</width>
+						<left>170</left>
+						<right>790</right>
+						<height>36</height>
+						<font>font_tiny</font>
+						<textcolor>dimgrey</textcolor>
+						<scroll>true</scroll>
+						<scrollspeed>15</scrollspeed>
+						<label fallback="19055">$VAR[videoinfo_boxoffice]</label>
+						<aligny>center</aligny>
+					</control>
+				</control>
+				
+				<control type="group">
+					<height>36</height>
+					<control type="label">
+						<width>100%</width>
+						<height>36</height>
+						<font>font_tiny</font>
+						<textcolor>white</textcolor>
+						<label>[B]Budget[/B]</label>
+						<aligny>center</aligny>
+					</control>
+					<control type="label">
+                                                <width>auto</width>
+						<left>170</left>
+						<right>250</right>
+						<height>36</height>
+						<font>font_tiny</font>
+						<textcolor>dimgrey</textcolor>
+						<scroll>true</scroll>
+						<scrollspeed>15</scrollspeed>
+						<label fallback="19055">$VAR[videoinfo_budget]</label>
+						<aligny>center</aligny>
+						
+					</control>
+				</control>
+				
+				<control type="group">
+					<height>36</height>
+					<control type="label">
+						<width>100%</width>
+						<height>36</height>
+						<font>font_tiny</font>
+						<textcolor>white</textcolor>
+						<label>[B]Awards[/B]</label>
+						<aligny>center</aligny>
+					</control>
+					<control type="textbox">
+						<left>170</left>
+						<right>0</right>
+						<height>62</height>
+						<font>font_tiny</font>
+						<textcolor>dimgrey</textcolor>
+						<scroll>true</scroll>
+						<scrollspeed>15</scrollspeed>
+                                                <label fallback="19055">$VAR[videoinfo_awards]</label>
+					</control>
+				</control>
+			</control><!-- END Second Column -->
+			
+			<control type="group">
+				<top>410</top>
+				<right>10</right>
+				<height>25</height>
+				
+				<control type="label">
+					<left>30</left>
+					<font>font_small</font>
+					<textcolor>white</textcolor>
+					<label>[B]Critics Consensus[/B]</label>
+				</control>
+				
+<!--
+				<control type="label">
+					<left>810</left>
+                                        <font>font_small</font>
+					<textcolor>white</textcolor>
+					<label>[B]Cast and Role[/B]</label>
+				</control>
+-->
+			</control>
+			
+			<control type="grouplist"><!-- Critics Consensus and Cast Contents -->
+				<description>Critics Consensus and Cast Contents</description>
+				<orientation>horizontal</orientation>
+				<top>480</top>
+				<left>30</left>
+				<right>10</right>
+				<itemgap>60</itemgap>
+				<visible>String.IsEqual(Container(8999).ListItem.Label,More Info)</visible>
+				<animation effect="fade" start="0" end="100" time="50">VisibleChange</animation><!-- Necessary to avoid Control buttons overlapping -->
+				
+				<control type="textbox">
+					<description>Critics Consensus</description>
+                                        <font>font_plotbox</font>
+					<textcolor>dimgrey</textcolor>
+					<width>720</width>
+					<height>183</height>
+					<label fallback="No reviews available">[I]"$INFO[ListItem.Property(rottentomatoes_consensus)]"[/I]</label>
+				</control>
+<!--
+				<control type="textbox">
+					<description>Cast/Role - Fallback for Critics Consensus</description>
+					<font>font_tiny</font>
+					<textcolor>grey</textcolor>
+					<width>400</width>
+					<height>370</height>
+					<autoscroll delay="10000" time="3000" repeat="6000">Control.HasFocus(8999)</autoscroll>
+					<label>$INFO[ListItem.CastAndRole]</label>
+				</control>
+-->
+			</control>
+			
+			<control type="image">
+				<description>Rotten logo 59% or less</description>
+				<left>56</left>
+				<top>207</top>
+				<height>50</height>
+				<aspectratio align="left">keep</aspectratio>
+				<visible>!IntegerGreaterThan(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter), 59)</visible>
+				<texture>flags/color/ratings/rtrotten.png</texture>
+			</control>
+			<control type="image">
+				<description>Tomato logo Between 60-74% only</description>
+				<left>56</left>
+				<top>207</top>
+				<height>50</height>
+				<aspectratio align="left">keep</aspectratio>
+				<visible>IntegerGreaterThan(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter), 59) + !IntegerGreaterThan(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesRating), 75)</visible>
+				<texture>flags/color/ratings/rtfresh.png</texture>
+			</control>
+			<control type="image">
+				<description>Certified Fresh logo 75%+ only</description>
+				<left>56</left>
+				<top>207</top>
+				<height>50</height>
+				<aspectratio align="left">keep</aspectratio>
+				<visible>IntegerGreaterThan(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter), 75)</visible>
+				<texture>http://d3biamo577v4eu.cloudfront.net/static/images/icons/cf-lg.png</texture>
+			</control>
+			
+			<control type="image">
+				<description>Popcorn Logo</description>
+				<left>60</left>
+				<top>290</top>
+				<height>50</height>
+				<aspectratio align="left">keep</aspectratio>
+				<visible>IntegerGreaterThan(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesAudienceMeter), 59)</visible>
+				<texture>flags/color/ratings/popcorn.png</texture>
+			</control>
+			<control type="image">
+				<description>Popcorn - Rotten Logo</description>
+				<left>60</left>
+				<top>290</top>
+				<height>50</height>
+				<width max="55">auto</width>
+				<aspectratio align="left">keep</aspectratio>
+				<visible>!IntegerGreaterThan(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesAudienceMeter), 59)</visible>
+				<texture>flags/color/ratings/spilt.png</texture>
+			</control>
+			
+		</control>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       <control type="grouplist" id="9000">
         <scrolltime tween="sine" easing="out">500</scrolltime>

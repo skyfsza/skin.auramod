@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	
+    <variable name="videoinfo_rtmeter">
+	 <value condition="!String.IsEmpty(ListItem.Property(rottentomatoes_rating)">$INFO[ListItem.Property(rottentomatoes_rating)]</value>
+	 <value>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter)]</value>
+    </variable>
+
+    <variable name="videoinfo_usermeter">
+         <value condition="!String.IsEmpty(ListItem.Property(rottentomatoes_usermeter)">$INFO[ListItem.Property(rottentomatoes_usermeter)]</value>
+         <value>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoesAudienceMeter)]</value>
+    </variable>
+
+    <variable name="videoinfo_budget">
+         <value condition="!String.IsEmpty(ListItem.Property(budget)">$INFO[ListItem.Property(budget)]</value>
+         <value>$INFO[Window(Home).Property(SkinHelper.ListItem.Budget.formatted)]</value>
+    </variable>
+
+    <variable name="videoinfo_awards">
+         <value condition="!String.IsEmpty(ListItem.Property(awards)">$INFO[ListItem.Property(awards)]</value>
+         <value>$INFO[Window(Home).Property(SkinHelper.ListItem.Awards)]</value>
+    </variable>
+
+    <variable name="videoinfo_boxoffice">
+         <value condition="!String.IsEmpty(ListItem.Property(revenue)">$INFO[ListItem.Property(revenue)]</value>
+         <value>$INFO[Window(Home).Property(SkinHelper.ListItem.BoxOffice)]</value>
+    </variable>
+
     <variable name="seasons_content_videoinfo">
          <value condition="String.IsEqual(ListItem.DBType,episode) + String.Contains(ListItem.FolderPath,plugin.video.seren)">plugin://plugin.video.seren/?action=showSeasons&amp;actionArgs=%7b%22item_type%22%3a%20%22show%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(tvshow.trakt_id)]%7d</value>
 	 <value condition="String.IsEqual(ListItem.DBType,tvshow) + String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">plugin://plugin.video.themoviedb.helper/?info=seasons&amp;type=tv&amp;tmdb_id=$INFO[ListItem.Property(tmdb_id)]</value>
@@ -51,7 +76,8 @@
     </variable>
 
     <variable name="osdcast">
-	<value condition="String.IsEmpty(VideoPlayer.DBID) + VideoPlayer.Content(movies)">$INFO[VideoPlayer.Label]</value>
+	<value condition="!String.IsEmpty(VideoPlayer.Label) + String.IsEmpty(VideoPlayer.DBID) + VideoPlayer.Content(movies)">$INFO[VideoPlayer.Label]</value>
+	<value condition="!String.IsEmpty(VideoPlayer.Title) + String.IsEmpty(VideoPlayer.DBID) + VideoPlayer.Content(movies)">$INFO[VideoPlayer.Title]</value>
 	<value condition="String.IsEmpty(VideoPlayer.DBID) + [VideoPlayer.Content(tvshows) | VideoPlayer.Content(episodes)]">$INFO[VideoPlayer.TvShowTitle]</value>
     </variable>
     <variable name="osdcasttype">
@@ -634,6 +660,7 @@
 
     <variable name="infoview_duration">
         <value condition="!String.IsEmpty(Container.ListItem.Duration)">$INFO[Container.ListItem.Duration(h),,h] $INFO[Container.ListItem.Duration(mm),,m]</value>
+        <value condition="Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Duration)">$INFO[Container(1506).ListItem.Duration(h),,h] $INFO[Container(1506).ListItem.Duration(mm),,m]</value>
         <value condition="!String.IsEmpty(Container(5055).ListItem.Duration)">$INFO[Container(5055).ListItem.Duration(h),,h] $INFO[Container(5055).ListItem.Duration(mm),,m]</value>
         <value condition="!String.IsEmpty(Container(5056).ListItem.Duration)">$INFO[Container(5056).ListItem.Duration(h),,h] $INFO[Container(5056).ListItem.Duration(mm),,m]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration))">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Hours),,h] $INFO[Window(Home).Property(SkinHelper.ListItem.Duration.Minutes),,m]</value>
@@ -641,11 +668,11 @@
 
 
     <variable name="MPAA">
-        <value condition="!String.IsEmpty(ListItem.MPAA)">$INFO[ListItem.MPAA]</value>
-        <value condition="!String.IsEmpty(Container(1505).ListItem.MPAA)">$INFO[Container(1505).ListItem.MPAA]</value>
-        <value condition="!String.IsEmpty(Container(1506).ListItem.MPAA)">$INFO[Container(1506).ListItem.MPAA]</value>
-        <value condition="!String.IsEmpty(Container(5055).ListItem.MPAA)">$INFO[Container(5055).ListItem.MPAA]</value>
+        <value condition="Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.MPAA)">$INFO[Container(1505).ListItem.MPAA]</value>
+        <value condition="Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.MPAA)">$INFO[Container(1506).ListItem.MPAA]</value>
+        <value condition="Control.IsVisible(5055) + !String.IsEmpty(Container(5055).ListItem.MPAA)">$INFO[Container(5055).ListItem.MPAA]</value>
         <value condition="String.IsEmpty(ListItem.MPAA) + String.IsEmpty(Container(5055).ListItem.MPAA) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA))">$INFO[Window(Home).Property(SkinHelper.ListItem.MPAA)]</value>
+        <value condition="!String.IsEmpty(ListItem.MPAA)">$INFO[ListItem.MPAA]</value>
     </variable>
 
     <variable name="Label_Settings_Header">

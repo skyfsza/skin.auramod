@@ -1912,7 +1912,7 @@
             <label>$VAR[video_heading5055]</label>
             <textcolor>grey</textcolor>
             <shadowcolor>black</shadowcolor>
-            <font>font_showcase_title</font>
+            <font>font_xlarge_bold</font>
             <width>730</width>
             <height min="90" max="150">auto</height>
             <align>left</align>
@@ -2009,14 +2009,14 @@
                   <width>100</width>
                   <height>30</height>
                   <visible>!String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration))</visible>
-                  <control type="image">
-                    <bottom>-18</bottom>
-                    <animation effect="fade" time="0" end="75" condition="true">Conditional</animation>
-                    <align>bottom</align>
-                    <height>100%</height>
-                    <width>100%</width>
-                    <texture colordiffuse="dimgrey">flags/flag_box.png</texture>
-                  </control>
+              <control type="image">
+                <bottom>-18</bottom>
+                <animation effect="fade" time="0" end="75" condition="true">Conditional</animation>
+                <align>bottom</align>
+                <height>100%</height>
+                <width>100%</width>
+                <texture colordiffuse="dimgrey">flags/square-rounded.png</texture>
+              </control>
                   <control type="label" id="6115">
                     <top>15</top>
                     <left>10</left>
@@ -3938,7 +3938,7 @@
           <width>64</width>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>!String.IsEmpty(ListItem.Studio)</visible>
-          <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.HasFocus(1505)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+          <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.HasFocus(1505) | Control.IsVisible(1506)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
         <control type="image">
           <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(Container(1505).ListItem.Studio)">Conditional</animation>
