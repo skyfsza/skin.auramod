@@ -1113,6 +1113,8 @@
     <param name="label" default="" />
     <definition>
      <control type="group">
+        <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabelOnly) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
+
       <top>-600</top>
       <left>30</left>
       <include content="addon_view_infospotlight">
@@ -6617,7 +6619,7 @@
     <param name="id" default="" />
     <definition>
       <onclick>Skin.SetString(AddonContainer,true)</onclick>
-      <onclick condition="!Skin.HasSetting(EnableShowInfo) + [[String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) + !Skin.HasSetting(ShowInfo.Episodes)] | [String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow) + !Skin.HasSetting(ShowInfo.TV)] | [String.IsEqual(Container($PARAM[id]).ListItem.DBType,movie) + !Skin.HasSetting(ShowInfo.Movies)]]">Action(Info)</onclick>
+      <onclick condition="!Skin.HasSetting(EnableShowInfo) + [[String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) + !Skin.HasSetting(ShowInfo.Episodes)] | [String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow) + !Skin.HasSetting(ShowInfo.TV)] | [String.IsEqual(Container($PARAM[id]).ListItem.DBType,movie) + !Skin.HasSetting(ShowInfo.Movies)]]">AlarmClock(loadinfo,Action(Info),00:00,silent)</onclick>
       <onclick condition="!Skin.HasSetting(EnableShowInfo) + [String.IsEqual(Container($PARAM[id]).ListItem.DBType,addon) | String.IsEmpty(Container($PARAM[id]).ListItem.DBType)]">ActivateWindow(10025,$INFO[Container($PARAM[id]).ListItem.FileNameAndPath],return)</onclick>
     </definition>
   </include>

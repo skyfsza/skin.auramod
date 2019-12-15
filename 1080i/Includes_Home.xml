@@ -1104,6 +1104,7 @@
     <include name="Home_Iconbar_Texture">
 	<!-- Focused -->
 	<control type="group">
+             <visible>!Skin.HasSetting(DisableMenuVertLabelBG)</visible>
 	    <visible>[!Skin.HasSetting(DisableMenuVertIcon) +  [Control.HasFocus(300) | Control.HasFocus(302) | Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904)]] | [Window.IsVisible(SettingsSystemInfo.xml) | Window.IsVisible(Settings.xml) | Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(SkinSettings.xml) | Window.IsVisible(SettingsProfile.xml)]</visible>
         <animation effect="slide" time="200" end="-60,0" condition="[!Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(3901) + !Control.HasFocus(3902) + !Control.HasFocus(3903) + Skin.HasSetting(DisableNetflixHomeSidemenuHide)] +  ![Window.IsVisible(SettingsSystemInfo.xml) | Window.IsVisible(Settings.xml) | Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(SkinSettings.xml) | Window.IsVisible(SettingsProfile.xml)]">Conditional</animation>
 
@@ -1133,6 +1134,7 @@
 
 	<!-- Unfocused -->
         <control type="group">
+             <visible>!Skin.HasSetting(DisableMenuVertLabelBG)</visible>
             <visible>!Skin.HasSetting(DisableNetflixHomeSidemenuHide) + ![Control.HasFocus(300) | Control.HasFocus(302) | Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(3904)]</visible>
             <control type="group">
                 <posy>0</posy>
