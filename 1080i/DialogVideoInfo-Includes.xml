@@ -1254,7 +1254,7 @@
             <radioposx>13</radioposx>
             <onclick>Dialog.Close(all)</onclick>
             <onclick>$VAR[Play_tmdb]</onclick>
-            <visible>System.HasAddon(plugin.video.themoviedb.helper) + String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper) + !String.IsEqual(ListItem.DBType,tvshow)</visible>
+            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + System.HasAddon(plugin.video.themoviedb.helper) + String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper) + !String.IsEqual(ListItem.DBType,tvshow)</visible>
             <label>Play</label>
           </control>
           <!-- Search TMDB -->
@@ -1271,7 +1271,7 @@
             <onclick>Skin.SetString(TMDB_Search,INFO[ListItem.Title])</onclick>
             <onclick>RunScript(plugin.video.themoviedb.helper,reset_path)</onclick>
             <onclick>ActivateWindow(Home)</onclick>
-            <visible>!Window.IsVisible(1138) + String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
+            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Window.IsVisible(1138) + String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
             <label>Search</label>
           </control>
           <control type="radiobutton" id="87">
@@ -1282,7 +1282,7 @@
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
             <onclick condition="String.IsEmpty(ListItem.DBID) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">PlayMedia($ESCINFO[ListItem.FileNameAndPath])</onclick>
-            <visible>String.IsEmpty(ListItem.DBID) + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
+            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + String.IsEmpty(ListItem.DBID) + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
             <label>Play $VAR[videoinfo_play_label]</label>
             <onclick>ClearProperty(BaseWindow,Home)</onclick>
           </control>
@@ -1293,7 +1293,7 @@
             <radiowidth>25</radiowidth>
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
-            <visible>!String.IsEmpty(ListItem.DBID) +  [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
+            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !String.IsEmpty(ListItem.DBID) +  [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
             <label>Play $VAR[videoinfo_play_label]</label>
             <onclick>ClearProperty(BaseWindow,Home)</onclick>
           </control>
@@ -1304,7 +1304,7 @@
             <radiowidth>25</radiowidth>
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
-            <onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren)">RunPlugin(plugin://plugin.video.seren/?action=buildPlaylistWorkaround&amp;actionArgs=%7B%22item_type%22%3A%20%22show%22%2C%20%22trakt_id%22%3A%20$INFO[ListItem.Property(trakt_id)]%7D)</onclick>
+            <onclick condition="String.IsEmpty(Window(home).Property(TrailerPlaying)) + String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren)">RunPlugin(plugin://plugin.video.seren/?action=buildPlaylistWorkaround&amp;actionArgs=%7B%22item_type%22%3A%20%22show%22%2C%20%22trakt_id%22%3A%20$INFO[ListItem.Property(trakt_id)]%7D)</onclick>
             <visible>!String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
             <label>Quick Play</label>
             <onclick>ClearProperty(BaseWindow,Home)</onclick>
@@ -1317,7 +1317,7 @@
             <radiowidth>25</radiowidth>
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
-            <visible>ListItem.IsResumable</visible>
+            <visible>ListItem.IsResumable + String.IsEmpty(Window(home).Property(TrailerPlaying))</visible>
             <label>Resume</label>
           </control>
           <control type="group" id="332">
@@ -1332,7 +1332,7 @@
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
             <onclick>PlayMedia($ESCINFO[ListItem.FileNameAndPath],noresume)</onclick>
-            <visible>ListItem.IsResumable + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
+            <visible>ListItem.IsResumable + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper) + String.IsEmpty(Window(home).Property(TrailerPlaying))</visible>
             <label>Play from Beginning</label>
             <onclick>ClearProperty(BaseWindow,Home)</onclick>
           </control>
@@ -1344,7 +1344,7 @@
             <radiowidth>25</radiowidth>
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
-            <visible>!Skin.HasSetting(VideoInfoButton.MoreEps) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)]</visible>
+            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Skin.HasSetting(VideoInfoButton.MoreEps) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)]</visible>
             <label>More Episodes</label>
             <onclick>Skin.SetString(AddonContainer,false)</onclick>
             <onclick condition="!String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">close</onclick>
@@ -1362,7 +1362,7 @@
             <radiowidth>25</radiowidth>
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
-            <visible>!Skin.HasSetting(VideoInfoButton.MoreEps) + !String.IsEmpty(ListItem.Property(tvshow.trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)</visible>
+            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Skin.HasSetting(VideoInfoButton.MoreEps) + !String.IsEmpty(ListItem.Property(tvshow.trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)</visible>
             <label>More Episodes</label>
             <onclick>Skin.SetString(AddonContainer,false)</onclick>
             <onclick>close</onclick>
@@ -1378,7 +1378,7 @@
             <radioposx>2</radioposx>
             <label>Cast &amp; More</label>
             <onclick>SetFocus(8999,0)</onclick>
-            <visible>!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfoButton.CastMore)</visible>
+            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfoButton.CastMore)</visible>
           </control>
 plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&type=tv
           <control type="radiobutton" id="381">
@@ -1390,7 +1390,7 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
             <radioposx>2</radioposx>
             <label>Add to Watchlist</label>
             <onclick>RunPlugin(plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&amp;tmdb_id=$INFO[ListItem.Property(tmdb_id)]&amp;$VAR[Info_Param_Type])</onclick>
-            <visible>!Skin.HasSetting(VideoInfoButton.Watchlist) + !Skin.HasSetting(VideoInfo.Disable) + !String.IsEmpty(ListItem.Property(tmdb_id))</visible>
+            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Skin.HasSetting(VideoInfoButton.Watchlist) + !Skin.HasSetting(VideoInfo.Disable) + !String.IsEmpty(ListItem.Property(tmdb_id))</visible>
           </control>
           <!-- Trailer-->
           <control type="radiobutton" id="34">
@@ -1431,6 +1431,7 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
             <label>Stop</label>
             <visible>Player.HasVideo</visible>
             <onclick>Stop</onclick>
+            <onclick>ClearProperty(TrailerPlaying,Home)</onclick>
           </control>
           <!-- Extended Info  -->
           <control type="radiobutton" id="37">
@@ -1445,7 +1446,7 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
             <onclick condition="String.IsEqual(ListItem.DBType,tvshow)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.TvShowTitle])</onclick>
             <onclick condition="String.IsEqual(ListItem.DBType,season)">RunScript(script.extendedinfo,info=seasoninfo,tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],silent=True)</onclick>
             <onclick condition="String.IsEqual(ListItem.DBType,episode)">RunScript(script.extendedinfo,info=extendedepisodeinfo,dbid=$INFO[ListItem.DBID],tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],episode=$INFO[ListItem.Episode],silent=True)</onclick>
-	    <visible>!Skin.HasSetting(VideoInfoButton.EIS)</visible>
+	    <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Skin.HasSetting(VideoInfoButton.EIS)</visible>
           </control>
           <!--Trakt Manager-->
           <control type="radiobutton" id="340">
@@ -1455,7 +1456,7 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
             <radiowidth>48</radiowidth>
             <radioheight>48</radioheight>
             <radioposx>2</radioposx>
-            <visible>!Skin.HasSetting(VideoInfoButton.Trakt) +  !String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode)]</visible>
+            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Skin.HasSetting(VideoInfoButton.Trakt) +  !String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode)]</visible>
             <label>Trakt Manager</label>
             <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&amp;actionArgs=%7B%22episode%22%3A%20$INFO[ListItem.Episode]%2C%20%22item_type%22%3A%20%22episode%22%2C%20%22season%22%3A%20$INFO[ListItem.Season]%2C%20%22trakt_id%22%3A%20$INFO[ListItem.Property(tvshow.trakt_id)]%7D)</onclick>
             <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,tvshow)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&amp;actionArgs=%7b%22item_type%22%3a%20%22show%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(trakt_id)]%7d)</onclick>
@@ -1464,7 +1465,7 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
           <!-- Refresh -->
           <control type="radiobutton" id="6">
             <visible>Control.IsEnabled(6)</visible>
-            <visible>!String.IsEmpty(ListItem.DBID) + !Skin.HasSetting(VideoInfoButton.Refresh)</visible>
+            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !String.IsEmpty(ListItem.DBID) + !Skin.HasSetting(VideoInfoButton.Refresh)</visible>
             <label>184</label>
             <include name="netflix_button" content="netflix_button">
               <param name="icon" value="sinchronize" />
@@ -1476,7 +1477,7 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
           <!-- Choose Artwork -->
           <control type="radiobutton" id="10">
             <visible>Control.IsEnabled(10)</visible>
-            <visible>!String.IsEmpty(ListItem.DBID) + !Skin.HasSetting(VideoInfoButton.Art)</visible>
+            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !String.IsEmpty(ListItem.DBID) + !Skin.HasSetting(VideoInfoButton.Art)</visible>
             <label>Choose Artwork</label>
             <include name="netflix_button" content="netflix_button">
               <param name="icon" value="pictures" />
@@ -1494,8 +1495,11 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
         </include>
       </control>
     </control>
-
+     <control type="group">
       <include>Logo</include>
+      <visible>!Player.HasVideo + !Window.IsVisible(busydialog)</visible>
+    </control>
+
       <control type="list" id="8999">
 	<onleft>9570</onleft>
         <ondown>8999</ondown>
@@ -1574,6 +1578,10 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
           <item id="9">
             <label>By Genre</label>
             <visible>!String.IsEmpty(ListItem.Genre) + [Integer.IsGreater(Container(53008).NumItems,0) | Container(53008).IsUpdating]</visible>
+          </item>
+          <item id="14">
+            <label>Youtube</label>
+            <visible>!Skin.HasSetting(VideoInfo.Youtube) + [Integer.IsGreater(Container(53008).NumItems,0) | Container(53008).IsUpdating]</visible>
           </item>
 	</content>
       </control>
@@ -1802,19 +1810,6 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
       <control type="grouplist" id="9000">
         <scrolltime tween="sine" easing="out">500</scrolltime>
         <visible allowhiddenfocus="true">Control.HasFocus(8999) | ControlGroup(9000).HasFocus</visible>
@@ -1992,7 +1987,7 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
           <param name="onleft" value="8999" />
           <param name="onup" value="8999" />
           <param name="target" value="videos" />
-          <param name="sortby" value="" />
+          <param name="sortby" value="file" />
           <param name="sortorder" value="" />
           <param name="content" value="$VAR[Info_Youtube]" />
           <param name="widgetContent" value="$VAR[Info_Youtube]" />
@@ -2004,7 +1999,7 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
           <param name="width" value="1800" />
           <param name="label" value="" />
           <param name="onclick2" value="PlayMedia($INFO[Container(53007).ListItem.FileNameAndPath])" />
-          <param name="visible" value="!String.IsEmpty(ListItem.Label)" />
+          <param name="visible" value="String.IsEqual(Container(8999).ListItem.Label,Youtube)" />
         </include>
       </control>
       <include>Object_UpDownInfoArrows</include>

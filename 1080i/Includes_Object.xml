@@ -81,7 +81,7 @@
           <left>0</left>
           <right>0</right>
           <control type="group">
-            <visible>[Skin.HasSetting(DisableInfoRatings) + !Window.IsVisible(DialogVideoInfo.xml)] + [Container.Content(movies) | Container.Content(episodes)]</visible>
+            <visible>[Skin.HasSetting(DisableInfoRatings) + !Window.IsVisible(DialogVideoInfo.xml)] + [Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows)]</visible>
             <include content="Object_Flags">
               <param name="container" value="" />
               <param name="directory" value="color" />
@@ -90,7 +90,7 @@
             </include>
           </control>
           <control type="group">
-            <visible>![Skin.HasSetting(DisableInfoRatings) + !Window.IsVisible(DialogVideoInfo.xml)] | [!Container.Content(movies) + !Container.Content(episodes)]</visible>
+            <visible>![Skin.HasSetting(DisableInfoRatings) + !Window.IsVisible(DialogVideoInfo.xml)] | [!Container.Content(movies) + !Container.Content(episodes) + !Container.Content(tvshows)]</visible>
             <control type="group">
               <top>-17</top>
               <left>-16</left>
@@ -1916,7 +1916,7 @@
             <shadowcolor>black</shadowcolor>
             <font>font_xlarge_bold</font>
             <width>730</width>
-            <height min="90" max="150">auto</height>
+            <height min="218" max="218">auto</height>
             <align>left</align>
             <aligny>center</aligny>
             <wrapmultiline>true</wrapmultiline>
@@ -1936,10 +1936,12 @@
             <autoscroll>true</autoscroll>
             <scroll>true</scroll>
           </control>
+<!--
           <control type="group">
             <height>20</height>
             <visible>String.IsEmpty(Container($PARAM[id]).ListItem.Art(clearlogo))</visible>
           </control>
+-->
           <control type="grouplist">
             <height>60</height>
             <orientation>horizontal</orientation>
@@ -3757,6 +3759,7 @@
           <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB))</visible>
           <visible>!String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB),0.0)</visible>
           <visible>!Skin.HasSetting(Ratings.TVDB)</visible>
+          <visible>$PARAM[tvdb]</visible>
         </control>
         <control type="label">
           <textcolor>main_fg_70</textcolor>
@@ -3769,6 +3772,7 @@
           <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB))</visible>
           <visible>!String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB),0.0)</visible>
           <visible>!Skin.HasSetting(Ratings.TVDB)</visible>
+          <visible>$PARAM[tvdb]</visible>
         </control>
         <control type="image">
           <top>10</top>
@@ -3938,6 +3942,7 @@
           <aspectratio>stretch</aspectratio>
           <height>44</height>
           <width>64</width>
+          <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>!String.IsEmpty(ListItem.Studio)</visible>
           <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.HasFocus(1505) | Control.IsVisible(1506)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
@@ -4974,7 +4979,7 @@
           <right>170</right>
           <width>1000</width>
           <height>60</height>
-          <font>font_heading_top</font>
+          <font>font_heading_date</font>
           <align>right</align>
           <textcolor>white</textcolor>
           <label>[B]$INFO[System.Time(hh:mm)][/B]</label>
@@ -4985,7 +4990,7 @@
           <top>20</top>
           <width>1000</width>
           <height>60</height>
-          <font>font_heading_top</font>
+          <font>font_heading_date</font>
           <align>right</align>
           <alignx>right</alignx>
           <textcolor>white</textcolor>
@@ -5828,7 +5833,7 @@
         <control type="grouplist">
           <top>-28</top>
           <visible>Control.HasFocus($PARAM[id])</visible>
-          <visible>!Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB)</visible>
+          <visible>!Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB) + !Skin.HasSetting(DisableWidgetIMDB)</visible>
           <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(DialogVideoInfo.xml)]</visible>
           <bottom>-5</bottom>
           <height>40</height>
@@ -5849,24 +5854,24 @@
           </include>
         </control>
         <control type="grouplist">
-          <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetStudio) + !Skin.HasSetting(DisableWidgetIMDB)</visible>
+          <top>-28</top>
+          <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetStudio) + Skin.HasSetting(DisableWidgetIMDB)</visible>
           <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
-          <bottom>10</bottom>
+          <bottom>-5</bottom>
           <height>40</height>
           <include content="Object_Ratings">
             <param name="directory" value="color" />
             <param name="align" value="left" />
             <param name="width" value="1400" />
-            <param name="rottentomatoes" value="false" />
-            <param name="imdbvotes" value="false" />
+            <param name="rottentomatoes" value="true" />
+            <param name="imdbvotes" value="true" />
             <param name="usermeter" value="false" />
-            <param name="imdb" value="false" />
-            <param name="tmdb" value="false" />
-            <param name="tvdb" default="false" />
-            <param name="metacritic" value="false" />
-            <param name="oscars" value="false" />
+            <param name="imdb" value="true" />
+            <param name="tmdb" value="true" />
+            <param name="metacritic" value="true" />
+            <param name="oscars" value="true" />
             <param name="top250" value="false" />
-            <param name="plot" value="false" />
+            <param name="plot" value="true" />
             <param name="studio" value="true" />
           </include>
         </control>

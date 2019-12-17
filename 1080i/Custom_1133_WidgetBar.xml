@@ -62,6 +62,7 @@
                     <include>Dialog_Standard_ListButton</include>
                             <selected>Skin.HasSetting(DisableWidgetStudio)</selected>
                             <onclick>Skin.ToggleSetting(DisableWidgetStudio)</onclick>
+		            <enable>Skin.HasSetting(DisableWidgetIMDB)</enable>
                 </control>
                 <control type="radiobutton" id="9006">
                     <label>MPAA</label>

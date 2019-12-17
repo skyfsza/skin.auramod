@@ -31,6 +31,33 @@
         <value condition="String.IsEmpty(ListItem.Art(clearart)) + String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
         <value>$INFO[ListItem.Art(fanart)]</value>
      </variable>
+
+     <include name="fanart_multi_1505">
+     <control type="fadelabel" id="398095">
+        <description>Randomizer for plugin-free multiple fanart</description>
+        <top>-1000</top> <!-- Don't need to see it, but can't change its visibility. Put it off screen -->
+        <width>1</width>
+        <height>1</height>
+        <info>Container(1505).ListItem.Art(fanart)</info>
+        <info>Container(1505).ListItem.Art(fanart1)</info>
+        <info>Container(1505).ListItem.Art(fanart2)</info>
+        <info>Container(1505).ListItem.Art(fanart3)</info>
+        <!-- ... repeat for each numbered fanart -->
+        <!-- tvshow.fanart are filled with the series fanart when navigating season and episode lists -->
+        <randomize>false</randomize>
+	<include>Defs_PauseAtEnd</include>
+        <!-- No scrolling so only the pauseatend above (plus a short fade-in) affects length of time each
+                image is shown -->
+        <scroll>false</scroll>
+        <scrollout>false</scrollout>
+        <!-- Resets the timer when navigating to a new item, so each item's first visible fanart will
+                show for the full amount of time -->
+        <resetonlabelchange>true</resetonlabelchange>
+   </control>
+   </include> 
+
+
+
      <include name="fanart_multi">
      <control type="fadelabel" id="398045">
         <description>Randomizer for plugin-free multiple fanart</description>
@@ -44,7 +71,7 @@
         <!-- ... repeat for each numbered fanart -->
         <!-- tvshow.fanart are filled with the series fanart when navigating season and episode lists -->
         <randomize>false</randomize>
-        <pauseatend>8000</pauseatend> <!-- Time to show each image, in milliseconds -->
+	<include>Defs_PauseAtEnd</include>
         <!-- No scrolling so only the pauseatend above (plus a short fade-in) affects length of time each
                 image is shown -->
         <scroll>false</scroll>
@@ -57,6 +84,10 @@
    <variable name="fanart_multi_fadelabel">
        <value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(ListItem.Art(fanart1)) + !String.IsEmpty(Control.GetLabel(398045))">$INFO[Control.GetLabel(398045)]</value>
        <value>$VAR[Spotlight_Fanart]</value>
+   </variable>
+   <variable name="fanart_multi_fadelabel_1505">
+       <value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(ListItem.Art(fanart1)) + !String.IsEmpty(Control.GetLabel(398095))">$INFO[Control.GetLabel(398095)]</value>
+       <value>$INFO[Container(1505).ListItem.Art(fanart)]</value>
    </variable>
    <variable name="loading_spinner">
        <value condition="String.IsEmpty(Skin.String(loadingspinner.icon))">netflix/loading.gif</value>

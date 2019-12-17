@@ -476,7 +476,7 @@
         <include condition="$PARAM[widgetlivecondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Live_Big_Height_small</include>
         <include condition="$PARAM[categorycondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Category_Big_Height</include>
         <include condition="$PARAM[categorycondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Category_Big_Height_small</include>
-        <onclick condition="!Skin.HasSetting(EnableShowInfo) + [[String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(ShowInfo.Episodes)] | [String.IsEqual(ListItem.DBType,tvshow) + !Skin.HasSetting(ShowInfo.TV)] | [String.IsEqual(ListItem.DBType,movie) + !Skin.HasSetting(ShowInfo.Movies)]]">AlarmClock(loadinfo,Action(Info),00:00,silent)</onclick>
+        <onclick condition="!Skin.HasSetting(EnableShowInfo) + [[String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(ShowInfo.Episodes)] | [String.IsEqual(ListItem.DBType,tvshow) + !Skin.HasSetting(ShowInfo.TV)] | [String.IsEqual(ListItem.DBType,movie) + !Skin.HasSetting(ShowInfo.Movies)]]">Action(Info)</onclick>
         <visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
         <include content="Widget_Items" condition="!$PARAM[submenu]">
           <param name="id" value="$PARAM[id]" />
@@ -810,7 +810,7 @@
         <control type="grouplist">
           <visible>Control.HasFocus($PARAM[id])</visible>
           <visible>$EXP[DBTvideos]</visible>
-          <visible>!Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB)</visible>
+          <visible>!Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB) + Skin.HasSetting(DisableWidgetIMDB)</visible>
           <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(DialogVideoInfo.xml)]</visible>
           <visible>$EXP[DBTvideos]</visible>
           <bottom>10</bottom>
@@ -830,7 +830,7 @@
             <param name="oscars" value="true" />
             <param name="top250" value="false" />
             <param name="plot" value="true" />
-            <param name="studio" value="false" />
+            <param name="studio" value="true" />
           </include>
         </control>
         <control type="grouplist">
@@ -840,21 +840,22 @@
           <visible>$EXP[DBTvideos]</visible>
           <bottom>10</bottom>
           <height>40</height>
+          <left>10</left>
           <include content="Object_Ratings">
             <param name="directory" value="color" />
             <param name="align" value="left" />
             <param name="width" value="1400" />
-            <param name="rottentomatoes" value="false" />
-            <param name="imdbvotes" value="false" />
+            <param name="rottentomatoes" value="true" />
+            <param name="imdbvotes" value="true" />
             <param name="usermeter" value="false" />
-            <param name="imdb" value="false" />
-            <param name="tmdb" value="false" />
-            <param name="tvdb" default="false" />
-            <param name="metacritic" value="false" />
-            <param name="oscars" value="false" />
+            <param name="imdb" value="true" />
+            <param name="tmdb" value="true" />
+            <param name="tvdb" value="true" />
+            <param name="metacritic" value="true" />
+            <param name="oscars" value="true" />
             <param name="top250" value="false" />
-            <param name="plot" value="false" />
-            <param name="studio" value="true" />
+            <param name="plot" value="true" />
+            <param name="studio" value="false" />
           </include>
         </control>
         <!-- Add Plot when no ratings -->

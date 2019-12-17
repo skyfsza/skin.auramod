@@ -7,6 +7,7 @@
     <onload>ClearProperty(Header_Left_Text)</onload>
     <onload>ClearProperty(Header_Center_Text)</onload>
     <onload>ClearProperty(OSD_Menu,Home)</onload>
+    <onunload>Skin.SetString(videoinfoprevious,true)</onunload>
     <onunload condition="Window.IsVisible(1134)">RunScript(plugin.video.themoviedb.helper,del_path,call_id=1137)</onunload>
     <onunload>ClearProperty(FilePath,home)</onunload>
     <onunload>ClearProperty(OSD_Menu,Home)</onunload>
@@ -21,7 +22,6 @@
     <onunload condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunload>
     <controls>
 
-      <include condition="Skin.HasSetting(SkinHelper.EnableExtraFanart)">fanart_multi</include>
 	<control type="button" id="9005">
 	 <visible allowhiddenfocus="true">false</visible>
             <onfocus condition="!Skin.HasSetting(UseExtendedInfoDialog)">SetFocus(8000)</onfocus>

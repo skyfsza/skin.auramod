@@ -1155,56 +1155,6 @@
         </control>
 
 
-
-<!--
-      <control type="panel" id="5055">
-	<visible>Skin.HasSetting(EnableAddonViewPoster)</visible>
-        <onleft>504</onleft>
-        <onback>SetFocus(505,0,absolute)</onback>
-        <onback>505</onback>
-
-        <include content="view_widget_onclick" condition="!Skin.HasSetting(EnableShowInfo)">
-            <param name="id" value="5055" />
-        </include>
-
-	<top>40</top>
-        <left>420</left>
-        <movement>2</movement>
-        <width>1900</width>
-        <height>430</height>
-        <orientation>vertical</orientation>
-        <preloaditems>2</preloaditems>
-        <scrolltime tween="linear">400</scrolltime>
-
-        <include content="Widget_Common">
-          <param name="top" value="$PARAM[top]" />
-          <param name="height" value="$PARAM[height]" />
-          <param name="id" value="5055" />
-          <param name="aspect" value="landscape" />
-          <param name="widgetAspect" value="landscapenetflix" />
-          <param name="submenu" value="$PARAM[submenu]" />
-        </include>
-
-        <itemlayout width="366" height="210">
-          <include content="Widget_Items_ItemLayout">
-            <param name="landscapenetflix" value="true" />
-            <param name="genres" value="$PARAM[genres]" />
-            <param name="studios" value="$PARAM[studios]" />
-            <param name="text" value="$PARAM[text]" />
-          </include>
-        </itemlayout>
-        <focusedlayout width="366" height="210">
-          <include content="Widget_Items_FocusedLayout">
-            <param name="id" value="5055" />
-            <param name="landscapenetflix" value="true" />
-            <param name="genres" value="$PARAM[genres]" />
-            <param name="studios" value="$PARAM[studios]" />
-            <param name="text" value="$PARAM[text]" />
-          </include>
-        </focusedlayout>
-          <content target="videos" sortby="year" sortorder="descending">$INFO[Container(505).ListItem.FolderPath]</content>
-        </control>
--->
        </control>
       </control>
     </control>
@@ -3152,7 +3102,7 @@
           <height>50%</height>
           <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
           <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
-          <visible>!Window.IsVisible(DialogVideoInfo.xml) + !Control.IsVaisible(507) + !Control.IsVisible(502) + !Control.IsVisible(504) + !String.IsEqual(ListItem.DBType,season) + !String.IsEqual(ListItem.DBType,episode)  + Skin.HasSetting(DisableClearlogo) + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)]</visible>
+          <visible>!Window.IsVisible(DialogVideoInfo.xml) + !Control.IsVaisible(507) + !Control.IsVisible(502) + !Control.IsVisible(504) + !String.IsEqual(ListItem.DBType,season) + !String.IsEqual(ListItem.DBType,episode)  + Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(landscape)</visible>
        </control>
         <control type="image">
           <bottom>0</bottom>

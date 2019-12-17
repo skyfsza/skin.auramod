@@ -13,7 +13,7 @@
         <defaultID>movies</defaultID>
         <icon>special://skin/extras/icons/film.png</icon>
 	<thumb />
-        <action>RunAddon(script.extendedinfo)</action>
+        <action>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_movie&amp;widget=True",return)</action>
     </shortcut>
     <shortcut>
         <label>20343</label>
@@ -21,7 +21,7 @@
         <defaultID>tvshows</defaultID>
         <icon>special://skin/extras/icons/tv.png</icon>
 	<thumb />
-        <action>RunAddon(script.extendedinfo)</action>
+        <action>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper/?info=dir_tv&amp;widget=True",return)</action>
     </shortcut>
     <shortcut>
         <label>2</label>

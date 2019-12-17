@@ -877,11 +877,31 @@
                             <onclick>ActivateWindow(1157)</onclick>
                         </control>
 -->
+                        <control type="radiobutton" id="9631" description="Enable Netflix Video Info">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>$LOCALIZE[31432]</label>
+                            <visible>!Skin.HasSetting(DisableNetflixHome)</visible>
+                            <enable>!Skin.HasSetting(DisableNetflixHome)</enable>
+                            <selected>!Skin.HasSetting(DisableNetflixVideoInfo)</selected>
+                            <onclick>Skin.ToggleSetting(DisableNetflixVideoInfo)</onclick>
+                            <onclick condition="Skin.HasSetting(EnableVideoInfoAutoplay)">Skin.ToggleSetting(EnableVideoInfoAutoplay)</onclick>
+                        </control>
                         <control type="button" id="95110" description="Configure VideoInfo">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Configure Netflix VideoInfo</label>
+                            <label> - Configure Netflix VideoInfo</label>
+                            <visible>!Skin.HasSetting(DisableNetflixVideoInfo)</visible>
                             <onclick>ActivateWindow(1158)</onclick>
+                        </control>
+                        <control type="radiobutton" id="9638" description="Enable Video Info Trailer auto-play">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label> - $LOCALIZE[31461]</label>
+                            <visible>!Skin.HasSetting(DisableNetflixVideoInfo)</visible>
+                            <enable>!Skin.HasSetting(DisableNetflixVideoInfo)</enable>
+                            <selected>Skin.HasSetting(EnableVideoInfoAutoplay)</selected>
+                            <onclick>Skin.ToggleSetting(EnableVideoInfoAutoplay)</onclick>
                         </control>
 			<control type="radiobutton" id="9630" description="Enable Netflix Views">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
@@ -895,7 +915,7 @@
                         <control type="radiobutton" id="96301" description="Enable Netflix Views">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Disable Netflix Showcase Overlay</label>
+                            <label> - Disable Netflix Overlay</label>
                             <visible>!Skin.HasSetting(DisableNetflixView)</visible>
                             <enable>!Skin.HasSetting(DisableNetflixView)</enable>
                             <selected>Skin.HasSetting(DisableNetflixShowcaseOverlay)</selected>
@@ -909,28 +929,6 @@
                             <onclick>Skin.ToggleSetting(EnableTrailerOnDown)</onclick>
                         </control>
  
-                        <control type="radiobutton" id="9631" description="Enable Netflix Video Info">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31432]</label>
-                            <visible>!Skin.HasSetting(DisableNetflixHome)</visible>
-                            <enable>!Skin.HasSetting(DisableNetflixHome)</enable>
-                            <selected>!Skin.HasSetting(DisableNetflixVideoInfo)</selected>
-                            <onclick>Skin.ToggleSetting(DisableNetflixVideoInfo)</onclick>
-                            <onclick condition="Skin.HasSetting(EnableVideoInfoAutoplay)">Skin.ToggleSetting(EnableVideoInfoAutoplay)</onclick>
-                        </control>
-
-                        <control type="radiobutton" id="9638" description="Enable Video Info Trailer auto-play">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label> - $LOCALIZE[31461]</label>
-                            <visible>!Skin.HasSetting(DisableNetflixVideoInfo)</visible>
-                            <enable>!Skin.HasSetting(DisableNetflixVideoInfo)</enable>
-                            <selected>Skin.HasSetting(EnableVideoInfoAutoplay)</selected>
-                            <onclick>Skin.ToggleSetting(EnableVideoInfoAutoplay)</onclick>
-                        </control>
-
-
                         <control type="radiobutton" id="9658" description="Enable Low Spotlight Info">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
                             <include>Defs_Settings_Button</include>

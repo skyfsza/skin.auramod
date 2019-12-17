@@ -53,9 +53,9 @@
     </control>
     <!--Multi Image fadelabel and Global Background -->
     <include condition="Skin.HasSetting(SkinHelper.EnableExtraFanart)">fanart_multi</include>
+    <include condition="Skin.HasSetting(SkinHelper.EnableExtraFanart)">fanart_multi_1505</include>
     <include>Global_Background</include>
     <control type="group">
-        <animation time="0" effect="fade" start="100" end="0" condition="System.HasAlarm(loadinfo)">Conditional</animation>
       <animation effect="slide" end="40,0" time="500" condition="!Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableMenuVertLabel) + [Control.HasFocus(30222) | Control.HasFocus(1505) | Control.HasFocus(1506) | ControlGroup(505).HasFocus | ControlGroup(900).HasFocus | ControlGroup(505).HasFocus | [Control.HasFocus(13003) + [Integer.IsEqual(Container(13003).Position,0) + !Container(13003).HasPrevious]] | [Control.HasFocus(23003) + [Integer.IsEqual(Container(23003).Position,0) + !Container(23003).HasPrevious]] | [Control.HasFocus(33003) + [Integer.IsEqual(Container(33003).Position,0) + !Container(33003).HasPrevious]] | [Control.HasFocus(43003) + [Integer.IsEqual(Container(43003).Position,0) + !Container(43003).HasPrevious]] | [Control.HasFocus(53003) + [Integer.IsEqual(Container(53003).Position,0) + !Container(53003).HasPrevious]] | [Control.HasFocus(63003) + [Integer.IsEqual(Container(63003).Position,0) + !Container(63003).HasPrevious]]]">Conditional</animation>
       <animation effect="slide" end="280,0" time="500" delay="0" condition="Skin.HasSetting(DisableMenuVertLabel) + [Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)]" reversible="true">Conditional</animation>
       <animation effect="slide" end="250,0" time="500" delay="0" condition="Skin.HasSetting(DisableMenuVertLabelOnly) + [Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)]" reversible="true">Conditional</animation>
@@ -71,6 +71,16 @@
     <control type="group">
       <include>Home_TVHubMenu_Layout</include>
       <include>Home_MovieHubMenu_Layout</include>
+    </control>
+
+    <control type="image">
+      <width>120</width>
+      <height>120</height>
+      <bottom>-40</bottom>
+      <centerleft>47%</centerleft>
+      <texture flipx="false" background="true" colordiffuse="grey">down-arrow.png</texture>
+      <visible>String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + Control.HasFocus(30222) + !Integer.IsGreater(Container(330).NumItems,1)</visible>
+      <animation effect="fade" delay="400" time="200" start="0" end="100">Visible</animation>
     </control>
     <include content="Object_UpDownInfoArrows">
       <param name="id" value="330" />

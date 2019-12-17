@@ -12,6 +12,7 @@
     <control type="group">
     <right>-50</right>
     <include>Logo</include>
+    <visible>!Window.IsVisible(busydialog)</visible>
     </control>
    <control type="label">
    <animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
@@ -58,7 +59,7 @@
         <usecontrolcoords>true</usecontrolcoords>
         <onback>Skin.Reset(MovieHubMenuFocus)</onback>
         <onback>ActivateWindow(Home)</onback>
-        <onleft>SetFocus(401,3)</onleft>
+        <onleft condition="Skin.HasSetting(DisableSubMenuVert)">SetFocus(401,3)</onleft>
         <include>skinshortcuts-template-aurahubmovies</include>
     </control>
 
