@@ -1270,7 +1270,7 @@
             <onclick>Skin.SetString(CustomSearchTerm,$INFO[ListItem.Title])</onclick>
             <onclick>Skin.SetString(TMDB_Search,INFO[ListItem.Title])</onclick>
             <onclick>RunScript(plugin.video.themoviedb.helper,reset_path)</onclick>
-            <onclick>ActivateWindow(Home)</onclick>
+            <onclick>ActivateWindow(1136)</onclick>
             <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Window.IsVisible(1138) + String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
             <label>Search</label>
           </control>
@@ -1400,12 +1400,12 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
             <radiowidth>45</radiowidth>
             <radioheight>48</radioheight>
             <radioposx>2</radioposx>
-            <visible>!Skin.HasSetting(VideoInfoButton.Trailer) + !Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)]</visible>
+            <visible>!Skin.HasSetting(VideoInfoButton.Trailer) + !Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)] + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Trailer))]</visible>
             <label>Trailer</label>
             <onclick condition="!Player.HasVideo + !String.IsEmpty(ListItem.Trailer) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]">PlayMedia($INFO[ListItem.Trailer],1)</onclick>
             <onclick condition="!Player.HasVideo + String.IsEmpty(ListItem.Trailer)">Playmedia($INFO[Window(Home).Property(SkinHelper.ListItem.Trailer)],1)</onclick>
-            <onclick condition="!Player.HasVideo">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
-            <onclick condition="!Player.HasVideo">SetProperty(TrailerPlaying,fullscreen,home)</onclick>
+            <onclick condition="!Player.HasVideo + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Trailer))]">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
+            <onclick condition="!Player.HasVideo + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Trailer))]">SetProperty(TrailerPlaying,fullscreen,home)</onclick>
           </control>
           <!-- Fullscreen -->
           <control type="radiobutton" id="35">
@@ -1764,7 +1764,7 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
 				<top>207</top>
 				<height>50</height>
 				<aspectratio align="left">keep</aspectratio>
-				<visible>!IntegerGreaterThan(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter), 59)</visible>
+				<visible>!Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter), 59)</visible>
 				<texture>flags/color/ratings/rtrotten.png</texture>
 			</control>
 			<control type="image">
@@ -1773,7 +1773,7 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
 				<top>207</top>
 				<height>50</height>
 				<aspectratio align="left">keep</aspectratio>
-				<visible>IntegerGreaterThan(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter), 59) + !IntegerGreaterThan(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesRating), 75)</visible>
+				<visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter), 59) + !Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesRating), 75)</visible>
 				<texture>flags/color/ratings/rtfresh.png</texture>
 			</control>
 			<control type="image">
@@ -1782,7 +1782,7 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
 				<top>207</top>
 				<height>50</height>
 				<aspectratio align="left">keep</aspectratio>
-				<visible>IntegerGreaterThan(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter), 75)</visible>
+				<visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter), 75)</visible>
 				<texture>http://d3biamo577v4eu.cloudfront.net/static/images/icons/cf-lg.png</texture>
 			</control>
 			
@@ -1792,7 +1792,7 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
 				<top>290</top>
 				<height>50</height>
 				<aspectratio align="left">keep</aspectratio>
-				<visible>IntegerGreaterThan(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesAudienceMeter), 59)</visible>
+				<visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesAudienceMeter), 59)</visible>
 				<texture>flags/color/ratings/popcorn.png</texture>
 			</control>
 			<control type="image">
@@ -1802,7 +1802,7 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
 				<height>50</height>
 				<width max="55">auto</width>
 				<aspectratio align="left">keep</aspectratio>
-				<visible>!IntegerGreaterThan(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesAudienceMeter), 59)</visible>
+				<visible>!Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesAudienceMeter), 59)</visible>
 				<texture>flags/color/ratings/spilt.png</texture>
 			</control>
 			

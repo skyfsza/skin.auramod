@@ -2,27 +2,27 @@
 <includes>
 	
     <variable name="videoinfo_rtmeter">
-	 <value condition="!String.IsEmpty(ListItem.Property(rottentomatoes_rating)">$INFO[ListItem.Property(rottentomatoes_rating)]</value>
+	 <value condition="!String.IsEmpty(ListItem.Property(rottentomatoes_rating))">$INFO[ListItem.Property(rottentomatoes_rating)]</value>
 	 <value>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter)]</value>
     </variable>
 
     <variable name="videoinfo_usermeter">
-         <value condition="!String.IsEmpty(ListItem.Property(rottentomatoes_usermeter)">$INFO[ListItem.Property(rottentomatoes_usermeter)]</value>
+         <value condition="!String.IsEmpty(ListItem.Property(rottentomatoes_usermeter))">$INFO[ListItem.Property(rottentomatoes_usermeter)]</value>
          <value>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoesAudienceMeter)]</value>
     </variable>
 
     <variable name="videoinfo_budget">
-         <value condition="!String.IsEmpty(ListItem.Property(budget)">$INFO[ListItem.Property(budget)]</value>
+         <value condition="!String.IsEmpty(ListItem.Property(budget))">$INFO[ListItem.Property(budget)]</value>
          <value>$INFO[Window(Home).Property(SkinHelper.ListItem.Budget.formatted)]</value>
     </variable>
 
     <variable name="videoinfo_awards">
-         <value condition="!String.IsEmpty(ListItem.Property(awards)">$INFO[ListItem.Property(awards)]</value>
+         <value condition="!String.IsEmpty(ListItem.Property(awards))">$INFO[ListItem.Property(awards)]</value>
          <value>$INFO[Window(Home).Property(SkinHelper.ListItem.Awards)]</value>
     </variable>
 
     <variable name="videoinfo_boxoffice">
-         <value condition="!String.IsEmpty(ListItem.Property(revenue)">$INFO[ListItem.Property(revenue)]</value>
+         <value condition="!String.IsEmpty(ListItem.Property(revenue))">$INFO[ListItem.Property(revenue)]</value>
          <value>$INFO[Window(Home).Property(SkinHelper.ListItem.BoxOffice)]</value>
     </variable>
 
@@ -364,9 +364,10 @@
         <value>$INFO[Container(1506).ListItem.Label]</value>
     </variable>
     <variable name="imdb_ratings">
-       <value condition="!String.IsEmpty(ListItem.RatingAndVotes)">$INFO[ListItem.RatingAndVotes, ,]</value>
-       <value condition="Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.RatingAndVotes)">$INFO[Container(1505).ListItem.RatingAndVotes, ,]</value>
-       <value condition="Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.RatingAndVotes)">$INFO[Container(1506).ListItem.RatingAndVotes, ,]</value>
+       <value condition="!String.IsEmpty(ListItem.Rating)">$INFO[ListItem.Rating, ,]</value>
+       <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.IMDB), ,]</value>
+       <value condition="Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)">$INFO[Container(1505).ListItem.Rating, ,]</value>
+       <value condition="Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)">$INFO[Container(1506).ListItem.Rating, ,]</value>
        <value>$INFO[ListItem.RatingAndVotes, ,]</value>
     </variable>
     <variable name="video_heading5055">
