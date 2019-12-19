@@ -1719,10 +1719,12 @@
             <visible>[Window.IsVisible(Home) + [!Control.HasFocus(660) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)]] | !Window.IsVisible(Home)</visible>
             <visible>!String.IsEmpty(Control.GetLabel(55446))</visible>
           </control>
+<!--
           <control type="label">
             <height>30</height>
             <visible>String.IsEmpty(Control.GetLabel(55446))</visible>
           </control>
+-->
           <control type="textbox">
             <visible>String.IsEmpty(Control.GetLabel(55446)) + [[Window.IsVisible(Home) + [!Control.HasFocus(660) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)]] | !Window.IsVisible(Home)]</visible>
             <visible>$EXP[DBTvideos]</visible>
@@ -1731,7 +1733,7 @@
             <shadowcolor>black</shadowcolor>
             <font>font_showcase_title</font>
             <width>730</width>
-            <height min="100" max="150">auto</height>
+            <height min="218" max="218">auto</height>
             <align>left</align>
             <aligny>center</aligny>
             <wrapmultiline>true</wrapmultiline>
@@ -1760,10 +1762,12 @@
             <align>left</align>
             <wrapmultiline>true</wrapmultiline>
           </control>
+<!--
           <control type="label">
             <height>20</height>
             <visible>String.IsEmpty(Control.GetLabel(55446))</visible>
           </control>
+-->
           <!-- Add Star Rating + Video info to spotlight -->
           <include>netflix_infoline</include>
           <!-- Episode Label  -->
@@ -2249,10 +2253,12 @@
           <aspectratio align="left" aligny="center">keep</aspectratio>
           <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
         </control>
+<!--
         <control type="label">
           <height>20</height>
           <visible>$EXP[DBTvideos] + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))</visible>
         </control>
+-->
         <control type="textbox">
           <visible>$EXP[DBTvideos] + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))</visible>
           <top>-200</top>
@@ -2260,9 +2266,10 @@
           <textcolor>grey</textcolor>
           <shadowcolor>black</shadowcolor>
           <font>font_heading</font>
-          <height min="30" max="110">auto</height>
+	  <height>200</height>
           <width>730</width>
           <align>left</align>
+          <aligny>center</aligny>
           <wrapmultiline>true</wrapmultiline>
           <scroll>true</scroll>
         </control>
@@ -2280,10 +2287,12 @@
           <autoscroll>true</autoscroll>
           <scroll>true</scroll>
         </control>
+<!--
         <control type="label">
           <height>20</height>
           <visible>$EXP[DBTvideos] + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))</visible>
         </control>
+-->
         <control type="grouplist">
           <top>0</top>
           <height>60</height>
@@ -6433,7 +6442,7 @@
     <param name="controltype" default="fixedlist" />
     <param name="search" default="false" />
     <param name="onclick" default="SetFocus(9570)" />
-    <param name="onclick2" default="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath],call_id=1137,delay=0.35,prevent_del)" />
+    <param name="onclick2" default="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath,,&fanarttv=True],call_id=1137,delay=0.35,prevent_del)" />
     <param name="onclick3" default="" />
     <param name="onback" default="9570" />
     <param name="onup" default="" />

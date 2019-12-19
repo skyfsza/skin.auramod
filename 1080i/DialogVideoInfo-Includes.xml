@@ -1245,6 +1245,7 @@
           <height>202.5</height>
           <width>650</width>
           <!-- Play wTMDBHelper -->
+<!--
           <control type="radiobutton" id="889">
             <include name="netflix_button" content="netflix_button">
               <param name="icon" value="play" />
@@ -1257,23 +1258,8 @@
             <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + System.HasAddon(plugin.video.themoviedb.helper) + String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper) + !String.IsEqual(ListItem.DBType,tvshow)</visible>
             <label>Play</label>
           </control>
-          <!-- Search TMDB -->
-          <control type="radiobutton" id="89">
-            <include name="netflix_button" content="netflix_button">
-              <param name="icon" value="search" />
-            </include>
-            <radiowidth>45</radiowidth>
-            <radioheight>48</radioheight>
-            <radioposx>2</radioposx>
-            <onclick>Dialog.Close(all,force)</onclick>
-            <onclick>Skin.Reset(TMDBSearchTerm)</onclick>
-            <onclick>Skin.SetString(CustomSearchTerm,$INFO[ListItem.Title])</onclick>
-            <onclick>Skin.SetString(TMDB_Search,INFO[ListItem.Title])</onclick>
-            <onclick>RunScript(plugin.video.themoviedb.helper,reset_path)</onclick>
-            <onclick>ActivateWindow(1136)</onclick>
-            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Window.IsVisible(1138) + String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
-            <label>Search</label>
-          </control>
+-->
+
           <control type="radiobutton" id="87">
             <include name="netflix_button" content="netflix_button">
               <param name="icon" value="play" />
@@ -1281,8 +1267,8 @@
             <radiowidth>25</radiowidth>
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
-            <onclick condition="String.IsEmpty(ListItem.DBID) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">PlayMedia($ESCINFO[ListItem.FileNameAndPath])</onclick>
-            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + String.IsEmpty(ListItem.DBID) + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
+            <onclick condition="String.IsEmpty(ListItem.DBID)" >PlayMedia($ESCINFO[ListItem.FileNameAndPath])</onclick>
+            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + String.IsEmpty(ListItem.DBID) + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !ListItem.IsResumable + !Control.IsVisible(33)</visible>
             <label>Play $VAR[videoinfo_play_label]</label>
             <onclick>ClearProperty(BaseWindow,Home)</onclick>
           </control>
@@ -1336,6 +1322,23 @@
             <label>Play from Beginning</label>
             <onclick>ClearProperty(BaseWindow,Home)</onclick>
           </control>
+          <!-- Search TMDB -->
+          <control type="radiobutton" id="89">
+            <include name="netflix_button" content="netflix_button">
+              <param name="icon" value="search" />
+            </include>
+            <radiowidth>45</radiowidth>
+            <radioheight>48</radioheight>
+            <radioposx>2</radioposx>
+            <onclick>Dialog.Close(all,force)</onclick>
+            <onclick>Skin.Reset(TMDBSearchTerm)</onclick>
+            <onclick>Skin.SetString(CustomSearchTerm,$INFO[ListItem.Title])</onclick>
+            <onclick>Skin.SetString(TMDB_Search,INFO[ListItem.Title])</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,reset_path)</onclick>
+            <onclick>ActivateWindow(1136)</onclick>
+            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Window.IsVisible(1138) + String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
+            <label>Search</label>
+          </control>
           <!--More episodes-->
           <control type="radiobutton" id="33">
             <include name="netflix_button" content="netflix_button">
@@ -1381,6 +1384,7 @@
             <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfoButton.CastMore)</visible>
           </control>
 plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&type=tv
+<!--
           <control type="radiobutton" id="381">
             <include name="netflix_button" content="netflix_button">
               <param name="icon" value="trakttv" />
@@ -1392,6 +1396,7 @@ plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&
             <onclick>RunPlugin(plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&amp;tmdb_id=$INFO[ListItem.Property(tmdb_id)]&amp;$VAR[Info_Param_Type])</onclick>
             <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Skin.HasSetting(VideoInfoButton.Watchlist) + !Skin.HasSetting(VideoInfo.Disable) + !String.IsEmpty(ListItem.Property(tmdb_id))</visible>
           </control>
+-->
           <!-- Trailer-->
           <control type="radiobutton" id="34">
             <include name="netflix_button" content="netflix_button">
