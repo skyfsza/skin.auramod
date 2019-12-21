@@ -6,7 +6,7 @@
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
     <include>Global_Background</include>
-    <include>Home_MovieHubMenu_Layout</include>
+    <include condition="Skin.HasSetting(DisableSubMenuVert)">Home_MovieHubMenu_Layout</include>
    <control type="group">
     <animation effect="slide" end="0,-40" time="0" condition="Skin.HasSetting(AuraHubSpacingSmall)">Conditional</animation>
     <control type="group">

@@ -63,7 +63,7 @@
 	<ondown>5055</ondown>
         <include>skinshortcuts-template-aurahubtv</include>
     </control>
-    <include>Home_TVHubMenu_Layout</include>
+    <include condition="condition="Skin.HasSetting(DisableSubMenuVert)">Home_TVHubMenu_Layout</include>
 
     <control type="button" id="7777">
        <visible allowhiddenfocus="true">false</visible>

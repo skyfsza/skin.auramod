@@ -3863,7 +3863,7 @@
           <width>40</width>
           <height>32</height>
           <texture colordiffuse="$PARAM[colordiffuse]">flags/$PARAM[directory]/ratings/imdbicon.png</texture>
-          <visible>[Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.RatingAndVotes)] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.RatingAndVotes)] | !String.IsEmpty(ListItem.RatingAndVotes) | !String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB))</visible>
+          <visible>[Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)] | !String.IsEmpty(ListItem.Rating) | !String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB))</visible>
           <visible>$PARAM[imdb]</visible>
           <visible>!Skin.HasSetting(Ratings.IMDB)</visible>
         </control>
@@ -3932,6 +3932,7 @@
           <visible>!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)</visible>
           <visible>Integer.IsGreater(Window(home).Property(SkinHelper.ListItem.IMDB.Top250),0)</visible>
           <visible>$PARAM[imdb]</visible>
+          <visible>[Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)] | !String.IsEmpty(ListItem.Rating) | !String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB))</visible>
           <visible>!Skin.HasSetting(Ratings.IMDB)</visible>
           <visible>$PARAM[top250]</visible>
         </control>
@@ -7335,6 +7336,11 @@
             <label>Info</label>
             <onclick>ActivateWindow(systeminfo)</onclick>
             <icon>settings/sysinfo.png</icon>
+          </item>
+          <item>
+            <label>Dependencies</label>
+            <onclick>ActivateWindow(10040,addons://dependencies/)</onclick>
+            <icon>special://skin/extras/icons/bigbox.png</icon>
           </item>
         </content>
       </control>

@@ -6,7 +6,7 @@
   <controls>
       <include>Animation_Right</include>
       <include>object_menuhub_includes</include>
-      <include>Home_MovieHubMenu_Layout</include>
+      <include condition="Skin.HasSetting(DisableSubMenuVert)">Home_MovieHubMenu_Layout</include>
     <control type="label">
       <left>110</left>
       <top>40</top>
@@ -41,7 +41,7 @@
       <height>900</height>
       <top>140</top>
       <left>80</left>
-      <onleft>SetFocus(401,1)</onleft>
+      <onleft condition="Skin.HasSetting(DisableSubMenuVert)">SetFocus(401,1)</onleft>
       <onback>Skin.Reset(MovieHubMenuFocus)</onback>
       <onback>ActivateWindow(Home)</onback>
       <viewtype label="$LOCALIZE[31469]">icon</viewtype>
