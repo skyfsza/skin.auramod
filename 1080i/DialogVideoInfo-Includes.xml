@@ -1244,21 +1244,6 @@
           <bottom>5</bottom>
           <height>202.5</height>
           <width>650</width>
-          <!-- Play wTMDBHelper -->
-<!--
-          <control type="radiobutton" id="889">
-            <include name="netflix_button" content="netflix_button">
-              <param name="icon" value="play" />
-            </include>
-            <radiowidth>25</radiowidth>
-            <radioheight>28</radioheight>
-            <radioposx>13</radioposx>
-            <onclick>Dialog.Close(all)</onclick>
-            <onclick>$VAR[Play_tmdb]</onclick>
-            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + System.HasAddon(plugin.video.themoviedb.helper) + [Window.IsVisible(MyVideoNav.xml) + String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)] + !String.IsEqual(ListItem.DBType,tvshow)</visible>
-            <label>Play</label>
-          </control>
--->
           <control type="radiobutton" id="87">
             <include name="netflix_button" content="netflix_button">
               <param name="icon" value="play" />
@@ -1383,20 +1368,6 @@
             <onclick>SetFocus(8999,0)</onclick>
             <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfoButton.CastMore)</visible>
           </control>
-plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&tmdb_id=80752&type=tv
-<!--
-          <control type="radiobutton" id="381">
-            <include name="netflix_button" content="netflix_button">
-              <param name="icon" value="trakttv" />
-            </include>
-            <radiowidth>45</radiowidth>
-            <radioheight>48</radioheight>
-            <radioposx>2</radioposx>
-            <label>Add to Watchlist</label>
-            <onclick>RunPlugin(plugin://plugin.video.themoviedb.helper/?info=trakt_watchlist_add&amp;tmdb_id=$INFO[ListItem.Property(tmdb_id)]&amp;$VAR[Info_Param_Type])</onclick>
-            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Skin.HasSetting(VideoInfoButton.Watchlist) + !Skin.HasSetting(VideoInfo.Disable) + !String.IsEmpty(ListItem.Property(tmdb_id))</visible>
-          </control>
--->
           <!-- Trailer-->
           <control type="radiobutton" id="34">
             <include name="netflix_button" content="netflix_button">

@@ -3,6 +3,7 @@
     <requires>
         <import addon="xbmc.gui" version="5.14.0"/>
         <import addon="repository.marcelveldt" version="1.0.1"/>
+        <import addon="repository.jurialmunkey" version="1.2"/>
         <import addon="script.skin.helper.service" version="1.1.24"/>
         <import addon="script.skin.helper.widgets" version="1.0.0"/>
         <import addon="script.skinshortcuts" version="1.0.20"/>
@@ -11,7 +12,6 @@
         <import addon="resource.images.studios.white" version="0.0.10"/>
         <import addon="resource.images.studios.coloured" version="0.0.18"/>
         <import addon="resource.images.moviegenreicons.transparent" version="0.0.6"/>
-        <import addon="resource.images.moviegenreicons.filmstrip" version="0.0.6"/>
     </requires>
     <extension point="xbmc.gui.skin" defaultthemename="Textures.xbt" debugging="false" effectslowdown="1">
         <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i"/>

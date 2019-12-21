@@ -417,6 +417,7 @@
                         <onup>307</onup>
                         <ondown>8000</ondown>
                         <include>Defs_Keyboard_Button</include>
+                        <onclick>Dialog.Close</onclick>
                     </control>
 
                     <control type="button" id="32">

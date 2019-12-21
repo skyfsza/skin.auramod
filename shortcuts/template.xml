@@ -96,7 +96,7 @@
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
                 <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
-                <param name="content" value="$SKINSHORTCUTS[widgetPath]" />
+                <param name="content" value="$SKINSHORTCUTS[widgetPath]&amp;nextpage=True" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[widgetPath]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
@@ -229,7 +229,7 @@
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
                 <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
-                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
@@ -363,7 +363,7 @@
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
                 <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
-                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
@@ -502,7 +502,7 @@
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
                 <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
-                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
@@ -628,7 +628,7 @@
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
                 <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
-                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
@@ -749,7 +749,7 @@
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
                 <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
-                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
@@ -871,7 +871,7 @@
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
                 <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
-                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
@@ -995,7 +995,7 @@
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
                 <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
-                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
@@ -1120,7 +1120,7 @@
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
                 <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
-                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
@@ -1368,7 +1368,7 @@
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
                 <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
-                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
@@ -1493,7 +1493,7 @@
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
                 <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
-                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
@@ -1615,7 +1615,7 @@
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
                 <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
-                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
@@ -1736,7 +1736,7 @@
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
                 <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
-                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
@@ -1855,7 +1855,7 @@
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
                 <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
-                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
@@ -1974,7 +1974,7 @@
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
                 <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
-                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
@@ -2092,7 +2092,7 @@ poster-wall.png</property>
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
                 <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
-                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
@@ -2198,7 +2198,7 @@ poster-wall.png</property>
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
                 <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
-                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
@@ -2304,7 +2304,7 @@ poster-wall.png</property>
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
                 <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
-                <param name="content" value="$SKINSHORTCUTS[path]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
                 <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
                 <param name="widgetAspect" value="$SKINSHORTCUTS[widgetHubAspect]" />
                 <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />

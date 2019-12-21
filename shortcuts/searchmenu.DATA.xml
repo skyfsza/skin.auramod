@@ -54,6 +54,6 @@
 		<label2>Custom item</label2>
 		<icon>DefaultShortcut.png</icon>
 		<thumb>special://skin/extras/icons/youtube.png</thumb>
-		<action>ActivateWindow(Videos,"plugin://plugin.video.youtube/kodion/search/query/?q=",return)</action>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[Skin.String(CustomSearchTerm)]",return)</action>
 	</shortcut>
 </shortcuts>

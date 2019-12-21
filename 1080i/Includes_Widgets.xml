@@ -669,6 +669,14 @@
           <aspectratio aligny="center">keep</aspectratio>
           <texture colordiffuse="main_fg_30">common/cube-16.png</texture>
           <visible>!Control.HasFocus($PARAM[submenu]) + !Skin.HasSetting(DisableCatlabel)</visible>
+          <visible>![Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating]</visible>
+        </control>
+        <control type="image">
+          <width>40</width>
+          <height>100%</height>
+          <aspectratio aligny="center">keep</aspectratio>
+          <texture>netflix/loading.gif</texture>
+          <visible>Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating</visible>
         </control>
         <control type="label">
           <top>-2</top>
@@ -1317,7 +1325,8 @@
       <item>
         <label>$LOCALIZE[31373]...</label>
         <icon>DefaultFolder.png</icon>
-        <onclick>ActivateWindow($PARAM[target],$PARAM[widgetContent],return)</onclick>
+        <onclick condition="!String.Contains(Container($PARAM[id]).ListItem(1).FolderPath,plugin.video.themoviedb.helper)">ActivateWindow($PARAM[target],$PARAM[widgetContent],return)</onclick>
+        <onclick condition="String.Contains(Container($PARAM[id]).ListItem(1).FolderPath,plugin.video.themoviedb.helper)">ActivateWindow($PARAM[target],$PARAM[content],return)</onclick>
         <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,9) + !Window.IsVisible(DialogVideoInfo.xml)</visible>
         <visible>!Skin.HasSetting(HideShowMoreItem)</visible>
       </item>

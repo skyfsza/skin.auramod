@@ -522,7 +522,7 @@
             <shortcut label="$LOCALIZE[33060]" type="$LOCALIZE[31018]" icon="special://skin/extras/icons/power.png">ActivateWindow(shutdownmenu)</shortcut>
             <shortcut label="$LOCALIZE[31017]" type="32010">||BROWSE||script.skin.helper.service/?action=smartshortcuts</shortcut>
             <shortcut label="Media Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3730,return)</shortcut>
-            <shortcut label="Search" grouping="32029" icon="special://skin/extras/icons/search.png">ActivateWindow(1138,return)</shortcut>
+            <shortcut label="Search" grouping="32029" icon="special://skin/extras/icons/search.png">ActivateWindow(1136)</shortcut>
         </node>
         <node label="Hubs">
             <shortcut label="Movie Categories Hub" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2112,return)</shortcut>

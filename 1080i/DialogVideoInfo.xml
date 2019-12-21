@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="2003">
-    <defaultcontrol always="true">9570</defaultcontrol>
+    <defaultcontrol always="true">9005</defaultcontrol>
     <onload>SetFocus(9005)</onload>
     <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo)">Close</onload>
     <onload>ClearProperty(FilePath,home)</onload>
     <onload>ClearProperty(Header_Left_Text)</onload>
     <onload>ClearProperty(Header_Center_Text)</onload>
     <onload>ClearProperty(OSD_Menu,Home)</onload>
-    <onunload>Skin.SetString(videoinfoprevious,true)</onunload>
-    <onunload condition="Window.IsVisible(1134)">RunScript(plugin.video.themoviedb.helper,del_path,call_id=1137)</onunload>
+
+    <onunload condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.Path.Current))">RunScript(plugin.video.themoviedb.helper,del_path,call_id=1137)</onunload>
     <onunload>ClearProperty(FilePath,home)</onunload>
     <onunload>ClearProperty(OSD_Menu,Home)</onunload>
     <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo) + [String.IsEqual(ListItem.DBType,movie) | Container.Content(movies)]">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onload>
@@ -22,10 +22,16 @@
     <onunload condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunload>
     <controls>
 
+      <include condition="Skin.HasSetting(SkinHelper.EnableExtraFanart)">fanart_multi</include>
 	<control type="button" id="9005">
 	 <visible allowhiddenfocus="true">false</visible>
             <onfocus condition="!Skin.HasSetting(UseExtendedInfoDialog)">SetFocus(8000)</onfocus>
-	    <onfocus>Control.SetFocus(9570,0)</onfocus>
+	    <onfocus condition="Control.IsVisible(87)">SetFocus(87)</onfocus>
+	    <onfocus condition="!Control.IsVisible(87) + Control.IsVisible(8)">SetFocus(8)</onfocus>
+	    <onfocus condition="!Control.IsVisible(87) + !Control.IsVisible(8)">SetFocus(9570,0)</onfocus>
+	    <ondown condition="Player.HasVideo">9570</ondown>
+	    <onup condition="Player.HasVideo">9570</onup>
+	    <onleft condition="Player.HasVideo">9570</onleft>
 	</control>
         <control type="group">
         <include>Global_Background</include>

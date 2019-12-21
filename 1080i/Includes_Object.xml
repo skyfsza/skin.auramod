@@ -6442,7 +6442,7 @@
     <param name="controltype" default="fixedlist" />
     <param name="search" default="false" />
     <param name="onclick" default="SetFocus(9570)" />
-    <param name="onclick2" default="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath,,&fanarttv=True],call_id=1137,delay=0.35)" />
+    <param name="onclick2" default="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath,,&amp;fanarttv=True],call_id=1137,delay=0.35,prevent_del)" />
     <param name="onclick3" default="" />
     <param name="onback" default="9570" />
     <param name="onup" default="" />
