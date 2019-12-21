@@ -1881,7 +1881,7 @@
           <right>100</right>
           <width>$PARAM[width]</width>
           <height>184</height>
-          <animation effect="slide" end="80,0" time="0" condition="[String.IsEmpty(ListItem.Studio) | Control.IsVisible(1505)  | Control.IsVisible(1506)]">Conditional</animation>
+          <animation effect="slide" end="80,0" time="0" condition="[[String.IsEmpty(ListItem.Studio) + !String.Contains(ListItem.Studio,/)] | Control.IsVisible(1505)  | Control.IsVisible(1506)]">Conditional</animation>
           <animation effect="slide" end="-450,-20" time="0" condition="Control.IsVisible(1505)">Conditional</animation>
           <animation effect="slide" end="-450,-20" time="0" condition="Control.IsVisible(1506)">Conditional</animation>
           <include content="Object_Ratings" condition="Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(Home.xml) | Window.IsVisible(script-globalsearch.xml)">
@@ -3957,8 +3957,8 @@
           <width>64</width>
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
-          <visible>!String.IsEmpty(ListItem.Studio)</visible>
-          <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.HasFocus(1505) | Control.IsVisible(1506)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+          <visible>!String.IsEmpty(ListItem.Studio) + !String.Contains(ListItem.Studio,/)</visible>
+          <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.IsVisible(1505) | Control.IsVisible(1506)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
         <control type="image">
           <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(Container(1505).ListItem.Studio)">Conditional</animation>
@@ -3969,7 +3969,7 @@
           <height>44</height>
           <width>64</width>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
-          <visible>[Control.HasFocus(300) | Control.HasFocus(30222) | Control.HasFocus(1505)] + Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Studio)</visible>
+          <visible>[Control.HasFocus(300) | Control.HasFocus(30222) | Control.HasFocus(1505)] + Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Studio) + !String.Contains(Container(1505).ListItem.Studio,/)</visible>
         </control>
       </control>
     </definition>
