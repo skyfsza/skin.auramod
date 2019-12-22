@@ -677,7 +677,7 @@
           <width>40</width>
           <height>100%</height>
           <aspectratio aligny="center">keep</aspectratio>
-          <texture>netflix/loading.gif</texture>
+          <texture>$VAR[loading_spinner]</texture>
           <visible>Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating</visible>
         </control>
         <control type="label">
