@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="2112">
-  <onload condition="String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(505)</onload>
-  <onload condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(401,1,absolute)</onload>
+  <onload>SetFocus(505)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
       <include>Animation_Right</include>

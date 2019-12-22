@@ -363,12 +363,20 @@
         <value condition="!String.IsEmpty(Container(1506).ListItem.TvShowTitle)">$INFO[Container(1506).ListItem.TvShowTitle]</value>
         <value>$INFO[Container(1506).ListItem.Label]</value>
     </variable>
+    <variable name="imdb_votes">
+       <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Votes))">$INFO[Window(Home).Property(TMDbHelper.ListItem.IMDb_Votes), (, $LOCALIZE[205])]</value>
+       <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Votes.IMDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Votes.IMDB), (, $LOCALIZE[205])]</value>
+    </variable>
+
     <variable name="imdb_ratings">
-       <value condition="!String.IsEmpty(ListItem.Rating)">$INFO[ListItem.Rating, ,]</value>
+       <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating))">$INFO[Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating), ,]</value>
        <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.IMDB), ,]</value>
-       <value condition="Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)">$INFO[Container(1505).ListItem.Rating, ,]</value>
-       <value condition="Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)">$INFO[Container(1506).ListItem.Rating, ,]</value>
-       <value>$INFO[ListItem.RatingAndVotes, ,]</value>
+    </variable>
+
+    <variable name="star_ratings">
+       <value condition="!String.IsEmpty(ListItem.Rating)">$INFO[ListItem.Rating,, ]</value>
+       <value condition="Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)">$INFO[Container(1505).ListItem.Rating,, ]</value>
+       <value condition="Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)">$INFO[Container(1506).ListItem.Rating,, ]</value>
     </variable>
     <variable name="video_heading5055">
         <value condition="Control.IsVisible(505) + !String.IsEmpty(Container(5055).ListItem.TvShowTitle)">$INFO[Container(5055).ListItem.TvShowTitle]</value>
@@ -936,6 +944,7 @@
         <value condition="!String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">$INFO[ListItem.Studio,on , ]</value>
         <value condition="String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">$INFO[ListItem.Property(Studio.1.Name),on , ]</value>
     </variable>
+
     <variable name="Label_Netflix_Tagline_1505">
         <value condition="String.IsEqual(Container(1505).ListItem.DBType,season)">$INFO[Container(1505).ListItem.Label]</value>
         <value condition="!String.IsEmpty(Container(1505).ListItem.Tagline)">[I]$INFO[Container(1505).ListItem.Tagline][/I]</value>

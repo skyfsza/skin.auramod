@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="3920">
   <defaultcontrol>5050</defaultcontrol>
-  <onload condition="String.IsEmpty(Skin.String(MovieHubMenuFocus))">SetFocus(5055)</onload>
-  <onload condition="!String.IsEmpty(Skin.String(MovieHubMenuFocus))">SetFocus(401,3,absolute)</onload>
+  <onload>SetFocus(5055)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
     <include>Global_Background</include>

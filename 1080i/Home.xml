@@ -24,8 +24,7 @@
   <onunload>SetProperty(SpotReturnHome,true,Home)</onunload>
   <onunload>ClearProperty(spothubscroll)</onunload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
-  <onload condition="!String.IsEmpty(Skin.String(MovieHubMenuFocus))">SetFocus(401,0,absolute)</onload>
-  <onload condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,0,absolute)</onload>
+  <onunload>ClearProperty(TMDBHelper.WidgetContainer)</onunload>
   <onunload>Skin.SetString(similar_movies_traktid,$INFO[Container(12341).ListItem.Property(trakt_id)])</onunload>
   <onunload>Skin.SetString(similar_movies2_traktid,$INFO[Container(12341).ListItem(2).Property(trakt_id)])</onunload>
   <onunload>Skin.SetString(similar_movies_label,$INFO[Container(12341).ListItem.Label])</onunload>

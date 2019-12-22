@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="dialog" id="3110">
+  <defaultcontrol always="true">4000</defaultcontrol>
+  <onload>AlarmClock(focusWidgets,SetFocus(9967),00:00,silent)</onload>
+  <controls>
+      <include content="menu_hub">
+          <param name="group" value="x1110" />
+      </include>
+  </controls>
+</window>

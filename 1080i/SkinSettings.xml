@@ -213,6 +213,15 @@
                             <label>$LOCALIZE[31024]</label>
                         </control>
 
+                        <control type="togglebutton" id="90081" description="Dependencies">
+                            <onfocus>SetProperty(CurrentFocus,$NUMBER[90081])</onfocus>
+                            <usealttexture>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(300)] + !Control.HasFocus(302) + Integer.IsEqual(Window.Property(CurrentFocus),90081)</usealttexture>
+                            <alttexturenofocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturenofocus>
+                            <width>450</width>
+                            <include>Defs_Settings_Button</include>
+                            <label>API Settings</label>
+                        </control>
+
                         <control type="togglebutton" id="9008" description="Dependencies">
                             <onfocus>SetProperty(CurrentFocus,$NUMBER[9008])</onfocus>
                             <usealttexture>![Control.HasFocus(3901) | Control.HasFocus(3902) | Control.HasFocus(3903) | Control.HasFocus(300)] + !Control.HasFocus(302) + Integer.IsEqual(Window.Property(CurrentFocus),9008)</usealttexture>
@@ -1047,6 +1056,14 @@
                             <selected>Skin.HasSetting(MinimalBusyLoader)</selected>
                             <onclick>Skin.ToggleSetting(MinimalBusyLoader)</onclick>
                         </control>
+                        <control type="radiobutton" id="96181" description="Enable TMDB helper artwork lookups">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9006)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Enable TMDBHelper service monitor</label>
+                            <onclick>Skin.ToggleSetting(TMDbHelper.Service)</onclick>
+                            <selected>Skin.HasSetting(TMDbHelper.Service)</selected>
+                        </control>
+
                         <control type="radiobutton" id="9618" description="Enable skin helper artwork lookups for addons">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9006)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1595,6 +1612,22 @@
                             <onclick condition="String.IsEmpty(SkinHelper.AutoCloseMusicOSD)">Skin.SetNumeric(SkinHelper.AutoCloseMusicOSD)</onclick>
                         </control>
 
+                        <!-- ============ -->
+                        <!-- API Settings -->
+                        <!-- ============ -->
+
+                        <control type="button" id="900811" description="Configure Metadatautils APIs">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),90081)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure Metadatautils APIs</label>
+                            <onclick>Addon.OpenSettings(script.module.metadatautils)</onclick>
+                        </control>
+                        <control type="button" id="900812" description="Configure TMDBHelper APIs">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),90081)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Configure TMDBHelper APIs</label>
+                            <onclick>Addon.OpenSettings(plugin.video.themoviedb.helper)</onclick>
+                        </control>
 
                         <!-- ============ -->
                         <!-- Dependencies -->

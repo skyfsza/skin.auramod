@@ -236,7 +236,9 @@
 
     <include name="Home_MainMenu_Layout_wLabel_only">
 	<control type="group">
+	<visible>!Control.HasFocus(400) + !Control.HasFocus(401)</visible>
        <animation effect="slide" start="0,0" end="310,0" time="500" condition="Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)">Conditional</animation>
+       <animation effect="slide" start="-310,0" end="0,0" time="500">Visible</animation>
        <animation effect="slide" start="0,0" end="70,0" time="500" 
 							condition="ControlGroup(900).HasFocus | Control.HasFocus(30222) | Control.HasFocus(1505) | Control.HasFocus(1506) | ControlGroup(505).HasFocus | ControlGroup(505).HasFocus | 
 								   [Control.HasFocus(13003) + [Integer.IsEqual(Container(13003).Position,0) + !Container(13003).HasPrevious]] |
@@ -324,6 +326,8 @@
             <visible allowhiddenfocus="true">false</visible>
            <onfocus condition="Control.IsVisible(1505)">SetProperty(SkinHelper.WidgetContainer,1505,Home)</onfocus>
            <onfocus condition="Control.IsVisible(1506)">SetProperty(SkinHelper.WidgetContainer,1506,Home)</onfocus>
+           <onfocus condition="Control.IsVisible(1505)">SetProperty(TMDbHelper.WidgetContainer,1505,Home)</onfocus>
+           <onfocus condition="Control.IsVisible(1506)">SetProperty(TMDbHelper.WidgetContainer,1506,Home)</onfocus>
 	</control>
         <control type="group">
           <control type="group">
@@ -436,7 +440,9 @@
         <control type="button">
             <visible allowhiddenfocus="true">false</visible>
            <onfocus condition="Control.IsVisible(1505)">SetProperty(SkinHelper.WidgetContainer,1505,Home)</onfocus>
-           <onfocus condition="Control.IsVisible(1506)">SetProperty(SkinHelper.WidgetContainer,1506,Home)</onfocus>
+           <onfocus condition="Control.IsVisible(1506)">SetProperty(SkinHelper.WidgetContainer,1506,Home)</onfocus>    
+           <onfocus condition="Control.IsVisible(1505)">SetProperty(TMDbHelper.WidgetContainer,1505,Home)</onfocus>
+           <onfocus condition="Control.IsVisible(1506)">SetProperty(TMDbHelper.WidgetContainer,1506,Home)</onfocus>
         </control>
             <control type="image">
                 <left>240</left>
@@ -674,49 +680,10 @@
 
     <include name="Home_TVHubMenu_Layout">
       <control type="group">
-      <animation effect="slide" end="220,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
-      <animation effect="slide" end="-220,0" time="0" condition="!Window.IsVisible(Home) + String.IsEmpty(Skin.String(TVHubMenuFocus))">Conditional</animation>
-      <animation effect="slide" end="-220,0" time="800">Hidden</animation>
-      <animation effect="slide" end="-100,0" time="300" condition="ControlGroup(5055).HasFocus">Conditional</animation>
+      <animation effect="slide" start="0,0" end="310,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
       <visible allowhiddenfocus="true">Control.HasFocus(400)</visible>
-<control type="group">
-      <width>310</width>
-      <left>-220</left>
-      <control type="image">
-            <texture>common/gradient-solid-horizontal.png</texture>
-            <include>Defs_DarkShadow</include>
-        </control>
-        <control type="image">
-            <right>6</right>
-            <texture colordiffuse="dimgrey">common/white.png</texture>
-        </control>
-        <control type="image">
-            <right>6</right>
-            <texture colordiffuse="$VAR[ColorOverlay]">common/white.png</texture>
-            <animation effect="fade" start="100" end="5" condition="true">Conditional</animation>
-            <visible>!String.IsEmpty(Skin.String(overlaycolor.name))</visible>
-            <visible>String.IsEqual(Skin.CurrentColourTheme,Dark Dialogs)</visible>
-        </control>
-        <control type="image">
-
-            <width>1</width>
-            <right>4</right>
-            <texture colordiffuse="highlight_bottombar">common/white.png</texture>
-        </control>
-        <control type="image">
-            <width>1</width>
-            <right>5</right>
-            <texture colordiffuse="darkline_separator">common/white.png</texture>
-        </control>
-</control>
 
 	<control type="list" id="400">
-                <top>300</top>
-                <width>440</width>
-		<include>IconOnly_Height</include>
-	        <preloaditems>2</preloaditems>
-       	        <orientation>vertical</orientation>
-        	<scrolltime>0</scrolltime>
                 <onright condition="Window.IsVisible(3910)">SetFocus(5055)</onright>
 		<onright condition="!Window.IsVisible(Home) + !Window.IsVisible(3910)">505</onright>
 		<onright condition="Window.IsVisible(Home)">Skin.Reset(TVHubMenuFocus)</onright>
@@ -724,161 +691,126 @@
 		<onleft condition="Window.IsVisible(Home)">300</onleft>
                 <onback>Skin.Reset(TVHubMenuFocus)</onback>
 	        <onback>ActivateWindow(Home)</onback>
-		<left>-200</left>
 
-        <itemlayout height="home_icon" width="240">
-            <control type="image">
-		<left>210</left>
-                <width>home_icon</width>
-                <texture colordiffuse="main_fg_30">$INFO[ListItem.Icon]</texture>
-            </control>
-	    <control type="label">
-	       <label>$INFO[ListItem.Label]</label>
-	       <width>200</width> 
-	       <shadowcolor>darkgrey</shadowcolor>
-	    </control>
-        </itemlayout>
-        <focusedlayout height="home_icon" width="240">
-            <control type="image">
-                <left>210</left>
-                <width>home_icon</width>
-                <texture colordiffuse="main_fg_100">$INFO[ListItem.Icon]</texture>
-            </control>
-            <control type="label">
-               <label>$INFO[ListItem.Label]</label>
-               <width>200</width>
-	       <textcolor>white</textcolor>
-	       <shadowcolor>darkgrey</shadowcolor>
-            </control>
-            <control type="group">
-                <left>281</left>
-                <width>6</width>
-                <control type="image">
-                    <texture background="true" colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
-                </control>
-            </control>
-            <control type="button">
-	      <visible allowhiddenfocus="true">false</visible>
-              <onfocus>Skin.SetString(TVHubMenuFocus,$INFO[Container(400).Position])</onfocus>
-	      <onfocus condition="String.IsEqual(ListItem.Label,Home) + !Window.IsVisible(Home)">ActivateWindow(Home)</onfocus>
-	      </control>
-        </focusedlayout>
-		<content>
-		   <item>
-                        <label>Home</label>
-                        <onclick>activatewindow(Home)</onclick>
-                        <onclick>SetFocus(400,0,absolute)</onclick>
-                        <icon>special://skin/extras/icons/home.png</icon>
-                    </item>
-	<include>skinshortcuts-group-tvhubmenu</include>
-		</content>
+
+                <centertop>60%</centertop>
+                <width>310</width>
+                <include>IconOnly_Height</include>
+                <preloaditems>2</preloaditems>
+                <orientation>vertical</orientation>
+                <scrolltime>300</scrolltime>
+                <left>-310</left>
+
+      <itemlayout width="240" height="75">
+        <control type="group">
+          <control type="label">
+            <left>30</left>
+            <label>$INFO[ListItem.Label]</label>
+            <align>right</align>
+            <textcolor>dimgrey</textcolor>
+          </control>
+        </control>
+      </itemlayout>
+      <focusedlayout width="240" height="75">
+        <control type="button">
+            <visible allowhiddenfocus="true">false</visible>
+           <onfocus condition="Control.IsVisible(1505)">SetProperty(SkinHelper.WidgetContainer,1505,Home)</onfocus>
+           <onfocus condition="Control.IsVisible(1506)">SetProperty(SkinHelper.WidgetContainer,1506,Home)</onfocus>
+           <onfocus condition="Control.IsVisible(1505)">SetProperty(TMDbHelper.WidgetContainer,1505,Home)</onfocus>
+           <onfocus condition="Control.IsVisible(1506)">SetProperty(TMDbHelper.WidgetContainer,1506,Home)</onfocus>
+        </control>
+        <control type="group">
+          <control type="group">
+            <height>70</height>
+            <width>400</width>
+            <left>10</left>
+          </control>
+          <control type="label">
+            <left>30</left>
+            <label>$INFO[ListItem.Label]</label>
+            <align>right</align>
+            <font>font_small_bold</font>
+            <textcolor>white</textcolor>
+          </control>
+        </control>
+      </focusedlayout>
+	<content>
+	   <item>
+            <label>Home</label>
+            <onclick>activatewindow(Home)</onclick>
+            <onclick>SetFocus(400,0,absolute)</onclick>
+            <icon>special://skin/extras/icons/home.png</icon>
+           </item>
+       <include>skinshortcuts-group-tvhubmenu</include>
+	</content>
      </control>
      </control>
     </include>
 
     <include name="Home_MovieHubMenu_Layout">
       <control type="group">
-      <animation effect="slide" end="220,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
-      <animation effect="slide" end="-220,0" time="0" condition="!Window.IsVisible(Home) + String.IsEmpty(Skin.String(MovieHubMenuFocus))">Conditional</animation>
-      <animation effect="slide" end="-220,0" time="800">Hidden</animation>
-      <animation effect="slide" end="-100,0" time="300" condition="ControlGroup(5055).HasFocus">Conditional</animation>
+      <animation effect="slide" start="0,0" end="310,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
       <visible allowhiddenfocus="true">Control.HasFocus(401)</visible>
-<control type="group">
-      <width>310</width>
-      <left>-220</left>
-      <control type="image">
-            <texture>common/gradient-solid-horizontal.png</texture>
-            <include>Defs_DarkShadow</include>
-        </control>
-        <control type="image">
-            <right>6</right>
-            <texture colordiffuse="dimgrey">common/white.png</texture>
-        </control>
-        <control type="image">
-            <right>6</right>
-            <texture colordiffuse="$VAR[ColorOverlay]">common/white.png</texture>
-            <animation effect="fade" start="100" end="5" condition="true">Conditional</animation>
-            <visible>!String.IsEmpty(Skin.String(overlaycolor.name))</visible>
-            <visible>String.IsEqual(Skin.CurrentColourTheme,Dark Dialogs)</visible>
-        </control>
-        <control type="image">
-
-            <width>1</width>
-            <right>4</right>
-            <texture colordiffuse="highlight_bottombar">common/white.png</texture>
-        </control>
-        <control type="image">
-            <width>1</width>
-            <right>5</right>
-            <texture colordiffuse="darkline_separator">common/white.png</texture>
-        </control>
-</control>
 	<control type="list" id="401">
-                <top>300</top>
-                <width>440</width>
-		<include>IconOnly_Height</include>
-	        <preloaditems>2</preloaditems>
-       	        <orientation>vertical</orientation>
-        	<scrolltime>0</scrolltime>
-		<onright condition="!Window.IsVisible(3920)">505</onright>
-		<onright condition="Window.IsVisible(3920)">SetFocus(5055)</onright>
-		<onright condition="Window.IsVisible(Home)">SetFocus(300)</onright>
-		<onleft condition="Window.IsVisible(Home)">300</onleft>
-                <onback>Skin.Reset(MovieHubMenuFocus)</onback>
-                <onback>ActivateWindow(Home)</onback>
-		<left>-200</left>
+	<onright condition="!Window.IsVisible(3920)">505</onright>
+	<onright condition="Window.IsVisible(3920)">SetFocus(5055)</onright>
+	<onright condition="Window.IsVisible(Home)">SetFocus(300)</onright>
+	<onleft condition="Window.IsVisible(Home)">300</onleft>
+        <onback>Skin.Reset(MovieHubMenuFocus)</onback>
+        <onback>ActivateWindow(Home)</onback>
+        <centertop>60%</centertop>
+        <width>310</width>
+        <include>IconOnly_Height</include>
+        <preloaditems>2</preloaditems>
+        <orientation>vertical</orientation>
+        <scrolltime>300</scrolltime>
+        <left>-310</left>
 
-        <itemlayout height="home_icon" width="240">
-            <control type="image">
-		<left>210</left>
-                <width>home_icon</width>
-                <texture colordiffuse="main_fg_30">$INFO[ListItem.Icon]</texture>
-            </control>
-	    <control type="label">
-	       <label>$INFO[ListItem.Label]</label>
-               <shadowcolor>darkgrey</shadowcolor>
-	       <width>200</width> 
-	    </control>
-        </itemlayout>
-        <focusedlayout height="home_icon" width="240">
-            <control type="image">
-                <left>210</left>
-                <width>home_icon</width>
-                <texture colordiffuse="main_fg_100">$INFO[ListItem.Icon]</texture>
-            </control>
-            <control type="label">
-               <label>$INFO[ListItem.Label]</label>
-               <width>200</width>
-	       <shadowcolor>darkgrey</shadowcolor>
-	       <textcolor>white</textcolor>
-            </control>
-            <control type="group">
-                <left>285</left>
-                <width>6</width>
-                <control type="image">
-                    <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
-                </control>
-            </control>
-            <control type="button">
-	      <visible allowhiddenfocus="true">false</visible>
-	      <onfocus>Skin.SetString(MovieHubMenuFocus,$INFO[ListItem.Label])</onfocus>
-	      <onfocus condition="String.IsEqual(ListItem.Label,Home) + !Window.IsVisible(Home)">ActivateWindow(Home)</onfocus>
-	      </control>
-        </focusedlayout>
-		<content>
-                    <item id="1">
-                        <label>Home</label>
-                        <onclick>activatewindow(Home)</onclick>
-                        <onclick>SetFocus(401,0,absolute)</onclick>
-                        <icon>special://skin/extras/icons/home.png</icon>
-                    </item>
+      <itemlayout width="240" height="75">
+        <control type="group">
+          <control type="label">
+            <left>30</left>
+            <label>$INFO[ListItem.Label]</label>
+            <align>right</align>
+            <textcolor>dimgrey</textcolor>
+          </control>
+        </control>
+      </itemlayout>
+      <focusedlayout width="240" height="75">
+        <control type="button">
+            <visible allowhiddenfocus="true">false</visible>
+           <onfocus condition="Control.IsVisible(1505)">SetProperty(SkinHelper.WidgetContainer,1505,Home)</onfocus>
+           <onfocus condition="Control.IsVisible(1506)">SetProperty(SkinHelper.WidgetContainer,1506,Home)</onfocus>
+           <onfocus condition="Control.IsVisible(1505)">SetProperty(TMDbHelper.WidgetContainer,1505,Home)</onfocus>
+           <onfocus condition="Control.IsVisible(1506)">SetProperty(TMDbHelper.WidgetContainer,1506,Home)</onfocus>
+        </control>
+        <control type="group">
+          <control type="group">
+            <height>70</height>
+            <width>400</width>
+            <left>10</left>
+          </control>
+          <control type="label">
+            <left>30</left>
+            <label>$INFO[ListItem.Label]</label>
+            <align>right</align>
+            <font>font_small_bold</font>
+            <textcolor>white</textcolor>
+          </control>
+        </control>
+      </focusedlayout>
+	<content>
+          <item id="1">
+          <label>Home</label>
+          <onclick>activatewindow(Home)</onclick>
+          <onclick>SetFocus(401,0,absolute)</onclick>
+          <icon>special://skin/extras/icons/home.png</icon>
+        </item>
 	<include>skinshortcuts-group-moviehubmenu</include>
-  		</content>
+ 	</content>
      </control>
      </control>
     </include>
-
-
 
     <include name="IconOnly_Height">
     <height>870</height>
