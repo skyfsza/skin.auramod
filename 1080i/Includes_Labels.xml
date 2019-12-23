@@ -289,6 +289,7 @@
         <value condition="Control.IsVisible(505) + !String.IsEmpty(Container(5055).ListItem.Cast)">star</value>
         <value condition="Control.IsVisible(506) + !String.IsEmpty(Container(5056).ListItem.Cast)">star</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))">genre</value>
+        <value condition="String.IsEmpty(Window(Home).Property(TMDbHelper.IsUpdating)) + !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Genre))">genre</value>
     </variable>
 
    <!-- Spotlight buttons @cartmandos -->
@@ -311,6 +312,7 @@
         <value condition="Control.IsVisible(505) + !String.IsEmpty(Container(5055).ListItem.Cast)">[I]$INFO[Container(5055).ListItem.Cast][/I]</value>
         <value condition="Control.IsVisible(506) + !String.IsEmpty(Container(5056).ListItem.Cast)">[I]$INFO[Container(5056).ListItem.Cast][/I]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))">[I]$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)][/I]</value>
+        <value condition="String.IsEmpty(Window(Home).Property(TMDbHelper.IsUpdating))	 + !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Genre))">[I]$INFO[Window(Home).Property(TMDBHelper.ListItem.Genre)][/I]</value>
     </variable>
 
 
@@ -364,12 +366,12 @@
         <value>$INFO[Container(1506).ListItem.Label]</value>
     </variable>
     <variable name="imdb_votes">
-       <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Votes))">$INFO[Window(Home).Property(TMDbHelper.ListItem.IMDb_Votes), (, $LOCALIZE[205])]</value>
+       <value condition="String.IsEmpty(Window(Home).Property(TMDbHelper.IsUpdating)) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Votes))">$INFO[Window(Home).Property(TMDbHelper.ListItem.IMDb_Votes), (, $LOCALIZE[205])]</value>
        <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Votes.IMDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Votes.IMDB), (, $LOCALIZE[205])]</value>
     </variable>
 
     <variable name="imdb_ratings">
-       <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating))">$INFO[Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating), ,]</value>
+       <value condition="String.IsEmpty(Window(Home).Property(TMDbHelper.IsUpdating)) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating))">$INFO[Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating), ,]</value>
        <value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB))">$INFO[Window(home).Property(SkinHelper.ListItem.Rating.IMDB), ,]</value>
     </variable>
 
@@ -680,6 +682,7 @@
         <value condition="Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.MPAA)">$INFO[Container(1505).ListItem.MPAA]</value>
         <value condition="Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.MPAA)">$INFO[Container(1506).ListItem.MPAA]</value>
         <value condition="Control.IsVisible(5055) + !String.IsEmpty(Container(5055).ListItem.MPAA)">$INFO[Container(5055).ListItem.MPAA]</value>
+        <value condition="String.IsEmpty(Window(Home).Property(TMDbHelper.IsUpdating))	 + String.IsEmpty(ListItem.MPAA) + String.IsEmpty(Container(5055).ListItem.MPAA) + !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.MPAA))">$INFO[Window(Home).Property(TMDBHelper.ListItem.MPAA)]</value>
         <value condition="String.IsEmpty(ListItem.MPAA) + String.IsEmpty(Container(5055).ListItem.MPAA) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MPAA))">$INFO[Window(Home).Property(SkinHelper.ListItem.MPAA)]</value>
         <value condition="!String.IsEmpty(ListItem.MPAA)">$INFO[ListItem.MPAA]</value>
     </variable>

@@ -950,6 +950,12 @@
 
   <include name="DialogVideoInfo_Netflix">
    <control type="group">
+      <animation type="WindowOpen" reversible="false">
+       	<effect type="fade" start="50" end="100" time="100"/>
+      </animation>
+      <animation type="WindowClose" reversible="false">
+        <effect type="fade" start="100" end="50" time="100"/>
+      </animation>
     <control type="group">
       <top>0</top>
       <width>100%</width>
@@ -1087,7 +1093,7 @@
               <include content="Object_Ratings" condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(Home.xml) | Window.IsVisible(script-globalsearch.xml)">
                 <param name="directory" value="color" />
                 <param name="align" value="left" />
-                <param name="width" value="$PARAM[width]" />
+                <param name="width" value="1400" />
                 <param name="rottentomatoes" value="true" />
                 <param name="imdbvotes" value="true" />
                 <param name="usermeter" value="true" />
@@ -1111,14 +1117,14 @@
             <top>20</top>
             <height>300</height>
             <control type="group">
-              <visible>!String.IsEmpty(ListItem.Rating) + !Control.HasFocus(9550)</visible>
+              <visible>!Control.HasFocus(9550)</visible>
               <top>10</top>
               <height>55</height>
-              <right>940</right>
+              <right>440</right>
               <include content="Object_Ratings">
                 <param name="directory" value="color" />
                 <param name="align" value="left" />
-                <param name="width" value="$PARAM[width]" />
+                <param name="width" value="1400" />
                 <param name="rottentomatoes" value="true" />
                 <param name="imdbvotes" value="true" />
                 <param name="usermeter" value="false" />
@@ -1136,7 +1142,6 @@
                 <height>30</height>
                 <colordiffuse>grey</colordiffuse>
                 <texture>flags/rating.png</texture>
-                <visible>!String.IsEmpty(ListItem.Rating)</visible>
               </control>
             </control>
             <control type="group">
@@ -1693,14 +1698,6 @@
 					<label>[B]Critics Consensus[/B]</label>
 				</control>
 				
-<!--
-				<control type="label">
-					<left>810</left>
-                                        <font>font_small</font>
-					<textcolor>white</textcolor>
-					<label>[B]Cast and Role[/B]</label>
-				</control>
--->
 			</control>
 			
 			<control type="grouplist"><!-- Critics Consensus and Cast Contents -->
@@ -1721,17 +1718,6 @@
 					<height>183</height>
 					<label fallback="No reviews available">[I]"$INFO[ListItem.Property(rottentomatoes_consensus)]"[/I]</label>
 				</control>
-<!--
-				<control type="textbox">
-					<description>Cast/Role - Fallback for Critics Consensus</description>
-					<font>font_tiny</font>
-					<textcolor>grey</textcolor>
-					<width>400</width>
-					<height>370</height>
-					<autoscroll delay="10000" time="3000" repeat="6000">Control.HasFocus(8999)</autoscroll>
-					<label>$INFO[ListItem.CastAndRole]</label>
-				</control>
--->
 			</control>
 			
 			<control type="image">
@@ -1784,8 +1770,6 @@
 			
 		</control>
 
-
-
       <control type="grouplist" id="9000">
         <scrolltime tween="sine" easing="out">500</scrolltime>
         <visible allowhiddenfocus="true">Control.HasFocus(8999) | ControlGroup(9000).HasFocus</visible>
@@ -1811,7 +1795,7 @@
           <param name="visible" value="String.IsEqual(Container(8999).ListItem.Label,Next Up)" />
           <param name="content" value="$VAR[nextup_content_videoinfo]" />
           <param name="onclick" value="" />
-          <param name="onclick2" value="RunPlugin(plugin://plugin.video.themoviedb.helper/?info=play&amp;season=$INFO[Container.ListItem.Season]&amp;type=episode&amp;episode=$INFO[Container.ListItem.Episode]&amp;tmdb_id=$INFO[Container.ListItem.Property(tmdb_id)])" />
+          <param name="onclick2" value="PlayMedia(plugin://plugin.video.themoviedb.helper/?info=play&amp;season=$INFO[Container.ListItem.Season]&amp;type=episode&amp;episode=$INFO[Container.ListItem.Episode]&amp;tmdb_id=$INFO[Container.ListItem.Property(tmdb_id)])" />
         </include>
        <include condition="!Skin.HasSetting(VideoInfo.Disable) + Skin.HasSetting(VideoInfo.Episodes) + String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBType,episode) + String.Contains(ListItem.Path,plugin.video.seren)" content="episode_list">
           <param name="id" value="53011" />

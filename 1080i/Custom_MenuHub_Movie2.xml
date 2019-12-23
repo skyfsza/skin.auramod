@@ -7,7 +7,7 @@
       <include>object_menuhub_includes</include>
       <include condition="Skin.HasSetting(DisableSubMenuVert)">Home_MovieHubMenu_Layout</include>
     <control type="label">
-      <left>110</left>
+      <left>60</left>
       <top>40</top>
       <label>Categories</label>
       <height>40</height>
@@ -17,7 +17,6 @@
       <textcolor>white</textcolor>
       <font>font_heading_small</font>
       <visible>Control.HasFocus(505) | Control.HasFocus(401)</visible>
-      <animation effect="slide" end="240,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
     </control>
     <control type="button" id="5051">
      <centerleft>50%</centerleft>
@@ -32,14 +31,15 @@
      <visible>!Integer.IsGreater(Container(505).NumItems,0) + !Container(505).IsUpating</visible>
     </control>
     <control type="list" id="505">
+      <animation effect="slide" start="-400,0" end="0,0" time="400">Visible</animation>
+      <visible allowhiddenfocus="true">!Control.HasFocus(401)</visible>
       <onfocus condition="!Integer.IsGreater(Container(505).NumItems,0) + !Container(505).IsUpating">SetFocus(5051)</onfocus>
       <include>Animation_Right</include>
-      <animation effect="slide" end="240,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
       <animation effect="slide" end="-540,0" time="500" delay="100" condition="ControlGroup(5055).HasFocus">Conditional</animation>
       <onright>5055</onright>
       <height>900</height>
       <top>140</top>
-      <left>80</left>
+      <left>20</left>
       <onleft condition="Skin.HasSetting(DisableSubMenuVert)">SetFocus(401,1)</onleft>
       <onback>Skin.Reset(MovieHubMenuFocus)</onback>
       <onback>ActivateWindow(Home)</onback>
@@ -47,7 +47,7 @@
       <scrolltime tween="sine" easing="out">500</scrolltime>
       <itemgap>10</itemgap>
       
-      <itemlayout width="440" height="75">
+      <itemlayout width="480" height="75">
         <control type="group">
           <control type="label">
             <left>30</left>
@@ -58,7 +58,7 @@
           </control>
         </control>
       </itemlayout>
-      <focusedlayout width="440" height="85">
+      <focusedlayout width="480" height="85">
         <control type="group">
           <control type="group">
             <height>70</height>
@@ -80,7 +80,6 @@
     </control>
     <control type="grouplist" id="5055">
       <include>Animation_Right</include>
-      <animation effect="slide" end="300,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>
       <animation effect="slide" end="-520,0" time="500" delay="100" condition="ControlGroup(5055).HasFocus">Conditional</animation>
       <left>520</left>
       <posy>620</posy>
