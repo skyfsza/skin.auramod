@@ -2350,8 +2350,9 @@
             </control>
           </control>
           <control type="textbox" id="841">
+	    <top>-10</top>
             <animation effect="fade" time="150">Visible</animation>
-            <height>75</height>
+            <height>85</height>
             <width>550</width>
             <label>$VAR[NetflixDetailsSpin]</label>
             <textcolor>dimgrey</textcolor>

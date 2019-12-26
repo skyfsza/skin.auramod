@@ -260,6 +260,7 @@
                 </control>
 
 		<control type="list" id="300">
+                        <include>Home_OnFocus</include>
 		        <onfocus>ClearProperty(SpotReturnHome)</onfocus>
 			<onfocus>ClearProperty(spothubscroll)</onfocus>
 			<onfocus>SetProperty(SpotFocus,true,Home)</onfocus>
@@ -1137,13 +1138,11 @@
         <ondown condition="Control.IsVisible(3902)">3902</ondown>
         <onup condition="!Control.IsVisible(3902)">300</onup>
         <ondown condition="!Control.IsVisible(3902)">300</ondown>
-<!--
         <onunfocus>ClearProperty(MenuFocus,Home)</onunfocus>
         <onfocus>SetProperty(MenuFocus,1,Home)</onfocus>
         <onfocus>ClearProperty(WidgetFocus,Home)</onfocus>
         <onfocus>ClearProperty(WidgetLoading,Home)</onfocus>
         <onfocus>AlarmClock(SetLoad,SetProperty(WidgetLoading,1,Home),00:00,silent)</onfocus>
--->
     </include>
 
 </includes>

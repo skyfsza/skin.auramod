@@ -633,7 +633,7 @@
         <include condition="$PARAM[submenu] + !Skin.HasSetting(DisableAuraModeGap) + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
         <include condition="$PARAM[submenu] + Skin.HasSetting(DisableAuraModeGap) + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height_nogap</include>
         <height>widget_poster_spacer</height>
-        <visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | Container(300).OnNext | Container(300).OnPrevious | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
+        <visible>$PARAM[visible]</visible>
         <include content="Widget_Submenu" condition="$PARAM[submenu]">
           <param name="id" value="$PARAM[id]" />
           <param name="target" value="$PARAM[target]" />
