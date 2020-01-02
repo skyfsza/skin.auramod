@@ -2220,15 +2220,15 @@
             <param name="directory" value="monochrome" />
             <param name="align" value="right" />
             <param name="width" value="1400" />
-            <param name="rottentomatoes" value="$PARAM[rottentomatoes]" />
-            <param name="imdbvotes" value="$PARAM[imdbvotes]" />
-            <param name="usermeter" value="$PARAM[usermeter]" />
-            <param name="imdb" value="$PARAM[imdb]" />
-            <param name="tmdb" value="$PARAM[tmdb]" />
-            <param name="tvdb" value="$PARAM[tvdb]" />
-            <param name="metacritic" value="$PARAM[metacritic]" />
-            <param name="oscars" value="$PARAM[oscars]" />
-            <param name="top250" value="$PARAM[top250]" />
+            <param name="rottentomatoes" value="true" />
+            <param name="imdbvotes" value="true" />
+            <param name="usermeter" value="true" />
+            <param name="imdb" value="true" />
+            <param name="tmdb" value="true" />
+            <param name="tvdb" value="true" />
+            <param name="metacritic" value="true" />
+            <param name="oscars" value="true" />
+            <param name="top250" value="true" />
             <param name="plot" value="false" />
             <param name="studio" value="true" />
           </include>
