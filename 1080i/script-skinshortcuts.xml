@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
     <defaultcontrol always="true">313</defaultcontrol>
-    <onload condition="!Skin.HasSetting(WidgetsInit)">AlarmClock(Clickit,Action(Close),00:01,silent)</onload>
-    <onunload condition="!Skin.HasSetting(WidgetsInit)">Skin.ToggleSetting(WidgetsInit)</onunload>
     <onunload condition="!Window.IsVisible(SkinSettings.xml) + !Window.IsVisible(script-skinshortcuts.xml) + !Window.IsVisible(Settings.xml)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|x1110|x1111|x1112|x1113|hubtvnetworks|searchmenu|aurahubtv|aurahubmovies|netflixhubtv|netflixhubmovies|pvrspot|tvhubmenu|moviehubmenu)</onunload>
     <controls>
 
         <include>Global_Background</include>
         <include>Global_Overlay</include>
         <control type="group">
-            <visible>!Skin.HasSetting(WidgetsInit)</visible>
             <include>Global_Overlay</include>
             <include>Animation_FadeIn</include>
             <include>Animation_FadeOut</include>
-            <include>Defs_BusySpinner</include>
-            
         </control>
 
         <control type="group">
-            <animation effect="fade" start="100" end="0" condition="!Skin.HasSetting(WidgetsInit)">Conditional</animation>
             
             <centerleft>50%</centerleft>
             <centertop>50%</centertop>
