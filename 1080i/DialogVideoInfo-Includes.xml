@@ -956,6 +956,13 @@
       <animation type="WindowClose" reversible="false">
         <effect type="fade" start="100" end="50" time="100"/>
       </animation>
+
+     <control type="image">
+        <visible>Player.HasVideo</visible>
+        <texture background="true" colordiffuse="FF000000">common/white.png</texture>
+        <width>100%</width>
+        <height>100%</height>
+      </control>
     <control type="group">
       <top>0</top>
       <width>100%</width>
