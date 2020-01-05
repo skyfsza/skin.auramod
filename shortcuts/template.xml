@@ -554,7 +554,8 @@
 
             <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
             <property name="widgetHubAspect">Landscape</property>
-
+            <property name="widgetAspect" tag="property" attribute="name|widgetAspect" />
+            <property name="widgetAspect">Poster</property>
             <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="Poster">5</property>
             <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="LandscapePoster">2</property>
             <property name="widgetMovement">2</property>
@@ -623,7 +624,36 @@
             <property name="id" tag="property" attribute="name|id" value="$NUMBER[49]">49</property>
             <property name="id">50</property>
             <controls>
-            <include content="Widget">
+            <include condition="Skin.HasSetting(EnableAuraMovie1)" content="Widget_AuraHub">
+                <param name="id" value="$PYTHON[int(id) + 6050]" />
+                <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
+                <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
+                <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
+                <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
+                <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
+                <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
+                <param name="postercondition" value="$PYTHON['true' if widgetAspect in 'Poster' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetAspect == 'Landscape' else 'false']" />
+                <param name="landscapepanelcondition" value="$PYTHON['true' if widgetAspect in 'LandscapePanel' else 'false']" />
+                <param name="landscapewidecondition" value="$PYTHON['true' if widgetAspect in 'LandscapeWide' else 'false']" />
+                <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetAspect in 'LandscapePoster' else 'false']" />
+                <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetAspect in 'LandscapeSmall' else 'false']" />
+                <param name="landscapedetailscondition" value="$PYTHON['true' if widgetAspect in 'LandscapeDetails' else 'false']" />
+                <param name="posterdetailscondition" value="$PYTHON['true' if widgetAspect in 'PosterDetails' else 'false']" />
+                <param name="widgetlivecondition" value="$PYTHON['true' if widgetAspect in 'WidgetLive' else 'false']" />
+                <param name="categorycondition" value="$PYTHON['true' if widgetAspect in 'Logo' else 'false']" />
+                <param name="squarelabelcondition" value="$PYTHON['true' if widgetAspect in 'SquareLabel' else 'false']" />
+                <param name="genrecondition" value="$PYTHON['true' if widgetAspect in 'Genre' else 'false']" />
+                <param name="submenucondition" value="$PYTHON['true' if widgetAspect in 'Submenu' else 'false']" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
+                <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
+                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetAspect in 'LandscapePanel' else 'fixedlist']" />
+                <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="label" value="$SKINSHORTCUTS[label]" />
+                <param name="visible" value="true" />
+            </include>
+            <include condition="!Skin.HasSetting(EnableAuraMovie1)" content="Widget">
                 <param name="id" value="$PYTHON[int(id) + 6050]" />
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
@@ -676,7 +706,8 @@
 
             <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
             <property name="widgetHubAspect">Landscape</property>
-
+            <property name="widgetAspect" tag="property" attribute="name|widgetAspect" />
+            <property name="widgetAspect">Poster</property>
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
 
@@ -801,7 +832,8 @@
             <property name="widgetMovement">2</property>
             <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
             <property name="widgetHubAspect">Landscape</property>
-
+            <property name="widgetAspect" tag="property" attribute="name|widgetAspect" />
+            <property name="widgetAspect">Poster</property>
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
 
@@ -866,7 +898,36 @@
             <property name="id" tag="property" attribute="name|id" value="$NUMBER[49]">49</property>
             <property name="id">50</property>
             <controls>
-            <include content="Widget">
+            <include condition="Skin.HasSetting(EnableAuraTV1)" content="Widget_AuraHub">
+                <param name="id" value="$PYTHON[int(id) + 6050]" />
+                <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
+                <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
+                <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
+                <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
+                <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
+                <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
+                <param name="postercondition" value="$PYTHON['true' if widgetAspect in 'Poster' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetAspect == 'Landscape' else 'false']" />
+                <param name="landscapepanelcondition" value="$PYTHON['true' if widgetAspect in 'LandscapePanel' else 'false']" />
+                <param name="landscapewidecondition" value="$PYTHON['true' if widgetAspect in 'LandscapeWide' else 'false']" />
+                <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetAspect in 'LandscapePoster' else 'false']" />
+                <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetAspect in 'LandscapeSmall' else 'false']" />
+                <param name="landscapedetailscondition" value="$PYTHON['true' if widgetAspect in 'LandscapeDetails' else 'false']" />
+                <param name="posterdetailscondition" value="$PYTHON['true' if widgetAspect in 'PosterDetails' else 'false']" />
+                <param name="widgetlivecondition" value="$PYTHON['true' if widgetAspect in 'WidgetLive' else 'false']" />
+                <param name="categorycondition" value="$PYTHON['true' if widgetAspect in 'Logo' else 'false']" />
+                <param name="squarelabelcondition" value="$PYTHON['true' if widgetAspect in 'SquareLabel' else 'false']" />
+                <param name="genrecondition" value="$PYTHON['true' if widgetAspect in 'Genre' else 'false']" />
+                <param name="submenucondition" value="$PYTHON['true' if widgetAspect in 'Submenu' else 'false']" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
+                <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
+                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetAspect in 'LandscapePanel' else 'fixedlist']" />
+                <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="label" value="$SKINSHORTCUTS[label]" />
+                <param name="visible" value="true" />
+            </include>
+            <include condition="!Skin.HasSetting(EnableAuraTV1)" content="Widget">
                 <param name="id" value="$PYTHON[int(id) + 6050]" />
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
@@ -928,7 +989,8 @@
             <property name="widgetMovement">2</property>
             <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
             <property name="widgetHubAspect">Landscape</property>
-
+            <property name="widgetAspect" tag="property" attribute="name|widgetAspect" />
+            <property name="widgetAspect">Poster</property>
             <property name="aspectratio" tag="property" attribute="name|widgetHubAspect" value="SquareLabel">keep</property>
             <property name="aspectratio">scale</property>
             <property name="widgetSortby" tag="property" attribute="name|widgetSortby" />
@@ -1050,7 +1112,8 @@
             <property name="widgetMovement">2</property>
             <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
             <property name="widgetHubAspect">Landscape</property>
-
+            <property name="widgetAspect" tag="property" attribute="name|widgetAspect" />
+            <property name="widgetAspect">Poster</property>
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
 
@@ -1115,7 +1178,36 @@
             <property name="id" tag="property" attribute="name|id" value="$NUMBER[49]">49</property>
             <property name="id">50</property>
             <controls>
-            <include content="Widget">
+            <include condition="Skin.HasSetting(EnableAuraMy1)" content="Widget_AuraHub">
+                <param name="id" value="$PYTHON[int(id) + 6050]" />
+                <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
+                <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
+                <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
+                <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
+                <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
+                <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
+                <param name="postercondition" value="$PYTHON['true' if widgetAspect in 'Poster' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetAspect == 'Landscape' else 'false']" />
+                <param name="landscapepanelcondition" value="$PYTHON['true' if widgetAspect in 'LandscapePanel' else 'false']" />
+                <param name="landscapewidecondition" value="$PYTHON['true' if widgetAspect in 'LandscapeWide' else 'false']" />
+                <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetAspect in 'LandscapePoster' else 'false']" />
+                <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetAspect in 'LandscapeSmall' else 'false']" />
+                <param name="landscapedetailscondition" value="$PYTHON['true' if widgetAspect in 'LandscapeDetails' else 'false']" />
+                <param name="posterdetailscondition" value="$PYTHON['true' if widgetAspect in 'PosterDetails' else 'false']" />
+                <param name="widgetlivecondition" value="$PYTHON['true' if widgetAspect in 'WidgetLive' else 'false']" />
+                <param name="categorycondition" value="$PYTHON['true' if widgetAspect in 'Logo' else 'false']" />
+                <param name="squarelabelcondition" value="$PYTHON['true' if widgetAspect in 'SquareLabel' else 'false']" />
+                <param name="genrecondition" value="$PYTHON['true' if widgetAspect in 'Genre' else 'false']" />
+                <param name="submenucondition" value="$PYTHON['true' if widgetAspect in 'Submenu' else 'false']" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
+                <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
+                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetAspect in 'LandscapePanel' else 'fixedlist']" />
+                <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="label" value="$SKINSHORTCUTS[label]" />
+                <param name="visible" value="true" />
+            </include>
+            <include condition="!Skin.HasSetting(EnableAuraMy1)" content="Widget">
                 <param name="id" value="$PYTHON[int(id) + 6050]" />
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
@@ -1145,11 +1237,6 @@
         </items>
     </submenu>
 
-
-
-
-
-
     <submenu include="x1106" name="x1106">
         <controls>
             <skinshortcuts insert="x1106">items</skinshortcuts>
@@ -1177,7 +1264,8 @@
             <property name="widgetMovement">2</property>
             <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
             <property name="widgetHubAspect">Landscape</property>
-
+            <property name="widgetAspect" tag="property" attribute="name|widgetAspect" />
+            <property name="widgetAspect">Poster</property>
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
 
@@ -1242,7 +1330,37 @@
             <property name="id" tag="property" attribute="name|id" value="$NUMBER[49]">49</property>
             <property name="id">50</property>
             <controls>
-            <include content="Widget">
+            <include condition="Skin.HasSetting(EnableAuraMy2)" content="Widget_AuraHub">
+                <param name="id" value="$PYTHON[int(id) + 6050]" />
+                <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
+                <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
+                <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
+                <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
+                <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
+                <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
+                <param name="postercondition" value="$PYTHON['true' if widgetAspect in 'Poster' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetAspect == 'Landscape' else 'false']" />
+                <param name="landscapepanelcondition" value="$PYTHON['true' if widgetAspect in 'LandscapePanel' else 'false']" />
+                <param name="landscapewidecondition" value="$PYTHON['true' if widgetAspect in 'LandscapeWide' else 'false']" />
+                <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetAspect in 'LandscapePoster' else 'false']" />
+                <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetAspect in 'LandscapeSmall' else 'false']" />
+                <param name="landscapedetailscondition" value="$PYTHON['true' if widgetAspect in 'LandscapeDetails' else 'false']" />
+                <param name="posterdetailscondition" value="$PYTHON['true' if widgetAspect in 'PosterDetails' else 'false']" />
+                <param name="widgetlivecondition" value="$PYTHON['true' if widgetAspect in 'WidgetLive' else 'false']" />
+                <param name="categorycondition" value="$PYTHON['true' if widgetAspect in 'Logo' else 'false']" />
+                <param name="squarelabelcondition" value="$PYTHON['true' if widgetAspect in 'SquareLabel' else 'false']" />
+                <param name="genrecondition" value="$PYTHON['true' if widgetAspect in 'Genre' else 'false']" />
+                <param name="submenucondition" value="$PYTHON['true' if widgetAspect in 'Submenu' else 'false']" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
+                <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
+                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetAspect in 'LandscapePanel' else 'fixedlist']" />
+                <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="label" value="$SKINSHORTCUTS[label]" />
+                <param name="visible" value="true" />
+            </include>
+
+            <include condition="!Skin.HasSetting(EnableAuraMy2)" content="Widget">
                 <param name="id" value="$PYTHON[int(id) + 6050]" />
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
@@ -1298,7 +1416,8 @@
             <property name="widgetMovement">2</property>
             <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
             <property name="widgetHubAspect">Landscape</property>
-
+            <property name="widgetAspect" tag="property" attribute="name|widgetAspect" />
+            <property name="widgetAspect">Poster</property>
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
 
@@ -1363,7 +1482,37 @@
             <property name="id" tag="property" attribute="name|id" value="$NUMBER[49]">49</property>
             <property name="id">50</property>
             <controls>
-            <include content="Widget">
+
+            <include condition="Skin.HasSetting(EnableAuraMy3)" content="Widget_AuraHub">
+                <param name="id" value="$PYTHON[int(id) + 6050]" />
+                <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
+                <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
+                <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
+                <param name="content" value="$SKINSHORTCUTS[path]&amp;nextpage=True" />
+                <param name="widgetContent" value="$SKINSHORTCUTS[path]" />
+                <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
+                <param name="aspect" value="$SKINSHORTCUTS[widgetAspect]" />
+                <param name="postercondition" value="$PYTHON['true' if widgetAspect in 'Poster' else 'false']" />
+                <param name="landscapecondition" value="$PYTHON['true' if widgetAspect == 'Landscape' else 'false']" />
+                <param name="landscapepanelcondition" value="$PYTHON['true' if widgetAspect in 'LandscapePanel' else 'false']" />
+                <param name="landscapewidecondition" value="$PYTHON['true' if widgetAspect in 'LandscapeWide' else 'false']" />
+                <param name="landscapewidepostercondition" value="$PYTHON['true' if widgetAspect in 'LandscapePoster' else 'false']" />
+                <param name="landscapenetflixcondition" value="$PYTHON['true' if widgetAspect in 'LandscapeSmall' else 'false']" />
+                <param name="landscapedetailscondition" value="$PYTHON['true' if widgetAspect in 'LandscapeDetails' else 'false']" />
+                <param name="posterdetailscondition" value="$PYTHON['true' if widgetAspect in 'PosterDetails' else 'false']" />
+                <param name="widgetlivecondition" value="$PYTHON['true' if widgetAspect in 'WidgetLive' else 'false']" />
+                <param name="categorycondition" value="$PYTHON['true' if widgetAspect in 'Logo' else 'false']" />
+                <param name="squarelabelcondition" value="$PYTHON['true' if widgetAspect in 'SquareLabel' else 'false']" />
+                <param name="genrecondition" value="$PYTHON['true' if widgetAspect in 'Genre' else 'false']" />
+                <param name="submenucondition" value="$PYTHON['true' if widgetAspect in 'Submenu' else 'false']" />
+                <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
+                <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
+                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetAspect in 'LandscapePanel' else 'fixedlist']" />
+                <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="label" value="$SKINSHORTCUTS[label]" />
+                <param name="visible" value="true" />
+            </include>
+            <include condition="!Skin.HasSetting(EnableAuraMy3)" content="Widget">
                 <param name="id" value="$PYTHON[int(id) + 6050]" />
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
@@ -1392,9 +1541,6 @@
             </controls>
         </items>
     </submenu>
-
-
-
 
     <submenu include="x1108" name="x1108">
         <controls>

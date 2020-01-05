@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="2115">
   <defaultcontrol always="true">505</defaultcontrol>
-  <onload>AlarmClock(focusWidgets,SetFocus(505),00:00,silent)</onload>
+  <onload condition="!Skin.HasSetting(EnableAuraMy1)">AlarmClock(focusWidgets,SetFocus(505),00:00,silent)</onload>
+  <onload condition="Skin.HasSetting(EnableAuraMy1)">AlarmClock(focusWidgets,SetFocus(5055),00:00,silent)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
-  <include content="menuhub_window">
+  <include condition="!Skin.HasSetting(EnableAuraMy1)" content="menuhub_window">
+    <param name="skinshortcut" value="x1105" />
+  </include>
+
+  <include condition="Skin.HasSetting(EnableAuraMy1)" content="menuhub_aura">
     <param name="skinshortcut" value="x1105" />
   </include>
   </controls>

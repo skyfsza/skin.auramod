@@ -6877,6 +6877,51 @@
       </control>
     </definition>
   </include>
+
+  <include name="menuhub_aura">
+    <param name="skinshortcut" default="" />
+    <definition>
+
+    <include>Global_Background</include>
+   <control type="group">
+    <animation effect="slide" end="0,-40" time="0" condition="Skin.HasSetting(AuraHubSpacingSmall)">Conditional</animation>
+   <control type="group">
+    <right>-50</right>
+    <include>Logo</include>
+    <visible>!Window.IsVisible(busydialog)</visible>
+   </control>
+   <control type="label">
+   <animation effect="slide" end="260,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
+   <top>65</top>
+   <left>65</left>
+   <width>400</width>
+   <height>40</height>
+   <font>font_heading_small</font>
+   <textcolor>white</textcolor>
+   <label>[B]TV AuraHub[/B]</label>
+   </control> 
+   </control> 
+
+      <control type="grouplist" id="5055">
+        <include>Animation_Right</include>
+   	<animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall)">AuraHub_Small_top</include>
+        <include condition="!Skin.HasSetting(AuraHubSpacingSmall)">AuraHub_top</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall)">AuraHub_Small_height</include>
+        <include condition="!Skin.HasSetting(AuraHubSpacingSmall)">AuraHub_height</include>
+        <width>1920</width>
+        <left>50</left>
+	<movement>1</movement>
+        <scrolltime tween="sine">700</scrolltime>
+        <orientation>vertical</orientation>
+        <usecontrolcoords>true</usecontrolcoords>
+	<onup>5055</onup>
+	<ondown>5055</ondown>
+        <include>skinshortcuts-template-$PARAM[skinshortcut]</include>
+    </control>
+    </definition>
+  </include>
+
   <include name="menuhub_window">
     <param name="skinshortcut" default="" />
     <definition>
