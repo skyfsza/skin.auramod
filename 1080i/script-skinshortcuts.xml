@@ -378,7 +378,7 @@
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <align>left</align>
                     <include>Dialog_Standard_Right_Buttons</include>
-                    <visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),searchmenu) | String.IsEqual(Window.Property(groupname),aurahubtv) | String.IsEqual(Window.Property(groupname),aurahubmovies) | String.IsEqual(Window.Property(groupname),hubtvnetworks)</visible>
+                    <visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),searchmenu) | String.IsEqual(Window.Property(groupname),aurahubtv) | String.IsEqual(Window.Property(groupname),aurahubmovies) | String.IsEqual(Window.Property(groupname),hubtvnetworks) | [Skin.HasSetting(EnableAuraMovie1) + String.Contains(Window.Property(groupname),x1101)] | [Skin.HasSetting(EnableAuraTV1) + String.Contains(Window.Property(groupname),x1103)] | [Skin.HasSetting(EnableAuraMy1) + String.Contains(Window.Property(groupname),x1105)] | [Skin.HasSetting(EnableAuraMy2) + String.Contains(Window.Property(groupname),x1106)] | [Skin.HasSetting(EnableAuraMy3) + String.Contains(Window.Property(groupname),x1107)]</visible>
                 </control>
                 <control type="button" id="9905" description="Widget Submenu Aspect">
                    <width>100%</width>
@@ -389,7 +389,7 @@
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <align>left</align>
                     <include>Dialog_Standard_Right_Buttons</include>
-                    <visible>String.Contains(Window.Property(groupname),x110) | String.Contains(Window.Property(groupname),netflixhubmovies) | String.Contains(Window.Property(groupname),netflixhubtv)</visible>
+                    <visible>String.Contains(Window.Property(groupname),x1110) | String.Contains(Window.Property(groupname),x1111) | String.Contains(Window.Property(groupname),x1112) | String.Contains(Window.Property(groupname),x1113) | [!Skin.HasSetting(EnableAuraMovie1) + String.Contains(Window.Property(groupname),x1101)] | [!Skin.HasSetting(EnableAuraTV1) + String.Contains(Window.Property(groupname),x1103)] | [!Skin.HasSetting(EnableAuraMy1) + String.Contains(Window.Property(groupname),x1105)] | [!Skin.HasSetting(EnableAuraMy2) + String.Contains(Window.Property(groupname),x1106)] | [!Skin.HasSetting(EnableAuraMy3) + String.Contains(Window.Property(groupname),x1107)] | String.Contains(Window.Property(groupname),netflixhubmovies) | String.Contains(Window.Property(groupname),netflixhubtv)</visible>
                 </control>
                 <control type="button" id="9902" description="Content Type / Widget Target">
                    <width>100%</width>
