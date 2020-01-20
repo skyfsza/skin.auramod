@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
     <defaultcontrol always="true">313</defaultcontrol>
-    <onunload condition="!Window.IsVisible(SkinSettings.xml) + !Window.IsVisible(script-skinshortcuts.xml) + !Window.IsVisible(Settings.xml)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|x1110|x1111|x1112|x1113|hubtvnetworks|searchmenu|aurahubtv|aurahubmovies|netflixhubtv|netflixhubmovies|pvrspot|tvhubmenu|moviehubmenu)</onunload>
+    <onunload condition="String.IsEmpty(Window(Home).Property(RunWizardHub)) + !Window.IsVisible(SkinSettings.xml) + !Window.IsVisible(script-skinshortcuts.xml) + !Window.IsVisible(Settings.xml)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|x1110|x1111|x1112|x1113|hubtvnetworks|searchmenu|aurahubtv|aurahubmovies|netflixhubtv|netflixhubmovies|pvrspot|tvhubmenu|moviehubmenu)</onunload>
     <controls>
 
         <include>Global_Background</include>
@@ -389,7 +389,7 @@
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
                     <align>left</align>
                     <include>Dialog_Standard_Right_Buttons</include>
-                    <visible>String.Contains(Window.Property(groupname),x1110) | String.Contains(Window.Property(groupname),x1111) | String.Contains(Window.Property(groupname),x1112) | String.Contains(Window.Property(groupname),x1113) | [!Skin.HasSetting(EnableAuraMovie1) + String.Contains(Window.Property(groupname),x1101)] | [!Skin.HasSetting(EnableAuraTV1) + String.Contains(Window.Property(groupname),x1103)] | [!Skin.HasSetting(EnableAuraMy1) + String.Contains(Window.Property(groupname),x1105)] | [!Skin.HasSetting(EnableAuraMy2) + String.Contains(Window.Property(groupname),x1106)] | [!Skin.HasSetting(EnableAuraMy3) + String.Contains(Window.Property(groupname),x1107)] | String.Contains(Window.Property(groupname),netflixhubmovies) | String.Contains(Window.Property(groupname),netflixhubtv)</visible>
+                    <visible>String.Contains(Window.Property(groupname),x1104) | String.Contains(Window.Property(groupname),x1102) |  String.Contains(Window.Property(groupname),x1110) | String.Contains(Window.Property(groupname),x1111) | String.Contains(Window.Property(groupname),x1112) | String.Contains(Window.Property(groupname),x1113) | [!Skin.HasSetting(EnableAuraMovie1) + String.Contains(Window.Property(groupname),x1101)] | [!Skin.HasSetting(EnableAuraTV1) + String.Contains(Window.Property(groupname),x1103)] | [!Skin.HasSetting(EnableAuraMy1) + String.Contains(Window.Property(groupname),x1105)] | [!Skin.HasSetting(EnableAuraMy2) + String.Contains(Window.Property(groupname),x1106)] | [!Skin.HasSetting(EnableAuraMy3) + String.Contains(Window.Property(groupname),x1107)] | String.Contains(Window.Property(groupname),netflixhubmovies) | String.Contains(Window.Property(groupname),netflixhubtv)</visible>
                 </control>
                 <control type="button" id="9902" description="Content Type / Widget Target">
                    <width>100%</width>

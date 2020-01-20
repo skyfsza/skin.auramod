@@ -50,7 +50,9 @@
                             <onclick>Skin.ToggleSetting(SubmenuLabel)</onclick>
                             <onclick condition="Skin.HasSetting(LargeSubmenuLabel)">Skin.ToggleSetting(LargeSubmenuLabel)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/submenu-small.jpg)</onfocus>
-                            <onclick>ReloadSkin()</onclick>
+                            <onclick condition="String.IsEmpty(Window(Home).Property(RunWizard))">ReloadSkin()</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">SetProperty(RunWizardHub,1,Home)</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">Close</onclick>
                         </control>
                         <control type="radiobutton" id="9002" description="Enable Medium Submenu">
                             <include>Dialog_Standard_ListButton</include>
@@ -60,17 +62,21 @@
                             <onclick condition="!Skin.HasSetting(SubmenuLabel)">Skin.ToggleSetting(SubmenuLabel)</onclick>
                             <onclick condition="Skin.HasSetting(LargeSubmenuLabel)">Skin.ToggleSetting(LargeSubmenuLabel)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/submenu-medium.jpg)</onfocus>
-                            <onclick>ReloadSkin()</onclick>
+                            <onclick condition="String.IsEmpty(Window(Home).Property(RunWizard))">ReloadSkin()</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">SetProperty(RunWizardHub,1,Home)</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">Close</onclick>
                         </control>
                         <control type="radiobutton" id="9003" description="Enable Large Submenu">
                             <include>Dialog_Standard_ListButton</include>
                             <radioposx>630</radioposx>
                             <label>Enable Large Category Widget</label>
                             <selected>Skin.HasSetting(LargeSubmenuLabel)</selected>
-                            <onclick>Skin.ToggleSetting(LargeSubmenuLabel)</onclick>
+                            <onclick condition="!Skin.HasSetting(LargeSubmenuLabel)">Skin.ToggleSetting(LargeSubmenuLabel)</onclick>
                             <onclick condition="!Skin.HasSetting(SubmenuLabel)">Skin.ToggleSetting(SubmenuLabel)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/submenu-large.jpg)</onfocus>
-                            <onclick>ReloadSkin()</onclick>
+                            <onclick condition="String.IsEmpty(Window(Home).Property(RunWizard))">ReloadSkin()</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">SetProperty(RunWizardHub,1,Home)</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">Close</onclick>
                         </control>
            </control>
         </control>

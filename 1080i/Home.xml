@@ -91,7 +91,7 @@
       <top>-10</top>
       <right>-60</right>
       <include>Logo</include>
-      <visible>!Window.IsVisible(DialogNotification.xml) + !Window.IsVisible(DialogButtonMenu.xml) + !Window.IsVisible(DialogBusy.xml) + Skin.HasSetting(EnableHomeHeader)</visible>
+      <visible>!Window.IsVisible(DialogConfirm.xml) + !Window.IsVisible(DialogNotification.xml) + !Window.IsVisible(DialogButtonMenu.xml) + !Window.IsVisible(DialogBusy.xml) + Skin.HasSetting(EnableHomeHeader)</visible>
     </control>
     <include>fadelabel_spotlight_list_tv</include>
     <include>fadelabel_spotlight_list_movies</include>

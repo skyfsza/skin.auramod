@@ -2,6 +2,7 @@
 <!-- Foundation -->
 <window type="dialog" id="1128">
     <defaultcontrol always="true">8000</defaultcontrol>
+    <onunload condition="!String.IsEmpty(Window(Home).Property(RunWizardHub))">ReplaceWindow(1126)</onunload>
     <controls>
 	<control type="image">
 	    <width>100%</width>

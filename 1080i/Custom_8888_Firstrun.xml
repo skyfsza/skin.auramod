@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="window" id="1234">
+<defaultcontrol>1111</defaultcontrol>
+<onload>SetFocus(1111)</onload>
+<controls>
+<control type="button" id="1111">
+<onfocus condition="!Skin.HasSetting(SubmenuLabel)">Skin.ToggleSetting(SubmenuLabel)</onfocus>
+<onfocus>Skin.ToggleSetting(LargeSubmenuLabel)</onfocus>
+<onfocus>Skin.ToggleSetting(DisableWidgetTitle)</onfocus>
+<onfocus condition="Skin.HasSetting(DisableMenuVertFull)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onfocus>
+<onfocus condition="Skin.HasSetting(DisableMenuHor)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onfocus>
+<onfocus condition="!Skin.HasSetting(DisableMenuVertIcon)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onfocus>
+<onfocus condition="Skin.HasSetting(DisableMenuVertLabel)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onfocus>
+<onfocus condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Skin.ToggleSetting(DisableNetflixHomeSidemenu)</onfocus>
+<onfocus condition="Skin.HasSetting(DisableMenuVertLabel)">Skin.ToggleSetting(DisableMenuVertLabel)</onfocus>
+<onfocus condition="!Skin.HasSetting(DisableMenuVertIcon)">Skin.ToggleSetting(DisableMenuVertIcon)</onfocus>
+<onfocus condition="Skin.HasSetting(DisableMenuVertFull)">Skin.ToggleSetting(DisableMenuVertFull)</onfocus>
+<onfocus condition="Skin.HasSetting(DisableMenuHor)">Skin.ToggleSetting(DisableMenuHor)</onfocus>
+<onfocus condition="Skin.HasSetting(IconOnlyMode)">Skin.ToggleSetting(IconOnlyMode)</onfocus>
+<onfocus condition="!Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Skin.ToggleSetting(DisableNetflixHomeSidemenuHide)</onfocus>
+<onfocus condition="!Skin.HasSetting(firstrun)">Skin.ToggleSetting(firstrun)</onfocus>
+<onfocus>ActivateWindow(Home)</onfocus>
+</control>
+</controls>
+</window>
+

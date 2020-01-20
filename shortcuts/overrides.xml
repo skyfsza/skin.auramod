@@ -525,6 +525,7 @@
             <shortcut label="Search" grouping="32029" icon="special://skin/extras/icons/search.png">ActivateWindow(1136)</shortcut>
         </node>
         <node label="Hubs">
+            <shortcut label="Setup" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(5111,return)</shortcut>
             <shortcut label="Movie Categories Hub" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2112,return)</shortcut>
             <shortcut label="Movie Netflix Hub" grouping="32029" icon="special://skin/extras/icons/film.png">ActivateWindow(3820,return)</shortcut>
             <shortcut label="Movie Aura Hub " grouping="32029" icon="special://skin/extras/icons/film.png">ActivateWindow(3920,return)</shortcut>
@@ -698,7 +699,7 @@
                 <shortcut widget="TvShowGenres" label="$LOCALIZE[31274]" icon="DefaultGenre.png" widgetTarget="video">library://video/tvshows/genres.xml</shortcut>
                 <shortcut widget="SimilarSerenTV" label="Because you watched $VAR[similarserentv]" icon="DefaultSets.png" widgetTarget="video">$VAR[similar_tv_content]</shortcut>
                 <shortcut widget="SimilarSerenTV 2" label="Because you watched $VAR[similarserentv2]" icon="DefaultSets.png" widgetTarget="video">$VAR[similar_tv2_content]</shortcut>
-                <shortcut widget="RandomSerenTV" label="Spotlight TV" icon="DefaultGenre.png" widgetTarget="video">noop</shortcut>
+                <shortcut widget="RandomSerenTV" label="Spotlight TV" icon="DefaultGenre.png" widgetTarget="video"></shortcut>
             </node>
             <node label="$LOCALIZE[20360]">
                 <shortcut widget="NewEpisodes" label="$LOCALIZE[31214]" icon="DefaultRecentlyAddedMovies.png" widgetTarget="video">special://skin/extras/playlists/NewEpisodes.xsp</shortcut>

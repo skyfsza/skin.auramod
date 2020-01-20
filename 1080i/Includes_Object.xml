@@ -5835,7 +5835,7 @@
           <include>Statusbar_Menubar_Items</include>
           <visible>Control.HasFocus($PARAM[id]) + !$PARAM[landscapedetailscondition] + !$PARAM[landscapepanelcondition]</visible>
           <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] + Skin.HasSetting(DisableWidgetTitle) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
-          <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
+          <visible>![Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <visible>Skin.HasSetting(LargeWidgetLabel)</visible>
         </control>
         <control type="label">
@@ -5846,7 +5846,7 @@
           <include>Statusbar_Menubar_Items</include>
           <visible>Control.HasFocus($PARAM[id]) + !$PARAM[landscapedetailscondition] + !$PARAM[landscapepanelcondition]</visible>
           <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] + Skin.HasSetting(DisableWidgetTitle) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
-          <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
+          <visible>![Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <visible>!Skin.HasSetting(LargeWidgetLabel)</visible>
         </control>
         <control type="label">
@@ -5856,7 +5856,7 @@
           <include>Statusbar_Menubar_Items</include>
           <visible>Control.HasFocus($PARAM[id])</visible>
           <visible>!String.IsEqual(ListItem.DBType,episode) + ![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] + Skin.HasSetting(DisableWidgetYear) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
-          <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
+          <visible>![Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <visible>Skin.HasSetting(LargeWidgetLabel)</visible>
         </control>
         <control type="label">
@@ -5867,7 +5867,7 @@
           <include>Statusbar_Menubar_Items</include>
           <visible>Control.HasFocus($PARAM[id])</visible>
           <visible>!String.IsEqual(ListItem.DBType,episode) + ![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] + Skin.HasSetting(DisableWidgetYear) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
-          <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
+          <visible>![Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <visible>!Skin.HasSetting(LargeWidgetLabel)</visible>
         </control>
         <control type="label">
@@ -5877,7 +5877,7 @@
           <include>Statusbar_Menubar_Items</include>
           <visible>Control.HasFocus($PARAM[id])</visible>
           <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] + Skin.HasSetting(DisableWidgetMPAA) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
-          <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
+          <visible>![Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <visible>Skin.HasSetting(LargeWidgetLabel)</visible>
         </control>
         <control type="label">
@@ -5888,7 +5888,7 @@
           <include>Statusbar_Menubar_Items</include>
           <visible>Control.HasFocus($PARAM[id])</visible>
           <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] + Skin.HasSetting(DisableWidgetMPAA) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
-          <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
+          <visible>![Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <visible>!Skin.HasSetting(LargeWidgetLabel)</visible>
         </control>
         <!-- Add Airdate -->
@@ -5900,14 +5900,14 @@
           <include>Statusbar_Menubar_Items</include>
           <visible>Control.HasFocus($PARAM[id])</visible>
           <visible>String.IsEqual(ListItem.DBType,episode) + Skin.HasSetting(DisableWidgetAirdate)</visible>
-          <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
+          <visible>![Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
         </control>
         <!-- Add Ratings -->
         <control type="grouplist">
           <top>-28</top>
           <visible>Control.HasFocus($PARAM[id])</visible>
           <visible>!Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB) + !Skin.HasSetting(DisableWidgetIMDB)</visible>
-          <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(DialogVideoInfo.xml)]</visible>
+          <visible>![Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <bottom>-5</bottom>
           <height>40</height>
           <include content="Object_Ratings">
@@ -5929,7 +5929,7 @@
         <control type="grouplist">
           <top>-28</top>
           <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetStudio) + Skin.HasSetting(DisableWidgetIMDB)</visible>
-          <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
+          <visible>![Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <bottom>-5</bottom>
           <height>40</height>
           <include content="Object_Ratings">
@@ -5951,8 +5951,8 @@
         <!-- Add Plot when no ratings -->
         <control type="label">
           <left>5</left>
-          <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <visible>Control.HasFocus($PARAM[id]) + Skin.HasSetting(DisableWidgetPlot) + !Skin.HasSetting(DisableWidgetIMDB)</visible>
+          <visible>![Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <textcolor>main_fg_70</textcolor>
           <height>20</height>
           <top>10</top>

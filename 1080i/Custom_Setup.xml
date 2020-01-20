@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window id="5111">
-    <defaultcontrol>5051</defaultcontrol>
-    <onunload>ClearProperty(RunWizard)</onunload>
+    <defaultcontrol>5050</defaultcontrol>
+    <onunload>ClearProperty(RunWizard,home)</onunload>
+    <onunload>ClearProperty(RunWizardHub,home)</onunload>
+    <onunload>ClearProperty(RunWizardFinished,home)</onunload>
     <controls>
     <control type="image">
       <width>100%</width>
@@ -20,7 +22,7 @@
    </control>
 -->
 
- <control type="group">
+ <control type="group" id="5050">
       <control type="button" id="5051">
         <width>300</width>
         <height>100</height>
@@ -36,7 +38,7 @@
 	<onright>5052</onright>
         <onclick>SetProperty(RunWizard,1,Home)</onclick>
         <onclick>ActivateWindow(1120)</onclick>
-        <onfocus condition="String.IsEqual(Window(Home).Property(RunWizard),1)">SetFocus(4)</onfocus>
+	<visible>String.IsEmpty(Window(Home).Property(RunWizardHub))</visible>
       </control>
 
       <control type="button" id="5052">
@@ -52,9 +54,45 @@
         <texturenofocus colordiffuse="darkgrey" border="5">diffuse/panel.png</texturenofocus>
         <font>Reg28</font>
 	<onleft>5051</onleft>
+        <onclick>Close</onclick>
         <onclick>ActivateWindow(settings)</onclick>
+	<visible>String.IsEmpty(Window(Home).Property(RunWizardHub))</visible>
       </control>
-
+      <control type="button" id="5053">
+        <width>400</width>
+        <height>100</height>
+        <bottom>180</bottom>
+        <left>600</left>
+        <label>[CAPITALIZE][B]Configure Hubs & Spotlights[/B][/CAPITALIZE]</label>
+        <align>center</align>
+        <textcolor>grey</textcolor>
+        <focusedcolor>black</focusedcolor>
+        <texturefocus colordiffuse="d9ffffff" border="5">diffuse/panel.png</texturefocus>
+        <texturenofocus colordiffuse="darkgrey" border="5">diffuse/panel.png</texturenofocus>
+        <font>Reg28</font>
+        <onright>5054</onright>
+        <onclick>ReplaceWindow(1128)</onclick>
+        <visible>!String.IsEmpty(Window(Home).Property(RunWizardHub)) + String.IsEmpty(Window(Home).Property(RunWizardFinished))</visible>
+      </control>
+      <control type="button" id="5054">
+        <animation effect="slide" end="-250,0" time="0" condition="!String.IsEmpty(Window(Home).Property(RunWizardFinished))">Conditional</animation>
+        <bottom>180</bottom>
+        <left>1050</left>
+        <width>300</width>
+        <height>100</height>
+        <label>[CAPITALIZE][B]Finish Setup[/B][/CAPITALIZE]</label>
+        <align>center</align>
+        <textcolor>grey</textcolor>
+        <focusedcolor>black</focusedcolor>
+        <texturefocus colordiffuse="d9ffffff" border="5">diffuse/panel.png</texturefocus>
+        <texturenofocus colordiffuse="darkgrey" border="5">diffuse/panel.png</texturenofocus>
+        <font>Reg28</font>
+        <onleft>5053</onleft>
+        <onclick>Close</onclick>
+        <onclick>ReloadSkin()</onclick>
+        <onclick>ReplaceWindow(Home)</onclick>
+        <visible>!String.IsEmpty(Window(Home).Property(RunWizardHub))</visible>
+      </control>
   </control>
  </controls>
 </window>

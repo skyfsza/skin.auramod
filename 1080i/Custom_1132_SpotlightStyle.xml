@@ -51,7 +51,8 @@
                             <onclick condition="!Skin.HasSetting(EnableWidgetSpotlight)">Skin.ToggleSetting(EnableWidgetSpotlight)</onclick>
                             <onclick condition="!Skin.HasSetting(EnableFullSpotlight)">Skin.ToggleSetting(EnableFullSpotlight)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/spotlight_full.jpg)</onfocus>
-                            <onclick>ReloadSkin()</onclick>
+                            <onclick condition="String.IsEmpty(Window(Home).Property(RunWizard))">ReloadSkin()</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">Close</onclick>
                         </control>
                         <control type="radiobutton" id="9002" description="Enable Widget Spotlight">
                             <include>Dialog_Standard_ListButton</include>
@@ -62,7 +63,8 @@
                             <onclick condition="Skin.HasSetting(EnableFullSpotlight)">Skin.ToggleSetting(EnableFullSpotlight)</onclick>
                             <onclick condition="Skin.HasSetting(EnableWidgetSpotlight)">Skin.ToggleSetting(EnableWidgetSpotlight)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/spotlight_widget.jpg)</onfocus>
-                            <onclick>ReloadSkin()</onclick>
+                            <onclick condition="String.IsEmpty(Window(Home).Property(RunWizard))">ReloadSkin()</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">Close</onclick>
                         </control>
                         <control type="radiobutton" id="9003" description="Enable Widget Spotlight">
                             <include>Dialog_Standard_ListButton</include>
@@ -73,7 +75,8 @@
                             <onclick condition="!Skin.HasSetting(EnableWidgetSpotlight)">Skin.ToggleSetting(EnableWidgetSpotlight)</onclick>
                             <onclick condition="!Skin.HasSetting(EnableMultiWidgetSpotlight)">Skin.ToggleSetting(EnableMultiWidgetSpotlight)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/spotlight_multiwidget.jpg)</onfocus>
-                            <onclick>ReloadSkin()</onclick>
+                            <onclick condition="String.IsEmpty(Window(Home).Property(RunWizard))">ReloadSkin()</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">Close</onclick>
                         </control>
            </control>
         </control>

@@ -11,7 +11,7 @@
     <control type="group">
     <right>-50</right>
     <include>Logo</include>
-    <visible>!Window.IsVisible(busydialog)</visible>
+    <visible>!Window.IsVisible(DialogConfirm.xml) + !Window.IsVisible(DialogNotification.xml) + !Window.IsVisible(DialogButtonMenu.xml) + !Window.IsVisible(DialogBusy.xml) + Skin.HasSetting(EnableHomeHeader)</visible>
     </control>
    <control type="label">
    <animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>

@@ -42,6 +42,28 @@
                 <orientation>vertical</orientation>
                 <pagecontrol>60</pagecontrol>
                 <usecontrolcoords>true</usecontrolcoords>
+                       <control type="radiobutton" id="9005" description="Enable Vertical Label">
+                            <include>Dialog_Standard_ListButton</include>
+                            <radioposx>630</radioposx>
+                            <label>$LOCALIZE[31479]</label>
+                            <selected>Skin.HasSetting(DisableMenuVertLabelOnly)</selected>
+                            <onclick condition="Skin.HasSetting(DisableMenuVertFull)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onclick>
+                            <onclick condition="Skin.HasSetting(DisableMenuHor)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onclick>
+                            <onclick condition="!Skin.HasSetting(DisableMenuVertIcon)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onclick>
+                            <onclick condition="Skin.HasSetting(DisableMenuVertLabel)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onclick>
+
+                            <onclick condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Skin.ToggleSetting(DisableNetflixHomeSidemenu)</onclick>
+                            <onclick condition="Skin.HasSetting(DisableMenuVertLabel)">Skin.ToggleSetting(DisableMenuVertLabel)</onclick>
+                            <onclick condition="!Skin.HasSetting(DisableMenuVertIcon)">Skin.ToggleSetting(DisableMenuVertIcon)</onclick>
+                            <onclick condition="Skin.HasSetting(DisableMenuVertFull)">Skin.ToggleSetting(DisableMenuVertFull)</onclick>
+                            <onclick condition="Skin.HasSetting(DisableMenuHor)">Skin.ToggleSetting(DisableMenuHor)</onclick>
+                            <onclick condition="Skin.HasSetting(IconOnlyMode)">Skin.ToggleSetting(IconOnlyMode)</onclick>
+                            <onclick condition="!Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Skin.ToggleSetting(DisableNetflixHomeSidemenuHide)</onclick>
+                            <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/menu-vertical-label-only.jpg)</onfocus>
+                            <onclick condition="String.IsEmpty(Window(Home).Property(RunWizard))">ReloadSkin()</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">Close</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">ReplaceWindow(1140)</onclick>
+                        </control>
                        <control type="radiobutton" id="9001" description="Enable Vertical Icon Only">
                             <include>Dialog_Standard_ListButton</include>
                             <radioposx>630</radioposx>
@@ -59,7 +81,9 @@
                             <onclick condition="Skin.HasSetting(DisableMenuHor)">Skin.ToggleSetting(DisableMenuHor)</onclick>
                             <onclick condition="Skin.HasSetting(IconOnlyMode)">Skin.ToggleSetting(IconOnlyMode)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/menu-vertical-icon.jpg)</onfocus>
-                            <onclick>ReloadSkin()</onclick>
+                            <onclick condition="String.IsEmpty(Window(Home).Property(RunWizard))">ReloadSkin()</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">Close</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">ReplaceWindow(1140)</onclick>
                         </control>
                        <control type="radiobutton" id="90042" description="Enable Vertical Icon wLabel">
                             <include>Dialog_Standard_ListButton</include>
@@ -87,7 +111,9 @@
                             <onclick condition="Skin.HasSetting(DisableMenuVertLabel)">Skin.ToggleSetting(DisableMenuVertLabel)</onclick>
                             <onclick condition="!Skin.HasSetting(IconOnlyMode)">Skin.ToggleSetting(IconOnlyMode)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/menu-vertical-full.jpg)</onfocus>
-                            <onclick>ReloadSkin()</onclick>
+                            <onclick condition="String.IsEmpty(Window(Home).Property(RunWizard))">ReloadSkin()</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">Close</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">ReplaceWindow(1140)</onclick>
                         </control>
                         <control type="radiobutton" id="9003" description="Enable Horizontal Top">
                             <include>Dialog_Standard_ListButton</include>
@@ -106,7 +132,9 @@
                             <onclick condition="Skin.HasSetting(DisableMenuVertLabel)">Skin.ToggleSetting(DisableMenuVertLabel)</onclick>
                             <onclick condition="!Skin.HasSetting(IconOnlyMode)">Skin.ToggleSetting(IconOnlyMode)</onclick>
                             <onclick condition="!Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Skin.ToggleSetting(DisableNetflixHomeSidemenuHide)</onclick>
-                            <onclick>ReloadSkin()</onclick>
+                            <onclick condition="String.IsEmpty(Window(Home).Property(RunWizard))">ReloadSkin()</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">Close</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">ReplaceWindow(1140)</onclick>
 	                    <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/menu-horizontal-top.jpg)</onfocus>
                         </control>
 
@@ -127,7 +155,9 @@
                             <onclick condition="Skin.HasSetting(DisableMenuHor)">Skin.ToggleSetting(DisableMenuHor)</onclick>
                             <onclick condition="Skin.HasSetting(IconOnlyMode)">Skin.ToggleSetting(IconOnlyMode)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/menu-vertical-label.jpg)</onfocus>
-                            <onclick>ReloadSkin()</onclick>
+                            <onclick condition="String.IsEmpty(Window(Home).Property(RunWizard))">ReloadSkin()</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">Close</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">ReplaceWindow(1140)</onclick>
                         </control>
                        <control type="radiobutton" id="90041" description="Enable Vertical Icon wLabel">
                             <include>Dialog_Standard_ListButton</include>
@@ -137,26 +167,6 @@
                             <selected>Skin.HasSetting(DisableMenuVertLabelBG)</selected>
                             <onclick>Skin.ToggleSetting(DisableMenuVertLabelBG)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/menu-vertical-label.jpg)</onfocus>
-                        </control>
-                       <control type="radiobutton" id="9005" description="Enable Vertical Label">
-                            <include>Dialog_Standard_ListButton</include>
-                            <radioposx>630</radioposx>
-                            <label>$LOCALIZE[31479]</label>
-                            <selected>Skin.HasSetting(DisableMenuVertLabelOnly)</selected>
-                            <onclick condition="Skin.HasSetting(DisableMenuVertFull)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onclick>
-                            <onclick condition="Skin.HasSetting(DisableMenuHor)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onclick>
-                            <onclick condition="!Skin.HasSetting(DisableMenuVertIcon)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onclick>
-                            <onclick condition="Skin.HasSetting(DisableMenuVertLabel)">Skin.ToggleSetting(DisableMenuVertLabelOnly)</onclick>
-
-                            <onclick condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Skin.ToggleSetting(DisableNetflixHomeSidemenu)</onclick>
-                            <onclick condition="Skin.HasSetting(DisableMenuVertLabel)">Skin.ToggleSetting(DisableMenuVertLabel)</onclick>
-                            <onclick condition="!Skin.HasSetting(DisableMenuVertIcon)">Skin.ToggleSetting(DisableMenuVertIcon)</onclick>
-                            <onclick condition="Skin.HasSetting(DisableMenuVertFull)">Skin.ToggleSetting(DisableMenuVertFull)</onclick>
-                            <onclick condition="Skin.HasSetting(DisableMenuHor)">Skin.ToggleSetting(DisableMenuHor)</onclick>
-                            <onclick condition="Skin.HasSetting(IconOnlyMode)">Skin.ToggleSetting(IconOnlyMode)</onclick>
-                            <onclick condition="!Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Skin.ToggleSetting(DisableNetflixHomeSidemenuHide)</onclick>
-                            <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/menu-vertical-label-only.jpg)</onfocus>
-                            <onclick>ReloadSkin()</onclick>
                         </control>
            </control>
         </control>

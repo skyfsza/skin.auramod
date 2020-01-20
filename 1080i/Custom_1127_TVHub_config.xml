@@ -2,6 +2,7 @@
 <!-- Foundation -->
 <window type="dialog" id="1127">
     <defaultcontrol always="true">8000</defaultcontrol>
+    <onunload condition="!String.IsEmpty(Window(Home).Property(RunWizardHub))">SetProperty(RunWizardFinished,1,Home)</onunload>
     <!-- <onunload>AlarmClock(reloadskin,ReloadSkin(),00:00,silent,false)</onunload> -->
     <controls>
         <include>Global_Overlay</include>
@@ -60,7 +61,7 @@
                         <control type="radiobutton" id="80021" description="TV Aura Hub Items">
                             <include>Dialog_Standard_ListButton</include>
                             <radioposx>630</radioposx>
-                            <label> - Enable Small Widget spacing</label>
+                            <label> - Enable Compact Widget spacing</label>
                             <selected>Skin.HasSetting(AuraHubSpacingSmall)</selected>
                             <onclick>Skin.ToggleSetting(AuraHubSpacingSmall)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/hub-tv-aura-small.jpg)</onfocus>
