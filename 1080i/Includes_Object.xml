@@ -302,6 +302,7 @@
       <height>1080</height>
       <visible>Control.IsVisible(1506)</visible>
       <control type="group">
+        <animation effect="slide" end="0,100" time="0" condition="!Skin.HasSetting(DisableAuraHomeLayout) + Skin.HasSetting(DisableMenuHor)">Conditional</animation>
         <animation effect="slide" end="-40,50" time="10" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>
         <animation effect="slide" end="-20,10" time="10" condition=" !Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableMenuVertIcon)">Conditional</animation>
         <control type="image" id="59445">
@@ -380,6 +381,7 @@
       <height>1080</height>
       <visible>Control.IsVisible(1505)</visible>
       <control type="group">
+        <animation effect="slide" end="0,100" time="0" condition="!Skin.HasSetting(DisableAuraHomeLayout) + Skin.HasSetting(DisableMenuHor)">Conditional</animation>
         <animation effect="slide" end="-40,50" time="10" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>
         <animation effect="slide" end="-20,10" time="10" condition=" !Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableMenuVertIcon)">Conditional</animation>
         <control type="image" id="59445">
@@ -1116,7 +1118,7 @@
     <definition>
      <control type="group">
         <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabelOnly) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
-
+       <animation effect="slide" end="0,80" time="0" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>
       <top>-600</top>
       <left>30</left>
       <include content="addon_view_infospotlight">
@@ -6248,6 +6250,7 @@
         <onback condition="!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious">Control.Move($PARAM[id],1)</onback>
         <onback condition="[Window.IsVisible(3910) | Window.IsVisible(3920)] + [!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious]">5555</onback>
         <onback condition="ControlGroup(5055).HasFocus">505</onback>
+	<onback condition="!Container($PARAM[id]).HasPrevious + [Window.IsVisible(2111) | Window.IsVisible(2113) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117)]">ActivateWindow(Home)</onback>
         <scrolltime tween="linear">400</scrolltime>
         <include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
         <include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
@@ -6902,7 +6905,7 @@
    </control> 
    </control> 
 
-      <control type="grouplist" id="5055">
+      <control type="grouplist" id="505">
         <include>Animation_Right</include>
    	<animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
         <include condition="Skin.HasSetting(AuraHubSpacingSmall)">AuraHub_Small_top</include>
@@ -6915,8 +6918,8 @@
         <scrolltime tween="sine">700</scrolltime>
         <orientation>vertical</orientation>
         <usecontrolcoords>true</usecontrolcoords>
-	<onup>5055</onup>
-	<ondown>5055</ondown>
+	<onup>505</onup>
+	<ondown>505</ondown>
         <include>skinshortcuts-template-$PARAM[skinshortcut]</include>
     </control>
     </definition>

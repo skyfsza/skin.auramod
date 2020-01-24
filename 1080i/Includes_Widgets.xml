@@ -12,10 +12,10 @@
     </definition>
   </include>
   <include name="spotlightfull_aura_top">
-    <top>-750</top>
+    <top>-650</top>
   </include>
   <include name="spotlightfull_buttons_aura_top">
-    <top>-350</top>
+    <top>-250</top>
   </include>
   <include name="spotlightfull_buttons_top">
     <top>390</top>
