@@ -3604,7 +3604,7 @@
         </control>
         <control type="group">
           <width>1000</width>
-          <left>28</left>
+          <left>430</left>
           <height>32</height>
           <centertop>50%</centertop>
           <visible>$PARAM[ratings]</visible>
@@ -3613,15 +3613,17 @@
               <param name="directory" value="color" />
               <param name="align" value="left" />
               <param name="width" value="1400" />
-              <param name="rottentomatoes" value="true" />
-              <param name="imdbvotes" value="true" />
-              <param name="usermeter" value="true" />
-              <param name="imdb" value="true" />
-              <param name="tmdb" value="true" />
-              <param name="tvdb" value="true" />
-              <param name="metacritic" value="true" />
-              <param name="oscars" value="true" />
-              <param name="top250" value="true" />
+          <param name="rottentomatoes" value="true" />
+          <param name="imdbvotes" value="true" />
+          <param name="usermeter" value="false" />
+          <param name="imdb" value="true" />
+          <param name="tmdb" value="true" />
+          <param name="tvdb" value="true" />
+          <param name="metacritic" value="true" />
+          <param name="oscars" value="true" />
+          <param name="top250" value="false" />
+          <param name="plot" value="false" />
+          <param name="studio" value="true" />
             </include>
           </control>
         </control>
@@ -3874,7 +3876,17 @@
           <texture colordiffuse="$PARAM[colordiffuse]">flags/star10.png</texture>
           <visible>$PARAM[star]</visible>
           <visible>!String.IsEmpty(ListItem.Rating) | [Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)]</visible>
-          <visible>!Skin.HasSetting(Ratings.Star)</visible>
+          <visible>!Skin.HasSetting(Ratings.Star) + Skin.HasSetting(MonochromeFlags)</visible>
+        </control>
+        <control type="image">
+          <top>-8</top>
+          <left>-10</left>
+          <width>64</width>
+          <height>64</height>
+          <texture colordiffuse="red">flags/star10.png</texture>
+          <visible>$PARAM[star]</visible>
+          <visible>!String.IsEmpty(ListItem.Rating) | [Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)]</visible>
+          <visible>!Skin.HasSetting(Ratings.Star) + !Skin.HasSetting(MonochromeFlags)</visible>
         </control>
         <control type="label">
           <textcolor>main_fg_70</textcolor>
@@ -3897,7 +3909,18 @@
           <texture colordiffuse="$PARAM[colordiffuse]">special://skin/extras/icons/trakttv.png</texture>
           <visible>String.IsEmpty(Window(Home).Property(TMDbHelper.IsUpdating)) + [!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_rating)) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_votes))]</visible>
           <visible>!String.IsEqual(Window(Home).Property(TMDBHelper.ListItem.trakt_rating),0.0)</visible>
-          <visible>!Skin.HasSetting(Ratings.Trakt)</visible>
+          <visible>!Skin.HasSetting(Ratings.Trakt) + Skin.HasSetting(MonochromeFlags)</visible>
+          <visible>$PARAM[trakt]</visible>
+        </control>
+        <control type="image">
+          <top>0</top>
+          <left>-10</left>
+          <width>52</width>
+          <height>52</height>
+          <texture colordiffuse="red">special://skin/extras/icons/trakttv.png</texture>
+          <visible>String.IsEmpty(Window(Home).Property(TMDbHelper.IsUpdating)) + [!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_rating)) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_votes))]</visible>
+          <visible>!String.IsEqual(Window(Home).Property(TMDBHelper.ListItem.trakt_rating),0.0)</visible>
+          <visible>!Skin.HasSetting(Ratings.Trakt) + !Skin.HasSetting(MonochromeFlags)</visible>
           <visible>$PARAM[trakt]</visible>
         </control>
         <control type="label">
