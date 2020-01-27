@@ -83,6 +83,13 @@
                     <onclick>Skin.ToggleSetting(VideoInfoButton.Trakt)</onclick>
                     <selected>!Skin.HasSetting(VideoInfoButton.Trakt)</selected>
                 </control>
+                <control type="radiobutton" id="9009">
+                    <label>Search</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(VideoInfoButton.Search)</onclick>
+                    <selected>!Skin.HasSetting(VideoInfoButton.Search)</selected>
+                </control>
             </control>
         </control>
     </controls>
