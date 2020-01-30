@@ -182,8 +182,8 @@
       <onleft condition="Control.HasFocus(30222) + !Skin.HasSetting(DisableMenuHor)">300</onleft>
       <onleft condition="!String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)">300</onleft>
       <onleft condition="!Skin.HasSetting(DisableMenuHor)">SetFocus(300)</onleft>
-      <onleft condition="Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableSubMenuVert) + String.IsEqual(Container(300).ListItem.Property(menulist),TV Menu) + String.IsEqual(Container(300).ListItem.Property(menuonleft),true)">SetFocus(400,0)</onleft>
-      <onleft condition="Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableSubMenuVert) + String.IsEqual(Container(300).ListItem.Property(menulist),Movie Menu) + String.IsEqual(Container(300).ListItem.Property(menuonleft),true)">SetFocus(401,0)</onleft>
+      <onleft condition="Skin.HasSetting(DisableMenuHor) + String.IsEqual(Container(300).ListItem.Property(menulist),TV Menu) + String.IsEqual(Container(300).ListItem.Property(menuonleft),true)">SetFocus(400,0)</onleft>
+      <onleft condition="Skin.HasSetting(DisableMenuHor) + String.IsEqual(Container(300).ListItem.Property(menulist),Movie Menu) + String.IsEqual(Container(300).ListItem.Property(menuonleft),true)">SetFocus(401,0)</onleft>
       <ondown>3337</ondown>
       <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabelOnly) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
       <control type="group" id="331" description="Spacer">
@@ -670,7 +670,7 @@
           <height>100%</height>
           <aspectratio aligny="center">keep</aspectratio>
           <texture colordiffuse="main_fg_30">common/cube-16.png</texture>
-          <visible>!Control.HasFocus($PARAM[submenu]) + !Skin.HasSetting(DisableCatlabel)</visible>
+          <visible>!Control.HasFocus($PARAM[submenu]) + Skin.HasSetting(DisableCubeIcon)</visible>
           <visible>![Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating]</visible>
         </control>
         <control type="image">

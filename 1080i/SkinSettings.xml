@@ -276,13 +276,6 @@
 			    <label2>$VAR[netflix_menu_style_selected]</label2>
                             <onclick>ActivateWindow(1125)</onclick>
                         </control>
-                        <control type="radiobutton" id="96342" description="Enable TV/Movie Submenu on left">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label> - Enable TV/Movie Submenu on left</label>
-                            <selected>Skin.HasSetting(DisableSubMenuVert)</selected>
-                            <onclick>Skin.ToggleSetting(DisableSubMenuVert)</onclick>
-                        </control>
                         <control type="radiobutton" id="9634" description="Enable Sidemenu auto-hide">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
                             <include>Defs_Settings_Button</include>
@@ -519,6 +512,13 @@
                             <alttexturefocus colordiffuse="$VAR[Defs_Settings_ColorHighlight]">common/gradient-diffuse-horizontal.png</alttexturefocus>
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
                             <label>[B]$LOCALIZE[31463][/B]</label>
+                        </control>
+                        <control type="radiobutton" id="96342" description="Enable TV/Movie Submenu on left">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Enable TV/Movie Submenu on left</label>
+                            <selected>Skin.HasSetting(DisableSubMenuVert)</selected>
+                            <onclick>Skin.ToggleSetting(DisableSubMenuVert)</onclick>
                         </control>
                        <control type="button" id="96611" description="Select Menu Items">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9014)</visible>
@@ -1278,6 +1278,13 @@
                             <selected>!Skin.HasSetting(DisableBigCat)</selected>
                             <onclick>Skin.ToggleSetting(DisableBigCat)</onclick>
                         </control>
+                        <control type="radiobutton" id="9623" description="Enable Categories Label ">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Enable Categories WidgetBar Labels</label>
+                            <selected>!Skin.HasSetting(DisableCatlabel)</selected>
+                            <onclick>Skin.ToggleSetting(DisableCatlabel)</onclick>
+                        </control>
                         <control type="button" id="9657" description="Widget General ">
                             <textcolor>main_fg_100</textcolor>
                             <disabledcolor>main_fg_12</disabledcolor>
@@ -1386,12 +1393,12 @@
                             <selected>!Skin.HasSetting(LargeWidgetLabel)</selected>
                             <onclick>Skin.ToggleSetting(LargeWidgetLabel)</onclick>
                         </control>
-			<control type="radiobutton" id="9623" description="Enable Categories Label ">
+			<control type="radiobutton" id="96232" description="Enable Categories Label ">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31422]</label>
-                            <selected>!Skin.HasSetting(DisableCatlabel)</selected>
-                            <onclick>Skin.ToggleSetting(DisableCatlabel)</onclick>
+                            <label>Enable Cube Icon</label>
+                            <selected>Skin.HasSetting(DisableCubeIcon)</selected>
+                            <onclick>Skin.ToggleSetting(DisableCubeIcon)</onclick>
                         </control>
                         <control type="button" id="9636" description="Choose Netflix Widget Style">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>

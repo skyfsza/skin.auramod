@@ -1657,7 +1657,7 @@
         <height>184</height>
         <right>480</right>
         <include content="Object_Ratings">
-          <param name="directory" value="monochrome" />
+          <param name="directory" value="color" />
           <param name="align" value="right" />
           <param name="width" value="1400" />
           <param name="rottentomatoes" value="true" />
@@ -3876,9 +3876,8 @@
           <texture colordiffuse="$PARAM[colordiffuse]">flags/star10.png</texture>
           <visible>$PARAM[star]</visible>
           <visible>!String.IsEmpty(ListItem.Rating) | [Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)]</visible>
-          <visible>!Skin.HasSetting(Ratings.Star)</visible>
+          <visible>!Skin.HasSetting(Ratings.Star) + Skin.HasSetting(MonochromeFlags)</visible>
         </control>
-<!--
         <control type="image">
           <top>-8</top>
           <left>-10</left>
@@ -3889,7 +3888,6 @@
           <visible>!String.IsEmpty(ListItem.Rating) | [Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)]</visible>
           <visible>!Skin.HasSetting(Ratings.Star) + !Skin.HasSetting(MonochromeFlags)</visible>
         </control>
--->
         <control type="label">
           <textcolor>main_fg_70</textcolor>
 	  <left>-10</left>
@@ -3911,10 +3909,9 @@
           <texture colordiffuse="$PARAM[colordiffuse]">special://skin/extras/icons/trakttv.png</texture>
           <visible>String.IsEmpty(Window(Home).Property(TMDbHelper.IsUpdating)) + [!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_rating)) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_votes))]</visible>
           <visible>!String.IsEqual(Window(Home).Property(TMDBHelper.ListItem.trakt_rating),0.0)</visible>
-          <visible>!Skin.HasSetting(Ratings.Trakt)</visible>
+          <visible>!Skin.HasSetting(Ratings.Trakt) + Skin.HasSetting(MonochromeFlags)</visible>
           <visible>$PARAM[trakt]</visible>
         </control>
-<!--
         <control type="image">
           <top>0</top>
           <left>-10</left>
@@ -3926,7 +3923,6 @@
           <visible>!Skin.HasSetting(Ratings.Trakt) + !Skin.HasSetting(MonochromeFlags)</visible>
           <visible>$PARAM[trakt]</visible>
         </control>
--->
         <control type="label">
           <textcolor>main_fg_70</textcolor>
           <left>-10</left>
@@ -4008,9 +4004,17 @@
           <texture colordiffuse="$PARAM[colordiffuse]">imdbtop250.png</texture>
           <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250))</visible>
           <visible>$PARAM[imdb]</visible>
-          <visible>!Skin.HasSetting(Ratings.IMDB)</visible>
+          <visible>!Skin.HasSetting(Ratings.IMDB) + Skin.HasSetting(MonochromeFlags)</visible>
         </control>
-
+        <control type="image">
+          <top>11</top>
+          <width>72</width>
+          <height>32</height>
+          <texture colordiffuse="$PARAM[colordiffuse]">imdb250_colored.png</texture>
+          <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250))</visible>
+          <visible>$PARAM[imdb]</visible>
+          <visible>!Skin.HasSetting(Ratings.IMDB) + !Skin.HasSetting(MonochromeFlags)</visible>
+        </control>
 
         <control type="label">
           <textcolor>main_fg_70</textcolor>
@@ -4047,6 +4051,19 @@
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>!String.IsEmpty(ListItem.Studio) + !String.Contains(ListItem.Studio,/)</visible>
+          <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.IsVisible(1505) | Control.IsVisible(1506)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+        </control>
+        <control type="image">
+          <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(ListItem.Studio)">Conditional</animation>
+          <top>13</top>
+          <aligny>bottom</aligny>
+          <texture colordiffuse="main_fg_100">$INFO[Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name),resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
+          <aspectratio>stretch</aspectratio>
+          <height>44</height>
+          <width>64</width>
+          <visible>$PARAM[studio]</visible>
+          <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
+          <visible>[String.IsEmpty(ListItem.Studio) | String.Contains(ListItem.Studio,/)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))</visible>
           <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.IsVisible(1505) | Control.IsVisible(1506)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
         <control type="image">
@@ -6278,7 +6295,7 @@
         <onback condition="[Window.IsVisible(3910) | Window.IsVisible(3920)] + [!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious]">5555</onback>
         <onback condition="ControlGroup(5055).HasFocus">505</onback>
 	<onback condition="!Container($PARAM[id]).HasPrevious + [Window.IsVisible(2111) | Window.IsVisible(2113) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117)]">ActivateWindow(Home)</onback>
-        <scrolltime tween="linear">400</scrolltime>
+        <scrolltime>500</scrolltime>
         <include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
         <include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
         <include condition="!Skin.HasSetting(AuraHubSpacingSmall) + !$PARAM[bigpostercondition] + !$PARAM[landscapepanelcondition]">AuraWidget_Items_Default</include>
