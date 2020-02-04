@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window type="dialog" id="1163">
+    <defaultcontrol always="true">8000</defaultcontrol>
+    <controls>
+	<control type="image">
+	    <width>100%</width>
+	    <height>100%</height>
+	    <texture colordiffuse="CC000000" background="true">common/white.png</texture>
+	</control>
+        <control type="group">
+            <include content="Dialog_Standard_Group">
+                <param name="width" value="820" />
+                <param name="height" value="400" />
+            </include>
+            <control type="label">
+                <description>Header Label</description>
+                <label>[CAPITALIZE]Search Hub Configuration[/CAPITALIZE]</label>
+                <textcolor>grey</textcolor>
+                <shadowcolor>dimgrey</shadowcolor>
+                <font>font_heading_small</font>
+                <include>Dialog_Standard_Header</include>
+            </control>
+
+            <control type="grouplist" id="8000">
+                <description>Control Area</description>
+                <right>20</right>
+                <width>780</width>
+                <top>100</top>
+		<height>400</height>
+                <itemgap>10</itemgap>
+                <orientation>vertical</orientation>
+                <pagecontrol>60</pagecontrol>
+                <usecontrolcoords>true</usecontrolcoords>
+
+                       <control type="button" id="8001" description="Configure Search lists">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label>Configure Search Lists</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=searchmenus)</onclick>
+                        </control>
+                        <control type="radiobutton" id="8002" description="Enable Random Spotlight">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label> - Use default keyboard</label>
+                            <radioposx>730</radioposx>
+                            <onclick>Skin.ToggleSetting(EnableSearchDefaultKB)</onclick>
+                            <selected>Skin.HasSetting(EnableSearchDefaultKB)</selected>
+                        </control>
+            </control>
+        </control>
+    </controls>
+</window>

@@ -198,7 +198,7 @@
             <control type="group">
                 <height>50</height>
                 <bottom>0</bottom>
-                <visible>[!Skin.HasSetting(DisableClearlogo) | [Skin.HasSetting(DisableClearlogo) + [String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))]]] + !Skin.HasSetting(WidgetLabels)</visible>
+                <visible>[!String.IsEqual(ListItem.DBType,episode) + Window.IsVisible(DialogVideoInfo.xml)] + [!Skin.HasSetting(DisableClearlogo) | [Skin.HasSetting(DisableClearlogo) + [String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))]]] + !Skin.HasSetting(WidgetLabels)</visible>
                 <control type="image">
                     <texture background="true" colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
                 </control>

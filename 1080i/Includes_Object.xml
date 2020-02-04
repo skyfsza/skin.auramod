@@ -7496,7 +7496,7 @@
         <content>
           <item>
             <label>Search Lists</label>
-            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=searchmenus)</onclick>
+            <onclick>ActivateWindow(1163)</onclick>
             <thumb>special://skin/extras/icons/search.png</thumb>
           </item>
           <item>
