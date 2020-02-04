@@ -198,9 +198,7 @@
             <control type="group">
                 <height>50</height>
                 <bottom>0</bottom>
-                <visible>![[!String.IsEmpty(ListItem.Art(clearlogo)) |!String.IsEmpty(ListItem.Art(clearlogo)) !String.IsEmpty(ListItem.Art(tvshow.clearlogo))] + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome)]]</visible>
-                <visible>[!Skin.HasSetting(DisableClearlogo) | Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))] + !Skin.HasSetting(WidgetLabels)</visible>
-
+                <visible>[!Skin.HasSetting(DisableClearlogo) | [Skin.HasSetting(DisableClearlogo) + [String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))]]] + !Skin.HasSetting(WidgetLabels)</visible>
                 <control type="image">
                     <texture background="true" colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
                 </control>
