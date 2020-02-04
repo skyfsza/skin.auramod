@@ -353,6 +353,13 @@
                             <onclick>Skin.ToggleSetting(EnableHomeHeader)</onclick>
                             <selected>Skin.HasSetting(EnableHomeHeader)</selected>
                         </control>
+                        <control type="radiobutton" id="9512" description="Monochrome Flags">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Use Monochrome for Ratings</label>
+                            <onclick>Skin.ToggleSetting(MonochromeFlags)</onclick>
+                            <selected>Skin.HasSetting(MonochromeFlags)</selected>
+                        </control>
 
                         <!-- ========== -->
                         <!-- --Hubs---- -->
@@ -1059,13 +1066,6 @@
                             <selected>Skin.HasSetting(DisableInfoRatings)</selected>
                         </control>
 -->
-                        <control type="radiobutton" id="9512" description="Monochrome Flags">
-                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
-                            <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31394]</label>
-                            <onclick>Skin.ToggleSetting(MonochromeFlags)</onclick>
-                            <selected>Skin.HasSetting(MonochromeFlags)</selected>
-                        </control>
                         
 
                         <!-- ============= -->
@@ -1274,14 +1274,14 @@
                          <control type="radiobutton" id="9619" description="Disable Categories widget labels">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011) + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(DisableNetflixCatWidget)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31420]</label>
+                            <label>Enable Labels on Widget</label>
                             <selected>!Skin.HasSetting(DisableBigCat)</selected>
                             <onclick>Skin.ToggleSetting(DisableBigCat)</onclick>
                         </control>
                         <control type="radiobutton" id="9623" description="Enable Categories Label ">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Enable Categories WidgetBar Labels</label>
+                            <label>Enable 'Categories' Label on WidgetBar</label>
                             <selected>!Skin.HasSetting(DisableCatlabel)</selected>
                             <onclick>Skin.ToggleSetting(DisableCatlabel)</onclick>
                         </control>

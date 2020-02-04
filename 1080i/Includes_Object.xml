@@ -3868,38 +3868,6 @@
           <visible>!Skin.HasSetting(Ratings.TVDB)</visible>
           <visible>$PARAM[tvdb]</visible>
         </control>
-        <control type="image">
-          <top>-8</top>
-          <left>-10</left>
-          <width>64</width>
-          <height>64</height>
-          <texture colordiffuse="$PARAM[colordiffuse]">flags/star10.png</texture>
-          <visible>$PARAM[star]</visible>
-          <visible>!String.IsEmpty(ListItem.Rating) | [Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)]</visible>
-          <visible>!Skin.HasSetting(Ratings.Star) + Skin.HasSetting(MonochromeFlags)</visible>
-        </control>
-        <control type="image">
-          <top>-8</top>
-          <left>-10</left>
-          <width>64</width>
-          <height>64</height>
-          <texture colordiffuse="red">flags/star10.png</texture>
-          <visible>$PARAM[star]</visible>
-          <visible>!String.IsEmpty(ListItem.Rating) | [Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)]</visible>
-          <visible>!Skin.HasSetting(Ratings.Star) + !Skin.HasSetting(MonochromeFlags)</visible>
-        </control>
-        <control type="label">
-          <textcolor>main_fg_70</textcolor>
-	  <left>-10</left>
-          <top>12</top>
-          <width>auto</width>
-          <height>28</height>
-          <font>font_tiny</font>
-          <label>$VAR[star_ratings]</label>
-          <visible>$PARAM[star]</visible>
-          <visible>!String.IsEmpty(ListItem.Rating) | [Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)]</visible>
-          <visible>!Skin.HasSetting(Ratings.Star)</visible>
-        </control>
 
         <control type="image">
           <top>0</top>
@@ -3950,6 +3918,41 @@
           <visible>String.IsEmpty(Window(Home).Property(TMDbHelper.IsUpdating))	+ [!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_rating)) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_votes))]</visible>
           <visible>!Skin.HasSetting(Ratings.Trakt) + Skin.HasSetting(Ratings.TraktVotes)</visible>
           <visible>$PARAM[trakt]</visible>
+        </control>
+
+
+
+        <control type="image">
+          <top>-8</top>
+          <left>-10</left>
+          <width>64</width>
+          <height>64</height>
+          <texture colordiffuse="$PARAM[colordiffuse]">flags/star10.png</texture>
+          <visible>$PARAM[star]</visible>
+          <visible>!String.IsEmpty(ListItem.Rating) | [Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)]</visible>
+          <visible>!Skin.HasSetting(Ratings.Star) + Skin.HasSetting(MonochromeFlags)</visible>
+        </control>
+        <control type="image">
+          <top>-8</top>
+          <left>-10</left>
+          <width>64</width>
+          <height>64</height>
+          <texture colordiffuse="red">flags/star10.png</texture>
+          <visible>$PARAM[star]</visible>
+          <visible>!String.IsEmpty(ListItem.Rating) | [Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)]</visible>
+          <visible>!Skin.HasSetting(Ratings.Star) + !Skin.HasSetting(MonochromeFlags)</visible>
+        </control>
+        <control type="label">
+          <textcolor>main_fg_70</textcolor>
+	  <left>-10</left>
+          <top>12</top>
+          <width>auto</width>
+          <height>28</height>
+          <font>font_tiny</font>
+          <label>$VAR[star_ratings]</label>
+          <visible>$PARAM[star]</visible>
+          <visible>!String.IsEmpty(ListItem.Rating) | [Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)]</visible>
+          <visible>!Skin.HasSetting(Ratings.Star)</visible>
         </control>
         <control type="image">
           <top>11</top>
@@ -4050,11 +4053,12 @@
           <width>64</width>
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
+	  <visible>!String.IsEqual(ListItem.DBType,movie)</visible>
           <visible>!String.IsEmpty(ListItem.Studio) + !String.Contains(ListItem.Studio,/)</visible>
           <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.IsVisible(1505) | Control.IsVisible(1506)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
         <control type="image">
-          <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(ListItem.Studio)">Conditional</animation>
+          <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(ListItem.Studio) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))">Conditional</animation>
           <top>13</top>
           <aligny>bottom</aligny>
           <texture colordiffuse="main_fg_100">$INFO[Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name),resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
@@ -4063,6 +4067,7 @@
           <width>64</width>
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
+	  <visible>!String.IsEqual(ListItem.DBType,movie)</visible>
           <visible>[String.IsEmpty(ListItem.Studio) | String.Contains(ListItem.Studio,/)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))</visible>
           <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.IsVisible(1505) | Control.IsVisible(1506)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
@@ -4606,7 +4611,7 @@
             <control type="group">
               <animation effect="zoom" end="150" time="0" condition="Control.IsVisible(9601)">Conditional</animation>
               <height>80</height>
-              <right>980</right>
+              <right>480</right>
               <include content="Object_Ratings" condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(Home.xml) | Window.IsVisible(script-globalsearch.xml)">
                 <param name="directory" value="color" />
                 <param name="align" value="left" />
@@ -5554,6 +5559,7 @@
         <onright condition="!Integer.IsGreater(Container(5600).NumItems,0)">5600</onright>
         <onright>SetFocus(5600)</onright>
         <onback>ActivateWindow(1139)</onback>
+	<ondown>1007</ondown>
         <!-- Space / Backspace Row -->
         <include content="SearchKeyboardRow">
           <param name="id" value="1000" />
@@ -5603,6 +5609,16 @@
           <param name="onright" value="5600" />
           <param name="row_include" value="SearchKeyboardRow_Sixth_Row" />
         </include>
+        <control type="button" id="1009">
+            <onup>131</onup>
+            <width>380</width>
+            <height>70</height>
+            <label>Search</label>
+            <onclick>Skin.SetString(TempCustomSearchTerm,$INFO[Skin.String(CustomSearchTerm)])</onclick>
+            <onclick>ActivateWindow(1136)</onclick>
+            <onclick>Skin.SetString(CustomSearchTerm,$INFO[Skin.String(TempCustomSearchTerm)])</onclick>
+	    <include>Key</include>
+        </control>
       </control>
     </control>
     <control type="label">
@@ -5614,7 +5630,7 @@
       <visible>String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
     </control>
     <control type="group">
-      <top>70</top>
+      <top>140</top>
       <left>-40</left>
       <include content="Search_Suggestions_Container">
         <param name="id" value="1007" />
@@ -5826,6 +5842,8 @@
   <include name="Widget_Label_height_hub1">
     <top>widget_top</top>
   </include>
+
+
   <include name="Widget_Label_aura">
     <param name="postercondition" default="false" />
     <param name="landscapedetailscondition" default="false" />
@@ -5845,7 +5863,7 @@
           <height>100%</height>
           <aspectratio aligny="center">keep</aspectratio>
           <texture colordiffuse="main_fg_30">common/cube-16.png</texture>
-          <visible>!Control.HasFocus($PARAM[submenu]) + !Skin.HasSetting(DisableCatlabel)</visible>
+          <visible>!Control.HasFocus($PARAM[submenu]) + Skin.HasSetting(DisableCubeIcon)</visible>
         </control>
         <control type="label">
           <top>-2</top>
@@ -5954,6 +5972,7 @@
           <visible>Control.HasFocus($PARAM[id])</visible>
           <visible>!Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB) + !Skin.HasSetting(DisableWidgetIMDB)</visible>
           <visible>![Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
+          <visible>!Window.IsVisible(DialogVideoInfo.xml) + String.IsEqual(Container(8999).ListItem.Label,Cast)</visible>
           <bottom>-5</bottom>
           <height>40</height>
           <include content="Object_Ratings">
@@ -5976,6 +5995,7 @@
           <top>-28</top>
           <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetStudio) + Skin.HasSetting(DisableWidgetIMDB)</visible>
           <visible>![Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
+	  <visible>!Window.IsVisible(DialogVideoInfo.xml) + String.IsEqual(Container(8999).ListItem.Label,Cast)</visible>
           <bottom>-5</bottom>
           <height>40</height>
           <include content="Object_Ratings">
@@ -6561,7 +6581,7 @@
         <visible>String.IsEmpty(Window().Property(item.info.title))</visible>
         <visible>$PARAM[visible]</visible>
         <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
-        <include content="Widget_Label">
+        <include content="Widget_Label_aura">
           <param name="id" value="$PARAM[id]" />
           <param name="label" value="$PARAM[label]" />
           <param name="content" value="$PARAM[content]" />

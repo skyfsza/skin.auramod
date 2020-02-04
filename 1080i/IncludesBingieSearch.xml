@@ -7,7 +7,7 @@
     </variable>
 
     <variable name="EmptySearchResultsString">
-        <value condition="Control.HasFocus(1007) + String.IsEmpty(Skin.String(CustomSearchTerm))">$LOCALIZE[31558]</value>
+        <value condition="Control.HasFocus(1009) + String.IsEmpty(Skin.String(CustomSearchTerm))">$LOCALIZE[31558]</value>
         <value condition="String.IsEmpty(Skin.String(CustomSearchTerm))">$LOCALIZE[31559]</value>
         <value>$LOCALIZE[31578]</value>
     </variable>
@@ -349,42 +349,42 @@
         <include content="SearchKey">
             <param name="id" value="131" />
             <param name="onup" value="125" />
-            <param name="ondown" value="1007" />
+            <param name="ondown" value="1009" />
             <param name="key" value="$NUMBER[5]" />
         </include>
         <!-- 6 -->
         <include content="SearchKey">
             <param name="id" value="132" />
             <param name="onup" value="126" />
-            <param name="ondown" value="1007" />
+            <param name="ondown" value="1009" />
             <param name="key" value="$NUMBER[6]" />
         </include>
         <!-- 7 -->
         <include content="SearchKey">
             <param name="id" value="133" />
             <param name="onup" value="127" />
-            <param name="ondown" value="1007" />
+            <param name="ondown" value="1009" />
             <param name="key" value="$NUMBER[7]" />
         </include>
         <!-- 8 -->
         <include content="SearchKey">
             <param name="id" value="134" />
             <param name="onup" value="128" />
-            <param name="ondown" value="1007" />
+            <param name="ondown" value="1009" />
             <param name="key" value="$NUMBER[8]" />
         </include>
         <!-- 9 -->
         <include content="SearchKey">
             <param name="id" value="135" />
             <param name="onup" value="129" />
-            <param name="ondown" value="1007" />
+            <param name="ondown" value="1009" />
             <param name="key" value="$NUMBER[9]" />
         </include>
         <!-- 0 -->
         <include content="SearchKey">
             <param name="id" value="136" />
             <param name="onup" value="130" />
-            <param name="ondown" value="1007" />
+            <param name="ondown" value="1009" />
             <param name="key" value="$NUMBER[0]" />
         </include>
     </include>
@@ -395,7 +395,7 @@
         <param name="left" default="100" />
         <param name="top" default="520" />
         <param name="onback" default="9000" />
-        <param name="onup" default="101" />
+        <param name="onup" default="1009" />
         <param name="ondown" default="noop" />
         <param name="onright" default="5600" />
         <param name="onleft" default="900" />

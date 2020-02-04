@@ -3,27 +3,37 @@
 	
     <variable name="videoinfo_rtmeter">
 	 <value condition="!String.IsEmpty(ListItem.Property(rottentomatoes_rating))">$INFO[ListItem.Property(rottentomatoes_rating)]</value>
-	 <value>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter)]</value>
+	 <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Rating))">$INFO[Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Rating)]</value>
+	 <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter))">$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter)]</value>
     </variable>
 
     <variable name="videoinfo_usermeter">
          <value condition="!String.IsEmpty(ListItem.Property(rottentomatoes_usermeter))">$INFO[ListItem.Property(rottentomatoes_usermeter)]</value>
+         <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_UserMeter))">$INFO[Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_UserMeter)]</value>
          <value>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoesAudienceMeter)]</value>
     </variable>
 
     <variable name="videoinfo_budget">
          <value condition="!String.IsEmpty(ListItem.Property(budget))">$INFO[ListItem.Property(budget)]</value>
+         <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Budget))">$INFO[Window(Home).Property(TMDbHelper.ListItem.Budget)]</value>
          <value>$INFO[Window(Home).Property(SkinHelper.ListItem.Budget.formatted)]</value>
     </variable>
 
     <variable name="videoinfo_awards">
          <value condition="!String.IsEmpty(ListItem.Property(awards))">$INFO[ListItem.Property(awards)]</value>
+         <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Awards))">$INFO[Window(Home).Property(TMDbHelper.ListItem.Awards)]</value>
          <value>$INFO[Window(Home).Property(SkinHelper.ListItem.Awards)]</value>
     </variable>
 
     <variable name="videoinfo_boxoffice">
          <value condition="!String.IsEmpty(ListItem.Property(revenue))">$INFO[ListItem.Property(revenue)]</value>
+         <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Revenue))">$INFO[Window(Home).Property(TMDbHelper.ListItem.Revenue)]</value>
          <value>$INFO[Window(Home).Property(SkinHelper.ListItem.BoxOffice)]</value>
+    </variable>
+
+    <variable name="videoinfo_consensus">
+         <value condition="!String.IsEmpty(ListItem.Property(rottentomatoes_consensus))">$INFO[ListItem.Property(rottentomatoes_consensus)]</value>
+         <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Consensus))">$INFO[Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Consensus)]</value>
     </variable>
 
     <variable name="seasons_content_videoinfo">

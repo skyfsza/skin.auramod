@@ -154,9 +154,8 @@
         <param name="width" default="1080" />
         <param name="height" default="900" />
         <param name="animation" default="true" />
-        <param name="center" default="50" />
         <definition>
-            <centerleft>$PARAM[center]%</centerleft>
+            <centerleft>50%</centerleft>
             <centertop>50%</centertop>
             <width>$PARAM[width]</width>
             <height>$PARAM[height]</height>
@@ -177,9 +176,9 @@
 
     <include name="Dialog_Standard_List_Left_Icon">
         <left>32</left>
-        <top>12</top>
-        <width>111</width>
-        <height>111</height>
+        <top>8</top>
+        <width>90</width>
+        <height>90</height>
         <aspectratio scalediffuse="false">keep</aspectratio>
         <texture fallback="DefaultAddonNone.png" background="true">$INFO[Listitem.Icon]</texture>
     </include>
@@ -189,7 +188,7 @@
         <left>170</left>
         <right>30</right>
         <height>30</height>
-        <font>font_small_bold</font>
+        <font>font_tiny_bold</font>
         <textcolor>dialog_fg_70</textcolor>
         <info>ListItem.Label</info>
     </include>

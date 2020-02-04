@@ -1134,9 +1134,10 @@
                 <param name="width" value="1400" />
                 <param name="rottentomatoes" value="true" />
                 <param name="imdbvotes" value="true" />
-                <param name="usermeter" value="false" />
-                <param name="imdb" value="$PARAM[imdb]" />
-                <param name="tmdb" value="$PARAM[tmdb]" />
+                <param name="usermeter" value="true" />
+                <param name="imdb" value="true" />
+                <param name="tmdb" value="true" />
+                <param name="tvdb" value="true" />
                 <param name="metacritic" value="true" />
                 <param name="oscars" value="true" />
                 <param name="top250" value="false" />
@@ -1532,7 +1533,7 @@
 
           <item id="13">
             <label>More Info</label>
-	    <visible>String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper) + !String.IsEmpty(ListItem.Property(rottentomatoes_consensus))</visible>
+	    <visible>!String.IsEmpty(ListItem.Property(rottentomatoes_consensus)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Consensus))</visible>
           </item>
           <item id="1">
             <label>Cast</label>
@@ -1565,11 +1566,11 @@
           </item>
           <item id="6">
             <label>By Director</label>
-            <visible>!String.IsEmpty(ListItem.Genre) + [Integer.IsGreater(Container(53004).NumItems,0) | Container(53004).IsUpdating]</visible>
+            <visible>[!String.IsEmpty(ListItem.Director) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Director))]  + [Integer.IsGreater(Container(53004).NumItems,0) | Container(53004).IsUpdating]</visible>
           </item>
           <item id="7">
             <label>By Studio</label>
-            <visible>!String.IsEmpty(ListItem.Studio) + [Integer.IsGreater(Container(53006).NumItems,0) | Container(53006).IsUpdating]</visible>
+            <visible>[!String.IsEmpty(ListItem.Studio) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Studio.1.Name))]  + [Integer.IsGreater(Container(53006).NumItems,0) | Container(53006).IsUpdating]</visible>
           </item>
           <item id="8">
             <label>By Year</label>
@@ -1577,7 +1578,7 @@
           </item>
           <item id="9">
             <label>By Genre</label>
-            <visible>!String.IsEmpty(ListItem.Genre) + [Integer.IsGreater(Container(53008).NumItems,0) | Container(53008).IsUpdating]</visible>
+            <visible>[!String.IsEmpty(ListItem.Genre) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Genre))] + [Integer.IsGreater(Container(53008).NumItems,0) | Container(53008).IsUpdating]</visible>
           </item>
           <item id="14">
             <label>Youtube</label>
@@ -1594,7 +1595,7 @@
 		        <top>100</top>
         		<left>360</left>
 			<visible>Control.HasFocus(8999) + String.IsEqual(Container(8999).ListItem.Label,More Info)</visible>
-			<visible>String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper) + !String.IsEmpty(ListItem.Property(rottentomatoes_consensus))</visible>
+			<visible>!String.IsEmpty(ListItem.Property(rottentomatoes_consensus)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Consensus))</visible>
 			<control type="grouplist"><!-- START First Column -->
 				<description>First Column</description>
 				
@@ -1735,7 +1736,7 @@
 					<textcolor>dimgrey</textcolor>
 					<width>720</width>
 					<height>183</height>
-					<label fallback="No reviews available">[I]"$INFO[ListItem.Property(rottentomatoes_consensus)]"[/I]</label>
+					<label fallback="No reviews available">[I]"$VAR[videoinfo_consensus]"[/I]</label>
 				</control>
 			</control>
 			
@@ -1745,7 +1746,7 @@
 				<top>207</top>
 				<height>50</height>
 				<aspectratio align="left">keep</aspectratio>
-				<visible>!Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter), 59)</visible>
+				<visible>!Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter), 59) | !Integer.IsGreater(Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter), 59)</visible>
 				<texture>flags/color/ratings/rtrotten.png</texture>
 			</control>
 			<control type="image">
@@ -1754,7 +1755,7 @@
 				<top>207</top>
 				<height>50</height>
 				<aspectratio align="left">keep</aspectratio>
-				<visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter), 59) + !Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesRating), 75)</visible>
+				<visible>[Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter), 59) + !Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesRating), 75)] | [Integer.IsGreater(Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter), 59) + !Integer.IsGreater(Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter), 75)]</visible>
 				<texture>flags/color/ratings/rtfresh.png</texture>
 			</control>
 			<control type="image">
@@ -1891,7 +1892,7 @@
           <param name="height" value="880" />
           <param name="width" value="1800" />
           <param name="label" value="$INFO[ListItem.Director,Directed By ,]" />
-          <param name="visible" value="String.IsEqual(Container(8999).ListItem.Label,By Director) + !String.IsEmpty(ListItem.Director)" />
+          <param name="visible" value="String.IsEqual(Container(8999).ListItem.Label,By Director) + [!String.IsEmpty(ListItem.Director) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Director))]" />
         </include>
         <include condition="!Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfo.Year)" content="Widget_TMDB">
           <param name="id" value="53005" />

@@ -2,10 +2,11 @@
 <!-- Foundation -->
 <window id="0">
   <defaultcontrol always="true">4000</defaultcontrol>
+  <onload condition="!Skin.HasSetting(FirstRunSetup)">ActivateWindow(5111)</onload>
   <onload>RunScript(plugin.video.themoviedb.helper,reset_path)</onload>
   <onload condition="Skin.HasSetting(EnableWetherRadar)">RunScript(special://skin/extras/weather.py)</onload>
   <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|x1110|x1111|x1112|x1113|hubtvnetworks|searchmenu|aurahubtv|aurahubmovies|netflixhubtv|netflixhubmovies|pvrspot|tvhubmenu|moviehubmenu)</onload>
-  <onload condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs)">Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
+  <onload condition="!Skin.HasSetting(SkinHSkin.SetBool(SkinHelper.EnablePVRThumbs)elper.EnablePVRThumbs)">Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
   <onload condition="!Skin.HasSetting(SkinHelper.EnableMusicArt)">Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
     <onload condition="Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">Skin.SetBool(SkinHelper.EnableAnimatedPosters)</onload>
     <onload condition="!Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">Skin.Reset(SkinHelper.EnableAnimatedPosters)</onload>
@@ -52,7 +53,7 @@
     </control>
     <!--Multi Image fadelabel and Global Background -->
     <include condition="Skin.HasSetting(SkinHelper.EnableExtraFanart)">fanart_multi</include>
-    <include condition="Skin.HasSetting(SkinHelper.EnableExtraFanart)">fanart_multi_1505</include>
+<!--    <include condition="Skin.HasSetting(SkinHelper.EnableExtraFanart)">fanart_multi_1505</include> -->
     <include>Global_Background</include>
     <control type="group"> 
       <animation effect="slide" end="40,0" time="500" condition="!Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableMenuVertLabel) + [Control.HasFocus(30222) | Control.HasFocus(1505) | Control.HasFocus(1506) | ControlGroup(505).HasFocus | ControlGroup(900).HasFocus | ControlGroup(505).HasFocus | [Control.HasFocus(13003) + [Integer.IsEqual(Container(13003).Position,0) + !Container(13003).HasPrevious]] | [Control.HasFocus(23003) + [Integer.IsEqual(Container(23003).Position,0) + !Container(23003).HasPrevious]] | [Control.HasFocus(33003) + [Integer.IsEqual(Container(33003).Position,0) + !Container(33003).HasPrevious]] | [Control.HasFocus(43003) + [Integer.IsEqual(Container(43003).Position,0) + !Container(43003).HasPrevious]] | [Control.HasFocus(53003) + [Integer.IsEqual(Container(53003).Position,0) + !Container(53003).HasPrevious]] | [Control.HasFocus(63003) + [Integer.IsEqual(Container(63003).Position,0) + !Container(63003).HasPrevious]]]">Conditional</animation>
@@ -91,7 +92,7 @@
       <top>-10</top>
       <right>-60</right>
       <include>Logo</include>
-      <visible>!Window.IsVisible(DialogConfirm.xml) + !Window.IsVisible(DialogNotification.xml) + !Window.IsVisible(DialogButtonMenu.xml) + !Window.IsVisible(DialogBusy.xml) + Skin.HasSetting(EnableHomeHeader)</visible>
+      <visible>!Window.IsVisible(DialogNotification.xml) + !Window.IsVisible(DialogButtonMenu.xml) + !Window.IsVisible(DialogBusy.xml) + Skin.HasSetting(EnableHomeHeader)</visible>
     </control>
     <include>fadelabel_spotlight_list_tv</include>
     <include>fadelabel_spotlight_list_movies</include>

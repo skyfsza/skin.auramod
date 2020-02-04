@@ -54,6 +54,7 @@
         <texturenofocus colordiffuse="darkgrey" border="5">diffuse/panel.png</texturenofocus>
         <font>Reg28</font>
 	<onleft>5051</onleft>
+	<onclick condition="!Skin.HasSetting(FirstRunSetup)">Skin.ToggleSetting(FirstRunSetup)</onclick>
         <onclick>Close</onclick>
         <onclick>ActivateWindow(settings)</onclick>
 	<visible>String.IsEmpty(Window(Home).Property(RunWizardHub))</visible>
@@ -88,6 +89,7 @@
         <texturenofocus colordiffuse="darkgrey" border="5">diffuse/panel.png</texturenofocus>
         <font>Reg28</font>
         <onleft>5053</onleft>
+        <onclick condition="!Skin.HasSetting(FirstRunSetup)">Skin.ToggleSetting(FirstRunSetup)</onclick>
         <onclick>Close</onclick>
         <onclick>ReloadSkin()</onclick>
         <onclick>ReplaceWindow(Home)</onclick>

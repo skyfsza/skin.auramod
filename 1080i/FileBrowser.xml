@@ -36,7 +36,7 @@
                 <onup>450</onup>
                 <ondown>450</ondown>
                 <pagecontrol>61</pagecontrol>
-                <itemlayout height="138" width="700" condition="![[String.StartsWith(ListItem.FolderPath,special://skin/extras/icons/) + !String.IsEqual(ListItem.Label,icons)]  | [String.StartsWith(Container(450).ListItem(1).FolderPath,special://skin/extras/icons/) + ListItem.IsParentFolder]]">
+                <itemlayout height="90" width="700" condition="![[String.StartsWith(ListItem.FolderPath,special://skin/extras/icons/) + !String.IsEqual(ListItem.Label,icons)]  | [String.StartsWith(Container(450).ListItem(1).FolderPath,special://skin/extras/icons/) + ListItem.IsParentFolder]]">
                     <control type="image">
                         <include>Dialog_Standard_List_Left_Icon</include>
                         <visible>!String.Contains(ListItem.Path,special://skin/extras/icons) + !String.Contains(ListItem.Icon,Default)</visible>
@@ -55,10 +55,10 @@
                         <include>Dialog_Standard_List_Left_Label2</include>
                     </control>
                 </itemlayout>
-                <focusedlayout height="138" width="700" condition="![[String.StartsWith(ListItem.FolderPath,special://skin/extras/icons/) + !String.IsEqual(ListItem.Label,icons)]  | [String.StartsWith(Container(450).ListItem(1).FolderPath,special://skin/extras/icons/) + ListItem.IsParentFolder]]">
+                <focusedlayout height="90" width="700" condition="![[String.StartsWith(ListItem.FolderPath,special://skin/extras/icons/) + !String.IsEqual(ListItem.Label,icons)]  | [String.StartsWith(Container(450).ListItem(1).FolderPath,special://skin/extras/icons/) + ListItem.IsParentFolder]]">
                     <control type="group">
                         <width>100%</width>
-                        <height>135</height>
+                        <height>90</height>
                         <control type="image">
                             <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
                         </control>
@@ -82,12 +82,12 @@
                         <include>Dialog_Standard_List_Left_Label2</include>
                     </control>
                 </focusedlayout>
-                <itemlayout height="138" width="140" condition="[[String.StartsWith(ListItem.FolderPath,special://skin/extras/icons/) + !String.IsEqual(ListItem.Label,icons)]  | [String.StartsWith(Container(450).ListItem(1).FolderPath,special://skin/extras/icons/) + ListItem.IsParentFolder]]">
+                <itemlayout height="90" width="140" condition="[[String.StartsWith(ListItem.FolderPath,special://skin/extras/icons/) + !String.IsEqual(ListItem.Label,icons)]  | [String.StartsWith(Container(450).ListItem(1).FolderPath,special://skin/extras/icons/) + ListItem.IsParentFolder]]">
                     <control type="image">
                         <centerleft>50%</centerleft>
-                        <centertop>50%</centertop>
-                        <width>111</width>
-                        <height>111</height>
+                        <centertop>45%</centertop>
+                        <width>90</width>
+                        <height>90</height>
                         <aspectratio scalediffuse="false">keep</aspectratio>
                         <texture fallback="DefaultAddonNone.png" background="true">$INFO[Listitem.Icon]</texture>
                         <visible>!String.Contains(ListItem.Path,special://skin/extras/icons) + !String.Contains(ListItem.Icon,Default)</visible>
@@ -95,18 +95,18 @@
                     <control type="image">
                         <colordiffuse>dialog_fg_70</colordiffuse>
                         <centerleft>50%</centerleft>
-                        <centertop>50%</centertop>
-                        <width>111</width>
-                        <height>111</height>
+                        <centertop>45%</centertop>
+                        <width>90</width>
+                        <height>90</height>
                         <aspectratio scalediffuse="false">keep</aspectratio>
                         <texture fallback="DefaultAddonNone.png" background="true">$INFO[Listitem.Icon]</texture>
                         <visible>String.Contains(ListItem.Path,special://skin/extras/icons) | String.Contains(ListItem.Icon,Default)</visible>
                     </control>
                 </itemlayout>
-                <focusedlayout height="138" width="140" condition="[[String.StartsWith(ListItem.FolderPath,special://skin/extras/icons/) + !String.IsEqual(ListItem.Label,icons)]  | [String.StartsWith(Container(450).ListItem(1).FolderPath,special://skin/extras/icons/) + ListItem.IsParentFolder]]">
+                <focusedlayout height="90" width="140" condition="[[String.StartsWith(ListItem.FolderPath,special://skin/extras/icons/) + !String.IsEqual(ListItem.Label,icons)]  | [String.StartsWith(Container(450).ListItem(1).FolderPath,special://skin/extras/icons/) + ListItem.IsParentFolder]]">
                     <control type="group">
                         <width>100%</width>
-                        <height>135</height>
+                        <height>90</height>
                         <control type="image">
                             <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
                         </control>
@@ -116,9 +116,9 @@
                     </control>
                     <control type="image">
                         <centerleft>50%</centerleft>
-                        <centertop>50%</centertop>
-                        <width>111</width>
-                        <height>111</height>
+                        <centertop>45%</centertop>
+                        <width>90</width>
+                        <height>90</height>
                         <aspectratio scalediffuse="false">keep</aspectratio>
                         <texture fallback="DefaultAddonNone.png" background="true">$INFO[Listitem.Icon]</texture>
                     </control>
