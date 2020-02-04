@@ -970,7 +970,7 @@
       <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="!Player.HasVideo">Conditional</animation>
       <control type="videowindow"></control>
       <control type="image">
-      <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Skin.HasSetting(VideoInfo.HideTrailer) + !String.IsEmpty(Window(Home).Property(TrailerPlaying))">Conditional</animation>
+      <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Skin.HasSetting(VideoInfo.HideTrailer) + Player.HasVideo + !String.IsEmpty(Window(Home).Property(TrailerPlaying))">Conditional</animation>
         <texture flipx="true" colordiffuse="ff000000" border="15">overlay/gradient_overlay_info.png</texture>
       </control>
     </control>
@@ -1004,7 +1004,7 @@
       </control>
      <control type="image">
       <visible>Control.HasFocus(9601) | Skin.HasSetting(VideoInfo.LargePlot) | ControlGroup(9000).HasFocus | Control.HasFocus(8999)</visible>
-      <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Skin.HasSetting(VideoInfo.HideTrailer) + !String.IsEmpty(Window(Home).Property(TrailerPlaying))">Conditional</animation>
+      <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Skin.HasSetting(VideoInfo.HideTrailer) + Player.HasVideo + !String.IsEmpty(Window(Home).Property(TrailerPlaying))">Conditional</animation>
 	<animation effect="fade" start="10" end="100" time="300">Visible</animation>
         <texture background="true" colordiffuse="89000000">common/white.png</texture>
         <width>100%</width>
@@ -1023,7 +1023,7 @@
     <control type="group">
       <left>20</left>
       <control type="grouplist">
-      <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Skin.HasSetting(VideoInfo.HideTrailer) + !String.IsEmpty(Window(Home).Property(TrailerPlaying))">Conditional</animation>
+      <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Skin.HasSetting(VideoInfo.HideTrailer) + Player.HasVideo +  !String.IsEmpty(Window(Home).Property(TrailerPlaying))">Conditional</animation>
         <itemgap>0</itemgap>
         <usecontrolcoords>true</usecontrolcoords>
         <orientation>vertical</orientation>
@@ -1582,7 +1582,7 @@
           </item>
           <item id="14">
             <label>Youtube</label>
-            <visible>!Skin.HasSetting(VideoInfo.Youtube) + [Integer.IsGreater(Container(53008).NumItems,0) | Container(53008).IsUpdating]</visible>
+            <visible>!Skin.HasSetting(VideoInfo.Youtube) + [Integer.IsGreater(Container(53009).NumItems,0) | Container(53009).IsUpdating]</visible>
           </item>
 	</content>
       </control>
@@ -1978,8 +1978,9 @@
           <param name="height" value="880" />
           <param name="width" value="1800" />
           <param name="label" value="" />
-          <param name="onclick" value="PlayMedia($INFO[Container(53007).ListItem.FileNameAndPath])" />
-          <param name="onclick2" value="Dialog.Close(all,true)" />
+          <param name="onclick2" value="PlayMedia($INFO[Container(53007).ListItem.FileNameAndPath],1)" />
+          <param name="onclick3" value="SetProperty(TrailerPlaying,fullscreen,home)" />
+          <param name="onclick4" value="SetProperty(BaseWindow,InfoDialog,Home)" />
           <param name="visible" value="String.IsEqual(Container(8999).ListItem.Label,Youtube)" />
         </include>
       </control>

@@ -5668,7 +5668,7 @@
           <height>50</height>
           <visible>Skin.HasSetting(DisableAuraHomeLayout)</visible>
         </control>
-        <include condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">skinshortcuts-template-search</include>
+        <include condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">skinshortcuts-template-searchlist</include>
       </control>
     </control>
   </include>
@@ -6574,6 +6574,9 @@
     <param name="onclick" default="SetFocus(9570)" />
     <param name="onclick2" default="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath,,&amp;fanarttv=True],call_id=1137,delay=0.35,prevent_del)" />
     <param name="onclick3" default="" />
+    <param name="onclick3cond" default="" />
+    <param name="onclick4" default="" />
+    <param name="onclick4cond" default="" />
     <param name="onback" default="9570" />
     <param name="onup" default="" />
     <param name="orientation" default="horizontal" />
@@ -6612,6 +6615,8 @@
         <width>$PARAM[width]</width>
         <onclick>$PARAM[onclick]</onclick>
         <onclick>$PARAM[onclick2]</onclick>
+        <onclick condition="$PARAM[onclick3cond]">$PARAM[onclick3]</onclick>
+        <onclick condition="$PARAM[onclick4cond]">$PARAM[onclick4]</onclick>
         <visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | Container(300).OnNext | Container(300).OnPrevious | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
         <include content="Widget_Items" condition="!$PARAM[submenu]">
           <param name="id" value="$PARAM[id]" />
@@ -7489,6 +7494,11 @@
           </control>
         </focusedlayout>
         <content>
+          <item>
+            <label>Search Lists</label>
+            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=searchmenus)</onclick>
+            <thumb>special://skin/extras/icons/search.png</thumb>
+          </item>
           <item>
             <label>Addons</label>
             <onclick>ActivateWindow(addonbrowser)</onclick>

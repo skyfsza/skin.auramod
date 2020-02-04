@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="2112">
-  <onload>SetFocus(505)</onload>
+  <onload condition="!String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">SetFocus(505)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
       <include>Animation_Right</include>
