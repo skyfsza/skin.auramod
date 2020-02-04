@@ -140,7 +140,7 @@
 
      <control type="group">
         <animation effect="slide" end="0,20" time="0" condition="Skin.HasSetting(DisableNetflixSmallWidget)">Conditional</animation>
-        <visible>String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(ListItem.Art(clearlogo)) + !Skin.HasSetting(WidgetLabels)</visible>
+        <visible>String.IsEqual(ListItem.DBType,episode) + [!String.IsEmpty(ListItem.Art(clearlogo)) | !String.IsEmpty(ListItem.Art(tvshow.clearlogo))] + !Skin.HasSetting(WidgetLabels)</visible>
       <control type="image">
         <left>0</left>
         <bottom>40</bottom>
@@ -198,8 +198,8 @@
             <control type="group">
                 <height>50</height>
                 <bottom>0</bottom>
-                <visible>![!Skin.HasSetting(DisableFakeLandscapeArt) + !String.IsEmpty(ListItem.Art(clearlogo)) + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome)]]</visible>
-                <visible>[!Skin.HasSetting(DisableClearlogo) | Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(clearlogo))] + !Skin.HasSetting(WidgetLabels) | Window.IsVisible(1138)</visible>
+                <visible>![[!String.IsEmpty(ListItem.Art(clearlogo)) |!String.IsEmpty(ListItem.Art(clearlogo)) !String.IsEmpty(ListItem.Art(tvshow.clearlogo))] + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(ListItem.Label,ListItem.TvShowTitle) | String.IsEmpty(ListItem.TvShowTitle) | Skin.HasSetting(PreferFanartHome)]]</visible>
+                <visible>[!Skin.HasSetting(DisableClearlogo) | Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))] + !Skin.HasSetting(WidgetLabels)</visible>
 
                 <control type="image">
                     <texture background="true" colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
@@ -217,7 +217,7 @@
                 </control>
             </control>
             <control type="group">
-       <visible>[Control.IsVisible(505) | Control.HasFocus(5055)] + ![String.IsEqual(Container(5055).ListItem.DBType,episode) | String.IsEqual(Container(5055).ListItem.DBType,tvshow) |  String.IsEqual(Container(5055).ListItem.DBType,movie)]</visible>
+       <visible>[Control.IsVisible(505) | Control.HasFocus(5055)] + ![String.IsEqual(Container(5055).ListItem.DBType,episode) | String.IsEqual(Container(5055).ListItem.DBType,tvshow) |  String.IsEqual(Container(5055).ListItem.DBType,movie)] + !Window.IsVisible(1138)</visible>
                 <height>70</height>
                 <bottom>0</bottom>
                 <control type="image">

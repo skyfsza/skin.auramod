@@ -1978,7 +1978,8 @@
           <param name="height" value="880" />
           <param name="width" value="1800" />
           <param name="label" value="" />
-          <param name="onclick2" value="PlayMedia($INFO[Container(53007).ListItem.FileNameAndPath])" />
+          <param name="onclick" value="PlayMedia($INFO[Container(53007).ListItem.FileNameAndPath])" />
+          <param name="onclick2" value="Dialog.Close(all,true)" />
           <param name="visible" value="String.IsEqual(Container(8999).ListItem.Label,Youtube)" />
         </include>
       </control>

@@ -269,6 +269,8 @@
     <param name="focusposition" default="1" />
     <param name="Showcase" default="false" />
     <param name="orientation" default="horizontal" />
+    <param name="path" default="" />
+    <param name="path2" default="" />
     <definition>
       <control type="group" id="4$PARAM[id]">
         <visible>Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(Home)</visible>
@@ -508,6 +510,8 @@
           <param name="search" value="$PARAM[search]" />
           <param name="mylist1" value="$PARAM[mylist1]" />
           <param name="Showcase" value="$PARAM[Showcase]" />
+          <param name="path" value="$PARAM[path]" />
+          <param name="path2" value="$PARAM[path2]" />
         </include>
       </control>
     </definition>
@@ -998,6 +1002,8 @@
     <param name="submenucondition" default="false" />
     <param name="search" default="false" />
     <param name="mylist1" default="false" />
+    <param name="path" default="" />
+    <param name="path2" default="" />
     <definition>
       <include content="Widget_Common">
         <param name="top" value="$PARAM[top]" />
@@ -1306,6 +1312,8 @@
         <param name="sortby" value="$PARAM[sortby]" />
         <param name="sortorder" value="$PARAM[sortorder]" />
         <param name="widgetContent" value="$PARAM[widgetContent]" />
+        <param name="path" value="$PARAM[path]" />
+        <param name="path2" value="$PARAM[path2]" />
         <param name="content" value="$PARAM[content]" />
         <param name="limit" value="$VAR[Label_WidgetItemLimit]" />
         <param name="id" value="$PARAM[id]" />
@@ -1313,7 +1321,7 @@
     </definition>
   </include>
   <include name="Widget_ContentInclude_Search">
-    <content target="$PARAM[target]" sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" limit="$PARAM[limit]">$PARAM[widgetContent]</content>
+    <content target="$PARAM[target]" sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" limit="$PARAM[limit]">$PARAM[path]$INFO[Skin.String(CustomSearchTerm)]$PARAM[path2]</content>
     <content>
       <item>
         <label>$LOCALIZE[31373]...</label>

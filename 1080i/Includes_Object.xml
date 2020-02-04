@@ -5617,6 +5617,7 @@
             <onclick>Skin.SetString(TempCustomSearchTerm,$INFO[Skin.String(CustomSearchTerm)])</onclick>
             <onclick>ActivateWindow(1136)</onclick>
             <onclick>Skin.SetString(CustomSearchTerm,$INFO[Skin.String(TempCustomSearchTerm)])</onclick>
+	    <onclick>Skin.Reset(TempCustomSearchTerm)</onclick>
 	    <include>Key</include>
         </control>
       </control>
