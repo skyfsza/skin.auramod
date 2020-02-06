@@ -507,6 +507,9 @@
         <param name="controltype" default="fixedlist" />
         <param name="movement" default="2" />
         <param name="mylist1" default="false" />
+        <param name="path" default="" />
+        <param name="path2" default="" />
+
         <definition>
             <control type="group" id="2$PARAM[id]">
                 <visible>$PARAM[visible]</visible>
@@ -595,6 +598,8 @@
 		            <param name="submenucondition" value="$PARAM[submenucondition]" />
 			    <param name="search" value="$PARAM[search]" />
 			    <param name="mylist1" value="$PARAM[mylist1]" />
+		            <param name="path" value="$PARAM[path]" />
+          		    <param name="path2" value="$PARAM[path2]" />
 			</include>
 		    </control>
 		</definition>
@@ -901,6 +906,9 @@
 	        <param name="submenucondition" default="false" />
 	        <param name="search" default="false" />
 	        <param name="mylist1" default="false" />
+	        <param name="path" default="" />
+    		<param name="path2" default="" />
+
 		<definition>
 		    <include content="Widget_Common">
 			<param name="top" value="$PARAM[top]" />
@@ -986,13 +994,15 @@
                 <param name="content" value="$PARAM[content]" />
                 <param name="limit" value="$VAR[Label_WidgetItemLimit]" />
                 <param name="id" value="$PARAM[id]" />
+	        <param name="path" value="$PARAM[path]" />
+        	<param name="path2" value="$PARAM[path2]" />
             </include>
 
 		</definition>
 	    </include>
 
     <include name="Widget_ContentInclude_Search">
-        <content target="$PARAM[target]" sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" limit="$PARAM[limit]">$PARAM[widgetContent]$INFO[Skin.String(CustomSearchTerm)]</content>
+    <content target="$PARAM[target]" sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" limit="$PARAM[limit]">$PARAM[path]$INFO[Skin.String(CustomSearchTerm)]$PARAM[path2]</content>
         <content>
             <item>
                 <label>$LOCALIZE[31373]...</label>
