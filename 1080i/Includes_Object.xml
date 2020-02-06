@@ -5642,6 +5642,15 @@
         <visible>!$EXP[IsActualKeyboardActive] + !String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
         <content>$VAR[SearchAutoCompleteContentProvider]</content>
       </include>
+<!--
+      <include content="Search_Suggestions_Container">
+        <param name="id" value="1007" />
+        <onclick>Skin.SetString(CustomSearchTerm,$INFO[Container(1007).ListItem.Label])</onclick>
+        <onclick>SetFocus(1009)</onclick>
+        <visible>!$EXP[IsActualKeyboardActive] + String.IsEmpty(Skin.String(CustomSearchTerm))</visible>
+        <content>plugin://plugin.video.youtube/kodion/search/list</content>
+      </include>
+-->
     </control>
     <include condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">search_widgets</include>
   </include>
@@ -5971,9 +5980,9 @@
         <control type="grouplist">
           <top>-28</top>
           <visible>Control.HasFocus($PARAM[id])</visible>
-          <visible>!Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB) + !Skin.HasSetting(DisableWidgetIMDB)</visible>
+          <visible>Skin.HasSetting(DisableWidgetIMDB) + !Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>![Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
-          <visible>!Window.IsVisible(DialogVideoInfo.xml) + String.IsEqual(Container(8999).ListItem.Label,Cast)</visible>
+          <visible>![Window.IsVisible(DialogVideoInfo.xml) + Control.HasFocus(53001)]</visible>
           <bottom>-5</bottom>
           <height>40</height>
           <include content="Object_Ratings">
@@ -5982,21 +5991,22 @@
             <param name="width" value="1400" />
             <param name="rottentomatoes" value="true" />
             <param name="imdbvotes" value="true" />
-            <param name="usermeter" value="false" />
+            <param name="usermeter" value="true" />
             <param name="imdb" value="true" />
             <param name="tmdb" value="true" />
             <param name="metacritic" value="true" />
             <param name="oscars" value="true" />
-            <param name="top250" value="false" />
+            <param name="top250" value="true" />
             <param name="plot" value="true" />
             <param name="studio" value="false" />
           </include>
         </control>
         <control type="grouplist">
           <top>-28</top>
-          <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetStudio) + Skin.HasSetting(DisableWidgetIMDB)</visible>
+          <visible>Control.HasFocus($PARAM[id])</visible>
+          <visible>Skin.HasSetting(DisableWidgetIMDB) + Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>![Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
-	  <visible>!Window.IsVisible(DialogVideoInfo.xml) + String.IsEqual(Container(8999).ListItem.Label,Cast)</visible>
+          <visible>![Window.IsVisible(DialogVideoInfo.xml) + Control.HasFocus(53001)]</visible>
           <bottom>-5</bottom>
           <height>40</height>
           <include content="Object_Ratings">
@@ -6005,12 +6015,12 @@
             <param name="width" value="1400" />
             <param name="rottentomatoes" value="true" />
             <param name="imdbvotes" value="true" />
-            <param name="usermeter" value="false" />
+            <param name="usermeter" value="true" />
             <param name="imdb" value="true" />
             <param name="tmdb" value="true" />
             <param name="metacritic" value="true" />
             <param name="oscars" value="true" />
-            <param name="top250" value="false" />
+            <param name="top250" value="true" />
             <param name="plot" value="true" />
             <param name="studio" value="true" />
           </include>
@@ -6961,7 +6971,7 @@
    <control type="group">
     <right>-50</right>
     <include>Logo</include>
-    <visible>!Window.IsVisible(busydialog)</visible>
+      <visible>!Window.IsVisible(DialogNotification.xml) + !Window.IsVisible(DialogButtonMenu.xml) + !Window.IsVisible(DialogBusy.xml) + Skin.HasSetting(EnableHomeHeader)</visible>
    </control>
    <control type="label">
    <animation effect="slide" end="260,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>

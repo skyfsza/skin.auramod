@@ -718,7 +718,7 @@
           <include>Statusbar_Menubar_Items</include>
           <visible>Control.HasFocus($PARAM[id])</visible>
           <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] + Skin.HasSetting(DisableWidgetTitle) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
-          <visible>[!Skin.HasSetting(EnableAuraTV1) +  ![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117)]] | Window.IsVisible(1138)</visible>
+          <visible>[!Skin.HasSetting(EnableAuraTV1) + ![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117)]] | Window.IsVisible(1138) | Window.IsVisible(Home)</visible>
           <visible>![Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <visible>Skin.HasSetting(LargeWidgetLabel)</visible>
         </control>
@@ -730,7 +730,7 @@
           <include>Statusbar_Menubar_Items</include>
           <visible>Control.HasFocus($PARAM[id])</visible>
           <visible>![Control.HasFocus(30222) + Skin.HasSetting(DisableCatlabel)] + Skin.HasSetting(DisableWidgetTitle) + ![[$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]] + $PARAM[Showcase]]</visible>
-          <visible>[!Skin.HasSetting(EnableAuraTV1) + ![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117)]] | Window.IsVisible(1138)</visible>
+          <visible>[!Skin.HasSetting(EnableAuraTV1) + ![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117)]] | Window.IsVisible(1138) | Window.IsVisible(Home)</visible>
           <visible>![Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <visible>!Skin.HasSetting(LargeWidgetLabel)</visible>
         </control>
@@ -826,7 +826,7 @@
         <control type="grouplist">
           <visible>Control.HasFocus($PARAM[id])</visible>
           <visible>$EXP[DBTvideos]</visible>
-          <visible>!Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB) + Skin.HasSetting(DisableWidgetIMDB)</visible>
+          <visible>!Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB) + Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(DialogVideoInfo.xml)]</visible>
           <visible>$EXP[DBTvideos]</visible>
           <bottom>10</bottom>
@@ -838,19 +838,19 @@
             <param name="width" value="1400" />
             <param name="rottentomatoes" value="true" />
             <param name="imdbvotes" value="true" />
-            <param name="usermeter" value="false" />
+            <param name="usermeter" value="true" />
             <param name="imdb" value="true" />
             <param name="tmdb" value="true" />
             <param name="tvdb" value="true" />
             <param name="metacritic" value="true" />
             <param name="oscars" value="true" />
-            <param name="top250" value="false" />
+            <param name="top250" value="true" />
             <param name="plot" value="true" />
             <param name="studio" value="true" />
           </include>
         </control>
         <control type="grouplist">
-          <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetStudio) + !Skin.HasSetting(DisableWidgetIMDB)</visible>
+          <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + !Skin.HasSetting(DisableWidgetStudio) + Skin.HasSetting(DisableWidgetIMDB)</visible>
           <visible>$EXP[DBTvideos]</visible>
           <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <visible>$EXP[DBTvideos]</visible>
@@ -863,13 +863,13 @@
             <param name="width" value="1400" />
             <param name="rottentomatoes" value="true" />
             <param name="imdbvotes" value="true" />
-            <param name="usermeter" value="false" />
+            <param name="usermeter" value="true" />
             <param name="imdb" value="true" />
             <param name="tmdb" value="true" />
             <param name="tvdb" value="true" />
             <param name="metacritic" value="true" />
             <param name="oscars" value="true" />
-            <param name="top250" value="false" />
+            <param name="top250" value="true" />
             <param name="plot" value="true" />
             <param name="studio" value="false" />
           </include>

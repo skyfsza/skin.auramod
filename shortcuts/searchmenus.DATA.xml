@@ -2,50 +2,81 @@
 <shortcuts>
   <shortcut>
     <defaultID />
-    <label>Library Movies</label>
+    <label>TMDB Movies</label>
     <label2>Custom item</label2>
     <icon>DefaultShortcut.png</icon>
     <thumb>image://%2fstorage%2femulated%2f0%2fAndroid%2fdata%2forg.xbmc.kodi%2ffiles%2f.kodi%2faddons%2fplugin.video.seren%2ftemp-icon.png/</thumb>
+    <action>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper?info=search&amp;type=movie&amp;query=",return)</action>
+  </shortcut>
+  <shortcut>
+    <defaultID />
+    <label>TMDB TV Shows</label>
+    <label2>Custom item</label2>
+    <icon>DefaultShortcut.png</icon>
+    <thumb>image://%2fstorage%2femulated%2f0%2fAndroid%2fdata%2forg.xbmc.kodi%2ffiles%2f.kodi%2faddons%2fplugin.video.seren%2ftemp-icon.png/</thumb>
+    <action>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper?info=search&amp;type=tv&amp;query=",return)</action>
+  </shortcut>
+  <shortcut>
+    <defaultID />
+    <label>Seren Movies</label>
+    <label2>Custom item</label2>
+    <icon>DefaultShortcut.png</icon>
+    <thumb>image://%2fstorage%2femulated%2f0%2fAndroid%2fdata%2forg.xbmc.kodi%2ffiles%2f.kodi%2faddons%2fplugin.video.seren%2ftemp-icon.png/</thumb>
+    <action>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesSearchResults&amp;actionArgs=",return)</action>
+  </shortcut>
+  <shortcut>
+    <defaultID />
+    <label>Seren TV Shows</label>
+    <label2>Custom item</label2>
+    <icon>DefaultShortcut.png</icon>
+    <thumb>image://%2fstorage%2femulated%2f0%2fAndroid%2fdata%2forg.xbmc.kodi%2ffiles%2f.kodi%2faddons%2fplugin.video.seren%2ftemp-icon.png/</thumb>
+    <action>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsSearchResults&amp;actionArgs=",return)</action>
+  </shortcut>
+  <shortcut>
+    <defaultID />
+    <label>Library Movies</label>
+    <label2>Custom item</label2>
+    <icon>DefaultShortcut.png</icon>
     <action>DefaultSearch-Movies</action>
   </shortcut>
   <shortcut>
-    <label>Tv Shows</label>
+    <label>Library Tv Shows</label>
     <label2>$LOCALIZE[571]</label2>
     <icon>special://skin/extras/icons/tv.png</icon>
     <action>DefaultSearch-TvShows</action>
   </shortcut>
   <shortcut>
-    <label>Episodes</label>
+    <label>Library Episodes</label>
     <label2>$LOCALIZE[571]</label2>
     <icon>special://skin/extras/icons/tv.png</icon>
     <action>DefaultSearch-Episodes</action>
   </shortcut>
   <shortcut>
-    <label>Genres</label>
+    <label>Library Genres</label>
     <label2>$LOCALIZE[571]</label2>
     <icon>special://skin/extras/icons/genres.png</icon>
     <action>DefaultSearch-Genres</action>
   </shortcut>
   <shortcut>
-    <label>Year</label>
+    <label>Library Year</label>
     <label2>$LOCALIZE[571]</label2>
     <icon>special://skin/extras/icons/years.png</icon>
     <action>DefaultSearch-Year</action>
   </shortcut>
   <shortcut>
-    <label>Studio</label>
+    <label>Library Studio</label>
     <label2>$LOCALIZE[571]</label2>
     <icon>special://skin/extras/icons/studio.png</icon>
     <action>DefaultSearch-Studio</action>
   </shortcut>
   <shortcut>
-    <label>Country</label>
+    <label>Library Country</label>
     <label2>$LOCALIZE[571]</label2>
     <icon>special://skin/extras/icons/country.png</icon>
     <action>DefaultSearch-Country</action>
   </shortcut>
   <shortcut>
-    <label>Actor</label>
+    <label>Library Actor</label>
     <label2>$LOCALIZE[571]</label2>
     <icon>special://skin/extras/icons/person.png</icon>
     <action>DefaultSearch-Actor</action>
@@ -93,35 +124,9 @@
     <action>DefaultSearch-Youtube</action>
   </shortcut>
   <shortcut>
-    <defaultID />
-    <label>TMDB Movies</label>
-    <label2>Custom item</label2>
+    <label>WonderfulSubs</label>
+    <label2>$LOCALIZE[571]</label2>
     <icon>DefaultShortcut.png</icon>
-    <thumb>image://%2fstorage%2femulated%2f0%2fAndroid%2fdata%2forg.xbmc.kodi%2ffiles%2f.kodi%2faddons%2fplugin.video.seren%2ftemp-icon.png/</thumb>
-    <action>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper?info=search&amp;type=movie&amp;query=",return)</action>
-  </shortcut>
-  <shortcut>
-    <defaultID />
-    <label>TMDB TV Shows</label>
-    <label2>Custom item</label2>
-    <icon>DefaultShortcut.png</icon>
-    <thumb>image://%2fstorage%2femulated%2f0%2fAndroid%2fdata%2forg.xbmc.kodi%2ffiles%2f.kodi%2faddons%2fplugin.video.seren%2ftemp-icon.png/</thumb>
-    <action>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper?info=search&amp;type=tv&amp;query=",return)</action>
-  </shortcut>
-  <shortcut>
-    <defaultID />
-    <label>Seren Movies</label>
-    <label2>Custom item</label2>
-    <icon>DefaultShortcut.png</icon>
-    <thumb>image://%2fstorage%2femulated%2f0%2fAndroid%2fdata%2forg.xbmc.kodi%2ffiles%2f.kodi%2faddons%2fplugin.video.seren%2ftemp-icon.png/</thumb>
-    <action>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=moviesSearchResults&amp;actionArgs=",return)</action>
-  </shortcut>
-  <shortcut>
-    <defaultID />
-    <label>Seren TV Shows</label>
-    <label2>Custom item</label2>
-    <icon>DefaultShortcut.png</icon>
-    <thumb>image://%2fstorage%2femulated%2f0%2fAndroid%2fdata%2forg.xbmc.kodi%2ffiles%2f.kodi%2faddons%2fplugin.video.seren%2ftemp-icon.png/</thumb>
-    <action>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsSearchResults&amp;actionArgs=",return)</action>
+    <action>DefaultSearch-WonderfulSubs</action>
   </shortcut>
 </shortcuts>
