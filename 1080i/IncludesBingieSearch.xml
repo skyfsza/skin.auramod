@@ -407,7 +407,7 @@
                 <left>$PARAM[left]</left>
                 <top>$PARAM[top]</top>
                 <width>400</width>
-                <height>474</height>
+                <height>390</height>
                 <orientation>vertical</orientation>
                 <onback>$PARAM[onback]</onback>
                 <onup>$PARAM[onup]</onup>
@@ -425,7 +425,7 @@
                         <font>Reg30</font>
                         <textcolor>white</textcolor>
                         <scroll>false</scroll>
-                        <label>$INFO[ListItem.Label]</label>
+                        <label>$VAR[searchhistorylabel]</label>
                     </control>
                 </itemlayout>
                 <focusedlayout width="350" height="65">
@@ -449,7 +449,7 @@
                             <font>Reg30</font>
                             <textcolor>red</textcolor>
                             <scroll>true</scroll>
-                            <label>$INFO[ListItem.Label]</label>
+                            <label>$VAR[searchhistorylabel]</label>
                         </control>
                         <control type="button">
                             <visible>false</visible>

@@ -378,6 +378,7 @@
     <!-- Widget Hub -->
     <propertySettings toggle="widgetControl" buttonID="9911" title="Widget Control" />
     <propertySettings toggle="widgetShowcase" buttonID="9912" title="Widget Showcase" />
+    <propertySettings toggle="widgetShowcasehide" buttonID="99121" title="Widget Showcase Hide" />
     <propertySettings toggle="widgetmylistposition" buttonID="99104" title="Widget Control" />
 
     <!-- Widget Aspect -->
@@ -535,7 +536,7 @@
             <shortcut label="TV Networks Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(2118,return)</shortcut>
             <shortcut label="TV Aura Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3910,return)</shortcut>
             <shortcut label="TV Netflix Hub" grouping="32029" icon="special://skin/extras/icons/tv.png">ActivateWindow(3810,return)</shortcut>
-            <shortcut label="Search" grouping="32029" icon="special://skin/extras/icons/search.png">ActivateWindow(1138,return)</shortcut>
+            <shortcut label="Search" grouping="32029" icon="special://skin/extras/icons/search.png">ActivateWindow(1136)</shortcut>
 
             <shortcut label="Movie Lists Hub 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2111,return)</shortcut>
             <shortcut label="TV Lists Hub 1" grouping="32029" icon="special://skin/extras/icons/clipboard.png">ActivateWindow(2113,return)</shortcut>

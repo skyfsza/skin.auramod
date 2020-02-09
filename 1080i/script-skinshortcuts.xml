@@ -632,6 +632,22 @@
                     <align>left</align>
                     <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + !String.IsEqual(Window.Property(groupname),searchmenus) + !String.IsEqual(Window.Property(groupname),mainmenu) + !String.IsEqual(Window.Property(groupname),pvrspot)</visible>
                 </control>
+
+                <control type="radiobutton" id="99121" description="Widget Showcase">
+                    <width>100%</width>
+                    <label> - Enable Showcase auto-hide</label>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
+                    <include>Dialog_Standard_ListButton</include>
+                    <radioposx>1130</radioposx>
+                    <selected>String.IsEqual(Container(211).ListItem.Property(widgetShowcasehide),true)</selected>
+                    <onclick>SetProperty(customProperty,widgetShowcasehide)</onclick>
+                    <onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetShowcasehide),true)">SetProperty(customValue,true)</onclick>
+                    <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetShowcasehide),true)">SetProperty(customValue,false)</onclick>
+                    <onclick>SendClick(404)</onclick>
+                    <align>left</align>
+		    <visible>String.IsEqual(Container(211).ListItem.Property(widgetShowcase),true)</visible>
+                </control>
                 <control type="label" id="9992">
                    <height>70</height>
                    <label>Global</label>
@@ -730,10 +746,10 @@
                 <width>1250</width>
                 <right>15</right>
                 <visible>ControlGroup(9300).HasFocus() | ControlGroup(9400).HasFocus() | Control.HasFocus(9777) | !String.IsEmpty(Window.Property(SetWidgets))</visible>
-                <onup condition="!String.IsEqual(Container(211).ListItem.Property(widget),Weather) + !String.IsEqual(Container(211).ListItem.Property(widget),Settings)">SetFocus(3127)</onup>
-                <onup condition="!String.IsEqual(Container(211).ListItem.Property(widget),Weather) + !String.IsEqual(Container(211).ListItem.Property(widget),Settings)">AlarmClock(MoveList,SetFocus(9400),00:00,silent)</onup>
-                <onup condition="String.IsEqual(Container(211).ListItem.Property(widget),Weather) | String.IsEqual(Container(211).ListItem.Property(widget),Settings)">SetFocus(312)</onup>
-                <onup condition="String.IsEqual(Container(211).ListItem.Property(widget),Weather) | String.IsEqual(Container(211).ListItem.Property(widget),Settings)">AlarmClock(MoveList,SetFocus(9400),00:00,silent)</onup>
+                <onup>SetFocus(3127)</onup>
+                <onup>AlarmClock(MoveList,SetFocus(9400),00:00,silent)</onup>
+                <onup>SetFocus(312)</onup>
+                <onup>AlarmClock(MoveList,SetFocus(9400),00:00,silent)</onup>
                 <ondown>SetFocus(312)</ondown>
                 <ondown>AlarmClock(MoveList,SetFocus(9400),00:00,silent)</ondown>
                 <height>66</height>
@@ -762,10 +778,10 @@
                 <onup condition="!Integer.IsEqual(Container(9300).Position,0)">Up</onup>
                 <onup condition="!Integer.IsEqual(Container(9300).Position,0)">AlarmClock(MoveList,SetFocus(9400),00:00,silent)</onup>
                 <onup condition="Integer.IsEqual(Container(9300).Position,0)">SetFocus(9777)</onup>
-                <ondown condition="!Integer.IsEqual(Container(9300).Position,7) + !String.IsEqual(Container(211).ListItem.Property(widget),Weather) + !String.IsEqual(Container(211).ListItem.Property(widget),Settings)">SetFocus(9300)</ondown>
-                <ondown condition="!Integer.IsEqual(Container(9300).Position,7) + !String.IsEqual(Container(211).ListItem.Property(widget),Weather) + !String.IsEqual(Container(211).ListItem.Property(widget),Settings)">Down</ondown>
-                <ondown condition="!Integer.IsEqual(Container(9300).Position,7) + !String.IsEqual(Container(211).ListItem.Property(widget),Weather) + !String.IsEqual(Container(211).ListItem.Property(widget),Settings)">AlarmClock(MoveList,SetFocus(9400),00:00,silent)</ondown>
-                <ondown condition="Integer.IsEqual(Container(9300).Position,7) | String.IsEqual(Container(211).ListItem.Property(widget),Weather) | String.IsEqual(Container(211).ListItem.Property(widget),Settings)">SetFocus(9777)</ondown>
+                <ondown condition="!Integer.IsEqual(Container(9300).Position,7)">SetFocus(9300)</ondown>
+                <ondown condition="!Integer.IsEqual(Container(9300).Position,7)">Down</ondown>
+                <ondown condition="!Integer.IsEqual(Container(9300).Position,7)">AlarmClock(MoveList,SetFocus(9400),00:00,silent)</ondown>
+                <ondown condition="Integer.IsEqual(Container(9300).Position,7)">SetFocus(9777)</ondown>
                 <orientation>horizontal</orientation>
                 <animation effect="slide" end="0,69" condition="Integer.IsGreater(Container(9300).Position,0)">Conditional</animation>
                 <animation effect="slide" end="0,69" condition="Integer.IsGreater(Container(9300).Position,1)">Conditional</animation>

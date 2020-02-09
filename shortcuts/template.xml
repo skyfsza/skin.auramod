@@ -34,6 +34,8 @@
         <property name="widgetControl">fixedlist</property>
         <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
         <property name="widgetShowcase">false</property>
+        <property name="widgetShowcasehide" tag="property" attribute="name|widgetShowcasehide" />
+        <property name="widgetShowcasehide">false</property>
         <property name="widgetAspect" tag="property" attribute="name|widgetAspect" />
         <property name="widgetAspect">Poster</property>
         <property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
@@ -116,6 +118,7 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="mylist1" value="$PYTHON['true' if widgetPath in 'x11' else 'false']" />
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[widgetName]" />
@@ -167,6 +170,7 @@
             <property name="path" tag="property" attribute="name|list" value="DefaultSearch-MusicVideoArtists">videodb://musicvideos/titles/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22sorttitle%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22artist%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22</property>
             <property name="path2" tag="property" attribute="name|list" value="DefaultSearch-MusicVideoArtists">%22%5d%7d%5d%7d%2c%22type%22%3a%22musicvideos%22%7d</property>
             <property name="path" tag="property" attribute="name|list" value="DefaultSearch-Youtube">plugin://plugin.video.youtube/kodion/search/query/?q=</property>
+            <property name="path2" tag="property" attribute="name|list" value="DefaultSearch-Youtube">&amp;search_type=notvalid</property>
 
             <property name="path" tag="property" attribute="name|list" value="DefaultSearch-Netflix">plugin://plugin.video.netflix/directory/search/search/</property>
             <property name="path2" tag="property" attribute="name|list" value="DefaultSearch-Netflix">/</property>
@@ -203,6 +207,7 @@
             <property name="widgetAspect" tag="property" attribute="name|list" value="DefaultSearch-Youtube">Landscape</property>
             <property name="widgetAspect" tag="property" attribute="name|list" value="DefaultSearch-Episodes">Landscape</property>
             <property name="widgetAspect" tag="property" attribute="name|list" value="DefaultSearch-TvShows">Landscape</property>
+            <property name="widgetAspect" tag="property" attribute="name|list" value="DefaultSearch-TMDBShows">Landscape</property>
             <property name="widgetAspect" tag="property" attribute="name|list" value="DefaultSearch-Addons">Square</property>
             <property name="widgetAspect" tag="property" attribute="name|list" value="DefaultSearch-Albums">Square</property>
             <property name="widgetAspect">Poster</property>
@@ -210,6 +215,7 @@
             <property name="widgetMovement" tag="property" attribute="name|list" value="DefaultSearch-Youtube">2</property>
             <property name="widgetMovement" tag="property" attribute="name|list" value="DefaultSearch-Episodes">2</property>
             <property name="widgetMovement" tag="property" attribute="name|list" value="DefaultSearch-TvShows">2</property>
+            <property name="widgetMovement" tag="property" attribute="name|list" value="DefaultSearch-TMDBShows">2</property>
             <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="SquareLabel">4</property>
             <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="Icon">4</property>
             <property name="widgetMovement" tag="property" attribute="name|widgetAspect" value="PosterDetails">1</property>
@@ -355,6 +361,8 @@
 
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
+            <property name="widgetShowcasehide" tag="property" attribute="name|widgetShowcasehide" />
+            <property name="widgetShowcasehide">false</property>
 
             <property name="widgetControl">fixedlist</property>
             <property name="widgetControl" tag="property" attribute="name|widgetControl" />
@@ -454,6 +462,7 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="Window.IsVisible(Custom_Hub_TVAura.xml)" />
             </include>
@@ -494,6 +503,9 @@
 
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
+            <property name="widgetShowcasehide" tag="property" attribute="name|widgetShowcasehide" />
+            <property name="widgetShowcasehide">false</property>
+
             <property name="widgetControl">fixedlist</property>
             <property name="widgetControl" tag="property" attribute="name|widgetControl" />
             <property name="widgetControl">fixedlist</property>
@@ -592,6 +604,7 @@
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="Window.IsVisible(Custom_Hub_MovieAura.xml)" />
@@ -630,6 +643,8 @@
             <property name="widgetMovement" tag="property" attribute="name|widgetHubAspect" value="LandscapePoster">2</property>
             <property name="widgetMovement">2</property>
 
+            <property name="widgetShowcasehide" tag="property" attribute="name|widgetShowcasehide" />
+            <property name="widgetShowcasehide">false</property>
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
 
@@ -720,6 +735,7 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="true" />
             </include>
@@ -745,6 +761,7 @@
                 <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetHubAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
@@ -778,6 +795,9 @@
             <property name="widgetHubAspect">Landscape</property>
             <property name="widgetAspect" tag="property" attribute="name|widgetAspect" />
             <property name="widgetAspect">Poster</property>
+
+            <property name="widgetShowcasehide" tag="property" attribute="name|widgetShowcasehide" />
+            <property name="widgetShowcasehide">false</property>
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
 
@@ -868,6 +888,7 @@
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetHubAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
             </include>
@@ -904,6 +925,8 @@
             <property name="widgetHubAspect">Landscape</property>
             <property name="widgetAspect" tag="property" attribute="name|widgetAspect" />
             <property name="widgetAspect">Poster</property>
+            <property name="widgetShowcasehide" tag="property" attribute="name|widgetShowcasehide" />
+            <property name="widgetShowcasehide">false</property>
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
 
@@ -994,6 +1017,7 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="true" />
             </include>
@@ -1020,6 +1044,7 @@
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetHubAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
             </include>
@@ -1051,6 +1076,8 @@
             <property name="widgetControl" tag="property" attribute="name|widgetControl" />
             <property name="widgetControl">fixedlist</property>
 
+            <property name="widgetShowcasehide" tag="property" attribute="name|widgetShowcasehide" />
+            <property name="widgetShowcasehide">false</property>
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
 
@@ -1146,6 +1173,7 @@
                 <param name="orientation" value="$PYTHON['vertical' if widgetHubAspect in 'LandscapePanel' else 'horizontal']" />
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
             </include>
@@ -1184,6 +1212,8 @@
             <property name="widgetHubAspect">Landscape</property>
             <property name="widgetAspect" tag="property" attribute="name|widgetAspect" />
             <property name="widgetAspect">Poster</property>
+            <property name="widgetShowcasehide" tag="property" attribute="name|widgetShowcasehide" />
+            <property name="widgetShowcasehide">false</property>
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
 
@@ -1274,6 +1304,7 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="true" />
             </include>
@@ -1299,6 +1330,7 @@
                 <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetHubAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
@@ -1336,6 +1368,8 @@
             <property name="widgetHubAspect">Landscape</property>
             <property name="widgetAspect" tag="property" attribute="name|widgetAspect" />
             <property name="widgetAspect">Poster</property>
+            <property name="widgetShowcasehide" tag="property" attribute="name|widgetShowcasehide" />
+            <property name="widgetShowcasehide">false</property>
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
 
@@ -1426,6 +1460,7 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="true" />
             </include>
@@ -1453,6 +1488,7 @@
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetHubAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
             </include>
@@ -1488,6 +1524,8 @@
             <property name="widgetHubAspect">Landscape</property>
             <property name="widgetAspect" tag="property" attribute="name|widgetAspect" />
             <property name="widgetAspect">Poster</property>
+            <property name="widgetShowcasehide" tag="property" attribute="name|widgetShowcasehide" />
+            <property name="widgetShowcasehide">false</property>
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
 
@@ -1579,6 +1617,7 @@
                 <param name="squarecondition" value="$PYTHON['true' if widgetAspect in 'Square' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="true" />
             </include>
@@ -1605,6 +1644,7 @@
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'fixedlist']" />
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
             </include>
@@ -1640,6 +1680,8 @@
             <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
             <property name="widgetHubAspect">Landscape</property>
 
+            <property name="widgetShowcasehide" tag="property" attribute="name|widgetShowcasehide" />
+            <property name="widgetShowcasehide">false</property>
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
 
@@ -1727,6 +1769,7 @@
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetHubAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
             </include>
@@ -1762,6 +1805,8 @@
             <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
             <property name="widgetHubAspect">Landscape</property>
 
+            <property name="widgetShowcasehide" tag="property" attribute="name|widgetShowcasehide" />
+            <property name="widgetShowcasehide">false</property>
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
 
@@ -1849,6 +1894,7 @@
                 <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetHubAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
+                <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
                 <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
             </include>

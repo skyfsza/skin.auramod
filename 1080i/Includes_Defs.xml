@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-
+    <variable name="search_widgets">
+	<value>skinshortcuts-template-searchlist</value>
+    </variable>
+    <variable name="searchhistory">
+	<value condition="String.IsEmpty(Skin.String(CustomSearchTerm))">plugin://plugin.video.youtube/kodion/search/list</value>
+    </variable>
     <variable name="autocomplete">
         <value>plugin://plugin.video.youtube/kodion/search/list/</value>
         <value>plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Control.GetLabel(312).index(1)]&amp;&amp;limit=9</value>

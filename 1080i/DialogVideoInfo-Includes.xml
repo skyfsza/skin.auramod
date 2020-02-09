@@ -1094,7 +1094,7 @@
             <control type="group">
               <animation effect="zoom" end="150" time="0" condition="Skin.HasSetting(VideoInfo.LargePlot)">Conditional</animation>
               <height>80</height>
-              <right>980</right>
+              <right>490</right>
               <visible>Skin.HasSetting(VideoInfo.LargePlot) + !Control.HasFocus(9550)</visible>
               <visible>!Control.HasFocus(9601) + !Control.HasFocus(8999) + !ControlGroup(9000).HasFocus</visible>
               <include content="Object_Ratings" condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(Home.xml) | Window.IsVisible(script-globalsearch.xml)">

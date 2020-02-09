@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	
+    <variable name="searchhistorylabel">
+	<value condition="String.Contains(ListItem.Label,New Search)">[B]Search History[/B]</value>
+	<value condition="!String.Contains(ListItem.Label,New Search)">$INFO[ListItem.Label]</value>
+    </variable>
+
     <variable name="videoinfo_rtmeter">
 	 <value condition="!String.IsEmpty(ListItem.Property(rottentomatoes_rating))">$INFO[ListItem.Property(rottentomatoes_rating)]</value>
 	 <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Rating))">$INFO[Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Rating)]</value>
@@ -281,6 +286,7 @@
 
     <!-- Spotlight Info @cartmandos -->
     <variable name="DetailsSpinImage">
+        <value condition="!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Awards)) + Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Awards))">awards</value>
         <value condition="Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards))">awards</value>
         <value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))">star</value>
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250),0)">awards</value>
@@ -298,12 +304,13 @@
         <value condition="Control.IsVisible(506) + !String.IsEmpty(Container(5056).ListItem.Genre)">genre</value>
         <value condition="Control.IsVisible(505) + !String.IsEmpty(Container(5055).ListItem.Cast)">star</value>
         <value condition="Control.IsVisible(506) + !String.IsEmpty(Container(5056).ListItem.Cast)">star</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))">genre</value>
         <value condition="String.IsEmpty(Window(Home).Property(TMDbHelper.IsUpdating)) + !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Genre))">genre</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))">genre</value>
     </variable>
 
    <!-- Spotlight buttons @cartmandos -->
     <variable name="NetflixDetailsSpin">
+        <value condition="!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Awards)) + Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Awards))">[I]$INFO[Window(Home).Property(SkinHelper.ListItem.Awards)][/I]</value>
         <value condition="Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards))">[I]$INFO[Window(Home).Property(SkinHelper.ListItem.Awards)][/I]</value>
         <value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))">[I]Staring $INFO[Window(Home).Property(SkinHelper.ListItem.CastListing)][/I]</value>
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250),0)">[I]Ranked $INFO[Window(Home).Property(SkinHelper.ListItem.IMDB.Top250)] in IMDB Top 250[/I]</value>
@@ -321,8 +328,8 @@
         <value condition="Control.IsVisible(506) + !String.IsEmpty(Container(5056).ListItem.Genre)">[I]$INFO[Container(5056).ListItem.Genre][/I]</value>
         <value condition="Control.IsVisible(505) + !String.IsEmpty(Container(5055).ListItem.Cast)">[I]$INFO[Container(5055).ListItem.Cast][/I]</value>
         <value condition="Control.IsVisible(506) + !String.IsEmpty(Container(5056).ListItem.Cast)">[I]$INFO[Container(5056).ListItem.Cast][/I]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))">[I]$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)][/I]</value>
         <value condition="String.IsEmpty(Window(Home).Property(TMDbHelper.IsUpdating))	 + !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Genre))">[I]$INFO[Window(Home).Property(TMDBHelper.ListItem.Genre)][/I]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))">[I]$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)][/I]</value>
     </variable>
 
 

@@ -963,7 +963,7 @@
 
         <itemlayout width="366" height="210">
           <include content="Widget_Items_ItemLayout">
-            <param name="landscapenetflix" value="true" />
+            <param name="landscape" value="true" />
             <param name="genres" value="$PARAM[genres]" />
             <param name="studios" value="$PARAM[studios]" />
             <param name="text" value="$PARAM[text]" />
@@ -972,7 +972,7 @@
         <focusedlayout width="366" height="210">
           <include content="Widget_Items_FocusedLayout">
             <param name="id" value="5056" />
-            <param name="landscapenetflix" value="true" />
+            <param name="landscape" value="true" />
             <param name="genres" value="$PARAM[genres]" />
             <param name="studios" value="$PARAM[studios]" />
             <param name="text" value="$PARAM[text]" />
@@ -3117,7 +3117,7 @@
             <control type="group">
                 <height>70</height>
                 <bottom>0</bottom>
-                <visible>!Control.IsVisible(52) + !String.IsEqual(ListItem.DBType,episode) + !String.IsEqual(ListItem.DBType,season) + [!Skin.HasSetting(DisableClearlogo) | Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))] + !Skin.HasSetting(WidgetLabels) | Window.IsVisible(1138)</visible>
+                <visible>!Control.IsVisible(52) + !String.IsEqual(ListItem.DBType,episode) + !String.IsEqual(ListItem.DBType,season) + [!Skin.HasSetting(DisableClearlogo) | Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))] + !Skin.HasSetting(WidgetLabels)</visible>
 		<visible>Window.IsVisible(DialogVideoInfo.xml)</visible>
                 <control type="image">
                     <texture background="true" colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>

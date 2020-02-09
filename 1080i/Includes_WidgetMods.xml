@@ -198,7 +198,7 @@
             <control type="group">
                 <height>50</height>
                 <bottom>0</bottom>
-                <visible>[!String.IsEqual(ListItem.DBType,episode) + Window.IsVisible(DialogVideoInfo.xml)] + [!Skin.HasSetting(DisableClearlogo) | [Skin.HasSetting(DisableClearlogo) + [String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))]]] + !Skin.HasSetting(WidgetLabels)</visible>
+                <visible>[!Skin.HasSetting(DisableClearlogo) | [Skin.HasSetting(DisableClearlogo) + [String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))]]] + !Skin.HasSetting(WidgetLabels)</visible>
                 <control type="image">
                     <texture background="true" colordiffuse="99000000" border="10" flipy="true">diffuse/halfbox.png</texture>
                 </control>
@@ -264,7 +264,7 @@
 	<height>75%</height>
 	<texture background="true">$VAR[Image_Clearart_Widget]</texture>
     </control>
-
+        <include>seemore</include>
      <control type="group">
        <visible>String.IsEqual(ListItem.DBType,episode)</visible>
       <control type="image">
@@ -612,13 +612,13 @@
        <visible>!String.Contains(ListItem.Path,plugin.video.youtube) + !Skin.HasSetting(WidgetLabels) + String.IsEqual(ListItem.DBType,episode) + [!String.IsEmpty(ListItem.Art(clearlogo)) | !String.IsEmpty(ListItem.DBID) + !String.IsEmpty(ListItem.Art(tvshow.clearlogo))] + [[Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixSmallWidget)] | !Skin.HasSetting(DisableAuraHomeLayout)]</visible>
       <control type="image">
         <left>0</left>
-	<bottom>30</bottom>
+	<bottom>10</bottom>
         <height>45</height>
         <width>90</width>
         <texture background="true" colordiffuse="99FF0000" flipy="true">diffuse/halfbox.png</texture>
       </control>
      <control type="textbox">
-	<bottom>10</bottom>
+	<bottom>-10</bottom>
         <left>4</left>
         <height>55</height>
         <width>90</width>
@@ -628,25 +628,6 @@
        </control>
      </control>
 
-     <control type="group">
-       <visible>!String.Contains(ListItem.Path,plugin.video.youtube) + !Skin.HasSetting(WidgetLabels) + !String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEqual(ListItem.DBType,episode) + [Skin.HasSetting(DisableAuraHomeLayout) + Skin.HasSetting(DisableNetflixSmallWidget)]</visible>
-      <control type="image">
-        <left>0</left>
-        <bottom>20</bottom>
-        <height>30</height>
-        <width>90</width>
-        <texture background="true" colordiffuse="99FF0000" flipy="true">diffuse/halfbox.png</texture>
-      </control>
-     <control type="textbox">
-        <bottom>0</bottom>
-        <left>4</left>
-        <height>45</height>
-        <width>90</width>
-        <label>[I]$INFO[ListItem.Season, S,: ]$INFO[ListItem.Episode,E, ][/I]</label>
-        <textcolor>white</textcolor>
-        <font>widget_overlaybutton</font>
-       </control>
-     </control>
 	<!-- Add Clearlogo to landscape Image -->
         <control type="image">
           <bottom>-10</bottom>
@@ -962,4 +943,122 @@
     </definition>
   </include>
   <!-- END Poster Details  Widget -->
+
+
+ <include name="showcase_nohide">
+    <param name="id" default="$PARAM[id]" />
+    <param name="landscapecondition" default="$PARAM[landscapecondition]" />
+    <definition>
+            <control type="group">
+              <control type="label">
+                <top>10</top>
+                <width>500</width>
+                <height>30</height>
+                <left>30</left>MMM
+                <font>font_small</font>
+                <textcolor>dimgrey</textcolor>
+                <label>S$INFO[Container($PARAM[id]).ListItem.Season]: E$INFO[Container($PARAM[id]).ListItem.Episode] - $INFO[Container($PARAM[id]).ListItem.Label]</label>
+                <scroll>false</scroll>
+		<visible>String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode)</visible>
+              </control>
+              <control type="label">
+                <top>10</top>
+                <width>500</width>
+                <height>30</height>
+                <left>30</left>
+                <font>font_small</font>
+                <textcolor>dimgrey</textcolor>
+                <label>$INFO[Container($PARAM[id]).ListItem.Genre]</label>
+                <scroll>false</scroll>
+		<visible>!String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode)</visible>
+              </control>
+              <control type="label">
+                <top>30</top>
+                <height>60</height>
+                <width>520</width>
+                <left>30</left>
+                <font>font_large_bold</font>
+                <textcolor>grey</textcolor>
+                <label>$INFO[Container($PARAM[id]).ListItem.TvShowTitle]</label>
+                <scroll>true</scroll>
+		<visible>!String.IsEmpty(Container($PARAM[id]).ListItem.TvShowTitle)</visible>
+              </control>
+              <control type="label">
+                <top>30</top>
+                <height>60</height>
+                <width>520</width>
+                <left>30</left>
+                <font>font_large_bold</font>includenetflix_infoline
+                <textcolor>grey</textcolor>
+                <label>$INFO[Container($PARAM[id]).ListItem.Label]</label>
+                <scroll>true</scroll>
+		<visible>String.IsEmpty(Container($PARAM[id]).ListItem.TvShowTitle)</visible>
+              </control>
+              <control type="group">
+                <top>100</top>
+                <left>30</left>
+	        <include content="netflix_infoline_container">
+       		   <param name="id" value="$PARAM[id]" />
+        	</include>
+                <animation effect="zoom" start="100" end="80" time="0" reversible="false" sine="inout" condition="Control.IsVisible($PARAM[id])">Conditional</animation>
+              </control>
+
+              <control type="grouplist">
+                <top>160</top>
+                <height>250</height>
+                <left>30</left>
+                <control type="textbox">
+                  <height min="50" max="155">auto</height>
+                  <label fallback="19055">$INFO[Container($PARAM[id]).ListItem.Plot]</label>
+                  <align>left</align>
+                  <width>580</width>
+                  <textcolor>dimgrey</textcolor>
+                  <shadowcolor>black</shadowcolor>
+                  <font>widget_live_title</font>
+                  <autoscroll delay="5000" time="1500" repeat="5000">false</autoscroll>
+                  <visible>!Integer.IsGreater(Container($PARAM[id]).ListItem.PercentPlayed,1)</visible>
+                </control>
+                <control type="textbox">
+                  <height min="50" max="90">auto</height>
+                  <label fallback="19055">$INFO[Container($PARAM[id]).ListItem.Plot]</label>
+                  <align>left</align>
+                  <width>580</width>
+                  <textcolor>dimgrey</textcolor>
+                  <shadowcolor>black</shadowcolor>
+                  <font>widget_live_title</font>
+                  <autoscroll delay="5000" time="1500" repeat="5000">false</autoscroll>
+                  <visible>Integer.IsGreater(Container($PARAM[id]).ListItem.PercentPlayed,1)</visible>
+                </control>
+                <control type="label">
+                  <height>30</height>
+                </control>
+                <control type="group">
+                  <visible>Integer.IsGreater(ListItem.PercentPlayed,1) | Integer.IsGreater(Window(Home).Property(ListItem.PercentPlayed),1)</visible>
+                  <width>650</width>
+                  <height>30</height>
+                  <aligny>center</aligny>
+                  <control type="progress">
+                    <width>185</width>
+                    <height>11</height>
+                    <texturebg colordiffuse="cc515151" border="0">colors/color_white.png</texturebg>
+                    <lefttexture />
+                    <midtexture colordiffuse="red" border="4">colors/color_white.png</midtexture>
+                    <righttexture />
+                    <info>ListItem.PercentPlayed</info>
+                  </control>
+                  <control type="label">
+                    <top>-12</top>
+                    <left>200</left>
+                    <height>25</height>
+                    <width>450</width>
+                    <font>Netflix_Info_main</font>
+                    <textcolor>grey</textcolor>
+                    <label>$VAR[ListItemPercentRemained,,% remaining]</label>
+                  </control>
+                </control>
+              </control>
+            </control>
+    </definition>
+ </include>
+
 </includes>

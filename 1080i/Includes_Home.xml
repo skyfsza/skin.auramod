@@ -259,6 +259,21 @@
                     <visible>Skin.HasSetting(DisableNetflixHomeDefault) + !Skin.HasSetting(DisableNetflixSubmenuBG)</visible>
                 </control>
 
+<!--
+                    <control type="button" id="1300">
+			<top>150</top>
+                        <left>-280</left>
+			<width>240</width>
+                        <height>85</height>
+                        <ondown>SetFocus(300)</ondown>
+                        <onclick>ActivateWindow(1136)</onclick>
+			<label>Search</label>
+	                <align>right</align>
+	                <font>font_small</font>
+		        <textcolor>dimgrey</textcolor>
+		        <focusedcolor>white</focusedcolor>
+                    </control>
+-->
 		<control type="list" id="300">
                         <include>Home_OnFocus</include>
 		        <onfocus>ClearProperty(SpotReturnHome)</onfocus>
@@ -266,7 +281,6 @@
 			<onfocus>SetProperty(SpotFocus,true,Home)</onfocus>
 			<onfocus>Skin.Reset(TVHubMenuFocus)</onfocus>
 			<onfocus>Skin.Reset(MovieHubMenuFocus)</onfocus>
-
 		        <onleft condition="String.IsEqual(Container(300).ListItem.Property(menulist),TV Menu) + String.IsEqual(Container(300).ListItem.Property(menuonleft),true)">SetFocus(400,0)</onleft>
 		        <onleft condition="String.IsEqual(Container(300).ListItem.Property(menulist),Movie Menu) + String.IsEqual(Container(300).ListItem.Property(menuonleft),true)">SetFocus(401,0)</onleft>
 
@@ -299,7 +313,6 @@
                         <onright condition="[Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">50</onright>
                         <onright condition="Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">9500</onright>
 		        <onright>ClearProperty(spotback)</onright>
-
                         <include>Global_Overlay</include>
                         <include>Defs_InfoDialog_Visible</include>
 

@@ -45,6 +45,13 @@
                             <onclick>Skin.ToggleSetting(EnableSearchDefaultKB)</onclick>
                             <selected>Skin.HasSetting(EnableSearchDefaultKB)</selected>
                         </control>
+                        <control type="radiobutton" id="8003" description="Enable Yt Search History">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label> - Enable Search History (requires youtube list)</label>
+                            <radioposx>730</radioposx>
+                            <onclick>Skin.ToggleSetting(EnableSearchHistory)</onclick>
+                            <selected>Skin.HasSetting(EnableSearchHistory)</selected>
+                        </control>
             </control>
         </control>
     </controls>

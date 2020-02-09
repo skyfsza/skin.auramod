@@ -321,16 +321,13 @@
                         </control>
 
 
-<!--
-                        <control type="radiobutton" id="9102" description="Touch / Mouse enabled widgets">
+                        <control type="radiobutton" id="9102" description="Disable onleft Menu Focus">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31364]</label>
-                            <selected>Skin.HasSetting(MouseMode)</selected>
-                            <onclick>Skin.ToggleSetting(MouseMode)</onclick>
-                            <onclick>ReloadSkin()</onclick>
+                            <label> - Disable onleft Menu Focus</label>
+                            <selected>Skin.HasSetting(DisableMenuOnLeft)</selected>
+                            <onclick>Skin.ToggleSetting(DisableMenuOnleft)</onclick>
                         </control>
--->
                         <control type="radiobutton" id="9670" description="Default Select Action Show Information">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9001)</visible>
                             <include>Defs_Settings_Button</include>
@@ -1359,7 +1356,7 @@
                        <control type="radiobutton" id="9108" description="Prefer fanart">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>$LOCALIZE[31369]</label>
+                            <label>Use TV Show Fanart for Episodes</label>
                             <selected>Skin.HasSetting(PreferFanartHome)</selected>
                             <onclick>Skin.ToggleSetting(PreferFanartHome)</onclick>
                         </control>

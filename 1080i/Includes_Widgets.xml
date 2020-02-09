@@ -146,12 +146,12 @@
               <animation effect="fade" end="0" condition="true">Conditional</animation>
             </control>
             <control type="group">
-              <visible>String.IsEqual(Container(300).ListItem.Property(widget),Weather) | String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)</visible>
+              <visible>[String.IsEqual(Container(300).ListItem.Property(widget),Weather) + [!String.IsEqual(Container(300).ListItem.Property(widgetType),Default) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget)]] | String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)</visible>
               <include>Weather</include>
             </control>
             <!-- Settings Widget -->
             <control type="group">
-              <visible>String.IsEqual(Container(300).ListItem.Property(widget),Settings) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget)</visible>
+              <visible>[String.IsEqual(Container(300).ListItem.Property(widget),Settings) +  [!String.IsEqual(Container(300).ListItem.Property(widgetType),Default) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)]]  | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget)</visible>
               <include condition="Skin.HasSetting(SettingsNew)">Widget_Settings</include>
               <include condition="!Skin.HasSetting(SettingsNew)">Widget_Settings_New</include>
             </control>
@@ -179,9 +179,9 @@
       <onup condition="!Skin.HasSetting(DisableMenuHor) + Integer.IsGreater(Container(30222).NumItems,0) + !String.IsEqual(Container(300).ListItem.Property(widgethub),true) | [String.IsEqual(Container(300).ListItem.Property(widgethub),true) + !Integer.IsGreater(Container(30221).NumItems,0)]">SetFocus(30222)</onup>
       <onup condition="!Skin.HasSetting(DisableMenuHor) + !String.IsEqual(Container(300).ListItem.Property(widgethub),true)">300</onup>
       <onleft condition="!$EXP[noSubMenu] + [$EXP[MovieSpotlight] | $EXP[TVSpotlight]]">9999</onleft>
-      <onleft condition="Control.HasFocus(30222) + !Skin.HasSetting(DisableMenuHor)">300</onleft>
-      <onleft condition="!String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)">300</onleft>
-      <onleft condition="!Skin.HasSetting(DisableMenuHor)">SetFocus(300)</onleft>
+      <onleft condition="Control.HasFocus(30222) + !Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuOnLeft)">300</onleft>
+      <onleft condition="!String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true) + !Skin.HasSetting(DisableMenuOnLeft)">300</onleft>
+      <onleft condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuOnLeft)">SetFocus(300)</onleft>
       <onleft condition="Skin.HasSetting(DisableMenuHor) + String.IsEqual(Container(300).ListItem.Property(menulist),TV Menu) + String.IsEqual(Container(300).ListItem.Property(menuonleft),true)">SetFocus(400,0)</onleft>
       <onleft condition="Skin.HasSetting(DisableMenuHor) + String.IsEqual(Container(300).ListItem.Property(menulist),Movie Menu) + String.IsEqual(Container(300).ListItem.Property(menuonleft),true)">SetFocus(401,0)</onleft>
       <ondown>3337</ondown>
@@ -268,6 +268,7 @@
     <param name="movement" default="1" />
     <param name="focusposition" default="1" />
     <param name="Showcase" default="false" />
+    <param name="Showcasehide" default="true" />
     <param name="orientation" default="horizontal" />
     <param name="path" default="" />
     <param name="path2" default="" />
@@ -283,7 +284,7 @@
           <width>100%</width>
           <height>390</height>
           <texture background="true" colordiffuse="99000000">common/white.png</texture>
-          <visible>$PARAM[postercondition] + Control.HasFocus($PARAM[id])</visible>
+          <visible>[$PARAM[postercondition] + Control.HasFocus($PARAM[id]) + $PARAM[Showcasehide]] | [Control.IsVisible($PARAM[id]) + $PARAM[postercondition] + !$PARAM[Showcasehide]] </visible>
         </control>
         <control type="group">
           <control type="image">
@@ -291,21 +292,30 @@
             <width>100%</width>
             <height>355</height>
             <texture background="true" colordiffuse="990000000">common/white.png</texture>
-            <visible>$PARAM[landscapecondition] + Control.HasFocus($PARAM[id])</visible>
+            <visible>$PARAM[landscapecondition]</visible>
+          <visible>[$PARAM[landscapecondition] + Control.HasFocus($PARAM[id]) + $PARAM[Showcasehide]] | [Control.IsVisible($PARAM[id]) + $PARAM[landscapecondition] + !$PARAM[Showcasehide]] </visible>
           </control>
           <control type="image">
             <top>-170</top>
             <width>100%</width>
             <height>430</height>
             <texture background="true" colordiffuse="990000000">common/white.png</texture>
-            <visible>$PARAM[landscapepanelcondition] + Control.HasFocus($PARAM[id])</visible>
+          <visible>[$PARAM[landscapepanelcondition] + Control.HasFocus($PARAM[id]) + $PARAM[Showcasehide]] | [Control.IsVisible($PARAM[id]) + $PARAM[landscapepanelcondition] + !$PARAM[Showcasehide]] </visible>
           </control>
           <control type="group">
-            <top>-150</top>
+	<control type="group">
+            <top>-140</top>
+	<visible>Control.IsVisible($PARAM[id]) + $PARAM[Showcase] + !$PARAM[Showcasehide] + !Control.HasFocus($PARAM[id])</visible>
+        <include content="showcase_nohide">
+          <param name="id" value="$PARAM[id]" />
+          <param name="landscapecondition" value="$PARAM[landscapecondition]" />
+	</include>
+	</control>
             <control type="group">
+            <top>-140</top>
               <visible>[$PARAM[postercondition] + Control.HasFocus($PARAM[id])] | [$PARAM[landscapepanelcondition] + Control.HasFocus($PARAM[id])] | [$PARAM[landscapecondition] + Control.HasFocus($PARAM[id])]</visible>
               <control type="label">
-                <top>0</top>
+                <top>10</top>
                 <width>500</width>
                 <height>30</height>
                 <left>30</left>
@@ -317,7 +327,7 @@
               <control type="label">
                 <top>30</top>
                 <height>60</height>
-                <width>520</width>
+                <width>500</width>
                 <left>30</left>
                 <font>font_large_bold</font>
                 <textcolor>grey</textcolor>
@@ -347,13 +357,13 @@
                 <height>250</height>
                 <left>30</left>
                 <control type="textbox">
-                  <height min="50" max="145">auto</height>
+                  <height min="50" max="155">auto</height>
                   <label fallback="19055">$VAR[Label_Plot]</label>
                   <align>left</align>
                   <width>580</width>
                   <textcolor>dimgrey</textcolor>
                   <shadowcolor>black</shadowcolor>
-                  <font>font_widget_plot</font>
+                  <font>widget_live_title</font>
                   <autoscroll delay="5000" time="1500" repeat="5000">true</autoscroll>
                   <visible>!Integer.IsGreater(ListItem.PercentPlayed,1)</visible>
                 </control>
@@ -364,7 +374,7 @@
                   <width>580</width>
                   <textcolor>dimgrey</textcolor>
                   <shadowcolor>black</shadowcolor>
-                  <font>font_widget_plot</font>
+                  <font>widget_live_title</font>
                   <autoscroll delay="5000" time="1500" repeat="5000">true</autoscroll>
                   <visible>Integer.IsGreater(ListItem.PercentPlayed,1)</visible>
                 </control>
@@ -434,11 +444,14 @@
         <onunfocus>ClearProperty(SpotReturnHome)</onunfocus>
         <onunfocus>ClearProperty(SpotFocus)</onunfocus>
         <onunfocus>ClearProperty(spothubscroll)</onunfocus>
-        <animation effect="slide" end="640,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
-        <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
-        <animation effect="zoom" start="100,100" end="130,100" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
-        <animation effect="slide" end="-20,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
-        <animation effect="slide" end="630,0" time="500" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+        <animation effect="slide" end="640,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+        <animation effect="slide" end="640,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + !$PARAM[Showcasehide] + $PARAM[landscapepanelcondition]">Conditional</animation>
+        <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+        <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] +  $PARAM[landscapecondition]">Conditional</animation>
+        <animation effect="zoom" start="100,100" end="130,100" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
+        <animation effect="slide" end="-20,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
+        <animation effect="slide" end="630,0" time="500" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+        <animation effect="slide" end="630,0" time="500" reversible="false" sine="inout" condition="$PARAM[Showcase] + !$PARAM[Showcasehide] + $PARAM[postercondition]">Conditional</animation>
         <left>-55</left>
         <onback condition="ControlGroup(5600).HasFocus">9000</onback>
         <include condition="$PARAM[Showcase]">Widget_Movement_Showcase</include>
@@ -824,6 +837,8 @@
         </control>
         <!-- Add Ratings -->
         <control type="grouplist">
+                <animation effect="fade" start="0" end="100" time="500" delay="200">Visible</animation>
+                <visible>!Container($PARAM[id]).OnNext + !Container($PARAM[id]).OnScrollNext + !Container($PARAM[id]).OnPrevious + !Container($PARAM[id]).OnScrollPrevious</visible>
           <visible>Control.HasFocus($PARAM[id])</visible>
           <visible>$EXP[DBTvideos]</visible>
           <visible>!Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB) + Skin.HasSetting(DisableWidgetStudio)</visible>
@@ -850,6 +865,8 @@
           </include>
         </control>
         <control type="grouplist">
+                <animation effect="fade" start="0" end="100" time="500" delay="200">Visible</animation>
+                <visible>!Container($PARAM[id]).OnNext + !Container($PARAM[id]).OnScrollNext + !Container($PARAM[id]).OnPrevious + !Container($PARAM[id]).OnScrollPrevious</visible>
           <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + !Skin.HasSetting(DisableWidgetStudio) + Skin.HasSetting(DisableWidgetIMDB)</visible>
           <visible>$EXP[DBTvideos]</visible>
           <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
