@@ -6955,7 +6955,7 @@
         </control>
         <control type="group">
           <centerleft>50%</centerleft>
-          <centertop>50%</centertop>
+          <centertop>51%</centertop>
           <width>1380</width>
           <height>920</height>
           <control type="group">

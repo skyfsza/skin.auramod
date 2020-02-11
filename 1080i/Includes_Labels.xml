@@ -2,8 +2,11 @@
 <includes>
 	
     <variable name="searchhistorylabel">
-	<value condition="String.Contains(ListItem.Label,New Search)">[B]Search History[/B]</value>
-	<value condition="!String.Contains(ListItem.Label,New Search)">$INFO[ListItem.Label]</value>
+	<value condition="[Window.IsVisible(1136) | Window.IsVisible(1138)] + String.Contains(ListItem.Label,Search Movies)">[B]Search History[/B]</value>
+	<value condition="[Window.IsVisible(1136) | Window.IsVisible(1138)]  + String.Contains(ListItem.Label,Search TV)">[B]Search History[/B]</value>
+	<value condition="[Window.IsVisible(1136) | Window.IsVisible(1138)] + String.Contains(ListItem.Label,Clear Search History)"></value>
+	<value condition="[Window.IsVisible(1136) | Window.IsVisible(1138)] + !String.Contains(ListItem.Label,New Search)">$INFO[ListItem.Label]</value>
+	<value>$INFO[ListItem.Label]</value>
     </variable>
 
     <variable name="videoinfo_rtmeter">

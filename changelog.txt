@@ -1,3 +1,9 @@
+v0.9.41.5 
+- Fix add Widgets --> Default widgets --> TV Shows
+- Change Search history to use tmdbhelper
+- Fix Showcase bugs
+- Add option for circular widget navigation on Vertical menus (Skin Settings --> Home --> Disable onleft Menu Focus
+
 v0.9.35
 - Add new Vertical side menu option
 - Settings cleanup

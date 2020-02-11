@@ -700,7 +700,7 @@
                 <shortcut widget="TvShowGenres" label="$LOCALIZE[31274]" icon="DefaultGenre.png" widgetTarget="video">library://video/tvshows/genres.xml</shortcut>
                 <shortcut widget="SimilarSerenTV" label="Because you watched $VAR[similarserentv]" icon="DefaultSets.png" widgetTarget="video">$VAR[similar_tv_content]</shortcut>
                 <shortcut widget="SimilarSerenTV 2" label="Because you watched $VAR[similarserentv2]" icon="DefaultSets.png" widgetTarget="video">$VAR[similar_tv2_content]</shortcut>
-                <shortcut widget="RandomSerenTV" label="Spotlight TV" icon="DefaultGenre.png" widgetTarget="video"></shortcut>
+                <shortcut widget="RandomSerenTV" label="Spotlight TV" icon="DefaultGenre.png" widgetTarget="video">videodb://tv</shortcut>
             </node>
             <node label="$LOCALIZE[20360]">
                 <shortcut widget="NewEpisodes" label="$LOCALIZE[31214]" icon="DefaultRecentlyAddedMovies.png" widgetTarget="video">special://skin/extras/playlists/NewEpisodes.xsp</shortcut>

@@ -5,10 +5,10 @@
 	<value>skinshortcuts-template-searchlist</value>
     </variable>
     <variable name="searchhistory">
-	<value condition="String.IsEmpty(Skin.String(CustomSearchTerm))">plugin://plugin.video.youtube/kodion/search/list</value>
+	<value condition="String.IsEmpty(Skin.String(CustomSearchTerm))">plugin://plugin.video.themoviedb.helper/?fanarttv=True&info=dir_search&nextpage=True&type=movie</value>
     </variable>
     <variable name="autocomplete">
-        <value>plugin://plugin.video.youtube/kodion/search/list/</value>
+        <value condition="Window.IsVisible(1136) + String.IsEmpty(Skin.String(CustomSearchTerm))">plugin://plugin.video.themoviedb.helper/?fanarttv=True&info=dir_search&nextpage=True&type=movie</value>
         <value>plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Control.GetLabel(312).index(1)]&amp;&amp;limit=9</value>
     </variable>
     <variable name="Play_tmdb">

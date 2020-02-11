@@ -185,7 +185,7 @@
       <onleft condition="Skin.HasSetting(DisableMenuHor) + String.IsEqual(Container(300).ListItem.Property(menulist),TV Menu) + String.IsEqual(Container(300).ListItem.Property(menuonleft),true)">SetFocus(400,0)</onleft>
       <onleft condition="Skin.HasSetting(DisableMenuHor) + String.IsEqual(Container(300).ListItem.Property(menulist),Movie Menu) + String.IsEqual(Container(300).ListItem.Property(menuonleft),true)">SetFocus(401,0)</onleft>
       <ondown>3337</ondown>
-      <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabelOnly) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
+      <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabelOnly) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.HasFocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
       <control type="group" id="331" description="Spacer">
         <height>250</height>
 	<visible>!Skin.HasSetting(DisableAuraModeGap) | Skin.HasSetting(DisableMenuHor)</visible>
@@ -275,8 +275,6 @@
     <definition>
       <control type="group" id="4$PARAM[id]">
         <visible>Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(Home)</visible>
-        <animation effect="fade" start="0" end="100" time="700" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
-        <animation effect="fade" start="0" end="100" time="700" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
         <animation effect="slide" end="0,-45" time="0" condition="!Skin.HasSetting(SubmenuLabel)">Conditional</animation>
         <visible>$PARAM[Showcase] + Integer.IsGreater(Container($PARAM[id]).NumItems,0)</visible>
         <control type="image">
@@ -350,7 +348,7 @@
                 <top>100</top>
                 <left>30</left>
                 <include>netflix_infoline</include>
-                <animation effect="zoom" start="100" end="80" time="0" reversible="false" sine="inout" condition="Control.Hasfocus($PARAM[id])">Conditional</animation>
+                <animation effect="zoom" start="100" end="80" time="0" reversible="false" sine="inout" condition="Control.HasFocus($PARAM[id])">Conditional</animation>
               </control>
               <control type="grouplist">
                 <top>160</top>
@@ -444,14 +442,16 @@
         <onunfocus>ClearProperty(SpotReturnHome)</onunfocus>
         <onunfocus>ClearProperty(SpotFocus)</onunfocus>
         <onunfocus>ClearProperty(spothubscroll)</onunfocus>
-        <animation effect="slide" end="640,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapepanelcondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+        <animation effect="slide" end="640,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapepanelcondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
         <animation effect="slide" end="640,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + !$PARAM[Showcasehide] + $PARAM[landscapepanelcondition]">Conditional</animation>
-        <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapecondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
-        <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] +  $PARAM[landscapecondition]">Conditional</animation>
-        <animation effect="zoom" start="100,100" end="130,100" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
-        <animation effect="slide" end="-20,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapepanelcondition] + !Control.Hasfocus($PARAM[id])">Conditional</animation>
-        <animation effect="slide" end="630,0" time="500" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[postercondition] + Control.Hasfocus($PARAM[id])">Conditional</animation>
+        <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapecondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
+        <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + !$PARAM[Showcasehide] +  $PARAM[landscapecondition]">Conditional</animation>
+        <animation effect="zoom" start="100,100" end="130,100" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapepanelcondition] + !Control.HasFocus($PARAM[id])">Conditional</animation>
+        <animation effect="slide" end="-20,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapepanelcondition] + !Control.HasFocus($PARAM[id])">Conditional</animation>
+        <animation effect="slide" end="630,0" time="500" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[postercondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
         <animation effect="slide" end="630,0" time="500" reversible="false" sine="inout" condition="$PARAM[Showcase] + !$PARAM[Showcasehide] + $PARAM[postercondition]">Conditional</animation>
+
+
         <left>-55</left>
         <onback condition="ControlGroup(5600).HasFocus">9000</onback>
         <include condition="$PARAM[Showcase]">Widget_Movement_Showcase</include>
@@ -959,7 +959,7 @@
     <param name="top" default="0" />
     <param name="height" default="480" />
     <definition>
-      <animation effect="fade" start="100" end="0" time="200" condition="Control.HasFocus(3022) | Control.Hasfocus(30221)">Conditional</animation>
+      <animation effect="fade" start="100" end="0" time="200" condition="Control.HasFocus(3022) | Control.HasFocus(30221)">Conditional</animation>
       <include content="Widget_Common_Submenu">
         <param name="top" value="$PARAM[top]" />
         <param name="height" value="$PARAM[height]" />
@@ -1962,7 +1962,7 @@
     <control type="group" id="900">
       <visible>$EXP[LiveTVSpotlight]</visible>
       <animation effect="slide" start="0,0" end="0,105" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(DisableMenuHor) + [$EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
-      <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabelOnly) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
+      <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabelOnly) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.HasFocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
       <description>Live TV</description>
       <width>2320</width>
       <height>780</height>
@@ -2492,7 +2492,7 @@
       <left>view_pad</left>
       <right>view_pad</right>
       <bottom>view_pad</bottom>
-      <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuVertIcon) + [Control.Hasfocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
+      <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuVertIcon) + [Control.HasFocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
       <animation effect="slide" end="40,0" time="500" delay="0" condition="Skin.HasSetting(DisableMenuVertLabelOnly) + [!Control.HasFocus(300) | !Control.HasFocus(400) | !Control.HasFocus(401)]" reversible="true">Conditional</animation>
       <control type="grouplist">
         <top>20</top>
