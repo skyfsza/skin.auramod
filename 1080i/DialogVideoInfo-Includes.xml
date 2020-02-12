@@ -1388,10 +1388,10 @@
             <radiowidth>45</radiowidth>
             <radioheight>48</radioheight>
             <radioposx>2</radioposx>
-            <label>Add to Watchlist</label>
-            <onclick condition="String.IsEqual(ListItem.DBType,tvshow)">RunPlugin(plugin://plugin.video.themoviedb.helper?info=details&amp;trakt=watchlist_add&amp;tmdb_id=$INFO[ListItem.Property(tmdb_id)]&amp;type=tv)</onclick>
-            <onclick condition="String.IsEqual(ListItem.DBType,movie)">RunPlugin(plugin://plugin.video.themoviedb.helper?info=details&amp;trakt=watchlist_add&amp;tmdb_id=$INFO[ListItem.Property(tmdb_id)]&amp;type=movie)</onclick>
-            <visible>[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)] + String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Skin.HasSetting(VideoInfoButton.Watchlist) + !Skin.HasSetting(VideoInfo.Disable) + !String.IsEmpty(ListItem.Property(tmdb_id))</visible>
+            <label>Add/Remove from Watchlist</label>
+	    <onclick condition="String.IsEqual(ListItem.DBType,movie)">RunScript(plugin.video.themoviedb.helper,sync_trakt=watchlist,tmdb_id=$INFO[ListItem.Property(tmdb_id)],type=movie,cache_refresh)</onclick>
+            <onclick condition="String.IsEqual(ListItem.DBType,tvshow)">RunScript(plugin.video.themoviedb.helper,sync_trakt=watchlist,tmdb_id=$INFO[ListItem.Property(tmdb_id)],type=tv)</onclick>
+            <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.TraktIsAuth)) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)] + String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Skin.HasSetting(VideoInfoButton.Watchlist) + !Skin.HasSetting(VideoInfo.Disable) + !String.IsEmpty(ListItem.Property(tmdb_id))</visible>
           </control>
           <!-- Trailer-->
           <control type="radiobutton" id="34">

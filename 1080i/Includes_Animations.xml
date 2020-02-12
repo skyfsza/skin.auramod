@@ -36,7 +36,6 @@
     <ondown condition="!Control.IsVisible(509) + !Skin.HasSetting(EnableTrailerOnDown)">9601</ondown>
     <!-- get fullscreen , <tab>FullScreen</tab> -->
     <ondown condition="!Control.IsVisible(509) + Skin.HasSetting(EnableTrailerOnDown) + Player.HasVideo">fullscreen</ondown>
-    <onup condition="!Control.IsVisible(509) + Skin.HasSetting(EnableTrailerOnDown) + Player.HasVideo">Stop</onup>
   </include>
   <include name="trailer_down5055">
     <!-- play yt trailer if scraped empty -->

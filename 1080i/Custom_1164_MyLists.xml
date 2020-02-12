@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window type="dialog" id="1164">
+    <defaultcontrol always="true">8000</defaultcontrol>
+    <controls>
+	<control type="image">
+	    <width>100%</width>
+	    <height>100%</height>
+	    <texture colordiffuse="CC000000" background="true">common/white.png</texture>
+	</control>
+        <control type="group">
+            <include content="Dialog_Standard_Group">
+                <param name="width" value="1250" />
+                <param name="height" value="820" />
+            </include>
+            <control type="label">
+                <description>Header Label</description>
+                <label>[CAPITALIZE]My Lists Configuration[/CAPITALIZE]</label>
+                <textcolor>grey</textcolor>
+                <shadowcolor>dimgrey</shadowcolor>
+                <font>font_heading_small</font>
+                <include>Dialog_Standard_Header</include>
+            </control>
+
+            <control type="grouplist" id="8000">
+                <description>Control Area</description>
+                <left>20</left>
+                <width>580</width>
+                <top>100</top>
+		<height>800</height>
+                <itemgap>10</itemgap>
+                <orientation>vertical</orientation>
+                <pagecontrol>60</pagecontrol>
+                <usecontrolcoords>true</usecontrolcoords>
+
+                       <control type="button" id="8001" description="Configure Search lists">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label>Configure Movie List</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1101)</onclick>
+			    <onright>SetFocus(8101)</onright>
+                        </control>
+                       <control type="button" id="8002" description="Configure Search lists">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label>Configure TV List</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1103)</onclick>
+                            <onright>SetFocus(8102)</onright>
+                        </control>
+                       <control type="button" id="8003" description="Configure Search lists">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label>Configure My Lists 1</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1105)</onclick>
+                            <onright>SetFocus(8103)</onright>
+                        </control>
+                       <control type="button" id="8004" description="Configure Search lists">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label>Configure My Lists 2</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1106)</onclick>
+                            <onright>SetFocus(8104)</onright>
+                        </control>
+                       <control type="button" id="8005" description="Configure Search lists">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label>Configure My Lists 3</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1107)</onclick>
+                            <onright>SetFocus(8105)</onright>
+                        </control>
+                       <control type="button" id="8006" description="Configure Search lists">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label>Configure Addons Lists 1</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1110)</onclick>
+                        </control>
+                       <control type="button" id="8007" description="Configure Search lists">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label>Configure Addons Lists 2</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1111)</onclick>
+                        </control>
+                       <control type="button" id="8008" description="Configure Search lists">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label>Configure LiveTV Lists 1</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1112)</onclick>
+                        </control>
+                       <control type="button" id="8009" description="Configure Search lists">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label>Configure LiveTV Lists 2</label>
+                            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x1113)</onclick>
+                        </control>
+
+            </control>
+            <control type="grouplist" id="8100">
+                <description>Control Area</description>
+                <right>40</right>
+                <width>580</width>
+                <top>100</top>
+		<height>400</height>
+                <itemgap>10</itemgap>
+                <orientation>vertical</orientation>
+                <pagecontrol>60</pagecontrol>
+                <usecontrolcoords>true</usecontrolcoords>
+                        <control type="radiobutton" id="8101" description="Aura Style">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label>Use AuraMod style for Menu Hub</label>
+                            <radioposx>530</radioposx>
+                            <onclick>Skin.ToggleSetting(EnableAuraMovie1)</onclick>
+                            <selected>Skin.HasSetting(EnableAuraMovie1)</selected>
+			    <visible>Control.HasFocus(8001) | Control.HasFocus(8101)</visible>
+			    <onleft>SetFocus(8001)</onleft>
+                        </control>
+                        <control type="radiobutton" id="8102" description="Aura Style">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label>Use AuraMod style for Menu Hub</label>
+                            <radioposx>530</radioposx>
+                            <onclick>Skin.ToggleSetting(EnableAuraTV1)</onclick>
+                            <selected>Skin.HasSetting(EnableAuraTV1)</selected>
+                            <visible>Control.HasFocus(8002) | Control.HasFocus(8102)</visible>
+                            <onleft>SetFocus(8002)</onleft>
+                        </control>
+                        <control type="radiobutton" id="8103" description="Aura Style">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label>Use AuraMod style for Menu Hub</label>
+                            <radioposx>530</radioposx>
+                            <onclick>Skin.ToggleSetting(EnableAuraMy1)</onclick>
+                            <selected>Skin.HasSetting(EnableAuraMy1)</selected>
+                            <visible>Control.HasFocus(8003) | Control.HasFocus(8103)</visible>
+                            <onleft>SetFocus(8003)</onleft>
+                        </control>
+                        <control type="radiobutton" id="8104" description="Aura Style">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label>Use AuraMod style for Menu Hub</label>
+                            <radioposx>530</radioposx>
+                            <onclick>Skin.ToggleSetting(EnableAuraMy2)</onclick>
+                            <selected>Skin.HasSetting(EnableAuraMy2)</selected>
+                            <visible>Control.HasFocus(8004) | Control.HasFocus(8104)</visible>
+                            <onleft>SetFocus(8004)</onleft>
+                        </control>
+                        <control type="radiobutton" id="8105" description="Aura Style">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label>Use AuraMod style for Menu Hub</label>
+                            <radioposx>530</radioposx>
+                            <onclick>Skin.ToggleSetting(EnableAuraMy3)</onclick>
+                            <selected>Skin.HasSetting(EnableAuraMy3)</selected>
+                            <visible>Control.HasFocus(8005) | Control.HasFocus(8105)</visible>
+                            <onleft>SetFocus(8005)</onleft>
+                        </control>
+            </control>
+ 
+
+
+        </control>
+    </controls>
+</window>

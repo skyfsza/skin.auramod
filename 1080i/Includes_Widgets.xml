@@ -59,7 +59,7 @@
                   <param name="type" value="Movies" />
                   <param name="visible" value="$EXP[MovieSpotlight]" />
                 </include>
-                <include content="Spotlight_MultiWidget" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight)">
+                <include content="Spotlight_MultiWidget" condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableTVMultiWidgetSpotlight)">
                   <param name="id" value="1505" />
                   <param name="content" value="$VAR[tvshowmultispotlightpath]" />
                   <param name="type" value="TVShows" />
@@ -69,7 +69,7 @@
               <!-- Spotlight Widget -->
               <control type="group">
                 <left>60</left>
-                <include content="Spotlight_AuraWidget" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(EnableWidgetSpotlight)">
+                <include content="Spotlight_AuraWidget" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(EnableTVWidgetSpotlight)">
                   <param name="id" value="1505" />
                   <param name="content" value="$VAR[tvshowspotlightpath]" />
                   <param name="type" value="TVShows" />
@@ -80,7 +80,7 @@
                 <left>60</left>
                 <animation effect="fade" start="0" end="100" time="1500" delay="50">Visible</animation>
                 <visible>!Container(1505).OnNext + !Container(1505).OnScrollNext</visible>
-                <include content="Spotlight_AuraWidget_info" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(EnableWidgetSpotlight)">
+                <include content="Spotlight_AuraWidget_info" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(EnableTVWidgetSpotlight)">
                   <param name="id" value="1505" />
                 </include>
 		</control>
@@ -104,11 +104,11 @@
               </control>
 
               <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight)">Spotlight_MultiWidget_Movies_cast</include>
-              <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight)">Spotlight_MultiWidget_TVShows_cast</include>
+              <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableTVMultiWidgetSpotlight)">Spotlight_MultiWidget_TVShows_cast</include>
               <control type="group">
                 <include condition="!Skin.HasSetting(DisableAuraHomeLayout)">spotlightfull_aura_top</include>
-                <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableFullSpotlight)">Spotlight_Tvshows_Widget</include>
-                <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableFullSpotlight)">Spotlight_Tvshows_Info</include>
+                <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableTVFullSpotlight)">Spotlight_Tvshows_Widget</include>
+                <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableTVFullSpotlight)">Spotlight_Tvshows_Info</include>
                 <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableFullSpotlight)">Spotlight_Movies_Widget</include>
                 <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableFullSpotlight)">Spotlight_Movies_Info</include>
               </control>
@@ -118,7 +118,7 @@
                 <include condition="!Skin.HasSetting(DisableAuraHomeLayout)">spotlightfull_buttons_aura_top</include>
                 <animation effect="slide" end="0,-10" time="10" condition="String.IsEmpty(Container(1505).ListItem.Art(clearlogo))">Conditional</animation>
                 <animation effect="slide" end="0,-10" time="10" condition="String.IsEmpty(Container(1506).ListItem.Art(clearlogo))">Conditional</animation>
-                <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableFullSpotlight)">Spotlight_Tvshows_buttons</include>
+                <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableTVFullSpotlight)">Spotlight_Tvshows_buttons</include>
                 <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableFullSpotlight)">Spotlight_Movies_buttons</include>
               </control>
               <include condition="Skin.HasSetting(EnableSpotlight)">Spotlight_TVNextAired_AuraWidget</include>
@@ -170,7 +170,7 @@
       <usecontrolcoords>true</usecontrolcoords>
       <scrolltime tween="quadratic">900</scrolltime>
       <visible>$EXP[NotSettingsWeather]</visible>
-      <onup condition="Skin.HasSetting(EnableSpotlight) + [!Skin.HasSetting(EnableWidgetSpotlight) | Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight)] + Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),LiveTV)">901</onup>
+      <onup condition="Skin.HasSetting(EnableSpotlight) + [!Skin.HasSetting(EnableWidgetSpotlight) | Skin.HasSetting(EnableFullSpotlight) | Skin.HasSetting(EnableMultiWidgetSpotlight) | !Skin.HasSetting(EnableTVWidgetSpotlight) | Skin.HasSetting(EnableTVFullSpotlight) | Skin.HasSetting(EnableTVMultiWidgetSpotlight)] + Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),LiveTV)">901</onup>
       <onup condition="$EXP[NextUpTVSpotlight]">1507</onup>
       <onup condition="$EXP[MovieSpotlight]">1506</onup>
       <onup condition="$EXP[TVSpotlight]">1505</onup>

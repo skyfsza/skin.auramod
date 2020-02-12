@@ -2,7 +2,6 @@
 <!-- Foundation -->
 <window type="dialog" id="1128">
     <defaultcontrol always="true">8000</defaultcontrol>
-    <onunload condition="!String.IsEmpty(Window(Home).Property(RunWizardHub))">ReplaceWindow(1126)</onunload>
     <controls>
 	<control type="image">
 	    <width>100%</width>
@@ -41,10 +40,14 @@
                             <onclick>Skin.ToggleSetting(EnableSpotlight)</onclick>
                             <selected>Skin.HasSetting(EnableSpotlight)</selected>
                         </control>
+                        <control type="label" id="80111">
+                            <height>10</height>
+                        </control>
                         <control type="button" id="8002" description="Choose Spotlight Style">
                             <include>Dialog_Standard_ListButton</include>
-                            <label>Choose Spotlight Style</label>
+                            <label>Choose Movie Spotlight Style</label>
                             <enable>Skin.HasSetting(EnableSpotlight)</enable>
+			    <onclick>SetProperty(MovieSpotlightStyle,1,home)</onclick>
                             <onclick>ActivateWindow(1132)</onclick>
                         </control>
                         <control type="button" id="8003" description="Choose Movies Spotlight">
@@ -64,6 +67,16 @@
                             <visible>!Skin.HasSetting(DisableAuraHomeLayout)</visible>
                             <enable>Skin.HasSetting(EnableSpotlight)</enable>
                         </control>
+		        <control type="label" id="80112">
+			    <height>10</height>
+			</control>
+                        <control type="button" id="80021" description="Choose Spotlight Style">
+                            <include>Dialog_Standard_ListButton</include>
+                            <label>Choose TV Spotlight Style</label>
+                            <enable>Skin.HasSetting(EnableSpotlight)</enable>
+                            <onclick>SetProperty(TVSpotlightStyle,1,home)</onclick>
+                            <onclick>ActivateWindow(1132)</onclick>
+                        </control>
                         <control type="button" id="8004" description="Choose TV Shows Spotlight">
                             <include>Dialog_Standard_ListButton</include>
                             <label>TV Shows Content</label>
@@ -80,6 +93,9 @@
                             <visible>String.IsEqual(Skin.String(spotlighttvshows.label),Spotlight TV)</visible>
                             <visible>!Skin.HasSetting(DisableAuraHomeLayout)</visible>
                             <enable>Skin.HasSetting(EnableSpotlight)</enable>
+                        </control>
+                        <control type="label" id="80113">
+                            <height>10</height>
                         </control>
                         <control type="radiobutton" id="8005" description="Enable Random Spotlight">
                             <include>Dialog_Standard_ListButton</include>

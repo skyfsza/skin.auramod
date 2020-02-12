@@ -27,22 +27,20 @@
                         <left>30</left>
                         <label>$INFO[ListItem.Label]</label>
                         <scroll>false</scroll>
-                        <visible>Skin.HasSetting(SubmenuLabel)</visible>
-                        <visible>!Skin.HasSetting(DisableBigCat)</visible>
                         <visible>!String.Contains(ListItem.Icon,none.png)</visible>
                     </control>
                     <control type="label">
-                        <centertop>60%</centertop>
+                        <centertop>50%</centertop>
                         <height>30</height>
                         <align>center</align>
-                        <font>font_medium_bold</font>
+                        <font>font_small_bold</font>
                         <textcolor>PosterFront</textcolor>
                         <right>30</right>
                         <left>30</left>
                         <label>$INFO[ListItem.Label]</label>
                         <visible>String.Contains(ListItem.Icon,none.png)</visible>
-                        <visible>Skin.HasSetting(SubmenuLabel)</visible>
                     </control>
+<!--
                     <control type="image">
 			<top>-10</top>
                         <animation effect="slide" end="0,20" time="0" condition="Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(LargeSubmenuLabel)">Conditional</animation>
@@ -50,16 +48,14 @@
                         <height>125</height>
                         <aspectratio scalediffuse="false">keep</aspectratio>
                         <texture background="true" diffuse="diffuse/submenubig.png">$INFO[ListItem.Icon]</texture>
-                        <visible>Skin.HasSetting(SubmenuLabel)</visible>
-                        <visible>!Skin.HasSetting(DisableBigCat)</visible>
                         <visible>!String.Contains(ListItem.Icon,none.png)</visible>
                     </control>
+-->
                     <control type="image">
                         <bordersize>10</bordersize>
+			<centertop>40%</centertop>
                         <aspectratio scalediffuse="false">keep</aspectratio>
                         <texture background="true" diffuse="diffuse/submenubig.png">$INFO[ListItem.Icon]</texture>
-                        <visible>Skin.HasSetting(SubmenuLabel)</visible>
-                        <visible>Skin.HasSetting(DisableBigCat)</visible>
                         <visible>!String.Contains(ListItem.Icon,none.png)</visible>
                     </control>
                 </control>

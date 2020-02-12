@@ -2,6 +2,8 @@
 <!-- Foundation -->
 <window type="dialog" id="1132">
     <defaultcontrol always="true">9000</defaultcontrol>
+    <onunload>ClearProperty(TVSpotlightStyle,home)</onunload>
+    <onunload>ClearProperty(MovieSpotlightStyle,home)</onunload>
     <!-- <onunload>AlarmClock(reloadskin,ReloadSkin(),00:00,silent,false)</onunload> -->
     <controls>
         <include>Global_Overlay</include>
@@ -41,6 +43,7 @@
                 <itemgap>10</itemgap>
                 <orientation>vertical</orientation>
                 <pagecontrol>60</pagecontrol>
+		<visible>!String.IsEmpty(Window(Home).Property(MovieSpotlightStyle))</visible>
                 <usecontrolcoords>true</usecontrolcoords>
                        <control type="radiobutton" id="9001" description="Enable Fullscreen Spotlight">
                             <include>Dialog_Standard_ListButton</include>
@@ -51,8 +54,7 @@
                             <onclick condition="!Skin.HasSetting(EnableWidgetSpotlight)">Skin.ToggleSetting(EnableWidgetSpotlight)</onclick>
                             <onclick condition="!Skin.HasSetting(EnableFullSpotlight)">Skin.ToggleSetting(EnableFullSpotlight)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/spotlight_full.jpg)</onfocus>
-                            <onclick condition="String.IsEmpty(Window(Home).Property(RunWizard))">ReloadSkin()</onclick>
-                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">Close</onclick>
+                            <onclick>ReloadSkin()</onclick>
                         </control>
                         <control type="radiobutton" id="9002" description="Enable Widget Spotlight">
                             <include>Dialog_Standard_ListButton</include>
@@ -63,8 +65,7 @@
                             <onclick condition="Skin.HasSetting(EnableFullSpotlight)">Skin.ToggleSetting(EnableFullSpotlight)</onclick>
                             <onclick condition="Skin.HasSetting(EnableWidgetSpotlight)">Skin.ToggleSetting(EnableWidgetSpotlight)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/spotlight_widget.jpg)</onfocus>
-                            <onclick condition="String.IsEmpty(Window(Home).Property(RunWizard))">ReloadSkin()</onclick>
-                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">Close</onclick>
+                            <onclick>ReloadSkin()</onclick>
                         </control>
                         <control type="radiobutton" id="9003" description="Enable Widget Spotlight">
                             <include>Dialog_Standard_ListButton</include>
@@ -75,10 +76,57 @@
                             <onclick condition="!Skin.HasSetting(EnableWidgetSpotlight)">Skin.ToggleSetting(EnableWidgetSpotlight)</onclick>
                             <onclick condition="!Skin.HasSetting(EnableMultiWidgetSpotlight)">Skin.ToggleSetting(EnableMultiWidgetSpotlight)</onclick>
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/spotlight_multiwidget.jpg)</onfocus>
-                            <onclick condition="String.IsEmpty(Window(Home).Property(RunWizard))">ReloadSkin()</onclick>
-                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">Close</onclick>
+                            <onclick>ReloadSkin()</onclick>
                         </control>
            </control>
+            <control type="grouplist" id="9000">
+                <description>Control Area</description>
+                <right>20</right>
+                <width>680</width>
+                <top>100</top>
+                <height>600</height>
+                <itemgap>10</itemgap>
+                <orientation>vertical</orientation>
+                <pagecontrol>60</pagecontrol>
+		<visible>!String.IsEmpty(Window(Home).Property(TVSpotlightStyle))</visible>
+                <usecontrolcoords>true</usecontrolcoords>
+                       <control type="radiobutton" id="9001" description="Enable Fullscreen Spotlight">
+                            <include>Dialog_Standard_ListButton</include>
+                            <radioposx>630</radioposx>
+                            <label>Enable Fullscreen Spotlight</label>
+                            <selected>Skin.HasSetting(EnableTVFullSpotlight)</selected>
+                            <onclick condition="Skin.HasSetting(EnableTVMultiWidgetSpotlight)">Skin.ToggleSetting(EnableTVMultiWidgetSpotlight)</onclick>
+                            <onclick condition="!Skin.HasSetting(EnableTVWidgetSpotlight)">Skin.ToggleSetting(EnableTVWidgetSpotlight)</onclick>
+                            <onclick condition="!Skin.HasSetting(EnableTVFullSpotlight)">Skin.ToggleSetting(EnableTVFullSpotlight)</onclick>
+                            <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/spotlight_full.jpg)</onfocus>
+                            <onclick>ReloadSkin()</onclick>
+                        </control>
+                        <control type="radiobutton" id="9002" description="Enable Widget Spotlight">
+                            <include>Dialog_Standard_ListButton</include>
+                            <radioposx>630</radioposx>
+                            <label>Enable Widget Spotlight</label>
+                            <selected>!Skin.HasSetting(EnableTVWidgetSpotlight)</selected>
+                            <onclick condition="Skin.HasSetting(EnableTVMultiWidgetSpotlight)">Skin.ToggleSetting(EnableTVMultiWidgetSpotlight)</onclick>
+                            <onclick condition="Skin.HasSetting(EnableTVFullSpotlight)">Skin.ToggleSetting(EnableTVFullSpotlight)</onclick>
+                            <onclick condition="Skin.HasSetting(EnableTVWidgetSpotlight)">Skin.ToggleSetting(EnableTVWidgetSpotlight)</onclick>
+                            <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/spotlight_widget.jpg)</onfocus>
+                            <onclick>ReloadSkin()</onclick>
+                        </control>
+                        <control type="radiobutton" id="9003" description="Enable Widget Spotlight">
+                            <include>Dialog_Standard_ListButton</include>
+                            <radioposx>630</radioposx>
+                            <label>Enable Multi Widget Spotlight</label>
+                            <selected>Skin.HasSetting(EnableTVMultiWidgetSpotlight)</selected>
+                            <onclick condition="Skin.HasSetting(EnableTVFullSpotlight)">Skin.ToggleSetting(EnableTVFullSpotlight)</onclick>
+                            <onclick condition="!Skin.HasSetting(EnableTVWidgetSpotlight)">Skin.ToggleSetting(EnableTVWidgetSpotlight)</onclick>
+                            <onclick condition="!Skin.HasSetting(EnableTVMultiWidgetSpotlight)">Skin.ToggleSetting(EnableTVMultiWidgetSpotlight)</onclick>
+                            <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/spotlight_multiwidget.jpg)</onfocus>
+                            <onclick>ReloadSkin()</onclick>
+                        </control>
+           </control>
+
+
+
         </control>
     </controls>
 </window>

@@ -2208,7 +2208,7 @@
           <loop>no</loop>
         </control>
         <control type="group">
-          <visible>!Skin.HasSetting(DisableNetflixView) + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+          <visible>!Skin.HasSetting(DisableNetflixView) + !Window.IsVisible(DialogVideoInfo.xml) + !String.IsEqual(ListItem.Label,Next)</visible>
           <top>550</top>
           <right>20</right>
           <width>$PARAM[width]</width>
@@ -2333,6 +2333,7 @@
           <itemgap>25</itemgap>
           <orientation>horizontal</orientation>
           <usecontrolcoords>true</usecontrolcoords>
+	  <visible>!String.IsEqual(ListItem.Label,Next)</visible>
           <control type="group">
             <top>10</top>
             <height>46</height>
@@ -7568,9 +7569,9 @@
             <thumb>special://skin/extras/icons/viewmode.png</thumb>
           </item>
           <item>
-            <label>Skin Settings</label>
-            <onclick>ActivateWindow(skinsettings)</onclick>
-            <thumb>special://skin/extras/icons/paintbrush.png</thumb>
+            <label>My Lists</label>
+            <onclick>ActivateWindow(1164)</onclick>
+            <thumb>special://skin/extras/icons/clipboard.png</thumb>
           </item>
         </content>
       </control>
@@ -7659,6 +7660,11 @@
           </control>
         </focusedlayout>
         <content>
+          <item>
+            <label>Skin Settings</label>
+            <onclick>ActivateWindow(skinsettings)</onclick>
+            <thumb>special://skin/extras/icons/paintbrush.png</thumb>
+          </item>
           <item>
             <label>Search Lists</label>
             <onclick>ActivateWindow(1163)</onclick>

@@ -39,6 +39,8 @@
                 <top>view_pad</top>
                 <bottom>view_pad</bottom>
                 <control type="fixedlist" id="500">
+        <onfocus>SetProperty(SkinHelper.WidgetContainer,500,Home)</onfocus>
+        <onfocus>SetProperty(TMDbHelper.WidgetContainer,500,Home)</onfocus>
                     <animation effect="slide" end="0,-90" condition="Integer.IsLess(Container(500).NumItems,9) + !Container(500).HasParent">Conditional</animation>
                     <animation effect="slide" end="0,-90" condition="Integer.IsLess(Container(500).NumItems,7)+ !Container(500).HasParent">Conditional</animation>
                     <animation effect="slide" end="0,-90" condition="Integer.IsLess(Container(500).NumItems,5)+ !Container(500).HasParent">Conditional</animation>
@@ -83,6 +85,8 @@
                     </include>
                 </control>
                 <control type="fixedlist" id="501">
+        <onfocus>SetProperty(SkinHelper.WidgetContainer,501,Home)</onfocus>
+        <onfocus>SetProperty(TMDbHelper.WidgetContainer,501,Home)</onfocus>
                     <top>450</top>
                     <focusposition>2</focusposition>
                     <movement>2</movement>

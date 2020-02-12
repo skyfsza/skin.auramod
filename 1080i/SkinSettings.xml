@@ -973,7 +973,7 @@
                         <control type="radiobutton" id="9639" description="Down key starts trailer in Netflix Showcase Views">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Down key starts trailer in Showcase Views</label>
+                            <label> - Down key starts trailer in Showcase Views</label>
                             <selected>Skin.HasSetting(EnableTrailerOnDown)</selected>
                             <onclick>Skin.ToggleSetting(EnableTrailerOnDown)</onclick>
                         </control>
@@ -1438,7 +1438,7 @@
                         <control type="button" id="96364" description="Choose TV List">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011) + Skin.HasSetting(EnableSuggestedWidget) + System.HasAddon(plugin.video.seren)</visible>
                             <include>Defs_Settings_Button</include>
-                            <label>Choose TV List</label>
+                            <label>Choose Episodes List</label>
                             <label2>$INFO[Skin.String(similartv.label)]</label2>
                             <onclick condition="String.IsEmpty(Skin.String(similartv.label))">RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetName=similartv.label&amp;skinWidgetTarget=similartv.target&amp;skinWidgetPath=similartv.path)</onclick>
                             <onclick condition="!String.IsEmpty(Skin.String(similartv.label))">Skin.Reset(similartv.label)</onclick>
