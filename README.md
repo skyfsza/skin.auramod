@@ -20,7 +20,7 @@ In Add-ons Menu, choose &quot;install an addon from zip&quot; When it asks for t
 
 Go to Addons as you did above but this time, select &quot;Install from repository&quot; instead of install from zip file
 
-Click &quot;Auramod Repository&quot; \&gt; Click &quot;Look &amp; Feel&quot; \&gt; Click &quot;Skins&quot; \&gt; Click &quot;AuraMOD&quot; \&gt; Click Install \&gt;   Click &quot;OK&quot;
+Click &quot;Auramod Repository" &gt; Click &quot;Look &amp; Feel&quot; \&gt; Click &quot;Skins&quot; \&gt; Click &quot;AuraMOD&quot; \&gt; Click Install \&gt;   Click &quot;OK&quot;
 
 It will take some time to install the skin and all dependency&#39;s Depending on speed of device and network. Be patient!
 
