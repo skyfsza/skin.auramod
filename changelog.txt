@@ -1,3 +1,7 @@
+v0.9.41.8
+- Rework of Search Hub
+
+
 v0.9.41.5 
 - Fix add Widgets --> Default widgets --> TV Shows
 - Change Search history to use tmdbhelper
