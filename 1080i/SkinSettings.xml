@@ -1000,7 +1000,6 @@
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
                             <include>Defs_Settings_Button</include>
                             <label>Disable Spotlight Trailer auto-play</label>
-                            <visible>Skin.HasSetting(DisableNetflixHome)</visible>
                             <selected>Skin.HasSetting(DisableSpotlightAutoplay)</selected>
                             <onclick>Skin.ToggleSetting(DisableSpotlightAutoplay)</onclick>
                         </control>
@@ -1201,7 +1200,13 @@
                             <selected>!Skin.HasSetting(DisableTrailerPreview)</selected>
                             <onclick>Skin.ToggleSetting(DisableTrailerPreview)</onclick>
                         </control>
-
+                        <control type="radiobutton" id="96998" description="Seren Skin Icons">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9006)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Skin icons for Seren</label>
+                            <selected>Skin.HasSetting(SerenIcons)</selected>
+                            <onclick>Skin.ToggleSetting(SerenIcons)</onclick>
+                        </control>
                         <control type="radiobutton" id="9230" description="Enable Weather Radar Map">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9006)</visible>
                             <include>Defs_Settings_Button</include>

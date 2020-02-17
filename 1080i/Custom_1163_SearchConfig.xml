@@ -38,6 +38,7 @@
                             <label>Configure Search Lists</label>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=searchmenus)</onclick>
                         </control>
+<!--
                         <control type="radiobutton" id="8002" description="Enable Random Spotlight">
                             <include>Dialog_Standard_ListButton</include>
                             <label> - Use default keyboard</label>
@@ -45,6 +46,7 @@
                             <onclick>Skin.ToggleSetting(EnableSearchDefaultKB)</onclick>
                             <selected>Skin.HasSetting(EnableSearchDefaultKB)</selected>
                         </control>
+-->
                         <control type="radiobutton" id="8003" description="Enable Yt Search History">
                             <include>Dialog_Standard_ListButton</include>
                             <label> - Enable Search History (requires tmdb lists)</label>

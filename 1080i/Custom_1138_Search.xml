@@ -3,6 +3,8 @@
   <defaultcontrol>9000</defaultcontrol>
   <onload condition="String.IsEmpty(Skin.String(TMDB_Search)) + !Skin.HasSetting(EnableSearchDefaultKB) + Window.Previous(1136)">Skin.Reset(CustomSearchTerm)</onload>
   <onload condition="String.IsEmpty(Skin.String(TMDB_Search)) + !Skin.HasSetting(EnableSearchDefaultKB) + Window.Previous(1136)">Skin.SetString(CustomSearchTerm,)</onload>
+  <onload condition="String.IsEmpty(Skin.String(TMDB_Search)) + Skin.HasSetting(EnableSearchDefaultKB) + Window.Previous(1136)">Skin.SetString(osdCustomSearchTerm,$INFO[Skin.String(CustomSearchTerm)])</onload>
+  <onload condition="!String.IsEmpty(Skin.String(TempCustomSearchTerm)) + String.IsEmpty(Skin.String(TMDB_Search)) + Skin.HasSetting(EnableSearchDefaultKB) + Window.Previous(1136)">Skin.SetString(CustomSearchTerm,$INFO[Skin.String(CustomSearchTerm)])</onload>
   <onunload>Skin.Reset(TMDB_Search)</onunload>
   <onunload>ClearProperty(SuggestionPath)</onunload>
   <controls>

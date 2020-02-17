@@ -40,17 +40,6 @@
                         <label>$INFO[ListItem.Label]</label>
                         <visible>String.Contains(ListItem.Icon,none.png)</visible>
                     </control>
-<!--
-                    <control type="image">
-			<top>-10</top>
-                        <animation effect="slide" end="0,20" time="0" condition="Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(LargeSubmenuLabel)">Conditional</animation>
-                        <bordersize>10</bordersize>
-                        <height>125</height>
-                        <aspectratio scalediffuse="false">keep</aspectratio>
-                        <texture background="true" diffuse="diffuse/submenubig.png">$INFO[ListItem.Icon]</texture>
-                        <visible>!String.Contains(ListItem.Icon,none.png)</visible>
-                    </control>
--->
                     <control type="image">
                         <bordersize>10</bordersize>
 			<centertop>40%</centertop>
@@ -129,11 +118,19 @@
       </control>
    <!-- Fanart Background -->
         <control type="image">
-         <texture background="true" diffuse="diffuse/widgetlandscape.png" fallback="DefaultFanartFallback.jpg">$VAR[Image_Fanart]</texture>
+         <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Image_Fanart]</texture>
          <aspectratio scalediffuse="false">scale</aspectratio>
         <visible>!String.Contains(ListItem.Path,plugin.video.youtube)</visible>
         </control>
-
+        <control type="image">
+         <centertop>45%</centertop>
+         <height>85%</height>
+         <centerleft>50%</centerleft>
+         <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Image_Poster]</texture>
+         <aspectratio scalediffuse="false">keep</aspectratio>
+        <visible>!String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+        <visible>String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(landscape)) | String.Contains(ListItem.Art(fanart),w1280None)</visible>
+        </control>
      <control type="group">
         <animation effect="slide" end="0,20" time="0" condition="Skin.HasSetting(DisableNetflixSmallWidget)">Conditional</animation>
         <visible>String.IsEqual(ListItem.DBType,episode) + [!String.IsEmpty(ListItem.Art(clearlogo)) | !String.IsEmpty(ListItem.Art(tvshow.clearlogo))] + !Skin.HasSetting(WidgetLabels)</visible>
@@ -167,7 +164,7 @@
                 <right>120</right>
                 <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
                 <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
-          <visible>!String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(DisableNetflixSmallWidget) + !Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(landscape)) </visible>
+          <visible>!String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(DisableNetflixSmallWidget) + !Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + [String.IsEmpty(ListItem.Art(landscape)) | String.Contains(ListItem.Art(landscape),w1280None) | String.Contains(ListItem.Art(landscape),tmdb.org)] </visible>
             </control>
 
         <control type="image">

@@ -10,6 +10,7 @@
   <onload condition="!Skin.HasSetting(SkinHelper.EnableMusicArt)">Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
     <onload condition="Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">Skin.SetBool(SkinHelper.EnableAnimatedPosters)</onload>
     <onload condition="!Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">Skin.Reset(SkinHelper.EnableAnimatedPosters)</onload>
+  <onload condition="!Skin.HasSetting(EnableSearchDefaultKB)">Skin.ToggleSetting(EnableSearchDefaultKB)</onload>
   <onload>ClearProperty(HomeFocus,Home)</onload>
   <onload>AlarmClock(SkinSplashStarted,SetProperty(SkinSplashStarted,1,home),00:01,silent,false)</onload>
   <onload>ClearProperty(WidgetLoading,Home)</onload>

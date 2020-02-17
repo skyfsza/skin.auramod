@@ -4,7 +4,27 @@
   <onload condition="String.IsEmpty(Skin.String(TempCustomSearchTerm)) + String.IsEmpty(Skin.String(TMDB_Search))">Skin.Reset(CustomSearchTerm)</onload>
   <onload condition="String.IsEmpty(Skin.String(TempCustomSearchTerm)) + Skin.HasSetting(EnableSearchDefaultKB) + String.IsEmpty(Skin.String(TMDB_Search))">Skin.SetString(CustomSearchTerm)</onload>
   <onload condition="!Skin.HasSetting(EnableSearchDefaultKB) + String.IsEmpty(Skin.String(TMDB_Search))">Skin.SetString(CustomSearchTerm,$LOCALIZE[31138])</onload>
+  <onload condition="!String.IsEmpty(Skin.String(TempCustomSearchTerm)) + Skin.HasSetting(EnableSearchDefaultKB) + String.IsEmpty(Skin.String(TMDB_Search))">Skin.SetString(CustomSearchTerm,$INFO[Skin.String(TempCustomSearchTerm)])</onload>
   <onload>ActivateWindow(1138)</onload>
   <controls>
+    <control type="image">
+      <width>1920</width>
+      <height>1080</height>
+      <texture background="true">special://skin/extras/backgrounds/tv-shows-mainmenu-bg.jpg</texture>
+    </control>
+    <control type="image">
+      <width>1920</width>
+      <height>1080</height>
+      <texture background="true" colordiffuse="99000000">common/white.png</texture>
+    </control>
+
+    <control type="label">
+      <left>600</left>
+      <centertop>30%</centertop>
+      <font>search_heading</font>
+      <textcolor>white</textcolor>
+      <shadowcolor>grey</shadowcolor>
+      <label>Search for TV Shows and Movies</label>
+    </control>
 </controls>
 </window>

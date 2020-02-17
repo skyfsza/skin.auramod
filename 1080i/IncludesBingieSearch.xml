@@ -15,7 +15,7 @@
 
     <!-- Search Auto-Complete Content Provider -->
     <variable name="SearchAutoCompleteContentProvider">
-        <value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + System.HasAddon(plugin.program.autocompletion)">plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Skin.String(CustomSearchTerm)]</value>
+        <value condition="!String.IsEmpty(Skin.String(osdCustomSearchTerm)) + System.HasAddon(plugin.program.autocompletion)">plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Skin.String(osdCustomSearchTerm)]</value>
     </variable>
 
     <!-- INCLUDES -->
@@ -44,8 +44,8 @@
     <!-- Search Radio Key -->
     <include name="SearchRadioKey">
         <param name="force_refresh" value="false"/>
-        <param name="onclick2Cond" default="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
-        <param name="onclick2" default="Skin.SetString(CustomSearchTerm)" />
+        <param name="onclick2Cond" default="!String.IsEmpty(Skin.String(osdCustomSearchTerm))" />
+        <param name="onclick2" default="Skin.SetString(osdCustomSearchTerm)" />
         <definition>
             <control type="radiobutton" id="$PARAM[id]">
                 <width>$PARAM[width]</width>
@@ -74,7 +74,7 @@
             <ondown>$PARAM[ondown]</ondown>
             <include>ExtraSmallKey</include>
             <label>$PARAM[key]</label>
-            <onclick>Skin.SetString(CustomSearchTerm,$INFO[Skin.String(CustomSearchTerm)]$PARAM[key])</onclick>
+            <onclick>Skin.SetString(osdCustomSearchTerm,$INFO[Skin.String(osdCustomSearchTerm)]$PARAM[key])</onclick>
         </control>
     </include>
 

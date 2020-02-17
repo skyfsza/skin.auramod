@@ -26,7 +26,7 @@
       <include condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_Season</include>
 
       <include condition="[Container.Content(addons) | String.IsEmpty(Container.Content)]  + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_AddonList_Poster</include>
-      <include condition="[Container.Content(addons) | String.IsEmpty(Container.Content)]  + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_AddonList_Landscape</include>
+      <include condition="[Container.Content(files) | Container.Content(addons) | String.IsEmpty(Container.Content)]  + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_AddonList_Landscape</include>
 
       <include condition="[Container.Content(addons) | String.IsEmpty(Container.Content)]  + [Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml)]">View_Posters_MenuListLandscape</include>
 
@@ -187,6 +187,9 @@
       <control type="group">
         <include>View_Pad</include>
         <control type="panel" id="53">
+	  <onup>300</onup>
+	  <onright>53</onright>
+	  <onleft>53</onleft>
           <left>-70</left>
           <right>-10</right>
           <bottom>20</bottom>
@@ -211,6 +214,9 @@
       <control type="group">
         <include>View_Pad</include>
         <control type="panel" id="503">
+          <onup>300</onup>
+          <onright>503</onright>
+          <onleft>503</onleft>
           <left>-70</left>
           <right>-10</right>
           <bottom>-10</bottom>
@@ -875,13 +881,12 @@
 
         <control type="fixedlist" id="506">
 	  <onfocus>ClearProperty(SkinHelper.WidgetContainer,Home)</onfocus>
-          <visible>[Container.Content(addons) | String.IsEmpty(Container.Content)]</visible>
+          <visible>[Container.Content(files) | Container.Content(addons) | String.IsEmpty(Container.Content)]</visible>
           <animation effect="slide" end="-500,0" time="500" condition="Control.HasFocus(5056)">Conditional</animation>
           <onright condition="!Container(5056).IsUpdating">5056</onright>
-          <height>840</height>
+          <height>825</height>
           <top>100</top>
           <left>40</left>
-	  <focusposition>5</focusposition>
           <visible>!Container.Content(episodes)</visible>
           <include>View_NotTheseWindows</include>
           <viewtype label="$LOCALIZE[31480]">icon</viewtype>
@@ -953,7 +958,7 @@
 	  <posy>540</posy>
 
       <control type="panel" id="5056">
-	<visible>Control.IsVisible(506) + !String.Contains(Container(506).ListItem.Label,Search)</visible>
+	<visible>Control.IsVisible(506) + !String.Contains(Container(506).ListItem.Label,Search) + !String.Contains(Container(506).ListItem.Label,Sign Out) + !String.Contains(Container(506).ListItem.Label,Settings) + !String.Contains(Container(506).ListItem.Label,Switch User)</visible>
         <onleft>504</onleft>
         <onback>506</onback>
 
@@ -3103,10 +3108,22 @@
     <include>Defs_PosterBack</include>
       <control type="image">
         <bordersize>10</bordersize>
-        <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$VAR[Image_Fanart]</texture>
+        <texture diffuse="diffuse/widgetlandscape.png" background="true" fallback="DefaultFanartFallback.jpg">$VAR[Image_Fanart]</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
         <visible>!String.Contains(ListItem.Path,plugin.video.youtube)</visible>
       </control>
+<!--
+        <control type="image">
+	 <centertop>50%</centertop>
+	 <height>85%</height>
+	 <width>200</width>
+	 <centerleft>50%</centerleft>
+         <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Image_Poster]</texture>
+         <aspectratio scalediffuse="false">keep</aspectratio>
+        <visible>!String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+        <visible>String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(landscape)) | String.Contains(ListItem.Art(fanart),w1280None)</visible>
+        </control>
+-->
       <control type="image">
         <bordersize>10</bordersize>
         <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$INFO[ListItem.Icon]</texture>
@@ -3120,7 +3137,7 @@
           <height>50%</height>
           <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
           <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
-          <visible>!Window.IsVisible(DialogVideoInfo.xml) + !Control.IsVaisible(507) + !Control.IsVisible(502) + !Control.IsVisible(504) + !String.IsEqual(ListItem.DBType,season) + !String.IsEqual(ListItem.DBType,episode)  + Skin.HasSetting(DisableClearlogo) + String.IsEmpty(ListItem.Art(landscape))</visible>
+          <visible>!Window.IsVisible(DialogVideoInfo.xml) + !Control.IsVaisible(507) + !Control.IsVisible(502) + !Control.IsVisible(504) + !String.IsEqual(ListItem.DBType,season) + !String.IsEqual(ListItem.DBType,episode)  + Skin.HasSetting(DisableClearlogo) + [String.IsEmpty(ListItem.Art(landscape)) | String.Contains(ListItem.Art(landscape),w1280None) | String.Contains(ListItem.Art(landscape),tmdb.org)]</visible>
        </control>
         <control type="image">
           <bottom>0</bottom>
@@ -3237,7 +3254,7 @@
       <control type="image">
         <bordersize>10</bordersize>
         <aspectratio aligny="center" scalediffuse="false">keep</aspectratio>
-        <texture colordiffuse="PosterFront_70" background="true" diffuse="diffuse/widgetposter.png">$INFO[ListItem.Icon]</texture>
+        <texture colordiffuse="PosterFront_70" background="true" diffuse="diffuse/widgetposter.png">$VAR[serenicons]</texture>
         <visible>String.StartsWith(ListItem.Icon,Default)</visible>
         <visible>![[Container.Content(genres) | [Container.Content(addons) + String.Contains(Container.FolderPath,Genres)]] | Container.Content(studios) | Container.Content(years) | Container.Content(directors) | Container.Content(countries) | Container.Content(tags) | Container.Content(playlists)] | ListItem.IsParentFolder</visible>
       </control>
@@ -3327,7 +3344,7 @@
       <control type="image">
         <bordersize>10</bordersize>
         <aspectratio aligny="center" scalediffuse="false">keep</aspectratio>
-        <texture colordiffuse="PosterFront" background="true" diffuse="diffuse/widgetposter.png">$INFO[ListItem.Icon]</texture>
+        <texture colordiffuse="PosterFront" background="true" diffuse="diffuse/widgetposter.png">$VAR[serenicons]</texture>
         <visible>String.StartsWith(ListItem.Icon,Default)</visible>
         <visible>![[Container.Content(genres) | [Container.Content(addons) + String.Contains(Container.FolderPath,Genres)]] | Container.Content(studios) | Container.Content(years) | Container.Content(directors) | Container.Content(countries) | Container.Content(tags) | Container.Content(playlists)] | ListItem.IsParentFolder</visible>
       </control>

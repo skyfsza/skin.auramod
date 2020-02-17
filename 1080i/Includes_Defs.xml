@@ -4,6 +4,10 @@
     <variable name="search_widgets">
 	<value>skinshortcuts-template-searchlist</value>
     </variable>
+    <variable name="searchhistorydf">
+	<value>plugin://plugin.video.themoviedb.helper/?fanarttv=True&info=dir_search&nextpage=True&type=movie</value>
+    </variable>
+
     <variable name="searchhistory">
 	<value condition="String.IsEmpty(Skin.String(CustomSearchTerm))">plugin://plugin.video.themoviedb.helper/?fanarttv=True&info=dir_search&nextpage=True&type=movie</value>
     </variable>

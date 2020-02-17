@@ -277,7 +277,6 @@
      <value condition="Window.IsActive(Home) + !String.IsEmpty(Skin.String(spotlighttvshows.path))">$INFO[Skin.String(spotlighttvshows.path)]</value>
     </variable>
 
-
     <variable name="moviespotlightpath">
      <value condition="Window.IsActive(Home) + !String.IsEmpty(Skin.String(spotlightmovies.path)) + String.IsEqual(Skin.String(spotlightmovies.label),Spotlight Movies)">$INFO[Control.GetLabel(34450)]</value>
      <value condition="Window.IsActive(Home) + !String.IsEmpty(Skin.String(spotlightmovies.path))">$INFO[Skin.String(spotlightmovies.path)]</value>
