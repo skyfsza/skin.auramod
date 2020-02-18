@@ -4525,6 +4525,7 @@
           <left>-1000</left>
           <bottom>100</bottom>
           <ondown condition="Window.IsVisible(2111) | Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117)">SetFocus(5055)</ondown>
+	 <onback condition="Window.IsVisible(MyVideoNav)">50</onback>
 <!--
           <onback condition="Skin.HasSetting(DisableNetflixVideoInfo) + [Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)]">300</onback>
           <onback condition="!Skin.HasSetting(DisableNetflixVideoInfo) + [Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)]">8000</onback>

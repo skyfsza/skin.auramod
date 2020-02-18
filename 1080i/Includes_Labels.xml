@@ -88,7 +88,8 @@
     </variable>
 
     <variable name="widget_label">
-	<value condition="String.IsEmpty(ListItem.ChannelName)">$INFO[Container($PARAM[id]).ListItem.Label,| ]</value>
+	<value condition="String.IsEmpty(ListItem.ChannelName) + !String.IsEmpty(ListItem.TvShowTitle)">$INFO[Container($PARAM[id]).ListItem.Title,| ]</value>
+	<value condition="String.IsEmpty(ListItem.ChannelName) + String.IsEmpty(ListItem.TvShowTitle)">$INFO[Container($PARAM[id]).ListItem.Label,| ]</value>
 	<value condition="!String.IsEmpty(ListItem.ChannelName)">$INFO[Container($PARAM[id]).ListItem.Title,| ]</value>
 	<value>$INFO[Container($PARAM[id]).ListItem.Label,| ]</value>
     </variable>
@@ -889,7 +890,7 @@
     <variable name="Label_Genre_showcase">
         <value condition="String.Contains(ListItem.FolderPath,plugin.video.youtube)">$INFO[ListItem.Artist]</value>
         <value condition="String.Contains(ListItem.FolderPath,pvr:)">$INFO[ListItem.Label]</value>
-        <value condition="String.IsEqual(ListItem.DBType,episode)">S$INFO[ListItem.Season]: E$INFO[ListItem.Episode] - $INFO[ListItem.Label]</value>
+        <value condition="String.IsEqual(ListItem.DBType,episode)">S$INFO[ListItem.Season]: E$INFO[ListItem.Episode] - $INFO[ListItem.Title]</value>
         <value condition="ListItem.IsCollection">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
         <value condition="!String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
