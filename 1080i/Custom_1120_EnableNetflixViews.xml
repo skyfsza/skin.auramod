@@ -68,6 +68,7 @@
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/aurahomelayout.jpg)</onfocus>
                             <onclick condition="String.IsEmpty(Window(Home).Property(RunWizard))">ReloadSkin()</onclick>
                             <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">Close</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">ReplaceWindow(1125)</onclick>
                         </control>
                         <control type="radiobutton" id="9002" description="Enable Default Netflix  Home Layout">
                             <include>Dialog_Standard_ListButton</include>
@@ -94,6 +95,7 @@
                             <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/netflixdefault.jpg)</onfocus>
                             <onclick condition="String.IsEmpty(Window(Home).Property(RunWizard))">ReloadSkin()</onclick>
                             <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">Close</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">ReplaceWindow(1125)</onclick>
                         </control>
                         <control type="radiobutton" id="9003" description="Enable Alternative Home  Spotlight">
                             <include>Dialog_Standard_ListButton</include>
@@ -119,6 +121,7 @@
                             <onclick condition="!Skin.HasSetting(DisableNetflixVertLabel)">Skin.ToggleSetting(DisableNetflixVertLabel)</onclick>
                             <onclick condition="String.IsEmpty(Window(Home).Property(RunWizard))">ReloadSkin()</onclick>
                             <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">Close</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">ReplaceWindow(1125)</onclick>
 	                    <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/netflixalt.jpg)</onfocus>
                         </control>
                         <control type="radiobutton" id="9004" description="Enable Mixed Netflix Home  Spotlight">
@@ -145,6 +148,7 @@
                             <onclick condition="!Skin.HasSetting(DisableNetflixVertLabel)">Skin.ToggleSetting(DisableNetflixVertLabel)</onclick>
                             <onclick condition="String.IsEmpty(Window(Home).Property(RunWizard))">ReloadSkin()</onclick>
                             <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">Close</onclick>
+                            <onclick condition="!String.IsEmpty(Window(Home).Property(RunWizard))">ReplaceWindow(1125)</onclick>
 	                    <onfocus>SetProperty(Image_Preview,special://skin/extras/backgrounds/viewmodes/netflix-mixed/netflixmixed1.gif)</onfocus>
                         </control>
            </control>
