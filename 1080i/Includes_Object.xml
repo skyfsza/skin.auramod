@@ -4046,7 +4046,7 @@
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
 	  <visible>!String.IsEqual(ListItem.DBType,movie)</visible>
           <visible>[String.IsEmpty(ListItem.Studio) | String.Contains(ListItem.Studio,/)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))</visible>
-          <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.IsVisible(1505) | Control.IsVisible(1506)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+          <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.IsVisible(1506)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
         <control type="image">
           <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(Container(1505).ListItem.Studio)">Conditional</animation>
