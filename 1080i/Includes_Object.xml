@@ -3984,7 +3984,7 @@
           <texture colordiffuse="$PARAM[colordiffuse]">imdbtop250.png</texture>
           <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250))</visible>
           <visible>$PARAM[imdb]</visible>
-          <visible>!Skin.HasSetting(Ratings.IMDB) + Skin.HasSetting(MonochromeFlags)</visible>
+          <visible>!Skin.HasSetting(Ratings.IMDB250) + Skin.HasSetting(MonochromeFlags)</visible>
         </control>
         <control type="image">
           <top>11</top>
@@ -3993,7 +3993,7 @@
           <texture colordiffuse="$PARAM[colordiffuse]">imdb250_colored.png</texture>
           <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250))</visible>
           <visible>$PARAM[imdb]</visible>
-          <visible>!Skin.HasSetting(Ratings.IMDB) + !Skin.HasSetting(MonochromeFlags)</visible>
+          <visible>!Skin.HasSetting(Ratings.IMDB250) + !Skin.HasSetting(MonochromeFlags)</visible>
         </control>
 
         <control type="label">
@@ -4007,7 +4007,7 @@
           <visible>Integer.IsGreater(Window(home).Property(SkinHelper.ListItem.IMDB.Top250),0)</visible>
           <visible>$PARAM[imdb]</visible>
           <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.IMDB.Top250))</visible>
-          <visible>!Skin.HasSetting(Ratings.IMDB)</visible>
+          <visible>!Skin.HasSetting(Ratings.IMDB250)</visible>
         </control>
         <control type="label">
           <left>5</left>

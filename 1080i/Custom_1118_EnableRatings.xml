@@ -68,6 +68,13 @@
                     <onclick>Skin.ToggleSetting(Ratings.IMDB)</onclick>
                     <selected>!Skin.HasSetting(Ratings.IMDB)</selected>
                 </control>
+                <control type="radiobutton" id="90061">
+                    <label>IMDB250</label>
+                    <radioposx>730</radioposx>
+                    <include>Dialog_Standard_ListButton</include>
+                    <onclick>Skin.ToggleSetting(Ratings.IMDB250)</onclick>
+                    <selected>!Skin.HasSetting(Ratings.IMDB250)</selected>
+                </control>
                 <control type="radiobutton" id="9007">
                     <label>$LOCALIZE[205]</label>
                     <radioposx>730</radioposx>
