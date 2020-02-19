@@ -250,7 +250,7 @@
     <value condition="!String.IsEqual(Container(5055).ListItem.Property(TotalSeasons),0) + !String.IsEqual(Container(5055).ListItem.Property(TotalSeasons),1)">$INFO[Container(5055).ListItem.Property(TotalSeasons)] Seasons</value>
     </variable>
     <variable name="videoinfo_play_label">
-    <value condition="String.IsEqual(ListItem.DBType,episode)">S$INFO[ListItem.Season]: E$INFO[ListItem.Episode] - $INFO[ListItem.Label]</value>
+    <value condition="String.IsEqual(ListItem.DBType,episode)">S$INFO[ListItem.Season]: E$INFO[ListItem.Episode] - $INFO[ListItem.Title]</value>
     </variable>
 
     <variable name="videoinfo_play_label_1505">

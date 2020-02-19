@@ -2,6 +2,7 @@
 <window type="window" id="2113">
   <defaultcontrol always="true">505</defaultcontrol>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
+  <onload condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">AlarmClock(loadinfo,Action(Info),00:00,silent)</onload>
   <controls>
   <include condition="!Skin.HasSetting(EnableAuraTV1)" content="menuhub_window">
     <param name="skinshortcut" value="x1103" />

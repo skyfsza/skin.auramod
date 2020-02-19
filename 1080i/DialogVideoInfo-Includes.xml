@@ -1394,6 +1394,7 @@
           </control>
           <!-- Trailer-->
           <control type="radiobutton" id="34">
+	    <onfocus condition="!Player.HasVideo + !String.IsEmpty(Window(home).Property(TrailerPlaying))">ClearProperty(TrailerPlaying,Home)</onfocus>
             <include name="netflix_button" content="netflix_button">
               <param name="icon" value="director" />
             </include>
@@ -1831,7 +1832,8 @@
           <param name="target" value="videos" />
           <param name="sortby" value="" />
           <param name="sortorder" value="" />
-          <param name="onclick2" value="RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person&amp;query=$INFO[ListItem.Label],call_id=1137,prevent_del,delay=0.35)" />
+          <param name="onclick" value="SetProperty(BaseWindow,InfoDialog,Home)" />
+          <param name="onclick2" value="RunScript(plugin.video.themoviedb.helper,add_query=$INFO[Container(53001).ListItem.Label],type=person,call_id=1137,prevent_del,delay=0.35)" />
           <param name="content" value="plugin://plugin.video.themoviedb.helper/?info=cast&amp;$VAR[Info_Param_Type]&amp;$VAR[Info_Param_IMDB_or_QUERY]" />
           <param name="widgetContent" value="plugin://plugin.video.themoviedb.helper/?info=cast&amp;$VAR[Info_Param_Type]&amp;$VAR[Info_Param_IMDB_or_QUERY]" />
           <param name="postercondition" value="true" />

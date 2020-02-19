@@ -22,6 +22,7 @@
      <expression name="NotSettingsWeather">![String.IsEqual(Container(300).ListItem.Property(widget),Weather) + [!String.IsEqual(Container(300).ListItem.Property(widgetType),Default) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget)]] + ![String.IsEqual(Container(300).ListItem.Property(widget),Settings) + [!String.IsEqual(Container(300).ListItem.Property(widgetType),Default) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)]] +  !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)</expression>
    <!--  <expression name="NotSettingsWeather">!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)</expression> -->
     <include file="Defaults.xml" />
+    <include file="Includes_Auramod.xml" />
     <include file="DialogButtonMenu-Includes.xml" />
     <include file="DialogVideoInfo-Includes.xml" />
     <include file="Includes_ImagesMods.xml" />

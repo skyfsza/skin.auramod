@@ -2,6 +2,7 @@
 <window type="window" id="3920">
   <defaultcontrol>5050</defaultcontrol>
   <onload>SetFocus(5055)</onload>
+  <onload condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">AlarmClock(loadinfo,Action(Info),00:00,silent)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
     <include>Global_Background</include>
@@ -11,7 +12,7 @@
     <control type="group">
     <right>-50</right>
     <include>Logo</include>
-    <visible>!Window.IsVisible(DialogConfirm.xml) + !Window.IsVisible(DialogNotification.xml) + !Window.IsVisible(DialogButtonMenu.xml) + !Window.IsVisible(DialogBusy.xml) + Skin.HasSetting(EnableHomeHeader)</visible>
+    <visible>!Window.IsVisible(busydialog)</visible>
     </control>
    <control type="label">
    <animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(401)">Conditional</animation>

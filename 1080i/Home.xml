@@ -4,6 +4,7 @@
   <defaultcontrol always="true">4000</defaultcontrol>
   <onload condition="!Skin.HasSetting(FirstRunSetup)">ActivateWindow(5111)</onload>
   <onload>RunScript(plugin.video.themoviedb.helper,reset_path)</onload>
+  <onload condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">AlarmClock(loadinfo,Action(Info),00:00,silent)</onload>
   <onload condition="Skin.HasSetting(EnableWetherRadar)">RunScript(special://skin/extras/weather.py)</onload>
   <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=1&amp;group=mainmenu|powermenu|x1101|x1102|x1103|x1104|x1105|x1106|x1107|x1108|x1109|x1110|x1111|x1112|x1113|hubtvnetworks|searchmenus|aurahubtv|aurahubmovies|netflixhubtv|netflixhubmovies|pvrspot|tvhubmenu|moviehubmenu)</onload>
   <onload condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs)">Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
@@ -17,11 +18,9 @@
   <onload>AlarmClock(SetLoad,SetProperty(WidgetLoading,1,Home),00:00,silent)</onload>
   <onload>ClearProperty(spotback)</onload>
   <onload condition="!Skin.HasSetting(LockHubWidgets)">Skin.ToggleSetting(LockHubWidgets)</onload>
-  <onload condition="Skin.HasSetting(AutoLibraryHome)">UpdateLibrary(video,,true)</onload>
   <onload condition="Skin.HasSetting(MouseMode)">Skin.ToggleSetting(MouseMode)</onload>
   <onload condition="!String.IsEmpty(Skin.String(TMDB_Search))">ActivateWindow(1136)</onload>
   <onload condition="!Skin.HasSetting(DisableInfoRatings)">Skin.ToggleSetting(DisableInfoRatings)</onload>
-  <onload condition="Skin.HasSetting(HubOnStartup)">Skin.ToggleSetting(HubOnStartup)</onload>
   <onload>Skin.SetString(AddonContainer,false)</onload>
   <onunload>SetProperty(SpotReturnHome,true,Home)</onunload>
   <onunload>ClearProperty(spothubscroll)</onunload>
@@ -108,8 +107,8 @@
       <onup>300</onup>
       <ondown>3000</ondown>
       <onfocus condition="!String.IsEmpty(Skin.String(MenuPos))">SetFocus(300,$INFO[Skin.String(MenuPos)])</onfocus>
-      <onfocus condition="!Integer.IsGreater(Container(330).NumItems,0) + String.IsEmpty(Skin.String(MovieHubMenuFocus)) + String.IsEmpty(Skin.String(TVHubMenuFocus)) + String.IsEmpty(Skin.String(MenuPos))">SetFocus(300)</onfocus>
-      <onfocus condition="Integer.IsGreater(Container(330).NumItems,0) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)">SetFocus(330)</onfocus>
+      <onfocus condition="!Integer.IsGreater(Container(330).NumItems,0) + String.IsEmpty(Skin.String(MenuPos))">SetFocus(300)</onfocus>
+      <onfocus condition="Integer.IsGreater(Container(330).NumItems,0) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)">SetFocus(3000)</onfocus>
       <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widget),Settings) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) | String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)">SetFocus(300)</onfocus>
     </control>
     <control type="group">

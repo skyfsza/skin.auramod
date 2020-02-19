@@ -1677,6 +1677,16 @@
         <visible>!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
         <!-- Start Video Window -->
         <control type="group">
+          <!-- trailer window -->
+          <animation effect="slide" start="0,0" end="-300,-90" time="0" condition="Window.IsVisible(Home)">Conditional</animation>
+          <include content="Netflix_Trailer">
+            <param name="top" value="0" />
+            <param name="right" value="0" />
+            <param name="height" value="730" />
+            <param name="width" value="1400" />
+            <param name="visible" value="Player.HasVideo" />
+          </include>
+<!--
           <animation effect="slide" start="0" end="100,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
           <animation effect="slide" start="0" end="0,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,2.20)">Conditional</animation>
           <animation effect="slide" start="0" end="200,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,1.33)">Conditional</animation>
@@ -1702,6 +1712,7 @@
             <animation effect="slide" start="0" end="30,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)">Conditional</animation>
             <texture colordiffuse="ff000000" border="40">netflix/netflix_corner.png</texture>
           </control>
+-->
         </control>
         <!-- End  Video Window -->
         <control type="grouplist" id="9000">
@@ -2158,55 +2169,28 @@
     <param name="top250" default="true" />
     <param name="titleright" default="0" />
     <definition>
-      <!-- End Netflix view Fanart with corner diffuse -->
       <control type="group">
-        <!-- trailer window -->
-        <control type="group">
-          <visible>!Window.IsVisible(DialogVideoInfo.xml) + !Skin.HasSetting(DisableNetflixShowcaseOverlay)</visible>
-          <animation effect="slide" start="0" end="100,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)" reversible="true">Conditional</animation>
-          <animation effect="slide" start="0" end="0,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,2.20)">Conditional</animation>
-          <animation effect="slide" start="0" end="200,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,1.33)">Conditional</animation>
-          <animation effect="slide" start="0" end="95,0" time="0" condition="Integer.IsEqual(VideoPlayer.VideoAspect,1.78)">Conditional</animation>
-          <animation effect="slide" start="0" end="285,0" time="0" condition="Integer.IsLessOrEqual(VideoPlayer.VideoAspect,0.00)">Conditional</animation>
-          <visible>Player.HasVideo</visible>
-          <left>210</left>
-          <width>1600</width>
-          <height>640</height>
-          <top>-115</top>
-          <bottom>5</bottom>
-          <control type="videowindow">
-            <width>100%</width>
-            <height>100%</height>
-          </control>
-          <control type="image">
-            <animation effect="slide" start="0" end="100,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,1.78)">Conditional</animation>
-            <animation effect="slide" start="0" end="225,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,0.00)">Conditional</animation>
-            <animation effect="slide" start="0" end="-30,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,2.20)">Conditional</animation>
-            <animation effect="slide" start="0" end="-70,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,1.85)">Conditional</animation>
-            <animation effect="slide" start="0" end="-30,0" time="0" condition="Player.HasVideo + Integer.IsEmpty(VideoPlayer.VideoAspect)">Conditional</animation>
-            <animation effect="slide" start="0" end="30,0" time="0" condition="Player.HasVideo + Integer.IsEqual(VideoPlayer.VideoAspect,2.4) | Integer.IsEqual(VideoPlayer.VideoAspect,2.35) | Integer.IsEqual(VideoPlayer.VideoAspect,2.55) | Integer.IsEqual(VideoPlayer.VideoAspect,2.76)">Conditional</animation>
-            <animation effect="slide" start="0" end="-120,0" time="0" condition="Player.HasVideo + Integer.IsLessOrEqual(VideoPlayer.VideoAspect,0)">Conditional</animation>
-            <texture colordiffuse="ff000000" border="40">netflix/netflix_corner.png</texture>
-          </control>
-        </control>
+          <!-- trailer window -->
+          <include content="Netflix_Trailer">
+            <param name="top" value="-115" />	
+            <param name="right" value="0" />	
+            <param name="height" value="720" />	
+            <param name="width" value="1400" />	
+            <param name="visible" value="Player.HasVideo" />	
+          </include>
       </control>
-      <!-- Add Netflix view Fanart with corner diffuse -->
       <control type="group">
-        <control type="multiimage">
-          <visible>!Skin.HasSetting(DisableNetflixView) + !Skin.HasSetting(DisableNetflixShowcaseOverlay) + !Player.HasVideo + [Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(509)]</visible>
-          <width>1440</width>
-          <height>650</height>
-          <right>0</right>
-          <top>-45</top>
-          <bottom>5</bottom>
-          <aspectratio scalediffuse="true" aligny="top" align="right">scale</aspectratio>
-          <imagepath fallback="DefaultFanartFallback.jpg" background="true" diffuse="Right Corner.png">$VAR[fanart_multi_fadelabel]</imagepath>
-          <timeperimage>2000</timeperimage>
-          <fadetime>2000</fadetime>
-          <pauseatend>10000</pauseatend>
-          <randomize>true</randomize>
-          <loop>no</loop>
-        </control>
+          <!-- Add Netflix view Fanart with corner diffuse -->
+          <include content="Netflix_Fanart">
+            <param name="top" value="-45" />
+            <param name="bottom" value="5" />
+            <param name="right" value="0" />
+            <param name="height" value="650" />
+            <param name="width" value="1440" />
+            <param name="visible" value="!Skin.HasSetting(DisableNetflixView) + !Skin.HasSetting(DisableNetflixShowcaseOverlay) + !Player.HasVideo + [Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(509)]" />
+          </include>
+
+        <!-- Add Ratings below Fanart -->
         <control type="group">
           <visible>!Skin.HasSetting(DisableNetflixView) + !Window.IsVisible(DialogVideoInfo.xml) + !String.IsEqual(ListItem.Label,Next)</visible>
           <top>550</top>
@@ -2231,7 +2215,8 @@
           </include>
         </control>
       </control>
-      <!-- End Netflix view Fanart with corner diffuse -->
+
+      <!-- Left Info Showcase -->
       <control type="grouplist">
         <top>-45</top>
         <posx>10</posx>
@@ -2241,18 +2226,21 @@
         <usecontrolcoords>true</usecontrolcoords>
         <itemgap>0</itemgap>
         <height>650</height>
-        <control type="image" id="5150">
-          <visible>!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(509) | Window.IsVisible(DialogVideoInfo.xml)]</visible>
-          <left>0</left>
-          <right>$PARAM[titleright]</right>
-          <top>10</top>
-          <bottom>10</bottom>
-          <height min="60" max="251">auto</height>
-          <width>520</width>
-          <align>left</align>
-          <aspectratio align="left" aligny="center">keep</aspectratio>
-          <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
-        </control>
+
+          <!-- Clearlogo -->
+          <include content="Netflix_Clearlogo">
+            <param name="id" value="5150" />
+            <param name="top" value="10" />
+            <param name="bottom" value="10" />
+            <param name="right" value="" />
+            <param name="left" value="0" />
+            <param name="height" value="251" />
+            <param name="width" value="520" />
+            <param name="align" value="left" />
+            <param name="texture" value="$VAR[NetflixHome_ClearLogo]" />
+            <param name="visible" value="!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(509) | Window.IsVisible(DialogVideoInfo.xml)]" />
+          </include>
+        <!-- Fallback Label-->
         <control type="textbox">
           <visible>$EXP[DBTvideos] + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)) + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))</visible>
           <top>-200</top>
@@ -2281,6 +2269,7 @@
           <autoscroll>true</autoscroll>
           <scroll>true</scroll>
         </control>
+
         <control type="grouplist">
           <top>0</top>
           <height>60</height>
@@ -4525,7 +4514,7 @@
           <left>-1000</left>
           <bottom>100</bottom>
           <ondown condition="Window.IsVisible(2111) | Window.IsVisible(2112) | Window.IsVisible(2113) | Window.IsVisible(2114) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117)">SetFocus(5055)</ondown>
-	 <onback condition="Window.IsVisible(MyVideoNav)">50</onback>
+	 <onback condition="Window.IsVisible(MyVideoNav)">300</onback>
 <!--
           <onback condition="Skin.HasSetting(DisableNetflixVideoInfo) + [Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)]">300</onback>
           <onback condition="!Skin.HasSetting(DisableNetflixVideoInfo) + [Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)]">8000</onback>
@@ -5818,6 +5807,10 @@
           <height>50</height>
           <visible>Skin.HasSetting(DisableAuraHomeLayout)</visible>
         </control>
+	<control type="label" id="336">
+	   <height>50</height>
+	   <visible>!Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(DisableAuraHomeLayout)</visible>
+	</control>
         <include condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">skinshortcuts-template-searchlist</include>
       </control>
     </control>
@@ -8105,4 +8098,27 @@
         </definition>
     </include>
 
+   <include name="Info_ImageViewer">
+        <param name="listid" default="5005" />
+        <param name="buttonid" default="9506" />
+        <param name="art" default="Art(poster)" />
+        <definition>
+            <control type="button" id="$PARAM[buttonid]">
+                <include>Defs_Hidden_Button</include>
+                <onleft>Control.Move($PARAM[listid],-1)</onleft>
+                <onright>Control.Move($PARAM[listid],1)</onright>
+                <onback>$PARAM[listid]</onback>
+            </control>
+            <control type="group">
+                <include>Animation_FadeInOut</include>
+                <include>Global_Overlay</include>
+                <include>Global_Overlay</include>
+                <visible>Control.HasFocus($PARAM[buttonid])</visible>
+                <control type="image">
+                    <aspectratio>keep</aspectratio>
+                    <texture background="true">$INFO[Container($PARAM[listid]).ListItem.$PARAM[art]]</texture>
+                </control>
+            </control>
+        </definition>
+    </include>
 </includes>

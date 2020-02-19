@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="2111">
   <defaultcontrol always="true">505</defaultcontrol>
+  <onload condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">AlarmClock(loadinfo,Action(Info),00:00,silent)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
   <include condition="!Skin.HasSetting(EnableAuraMovie1)" content="menuhub_window">

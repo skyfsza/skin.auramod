@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+
+    <include name="Netflix_Trailer">
+       <param name="top" default="0"/>
+       <param name="right" default="0"/>
+       <param name="height" default="720"/>
+       <param name="width" default="1400"/>
+       <param name="visible" default="Player.HasVideo"/>
+        <definition>
+            <control type="group">
+                <visible>$PARAM[visible]</visible>
+                <top>$PARAM[top]</top>
+                <right>$PARAM[right]</right>
+                <width>$PARAM[width]</width>
+                <height>$PARAM[height]</height>
+                <control type="videowindow">
+                </control>
+                <control type="image">
+                  <texture colordiffuse="ff000000" border="20">netflix/netflix_corner.png</texture>
+                </control>
+            </control> 
+       </definition>
+     </include>
+
+    <include name="Netflix_Fanart">
+       <param name="top" default="0"/>
+       <param name="bottom" default=""/>
+       <param name="right" default="0"/>
+       <param name="height" default="650"/>
+       <param name="width" default="1440"/>
+       <param name="visible" default=""/>
+        <definition>
+        <control type="multiimage">
+          <visible>$PARAM[visible]</visible>
+          <width>$PARAM[width]</width>
+          <height>$PARAM[height]</height>
+          <right>$PARAM[right]</right>
+          <top>$PARAM[top]</top>
+          <bottom>$PARAM[bottom]</bottom>
+          <aspectratio scalediffuse="true" aligny="top" align="right">scale</aspectratio>
+          <imagepath fallback="DefaultFanartFallback.jpg" background="true" diffuse="Right Corner.png">$VAR[fanart_multi_fadelabel]</imagepath>
+          <timeperimage>2000</timeperimage>
+          <fadetime>2000</fadetime>
+          <pauseatend>10000</pauseatend>
+          <randomize>true</randomize>
+          <loop>no</loop>
+        </control>
+       </definition>
+     </include>
+
+    <include name="Netflix_Clearlogo">
+       <param name="id" default=""/>
+       <param name="top" default="0"/>
+       <param name="bottom" default=""/>
+       <param name="right" default="0"/>
+       <param name="height" default="650"/>
+       <param name="width" default="1440"/>
+       <param name="align" default=""/>
+       <param name="visible" default=""/>
+       <param name="texture" default="$VAR[NetflixHome_ClearLogo]"/>
+        <definition>
+        <control type="image" id="5150">
+          <visible>$PARAM[visible]</visible>
+          <left>$PARAM[left]</left>
+          <right>$PARAM[right]</right>
+          <top>$PARAM[top]</top>
+          <bottom>$PARAM[bottom]</bottom>
+          <height>$PARAM[height]</height>
+          <width>$PARAM[width]</width>
+          <align>$PARAM[align]</align>
+          <aspectratio align="left" aligny="center">keep</aspectratio>
+          <texture background="true">$PARAM[texture]</texture>
+        </control>
+       </definition>
+     </include>
+
+
+
+
+
+
+</includes>
