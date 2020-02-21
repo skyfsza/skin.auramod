@@ -2,7 +2,6 @@
 <window type="window" id="3820">
   <defaultcontrol always="true">5050</defaultcontrol>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
-  <onload condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">AlarmClock(loadinfo,Action(Info),00:00,silent)</onload>
   <controls>
     <include>Object_Home_Netflix</include>
     <control type="button" id="5051">

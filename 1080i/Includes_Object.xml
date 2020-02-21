@@ -2105,7 +2105,7 @@
           <control type="textbox">
             <label>$INFO[Container($PARAM[id]).ListItem.Plot]</label>
             <width>720</width>
-            <height min="20" max="175">auto</height>
+            <height min="20" max="178">auto</height>
             <aligny>top</aligny>
             <autoscroll>0</autoscroll>
             <textcolor>dimgrey</textcolor>

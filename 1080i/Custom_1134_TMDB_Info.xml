@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="window" id="1134">
   <defaultcontrol always="true">9999</defaultcontrol>
+  <onunload condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">AlarmClock(loadinfo,Action(Info),00:00,silent)</onunload>
   <controls>
     <include>Global_Background</include>
     <control type="group">
@@ -57,7 +58,7 @@
         <orientation>vertical</orientation>
         <itemgap>0</itemgap>
         <control type="group" id="3000">
-          <visible allowhiddenfocus="true">!ControlGroup(4000).HasFocus</visible>
+          <visible allowhiddenfocus="true">!ControlGroup(4100).HasFocus</visible>
           <height>1080</height>
           <animation effect="fade" start="0" end="100" time="1000">Visible</animation>
           <control type="group">

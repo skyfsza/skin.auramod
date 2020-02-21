@@ -5,7 +5,6 @@
     <menucontrol>300</menucontrol>
     <include>View_ViewIDs</include>
 <!--    <onload condition="System.HasAddon(script.tv.show.next.aired)">RunScript(script.tv.show.next.aired,backend=True)</onload> -->
-  <onload condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">AlarmClock(loadinfo,Action(Info),00:00,silent)</onload>
     <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
   <onunload>ClearProperty(TMDBHelper.WidgetContainer)</onunload>
 

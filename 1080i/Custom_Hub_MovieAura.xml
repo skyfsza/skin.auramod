@@ -2,7 +2,6 @@
 <window type="window" id="3920">
   <defaultcontrol>5050</defaultcontrol>
   <onload>SetFocus(5055)</onload>
-  <onload condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">AlarmClock(loadinfo,Action(Info),00:00,silent)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
     <include>Global_Background</include>

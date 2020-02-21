@@ -982,6 +982,7 @@
         <texture background="true" colordiffuse="FF000000">common/white.png</texture>
         <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
       </control>
+
       <control type="multiimage">
         <width>100%</width>
         <height>100%</height>
@@ -1405,7 +1406,6 @@
             <label>Trailer</label>
             <onclick condition="!Player.HasVideo + !String.IsEmpty(ListItem.Trailer) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]">PlayMedia($INFO[ListItem.Trailer],1)</onclick>
             <onclick condition="!Player.HasVideo + String.IsEmpty(ListItem.Trailer)">Playmedia($INFO[Window(Home).Property(SkinHelper.ListItem.Trailer)],1)</onclick>
-            <onclick condition="!Player.HasVideo + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Trailer))]">SetProperty(BaseWindow,InfoDialog,Home)</onclick>
             <onclick condition="!Player.HasVideo + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Trailer))]">SetProperty(TrailerPlaying,fullscreen,home)</onclick>
           </control>
           <!-- Fullscreen -->
@@ -1433,6 +1433,7 @@
             <visible>Player.HasVideo</visible>
             <onclick>Stop</onclick>
             <onclick>ClearProperty(TrailerPlaying,Home)</onclick>
+            <onclick>ClearProperty(InfoDialog,Home)</onclick>
           </control>
           <!-- Extended Info  -->
           <control type="radiobutton" id="37">
@@ -1541,7 +1542,6 @@
           </item>
           <item id="2">
             <label>Seasons</label>
-	    <onclick>ActivateWindow(10025,plugin://plugin.video.themoviedb.helper/?info=play&amp;season=$INFO[Container.ListItem.Season]&amp;type=episode&amp;episode=$INFO[Container.ListItem.Episode]&amp;tmdb_id=$INFO[Container.ListItem.Property(tmdb_id)],return)</onclick>
             <visible>[Integer.IsGreater(Container(53000).NumItems,0) | Container(53000).IsUpdating]</visible>
           </item>
           <item id="10">
@@ -1815,7 +1815,7 @@
           <param name="visible" value="String.IsEqual(Container(8999).ListItem.Label,Next Up)" />
           <param name="content" value="$VAR[nextup_content_videoinfo]" />
           <param name="onclick" value="" />
-          <param name="onclick2" value="PlayMedia(plugin://plugin.video.themoviedb.helper/?info=play&amp;season=$INFO[Container.ListItem.Season]&amp;type=episode&amp;episode=$INFO[Container.ListItem.Episode]&amp;tmdb_id=$INFO[Container.ListItem.Property(tmdb_id)])" />
+          <param name="onclick2" value="PlayMedia(plugin://plugin.video.themoviedb.helper/?info=play&season=$INFO[Container.ListItem.Season]&type=episode&episode=$INFO[Container.ListItem.Episode]&tmdb_id=$INFO[Container.ListItem.Property(tvshow.tmdb_id)])" />
         </include>
        <include condition="!Skin.HasSetting(VideoInfo.Disable) + Skin.HasSetting(VideoInfo.Episodes) + String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBType,episode) + String.Contains(ListItem.Path,plugin.video.seren)" content="episode_list">
           <param name="id" value="53011" />
