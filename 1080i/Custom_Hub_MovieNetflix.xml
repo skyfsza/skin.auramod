@@ -25,6 +25,7 @@
      <onback>ActivateWindow(Home)</onback>
      <scrolltime tween="linear">600</scrolltime>
      <top>580</top>
+     <bottom>10</bottom>
      <orientation>vertical</orientation>
      <itemgap>0</itemgap>
      <usecontrolcoords>true</usecontrolcoords>

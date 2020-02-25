@@ -21,13 +21,11 @@
     <onload condition="[Container.Content(movies) | Container.Content(tvshows)] + !Player.HasVideo + Skin.HasSetting(EnableVideoInfoAutoplay)">AlarmClock(trailer_delay,PlayMedia($INFO[ListItem.Trailer],false,1),00:02,silent)</onload>>
     <onunload condition="System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onunload>
     <controls>
-
       <include condition="Skin.HasSetting(SkinHelper.EnableExtraFanart)">fanart_multi</include>
 	<control type="button" id="9005">
 	 <visible allowhiddenfocus="true">false</visible>
 	    <onback condition="!String.IsEmpty(Window(home).Property(TrailerPlaying))">ClearProperty(TrailerPlaying,Home)</onback>
 	    <onback condition="!String.IsEmpty(Window(home).Property(TrailerPlaying))">Action(Stop)</onback>
-	    <onfocus condition="!String.IsEmpty(Window(home).Property(TrailerPlaying))">AlarmClock(trailerfocus,SetFocus(35),00:01,silent)</onfocus>
             <onfocus condition="!Skin.HasSetting(UseExtendedInfoDialog)">SetFocus(8000)</onfocus>
 	    <onfocus condition="Control.IsVisible(87)">SetFocus(87)</onfocus>
 	    <onfocus condition="!Control.IsVisible(87) + Control.IsVisible(8)">SetFocus(8)</onfocus>

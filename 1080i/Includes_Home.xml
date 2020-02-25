@@ -427,7 +427,7 @@
                         <include>Global_Overlay</include>
                         <include>Defs_InfoDialog_Visible</include>
 
-                <top>300</top>
+                <centertop>60%</centertop>
                 <width>310</width>
 		<include>IconOnly_Height</include>
 	        <preloaditems>2</preloaditems>

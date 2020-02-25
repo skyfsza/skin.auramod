@@ -137,8 +137,19 @@
     </include>
 
     <include name="Topbar">
+        <control type="group">
+        <control type="image">
+            <height>200</height>
+            <texture>common/gradient-top.png</texture>
+            <animation effect="fade" start="0" end="100" time="200" reversible="false">Visible</animation>
+            <animation effect="fade" end="0" start="100" time="1000" reversible="false">Hidden</animation>
+        </control>
+            <visible>Window.IsVisible(MyVideoNav.xml) + [Control.HasFocus(300) | Control.HasFocus(8001)] + !Skin.HasSetting(DisableNetflixView)</visible>
+        </control>
+
+<!--
 	<control type="group">
-	<visible>!Player.HasVideo + Control.HasFocus(300) + [!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(509)]]</visible>
+	<visible>!Player.HasVideo + Window.IsVisible(MyVideoNav.xml) + [Control.HasFocus(300) | Control.HasFocus(8001)] + !Skin.HasSetting(DisableNetflixView)</visible>
        	    <top>-5</top>
             <left>0</left>
             <right>0</right>
@@ -155,6 +166,7 @@
             <texture>common/gradient-solid.png</texture>
         </control>
 	</control>
+-->
         <control type="group">
             <visible>!$EXP[Exp_Info_Visible]</visible>
             <visible allowhiddenfocus="true">!Control.HasFocus(9602)</visible>
@@ -196,7 +208,7 @@
 			    <visible>![!Skin.HasSetting(DisableNetflixView) + [Control.IsVisible(502) | Control.IsVisible(505) | Control.IsVisible(506) | Control.HasFocus(5055) | Control.IsVisible(507) | Control.IsVisible(504) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(509)]]  + !Window.IsVisible(MyPVRChannels.xml) + !Window.IsVisible(MyPVRGuide.xml)</visible>
                             <top>0</top>
                             <width max="1140">auto</width>
-                            <font>font_topbar</font>
+                            <font>font_heading_topbar</font>
                             <textcolor>main_fg_100</textcolor>
                             <label>$VAR[Label_Header_Content]</label>
                             <visible>![Window.IsVisible(script-globalsearch.xml) | Window.IsVisible(Home)] | Window.IsVisible(script-script.extendedinfo-VideoList.xml)</visible>
@@ -204,8 +216,9 @@
                         </control>
                         <control type="label">
                             <top>0</top>
-                            <width>auto</width>
-                            <font>font_topbar</font>
+                            <width>500</width>
+			    <scroll>true</scroll>
+                            <font>font_heading_topbar</font>
                             <textcolor>main_fg_100</textcolor>
                             <label max="1140">$INFO[Container(300).ListItem.Label]</label>
                             <visible>![Window.IsVisible(script-globalsearch.xml) | Window.IsVisible(Home)]</visible>
@@ -286,6 +299,70 @@
                             <visible>!Control.HasFocus(300) | Window.IsVisible(Home)</visible>
                             <visible>!Control.HasFocus(60)</visible>
                         </control>
+
+
+<!--
+			<control type="group">
+        <control type="label">
+          <top>-10</top>
+          <right>0</right>
+          <width>60</width>
+          <height>60</height>
+          <font>font_tiny_bold</font>
+          <align>right</align>
+          <textcolor>white</textcolor>
+          <label>[B]$INFO[Weather.Temperature][/B]</label>
+          <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(extendedprogressdialog)">Conditional</animation>
+        </control>
+          <control type="image">
+            <top>-5</top>
+            <right>60</right>
+            <width>70</width>
+            <height>70</height>
+            <aspectratio>keep</aspectratio>
+            <texture colordiffuse="main_fg_100">$INFO[Weather.FanartCode,resource://resource.images.weathericons.white/,.png]</texture>
+            <visible>Weather.IsFetched + !Container($PARAM[id]).IsUpdating</visible>
+          </control>
+        <control type="button">
+          <top>-10</top>
+          <right>60</right>
+          <width>70</width>
+          <height>70</height>
+          <label></label>
+          <height>60</height>
+          <onclick>Dialog.Close(contextmenu)</onclick>
+          <onclick>Dialog.Close(all,true)</onclick>
+          <onclick>ActivateWindow(PlayerControls)</onclick>
+          <texturefocus colordiffuse="white">logo.png</texturefocus>
+          <texturenofocus colordiffuse="white">logo.png</texturenofocus>
+          <visible>!Weather.IsFetched</visible>
+        </control>
+        <control type="label">
+          <top>-30</top>
+          <right>140</right>
+          <width>1000</width>
+          <height>60</height>
+          <font>font_heading_date</font>
+          <align>right</align>
+          <textcolor>white</textcolor>
+          <label>[B]$INFO[System.Time(hh:mm)][/B]</label>
+          <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(extendedprogressdialog)">Conditional</animation>
+        </control>
+        <control type="label">
+          <right>140</right>
+          <top>-10</top>
+          <width>1000</width>
+          <height>60</height>
+          <font>font_heading_date</font>
+          <align>right</align>
+          <alignx>right</alignx>
+          <textcolor>white</textcolor>
+          <label>[B]$INFO[System.Date][/B]</label>
+          <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(extendedprogressdialog)">Conditional</animation>
+        </control>
+
+                        </control>
+-->
                         <control type="group">
                             <visible>!Control.HasFocus(60)</visible>
                             <width>view_pad</width>
@@ -311,7 +388,7 @@
                             <visible>!Control.HasFocus(60)</visible>
                             <width>auto</width>
                             <font>font_small</font>
-                            <textcolor>$VAR[ColorHighlight]</textcolor>
+                            <textcolor>main_fg_100</textcolor>
                             <label>  |  </label>
                             <visible>!String.IsEmpty(Weather.Temperature)</visible>
                             <visible>Weather.IsFetched</visible>

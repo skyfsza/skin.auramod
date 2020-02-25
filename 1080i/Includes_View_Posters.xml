@@ -117,7 +117,7 @@
                     <param name="width" value="1654" />
                     <param name="discart" value="true" />
                     <param name="hdsd_flag" value="true" />
-                    <param name="plot_height" value="130" />
+                    <param name="plot_height" value="210" />
                     <param name="imdbvotes" value="false" />
                     <param name="top250" value="false" />
                 </include>
@@ -295,10 +295,15 @@
             <param name="string" value="$LOCALIZE[31161]" />
           </include>
           <include>View_NotTheseWindows</include>
-          <include content="View_Posters_Layout">
+          <include content="View_Posters_Layout" condition="Skin.HasSetting(DisableNetflixView)">
             <param name="id" value="55" />
             <param name="orientation" value="horizontal" />
             <param name="posters" default="true" />
+          </include>
+          <include content="View_Posters_Layout" condition="!Skin.HasSetting(DisableNetflixView)">
+            <param name="id" value="55" />
+            <param name="orientation" value="horizontal" />
+            <param name="posters_nolabel" default="true" />
           </include>
         </control>
         <include content="Object_Info" condition="Skin.HasSetting(DisableNetflixView)">
@@ -986,7 +991,7 @@
 
         <itemlayout width="366" height="210">
           <include content="Widget_Items_ItemLayout">
-            <param name="landscape" value="true" />
+            <param name="landscapenetflix" value="true" />
             <param name="genres" value="$PARAM[genres]" />
             <param name="studios" value="$PARAM[studios]" />
             <param name="text" value="$PARAM[text]" />
@@ -995,7 +1000,7 @@
         <focusedlayout width="366" height="210">
           <include content="Widget_Items_FocusedLayout">
             <param name="id" value="5056" />
-            <param name="landscape" value="true" />
+            <param name="landscapenetflix" value="true" />
             <param name="genres" value="$PARAM[genres]" />
             <param name="studios" value="$PARAM[studios]" />
             <param name="text" value="$PARAM[text]" />
@@ -3254,8 +3259,15 @@
       <control type="image">
         <bordersize>10</bordersize>
         <aspectratio aligny="center" scalediffuse="false">keep</aspectratio>
+        <texture colordiffuse="PosterFront_70" background="true" diffuse="diffuse/widgetposter.png">$INFO[ListItem.Icon]</texture>
+        <visible>String.StartsWith(ListItem.Icon,Default) + ![Skin.HasSetting(SerenIcons) + String.Contains(ListItem.FolderPath,plugin.video.seren)]</visible>
+        <visible>![[Container.Content(genres) | [Container.Content(addons) + String.Contains(Container.FolderPath,Genres)]] | Container.Content(studios) | Container.Content(years) | Container.Content(directors) | Container.Content(countries) | Container.Content(tags) | Container.Content(playlists)] | ListItem.IsParentFolder</visible>
+      </control>
+      <control type="image">
+        <bordersize>10</bordersize>
+        <aspectratio aligny="center" scalediffuse="false">keep</aspectratio>
         <texture colordiffuse="PosterFront_70" background="true" diffuse="diffuse/widgetposter.png">$VAR[serenicons]</texture>
-        <visible>String.StartsWith(ListItem.Icon,Default)</visible>
+        <visible>String.StartsWith(ListItem.Icon,Default) + Skin.HasSetting(SerenIcons) + String.Contains(ListItem.FolderPath,plugin.video.seren)</visible>
         <visible>![[Container.Content(genres) | [Container.Content(addons) + String.Contains(Container.FolderPath,Genres)]] | Container.Content(studios) | Container.Content(years) | Container.Content(directors) | Container.Content(countries) | Container.Content(tags) | Container.Content(playlists)] | ListItem.IsParentFolder</visible>
       </control>
       <control type="image">
@@ -3344,8 +3356,15 @@
       <control type="image">
         <bordersize>10</bordersize>
         <aspectratio aligny="center" scalediffuse="false">keep</aspectratio>
+        <texture colordiffuse="PosterFront" background="true" diffuse="diffuse/widgetposter.png">$INFO[ListItem.Icon]</texture>
+        <visible>String.StartsWith(ListItem.Icon,Default) + ![Skin.HasSetting(SerenIcons) + String.Contains(ListItem.FolderPath,plugin.video.seren)]</visible>
+        <visible>![[Container.Content(genres) | [Container.Content(addons) + String.Contains(Container.FolderPath,Genres)]] | Container.Content(studios) | Container.Content(years) | Container.Content(directors) | Container.Content(countries) | Container.Content(tags) | Container.Content(playlists)] | ListItem.IsParentFolder</visible>
+      </control>
+      <control type="image">
+        <bordersize>10</bordersize>
+        <aspectratio aligny="center" scalediffuse="false">keep</aspectratio>
         <texture colordiffuse="PosterFront" background="true" diffuse="diffuse/widgetposter.png">$VAR[serenicons]</texture>
-        <visible>String.StartsWith(ListItem.Icon,Default)</visible>
+        <visible>String.StartsWith(ListItem.Icon,Default) + Skin.HasSetting(SerenIcons) + String.Contains(ListItem.FolderPath,plugin.video.seren)</visible>
         <visible>![[Container.Content(genres) | [Container.Content(addons) + String.Contains(Container.FolderPath,Genres)]] | Container.Content(studios) | Container.Content(years) | Container.Content(directors) | Container.Content(countries) | Container.Content(tags) | Container.Content(playlists)] | ListItem.IsParentFolder</visible>
       </control>
       <control type="image">

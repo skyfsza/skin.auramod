@@ -20,14 +20,23 @@
         <orientation>vertical</orientation>
         <usecontrolcoords>true</usecontrolcoords>
         <itemgap>0</itemgap>
+       <control type="label">
+	 <left>0</left>
+         <height>30</height>
+         <font>font_small</font>
+         <textcolor>dimgrey</textcolor>
+         <label>$VAR[Label_Genre_showcase]</label>
+         <scroll>false</scroll>
+	 <visible>!Skin.HasSetting(DisableNetflixView)</visible>
+       </control>
         <control type="label">
           <left>0</left>
           <right>$PARAM[titleright]</right>
-          <label>$INFO[ListItem.Label]</label>
+          <label>$VAR[video_heading]</label>
           <height>80</height>
           <aligny>top</aligny>
           <textcolor>main_fg_100</textcolor>
-          <font>font_showcase_title</font>
+          <font>font_xlarge_bold</font>
         </control>
         <control type="grouplist">
           <height>40</height>
@@ -36,6 +45,7 @@
           <itemgap>0</itemgap>
           <left>0</left>
           <right>0</right>
+	  <visible>Skin.HasSetting(DisableNetflixView)</visible>
           <control type="image">
             <left>0</left>
             <top>10</top>
@@ -76,6 +86,14 @@
             <visible>!Control.IsVisible(500)</visible>
           </control>
         </control>
+
+        <control type="group">
+	     <height>40</height>
+	     <top>-20</top>
+             <include>netflix_infoline</include>
+             <visible>!Skin.HasSetting(DisableNetflixView)</visible>
+        </control>
+
         <control type="group">
           <height>80</height>
           <left>0</left>
@@ -139,7 +157,7 @@
           <aligny>top</aligny>
           <textcolor>main_fg_100</textcolor>
           <font>font_small</font>
-          <visible>$PARAM[genre]</visible>
+          <visible>Skin.HasSetting(DisableNetflixView) + $PARAM[genre]</visible>
         </control>
         <control type="textbox">
           <label fallback="19055">$VAR[Label_Plot]</label>
@@ -674,6 +692,31 @@
     <param name="type" default="" />
     <param name="visible" default="" />
     <definition>
+      <control type="group" id="2$PARAM[id]">
+        <animation effect="slide" end="0,20" time="0" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>
+        <animation effect="slide" end="40,0" time="200" condition="!Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableMenuVertLabelOnly) + !Skin.HasSetting(DisableMenuVertLabel) + [Control.HasFocus(300) | !Skin.HasSetting(DisableNetflixHomeSidemenuHide)]">Conditional</animation>
+        <visible>String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),$PARAM[type])</visible>
+        <visible>Container($PARAM[id]).IsUpdating + !Integer.IsGreater(Container($PARAM[id]).NumItems,0)</visible>
+        <control type="group">
+          <top>-660</top>
+          <left>10</left>
+          <control type="image">
+            <width>1810</width>
+            <height>620</height>
+            <bordersize>1</bordersize>
+            <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
+          </control>
+        </control>
+        <control type="group">
+          <height>40</height>
+          <top>-400</top>
+          <left>-400</left>
+          <include content="Defs_BusySpinner">
+            <param name="label" value="$LOCALIZE[31138]..." />
+          </include>
+        </control>
+      </control>
+
       <control type="wraplist" id="$PARAM[id]">
         <onfocus>SetProperty(SpotFocus,true,Home)</onfocus>
         <animation effect="slide" end="0,20" time="0" condition="Skin.HasSetting(DisableMenuHor)">Conditional</animation>
@@ -4481,7 +4524,6 @@
   </include>
   <include name="Object_Scrollbar_Horz">
     <control type="scrollbar" id="60">
-      <visible>Skin.HasSetting(DisableNetflixView)</visible>
       <onback>50</onback>
       <height>8</height>
       <left>0</left>
@@ -5039,6 +5081,7 @@
     <control type="group">
       <right>-20</right>
       <visible>!Skin.HasSetting(DisableMenuHor)</visible>
+      <visible>!Window.IsVisible(DialogNotification.xml) + !Window.IsVisible(DialogBusy.xml) + Skin.HasSetting(EnableHomeHeader)</visible>
       <control type="group">
         <top>35</top>
         <animation type="Conditional" condition="Window.Previous(fullscreenvideo)">
@@ -5046,16 +5089,30 @@
           <effect type="fade" start="100" end="0" time="300" />
         </animation>
         <control type="group">
+        <control type="label">
+          <top>10</top>
+          <right>90</right>
+          <width>60</width>
+          <height>60</height>
+          <font>font_tiny_bold</font>
+          <align>right</align>
+          <textcolor>white</textcolor>
+          <label>[B]$INFO[Weather.Temperature][/B]</label>
+          <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(extendedprogressdialog)">Conditional</animation>
+        </control>
           <control type="image">
-            <right>80</right>
+	    <top>5</top>
+            <right>150</right>
             <width>70</width>
             <height>70</height>
             <aspectratio>keep</aspectratio>
             <texture colordiffuse="main_fg_100">$INFO[Weather.FanartCode,resource://resource.images.weathericons.white/,.png]</texture>
+            <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(extendedprogressdialog)">Conditional</animation>
             <visible>Weather.IsFetched + !Container($PARAM[id]).IsUpdating</visible>
           </control>
           <control type="image">
-            <right>80</right>
+	    <top>5</top>
+            <right>150</right>
             <width>70</width>
             <height>70</height>
             <aspectratio>keep</aspectratio>
@@ -5078,7 +5135,7 @@
         </control>
         <control type="label">
           <top>-5</top>
-          <right>170</right>
+          <right>230</right>
           <width>1000</width>
           <height>60</height>
           <font>font_heading_date</font>
@@ -5088,7 +5145,7 @@
           <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(extendedprogressdialog)">Conditional</animation>
         </control>
         <control type="label">
-          <right>170</right>
+          <right>230</right>
           <top>20</top>
           <width>1000</width>
           <height>60</height>
@@ -5898,7 +5955,7 @@
           <height>100%</height>
           <aspectratio aligny="center">keep</aspectratio>
           <texture colordiffuse="main_fg_30">common/cube-16.png</texture>
-          <visible>!Control.HasFocus($PARAM[submenu]) + !Skin.HasSetting(DisableCatlabel)</visible>
+          <visible>!Control.HasFocus($PARAM[submenu]) + Skin.HasSetting(DisableCubeIcon)</visible>
         </control>
         <control type="label">
           <font>font_widgetbar_bold</font>
@@ -6459,7 +6516,6 @@
       </control>
       <control type="$PARAM[controltype]" id="$PARAM[id]">
         <left>-55</left>
-
         <animation effect="slide" end="640,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapepanelcondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
         <animation effect="slide" end="640,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + !$PARAM[Showcasehide] + $PARAM[landscapepanelcondition]">Conditional</animation>
         <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapecondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
@@ -6472,6 +6528,7 @@
 
         <top>30</top>
         <animation effect="fade" start="100" end="0" condition="Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating">Conditional</animation>
+        <include condition="$PARAM[Showcase]">Widget_Movement_Showcase</include>
         <movement>$PARAM[movement]</movement>
         <onback>Skin.Reset(TVHubMenuFocus)</onback>
         <onback>Skin.Reset(MovieHubMenuFocus)</onback>
@@ -6550,20 +6607,30 @@
           <param name="genrecondition" value="$PARAM[genrecondition]" />
           <param name="search" value="$PARAM[search]" />
         </include>
-<!--
-        <include content="Widget_Submenu" condition="$PARAM[submenu]">
-          <param name="id" value="$PARAM[id]" />
-          <param name="target" value="$PARAM[target]" />
-          <param name="content" value="$PARAM[content]" />
-          <param name="widgetContent" value="$PARAM[widgetContent]" />
-          <param name="aspect" value="$PARAM[aspect]" />
-          <param name="widgetAspect" value="$PARAM[widgetAspect]" />
-          <param name="submenu" value="$PARAM[submenu]" />
-          <param name="sortby" value="$PARAM[sortby]" />
-          <param name="sortorder" value="$PARAM[sortorder]" />
-        </include>
--->
       </control>
+<!--
+      <control type="group" id="9$PARAM[id]">
+        <control type="image">
+	  <left>8</left>
+          <top>-275</top>
+          <height>255</height>
+          <width>455</width>
+          <texture background="true" colordiffuse="FFFFFFFF" border="20">common/selectbox.png</texture>
+          <visible>Control.HasFocus($PARAM[id]) + $PARAM[landscapenetflixcondition]</visible>
+        </control> 
+      </control>
+      <control type="group" id="10$PARAM[id]">
+        <control type="image">
+          <width>60</width>
+          <height>60</height>
+          <top>-180</top>
+          <left>-25</left>
+          <texture background="true" colordiffuse="white">netflix/left-arrow.png</texture>
+          <visible>Container($PARAM[id]).HasPrevious + Control.HasFocus($PARAM[id]) + $PARAM[landscapenetflixcondition]</visible>
+        </control>
+       </control>
+-->
+
     </definition>
   </include>
   <include name="AuraWidget_Items_LandscapePanel_Height">
@@ -6708,6 +6775,16 @@
           <param name="mylist1" value="$PARAM[mylist1]" />
         </include>
       </control>
+<!--
+          <include content="Netflix_Fixed_Focus" condition="Skin.HasSetting(NetflixFixedBox)">
+            <param name="id" value="11$PARAM[id]" />
+            <param name="left" value="60" />
+            <param name="bottom" value="45" />
+            <param name="height" value="379" />
+            <param name="width" value="260" />
+            <param name="visible" value="Control.IsVisible($PARAM[id]) + $PARAM[postercondition]" />
+          </include>
+-->
     </definition>
   </include>
   <include name="widget_label_top">
@@ -8118,6 +8195,29 @@
                     <aspectratio>keep</aspectratio>
                     <texture background="true">$INFO[Container($PARAM[listid]).ListItem.$PARAM[art]]</texture>
                 </control>
+            </control>
+        </definition>
+    </include>
+
+   <include name="Netflix_Fixed_Focus">
+        <param name="id" default="" />
+        <param name="top" default="" />
+        <param name="bottom" default="" />
+        <param name="left" default="" />
+        <param name="right" default="" />
+        <param name="width" default="" />
+        <param name="height" default="" />
+        <param name="visible" default="" />
+        <definition>
+             <control type="group" id="$PARAM[id]">
+                <left>$PARAM[left]</left>
+                <bottom>$PARAM[bottom]</bottom>
+                <width>$PARAM[width]</width>
+                <height>$PARAM[height]</height>
+                <control type="image">
+                    <texture colordiffuse="FFFFFFFF" border="20">home_focus.png</texture>
+                </control>
+                <visible>$PARAM[visible]</visible>
             </control>
         </definition>
     </include>

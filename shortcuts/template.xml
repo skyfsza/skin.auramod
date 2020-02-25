@@ -97,6 +97,7 @@
             <include content="Widget">
                 <param name="id" value="$PYTHON[int(mainmenuid)]$PYTHON[int(id) + 3002]" />
                 <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
+                <param name="videos" value="$PYTHON['true' if widgetPath in 'plugin:' else 'false']" />
                 <param name="sortby" value="$SKINSHORTCUTS[widgetSortby]" />
                 <param name="sortorder" value="$SKINSHORTCUTS[widgetSortorder]" />
                 <param name="content" value="$SKINSHORTCUTS[widgetPath]&amp;nextpage=True" />

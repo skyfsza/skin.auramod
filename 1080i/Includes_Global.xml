@@ -216,7 +216,7 @@
 
     <variable name="Global_Background_Image_Var">
         <value condition="[[Window.IsVisible(home) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather)] + Skin.HasSetting(NoFanart)] | ListItem.IsParentFolder">$VAR[Global_Background_Image_NoFanart]</value>
-        <value condition="Window.IsVisible(home) + ControlGroup(900).HasFocus">$VAR[Global_Background_Image_NoFanart]</value>
+        <value condition="Window.IsVisible(home) + [ControlGroup(900).HasFocus | Control.HasFocus(9000) | Control.HasFocus(9001) | Control.HasFocus(9002)]">$VAR[Global_Background_Image_NoFanart]</value>
        <value condition="Window.IsVisible(MyVideoNav.xml) + [Control.IsVisible(53) | Control.IsVisible(503)] +  [String.Contains(Container.FolderPath,library://video/serenmytv) | String.Contains(Container.FolderPath,library://video/serendiscovertv)]">special://skin/extras/backgrounds/tv-shows-mainmenu-bg.jpg</value>
        <value condition="Window.IsVisible(MyVideoNav.xml) + [!Control.IsVisible(505) | !Control.IsVisible(506)] +  [String.Contains(Container.FolderPath,library://video/serenmytv) | String.Contains(Container.FolderPath,library://video/serendiscovertv)]">special://skin/extras/backgrounds/grey-background.jpg</value>
        <value condition="Window.IsVisible(MyVideoNav.xml) + [!Control.IsVisible(505) | !Control.IsVisible(506)] +  [String.Contains(Container..FolderPath,library://video/serenmymovies) | String.Contains(Container.FolderPath,library://video/serendiscovermovies)]">special://skin/extras/backgrounds/grey-background.jpg</value>

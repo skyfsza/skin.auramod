@@ -1328,6 +1328,15 @@
                             <selected>!Skin.HasSetting(BounceAnimations)</selected>
                             <onclick>Skin.ToggleSetting(BounceAnimations)</onclick>
                         </control>
+<!--
+                        <control type="radiobutton" id="9613" description="Enable Netflix Style Fixed Focus">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label>Enable Netflix Style Fixed Focus</label>
+                            <selected>Skin.HasSetting(NetflixFixedBox)</selected>
+                            <onclick>Skin.ToggleSetting(NetflixFixedBox)</onclick>
+                        </control>
+-->
                       <control type="radiobutton" id="96112" description="Detatch Widgets from Main Menu">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9011)</visible>
                             <include>Defs_Settings_Button</include>

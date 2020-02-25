@@ -265,6 +265,7 @@
     <param name="controltype" default="fixedlist" />
     <param name="search" default="false" />
     <param name="mylist1" default="false" />
+    <param name="videos" default="false" />
     <param name="movement" default="1" />
     <param name="focusposition" default="1" />
     <param name="Showcase" default="false" />
@@ -522,6 +523,7 @@
           <param name="submenucondition" value="$PARAM[submenucondition]" />
           <param name="search" value="$PARAM[search]" />
           <param name="mylist1" value="$PARAM[mylist1]" />
+          <param name="videos" value="$PARAM[videos]" />
           <param name="Showcase" value="$PARAM[Showcase]" />
           <param name="path" value="$PARAM[path]" />
           <param name="path2" value="$PARAM[path2]" />
@@ -1019,6 +1021,7 @@
     <param name="submenucondition" default="false" />
     <param name="search" default="false" />
     <param name="mylist1" default="false" />
+    <param name="videos" default="false" />
     <param name="path" default="" />
     <param name="path2" default="" />
     <definition>
@@ -1304,7 +1307,17 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <include condition="!$PARAM[search] + !$PARAM[mylist1]" content="Widget_ContentInclude">
+      <include condition="!$PARAM[search] + !$PARAM[mylist1] + $PARAM[videos]" content="Widget_ContentInclude">
+        <param name="target" value="$PARAM[target]" />
+        <param name="sortby" value="$PARAM[sortby]" />
+        <param name="sortorder" value="$PARAM[sortorder]" />
+        <param name="widgetContent" value="$PARAM[widgetContent]&reload=$INFO[Window(Home).Property(widgetreload)]" />
+        <param name="content" value="$PARAM[content]" />
+        <param name="limit" value="$VAR[Label_WidgetItemLimit]" />
+        <param name="id" value="$PARAM[id]" />
+        <param name="mylist1" value="$PARAM[mylist1]" />
+      </include>
+      <include condition="!$PARAM[search] + !$PARAM[mylist1] + !$PARAM[videos]" content="Widget_ContentInclude">
         <param name="target" value="$PARAM[target]" />
         <param name="sortby" value="$PARAM[sortby]" />
         <param name="sortorder" value="$PARAM[sortorder]" />
@@ -2013,7 +2026,7 @@
             <viewtype label="List">List</viewtype>
             <scrolltime tween="cubic" easing="out">800</scrolltime>
             <orientation>vertical</orientation>
-            <visible allowhiddenfocus="true">!Container(9022).IsUpdating</visible>
+            <visible allowhiddenfocus="true">Integer.IsGreater(Container(9022).NumItems,0) | [!Integer.IsGreater(Container(9022).NumItems,0) + !Container(9022).IsUpdating]</visible>
             <itemlayout width="693" height="115">
               <control type="image">
                 <description>Channel underlay</description>
@@ -2121,7 +2134,7 @@
             <content sortby="lastplayed" sortorder="descending" target="pvr" limit="20">pvr://channels/tv/*</content>
           </control>
           <control type="group" id="9023">
-            <visible>Container(9022).IsUpdating</visible>
+            <visible>!Integer.IsGreater(Container(9022).NumItems,0) + !Container(9022).IsUpdating</visible>
             <control type="image">
               <description>Loading Back</description>
               <posx>313</posx>

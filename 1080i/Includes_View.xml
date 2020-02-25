@@ -36,7 +36,7 @@
                 <visible>!Control.HasFocus(9602)</visible>
                 <visible>![Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml)]</visible>
                 <control type="group">
-                    <visible>Control.HasFocus(50) | Control.HasFocus(501) | [[Control.IsVisible(50) | Control.IsVisible(501)] + Control.HasFocus(300)]</visible>
+                    <visible>Control.HasFocus(50) | Control.HasFocus(501) | [[Control.IsVisible(50) | Control.IsVisible(501)] + [Control.HasFocus(300) | Control.HasFocus(60) | Control.HasFocus(8001)]]</visible>
                     <include>View_Library_Poster</include>
                 </control>
                 <control type="group">
@@ -64,7 +64,7 @@
                     <param name="visible" value="Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(54) | Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(502)" />
                 </include>
                 <include content="Object_Scrollbar_Horz">
-                    <param name="visible" value="Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(59)" />
+                    <param name="visible" value="[!Skin.HasSetting(EnableTrailerOnDown) + [Control.IsVisible(55) | Control.IsVisible(56)]] | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(59)" />
                 </include>
                 <control type="scrollbar" id="8060">
                     <onback>50</onback>

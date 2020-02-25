@@ -108,13 +108,13 @@
       <control type="image">
         <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$INFO[ListItem.Icon]</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
-        <visible>String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+        <visible>String.Contains(ListItem.Path,plugin://plugin.video.youtube)</visible>
       </control>
       <!-- Fanart Background -->
       <control type="image">
         <texture background="true" fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png">$VAR[Image_Fanart]</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
-        <visible>!String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+        <visible>!String.Contains(ListItem.Path,plugin://plugin.video.youtube)</visible>
       </control>
       <control type="group">
         <animation effect="slide" end="0,20" time="0" condition="Skin.HasSetting(DisableNetflixSmallWidget)">Conditional</animation>
@@ -237,18 +237,18 @@
         <width>50%</width>
         <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$VAR[Image_Fanart]</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
-        <visible>!String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+        <visible>!String.Contains(ListItem.Path,plugin://plugin.video.youtube)</visible>
       </control>
       <control type="image">
         <width>50%</width>
         <left>50%</left>
-        <texture colordiffuse="white" background="true">common/white.png</texture>
+        <texture colordiffuse="FFFFFFFF" background="true">common/white.png</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
       </control>
       <control type="image">
         <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$INFO[ListItem.Icon]</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
-        <visible>String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+        <visible>String.Contains(ListItem.Path,plugin://plugin.video.youtube)</visible>
       </control>
       <!-- Add Clearlogo to landscape Image -->
       <control type="image">
@@ -258,7 +258,7 @@
         <height>45%</height>
         <aspectratio>keep</aspectratio>
         <texture background="true">$VAR[Widget_ClearLogo]</texture>
-        <visible>[!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo)] + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)] + !String.IsEqual(ListItem.DBType,episode) + [!String.IsEqual(ListItem.DBType,episode) + !String.Contains(ListItem.Art(landscape),userdata)]</visible>
+        <visible>!String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(DisableNetflixSmallWidget) + !Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + [String.IsEmpty(ListItem.Art(landscape)) | String.Contains(ListItem.Art(landscape),w1280None) | String.Contains(ListItem.Art(landscape),tmdb.org)]</visible>
       </control>
       <control type="group">
         <!-- Add Clearlogo to landscape Image -->
@@ -270,7 +270,7 @@
           <aspectratio>keep</aspectratio>
           <animation effect="slide" start="0" end="0,40" time="0" condition="String.IsEmpty(ListItem.Episode) | Skin.HasSetting(WidgetLabels)">Conditional</animation>
           <texture background="true">$VAR[Widget_ClearLogo]</texture>
-          <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
+          <visible>!Skin.HasSetting(DisableNetflixSmallWidget) + !Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
         </control>
       </control>
       <control type="group">
@@ -288,19 +288,19 @@
         <control type="label">
           <top>40</top>
           <height>60</height>
-          <width>40%</width>
+          <width>45%</width>
           <left>53%</left>
-          <font>font_medium_bold</font>
+          <font>font_large_bold</font>
           <textcolor>black</textcolor>
           <label>$VAR[video_heading]</label>
         </control>
         <control type="textbox">
           <top>120</top>
-          <height>120</height>
+          <height>122</height>
           <width>45%</width>
           <left>53%</left>
-          <font>font_tiny</font>
-          <textcolor>dimgrey</textcolor>
+          <font>widget_live_title</font>
+          <textcolor>grey</textcolor>
           <autoscroll>0</autoscroll>
           <label>$INFO[ListItem.Plot]</label>
           <visible>!String.IsEqual(ListItem.DBType,episode)</visible>
@@ -332,7 +332,7 @@
         <visible>String.IsEqual(ListItem.DBType,episode)</visible>
         <control type="label">
           <top>120</top>
-          <width>400</width>
+          <width>480</width>
           <height>40</height>
           <left>53%</left>
           <font>font_widgetbar_bold</font>
@@ -342,12 +342,12 @@
         </control>
         <control type="label">
           <top>170</top>
-          <width>400</width>
+          <width>500</width>
           <height>40</height>
           <left>53%</left>
           <font>font_widgetbar_bold</font>
           <textcolor>$VAR[ColorHighlight]</textcolor>
-          <label>$INFO[ListItem.Title]</label>
+          <label>[I]$INFO[ListItem.Title][/I]</label>
           <scroll>true</scroll>
         </control>
         <control type="group">
@@ -385,12 +385,12 @@
         <width>50%</width>
         <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$VAR[Image_Fanart]</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
-        <visible>!String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+        <visible>!String.Contains(ListItem.Path,plugin://plugin.video.youtube)</visible>
       </control>
       <control type="image">
         <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$INFO[ListItem.Icon]</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
-        <visible>String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+        <visible>String.Contains(ListItem.Path,plugin://plugin.video.youtube)</visible>
       </control>
       <!-- Add Clearlogo to landscape Image -->
       <control type="image">
@@ -400,7 +400,7 @@
         <height>45%</height>
         <aspectratio>keep</aspectratio>
         <texture background="true">$VAR[Widget_ClearLogo]</texture>
-        <visible>[!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo)] + [!String.Contains(ListItem.Art(landscape),tvthumb) + !String.Contains(ListItem.Art(landscape),moviethumb)] + !String.IsEqual(ListItem.DBType,episode) + [!String.IsEqual(ListItem.DBType,episode) + !String.Contains(ListItem.Art(landscape),userdata)]</visible>
+        <visible>!String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(DisableNetflixSmallWidget) + !Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + [String.IsEmpty(ListItem.Art(landscape)) | String.Contains(ListItem.Art(landscape),w1280None) | String.Contains(ListItem.Art(landscape),tmdb.org)]</visible>
       </control>
       <control type="group">
         <!-- Add Clearlogo to landscape Image -->
@@ -493,12 +493,12 @@
       <control type="image">
         <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$VAR[Image_Fanart]</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
-        <visible>!String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+        <visible>!String.Contains(ListItem.Path,plugin://plugin.video.youtube)</visible>
       </control>
       <control type="image">
         <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$INFO[ListItem.Icon]</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
-        <visible>String.Contains(ListItem.Path,plugin.video.youtube)</visible>
+        <visible>String.Contains(ListItem.Path,plugin://plugin.video.youtube)</visible>
       </control>
       <control type="group">
         <visible>[Control.IsVisible(505) | Control.HasFocus(5055)] + String.IsEmpty(Container(5055).ListItem.Art(fanart)) + String.IsEmpty(Container(5055).ListItem.Year) + [String.IsEmpty(Container(5055).ListItem.TvShowTitle) | String.IsEmpty(Container(5055).ListItem.Title)]</visible>
