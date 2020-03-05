@@ -291,6 +291,7 @@
         <onunfocus>ClearProperty(spothubscroll)</onunfocus>
 
 	<include content="showcase_animations">
+	   <param name="id" value="$PARAM[id]" />
 	   <param name="Showcase" value="$PARAM[Showcase]" />
 	   <param name="Showcasehide" value="$PARAM[Showcasehide]" />
 	   <param name="postercondition" value="$PARAM[postercondition]" />
