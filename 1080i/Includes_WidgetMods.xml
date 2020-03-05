@@ -1044,26 +1044,46 @@
         <visible>$PARAM[Showcase] + Integer.IsGreater(Container($PARAM[id]).NumItems,0)</visible>
        <control type="group">
         <control type="image">
-          <top>40</top>
+	  <include content="top" condition="!Skin.HasSetting(SubmenuLabel) + Window.IsVisible(Home)">
+	   <param name="top" value="-10" />
+	  </include>
+          <include content="top" condition="Skin.HasSetting(SubmenuLabel) | !Window.IsVisible(Home)">
+           <param name="top" value="40" />
+          </include>
           <width>100%</width>
           <height>385</height>
           <texture background="true" colordiffuse="99000000">white.png</texture>
           <visible>[$PARAM[postercondition] + Control.HasFocus($PARAM[id]) + $PARAM[Showcasehide]] | [Control.IsVisible($PARAM[id]) + $PARAM[postercondition] + !$PARAM[Showcasehide]] </visible>
         </control>
           <control type="image">
-            <top>40</top>
+          <include content="top" condition="!Skin.HasSetting(SubmenuLabel) + Window.IsVisible(Home)">
+           <param name="top" value="-10" />
+          </include>
+          <include content="top" condition="Skin.HasSetting(SubmenuLabel) | !Window.IsVisible(Home)">
+           <param name="top" value="40" />
+          </include>
             <width>100%</width>
             <height>355</height>
             <texture background="true" colordiffuse="990000000">white.png</texture>
           <visible>[$PARAM[landscapecondition] + Control.HasFocus($PARAM[id]) + $PARAM[Showcasehide]] | [Control.IsVisible($PARAM[id]) + $PARAM[landscapecondition] + !$PARAM[Showcasehide]] </visible>
           </control>
           <control type="image">
-            <top>40</top>
+          <include content="top" condition="Window.IsVisible(Home) + !Skin.HasSetting(SubmenuLabel)">
+           <param name="top" value="-10" />
+          </include>
+          <include content="top" condition="Skin.HasSetting(SubmenuLabel) | !Window.IsVisible(Home)">
+           <param name="top" value="40" />
+          </include>
             <width>100%</width>
             <height>430</height>
             <texture background="true" colordiffuse="990000000">white.png</texture>
            <visible>[$PARAM[landscapepanelcondition] + Control.HasFocus($PARAM[id]) + $PARAM[Showcasehide]] | [Control.IsVisible($PARAM[id]) + $PARAM[landscapepanelcondition] + !$PARAM[Showcasehide]] </visible>
           </control>
+
+        <control type="group">
+          <include content="top" condition="Window.IsVisible(Home) + !Skin.HasSetting(SubmenuLabel)">
+           <param name="top" value="-40" />
+          </include>
            <control type="group">
              <top>60</top>
              <visible>$PARAM[Showcase] + !$PARAM[Showcasehide] + !Control.HasFocus($PARAM[id]) + Control.IsVisible($PARAM[id]) + [$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]]</visible>
@@ -1152,6 +1172,7 @@
                     <textcolor>grey</textcolor>
                     <label>$VAR[ListItemPercentRemained,,% remaining]</label>
                   </control>
+              </control>
               </control>
             </control>
           </control>

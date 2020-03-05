@@ -55,6 +55,9 @@
    <include name="AuraWidget_Items_LandscapeWide">
      <height>510</height>
    </include>
+   <include name="AuraWidget_Items_LandscapeWide_small">
+     <height>510</height>
+   </include>
    <include name="AuraWidget_Items_Landscape_Big_Height_small">
      <height>405</height>
    </include>
