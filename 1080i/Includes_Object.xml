@@ -5330,7 +5330,7 @@
                 <font>widget_trakt_title2</font>
                 <textcolor>grey</textcolor>
                 <label>$INFO[Container($PARAM[id]).ListItem.Property(TotalSeasons)] Seasons</label>
-                <visible>String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow) + String.IsGreaterOrEqual(Container($PARAM[id]).ListItem.Property(TotalSeasons),2) + !String.IsEmpty($PARAM[id].ListItem.Property(TotalSeasons))</visible>
+                <visible>String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow) + String.IsGreaterOrEqual(Container($PARAM[id]).ListItem.Property(TotalSeasons),2) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(TotalSeasons))</visible>
               </control>
             </control>
             <!-- Aired -->
@@ -6429,8 +6429,8 @@
         <scrolltime>500</scrolltime>
         <include condition="$PARAM[Showcase] | $PARAM[InfoSlide]">Widget_Movement_Showcase</include>
         <movement>$PARAM[movement]</movement>
-
         <include content="showcase_animations">
+           <param name="id" value="$PARAM[id]" />
            <param name="Showcase" value="$PARAM[Showcase]" />
            <param name="Showcasehide" value="$PARAM[Showcasehide]" />
            <param name="postercondition" value="$PARAM[postercondition]" />
@@ -6549,9 +6549,8 @@
         <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapenetflixcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscapesmall_Big_Height_small</include>
         <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapedetailscondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height</include>
         <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapedetailscondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidecondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Poster_Big</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidecondition] + Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Poster_Big_Label</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidecondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_LandscapeWide</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapeWide_small</include>
         <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[genrecondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_genre_Big_Height</include>
         <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[genrecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_genre_Big_Height_small</include>
         <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[submenucondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SubmenuWidget_Big_Height</include>

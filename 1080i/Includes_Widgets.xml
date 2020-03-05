@@ -316,7 +316,7 @@
         <include condition="$PARAM[landscapenetflixcondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Landscapesmall_Big_Height_small</include>
         <include condition="$PARAM[landscapedetailscondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Landscape_Big_Height</include>
         <include condition="$PARAM[landscapedetailscondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Landscape_Big_Height_small</include>
-        <include condition="$PARAM[landscapewidecondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">Widget_Items_Poster_Big</include>
+        <include condition="$PARAM[landscapewidecondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">Widget_Items_Poster_Big_Label</include>
         <include condition="$PARAM[landscapewidecondition] + Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(WidgetLabelsBelow)">Widget_Items_Poster_Big_Label</include>
         <include condition="$PARAM[landscapewidecondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Poster_Big_small</include>
         <include condition="$PARAM[genrecondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_genre_Big_Height</include>
@@ -463,6 +463,16 @@
     <param name="studios" default="false" />
     <param name="text" default="false" />
     <definition>
+<!--
+      <control type="group" id="4$PARAM[id]">
+        <control type="image">
+          <top>-170</top>
+          <width>100%</width>
+          <height>250</height>
+          <texture background="true" colordiffuse="20FFFFFF">white.png</texture>
+        </control>
+      </control>
+-->
       <control type="group" id="2$PARAM[id]">
         <top>widget_gap</top>
         <left>-55</left>
@@ -966,13 +976,24 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </itemlayout>
-      <itemlayout width="widget_landscapewide_width" height="widget_poster_height" condition="$PARAM[landscapewidecondition]">
+      <itemlayout width="808.536" height="455.17" condition="$PARAM[landscapewidecondition]">
         <include content="Widget_Items_ItemLayout">
           <param name="landscapewide" value="true" />
           <param name="genres" value="$PARAM[genres]" />
           <param name="studios" value="$PARAM[studios]" />
           <param name="text" value="$PARAM[text]" />
         </include>
+          <control type="label">
+            <bottom>-30</bottom>
+            <align>center</align>
+            <height>40</height>
+            <left>30</left>
+            <font>font_small</font>
+            <shadowcolor>black</shadowcolor>
+            <textcolor>white</textcolor>
+            <label>$VAR[video_heading]</label>
+            <visible>$PARAM[landscapewidecondition] + !String.StartsWith(ListItem.Label,See More)</visible>
+          </control>
       </itemlayout>
       <itemlayout width="widget_poster_width" height="widget_poster_height" condition="$PARAM[landscapewidepostercondition]">
         <include content="Widget_Items_ItemLayout">
@@ -1008,7 +1029,7 @@
       </itemlayout>
       <itemlayout width="widget_landscape_width" height="widget_landscape_height" condition="$PARAM[landscapecondition]">
         <control type="group">
-        <animation  effect="slide" start="0,0" end="625,0" time="400" reversible="false" condition="$PARAM[InfoSlide] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide))">Conditional</animation>
+        <animation  effect="slide" start="0,0" end="625,0" time="400" reversible="false" condition="$PARAM[InfoSlide] + $PARAM[landscapecondition] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide))">Conditional</animation>
         <include content="Widget_Items_ItemLayout">
           <param name="landscape" value="true" />
           <param name="genres" value="$PARAM[genres]" />
@@ -1029,7 +1050,7 @@
       <focusedlayout width="widget_landscapewide_width" height="widget_poster_height" condition="$PARAM[landscapewidepostercondition] + Control.HasFocus($PARAM[id])">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
-          <param name="landscapewide" value="true" />
+          <param name="landscapenetflix" value="true" />
           <param name="genres" value="$PARAM[genres]" />
           <param name="studios" value="$PARAM[studios]" />
           <param name="text" value="$PARAM[text]" />
@@ -1134,7 +1155,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="widget_landscapewide_width" height="widget_poster_height" condition="$PARAM[landscapewidecondition]">
+      <focusedlayout width="808.536" height="455.17" condition="$PARAM[landscapewidecondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="landscapewide" value="true" />
@@ -1142,6 +1163,17 @@
           <param name="studios" value="$PARAM[studios]" />
           <param name="text" value="$PARAM[text]" />
         </include>
+          <control type="label">
+	    <bottom>-30</bottom>
+            <align>center</align>
+            <height>40</height>
+            <left>30</left>
+            <font>font_small</font>
+            <shadowcolor>black</shadowcolor>
+            <textcolor>white</textcolor>
+            <label>$VAR[video_heading]</label>
+            <visible>$PARAM[landscapewidecondition] + !String.StartsWith(ListItem.Label,See More)</visible>
+          </control>
       </focusedlayout>
       <focusedlayout width="380" height="widget_landscape_height" condition="$PARAM[widgetlivecondition]">
         <include content="Widget_Items_FocusedLayout">
@@ -1726,7 +1758,7 @@
             <param name="poster" value="$PARAM[poster]" />
           </include>
           <include condition="$PARAM[landscape] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_Landscape</include>
-          <include condition="$PARAM[landscapewide] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeBanner</include>
+          <include condition="$PARAM[landscapewide] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_Landscape_Wide</include>
           <include condition="$PARAM[landscapewideposter] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeWidePoster</include>
           <include condition="$PARAM[posterdetails] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_PosterDetails</include>
           <include condition="$PARAM[widgetlive] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_WidgetLive</include>
@@ -1801,7 +1833,7 @@
             <param name="poster" value="$PARAM[poster]" />
           </include>
           <include condition="$PARAM[landscape] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_Landscape</include>
-          <include condition="$PARAM[landscapewide] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeBanner</include>
+          <include condition="$PARAM[landscapewide] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_Landscape_Wide</include>
           <include condition="$PARAM[landscapewideposter] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_LandscapeWidePoster</include>
           <include condition="$PARAM[posterdetails] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_PosterDetails</include>
           <include condition="$PARAM[widgetlive] + !$PARAM[studios] + !$PARAM[genres] + !$PARAM[text]">Widget_Items_WidgetLive</include>

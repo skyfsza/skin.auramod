@@ -1,5 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
+  <include name="Widget_Items_Landscape_Wide">
+	<control type="group">
+     	 <control type="image">
+            <texture background="true" fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png">$VAR[Image_Fanart]</texture>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+          </control>
+          <control type="label">
+	    <bottom>60</bottom>
+            <left>30</left>
+	    <height>30</height>
+            <font>font_medium_bold</font>
+            <shadowcolor>black</shadowcolor>
+            <textcolor>white</textcolor>
+            <label>Watch S$INFO[ListItem.Season]:E$INFO[ListItem.Episode]</label>
+            <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+          </control>
+          <control type="progress">
+            <left>30</left>
+            <bottom>40</bottom>
+            <description>progress bar</description>
+            <width>90%</width>
+            <height>9</height>
+            <align>center</align>
+            <texturebg colordiffuse="white" border="2">colors/color_white.png</texturebg>
+            <lefttexture></lefttexture>
+            <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
+            <righttexture></righttexture>
+            <info>ListItem.PercentPlayed</info>
+            <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+          </control>
+          <control type="progress">
+            <visible>Integer.IsGreater(ListItem.PlayCount,0)</visible>
+            <left>30</left>
+            <bottom>40</bottom>
+            <description>progress bar</description>
+            <width>90%</width>
+            <height>9</height>
+            <align>center</align>
+            <texturebg colordiffuse="red" border="2">colors/color_white.png</texturebg>
+            <lefttexture></lefttexture>
+            <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
+            <righttexture></righttexture>
+            <info>ListItem.PercentPlayed</info>
+            <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+          </control>
+	<include>seemore</include>
+      </control>
+  </include>
+
   <include name="Widget_Items_SubmenuWidget">
     <control type="group">
       <control type="group">
@@ -997,7 +1046,7 @@
         <control type="image">
           <top>40</top>
           <width>100%</width>
-          <height>395</height>
+          <height>385</height>
           <texture background="true" colordiffuse="99000000">white.png</texture>
           <visible>[$PARAM[postercondition] + Control.HasFocus($PARAM[id]) + $PARAM[Showcasehide]] | [Control.IsVisible($PARAM[id]) + $PARAM[postercondition] + !$PARAM[Showcasehide]] </visible>
         </control>
@@ -1056,7 +1105,7 @@
                 <height>250</height>
                 <left>30</left>
                 <control type="textbox">
-                  <height min="50" max="120">auto</height>
+                  <height min="50" max="155">auto</height>
                   <label fallback="19055">$VAR[Label_Plot]</label>
                   <align>left</align>
                   <width>580</width>
@@ -1067,7 +1116,7 @@
                   <visible>!Integer.IsGreater(ListItem.PercentPlayed,1)</visible>
                 </control>
                 <control type="textbox">
-                  <height min="50" max="90">auto</height>
+                  <height min="50" max="95">auto</height>
                   <label fallback="19055">$VAR[Label_Plot]</label>
                   <align>left</align>
                   <width>580</width>
@@ -1152,11 +1201,12 @@
         <height>60</height>
         <width>520</width>
         <left>30</left>
-        <font>font_large_bold</font>includenetflix_infoline 
+        <font>font_large_bold</font> 
         <textcolor>grey</textcolor>
         <label>$INFO[Container($PARAM[id]).ListItem.Label]</label>
         <scroll>true</scroll>
-        <visible>String.IsEmpty(Container($PARAM[id]).ListItem.TvShowTitle)</visible></control>
+        <visible>String.IsEmpty(Container($PARAM[id]).ListItem.TvShowTitle)</visible>
+        </control>
         <control type="group">
           <top>100</top>
           <left>30</left>
@@ -1170,7 +1220,7 @@
           <height>250</height>
           <left>30</left>
           <control type="textbox">
-            <height min="50" max="120">auto</height>
+            <height min="50" max="155">auto</height>
             <label fallback="19055">$INFO[Container($PARAM[id]).ListItem.Plot]</label>
             <align>left</align>
             <width>580</width>

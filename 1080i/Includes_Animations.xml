@@ -18,6 +18,7 @@
  </include>
 
   <include name="showcase_animations">
+    <param name="id" default="$PARAM[id]" />
     <param name="postercondition" default="false" />
     <param name="landscapecondition" default="false" />
     <param name="landscapepanelcondition" default="false" />
