@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
 <window id="2901">
+    <onload condition="Control.IsVisible(5004)">SetProperty(watchnext,1,home)</onload>
+    <onload condition="Control.IsVisible(5004)">SetFocus(5004)</onload>
     <onload condition="!Player.PauseEnabled + String.IsEmpty(Window(Home).Property(OSDViewMode))">SetFocus(15)</onload>
     <onload condition="Player.PauseEnabled + String.IsEmpty(Window(Home).Property(OSDViewMode))">SetFocus(14)</onload>
     <onload condition="!String.IsEmpty(Window(Home).Property(OSDViewMode))">SetFocus(3112)</onload>
     <onload condition="!String.IsEmpty(Window(Home).Property(OSDViewMode))">ClearProperty(OSDViewMode,Home)</onload>
     <onload condition="VideoPlayer.Content(livetv)">SetFocus(26)</onload>
     <onunload>ClearProperty(OSDInfo,Home)</onunload>
+    <onunload>ClearProperty(watchnext,home)</onunload>
+    <onunload>ClearProperty(SimilarOSD,home)</onunload>
     <onunload condition="!String.IsEmpty(Window(Home).Property(OSDExtendedInfo)) + Player.Paused">Play</onunload>
     <onunload condition="!String.IsEmpty(Window(Home).Property(OSDExtendedInfo))">ClearProperty(OSDExtendedInfo,Home)</onunload>
     <controls>
@@ -22,8 +26,9 @@
                 <include condition="!VideoPlayer.Content(musicvideos)">OSD_VideoPosition</include>
                 <include condition="VideoPlayer.Content(musicvideos)">OSD_MusicPosition</include>
                 <itemgap>32</itemgap>
-                <onup condition="String.IsEmpty(Window(Home).Property(OSDInfo))">SetProperty(OSDInfo,1,Home)</onup>
-                <onup condition="!String.IsEmpty(Window(Home).Property(OSDInfo))">ClearProperty(OSDInfo,Home)</onup>
+		<onup condition="Control.IsVisible(5004)">SetFocus(5004)</onup>
+                <onup condition="!Control.IsVisible(5004) + String.IsEmpty(Window(Home).Property(OSDInfo))">SetProperty(OSDInfo,1,Home)</onup>
+                <onup condition="!Control.IsVisible(5004) + !String.IsEmpty(Window(Home).Property(OSDInfo))">ClearProperty(OSDInfo,Home)</onup>
                 <ondown condition="String.IsEmpty(Window(Home).Property(OSDInfo))">Close</ondown>
                 <ondown condition="!String.IsEmpty(Window(Home).Property(OSDInfo))">ClearProperty(OSDInfo,Home)</ondown>
                 <orientation>horizontal</orientation>
@@ -59,6 +64,42 @@
             <action>seek</action>
         </control>
 
+<!--
+          <control type="group">
+	  <visible allowhiddenfocus="true">Integer.IsLess(Player.TimeRemaining,1620) + [VideoPlayer.Content(Movies) | VideoPlayer.Content(Episodes)] + !String.IsEqual(Window(Home).Property(SimilarOSD),hide)</visible>
+            <top>550</top>
+            <left>20</left>
+            <include content="Widget_TMDB" condition="VideoPlayer.Content(Episodes)">
+                <param name="id" value="5004" />
+                <param name="content" value="$VAR[Info_Similar]" />
+                <param name="widgetContent" value="$VAR[Info_Similar]" />
+                <param name="postercondition" value="false" />
+                <param name="landscapecondition" value="true" />
+                <param name="landscapenetflixcondition" value="false" />
+                <param name="landscapedetailscondition" value="false" />
+                <param name="movement" value="" />
+                <param name="ondown" value="SetFocus(14)" />
+                <param name="onup" value="SetProperty(SimilarOSD,hide,home)" />
+                <param name="top" value="550" />
+                <param name="label" value="Watch Next" />
+                <param name="visible" value="true" />
+            </include>
+            <include content="Widget_AuraHub" condition="VideoPlayer.Content(Movies)">
+                <param name="id" value="5004" />
+                <param name="widgetContent" value="plugin://plugin.video.themoviedb.helper/?info=similar&amp;type=movie&amp;query=$INFO[VideoPlayer.Title]" />
+                <param name="postercondition" value="true" />
+                <param name="landscapecondition" value="false" />
+                <param name="landscapenetflixcondition" value="false" />
+                <param name="landscapedetailscondition" value="false" />
+                <param name="movement" value="" />
+                <param name="ondown" value="SetFocus(14)" />
+                <param name="onup" value="SetProperty(SimilarOSD,hide,home)" />
+                <param name="top" value="20" />
+                <param name="label" value="Watch Next" />
+                <param name="visible" value="true" />
+            </include>
+        </control>
+-->
     </controls>
 
 </window>

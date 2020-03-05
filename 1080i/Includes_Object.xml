@@ -785,6 +785,14 @@
                   <height>100%</height>
                   <texture colordiffuse="20000000" border="10" flipy="true">diffuse/landscape.png</texture>
                 </control>
+
+                <control type="image">
+                  <width>100%</width>
+                  <height>100%</height>
+                  <texture colordiffuse="10FFFFFF" border="10" flipy="true">diffuse/landscape.png</texture>
+	          <visible>Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixSubmenuBG)</visible>
+                </control>
+
                 <control type="group">
                   <height min="60" max="251">auto</height>
                   <animation effect="fade" time="0">VisibleChange</animation>
@@ -1250,6 +1258,12 @@
               <texture background="true" colordiffuse="60000000">diffuse/landscape.png</texture>
             </control>
             <control type="image">
+              <width>100%</width>
+              <height>100%</height>
+              <texture colordiffuse="10FFFFFF" border="10" flipy="true">diffuse/landscape.png</texture>
+              <visible>Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixSubmenuBG)</visible>
+            </control>
+            <control type="image">
               <top>-1</top>
               <right>0</right>
               <width>1013.33</width>
@@ -1618,6 +1632,9 @@
   <include name="Object_Home_Netflix">
     <visible>Control.HasFocus(300) | Control.HasFocus(302) | Control.HasFocus(30222) | ControlGroup(330).HasFocus | Window.IsActive(4010) | Window.IsActive(4020) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsActive(2118) | Window.IsVisible(MyVideoNav.xml)</visible>
     <control type="group">
+    <animation type="WindowOpen" reversible="false">
+      <effect type="fade" start="0" end="100" time="700" tween="linear" reversible="false" />
+    </animation>
       <animation effect="slide" end="60,0" condition="!Skin.HasSetting(DisableNetflixHomeSidemenu)">Conditional</animation>
       <animation effect="slide" end="60,0" condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Conditional</animation>
       <animation effect="slide" end="-40,0" condition="Window.IsVisible(3810) | Window.IsVisible(3820)">Conditional</animation>
@@ -1629,7 +1646,7 @@
       </control>
       <control type="group">
         <control type="image">
-          <left>-50</left>
+          <left>-100</left>
           <width>100%</width>
           <height>100%</height>
           <texture background="true" colordiffuse="FF000000">common/white.png</texture>
@@ -1640,7 +1657,7 @@
           <animation effect="slide" end="20,0" condition="Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
           <visible>!Player.HasVideo + $EXP[DBTvideosImage]</visible>
           <width>1400</width>
-          <height>800</height>
+          <height>700</height>
           <left>500</left>
           <top>0</top>
           <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
@@ -3735,7 +3752,7 @@
           <width>32</width>
           <height>32</height>
           <texture colordiffuse="$PARAM[colordiffuse]">flags/$PARAM[directory]/ratings/oscar.png</texture>
-          <visible>String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),Oscar) + String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),Won)</visible>
+          <visible>[$EXP[tmdbu] + String.Contains(Window(Home).Property(TMDbHelper.ListItem.Awards),Oscar) + String.Contains(Window(Home).Property(TMDbHelper.ListItem.Awards),Won)] | [String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),Oscar) + String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),Won)]</visible>
           <visible>$PARAM[oscars]</visible>
           <visible>!Skin.HasSetting(Ratings.Oscars)</visible>
         </control>
@@ -3747,7 +3764,7 @@
           <align>right</align>
           <font>font_tiny</font>
           <label>$VAR[Label_Oscars,, ]</label>
-          <visible>String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),Oscar) + String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),Won)</visible>
+          <visible>[$EXP[tmdbu] + String.Contains(Window(Home).Property(TMDbHelper.ListItem.Awards),Oscar) + String.Contains(Window(Home).Property(TMDbHelper.ListItem.Awards),Won)] | [String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),Oscar) + String.Contains(Window(Home).Property(SkinHelper.ListItem.Awards),Won)]</visible>
           <visible>$PARAM[oscars]</visible>
           <visible>!Skin.HasSetting(Ratings.Oscars)</visible>
         </control>
@@ -3756,7 +3773,7 @@
           <width>32</width>
           <height>32</height>
           <texture colordiffuse="$PARAM[colordiffuse]">flags/$PARAM[directory]/ratings/metacritic.png</texture>
-          <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating))</visible>
+          <visible>!String.IsEmpty(ListItem.Property(Metacritic_Rating)) | [$EXP[tmdbu] + !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.MetaCritic.Rating))] |  !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating))</visible>
           <visible>$PARAM[metacritic]</visible>
           <visible>!Skin.HasSetting(Ratings.Metacritic)</visible>
         </control>
@@ -3767,8 +3784,8 @@
           <height>28</height>
           <align>right</align>
           <font>font_tiny</font>
-          <label>$INFO[Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating), ,% ]</label>
-          <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating))</visible>
+          <label>$VAR[metacritic_rating]</label>
+          <visible>!String.IsEmpty(ListItem.Property(Metacritic_Rating)) | [$EXP[tmdbu] + !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.MetaCritic.Rating))] |  !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.MetaCritic.Rating))</visible>
           <visible>$PARAM[metacritic]</visible>
           <visible>!Skin.HasSetting(Ratings.Metacritic)</visible>
         </control>
@@ -3777,18 +3794,16 @@
           <width>32</width>
           <height>32</height>
           <texture colordiffuse="$PARAM[colordiffuse]">flags/$PARAM[directory]/ratings/popcorn.png</texture>
-          <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter))</visible>
-          <visible>Integer.IsGreater(Window(home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)</visible>
+          <visible>[Integer.IsGreater(ListItem.Property(rottentomatoes_usermeter),59) | [$EXP[tmdbu] + Integer.IsGreater(Window(home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter),59)] | Integer.IsGreater(Window(home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)] + [!String.IsEmpty(ListItem.Property(rottentomatoes_usermeter)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_UserMeter)) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter))]</visible>
           <visible>$PARAM[usermeter]</visible>
           <visible>!Skin.HasSetting(Ratings.RottenTomatoes)</visible>
         </control>
         <control type="image">
-          <top>10</top>
+          <top>8</top>
           <width>32</width>
           <height>32</height>
           <texture colordiffuse="$PARAM[colordiffuse]">flags/$PARAM[directory]/ratings/spilt.png</texture>
-          <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter))</visible>
-          <visible>!Integer.IsGreater(Window(home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)</visible>
+          <visible>[!String.IsEmpty(ListItem.Property(rottentomatoes_usermeter)) + !Integer.IsGreater(ListItem.Property(rottentomatoes_usermeter),59)] | [$EXP[tmdbu] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_UserMeter)) + !Integer.IsGreater(Window(home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter),59)] | [!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter)) + !Integer.IsGreater(Window(home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter),59)]</visible>
           <visible>$PARAM[usermeter]</visible>
           <visible>!Skin.HasSetting(Ratings.RottenTomatoes)</visible>
         </control>
@@ -3799,8 +3814,8 @@
           <height>28</height>
           <align>right</align>
           <font>font_tiny</font>
-          <label>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter), ,% ]</label>
-          <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter))</visible>
+          <label>$VAR[rating_usermeter]</label>
+          <visible>!String.IsEmpty(ListItem.Property(rottentomatoes_usermeter)) | [$EXP[tmdbu] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_UserMeter))] | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.UserMeter))</visible>
           <visible>$PARAM[usermeter]</visible>
           <visible>!Skin.HasSetting(Ratings.RottenTomatoes)</visible>
         </control>
@@ -3809,8 +3824,8 @@
           <width>32</width>
           <height>32</height>
           <texture colordiffuse="$PARAM[colordiffuse]">flags/$PARAM[directory]/ratings/rtrotten.png</texture>
-          <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating))</visible>
-          <visible>Integer.IsGreater(Window(home).Property(SkinHelper.ListItem.RottenTomatoes.Rating),0) + !Integer.IsGreater(Window(home).Property(SkinHelper.ListItem.RottenTomatoes.Rating),59)</visible>
+          <visible>[Integer.IsGreater(ListItem.Property(rottentomatoes_rating),0) + !Integer.IsGreater(ListItem.Property(rottentomatoes_rating),59) ] | [$EXP[tmdbu] + Integer.IsGreater(Window(home).Property(TMDBHelper.ListItem.RottenTomatoes_Rating),0) + !Integer.IsGreater(Window(home).Property(TMDBHelper.ListItem.RottenTomatoes_Rating),59) ] | [Integer.IsGreater(Window(home).Property(SkinHelper.ListItem.RottenTomatoes.Rating),0) + !Integer.IsGreater(Window(home).Property(SkinHelper.ListItem.RottenTomatoes.Rating),59)]</visible>
+          <visible>!String.IsEmpty(ListItem.Property(rottentomatoes_rating)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Rating)) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating))</visible>
           <visible>$PARAM[rottentomatoes]</visible>
           <visible>!Skin.HasSetting(Ratings.RottenTomatoes)</visible>
         </control>
@@ -3819,8 +3834,8 @@
           <width>32</width>
           <height>32</height>
           <texture colordiffuse="$PARAM[colordiffuse]">flags/$PARAM[directory]/ratings/rtfresh.png</texture>
-          <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating))</visible>
-          <visible>Integer.IsGreater(Window(home).Property(SkinHelper.ListItem.RottenTomatoes.Rating),59) + !Integer.IsGreater(Window(home).Property(SkinHelper.ListItem.RottenTomatoes.Rating),74)</visible>
+          <visible>[Integer.IsGreater(ListItem.Property(rottentomatoes_rating),59) + !Integer.IsGreater(ListItem.Property(rottentomatoes_rating),74)] | [$EXP[tmdbu] + Integer.IsGreater(Window(home).Property(TMDBHelper.ListItem.RottenTomatoes_Rating),59) + !Integer.IsGreater(Window(home).Property(TMDBHelper.ListItem.RottenTomatoes_Rating),74)] | [Integer.IsGreater(Window(home).Property(SkinHelper.ListItem.RottenTomatoes.Rating),59) + !Integer.IsGreater(Window(home).Property(SkinHelper.ListItem.RottenTomatoes.Rating),74)]</visible>
+          <visible>!String.IsEmpty(ListItem.Property(rottentomatoes_rating)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Rating)) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating))</visible>
           <visible>$PARAM[rottentomatoes]</visible>
           <visible>!Skin.HasSetting(Ratings.RottenTomatoes)</visible>
         </control>
@@ -3830,8 +3845,8 @@
           <height>32</height>
           <texture colordiffuse="$PARAM[colordiffuse]">flags/$PARAM[directory]/ratings/rtfresh.png</texture>
           <texture colordiffuse="$PARAM[colordiffuse]">flags/$PARAM[directory]/ratings/certified.png</texture>
-          <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating))</visible>
-          <visible>Integer.IsGreater(Window(home).Property(SkinHelper.ListItem.RottenTomatoes.Rating),74)</visible>
+          <visible>!String.IsEmpty(ListItem.Property(rottentomatoes_rating)) | [$EXP[tmdbu] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Rating))] | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating))</visible>
+          <visible>Integer.IsGreater(ListItem.Property(rottentomatoes_rating),74) | Integer.IsGreater(Window(home).Property(TMDBHelper.ListItem.RottenTomatoes_Rating),74) | Integer.IsGreater(Window(home).Property(SkinHelper.ListItem.RottenTomatoes.Rating),74)</visible>
           <visible>$PARAM[rottentomatoes]</visible>
           <visible>!Skin.HasSetting(Ratings.RottenTomatoes)</visible>
         </control>
@@ -3842,8 +3857,8 @@
           <height>28</height>
           <align>right</align>
           <font>font_tiny</font>
-          <label>$INFO[Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating), ,% ]</label>
-          <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating))</visible>
+          <label>$VAR[rating_rtmeter]</label>
+          <visible>!String.IsEmpty(ListItem.Property(rottentomatoes_rating)) | [$EXP[tmdbu] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Rating))] | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.RottenTomatoes.Rating))</visible>
           <visible>$PARAM[rottentomatoes]</visible>
           <visible>!Skin.HasSetting(Ratings.RottenTomatoes)</visible>
         </control>
@@ -3852,7 +3867,7 @@
           <width>32</width>
           <height>32</height>
           <texture colordiffuse="$PARAM[colordiffuse]">flags/$PARAM[directory]/ratings/tmdb.png</texture>
-          <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TMDB))</visible>
+          <visible>!String.IsEmpty(ListItem.Property(tmdb_rating)) | [$EXP[tmdbu] + !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.TMDb_Rating))] | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TMDB))</visible>
           <visible>$PARAM[tmdb]</visible>
           <visible>!Skin.HasSetting(Ratings.TheMovieDB)</visible>
         </control>
@@ -3863,8 +3878,8 @@
           <height>28</height>
           <align>right</align>
           <font>font_tiny</font>
-          <label>$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.TMDB), , ]</label>
-          <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TMDB))</visible>
+          <label>$VAR[rating_tmdb]</label>
+          <visible>!String.IsEmpty(ListItem.Property(tmdb_rating)) | [$EXP[tmdbu] + !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.TMDb_Rating))] | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TMDB))</visible>
           <visible>$PARAM[tmdb]</visible>
           <visible>!Skin.HasSetting(Ratings.TheMovieDB)</visible>
         </control>
@@ -3898,7 +3913,7 @@
           <width>52</width>
           <height>52</height>
           <texture colordiffuse="$PARAM[colordiffuse]">special://skin/extras/icons/trakttv.png</texture>
-          <visible> [!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_rating)) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_votes))]</visible>
+          <visible>$EXP[tmdbu] + [!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_rating)) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_votes))]</visible>
           <visible>!String.IsEqual(Window(Home).Property(TMDBHelper.ListItem.trakt_rating),0.0)</visible>
           <visible>!Skin.HasSetting(Ratings.Trakt) + Skin.HasSetting(MonochromeFlags)</visible>
           <visible>$PARAM[trakt]</visible>
@@ -3909,7 +3924,7 @@
           <width>52</width>
           <height>52</height>
           <texture colordiffuse="red">special://skin/extras/icons/trakttv.png</texture>
-          <visible> [!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_rating)) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_votes))]</visible>
+          <visible>$EXP[tmdbu] + [!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_rating)) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_votes))]</visible>
           <visible>!String.IsEqual(Window(Home).Property(TMDBHelper.ListItem.trakt_rating),0.0)</visible>
           <visible>!Skin.HasSetting(Ratings.Trakt) + !Skin.HasSetting(MonochromeFlags)</visible>
           <visible>$PARAM[trakt]</visible>
@@ -3924,7 +3939,7 @@
           <font>font_tiny</font>
           <visible>!String.IsEqual(Window(Home).Property(TMDBHelper.ListItem.trakt_rating),0.0)</visible>
           <label>$INFO[Window(Home).Property(TMDBHelper.ListItem.trakt_rating), , ]$INFO[Window(Home).Property(TMDbHelper.ListItem.trakt_votes), (, $LOCALIZE[205])]</label>
-          <visible>String.IsEmpty(Window(Home).Property(TMDbHelper.IsUpdating))	+ [!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_rating)) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_votes))]</visible>
+          <visible>$EXP[tmdbu] + [!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_rating)) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_votes))]</visible>
           <visible>!Skin.HasSetting(Ratings.Trakt) + !Skin.HasSetting(Ratings.TraktVotes)</visible>
           <visible>$PARAM[trakt]</visible>
         </control>
@@ -3938,7 +3953,7 @@
           <font>font_tiny</font>
           <label>$INFO[Window(Home).Property(TMDBHelper.ListItem.trakt_rating), , ]</label>
           <visible>!String.IsEqual(Window(Home).Property(TMDBHelper.ListItem.trakt_rating),0.0)</visible>
-          <visible>String.IsEmpty(Window(Home).Property(TMDbHelper.IsUpdating))	+ [!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_rating)) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_votes))]</visible>
+          <visible>$EXP[tmdbu] + [!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_rating)) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.trakt_votes))]</visible>
           <visible>!Skin.HasSetting(Ratings.Trakt) + Skin.HasSetting(Ratings.TraktVotes)</visible>
           <visible>$PARAM[trakt]</visible>
         </control>
@@ -3979,7 +3994,7 @@
           <width>40</width>
           <height>32</height>
           <texture colordiffuse="$PARAM[colordiffuse]">flags/$PARAM[directory]/ratings/imdbicon.png</texture>
-	  <visible>!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Votes.IMDB)) | !String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Votes))</visible>
+	  <visible>!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Votes.IMDB)) | !String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB)) | [$EXP[tmdbu] + [!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Votes))]]</visible>
           <visible>$PARAM[imdb]</visible>
           <visible>!Skin.HasSetting(Ratings.IMDB)</visible>
         </control>
@@ -3991,7 +4006,7 @@
           <align>right</align>
           <font>font_tiny</font>
           <label>$VAR[imdb_ratings] $VAR[imdb_votes]</label>
-          <visible>!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Votes.IMDB)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Votes)) | !String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating))</visible>
+	  <visible>!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Votes.IMDB)) | !String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB)) | [$EXP[tmdbu] + [!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Votes))]]</visible>
           <visible>!Skin.HasSetting(Ratings.IMDB) + Skin.HasSetting(Ratings.IMDBVotes)</visible>
         </control>
         <control type="label">
@@ -4002,24 +4017,9 @@
           <align>right</align>
           <font>font_tiny</font>
           <label>$VAR[imdb_ratings]</label>
-	  <visible>!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating))</visible>
+	  <visible>!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Rating.IMDB)) | [$EXP[tmdbu] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating))]</visible>
           <visible>!Skin.HasSetting(Ratings.IMDB) + !Skin.HasSetting(Ratings.IMDBVotes)</visible>
         </control>
-
-<!--
-        <control type="label">
-          <textcolor>main_fg_70</textcolor>
-          <top>12</top>
-          <width>auto</width>
-          <height>28</height>
-          <align>right</align>
-          <font>font_tiny</font>
-          <label>$INFO[ListItem.Rating, ,]</label>
-          <visible>[[!Control.HasFocus(1505) + !Control.HasFocus(1506) + !String.IsEmpty(ListItem.Rating)] | [Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)]] + [Skin.HasSetting(Ratings.IMDBVotes) + String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Votes.IMDB))]</visible>
-          <visible>$PARAM[imdb]</visible>
-          <visible>!Skin.HasSetting(Ratings.IMDB)</visible>
-        </control>
--->
         <control type="image">
           <top>11</top>
           <width>72</width>
@@ -4038,7 +4038,6 @@
           <visible>$PARAM[imdb]</visible>
           <visible>!Skin.HasSetting(Ratings.IMDB250) + !Skin.HasSetting(MonochromeFlags)</visible>
         </control>
-
         <control type="label">
           <textcolor>main_fg_70</textcolor>
           <top>12</top>
@@ -4073,9 +4072,9 @@
           <width>64</width>
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
-	  <visible>!String.IsEqual(ListItem.DBType,movie)</visible>
+	  <visible>!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>
           <visible>!String.IsEmpty(ListItem.Studio) + !String.Contains(ListItem.Studio,/)</visible>
-          <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.IsVisible(1505) | Control.IsVisible(1506)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+          <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.IsVisible(1506)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
         <control type="image">
           <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(ListItem.Studio) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))">Conditional</animation>
@@ -4087,20 +4086,22 @@
           <width>64</width>
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
-	  <visible>!String.IsEqual(ListItem.DBType,movie)</visible>
-          <visible>[String.IsEmpty(ListItem.Studio) | String.Contains(ListItem.Studio,/)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))</visible>
-          <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.IsVisible(1506)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+	  <visible>!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>
+          <visible>!Control.IsVisible(1506) +  [String.IsEmpty(ListItem.Studio) | String.Contains(ListItem.Studio,/)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))</visible>
+          <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
         <control type="image">
-          <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(Container(1505).ListItem.Studio)">Conditional</animation>
+          <animation effect="slide" end="0,-10" time="0" condition="Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Studio)">Conditional</animation>
           <top>13</top>
           <aligny>bottom</aligny>
           <texture colordiffuse="main_fg_100">$INFO[Container(1505).ListItem.Studio,resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
           <aspectratio>stretch</aspectratio>
           <height>44</height>
           <width>64</width>
+          <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
-          <visible>[Control.HasFocus(300) | Control.HasFocus(30222) | Control.HasFocus(1505)] + Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Studio) + !String.Contains(Container(1505).ListItem.Studio,/)</visible>
+          <visible>Control.IsVisible(1505) + String.IsEmpty(ListItem.Studio) + String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name)) + !String.IsEmpty(Container(1505).ListItem.Studio) + !String.Contains(Container(1505).ListItem.Studio,/)</visible>
+          <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
       </control>
     </definition>
@@ -5050,11 +5051,11 @@
   <include name="WidgetHubScroll">
     <control type="button" id="3337">
       <visible allowhiddenfocus="true">false</visible>
-      <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true)">SetProperty(spothubscroll,true,Home)</onfocus>
+      <onfocus>SetProperty(spothubscroll,true,Home)</onfocus>
       <onfocus>Skin.Reset(SpotFocus)</onfocus>
       <onfocus condition="Skin.HasSetting(EnableSpotlight) + $EXP[LiveTVSpotlight]">SetFocus(901)</onfocus>
-      <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(30222)</onfocus>
-      <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + !Integer.IsGreater(Container(30222).NumItems,0)">SetFocus(330,0)</onfocus>
+      <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + !$EXP[noSubMenu]">SetFocus(30222)</onfocus>
+      <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + $EXP[noSubMenu]">SetFocus(330,0)</onfocus>
       <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + Integer.IsGreater(Container(330).NumItems,0)">SetFocus(330,0)</onfocus>
       <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + !Integer.IsGreater(Container(330).NumItems,0)">SetFocus(30222)</onfocus>
       <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + String.IsEqual(Container(300).ListItem.Property(widgethubscrollselect),TVNetflixHub)">ActivateWindow(3810)</onfocus>
@@ -5076,12 +5077,14 @@
       <visible>Skin.HasSetting(DisableNetflixHomeAlt) + Window.IsVisible(Home)</visible>
     </control>
   </include>
+
   <!-- @PXCL dev -->
   <include name="Logo">
     <control type="group">
       <right>-20</right>
       <visible>!Skin.HasSetting(DisableMenuHor)</visible>
       <visible>!Window.IsVisible(DialogNotification.xml) + !Window.IsVisible(DialogBusy.xml) + Skin.HasSetting(EnableHomeHeader)</visible>
+     <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(extendedprogressdialog)">Conditional</animation>
       <control type="group">
         <top>35</top>
         <animation type="Conditional" condition="Window.Previous(fullscreenvideo)">
@@ -5091,28 +5094,27 @@
         <control type="group">
         <control type="label">
           <top>10</top>
-          <right>90</right>
-          <width>60</width>
+          <right>70</right>
+          <width>80</width>
           <height>60</height>
           <font>font_tiny_bold</font>
-          <align>right</align>
+          <align>left</align>
           <textcolor>white</textcolor>
           <label>[B]$INFO[Weather.Temperature][/B]</label>
-          <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(extendedprogressdialog)">Conditional</animation>
+          <visible>Weather.IsFetched</visible>
         </control>
           <control type="image">
 	    <top>5</top>
-            <right>150</right>
+            <right>155</right>
             <width>70</width>
             <height>70</height>
             <aspectratio>keep</aspectratio>
             <texture colordiffuse="main_fg_100">$INFO[Weather.FanartCode,resource://resource.images.weathericons.white/,.png]</texture>
-            <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(extendedprogressdialog)">Conditional</animation>
             <visible>Weather.IsFetched + !Container($PARAM[id]).IsUpdating</visible>
           </control>
           <control type="image">
 	    <top>5</top>
-            <right>150</right>
+            <right>155</right>
             <width>70</width>
             <height>70</height>
             <aspectratio>keep</aspectratio>
@@ -5121,7 +5123,7 @@
           </control>
         </control>
         <control type="button">
-          <right>80</right>
+          <right>155</right>
           <width>70</width>
           <height>70</height>
           <label></label>
@@ -5131,21 +5133,20 @@
           <onclick>ActivateWindow(PlayerControls)</onclick>
           <texturefocus colordiffuse="white">logo.png</texturefocus>
           <texturenofocus colordiffuse="white">logo.png</texturenofocus>
-          <visible>!Weather.IsFetched</visible>
+          <visible>!Weather.IsFetched + !Container($PARAM[id]).IsUpdating</visible>
         </control>
         <control type="label">
           <top>-5</top>
-          <right>230</right>
+          <right>235</right>
           <width>1000</width>
           <height>60</height>
           <font>font_heading_date</font>
           <align>right</align>
           <textcolor>white</textcolor>
-          <label>[B]$INFO[System.Time(hh:mm)][/B]</label>
-          <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(extendedprogressdialog)">Conditional</animation>
+          <label>[B]$INFO[System.Time][/B]</label>
         </control>
         <control type="label">
-          <right>230</right>
+          <right>235</right>
           <top>20</top>
           <width>1000</width>
           <height>60</height>
@@ -5154,8 +5155,63 @@
           <alignx>right</alignx>
           <textcolor>white</textcolor>
           <label>[B]$INFO[System.Date][/B]</label>
-          <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(extendedprogressdialog)">Conditional</animation>
+	  <visible>![String.IsEmpty(Window(10025).Property(PlayingBackgroundMedia)) + Player.HasMedia]</visible>
         </control>
+      <control type="grouplist">
+	<top>10</top>
+	<right>235</right>
+        <height>65</height>
+        <align>right</align>
+        <orientation>horizontal</orientation>
+        <itemgap>0</itemgap>
+        <width>700</width>
+        <usecontrolcoords>true</usecontrolcoords>
+        <control type="group">
+	    <top>25</top>
+            <width>view_pad</width>
+            <visible>[String.IsEmpty(Window(10025).Property(PlayingBackgroundMedia)) + Player.HasMedia]</visible>
+            <include>Animation_FadeIn_Delay</include>
+            <control type="multiimage">
+                <centertop>50%</centertop>
+                <imagepath colordiffuse="$VAR[ColorHighlight]">eq</imagepath>
+                <width>40</width>
+                <height>23</height>
+                <fadetime>50</fadetime>
+                <timeperimage>50</timeperimage>
+                <visible>!Player.Paused + !Player.Caching</visible>
+            </control>
+            <control type="image">
+                <centertop>50%</centertop>
+                <centerleft>50%</centerleft>
+                <texture colordiffuse="main_fg_100">osd/pause.png</texture>
+                <width>32</width>
+                <height>32</height>
+                <fadetime>50</fadetime>
+                <visible>Player.Paused + !Player.Caching</visible>
+            </control>
+            <control type="image">
+                <centertop>50%</centertop>
+                <left>-16</left>
+                <texture colordiffuse="main_fg_100">special://skin/extras/icons/download.png</texture>
+                <width>64</width>
+                <height>64</height>
+                <fadetime>50</fadetime>
+                <visible>Player.Caching</visible>
+            </control>
+            <visible>Player.HasMedia</visible>
+        </control>
+        <control type="label">
+            <top>15</top>
+            <height>60</height>
+            <width max="350">auto</width>
+            <font>font_heading_date</font>
+            <textcolor>white</textcolor>
+            <label>[B]$VAR[weatherbar_playing][/B]</label>
+            <visible>Player.HasMedia</visible>
+            <visible>[String.IsEmpty(Window(10025).Property(PlayingBackgroundMedia)) + Player.HasMedia]</visible>
+            <include>Animation_FadeIn_Delay</include>
+        </control>
+      </control>
       </control>
     </control>
   </include>
@@ -5176,7 +5232,6 @@
           <width>200</width>
           <left>-5</left>
           <top>-20</top>
-	  <visible>!String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode)</visible>
           <include content="Object_StarRating">
             <param name="height" value="50" />
             <param name="width" value="50" />
@@ -5851,7 +5906,7 @@
         <width>1920</width>
         <height>1080</height>
         <left>270</left>
-        <scrolltime tween="quadratic">400</scrolltime>
+        <scrolltime tween="linear">500</scrolltime>
         <orientation>vertical</orientation>
         <usecontrolcoords>true</usecontrolcoords>
         <onback>9000</onback>
@@ -5942,6 +5997,7 @@
   <include name="Widgets_Items_menu_Small_Height">
     <height>210</height>
   </include>
+
   <include name="Widgets_Label">
     <definition>
       <control type="grouplist">
@@ -6070,9 +6126,26 @@
           <top>-2</top>
           <left>2</left>
           <textcolor>main_fg_100</textcolor>
+          <label>$PARAM[label] $INFO[Container($PARAM[id]).ListItem.Property(widget)]</label>
+          <include>Statusbar_Menubar_Items</include>
+          <visible>String.StartsWith(Container($PARAM[id]).ListItem.FileNameAndPath,plugin://plugin.video.themoviedb.helper) + !String.IsEqual(Container($PARAM[id]).ListItem.Property(widget),TMDb Helper) + Skin.HasSetting(LargeWidgetLabel)</visible>
+        </control>
+        <control type="label">
+          <top>-2</top>
+          <font>font_widgetbar_bold</font>
+          <left>2</left>
+          <textcolor>main_fg_100</textcolor>
+          <label>$PARAM[label] $INFO[Container($PARAM[id]).ListItem.Property(widget)]</label>
+          <include>Statusbar_Menubar_Items</include>
+          <visible>String.StartsWith(Container($PARAM[id]).ListItem.FileNameAndPath,plugin://plugin.video.themoviedb.helper) + !String.IsEqual(Container($PARAM[id]).ListItem.Property(widget),TMDb Helper) + !Skin.HasSetting(LargeWidgetLabel)</visible>
+        </control>
+        <control type="label">
+          <top>-2</top>
+          <left>2</left>
+          <textcolor>main_fg_100</textcolor>
           <label>$PARAM[label]</label>
           <include>Statusbar_Menubar_Items</include>
-          <visible>Skin.HasSetting(LargeWidgetLabel)</visible>
+          <visible>[!String.StartsWith(Container($PARAM[id]).ListItem.FileNameAndPath,plugin://plugin.video.themoviedb.helper) | [String.StartsWith(Container($PARAM[id]).ListItem.FileNameAndPath,plugin://plugin.video.themoviedb.helper) + String.IsEqual(Container($PARAM[id]).ListItem.Property(widget),TMDb Helper)]] + Skin.HasSetting(LargeWidgetLabel)</visible>
         </control>
         <control type="label">
           <top>-2</top>
@@ -6081,7 +6154,7 @@
           <textcolor>main_fg_100</textcolor>
           <label>$PARAM[label]</label>
           <include>Statusbar_Menubar_Items</include>
-          <visible>!Skin.HasSetting(LargeWidgetLabel)</visible>
+          <visible>[!String.StartsWith(Container($PARAM[id]).ListItem.FileNameAndPath,plugin://plugin.video.themoviedb.helper) | [String.StartsWith(Container($PARAM[id]).ListItem.FileNameAndPath,plugin://plugin.video.themoviedb.helper) + String.IsEqual(Container($PARAM[id]).ListItem.Property(widget),TMDb Helper)]] + !Skin.HasSetting(LargeWidgetLabel)</visible>
         </control>
         <control type="label">
           <top>-2</top>
@@ -6237,6 +6310,7 @@
       </control>
     </definition>
   </include>
+
   <include name="Aura_Widget_Background">
     <control type="group" id="4$PARAM[id]">
       <control type="image">
@@ -6255,80 +6329,7 @@
       </control>
     </control>
   </include>
-  <include name="widget_showcase_overlay">
-    <control type="group" id="4$PARAM[id]">
-      <control type="image">
-        <width>100%</width>
-        <height>440</height>
-        <texture background="true" colordiffuse="50000000">common/white.png</texture>
-        <visible>$PARAM[postercondition] + Control.HasFocus($PARAM[id])</visible>
-      </control>
-      <control type="group">
-        <control type="image">
-          <top>40</top>
-          <width>100%</width>
-          <height>430</height>
-          <texture background="true" colordiffuse="990000000">common/white.png</texture>
-          <visible>[$PARAM[landscapenetflixcondition] + Control.HasFocus($PARAM[id])] | [$PARAM[landscapepanelcondition] + Control.HasFocus($PARAM[id])] | [$PARAM[landscapecondition] + Control.HasFocus($PARAM[id])]</visible>
-        </control>
-        <control type="group">
-          <top>50</top>
-          <control type="group">
-            <visible>[$PARAM[landscapenetflixcondition] + Control.HasFocus($PARAM[id])] | [$PARAM[landscapepanelcondition] + Control.HasFocus($PARAM[id])] | [$PARAM[landscapecondition] + Control.HasFocus($PARAM[id])]</visible>
-            <control type="label">
-              <visible>String.IsEmpty(ListItem.Art(clearlogo))</visible>
-              <top>25</top>
-              <left>40</left>
-              <label>$VAR[video_heading]</label>
-              <textcolor>grey</textcolor>
-              <shadowcolor>black</shadowcolor>
-              <font>netflix_heading_small</font>
-              <width min="200" max="300">auto</width>
-              <height min="50" max="100">auto</height>
-              <align>left</align>
-              <wrapmultiline>true</wrapmultiline>
-            </control>
-            <control type="image" id="56751">
-              <left>40</left>
-              <top>-10</top>
-              <height>180.72</height>
-              <width>374.4</width>
-              <aligny>top</aligny>
-              <align>left</align>
-              <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
-            </control>
-            <control type="group">
-              <top>160</top>
-              <left>30</left>
-              <include>netflix_infoline</include>
-            </control>
-            <control type="textbox">
-              <left>30</left>
-              <top>220</top>
-              <height min="50" max="150">auto</height>
-              <label fallback="19055">$VAR[Label_Plot]</label>
-              <align>left</align>
-              <width>580</width>
-              <textcolor>dimgrey</textcolor>
-              <shadowcolor>black</shadowcolor>
-              <font>widget_live_title</font>
-              <autoscroll>0</autoscroll>
-            </control>
-          </control>
-        </control>
-      </control>
-      <control type="image">
-        <left>20</left>
-        <top>100</top>
-        <width>500</width>
-        <height>281</height>
-        <animation effect="fade" start="0" end="100" time="400" condition="$PARAM[postercondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
-        <texture background="true">$VAR[Image_Clearart_Hub]</texture>
-        <aspectratio>keep</aspectratio>
-        <visible>$PARAM[postercondition] + Control.HasFocus($PARAM[id])</visible>
-      </control>
-    </control>
-  </include>
+
   <include name="Widget_AuraHub_width_landscapepanel">
     <width>1450</width>
   </include>
@@ -6364,128 +6365,19 @@
     <param name="movement" default="1" />
     <param name="Showcase" default="false" />
     <param name="Showcasehide" default="true" />
+    <param name="InfoSlide" default="false" />
     <definition>
       <control type="group" id="4$PARAM[id]">
-        <visible>$PARAM[Showcase] + Integer.IsGreater(Container($PARAM[id]).NumItems,0)</visible>
-        <control type="image">
-          <top>40</top>
-          <width>100%</width>
-          <height>400</height>
-          <texture background="true" colordiffuse="50000000">common/white.png</texture>
-          <visible>[$PARAM[postercondition] + Control.HasFocus($PARAM[id]) + $PARAM[Showcasehide]] | [$PARAM[postercondition] + !$PARAM[Showcasehide]] </visible>
-        </control>
-        <control type="group">
-          <control type="image">
-            <top>40</top>
-            <width>100%</width>
-            <height>355</height>
-            <texture background="true" colordiffuse="990000000">common/white.png</texture>
-          <visible>[$PARAM[landscapecondition] + Control.HasFocus($PARAM[id]) + $PARAM[Showcasehide]] | [$PARAM[landscapecondition] + !$PARAM[Showcasehide]] </visible>
-          </control>
-          <control type="image">
-            <top>40</top>
-            <width>100%</width>
-            <height>430</height>
-            <texture background="true" colordiffuse="990000000">common/white.png</texture>
-           <visible>[$PARAM[landscapepanelcondition] + Control.HasFocus($PARAM[id]) + $PARAM[Showcasehide]] | [$PARAM[landscapepanelcondition] + !$PARAM[Showcasehide]] </visible>
-          </control>
-
-          <control type="group">
-
-           <control type="group">
-             <top>60</top>
-             <visible>$PARAM[Showcase] + !$PARAM[Showcasehide] + !Control.HasFocus($PARAM[id]) + [$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]]</visible>
-             <include content="showcase_nohide">
-               <param name="id" value="$PARAM[id]" />
-              </include>
-	    </control>
-
-            <control type="group">
-               <top>60</top>
-              <visible>[$PARAM[postercondition] + Control.HasFocus($PARAM[id])] | [$PARAM[landscapepanelcondition] + Control.HasFocus($PARAM[id])] | [$PARAM[landscapecondition] + Control.HasFocus($PARAM[id])]</visible>
-              <control type="label">
-                <top>10</top>
-                <width>500</width>
-                <height>30</height>
-                <left>30</left>
-                <font>font_small</font>
-                <textcolor>dimgrey</textcolor>
-                <label>$VAR[Label_Genre]</label>
-                <scroll>false</scroll>
-              </control>
-              <control type="label">
-                <top>30</top>
-                <height>60</height>
-                <width>500</width>
-                <left>30</left>
-                <font>font_large_bold</font>
-                <textcolor>grey</textcolor>
-                <label>$VAR[video_heading]</label>
-                <scroll>true</scroll>
-              </control>
-              <control type="group">
-                <top>100</top>
-                <left>30</left>
-                <include>netflix_infoline</include>
-                <animation effect="zoom" start="100" end="80" time="0" reversible="false" sine="inout" condition="Control.HasFocus($PARAM[id])">Conditional</animation>
-              </control>
-              <control type="grouplist">
-                <top>160</top>
-                <height>250</height>
-                <left>30</left>
-                <control type="textbox">
-                  <height min="50" max="155">auto</height>
-                  <label fallback="19055">$VAR[Label_Plot]</label>
-                  <align>left</align>
-                  <width>580</width>
-                  <textcolor>dimgrey</textcolor>
-                  <shadowcolor>black</shadowcolor>
-                  <font>widget_live_title</font>
-                  <autoscroll delay="5000" time="1500" repeat="5000">true</autoscroll>
-                  <visible>!Integer.IsGreater(ListItem.PercentPlayed,1)</visible>
-                </control>
-                <control type="textbox">
-                  <height min="50" max="90">auto</height>
-                  <label fallback="19055">$VAR[Label_Plot]</label>
-                  <align>left</align>
-                  <width>580</width>
-                  <textcolor>dimgrey</textcolor>
-                  <shadowcolor>black</shadowcolor>
-                  <font>widget_live_title</font>
-                  <autoscroll delay="5000" time="1500" repeat="5000">true</autoscroll>
-                  <visible>Integer.IsGreater(ListItem.PercentPlayed,1)</visible>
-                </control>
-                <control type="label">
-                  <height>30</height>
-                </control>
-                <control type="group">
-                  <visible>Integer.IsGreater(ListItem.PercentPlayed,1) | Integer.IsGreater(Window(Home).Property(ListItem.PercentPlayed),1)</visible>
-                  <width>650</width>
-                  <height>30</height>
-                  <aligny>center</aligny>
-                  <control type="progress">
-                    <width>185</width>
-                    <height>11</height>
-                    <texturebg colordiffuse="cc515151" border="0">colors/color_white.png</texturebg>
-                    <lefttexture />
-                    <midtexture colordiffuse="red" border="4">colors/color_white.png</midtexture>
-                    <righttexture />
-                    <info>ListItem.PercentPlayed</info>
-                  </control>
-                  <control type="label">
-                    <top>-12</top>
-                    <left>200</left>
-                    <height>25</height>
-                    <width>450</width>
-                    <font>Netflix_Info_main</font>
-                    <textcolor>grey</textcolor>
-                    <label>$VAR[ListItemPercentRemained,,% remaining]</label>
-                  </control>
-                </control>
-              </control>
-            </control>
-          </control>
-        </control>
+        <include content="widget_showcase_focused">
+          <param name="id" value="$PARAM[id]" />
+          <param name="Showcase" value="$PARAM[Showcase]" />
+          <param name="Showcasehide" value="$PARAM[Showcasehide]" />
+          <param name="InfoSlide" value="$PARAM[InfoSlide]" />
+          <param name="controltype" value="$PARAM[controltype]" />
+          <param name="postercondition" value="$PARAM[postercondition]" />
+          <param name="landscapecondition" value="$PARAM[landscapecondition]" />
+          <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]" />
+        </include>
       </control>
       <control type="group" id="2$PARAM[id]">
         <visible>$PARAM[visible]</visible>
@@ -6505,8 +6397,24 @@
           </include>
         </control>
         <control type="group">
-          <include condition="Skin.HasSetting(MouseMode)">Widget_Busy_Top_Mouse</include>
-          <include>Widget_Label_height_hub</include>
+        <include content="aurahub_widget_height">
+          <param name="id" value="$PARAM[id]" />
+          <param name="submenu" value="$PARAM[submenu]" />
+          <param name="postercondition" value="$PARAM[postercondition]" />
+          <param name="landscapecondition" value="$PARAM[landscapecondition]" />
+          <param name="landscapewidecondition" value="$PARAM[landscapewidecondition]" />
+          <param name="landscapewidepostercondition" value="$PARAM[landscapewidepostercondition]" />
+          <param name="landscapenetflixcondition" value="$PARAM[landscapenetflixcondition]" />
+          <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]" />
+          <param name="landscapedetailscondition" value="$PARAM[landscapedetailscondition]" />
+          <param name="posterdetailscondition" value="$PARAM[posterdetailscondition]" />
+          <param name="bigpostercondition" value="$PARAM[bigpostercondition]" />
+          <param name="widgetlivecondition" value="$PARAM[widgetlivecondition]" />
+          <param name="categorycondition" value="$PARAM[categorycondition]" />
+          <param name="submenucondition" value="$PARAM[submenucondition]" />
+          <param name="squarecondition" value="$PARAM[squarecondition]" />
+          <param name="genrecondition" value="$PARAM[genrecondition]" />
+        </include>
           <left>-395</left>
           <include content="Defs_BusySpinner">
             <param name="label" value="$LOCALIZE[31138]..." />
@@ -6514,22 +6422,42 @@
           <visible>[Container($PARAM[id]).IsUpdating + !Integer.IsGreater(Container($PARAM[id]).NumItems,0)] | [Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating]</visible>
         </control>
       </control>
+
       <control type="$PARAM[controltype]" id="$PARAM[id]">
         <left>-55</left>
-        <animation effect="slide" end="640,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapepanelcondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
-        <animation effect="slide" end="640,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + !$PARAM[Showcasehide] + $PARAM[landscapepanelcondition]">Conditional</animation>
-        <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapecondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
-        <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + !$PARAM[Showcasehide] +  $PARAM[landscapecondition]">Conditional</animation>
-        <animation effect="zoom" start="100,100" end="130,100" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapepanelcondition] + !Control.HasFocus($PARAM[id])">Conditional</animation>
-        <animation effect="slide" end="-20,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapepanelcondition] + !Control.HasFocus($PARAM[id])">Conditional</animation>
-        <animation effect="slide" end="630,0" time="500" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[postercondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
-        <animation effect="slide" end="630,0" time="500" reversible="false" sine="inout" condition="$PARAM[Showcase] + !$PARAM[Showcasehide] + $PARAM[postercondition]">Conditional</animation>
-
-
         <top>30</top>
-        <animation effect="fade" start="100" end="0" condition="Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating">Conditional</animation>
-        <include condition="$PARAM[Showcase]">Widget_Movement_Showcase</include>
+        <scrolltime>500</scrolltime>
+        <include condition="$PARAM[Showcase] | $PARAM[InfoSlide]">Widget_Movement_Showcase</include>
         <movement>$PARAM[movement]</movement>
+
+        <include content="showcase_animations">
+           <param name="Showcase" value="$PARAM[Showcase]" />
+           <param name="Showcasehide" value="$PARAM[Showcasehide]" />
+           <param name="postercondition" value="$PARAM[postercondition]" />
+           <param name="landscapecondition" value="$PARAM[landscapecondition]" />
+           <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]"  />
+        </include>
+        <animation effect="fade" start="100" end="0" condition="Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating">Conditional</animation>
+        <include content="aurahub_widget_height">
+          <param name="id" value="$PARAM[id]" />
+          <param name="submenu" value="$PARAM[submenu]" />
+          <param name="postercondition" value="$PARAM[postercondition]" />
+          <param name="landscapecondition" value="$PARAM[landscapecondition]" />
+          <param name="landscapewidecondition" value="$PARAM[landscapewidecondition]" />
+          <param name="landscapewidepostercondition" value="$PARAM[landscapewidepostercondition]" />
+          <param name="landscapenetflixcondition" value="$PARAM[landscapenetflixcondition]" />
+          <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]" />
+          <param name="landscapedetailscondition" value="$PARAM[landscapedetailscondition]" />
+          <param name="posterdetailscondition" value="$PARAM[posterdetailscondition]" />
+          <param name="bigpostercondition" value="$PARAM[bigpostercondition]" />
+          <param name="widgetlivecondition" value="$PARAM[widgetlivecondition]" />
+          <param name="categorycondition" value="$PARAM[categorycondition]" />
+          <param name="submenucondition" value="$PARAM[submenucondition]" />
+          <param name="squarecondition" value="$PARAM[squarecondition]" />
+          <param name="genrecondition" value="$PARAM[genrecondition]" />
+        </include>
+	<onback condition="!String.IsEmpty(Window(Home).Property(widgetslide))">ClearProperty(widgetslide,home)</onback>
+        <onback>SetProperty(hubonback,true,home)</onback>
         <onback>Skin.Reset(TVHubMenuFocus)</onback>
         <onback>Skin.Reset(MovieHubMenuFocus)</onback>
         <onback condition="!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious">Control.Move($PARAM[id],$INFO[Container($PARAM[id]).CurrentItem,-,])</onback>
@@ -6537,46 +6465,8 @@
         <onback condition="[Window.IsVisible(3910) | Window.IsVisible(3920)] + [!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious]">5555</onback>
         <onback condition="ControlGroup(5055).HasFocus">505</onback>
 	<onback condition="!Container($PARAM[id]).HasPrevious + [Window.IsVisible(2111) | Window.IsVisible(2113) | Window.IsVisible(2115) | Window.IsVisible(2116) | Window.IsVisible(2117)]">ActivateWindow(Home)</onback>
-        <scrolltime>500</scrolltime>
-        <include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
-        <include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
-        <include condition="!Skin.HasSetting(AuraHubSpacingSmall) + !$PARAM[bigpostercondition] + !$PARAM[landscapepanelcondition]">AuraWidget_Items_Default</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height</include>
-        <include condition="!Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition]">Widget_AuraHub_width_landscapepanel</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarelabelcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SquareLabel_Big</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarelabelcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SquareLabel_Big_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarecondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Square_Height</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Square_Big_Height_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidepostercondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidepostercondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapenetflixcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscapesmall_Big_Height</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapenetflixcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscapesmall_Big_Height_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapedetailscondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapedetailscondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidecondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Poster_Big</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidecondition] + Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Poster_Big_Label</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[genrecondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_genre_Big_Height</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[genrecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_genre_Big_Height_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[submenucondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SubmenuWidget_Big_Height</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[submenucondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SubmenuWidget_Big_Height_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapecondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Landscape_Big_Height</include>
-        <include condition="$Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapecondition] + Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Landscape_Big_Height_Label</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[postercondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Poster_Big</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[postercondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[posterdetailscondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[posterdetailscondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[widgetlivecondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Live_Big_Height</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[widgetlivecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Live_Big_Height_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[categorycondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Category_Big_Height</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[categorycondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Category_Big_Height_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[submenucondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Category_Big_Height</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[submenucondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Category_Big_Height_small</include>
         <onclick condition="!Skin.HasSetting(EnableShowInfo) + [[String.IsEqual(ListItem.DBType,episode) + !Skin.HasSetting(ShowInfo.Episodes)] | [String.IsEqual(ListItem.DBType,tvshow) + !Skin.HasSetting(ShowInfo.TV)] | [String.IsEqual(ListItem.DBType,movie) + !Skin.HasSetting(ShowInfo.Movies)]]">Action(Info)</onclick>
+
         <visible>$PARAM[visible] + [Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating | String.IsEmpty(Window(Home).Property(WidgetLoading))]</visible>
         <include content="Widget_Items" condition="!$PARAM[submenu]">
           <param name="id" value="$PARAM[id]" />
@@ -6606,84 +6496,82 @@
           <param name="squarecondition" value="$PARAM[squarecondition]" />
           <param name="genrecondition" value="$PARAM[genrecondition]" />
           <param name="search" value="$PARAM[search]" />
+          <param name="InfoSlide" value="$PARAM[InfoSlide]" />
+          <param name="controltype" value="$PARAM[controltype]" />
         </include>
       </control>
-<!--
-      <control type="group" id="9$PARAM[id]">
-        <control type="image">
-	  <left>8</left>
-          <top>-275</top>
-          <height>255</height>
-          <width>455</width>
-          <texture background="true" colordiffuse="FFFFFFFF" border="20">common/selectbox.png</texture>
-          <visible>Control.HasFocus($PARAM[id]) + $PARAM[landscapenetflixcondition]</visible>
-        </control> 
+     <control type="group" id="10$PARAM[id]">
+        <include content="WidgetInfoSlide">
+          <param name="id" value="$PARAM[id]" />
+          <param name="Showcase" value="$PARAM[Showcase]" />
+          <param name="InfoSlide" value="$PARAM[InfoSlide]" />
+          <param name="controltype" value="$PARAM[controltype]" />
+          <param name="postercondition" value="$PARAM[postercondition]" />
+          <param name="landscapecondition" value="$PARAM[landscapecondition]" />
+        </include>
       </control>
-      <control type="group" id="10$PARAM[id]">
-        <control type="image">
-          <width>60</width>
-          <height>60</height>
-          <top>-180</top>
-          <left>-25</left>
-          <texture background="true" colordiffuse="white">netflix/left-arrow.png</texture>
-          <visible>Container($PARAM[id]).HasPrevious + Control.HasFocus($PARAM[id]) + $PARAM[landscapenetflixcondition]</visible>
-        </control>
-       </control>
--->
-
     </definition>
   </include>
-  <include name="AuraWidget_Items_LandscapePanel_Height">
-    <height>440</height>
+
+  <include name="aurahub_widget_height">
+    <param name="submenu" default="false" />
+    <param name="postercondition" default="false" />
+    <param name="landscapecondition" default="false" />
+    <param name="landscapewidecondition" default="false" />
+    <param name="landscapewidepostercondition" default="false" />
+    <param name="landscapenetflixcondition" default="false" />
+    <param name="landscapepanelcondition" default="false" />
+    <param name="bigpostercondition" default="false" />
+    <param name="landscapedetailscondition" default="false" />
+    <param name="landscapepanel" default="false" />
+    <param name="posterdetailscondition" default="false" />
+    <param name="widgetlivecondition" default="false" />
+    <param name="categorycondition" default="false" />
+    <param name="squarecondition" default="false" />
+    <param name="genrecondition" default="false" />
+    <param name="submenucondition" default="false" />
+    <definition>
+        <include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
+        <include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
+        <include condition="!Skin.HasSetting(AuraHubSpacingSmall) + !$PARAM[bigpostercondition] + !$PARAM[landscapepanelcondition]">AuraWidget_Items_Default</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height</include>
+        <include condition="!Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition]">Widget_AuraHub_width_landscapepanel</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarelabelcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SquareLabel_Big</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarelabelcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SquareLabel_Big_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarecondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Square_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Square_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidepostercondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidepostercondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapenetflixcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscapesmall_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapenetflixcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscapesmall_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapedetailscondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapedetailscondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidecondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Poster_Big</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidecondition] + Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Poster_Big_Label</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[genrecondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_genre_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[genrecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_genre_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[submenucondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SubmenuWidget_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[submenucondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SubmenuWidget_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapecondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Landscape_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapecondition] + Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Landscape_Big_Height_Label</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[postercondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Poster_Big</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[postercondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[posterdetailscondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[posterdetailscondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[widgetlivecondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Live_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[widgetlivecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Live_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[categorycondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Category_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[categorycondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Category_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[submenucondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Category_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[submenucondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Category_Big_Height_small</include>
+   </definition>
   </include>
-  <include name="AuraWidget_Items_LandscapePanel_Height_small">
-    <height>485</height>
-  </include>
-  <include name="AuraWidget_Items_Landscapesmall_Big_Height">
-    <height>270</height>
-  </include>
-  <include name="AuraWidget_Items_Landscapesmall_Big_Height_small">
-    <height>315</height>
-  </include>
-  <include name="AuraWidget_Items_genre_Big_Height">
-    <height>380</height>
-  </include>
-  <include name="AuraWidget_Items_genre_Big_Height_small">
-    <height>425</height>
-  </include>
-  <include name="AuraWidget_Items_Landscape_Big_Height_small">
-    <height>405</height>
-  </include>
-  <include name="AuraWidget_Items_Landscape_Big_Height">
-    <height>360</height>
-  </include>
-  <include name="AuraWidget_Items_Poster_Big">
-    <height>380</height>
-  </include>
-  <include name="AuraWidget_Items_Poster_Big_small">
-    <height>425</height>
-  </include>
-  <include name="AuraWidget_Items_Category_Big_Height">
-    <height>230</height>
-  </include>
-  <include name="AuraWidget_Items_Category_Big_Height_small">
-    <height>275</height>
-  </include>
-  <include name="AuraWidget_Items_Default">
-    <height>425</height>
-  </include>
-  <include name="AuraHub_top">
-    <top>140</top>
-  </include>
-  <include name="AuraHub_Small_top">
-    <top>100</top>
-  </include>
-  <include name="AuraHub_height">
-    <height>935</height>
-  </include>
-  <include name="AuraHub_Small_height">
-    <height>975</height>
-  </include>
+
   <include name="Widget_Netflixhub">
     <param name="submenu" default="false" />
     <param name="genres" default="false" />
@@ -6705,6 +6593,7 @@
     <param name="controltype" default="fixedlist" />
     <param name="mylist1" default="false" />
     <param name="movement" default="1" />
+    <param name="vislbe" default="" />
     <definition>
       <control type="group" id="2$PARAM[id]">
         <visible>$PARAM[visible]</visible>
@@ -6736,6 +6625,7 @@
         <animation effect="fade" start="100" end="0" condition="Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating">Conditional</animation>
         <onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[id],Home)</onfocus>
         <onfocus>SetProperty(TMDbHelper.WidgetContainer,$PARAM[id],Home)</onfocus>
+	<onfocus>SetProperty(widgetid,$PARAM[id],home)</onfocus>
         <onback condition="ControlGroup(5600).HasFocus">9000</onback>
         <scrolltime tween="linear">400</scrolltime>
         <include condition="Window.IsVisible(Home) | Window.IsVisible(3810) | Window.IsVisible(3820)">netflix_largewidgets_top</include>
@@ -6820,6 +6710,8 @@
     <param name="onclick4cond" default="" />
     <param name="onback" default="9570" />
     <param name="onup" default="" />
+    <param name="ondown" default="" />
+    <param name="top" default="" />
     <param name="orientation" default="horizontal" />
     <definition>
       <control type="group" id="2$PARAM[id]">
@@ -6833,10 +6725,9 @@
           <param name="widgetContent" value="$PARAM[widgetContent]" />
         </include>
         <control type="group">
+          <left>-395</left>
           <include condition="Skin.HasSetting(MouseMode)">Widget_Busy_Top_Mouse</include>
           <include>Widget_Label_height_hub</include>
-          <left>-395</left>
-          <include condition="Skin.HasSetting(DisableAuraHomeLayout)">widget_label_top</include>
           <include content="Defs_BusySpinner">
             <param name="label" value="$LOCALIZE[31138]..." />
           </include>
@@ -6849,6 +6740,8 @@
         <onleft>$PARAM[onleft]</onleft>
 	<orientation>$PARAM[orientation]</orientation>
         <onup>$PARAM[onup]</onup>
+	<top>$PARAM[top]</top>
+        <ondown>$PARAM[ondown]</ondown>
         <onback>$PARAM[onback]</onback>
         <animation effect="fade" start="100" end="0" condition="Window.IsVisible(DialogVideoInfo.xml) + Container($PARAM[id]).IsUpdating">Conditional</animation>
         <movement>1</movement>
@@ -6936,6 +6829,7 @@
     <control type="group" id="25055">
       <visible>Container(5055).IsUpdating + !Window.IsVisible(DialogBusy.xml)</visible>
       <control type="group">
+	<visible>!Window.IsVisible(3820)</visible>
         <height>40</height>
         <top>550</top>
         <left>-200</left>
@@ -6964,15 +6858,14 @@
       <left>500</left>
       <texture background="true" diffuse="Right Corner.png">$INFO[Container(5055).ListItem.Art(fanart)]</texture>
       <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
-      <visible>Control.HasFocus(505) | Control.HasFocus(5055)</visible>
+      <visible>Control.HasFocus(5055)</visible>
     </control>
     <control type="image">
       <animation effect="fade" start="100" end="0" time="400">Hidden</animation>
       <right>0</right>
       <width>100%</width>
       <height>100%</height>
-      <texture flipx="true" colordiffuse="ff000000" border="15">overlay/gradient_overlay_info.png</texture>
-      <texture background="true" colordiffuse="c9000000">common/white.png</texture>
+      <texture background="true" flipx="true" colordiffuse="ff000000" border="15">overlay/gradient_overlay_info.png</texture>
       <visible>[Control.HasFocus(401) | Control.HasFocus(400) | Control.HasFocus(505) | Control.HasFocus(5055)] + [[Container(5055).IsUpdating + !Integer.IsGreater(Container(5055).NumItems,0)] | String.IsEmpty(Container(5055).ListItem.Art(fanart))]</visible>
     </control>
     <control type="group">
@@ -6980,7 +6873,7 @@
       <visible>ControlGroup(5055).HasFocus</visible>
       <left>0</left>
       <include condition="Skin.HasSetting(SkinHelper.EnableExtraFanart)">fanart_multi</include>
-      <include>Object_Home_Netflix</include>
+      <include condition="!Window.IsVisible(3920) + !Window.IsVisible(3810) + !Window.IsVisible(3820)" >Object_Home_Netflix</include>
     </control>
     <control type="image">
       <width>90</width>
@@ -6989,6 +6882,7 @@
       <left>-20</left>
       <texture background="true" colordiffuse="white">netflix/left-arrow.png</texture>
       <visible>ControlGroup(5055).HasFocus</visible>
+      <visible>!Window.IsVisible(3920) + !Window.IsVisible(3810) + !Window.IsVisible(3820)</visible>
     </control>
   </include>
   <include name="Object_Info_Title">
@@ -8221,4 +8115,223 @@
             </control>
         </definition>
     </include>
+
+    <include name="global_search">
+        <include>Global_Background</include>
+        <include>Topbar</include>
+        <include>Object_PlotOverlay</include>
+        <control type="list" id="9000">
+            <orientation>horizontal</orientation>
+            <height>10</height>
+            <top>-1000</top>
+            <ondown>50</ondown>
+            <onleft>990</onleft>
+            <onright>noop</onright>
+            <itemlayout width="10" />
+            <focusedlayout width="10" />
+        </control>
+
+        <control type="group">
+            <include>View_Group</include>
+            <include>Animation_Right</include>
+            <include>Defs_InfoDialog_Visible</include>
+            <visible>!Control.HasFocus(9602)</visible>
+            <control type="group">
+                <visible>Control.IsVisible(50)</visible>
+                <control type="group">
+                    <include>View_Pad</include>
+                    <control type="fixedlist" id="50">
+                        <bottom>-10</bottom>
+                        <right>-70</right>
+                        <left>-70</left>
+                        <height>500</height>
+                        <height>poster_height</height>
+                        <focusposition>0</focusposition>
+                        <movement>2</movement>
+                        <viewtype label="$LOCALIZE[31161]">showcase</viewtype>
+                        <pagecontrol>60</pagecontrol>
+                        <onleft>50</onleft>
+                        <onright>50</onright>
+                        <ondown>60</ondown>
+                        <onup>9000</onup>
+                        <orientation>horizontal</orientation>
+                        <preloaditems>2</preloaditems>
+                        <scrolltime tween="quadratic">400</scrolltime>
+                        <itemlayout width="260" height="480" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(actors) | Container.Content(directors)">
+                            <control type="group">
+                                <left>view_pad</left>
+                                <right>-view_pad</right>
+                                <control type="group">
+                                    <height>380</height>
+                                    <include>Defs_PosterBack</include>
+                                    <control type="image" description="Poster">
+                                        <bordersize>10</bordersize>
+                                        <aspectratio scalediffuse="false">scale</aspectratio>
+                                        <texture fallback="DefaultAddonNone.png" background="true" diffuse="diffuse/widgetposter.png">$VAR[Image_Poster]</texture>
+                                    </control>
+                                    <include>View_WatchedOverlay</include>
+                                    <control type="image">
+                                        <bordersize>10</bordersize>
+                                        <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
+                                    </control>
+                                </control>
+                                <include condition="!Skin.HasSetting(DisableViewText)">View_Posters_Text</include>
+                            </control>
+                        </itemlayout>
+                        <focusedlayout width="260" height="480" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(actors) | Container.Content(directors)">
+                            <control type="group">
+                                <left>view_pad</left>
+                                <right>-view_pad</right>
+                                <include>Animation_FocusBounce</include>
+                                <control type="group">
+                                    <height>380</height>
+                                    <include>Defs_PosterBack</include>
+                                    <control type="image" description="Poster">
+                                        <bordersize>10</bordersize>
+                                        <aspectratio scalediffuse="false">scale</aspectratio>
+                                        <texture fallback="DefaultAddonNone.png" background="true" diffuse="diffuse/widgetposter.png">$VAR[Image_Poster]</texture>
+                                    </control>
+                                    <include>View_WatchedOverlay</include>
+                                    <control type="image">
+                                        <bordersize>10</bordersize>
+                                        <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
+                                    </control>
+                                    <!-- Highlight -->
+                                    <control type="group">
+                                        <visible>Control.HasFocus(50)</visible>
+                                        <include>View_Selectbox</include>
+                                    </control>
+                                </control>
+                                <include condition="!Skin.HasSetting(DisableViewText)">View_Posters_Text</include>
+                            </control>
+                        </focusedlayout>
+                        <itemlayout width="606.66" height="480" condition="Container.Content(episodes) | Container.Content(musicvideos)">
+                            <control type="group">
+                                <left>view_pad</left>
+                                <right>-view_pad</right>
+                                <control type="group">
+                                    <height>350</height>
+                                    <include>Defs_PosterBack</include>
+                                    <control type="image" description="Poster">
+                                        <bordersize>10</bordersize>
+                                        <aspectratio scalediffuse="false">scale</aspectratio>
+                                        <texture fallback="DefaultAddonNone.png" background="true" diffuse="diffuse/landscape.png">$VAR[Image_Fanart]</texture>
+                                    </control>
+                                    <include>View_WatchedOverlay</include>
+                                    <control type="image">
+                                        <bordersize>10</bordersize>
+                                        <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
+                                    </control>
+                                </control>
+                                <include condition="!Skin.HasSetting(DisableViewText)">View_GlobalSearch_Landscape_Text</include>
+                            </control>
+                        </itemlayout>
+                        <focusedlayout width="606.66" height="480" condition="Container.Content(episodes) | Container.Content(musicvideos)">
+                            <control type="group">
+                                <left>view_pad</left>
+                                <right>-view_pad</right>
+                                <include>Animation_FocusBounce</include>
+                                <control type="group">
+                                    <height>350</height>
+                                    <include>Defs_PosterBack</include>
+                                    <control type="image" description="Poster">
+                                        <bordersize>10</bordersize>
+                                        <aspectratio scalediffuse="false">scale</aspectratio>
+                                        <texture fallback="DefaultAddonNone.png" background="true" diffuse="diffuse/landscape.png">$VAR[Image_Fanart]</texture>
+                                    </control>
+                                    <include>View_WatchedOverlay</include>
+                                    <control type="image">
+                                        <bordersize>10</bordersize>
+                                        <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
+                                    </control>
+                                    <!-- Highlight -->
+                                    <control type="group">
+                                        <visible>Control.HasFocus(50)</visible>
+                                        <include>View_Selectbox</include>
+                                    </control>
+                                </control>
+                                <include condition="!Skin.HasSetting(DisableViewText)">View_GlobalSearch_Landscape_Text</include>
+                            </control>
+                        </focusedlayout>
+                        <itemlayout width="364" height="480" condition="Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(livetv)">
+                            <control type="group">
+                                <left>view_pad</left>
+                                <right>-view_pad</right>
+                                <control type="group">
+                                    <height>364</height>
+                                    <include>Defs_PosterBack</include>
+                                    <control type="image" description="Poster">
+                                        <bordersize>10</bordersize>
+                                        <aspectratio scalediffuse="false">scale</aspectratio>
+                                        <texture fallback="DefaultAddonNone.png" background="true" diffuse="diffuse/square.png">$INFO[ListItem.Icon]</texture>
+                                    </control>
+                                    <include>View_WatchedOverlay</include>
+                                    <control type="image">
+                                        <bordersize>10</bordersize>
+                                        <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
+                                    </control>
+                                </control>
+                                <include condition="!Skin.HasSetting(DisableViewText)">View_GlobalSearch_Square_Text</include>
+                            </control>
+                        </itemlayout>
+                        <focusedlayout width="364" height="480" condition="Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(livetv)">
+                            <control type="group">
+                                <left>view_pad</left>
+                                <right>-view_pad</right>
+                                <include>Animation_FocusBounce</include>
+                                <control type="group">
+                                    <height>364</height>
+                                    <include>Defs_PosterBack</include>
+                                    <control type="image" description="Poster">
+                                        <bordersize>10</bordersize>
+                                        <aspectratio scalediffuse="false">scale</aspectratio>
+                                        <texture fallback="DefaultAddonNone.png" background="true" diffuse="diffuse/square.png">$INFO[ListItem.Icon]</texture>
+                                    </control>
+                                    <include>View_WatchedOverlay</include>
+                                    <control type="image">
+                                        <bordersize>10</bordersize>
+                                        <texture colordiffuse="PixelLines" border="20">common/outline.png</texture>
+                                    </control>
+                                    <!-- Highlight -->
+                                    <control type="group">
+                                        <visible>Control.HasFocus(50)</visible>
+                                        <include>View_Selectbox</include>
+                                    </control>
+                                </control>
+                                <include condition="!Skin.HasSetting(DisableViewText)">View_GlobalSearch_Square_Text</include>
+                            </control>
+                        </focusedlayout>
+                    </control>
+                    <include content="Object_Info">
+                        <param name="id" value="50" />
+                        <param name="width" value="1654" />
+                        <param name="discart" value="true" />
+                        <param name="hdsd_flag" value="true" />
+                        <param name="plot_height" value="170" />
+                    </include>
+                </control>
+            </control>
+        </control>
+        <control type="group">
+            <include>View_Group</include>
+            <include>Defs_InfoDialog_Visible</include>
+            <include>Animation_FadeIn</include>
+            <include>Animation_FadeOut</include>
+            <include content="Object_Scrollbar_Horz">
+                <param name="visible" value="Control.IsVisible(50)" />
+            </include>
+        </control>
+
+        <control type="label" id="991"><include>Defs_Hidden_Button</include></control>
+        <control type="button" id="990">
+            <onright>9000</onright>
+            <onleft>noop</onleft>
+            <ondown>50</ondown>
+            <include>Defs_Hidden_Button</include>
+        </control>
+        <control type="label" id="999"><include>Defs_Hidden_Button</include></control>
+   </include>
+
+
+
 </includes>

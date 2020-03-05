@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
+
+  <include name="spotlight_animations">
+        <animation effect="slide" start="0,0" end="0,500" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,20" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,85" time="0" reversible="false" condition="!Skin.HasSetting(DisableAuraModeGap) + !Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,40" time="0" reversible="false" condition="Skin.HasSetting(DisableAuraModeGap) + !Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,420" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[NextUpTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,150" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
+        <!--Slide Submenu + Widgets up when Spotlights enabled and Widgets focused. -->
+        <animation effect="slide" start="0,0" end="0,-500" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-20" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(DisableAuraModeGap) + Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-85" time="700" tween="linear" reversible="true" condition="!Skin.HasSetting(DisableAuraModeGap) + !Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-40" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(DisableAuraModeGap) + !Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-450" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[NextUpTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-150" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
+ </include>
+
+  <include name="showcase_animations">
+    <param name="postercondition" default="false" />
+    <param name="landscapecondition" default="false" />
+    <param name="landscapepanelcondition" default="false" />
+    <param name="Showcase" default="false" />
+    <param name="Showcasehide" default="true" />
+    <definition>
+        <animation effect="slide" end="640,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapepanelcondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
+        <animation effect="slide" end="640,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + !$PARAM[Showcasehide] + $PARAM[landscapepanelcondition]">Conditional</animation>
+        <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapecondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
+        <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + !$PARAM[Showcasehide] +  $PARAM[landscapecondition]">Conditional</animation>
+        <animation effect="zoom" start="100,100" end="130,100" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapepanelcondition] + !Control.HasFocus($PARAM[id])">Conditional</animation>
+        <animation effect="slide" end="-20,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapepanelcondition] + !Control.HasFocus($PARAM[id])">Conditional</animation>
+        <animation effect="slide" end="630,0" time="500" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[postercondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
+        <animation effect="slide" end="630,0" time="500" reversible="false" sine="inout" condition="$PARAM[Showcase] + !$PARAM[Showcasehide] + $PARAM[postercondition]">Conditional</animation>
+    </definition>
+   </include>
+
   <include name="animation_image_zoom">
     <animation effect="zoom" start="100" end="130" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
     <animation effect="slide" start="-8,-8" end="15,15" time="6000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>

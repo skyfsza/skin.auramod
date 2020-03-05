@@ -2,7 +2,19 @@
 <!-- Foundation -->
 <fonts>
     <fontset id="Default" unicode="true">
-
+        <font>
+            <name>font_widgetslide_info_plot</name>
+            <filename>SegoeUI.ttf</filename>
+            <linespacing>0.9</linespacing>
+            <size>24</size>
+        </font>
+        <font>
+            <name>font_heading_top</name>
+            <style>uppercase</style>
+            <filename>RobotoCondensed-Light.ttf</filename>
+            <size>26</size>
+            <aspect>0.9</aspect>
+        </font>
         <font>
             <name>font_heading_top</name>
             <style>uppercase</style>
@@ -275,6 +287,13 @@
         </font>
 
         <!-- Plot Font -->
+        <font>
+            <name>font_plot_widgetinfo</name>
+            <filename>Roboto-Regular-LineSpacingMod.ttf</filename>
+            <size>26</size>
+            <linespacing>1</linespacing>
+            <aspect>0.9</aspect>
+        </font>
         <font>
             <name>font_plotbox</name>
             <filename>Roboto-Regular-LineSpacingMod.ttf</filename>

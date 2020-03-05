@@ -1,12 +1,18 @@
+v0.9.43
+- Add option to enable Main Menu on Aura / Netflix Hubs
+- Add option for Info Slide on Poster / Landscape Widgets
+- Add temperature and now playing to Aura Home date/time overlay
+- Add TMDBHelper for all ratings
+- Tweaks and fixes.
+
 v0.9.41.8
 - Rework of Search Hub
-
 
 v0.9.41.5 
 - Fix add Widgets --> Default widgets --> TV Shows
 - Change Search history to use tmdbhelper
 - Fix Showcase bugs
-- Add option for circular widget navigation on Vertical menus (Skin Settings --> Home --> Disable onleft Menu Focus
+- Add option for circular widget navigation on Vertical menus (Skin Settings --> Home --> Disable onleft Menu Focus)
 
 v0.9.35
 - Add new Vertical side menu option

@@ -27,6 +27,7 @@
     <groupoverride group="x1105" condition="Window.IsActive(Custom_Menu_Generic1.xml)">Close</groupoverride>
     <groupoverride group="x1106" condition="Window.IsActive(Custom_Menu_Generic2.xml)">Close</groupoverride>
     <groupoverride group="x1107" condition="Window.IsActive(Custom_Menu_Generic3.xml)">Close</groupoverride>
+    <groupoverride group="tvhubmenu" condition="Control.HasFocus(400)">SetProperty(OpenHub,400,home)</groupoverride>
 
     <!-- Icon Overrides -->
     <icon labelID="tvhub">special://skin/extras/icons/tv.png</icon>
@@ -378,6 +379,7 @@
     <!-- Widget Hub -->
     <propertySettings toggle="widgetControl" buttonID="9911" title="Widget Control" />
     <propertySettings toggle="widgetShowcase" buttonID="9912" title="Widget Showcase" />
+    <propertySettings toggle="widgetInfoSlide" buttonID="99131" title="Widget Info Slide" />
     <propertySettings toggle="widgetShowcasehide" buttonID="99121" title="Widget Showcase Hide" />
     <propertySettings toggle="widgetmylistposition" buttonID="99104" title="Widget Control" />
 
@@ -397,6 +399,7 @@
     <property property="widgetAspect" icon="special://skin/extras/backgrounds/viewmodes/submenu-large.jpg">Submenu</property>
     <property property="widgetAspect" icon="special://skin/extras/widgettype/widget-poster.png" condition="!Skin.HasSetting(DisableAuraHomeLayout) | [Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(DisableNetflixLargeWidget)]">SquareLabel</property>
     <propertySettings property="widgetAspect" showNone="false" buttonID="9901" title="Widget Aspect Ratio" />
+
 
     <propertydefault labelID="programs" group="24001.1" property="widgetAspect">Square</propertydefault>
 

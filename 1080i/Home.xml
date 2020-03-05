@@ -2,6 +2,7 @@
 <!-- Foundation -->
 <window id="0">
   <defaultcontrol always="true">4000</defaultcontrol>
+  <onload>ClearProperty(hubonback,home)</onload>
   <onload condition="!Skin.HasSetting(FirstRunSetup)">ActivateWindow(5111)</onload>
   <onload>RunScript(plugin.video.themoviedb.helper,reset_path)</onload>
   <onload condition="Skin.HasSetting(EnableWetherRadar)">RunScript(special://skin/extras/weather.py)</onload>
@@ -14,8 +15,8 @@
   <onload>ClearProperty(HomeFocus,Home)</onload>
   <onload>AlarmClock(SkinSplashStarted,SetProperty(SkinSplashStarted,1,home),00:01,silent,false)</onload>
   <onload>ClearProperty(WidgetLoading,Home)</onload>
-  <onload>AlarmClock(SetLoad,SetProperty(WidgetLoading,1,Home),00:00,silent)</onload>
   <onload>ClearProperty(spotback)</onload>
+  <onload>ClearProperty(widgetslide,home)</onload>
   <onload condition="!Skin.HasSetting(LockHubWidgets)">Skin.ToggleSetting(LockHubWidgets)</onload>
   <onload condition="Skin.HasSetting(MouseMode)">Skin.ToggleSetting(MouseMode)</onload>
   <onload condition="!String.IsEmpty(Skin.String(TMDB_Search))">ActivateWindow(1136)</onload>
@@ -33,6 +34,8 @@
   <onunload condition="Integer.IsGreater(Container(12342).NumItems,0)">Skin.SetString(similar_tv2_traktid,$INFO[Container(12342).ListItem(4).Property(tvshow.trakt_id)])</onunload>
   <onunload condition="Integer.IsGreater(Container(12342).NumItems,0)">Skin.SetString(similar_tv_label,$INFO[Container(12342).ListItem(0).TvShowTitle])</onunload>
   <onunload condition="Integer.IsGreater(Container(12342).NumItems,0)">Skin.SetString(similar_tv2_label,$INFO[Container(12342).ListItem(4).TvShowTitle])</onunload>
+  <onunload>SetProperty(MainMenuPosition,$INFO[Container(300).Position],home)</onunload>
+  <onunload>ClearProperty(MainMenuHubFocus,home)</onunload>
   <controls>
     <control type="list" id="9988">
       <description>hidden container for playlist background</description>
@@ -53,11 +56,19 @@
     <!--Multi Image fadelabel and Global Background -->
     <include condition="Skin.HasSetting(SkinHelper.EnableExtraFanart)">fanart_multi</include>
 <!--    <include condition="Skin.HasSetting(SkinHelper.EnableExtraFanart)">fanart_multi_1505</include> -->
-    <include>Global_Background</include>
+    <include condition="!Skin.HasSetting(DisableAuraHomeLayout) | [Skin.HasSetting(DisableAuraHomeLayout) + Skin.HasSetting(DisableNetflixSubmenuBG)]">Global_Background</include>
     <control type="group"> 
+
       <animation effect="slide" end="40,0" time="500" condition="!Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(DisableMenuVertLabel) + [Control.HasFocus(30222) | Control.HasFocus(1505) | Control.HasFocus(1506) | ControlGroup(505).HasFocus | ControlGroup(900).HasFocus | ControlGroup(505).HasFocus | [Control.HasFocus(13003) + [Integer.IsEqual(Container(13003).Position,0) + !Container(13003).HasPrevious]] | [Control.HasFocus(23003) + [Integer.IsEqual(Container(23003).Position,0) + !Container(23003).HasPrevious]] | [Control.HasFocus(33003) + [Integer.IsEqual(Container(33003).Position,0) + !Container(33003).HasPrevious]] | [Control.HasFocus(43003) + [Integer.IsEqual(Container(43003).Position,0) + !Container(43003).HasPrevious]] | [Control.HasFocus(53003) + [Integer.IsEqual(Container(53003).Position,0) + !Container(53003).HasPrevious]] | [Control.HasFocus(63003) + [Integer.IsEqual(Container(63003).Position,0) + !Container(63003).HasPrevious]]]">Conditional</animation>
       <animation effect="slide" end="280,0" time="500" delay="0" condition="Skin.HasSetting(DisableMenuVertLabel) + [Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)]" reversible="true">Conditional</animation>
-      <animation effect="slide" end="250,0" time="500" delay="0" condition="Skin.HasSetting(DisableMenuVertLabelOnly) + [Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)]" reversible="true">Conditional</animation>
+
+      <animation effect="slide" end="250,0" time="500" delay="0" condition="Skin.HasSetting(DisableMenuVertLabelOnly) + String.IsEmpty(Window(Home).Property(MainMenuHubFocus)) + [Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)]" reversible="true">Conditional</animation>
+      <animation effect="slide" start="0,0" end="-250,0" time="500" delay="0" condition="Skin.HasSetting(DisableMenuVertLabelOnly) + !String.IsEmpty(Window(Home).Property(MainMenuHubFocus)) +  ControlGroup(330).HasFocus">Conditional</animation>
+      <animation effect="slide" end="250,0" time="0" delay="0" condition="Skin.HasSetting(DisableMenuVertLabelOnly) + !String.IsEmpty(Window(Home).Property(MainMenuHubFocus)) + [Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)]" reversible="false">Conditional</animation>
+
+
+
+
       <include>Widgets</include>
       <include>Object_PlotOverlay</include>
       <include condition="Skin.HasSetting(DisableAuraHomeLayout) + !Skin.HasSetting(SubmenuWidgetPanel) + !Skin.HasSetting(DisableNetflixCatWidget) + !Skin.HasSetting(LargeSubmenuLabel)">submenu_widget_fixed</include>
@@ -105,10 +116,11 @@
       <onright>300</onright>
       <onup>300</onup>
       <ondown>3000</ondown>
-      <onfocus condition="!String.IsEmpty(Skin.String(MenuPos))">SetFocus(300,$INFO[Skin.String(MenuPos)])</onfocus>
-      <onfocus condition="!Integer.IsGreater(Container(330).NumItems,0) + String.IsEmpty(Skin.String(MenuPos))">SetFocus(300)</onfocus>
-      <onfocus condition="Integer.IsGreater(Container(330).NumItems,0) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)">SetFocus(3000)</onfocus>
-      <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widget),Settings) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) | String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)">SetFocus(300)</onfocus>
+      <onfocus condition="!String.IsEmpty(Window(Home).Property(MainMenuHubFocus))">Control.SetFocus(300,$INFO[Window(Home).Property(MainMenuHubFocus)],absolute)</onfocus>
+      <onfocus condition="String.IsEmpty(Window(Home).Property(MainMenuHubFocus)) + !String.IsEmpty(Skin.String(MenuPos))">SetFocus(300,$INFO[Skin.String(MenuPos)])</onfocus>
+      <onfocus condition="String.IsEmpty(Window(Home).Property(MainMenuHubFocus)) + !Integer.IsGreater(Container(330).NumItems,0) + String.IsEmpty(Skin.String(MenuPos))">SetFocus(300)</onfocus>
+      <onfocus condition="String.IsEmpty(Window(Home).Property(MainMenuHubFocus)) + Integer.IsGreater(Container(330).NumItems,0) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)">SetFocus(3000)</onfocus>
+      <onfocus condition="String.IsEmpty(Window(Home).Property(MainMenuHubFocus)) + String.IsEqual(Container(300).ListItem.Property(widget),Settings) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) | String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) | String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)">SetFocus(300)</onfocus>
     </control>
     <control type="group">
     <visible>!Skin.HasSetting(DisableSplash)</visible>

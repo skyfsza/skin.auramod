@@ -1,45 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
+
   <include name="Widget_Movement">
     <param name="submenu" default="false" />
     <definition>
-      <onback condition="Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)">505</onback>
+      <onback condition="$EXP[NetflixListHubs]">505</onback>
       <onback condition="!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious">Control.Move($PARAM[id],$INFO[Container($PARAM[id]).CurrentItem,-,])</onback>
       <onback condition="!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious">Control.Move($PARAM[id],1)</onback>
       <onback condition="Integer.IsEqual(Container($PARAM[id]).Position,0) + !Container($PARAM[id]).HasPrevious">SetFocus(302)</onback>
-      <onback condition="Integer.IsEqual(Container($PARAM[id]).Position,0) + !Container($PARAM[id]).HasPrevious">SetFocus(300)</onback>
+      <onback condition="Window.IsVisible(Home) + [Integer.IsEqual(Container($PARAM[id]).Position,0) + !Container($PARAM[id]).HasPrevious]">SetFocus(300)</onback>
       <scrolltime tween="sine" easing="out">500</scrolltime>
     </definition>
   </include>
-  <include name="spotlightfull_aura_top">
-    <top>-650</top>
-  </include>
-  <include name="spotlightfull_buttons_aura_top">
-    <top>-250</top>
-  </include>
-  <include name="spotlightfull_buttons_top">
-    <top>390</top>
-  </include>
+
   <include name="Widgets">
     <include>Animation_Right</include>
     <include condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">nosidemenu_widget_control</include>
     <control type="group">
       <visible allowhiddenfocus="true">!$EXP[Exp_HideFurniture]</visible>
       <control type="group">
-        <!--Slide Submenu + Widgets down when Spotlights enabled and Home Menu + Submenu focused. -->
-        <animation effect="slide" start="0,0" end="0,500" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,20" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,85" time="0" reversible="false" condition="!Skin.HasSetting(DisableAuraModeGap) + !Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,40" time="0" reversible="false" condition="Skin.HasSetting(DisableAuraModeGap) + !Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,420" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[NextUpTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,150" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
-        <!--Slide Submenu + Widgets up when Spotlights enabled and Widgets focused. -->
-        <animation effect="slide" start="0,0" end="0,-500" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-20" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(DisableAuraModeGap) + Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-85" time="700" tween="linear" reversible="true" condition="!Skin.HasSetting(DisableAuraModeGap) + !Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-40" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(DisableAuraModeGap) + !Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-450" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[NextUpTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-150" time="700" tween="linear" reversible="true" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotscrolldown]">Conditional</animation>
+	<include>spotlight_animations</include>
+
         <include>Defs_InfoDialog_Visible</include>
         <control type="group">
           <left>-10</left>
@@ -66,6 +47,7 @@
                   <param name="visible" value="$EXP[TVSpotlight]" />
                 </include>
               </control>
+
               <!-- Spotlight Widget -->
               <control type="group">
                 <left>60</left>
@@ -102,9 +84,6 @@
                   <param name="id" value="1506" />
                 </include>
               </control>
-
-              <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight)">Spotlight_MultiWidget_Movies_cast</include>
-              <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableTVMultiWidgetSpotlight)">Spotlight_MultiWidget_TVShows_cast</include>
               <control type="group">
                 <include condition="!Skin.HasSetting(DisableAuraHomeLayout)">spotlightfull_aura_top</include>
                 <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableTVFullSpotlight)">Spotlight_Tvshows_Widget</include>
@@ -124,6 +103,9 @@
               <include condition="Skin.HasSetting(EnableSpotlight)">Spotlight_TVNextAired_AuraWidget</include>
               <include condition="Skin.HasSetting(EnableSpotlight)">Widget_LiveTV</include>
             </control>
+              <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight)">Spotlight_MultiWidget_Movies_cast</include>
+              <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableTVMultiWidgetSpotlight)">Spotlight_MultiWidget_TVShows_cast</include>
+
             <!-- Home Widget -->
             <include>Widgets_Grouplist</include>
             <include>WidgetHubScroll</include>
@@ -190,17 +172,14 @@
         <height>250</height>
 	<visible>!Skin.HasSetting(DisableAuraModeGap) | Skin.HasSetting(DisableMenuHor)</visible>
       </control>
-
       <control type="group" id="337" description="Spacer">
         <height>200</height>
         <visible>Skin.HasSetting(DisableAuraModeGap) + !Skin.HasSetting(DisableMenuHor)</visible>
       </control>
-
       <control type="group" id="338" description="Spacer">
         <height>50</height>
         <visible>Skin.HasSetting(DisableAuraModeGap) + !Skin.HasSetting(DisableMenuHor) + !$EXP[LiveTVSpotlight] + !$EXP[TVSpotlight] + !$EXP[MovieSpotlight]</visible>
       </control>
-
       <control type="group" id="332" description="Spacer">
         <height>50</height>
         <visible>!Skin.HasSetting(SubmenuLabel)</visible>
@@ -225,21 +204,6 @@
         <height>-200</height>
       </control>
     </control>
-  </include>
-  <include name="Widget_Movement_Default">
-    <movement>$PARAM[movement]</movement>
-  </include>
-  <include name="Widget_Movement_Showcase">
-    <movement>1</movement>
-  </include>
-  <include name="Widget_Busy_Top_Mouse">
-    <top>455</top>
-  </include>
-  <include name="Widget_Label_height">
-    <top>655</top>
-  </include>
-  <include name="Widget_Label_height_hub">
-    <top>250</top>
   </include>
   <include name="Widget">
     <param name="submenu" default="false" />
@@ -268,6 +232,7 @@
     <param name="videos" default="false" />
     <param name="movement" default="1" />
     <param name="focusposition" default="1" />
+    <param name="InfoSlide" default="false" />
     <param name="Showcase" default="false" />
     <param name="Showcasehide" default="true" />
     <param name="orientation" default="horizontal" />
@@ -275,141 +240,21 @@
     <param name="path2" default="" />
     <definition>
       <control type="group" id="4$PARAM[id]">
-        <visible>Window.IsVisible(3910) | Window.IsVisible(3920) | Window.IsVisible(Home)</visible>
-        <animation effect="slide" end="0,-45" time="0" condition="!Skin.HasSetting(SubmenuLabel)">Conditional</animation>
-        <visible>$PARAM[Showcase] + Integer.IsGreater(Container($PARAM[id]).NumItems,0)</visible>
-        <control type="image">
-          <top>-170</top>
-          <width>100%</width>
-          <height>390</height>
-          <texture background="true" colordiffuse="99000000">common/white.png</texture>
-          <visible>[$PARAM[postercondition] + Control.HasFocus($PARAM[id]) + $PARAM[Showcasehide]] | [Control.IsVisible($PARAM[id]) + $PARAM[postercondition] + !$PARAM[Showcasehide]] </visible>
-        </control>
-        <control type="group">
-          <control type="image">
-            <top>-170</top>
-            <width>100%</width>
-            <height>355</height>
-            <texture background="true" colordiffuse="990000000">common/white.png</texture>
-            <visible>$PARAM[landscapecondition]</visible>
-          <visible>[$PARAM[landscapecondition] + Control.HasFocus($PARAM[id]) + $PARAM[Showcasehide]] | [Control.IsVisible($PARAM[id]) + $PARAM[landscapecondition] + !$PARAM[Showcasehide]] </visible>
-          </control>
-          <control type="image">
-            <top>-170</top>
-            <width>100%</width>
-            <height>430</height>
-            <texture background="true" colordiffuse="990000000">common/white.png</texture>
-          <visible>[$PARAM[landscapepanelcondition] + Control.HasFocus($PARAM[id]) + $PARAM[Showcasehide]] | [Control.IsVisible($PARAM[id]) + $PARAM[landscapepanelcondition] + !$PARAM[Showcasehide]] </visible>
-          </control>
-          <control type="group">
-	<control type="group">
-            <top>-160</top>
-	<visible>Control.IsVisible($PARAM[id]) + $PARAM[Showcase] + !$PARAM[Showcasehide] + !Control.HasFocus($PARAM[id])</visible>
-        <include content="showcase_nohide">
+	<top>-210</top>
+        <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
+        <include content="widget_showcase_focused">
           <param name="id" value="$PARAM[id]" />
+          <param name="Showcase" value="$PARAM[Showcase]" />
+          <param name="Showcasehide" value="$PARAM[Showcasehide]" />
+          <param name="InfoSlide" value="$PARAM[InfoSlide]" />
+          <param name="controltype" value="$PARAM[controltype]" />
+          <param name="postercondition" value="$PARAM[postercondition]" />
           <param name="landscapecondition" value="$PARAM[landscapecondition]" />
-	</include>
-	</control>
-            <control type="group">
-            <top>-160</top>
-              <visible>[$PARAM[postercondition] + Control.HasFocus($PARAM[id])] | [$PARAM[landscapepanelcondition] + Control.HasFocus($PARAM[id])] | [$PARAM[landscapecondition] + Control.HasFocus($PARAM[id])]</visible>
-              <control type="label">
-                <top>10</top>
-                <width>500</width>
-                <height>30</height>
-                <left>30</left>
-                <font>font_small</font>
-                <textcolor>dimgrey</textcolor>
-                <label>$VAR[Label_Genre_showcase]</label>
-                <scroll>false</scroll>
-              </control>
-              <control type="label">
-                <top>30</top>
-                <height>60</height>
-                <width>500</width>
-                <left>30</left>
-                <font>font_large_bold</font>
-                <textcolor>grey</textcolor>
-                <label>$VAR[video_heading]</label>
-                <scroll>true</scroll>
-                <visible>!String.Contains(ListItem.FolderPath,plugin.video.youtube)</visible>
-              </control>
-              <control type="label">
-                <top>30</top>
-                <height>60</height>
-                <width>550</width>
-                <left>30</left>
-                <font>font_small_bold</font>
-                <textcolor>grey</textcolor>
-                <label>$VAR[video_heading]</label>
-                <scroll>true</scroll>
-                <visible>String.Contains(ListItem.FolderPath,plugin.video.youtube)</visible>
-              </control>
-              <control type="group">
-                <top>100</top>
-                <left>30</left>
-                <include>netflix_infoline</include>
-                <animation effect="zoom" start="100" end="80" time="0" reversible="false" sine="inout" condition="Control.HasFocus($PARAM[id])">Conditional</animation>
-              </control>
-              <control type="grouplist">
-                <top>160</top>
-                <height>250</height>
-                <left>30</left>
-                <control type="textbox">
-                  <height min="50" max="155">auto</height>
-                  <label fallback="19055">$VAR[Label_Plot]</label>
-                  <align>left</align>
-                  <width>580</width>
-                  <textcolor>dimgrey</textcolor>
-                  <shadowcolor>black</shadowcolor>
-                  <font>widget_live_title</font>
-                  <autoscroll delay="5000" time="1500" repeat="5000">true</autoscroll>
-                  <visible>!Integer.IsGreater(ListItem.PercentPlayed,1)</visible>
-                </control>
-                <control type="textbox">
-                  <height min="50" max="90">auto</height>
-                  <label fallback="19055">$VAR[Label_Plot]</label>
-                  <align>left</align>
-                  <width>580</width>
-                  <textcolor>dimgrey</textcolor>
-                  <shadowcolor>black</shadowcolor>
-                  <font>widget_live_title</font>
-                  <autoscroll delay="5000" time="1500" repeat="5000">true</autoscroll>
-                  <visible>Integer.IsGreater(ListItem.PercentPlayed,1)</visible>
-                </control>
-                <control type="label">
-                  <height>30</height>
-                </control>
-                <control type="group">
-                  <visible>Integer.IsGreater(ListItem.PercentPlayed,1) | Integer.IsGreater(Window(Home).Property(ListItem.PercentPlayed),1)</visible>
-                  <width>650</width>
-                  <height>30</height>
-                  <aligny>center</aligny>
-                  <control type="progress">
-                    <width>185</width>
-                    <height>11</height>
-                    <texturebg colordiffuse="cc515151" border="0">colors/color_white.png</texturebg>
-                    <lefttexture />
-                    <midtexture colordiffuse="red" border="4">colors/color_white.png</midtexture>
-                    <righttexture />
-                    <info>ListItem.PercentPlayed</info>
-                  </control>
-                  <control type="label">
-                    <top>-12</top>
-                    <left>200</left>
-                    <height>25</height>
-                    <width>450</width>
-                    <font>Netflix_Info_main</font>
-                    <textcolor>grey</textcolor>
-                    <label>$VAR[ListItemPercentRemained,,% remaining]</label>
-                  </control>
-                </control>
-              </control>
-            </control>
-          </control>
-        </control>
+          <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]" />
+        </include>
       </control>
-      <control type="group" id="2$PARAM[id]">
+
+     <control type="group" id="2$PARAM[id]">
         <left>-55</left>
         <top>widget_gap</top>
         <visible>$PARAM[visible]</visible>
@@ -426,11 +271,10 @@
           <param name="Showcase" value="$PARAM[Showcase]" />
         </include>
         <control type="group">
-          <animation effect="slide" end="-80,40" time="0" condition="[Window.IsActive(4010) | Window.IsActive(4020) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(2118)] + !Window.IsVisible(1138) + !Window.IsVisible(Home) + $PARAM[postercondition]">Conditional</animation>
-          <animation effect="slide" end="-350,0" time="0" condition="[Window.IsActive(4010) | Window.IsActive(4020) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(2118)] + !Window.IsVisible(1138) + !Window.IsVisible(Home) + !$PARAM[postercondition]">Conditional</animation>
-          <include condition="Skin.HasSetting(MouseMode)">Widget_Busy_Top_Mouse</include>
-          <include condition="![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsActive(2118)]">Widget_Label_height</include>
-          <include condition="[Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsActive(2118)]">Widget_Label_height_hub</include>
+          <animation effect="slide" end="-80,40" time="0" condition="$EXP[NetflixListHubs] + !Window.IsVisible(1138) + !Window.IsVisible(Home) + $PARAM[postercondition]">Conditional</animation>
+          <animation effect="slide" end="-350,0" time="0" condition="$EXP[NetflixListHubs] + !Window.IsVisible(1138) + !Window.IsVisible(Home) + !$PARAM[postercondition]">Conditional</animation>
+          <include condition="!$EXP[NetflixListHubs]">Widget_Label_height</include>
+          <include condition="$EXP[NetflixListHubs]">Widget_Label_height_hub</include>
           <left>-395</left>
           <include content="Defs_BusySpinner">
             <param name="label" value="$LOCALIZE[31138]..." />
@@ -439,25 +283,24 @@
         </control>
       </control>
       <control type="$PARAM[controltype]" id="$PARAM[id]">
+        <left>-55</left>
+        <top>widget_top</top>
         <orientation>$PARAM[orientation]</orientation>
         <onunfocus>ClearProperty(SpotReturnHome)</onunfocus>
         <onunfocus>ClearProperty(SpotFocus)</onunfocus>
         <onunfocus>ClearProperty(spothubscroll)</onunfocus>
-        <animation effect="slide" end="640,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapepanelcondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
-        <animation effect="slide" end="640,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + !$PARAM[Showcasehide] + $PARAM[landscapepanelcondition]">Conditional</animation>
-        <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapecondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
-        <animation effect="slide" end="630,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + !$PARAM[Showcasehide] +  $PARAM[landscapecondition]">Conditional</animation>
-        <animation effect="zoom" start="100,100" end="130,100" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapepanelcondition] + !Control.HasFocus($PARAM[id])">Conditional</animation>
-        <animation effect="slide" end="-20,0" time="0" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[landscapepanelcondition] + !Control.HasFocus($PARAM[id])">Conditional</animation>
-        <animation effect="slide" end="630,0" time="500" reversible="false" sine="inout" condition="$PARAM[Showcase] + $PARAM[Showcasehide] + $PARAM[postercondition] + Control.HasFocus($PARAM[id])">Conditional</animation>
-        <animation effect="slide" end="630,0" time="500" reversible="false" sine="inout" condition="$PARAM[Showcase] + !$PARAM[Showcasehide] + $PARAM[postercondition]">Conditional</animation>
 
+	<include content="showcase_animations">
+	   <param name="Showcase" value="$PARAM[Showcase]" />
+	   <param name="Showcasehide" value="$PARAM[Showcasehide]" />
+	   <param name="postercondition" value="$PARAM[postercondition]" />
+	   <param name="landscapecondition" value="$PARAM[landscapecondition]" />
+	   <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]" />
+	</include>
 
-        <left>-55</left>
         <onback condition="ControlGroup(5600).HasFocus">9000</onback>
         <include condition="$PARAM[Showcase]">Widget_Movement_Showcase</include>
         <movement>$PARAM[movement]</movement>
-        <top>widget_top</top>
         <include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
         <include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
         <include condition="$PARAM[landscapepanelcondition] + $PARAM[Showcase]">Widget_AuraHub_width_landscapepanel</include>
@@ -527,17 +370,20 @@
           <param name="Showcase" value="$PARAM[Showcase]" />
           <param name="path" value="$PARAM[path]" />
           <param name="path2" value="$PARAM[path2]" />
+    	  <param name="InfoSlide" default="$PARAM[InfoSlide]" />
+          <param name="controltype" value="$PARAM[controltype]" />
         </include>
       </control>
     </definition>
   </include>
+
+
   <include name="Widget_Items_Submenu_Height">
     <height>widget_submenu_spacer</height>
   </include>
   <include name="Widget_Items_Submenu_Big_Height_nogap">
     <height>420</height>
   </include>
-
   <include name="Widget_Items_Submenu_Big_Height">
     <height>440</height>
   </include>
@@ -590,7 +436,7 @@
     <height>615</height>
   </include>
   <include name="Widget_Items_Category_Big_Height">
-    <height>440</height>
+    <height>430</height>
   </include>
   <include name="Widget_Items_Category_Big_Height_small">
     <height>485</height>
@@ -678,7 +524,7 @@
     <param name="Showcase" default="false" />
     <definition>
       <control type="grouplist">
-        <include condition="![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(2118) | Window.IsVisible(DialogVideoInfo.xml)]">Widget_Label_height_hub1</include>
+        <include condition="![$EXP[NetflixListHubs] | Window.IsVisible(DialogVideoInfo.xml)]">Widget_Label_height_hub1</include>
         <left>70</left>
         <height>40</height>
         <orientation>horizontal</orientation>
@@ -699,13 +545,31 @@
           <texture>$VAR[loading_spinner]</texture>
           <visible>Window.IsVisible(1138) + Container($PARAM[id]).IsUpdating</visible>
         </control>
+
+        <control type="label">
+          <top>-2</top>
+          <left>2</left>
+          <textcolor>main_fg_100</textcolor>
+          <label>$PARAM[label] $INFO[Container($PARAM[id]).ListItem.Property(widget)]</label>
+          <include>Statusbar_Menubar_Items</include>
+          <visible>String.StartsWith(Container($PARAM[id]).ListItem.FileNameAndPath,plugin://plugin.video.themoviedb.helper) + !String.IsEqual(Container($PARAM[id]).ListItem.Property(widget),TMDb Helper) + Skin.HasSetting(LargeWidgetLabel)</visible>
+        </control>
+        <control type="label">
+          <top>-2</top>
+          <font>font_widgetbar_bold</font>
+          <left>2</left>
+          <textcolor>main_fg_100</textcolor>
+          <label>$PARAM[label] $INFO[Container($PARAM[id]).ListItem.Property(widget)]</label>
+          <include>Statusbar_Menubar_Items</include>
+          <visible>String.StartsWith(Container($PARAM[id]).ListItem.FileNameAndPath,plugin://plugin.video.themoviedb.helper) + !String.IsEqual(Container($PARAM[id]).ListItem.Property(widget),TMDb Helper) + !Skin.HasSetting(LargeWidgetLabel)</visible>
+        </control>
         <control type="label">
           <top>-2</top>
           <left>2</left>
           <textcolor>main_fg_100</textcolor>
           <label>$PARAM[label]</label>
           <include>Statusbar_Menubar_Items</include>
-          <visible>Skin.HasSetting(LargeWidgetLabel)</visible>
+          <visible>[!String.StartsWith(Container($PARAM[id]).ListItem.FileNameAndPath,plugin://plugin.video.themoviedb.helper) | [String.StartsWith(Container($PARAM[id]).ListItem.FileNameAndPath,plugin://plugin.video.themoviedb.helper) + String.IsEqual(Container($PARAM[id]).ListItem.Property(widget),TMDb Helper)]] + Skin.HasSetting(LargeWidgetLabel)</visible>
         </control>
         <control type="label">
           <top>-2</top>
@@ -714,7 +578,7 @@
           <textcolor>main_fg_100</textcolor>
           <label>$PARAM[label]</label>
           <include>Statusbar_Menubar_Items</include>
-          <visible>!Skin.HasSetting(LargeWidgetLabel)</visible>
+          <visible>[!String.StartsWith(Container($PARAM[id]).ListItem.FileNameAndPath,plugin://plugin.video.themoviedb.helper) | [String.StartsWith(Container($PARAM[id]).ListItem.FileNameAndPath,plugin://plugin.video.themoviedb.helper) + String.IsEqual(Container($PARAM[id]).ListItem.Property(widget),TMDb Helper)]] + !Skin.HasSetting(LargeWidgetLabel)</visible>
         </control>
         <control type="label">
           <top>-2</top>
@@ -839,8 +703,8 @@
         </control>
         <!-- Add Ratings -->
         <control type="grouplist">
-                <animation effect="fade" start="0" end="100" time="500" delay="200">Visible</animation>
-                <visible>!Container($PARAM[id]).OnNext + !Container($PARAM[id]).OnScrollNext + !Container($PARAM[id]).OnPrevious + !Container($PARAM[id]).OnScrollPrevious</visible>
+          <animation effect="fade" start="0" end="100" time="500" delay="200">Visible</animation>
+          <visible>!Container($PARAM[id]).OnNext + !Container($PARAM[id]).OnScrollNext + !Container($PARAM[id]).OnPrevious + !Container($PARAM[id]).OnScrollPrevious</visible>
           <visible>Control.HasFocus($PARAM[id])</visible>
           <visible>$EXP[DBTvideos]</visible>
           <visible>!Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB) + Skin.HasSetting(DisableWidgetStudio)</visible>
@@ -867,8 +731,8 @@
           </include>
         </control>
         <control type="grouplist">
-                <animation effect="fade" start="0" end="100" time="500" delay="200">Visible</animation>
-                <visible>!Container($PARAM[id]).OnNext + !Container($PARAM[id]).OnScrollNext + !Container($PARAM[id]).OnPrevious + !Container($PARAM[id]).OnScrollPrevious</visible>
+          <animation effect="fade" start="0" end="100" time="500" delay="200">Visible</animation>
+          <visible>!Container($PARAM[id]).OnNext + !Container($PARAM[id]).OnScrollNext + !Container($PARAM[id]).OnPrevious + !Container($PARAM[id]).OnScrollPrevious</visible>
           <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + !Skin.HasSetting(DisableWidgetStudio) + Skin.HasSetting(DisableWidgetIMDB)</visible>
           <visible>$EXP[DBTvideos]</visible>
           <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
@@ -1024,6 +888,7 @@
     <param name="videos" default="false" />
     <param name="path" default="" />
     <param name="path2" default="" />
+    <param name="InfoSlide" default="" />
     <definition>
       <include content="Widget_Common">
         <param name="top" value="$PARAM[top]" />
@@ -1034,12 +899,15 @@
         <param name="submenu" value="$PARAM[submenu]" />
       </include>
       <itemlayout width="widget_poster_width" height="widget_poster_height" condition="$PARAM[postercondition]">
+	<control type="group">
+        <animation  effect="slide" start="0,0" end="984.44,0" time="400" reversible="false" condition="$PARAM[InfoSlide] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide))">Conditional</animation>
         <include content="Widget_Items_ItemLayout">
           <param name="poster" value="true" />
           <param name="genres" value="$PARAM[genres]" />
           <param name="studios" value="$PARAM[studios]" />
           <param name="text" value="$PARAM[text]" />
         </include>
+	</control>
       </itemlayout>
       <itemlayout width="widget_poster_width" height="widget_poster_height" condition="$PARAM[squarelabelcondition]">
         <include content="Widget_Items_ItemLayout">
@@ -1089,6 +957,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </itemlayout>
+
       <itemlayout width="622.22" height="350" condition="$PARAM[landscapedetailscondition]">
         <include content="Widget_Items_ItemLayout">
           <param name="landscape" value="true" />
@@ -1138,12 +1007,15 @@
         </include>
       </itemlayout>
       <itemlayout width="widget_landscape_width" height="widget_landscape_height" condition="$PARAM[landscapecondition]">
+        <control type="group">
+        <animation  effect="slide" start="0,0" end="625,0" time="400" reversible="false" condition="$PARAM[InfoSlide] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide))">Conditional</animation>
         <include content="Widget_Items_ItemLayout">
           <param name="landscape" value="true" />
           <param name="genres" value="$PARAM[genres]" />
           <param name="studios" value="$PARAM[studios]" />
           <param name="text" value="$PARAM[text]" />
         </include>
+	</control>
       </itemlayout>
       <focusedlayout width="widget_poster_width" height="widget_poster_height" condition="$PARAM[landscapewidepostercondition] + !Control.HasFocus($PARAM[id])">
         <include content="Widget_Items_FocusedLayout">
@@ -1770,6 +1642,11 @@
   <include name="Widget_Items_Poster">
     <param name="poster" default="false" />
     <definition>
+        <control type="button">
+          <onfocus condition="!String.StartsWith(ListItem.Label,See More)">AlarmClock(widgetslide,SetProperty(widgetslide,1,home),00:02,silent)</onfocus>
+          <onunfocus>ClearProperty(widgetslide,home)</onunfocus>
+          <onunfocus>CancelAlarm(widgetslide,true)</onunfocus>
+        </control>
       <control type="image">
         <texture background="true" fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetposter.png">$VAR[Image_Poster]</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
@@ -2087,7 +1964,7 @@
                 <posy>-1</posy>
                 <width>700</width>
                 <height>113</height>
-                <texture>common/white.png</texture>
+                <texture background="true">white.png</texture>
                 <colordiffuse>62287BA8</colordiffuse>
               </control>
               <control type="image">
@@ -2652,6 +2529,4 @@
       </control>
     </control>
   </include>
-
-
 </includes>

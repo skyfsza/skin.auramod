@@ -3,6 +3,9 @@
   <onload condition="!String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">SetFocus(505)</onload>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
   <controls>
+
+
+<!--
       <include>Animation_Right</include>
       <include>object_menuhub_includes</include>
       <include condition="Skin.HasSetting(DisableSubMenuVert)">Home_MovieHubMenu_Layout</include>
@@ -89,5 +92,10 @@
       <orientation>vertical</orientation>
       <include>skinshortcuts-template-x1102</include>
     </control>
+-->
+  <include condition="!Skin.HasSetting(EnableAuraMy1)" content="menuhub_window">
+    <param name="skinshortcut" value="x1102" />
+  </include>
+
   </controls>
 </window>

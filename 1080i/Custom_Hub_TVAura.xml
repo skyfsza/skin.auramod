@@ -2,8 +2,10 @@
 <window type="window" id="3910">
   <defaultcontrol>5050</defaultcontrol>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
+  <onload condition="Control.IsVisible(300)">SetFocus(5055)</onload>
+  <onunload>ClearProperty(spothubscroll,home)</onunload>
   <controls>
-    <include>Global_Background</include>
+  <include>Global_Background</include>
    <control type="group">
     <animation effect="slide" end="0,-40" time="0" condition="Skin.HasSetting(AuraHubSpacingSmall)">Conditional</animation>
    <control type="group">
@@ -12,7 +14,7 @@
     <visible>!Window.IsVisible(busydialog)</visible>
    </control>
    <control type="label">
-   <animation effect="slide" end="260,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
+   <animation effect="slide" end="260,0" time="500" condition="Control.HasFocus(400) | Control.HasFocus(300) ">Conditional</animation>
    <top>65</top>
    <left>65</left>
    <width>400</width>
@@ -43,10 +45,14 @@
      <onright>5055</onright>
      <onfocus>SetFocus(5055)</onfocus>
     </control>
-
       <control type="grouplist" id="5055">
-        <include>Animation_Right</include>
-   	<animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
+<!--
+    <animation type="WindowOpen" reversible="false">
+      <effect type="slide" start="0,1080" end="0,0" time="700" tween="linear" reversible="false" />
+    </animation>
+-->
+
+   	<animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(400) | Control.HasFocus(300)">Conditional</animation>
         <include condition="Skin.HasSetting(AuraHubSpacingSmall)">AuraHub_Small_top</include>
         <include condition="!Skin.HasSetting(AuraHubSpacingSmall)">AuraHub_top</include>
         <include condition="Skin.HasSetting(AuraHubSpacingSmall)">AuraHub_Small_height</include>
@@ -57,18 +63,19 @@
         <scrolltime tween="sine">700</scrolltime>
         <orientation>vertical</orientation>
         <usecontrolcoords>true</usecontrolcoords>
-        <onleft condition="Skin.HasSetting(DisableSubMenuVert)">SetFocus(400,2)</onleft>
+        <onleft condition="Skin.HasSetting(DisableSubMenuVert) + !Skin.HasSetting(DisableMainMenuHubs)">SetFocus(400,2)</onleft>
+        <onleft condition="Skin.HasSetting(DisableMainMenuHubs)">SetFocus(300,$INFO[Window(Home).Property(MainMenuPosition)])</onleft>
 	<onup>5055</onup>
 	<ondown>5055</ondown>
         <include>skinshortcuts-template-aurahubtv</include>
     </control>
-    <include condition="Skin.HasSetting(DisableSubMenuVert)">Home_TVHubMenu_Layout</include>
 
-    <control type="button" id="7777">
-       <visible allowhiddenfocus="true">false</visible>
-  	<onfocus condition="String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(5055)</onfocus>
-  	<onfocus condition="!String.IsEmpty(Skin.String(TVHubMenuFocus))">SetFocus(400,4,absolute)</onfocus>
-    </control>
+	<include content="mainmenu_hub" condition="Skin.HasSetting(DisableMainMenuHubs)">
+          <param name="id" value="300" />
+	</include>
+
+    <include condition="Skin.HasSetting(DisableSubMenuVert)">Home_TVHubMenu_Layout</include> 
+
   <include content="Object_UpDownInfoArrows">
      <param name="id" value="5055" />
      <param name="top" value="90" />

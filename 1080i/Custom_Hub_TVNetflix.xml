@@ -2,9 +2,12 @@
 <window type="window" id="3810">
   <defaultcontrol always="true">5050</defaultcontrol>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
-  <onunload>ClearProperty(spothubscroll)</onunload>
+  <onload condition="Control.IsVisible(300)">SetFocus(5055)</onload>
+  <onunload>ClearProperty(spothubscroll,home)</onunload>
   <controls>
-    <include>Object_Home_Netflix</include>
+     <include>Object_Home_Netflix</include>
+     <include condition="Skin.HasSetting(DisableMainMenuHubs) | Skin.HasSetting(DisableSubMenuVert)">object_menuhub_includes</include>
+
     <control type="button" id="5051">
      <centerleft>50%</centerleft>
      <centertop>50%</centertop>
@@ -22,8 +25,9 @@
      <onfocus condition="Integer.IsGreater(Container(5055).NumItems,0) | [!Integer.IsGreater(Container(5055).NumItems,0) + Container(5055).IsUpating]">SetFocus(5055)</onfocus>
     </control> 
    <control type="grouplist" id="5055">
-     <animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
-     <onback>ActivateWindow(Home)</onback>
+     <animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(400) | Control.HasFocus(505)">Conditional</animation>
+     <onleft condition="Skin.HasSetting(DisableSubMenuVert) + !Skin.HasSetting(DisableMainMenuHubs)">SetFocus(400,2)</onleft>
+     <onleft condition="Skin.HasSetting(DisableMainMenuHubs)">SetFocus(505,$INFO[Window(Home).Property(MainMenuPosition)])</onleft>
      <scrolltime tween="linear">600</scrolltime>
      <posy>580</posy>
     <orientation>vertical</orientation>
@@ -33,5 +37,9 @@
     <movement>0</movement>
     <include>skinshortcuts-template-netflixhubtv</include>
    </control>
+   <include content="mainmenu_hub" condition="Skin.HasSetting(DisableMainMenuHubs)">
+      <param name="id" value="505" />
+   </include>
+    <include condition="Skin.HasSetting(DisableSubMenuVert)">Home_TVHubMenu_Layout</include>
   </controls>
 </window>

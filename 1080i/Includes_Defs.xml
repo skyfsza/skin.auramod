@@ -1,6 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+  <include name="defs_ratings_label">
+          <textcolor>main_fg_70</textcolor>
+          <top>12</top>
+          <width>auto</width>
+          <height>28</height>
+          <align>right</align>
+          <font>font_tiny</font>
+  </include>
+
+  <include name="Widget_Movement_Default">
+    <movement>$PARAM[movement]</movement>
+  </include>
+  <include name="Widget_Movement_Showcase">
+    <movement>1</movement>
+  </include>
+  <include name="Widget_Busy_Top_Mouse">
+    <top>455</top>
+  </include>
+  <include name="Widget_Label_height">
+    <top>655</top>
+  </include>
+  <include name="Widget_Label_height_hub">
+    <top>250</top>
+  </include>
+  <include name="spotlightfull_aura_top">
+    <top>-650</top>
+  </include>
+  <include name="spotlightfull_buttons_aura_top">
+    <top>-250</top>
+  </include>
+  <include name="spotlightfull_buttons_top">
+    <top>390</top>
+  </include>
+   <include name="AuraWidget_Items_LandscapePanel_Height">
+     <height>440</height>
+   </include>
+   <include name="AuraWidget_Items_LandscapePanel_Height_small">
+     <height>485</height>
+   </include>
+   <include name="AuraWidget_Items_Landscapesmall_Big_Height">
+     <height>270</height>
+   </include>
+   <include name="AuraWidget_Items_Landscapesmall_Big_Height_small">
+     <height>315</height>
+   </include>
+   <include name="AuraWidget_Items_genre_Big_Height">
+     <height>380</height>
+   </include>
+   <include name="AuraWidget_Items_genre_Big_Height_small">
+     <height>425</height>
+   </include>
+   <include name="AuraWidget_Items_Landscape_Big_Height_small">
+     <height>405</height>
+   </include>
+   <include name="AuraWidget_Items_Landscape_Big_Height">
+     <height>360</height>
+   </include>
+   <include name="AuraWidget_Items_Poster_Big">
+     <height>380</height>
+   </include>
+   <include name="AuraWidget_Items_Poster_Big_small">
+     <height>425</height>
+   </include>
+   <include name="AuraWidget_Items_Category_Big_Height">
+     <height>230</height>
+   </include>
+   <include name="AuraWidget_Items_Category_Big_Height_small">
+     <height>275</height>
+   </include>
+   <include name="AuraWidget_Items_Default">
+     <height>425</height>
+   </include>
+   <include name="AuraHub_top">
+     <top>140</top>
+   </include>
+   <include name="AuraHub_Small_top">
+     <top>100</top>
+   </include>
+   <include name="AuraHub_height">
+     <height>935</height>
+   </include>
+   <include name="AuraHub_Small_height">
+     <height>975</height>
+   </include>
+
     <variable name="search_widgets">
 	<value>skinshortcuts-template-searchlist</value>
     </variable>
@@ -28,6 +113,34 @@
         <include content="Defs_AutoScroll">
             <param name="include" value="Defs_PauseAtEnd_Value" />
         </include>
+    </include>
+
+    <include name="left">
+            <param name="left" default="" />
+        <definition>
+          <left>$PARAM[left]</left>
+        </definition>
+    </include>
+
+    <include name="width">
+            <param name="width" default="" />
+        <definition>
+          <width>$PARAM[width]</width>
+        </definition>
+    </include>
+
+    <include name="height">
+            <param name="height" default="" />
+        <definition>
+	  <height>$PARAM[height]</height>
+        </definition>
+    </include>
+
+    <include name="top">
+           <param name="top" default="" />
+        <definition>
+	<top>$PARAM[top]</top>	
+        </definition>
     </include>
 
 
@@ -102,6 +215,8 @@
         <value condition="[String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !String.IsEmpty(ListItem.TvShowTitle)">query=$INFO[ListItem.TvShowTitle]</value>
         <value condition="!String.IsEmpty(ListItem.Title) + !String.IsEmpty(ListItem.Year)">query=$INFO[ListItem.Title]&amp;year=$INFO[ListItem.Year]</value>
         <value condition="!String.IsEmpty(ListItem.Title)">query=$INFO[ListItem.Title]</value>
+        <value condition="VideoPlayer.Content(Movies)">query=$INFO[VideoPlayer.Title]</value>
+        <value condition="VideoPlayer.Content(Episodes)">query=$INFO[VideoPlayer.TvShowTitle]</value>
         <value>query=$INFO[ListItem.Label]</value>
     </variable>
 
@@ -140,9 +255,8 @@
     <variable name="Info_Param_Type">
         <value condition="String.IsEmpty(Window().Property(item.info.season)) + !String.IsEmpty(Window().Property(item.info.title))">type=movie</value>
         <value condition="!String.IsEmpty(Window().Property(item.info.season)) + !String.IsEmpty(Window().Property(item.info.title))">type=tv</value>
-        <value condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,set) | Container.Content(movies) | Container.Content(set)">type=movie</value>
-        <value condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,set) | Container.Content(movies) | Container.Content(set)">type=movie</value>
-        <value condition="String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episode)">type=tv</value>
+        <value condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,set) | Container.Content(movies) | Container.Content(set) | VideoPlayer.Content(Movies)">type=movie</value>
+        <value condition="String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episode) | VideoPlayer.Content(Episodes)">type=tv</value>
     </variable>
 
     <variable name="Info_Fanart">
@@ -161,7 +275,7 @@
     </variable>
 
     <variable name="Info_Similar">
-        <value condition="[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(DisableExtendedInfo) + System.HasAddon(plugin.video.themoviedb.helper)">plugin://plugin.video.themoviedb.helper/?info=similar&amp;$VAR[Info_Param_Type]&amp;$VAR[Info_Param_IMDB_or_QUERY]</value>
+        <value condition="[VideoPlayer.Content(Episodes) | VideoPlayer.Content(Movies) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | Container.Content(movies) | Container.Content(tvshows)] + !Skin.HasSetting(DisableExtendedInfo) + System.HasAddon(plugin.video.themoviedb.helper)">plugin://plugin.video.themoviedb.helper/?info=similar&amp;$VAR[Info_Param_Type]&amp;$VAR[Info_Param_IMDB_or_QUERY]</value>
     </variable>
 
     <variable name="Info_CrewMembers">

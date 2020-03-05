@@ -237,7 +237,8 @@
     <include name="Home_MainMenu_Layout_wLabel_only">
 	<control type="group">
 	<visible>!Control.HasFocus(400) + !Control.HasFocus(401)</visible>
-       <animation effect="slide" start="0,0" end="310,0" time="500" condition="Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)">Conditional</animation>
+       <animation effect="slide" start="0,0" end="310,0" time="500" condition="String.IsEmpty(Window(Home).Property(MainMenuHubFocus)) + [Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)]">Conditional</animation>
+       <animation effect="slide" start="0,0" end="310,0" time="0" condition="!String.IsEmpty(Window(Home).Property(MainMenuHubFocus)) + [Control.HasFocus(300) | Control.HasFocus(400) | Control.HasFocus(401)]">Conditional</animation>
        <animation effect="slide" start="-310,0" end="0,0" time="500">Visible</animation>
        <animation effect="slide" start="0,0" end="70,0" time="500" 
 							condition="ControlGroup(900).HasFocus | Control.HasFocus(30222) | Control.HasFocus(1505) | Control.HasFocus(1506) | ControlGroup(505).HasFocus | ControlGroup(505).HasFocus | 
@@ -258,24 +259,9 @@
                     <texture background="true">common/white.png</texture>
                     <visible>Skin.HasSetting(DisableNetflixHomeDefault) + !Skin.HasSetting(DisableNetflixSubmenuBG)</visible>
                 </control>
-
-<!--
-                    <control type="button" id="1300">
-			<top>150</top>
-                        <left>-280</left>
-			<width>240</width>
-                        <height>85</height>
-                        <ondown>SetFocus(300)</ondown>
-                        <onclick>ActivateWindow(1136)</onclick>
-			<label>Search</label>
-	                <align>right</align>
-	                <font>font_small</font>
-		        <textcolor>dimgrey</textcolor>
-		        <focusedcolor>white</focusedcolor>
-                    </control>
--->
 		<control type="list" id="300">
                         <include>Home_OnFocus</include>
+		        <onunfocus>ClearProperty(MainMenuHubFocus,home)</onunfocus>
 		        <onfocus>ClearProperty(SpotReturnHome)</onfocus>
 			<onfocus>ClearProperty(spothubscroll)</onfocus>
 			<onfocus>SetProperty(SpotFocus,true,Home)</onfocus>
@@ -315,7 +301,6 @@
 		        <onright>ClearProperty(spotback)</onright>
                         <include>Global_Overlay</include>
                         <include>Defs_InfoDialog_Visible</include>
-
 		<centertop>60%</centertop>
                 <width>310</width>
 		<include>IconOnly_Height</include>
@@ -324,6 +309,41 @@
         	<scrolltime>300</scrolltime>
 		<left>-310</left>
 
+		<include>mainmenu_layout</include>
+	</control>
+	</control>
+    </include>
+
+
+
+   <include name="mainmenu_hub">
+        <param name="id" default="" />
+        <definition>
+        <control type="group">
+                <animation effect="slide" start="0,0" end="310,0" time="500" condition="Control.HasFocus($PARAM[id])">Conditional</animation>
+      	        <visible allowhiddenfocus="true">Control.HasFocus($PARAM[id])</visible>
+        <control type="list" id="$PARAM[id]">
+                <onright condition="Window.IsVisible(3910) | Window.IsVisible(3810) | Window.IsVisible(3820) | Window.IsVisible(3920)">SetFocus(5055)</onright>
+                <onright condition="!Window.IsVisible(Home) + !Window.IsVisible(3910)">505</onright>
+                <onleft condition="Window.IsVisible(3810) | Window.IsVisible(3910)">SetFocus(400)</onleft>
+                <onleft condition="Window.IsVisible(3920) | Window.IsVisible(3820)">SetFocus(401)</onleft>
+		<onclick>SetProperty(MainMenuHubFocus,$INFO[Container($PARAM[id]).Position],home)</onclick>
+		<onclick>ActivateWindow(Home)</onclick>
+                <onback>ActivateWindow(Home)</onback>
+                <centertop>60%</centertop>
+                <width>310</width>
+                <include>IconOnly_Height</include>
+                <preloaditems>2</preloaditems>
+                <orientation>vertical</orientation>
+                <scrolltime>300</scrolltime>
+                <left>-310</left>
+		<include>mainmenu_layout</include>
+	 </control>
+	</control>
+        </definition>
+   </include>
+
+   <include name="mainmenu_layout">
       <itemlayout width="240" height="75">
         <control type="group">
           <control type="label">
@@ -342,7 +362,7 @@
            <onfocus condition="Control.IsVisible(1506)">SetProperty(SkinHelper.WidgetContainer,1506,Home)</onfocus>
            <onfocus condition="Control.IsVisible(1505)">SetProperty(TMDbHelper.WidgetContainer,1505,Home)</onfocus>
            <onfocus condition="Control.IsVisible(1506)">SetProperty(TMDbHelper.WidgetContainer,1506,Home)</onfocus>
-	</control>
+        </control>
         <control type="group">
           <control type="group">
             <height>70</height>
@@ -359,12 +379,10 @@
         </control>
       </focusedlayout>
 
-	<content>
-	<include>skinshortcuts-mainmenu</include>
-	</content>
-	</control>
-	</control>
-    </include>
+        <content>
+        <include>skinshortcuts-mainmenu</include>
+        </content>
+   </include>
 
 
     <include name="Home_MainMenu_Layout_wLabel">
@@ -698,15 +716,13 @@
       <visible allowhiddenfocus="true">Control.HasFocus(400)</visible>
 
 	<control type="list" id="400">
-                <onright condition="Window.IsVisible(3910)">SetFocus(5055)</onright>
+                <onright condition="Window.IsVisible(3810) | Window.IsVisible(3910)">SetFocus(5055)</onright>
 		<onright condition="!Window.IsVisible(Home) + !Window.IsVisible(3910)">505</onright>
 		<onright condition="Window.IsVisible(Home)">Skin.Reset(TVHubMenuFocus)</onright>
 		<onright condition="Window.IsVisible(Home)">SetFocus(300)</onright>
 		<onleft condition="Window.IsVisible(Home)">300</onleft>
                 <onback>Skin.Reset(TVHubMenuFocus)</onback>
 	        <onback>ActivateWindow(Home)</onback>
-
-
                 <centertop>60%</centertop>
                 <width>310</width>
                 <include>IconOnly_Height</include>
@@ -767,7 +783,7 @@
       <visible allowhiddenfocus="true">Control.HasFocus(401)</visible>
 	<control type="list" id="401">
 	<onright condition="!Window.IsVisible(3920)">505</onright>
-	<onright condition="Window.IsVisible(3920)">SetFocus(5055)</onright>
+	<onright condition="Window.IsVisible(3920) | Window.IsVisible(3820)">SetFocus(5055)</onright>
 	<onright condition="Window.IsVisible(Home)">SetFocus(300)</onright>
 	<onleft condition="Window.IsVisible(Home)">300</onleft>
         <onback>Skin.Reset(MovieHubMenuFocus)</onback>

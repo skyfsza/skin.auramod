@@ -270,7 +270,7 @@
                                    <width>500</width>
                                    <texture background="true">$VAR[Image_Player_Clearart]</texture>
                                    <aspectratio>keep</aspectratio>
-		                   <visible>Skin.HasSetting(ShowOSDClearArt)</visible>
+		                   <visible>Skin.HasSetting(ShowOSDClearArt) + !Control.IsVisible(5004)</visible>
                                 </control>
                             </control>
                             <control type="grouplist">
@@ -367,6 +367,7 @@
                 <visible>Skin.HasSetting(ShowOSDClearArt)</visible>
                 <aspectratio>keep</aspectratio>
                 <animation effect="fade" start="0" end="100" delay="200" time="300">Visible</animation>
+                <animation effect="fade" start="100" end="0" delay="0" time="300" condition="!String.IsEmpty(Window(Home).Property(watchnext))">Conditional</animation>
             </control>
             <include>Statusbar_Info_Clock</include>
         </control>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="window" id="1166">
+  <defaultcontrol always="true">1543</defaultcontrol>
+  <onunload>UpdateLibrary(video,x,true)</onunload>
+  <controls>
+    <control type="list" id="1543">
+      <orientation>horizontal</orientation>
+      <content sortby="random" limit="5">$INFO[Skin.String(screensaver.auramod.path)]</content>
+      <content sortby="random" limit="5">$INFO[Skin.String(screensaver.auramod.tvpath)]</content>
+      <autoscroll time="22000">true</autoscroll>
+      <!-- Time to show each image, in milliseconds -->
+      <ondown>Action(Back)</ondown>
+      <onup>Action(Back)</onup>
+      <onclick>Action(Info)</onclick>
+      <itemlayout />
+      <focusedlayout />
+    </control>
+       <control type="image">
+        <width>1920</width>
+        <height>1080</height>
+        <texture background="true" colordiffuse="FF000000">common/white.png</texture>
+      </control>
+    <control type="group">
+      <width>1920</width>
+      <height>1080</height>
+      <control type="image">
+        <fadetime>1500</fadetime>
+        <animation effect="zoom" start="100" end="130" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="true">Conditional</animation>
+        <animation effect="slide" start="-8,-8" end="15,15" time="6000" tween="cubic" easing="inout" pulse="true" condition="true">Conditional</animation>
+        <width>100%</width>
+        <height>100%</height>
+        <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+      </control>
+      <control type="image">
+        <fadetime>700</fadetime>
+        <left>100</left>
+        <bottom>50</bottom>
+        <height>248</height>
+        <width>640</width>
+        <aligny>top</aligny>
+        <align>left</align>
+        <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+      </control>
+    </control>
+    <include>Logo</include>
+  </controls>
+</window>

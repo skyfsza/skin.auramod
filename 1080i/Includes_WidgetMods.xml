@@ -88,6 +88,11 @@
 
   <include name="Widget_Items_Landscape">
     <control type="group">
+        <control type="button">
+          <onfocus condition="!String.StartsWith(ListItem.Label,See More)">AlarmClock(widgetslide,SetProperty(widgetslide,1,home),00:02,silent)</onfocus>
+          <onunfocus>ClearProperty(widgetslide,home)</onunfocus>
+          <onunfocus>CancelAlarm(widgetslide,true)</onunfocus>
+        </control>
       <control type="group">
         <visible>[Control.IsVisible(505) | Control.HasFocus(5055)] + String.IsEmpty(Container(5055).ListItem.Art(fanart)) + String.IsEmpty(Container(5055).ListItem.Year) + [String.IsEmpty(Container(5055).ListItem.TvShowTitle) | String.IsEmpty(Container(5055).ListItem.Title)]</visible>
         <control type="image">
@@ -218,7 +223,7 @@
           <bottom>0</bottom>
           <height>30</height>
           <width>100%</width>
-          <texture background="true" colordiffuse="FF000000" flipy="true">common/white.png</texture>
+          <texture background="true" colordiffuse="FF000000" flipy="true">white.png</texture>
         </control>
         <control type="label">
           <bottom>5</bottom>
@@ -231,6 +236,118 @@
       </control>
     </control>
   </include>
+
+
+  <include name="Widget_Items_LandscapeDetails_Info">
+    <control type="group">
+      <control type="image">
+        <width>100%</width>
+        <texture colordiffuse="FFFFFFFF" background="true">white.png</texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+      </control>
+      <control type="group">
+	<left>20</left>
+        <control type="label">
+          <top>15</top>
+          <width>80%</width>
+          <height>30</height>
+          <font>font_tiny</font>
+          <textcolor>FF888888</textcolor>
+          <label>$VAR[Label_Genre_showcase]</label>
+          <scroll>false</scroll>
+          <visible>$EXP[DBTvideos]</visible>
+        </control>
+        <control type="label">
+          <top>40</top>
+          <height>60</height>
+          <width>100%</width>
+          <shadowcolor>dimgrey</shadowcolor>
+          <font>font_large_bold</font>
+          <textcolor>black</textcolor>
+          <label>$VAR[video_heading]</label>
+        </control>
+        <control type="textbox">
+          <top>120</top>
+          <height>122</height>
+          <width>93%</width>
+          <font>font_plot_widgetinfo</font>
+          <textcolor>FFA9A9A9</textcolor>
+          <autoscroll>0</autoscroll>
+          <label>$INFO[ListItem.Plot]</label>
+          <scroll>true</scroll>
+        </control>
+        <control type="textbox">
+          <bottom>25</bottom>
+          <height>30</height>
+          <width>50%</width>
+          <font>font_epg_timeline</font>
+          <textcolor>dimgrey</textcolor>
+          <label>[I]Premiered $INFO[ListItem.Premiered(DDD MMM yyyy)] [/I]</label>
+          <visible>$EXP[DBTvideos]</visible>
+          <visible>!Integer.IsGreater(ListItem.PercentPlayed,1)</visible>
+        </control>
+        <control type="image">
+          <visible>$EXP[DBTvideos]</visible>
+          <bottom>10</bottom>
+          <left>40%</left>
+          <texture background="true" colordiffuse="main_fg_100">$VAR[infoslidestudio]</texture>
+          <aspectratio>stretch</aspectratio>
+          <height>59.4</height>
+          <width>81.4</width>
+          <visible>!Integer.IsGreater(ListItem.PercentPlayed,1)</visible>
+        </control>
+      </control>
+      <control type="group">
+	<left>20</left>
+<!--
+        <control type="label">
+          <top>120</top>
+          <width>90%</width>
+          <height>40</height>
+          <font>font_widgetbar_bold</font>
+          <textcolor>$VAR[ColorHighlight]</textcolor>
+          <label>Continue Watching S$INFO[ListItem.Season]:E$INFO[ListItem.Episode]</label>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <top>170</top>
+          <width>90%</width>
+          <height>40</height>
+          <font>font_widgetbar_bold</font>
+          <textcolor>$VAR[ColorHighlight]</textcolor>
+          <label>[I]$INFO[ListItem.Title][/I]</label>
+          <scroll>true</scroll>
+        </control>
+-->
+        <control type="group">
+          <visible>[Integer.IsGreater(ListItem.PercentPlayed,1) | Integer.IsGreater(Window(Home).Property(ListItem.PercentPlayed),1)]</visible>
+          <top>280</top>
+          <width>650</width>
+          <height>30</height>
+          <aligny>center</aligny>
+          <control type="progress">
+            <width>185</width>
+            <height>11</height>
+            <texturebg background="true" colordiffuse="cc515151" border="0">colors/color_white.png</texturebg>
+            <lefttexture />
+            <midtexture colordiffuse="red" border="4">colors/color_white.png</midtexture>
+            <righttexture />
+            <info>ListItem.PercentPlayed</info>
+          </control>
+          <control type="label">
+            <top>-12</top>
+            <left>200</left>
+            <height>25</height>
+            <width>450</width>
+            <font>Netflix_Info_main</font>
+            <textcolor>dimgrey</textcolor>
+            <label>$VAR[ListItemPercentRemained,,% remaining]</label>
+          </control>
+        </control>
+      </control>
+    </control>
+  </include>
+
   <include name="Widget_Items_LandscapeDetails_Focused">
     <control type="group">
       <control type="image">
@@ -242,7 +359,7 @@
       <control type="image">
         <width>50%</width>
         <left>50%</left>
-        <texture colordiffuse="FFFFFFFF" background="true">common/white.png</texture>
+        <texture colordiffuse="FFFFFFFF" background="true">white.png</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
       </control>
       <control type="image">
@@ -275,13 +392,13 @@
       </control>
       <control type="group">
         <control type="label">
-          <top>10</top>
+          <top>15</top>
           <width>40%</width>
           <height>30</height>
           <left>53%</left>
-          <font>font_small</font>
-          <textcolor>black</textcolor>
-          <label>$VAR[Label_Genre]</label>
+          <font>font_tiny</font>
+          <textcolor>FF888888</textcolor>
+          <label>$VAR[Label_Genre_showcase]</label>
           <scroll>false</scroll>
           <visible>$EXP[DBTvideos]</visible>
         </control>
@@ -292,6 +409,7 @@
           <left>53%</left>
           <font>font_large_bold</font>
           <textcolor>black</textcolor>
+	  <shadowcolor>dimgrey</shadowcolor>
           <label>$VAR[video_heading]</label>
         </control>
         <control type="textbox">
@@ -300,10 +418,9 @@
           <width>45%</width>
           <left>53%</left>
           <font>widget_live_title</font>
-          <textcolor>grey</textcolor>
+          <textcolor>FFA9A9A9</textcolor>
           <autoscroll>0</autoscroll>
           <label>$INFO[ListItem.Plot]</label>
-          <visible>!String.IsEqual(ListItem.DBType,episode)</visible>
           <scroll>true</scroll>
         </control>
         <control type="textbox">
@@ -321,7 +438,7 @@
           <visible>$EXP[DBTvideos]</visible>
           <bottom>10</bottom>
           <left>75%</left>
-          <texture background="true" colordiffuse="main_fg_100">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
+          <texture background="true" colordiffuse="main_fg_100">$VAR[infoslidestudio]</texture>
           <aspectratio>stretch</aspectratio>
           <height>59.4</height>
           <width>81.4</width>
@@ -329,7 +446,7 @@
         </control>
       </control>
       <control type="group">
-        <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+<!--
         <control type="label">
           <top>120</top>
           <width>480</width>
@@ -350,8 +467,9 @@
           <label>[I]$INFO[ListItem.Title][/I]</label>
           <scroll>true</scroll>
         </control>
+-->
         <control type="group">
-          <visible>String.IsEqual(ListItem.DBType,episode) + [Integer.IsGreater(ListItem.PercentPlayed,1) | Integer.IsGreater(Window(Home).Property(ListItem.PercentPlayed),1)]</visible>
+          <visible>[Integer.IsGreater(ListItem.PercentPlayed,1) | Integer.IsGreater(Window(Home).Property(ListItem.PercentPlayed),1)]</visible>
           <left>53%</left>
           <top>250</top>
           <width>650</width>
@@ -379,6 +497,7 @@
       </control>
     </control>
   </include>
+
   <include name="Widget_Items_LandscapeDetails">
     <control type="group">
       <control type="image">
@@ -861,7 +980,137 @@
     </definition>
   </include>
   <!-- END Poster Details  Widget -->
-  <include name="showcase_nohide">
+
+
+    <include name="widget_showcase_focused">
+    	<param name="id" default="$PARAM[id]" />
+    	<param name="Showcase" default="$PARAM[Showcase]" />
+    	<param name="Showcasehide" default="$PARAM[Showcasehide]" />
+    	<param name="InfoSlide" default="$PARAM[InfoSlide]" />
+    	<param name="controltype" default="$PARAM[controltype]" />
+    	<param name="landscapecondition" default="$PARAM[landscapecondition]" />
+    	<param name="landscapepanelcondition" default="$PARAM[landscapepanelcondition]" />
+    	<param name="postercondition" default="$PARAM[postercondition]" />
+        <definition>
+        <visible>$PARAM[Showcase] + Integer.IsGreater(Container($PARAM[id]).NumItems,0)</visible>
+       <control type="group">
+        <control type="image">
+          <top>40</top>
+          <width>100%</width>
+          <height>395</height>
+          <texture background="true" colordiffuse="99000000">white.png</texture>
+          <visible>[$PARAM[postercondition] + Control.HasFocus($PARAM[id]) + $PARAM[Showcasehide]] | [Control.IsVisible($PARAM[id]) + $PARAM[postercondition] + !$PARAM[Showcasehide]] </visible>
+        </control>
+          <control type="image">
+            <top>40</top>
+            <width>100%</width>
+            <height>355</height>
+            <texture background="true" colordiffuse="990000000">white.png</texture>
+          <visible>[$PARAM[landscapecondition] + Control.HasFocus($PARAM[id]) + $PARAM[Showcasehide]] | [Control.IsVisible($PARAM[id]) + $PARAM[landscapecondition] + !$PARAM[Showcasehide]] </visible>
+          </control>
+          <control type="image">
+            <top>40</top>
+            <width>100%</width>
+            <height>430</height>
+            <texture background="true" colordiffuse="990000000">white.png</texture>
+           <visible>[$PARAM[landscapepanelcondition] + Control.HasFocus($PARAM[id]) + $PARAM[Showcasehide]] | [Control.IsVisible($PARAM[id]) + $PARAM[landscapepanelcondition] + !$PARAM[Showcasehide]] </visible>
+          </control>
+           <control type="group">
+             <top>60</top>
+             <visible>$PARAM[Showcase] + !$PARAM[Showcasehide] + !Control.HasFocus($PARAM[id]) + Control.IsVisible($PARAM[id]) + [$PARAM[landscapepanelcondition] | $PARAM[landscapecondition] | $PARAM[postercondition]]</visible>
+             <include content="widget_showcase_unfocused">
+               <param name="id" value="$PARAM[id]" />
+              </include>
+	    </control>
+            <control type="group">
+               <top>60</top>
+              <visible>[$PARAM[postercondition] + Control.HasFocus($PARAM[id])] | [$PARAM[landscapepanelcondition] + Control.HasFocus($PARAM[id])] | [$PARAM[landscapecondition] + Control.HasFocus($PARAM[id])]</visible>
+              <control type="label">
+                <top>10</top>
+                <width>500</width>
+                <height>30</height>
+                <left>30</left>
+                <font>font_small</font>
+                <textcolor>dimgrey</textcolor>
+                <label>$VAR[Label_Genre_showcase]</label>
+                <scroll>false</scroll>
+              </control>
+              <control type="label">
+                <top>30</top>
+                <height>60</height>
+                <width>500</width>
+                <left>30</left>
+                <font>font_large_bold</font>
+                <textcolor>grey</textcolor>
+                <label>$VAR[video_heading]</label>
+                <scroll>true</scroll>
+              </control>
+              <control type="group">
+                <top>100</top>
+                <left>30</left>
+                <include>netflix_infoline</include>
+                <animation effect="zoom" start="100" end="80" time="0" reversible="false" sine="inout" condition="Control.HasFocus($PARAM[id])">Conditional</animation>
+              </control>
+              <control type="grouplist">
+                <top>160</top>
+                <height>250</height>
+                <left>30</left>
+                <control type="textbox">
+                  <height min="50" max="120">auto</height>
+                  <label fallback="19055">$VAR[Label_Plot]</label>
+                  <align>left</align>
+                  <width>580</width>
+                  <textcolor>dimgrey</textcolor>
+                  <shadowcolor>black</shadowcolor>
+                  <font>widget_live_title</font>
+                  <autoscroll delay="5000" time="1500" repeat="5000">true</autoscroll>
+                  <visible>!Integer.IsGreater(ListItem.PercentPlayed,1)</visible>
+                </control>
+                <control type="textbox">
+                  <height min="50" max="90">auto</height>
+                  <label fallback="19055">$VAR[Label_Plot]</label>
+                  <align>left</align>
+                  <width>580</width>
+                  <textcolor>dimgrey</textcolor>
+                  <shadowcolor>black</shadowcolor>
+                  <font>widget_live_title</font>
+                  <autoscroll delay="5000" time="1500" repeat="5000">true</autoscroll>
+                  <visible>Integer.IsGreater(ListItem.PercentPlayed,1)</visible>
+                </control>
+                <control type="label">
+                  <height>30</height>
+                </control>
+                <control type="group">
+                  <visible>Integer.IsGreater(ListItem.PercentPlayed,1) | Integer.IsGreater(Window(Home).Property(ListItem.PercentPlayed),1)</visible>
+                  <width>650</width>
+                  <height>30</height>
+                  <aligny>center</aligny>
+                  <control type="progress">
+                    <width>185</width>
+                    <height>11</height>
+                    <texturebg colordiffuse="cc515151" border="0">colors/color_white.png</texturebg>
+                    <lefttexture />
+                    <midtexture colordiffuse="red" border="4">colors/color_white.png</midtexture>
+                    <righttexture />
+                    <info>ListItem.PercentPlayed</info>
+                  </control>
+                  <control type="label">
+                    <top>-12</top>
+                    <left>200</left>
+                    <height>25</height>
+                    <width>450</width>
+                    <font>Netflix_Info_main</font>
+                    <textcolor>grey</textcolor>
+                    <label>$VAR[ListItemPercentRemained,,% remaining]</label>
+                  </control>
+              </control>
+            </control>
+          </control>
+        </control>
+   </definition>
+  </include>
+
+  <include name="widget_showcase_unfocused">
     <param name="id" default="$PARAM[id]" />
     <param name="landscapecondition" default="$PARAM[landscapecondition]" />
     <definition>
@@ -921,7 +1170,7 @@
           <height>250</height>
           <left>30</left>
           <control type="textbox">
-            <height min="50" max="155">auto</height>
+            <height min="50" max="120">auto</height>
             <label fallback="19055">$INFO[Container($PARAM[id]).ListItem.Plot]</label>
             <align>left</align>
             <width>580</width>
@@ -973,4 +1222,62 @@
       </control>
     </definition>
   </include>
+
+
+
+  <include name="WidgetInfoSlide">
+    <param name="id" default="$PARAM[id]" />
+    <param name="Showcase" default="$PARAM[Showcase]" />
+    <param name="InfoSlide" default="$PARAM[InfoSlide]" />
+    <param name="controltype" default="$PARAM[controltype]" />
+    <param name="landscapecondition" default="$PARAM[landscapecondition]" />
+    <param name="postercondition" default="$PARAM[postercondition]" />
+    <definition>	
+    <animation type="Conditional" condition="$PARAM[postercondition] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide)" reversible="false">
+      <effect type="fade" start="0" end="100" time="200"  />
+      <effect type="zoom" start="30,100" end="100,100" time="400" />
+    </animation>
+        <animation  effect="slide" start="0,0" end="602.22,0" time="0" condition="$PARAM[landscapecondition] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide)">Conditional</animation>
+        <animation  effect="zoom" start="0,100" end="100,100" time="400" condition="$PARAM[landscapecondition] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide)">Conditional</animation>
+
+          <include content="top" condition="$PARAM[postercondition]">
+            <param name="top" value="-387" />
+          </include>
+          <include content="top" condition="$PARAM[landscapecondition]">
+            <param name="top" value="-365" />
+          </include>
+          <include content="left" condition="$PARAM[postercondition]">
+            <param name="left" value="5" />
+          </include>
+          <include content="left" condition="$PARAM[landscapecondition]">
+            <param name="left" value="5" />
+          </include>
+          <include content="width" condition="$PARAM[postercondition]">
+            <param name="width" value="1244.44" />
+          </include>
+          <include content="width" condition="$PARAM[landscapecondition]">
+            <param name="width" value="622.22" />
+          </include>
+        <visible>$PARAM[InfoSlide] + !$PARAM[Showcase] + [$PARAM[postercondition] | $PARAM[landscapecondition]] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide))</visible>
+
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapenetflixcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscapesmall_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapenetflixcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscapesmall_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapecondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Landscape_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[postercondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Poster_Big</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[postercondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
+	<control type="group">
+	  <include content="height" condition="$PARAM[postercondition]">
+	    <param name="height" value="97%" />
+	  </include>
+          <include content="height" condition="$PARAM[landscapecondition]">
+            <param name="height" value="92%" />
+          </include>
+	<top>5</top>
+	<include condition="$PARAM[postercondition]">Widget_Items_LandscapeDetails_Focused</include>
+	<include condition="$PARAM[landscapecondition]">Widget_Items_LandscapeDetails_Info</include>
+	</control>
+    </definition>	
+  </include>
+
 </includes>

@@ -2,8 +2,12 @@
 <window type="window" id="3820">
   <defaultcontrol always="true">5050</defaultcontrol>
   <onunload>ClearProperty(SkinHelper.WidgetContainer,Home)</onunload>
+  <onload condition="Control.IsVisible(300)">SetFocus(5055)</onload>
+  <onunload>ClearProperty(spothubscroll,home)</onunload>
   <controls>
-    <include>Object_Home_Netflix</include>
+      <include>Object_Home_Netflix</include>
+     <include condition="Skin.HasSetting(DisableMainMenuHubs) | Skin.HasSetting(DisableSubMenuVert)">object_menuhub_includes</include>
+
     <control type="button" id="5051">
      <centerleft>50%</centerleft>
      <centertop>50%</centertop>
@@ -21,11 +25,13 @@
      <onfocus condition="Integer.IsGreater(Container(5055).NumItems,0) | [!Integer.IsGreater(Container(5055).NumItems,0) + Container(5055).IsUpating]">SetFocus(5055)</onfocus>
     </control>
     <control type="grouplist" id="5055">
-     <animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(400)">Conditional</animation>
+     <animation effect="slide" end="270,0" time="500" condition="Control.HasFocus(505) | Control.HasFocus(401)">Conditional</animation>
+     <onleft condition="Skin.HasSetting(DisableSubMenuVert) + !Skin.HasSetting(DisableMainMenuHubs)">SetFocus(401,2)</onleft>
+     <onleft condition="Skin.HasSetting(DisableMainMenuHubs)">SetFocus(505,$INFO[Window(Home).Property(MainMenuPosition)])</onleft>
      <onback>ActivateWindow(Home)</onback>
      <scrolltime tween="linear">600</scrolltime>
      <top>580</top>
-     <bottom>10</bottom>
+     <bottom>0</bottom>
      <orientation>vertical</orientation>
      <itemgap>0</itemgap>
      <usecontrolcoords>true</usecontrolcoords>
@@ -33,5 +39,13 @@
      <movement>0</movement>
      <include>skinshortcuts-template-netflixhubmovies</include>
    </control>
+
+   <include content="mainmenu_hub" condition="Skin.HasSetting(DisableMainMenuHubs)">
+      <param name="id" value="505" />
+   </include>
+
+    <include condition="Skin.HasSetting(DisableSubMenuVert)">Home_MovieHubMenu_Layout</include>
+
+
   </controls>
 </window>
