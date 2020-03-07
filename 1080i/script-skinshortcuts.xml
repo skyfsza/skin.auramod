@@ -388,7 +388,7 @@
                 <control type="button" id="9901" description="Widget Submenu Aspect">
                    <width>100%</width>
                     <height>66</height>
-                    <label>Widget Type</label>
+                    <label>Widget Style</label>
                     <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
                     <label2>$INFO[Container(211).ListItem.Property(widgetAspect)]</label2>
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
@@ -399,7 +399,7 @@
                 <control type="button" id="9905" description="Widget Submenu Aspect">
                    <width>100%</width>
                     <height>66</height>
-                    <label>Widget Type</label>
+                    <label>Widget Style</label>
                     <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)</visible>
                     <label2>$INFO[Container(211).ListItem.Property(widgetHubAspect)]</label2>
                     <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
@@ -633,6 +633,22 @@
 		    <visible>String.IsEqual(Container(211).ListItem.Property(widgetAspect),Poster) | String.IsEqual(Container(211).ListItem.Property(widgetAspect),Landscape)</visible>
                     <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + !String.IsEqual(Window.Property(groupname),mainmenu) + !String.IsEqual(Window.Property(groupname),pvrspot)</visible>
                 </control>
+                <control type="radiobutton" id="99105" description="Widget Landscapewide BG">
+                    <width>100%</width>
+                    <label>Enable Widget Background</label>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="dialog_fg_12" border="5">common/box.png</texturenofocus>
+                    <include>Dialog_Standard_ListButton</include>
+                    <radioposx>1130</radioposx>
+                    <selected>String.IsEqual(Container(211).ListItem.Property(widgetLandscapewidebg),true)</selected>
+                    <onclick>SetProperty(customProperty,widgetLandscapewidebg)</onclick>
+                    <onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetLandscapewidebg),true)">SetProperty(customValue,true)</onclick>
+                    <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetLandscapewidebg),true)">SetProperty(customValue,false)</onclick>
+                    <onclick>SendClick(404)</onclick>
+                    <align>left</align>
+                    <visible>String.IsEqual(Container(211).ListItem.Property(widgetAspect),LandscapeWide)</visible>
+                    <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + !String.IsEqual(Window.Property(groupname),mainmenu) + !String.IsEqual(Window.Property(groupname),pvrspot)</visible>
+                </control>
 
 
                 <control type="radiobutton" id="9912" description="Widget Showcase">
@@ -648,7 +664,7 @@
                     <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetShowcase),true)">SetProperty(customValue,false)</onclick>
                     <onclick>SendClick(404)</onclick>
                     <align>left</align>
-                    <visible>String.IsEqual(Container(211).ListItem.Property(widgetAspect),Poster) | String.IsEqual(Container(211).ListItem.Property(widgetAspect),Landscape)</visible>
+                    <visible>String.IsEqual(Container(211).ListItem.Property(widgetAspect),Poster) | String.IsEqual(Container(211).ListItem.Property(widgetAspect),Landscape) | String.IsEqual(Container(211).ListItem.Property(widgetAspect),LandscapePanel)</visible>
                     <visible>!String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True) + !String.IsEqual(Window.Property(groupname),mainmenu) + !String.IsEqual(Window.Property(groupname),pvrspot)</visible>
                 </control>
 
@@ -665,6 +681,7 @@
                     <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetShowcasehide),true)">SetProperty(customValue,false)</onclick>
                     <onclick>SendClick(404)</onclick>
                     <align>left</align>
+                    <visible>String.IsEqual(Container(211).ListItem.Property(widgetAspect),Poster) | String.IsEqual(Container(211).ListItem.Property(widgetAspect),Landscape) | String.IsEqual(Container(211).ListItem.Property(widgetAspect),LandscapePanel)</visible>
 		    <visible>String.IsEqual(Container(211).ListItem.Property(widgetShowcase),true)</visible>
                 </control>
                 <control type="label" id="9992">
