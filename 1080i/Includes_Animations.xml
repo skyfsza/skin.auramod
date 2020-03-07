@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
 
+
+    <include name="widgetslide_animation">
+       <param name="id" default="$PARAM[id]" />
+       <param name="InfoSlide" default="$PARAM[InfoSlide]" />
+       <param name="postercondition" default="$PARAM[postercondition]" />
+       <param name="landscapecondition" default="$PARAM[landscapecondition]" />
+     <definition>
+        <animation  effect="slide" start="0,0" end="984.44,0" time="400" reversible="false" condition="$PARAM[postercondition] + Control.HasFocus($PARAM[id]) +!String.IsEmpty(Window(Home).Property(widgetslide))">Conditional</animation>
+        <animation  effect="slide" start="0,0" end="625,0" time="400" reversible="false" condition="$PARAM[landscapecondition] + Control.HasFocus($PARAM[id]) +!String.IsEmpty(Window(Home).Property(widgetslide))">Conditional</animation>
+     </definition>
+    </include>
+
   <include name="spotlight_animations">
         <animation effect="slide" start="0,0" end="0,500" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>
         <animation effect="slide" start="0,0" end="0,20" time="0" reversible="false" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] | $EXP[MovieSpotlight] | $EXP[LiveTVSpotlight]] + $EXP[HomeSpotFocusContainers]">Conditional</animation>

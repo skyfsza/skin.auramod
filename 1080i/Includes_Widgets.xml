@@ -235,6 +235,7 @@
     <param name="InfoSlide" default="false" />
     <param name="Showcase" default="false" />
     <param name="Showcasehide" default="true" />
+    <param name="landscapewidebg" default="false" />
     <param name="orientation" default="horizontal" />
     <param name="path" default="" />
     <param name="path2" default="" />
@@ -253,9 +254,26 @@
           <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]" />
         </include>
       </control>
-
+      <control type="group" id="5$PARAM[id]">
+	<include content="top" condition="Skin.HasSetting(SubmenuLabel)">
+	  <param name="top" value="-210" />
+	</include>
+        <include content="top" condition="!Skin.HasSetting(SubmenuLabel)">
+          <param name="top" value="-250" />
+        </include>
+        <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
+        <include content="widget_landscapewide_bg">
+          <param name="id" value="$PARAM[id]" />
+          <param name="height" value="516.20" />
+          <param name="landscapewidecondition" value="$PARAM[landscapewidecondition]" />
+          <param name="landscapewidebg" value="$PARAM[landscapewidebg]" />
+        </include>
+      </control>
      <control type="group" id="2$PARAM[id]">
-        <left>-55</left>
+        <animation effect="slide" end="-50,0" time="0" reversible="false" condition="!Control.HasFocus(300) + $PARAM[landscapewidebg] + $PARAM[landscapewidecondition]">Conditional</animation>
+        <include content="left" condition="![$PARAM[landscapewidecondition] + $PARAM[landscapewidebg]]">
+          <param name="left" value="-55" />
+        </include>
         <top>widget_gap</top>
         <visible>$PARAM[visible]</visible>
         <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
@@ -283,13 +301,18 @@
         </control>
       </control>
       <control type="$PARAM[controltype]" id="$PARAM[id]">
-        <left>-55</left>
+        <animation effect="slide" end="-50,0" time="400" reversible="false" condition="!Control.HasFocus(300) + $PARAM[landscapewidebg] + $PARAM[landscapewidecondition]">Conditional</animation>
+        <include content="left" condition="![$PARAM[landscapewidecondition] + $PARAM[landscapewidebg]]">
+          <param name="left" value="-55" />
+        </include>
+        <include content="left" condition="[$PARAM[landscapewidecondition] + $PARAM[landscapewidebg]]">
+          <param name="left" value="0" />
+        </include>
         <top>widget_top</top>
         <orientation>$PARAM[orientation]</orientation>
         <onunfocus>ClearProperty(SpotReturnHome)</onunfocus>
         <onunfocus>ClearProperty(SpotFocus)</onunfocus>
         <onunfocus>ClearProperty(spothubscroll)</onunfocus>
-
 	<include content="showcase_animations">
 	   <param name="id" value="$PARAM[id]" />
 	   <param name="Showcase" value="$PARAM[Showcase]" />
@@ -298,19 +321,19 @@
 	   <param name="landscapecondition" value="$PARAM[landscapecondition]" />
 	   <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]" />
 	</include>
-
+        <scrolltime>500</scrolltime>
         <onback condition="ControlGroup(5600).HasFocus">9000</onback>
         <include condition="$PARAM[Showcase]">Widget_Movement_Showcase</include>
         <movement>$PARAM[movement]</movement>
         <include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
         <include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
-        <include condition="$PARAM[landscapepanelcondition] + $PARAM[Showcase]">Widget_AuraHub_width_landscapepanel</include>
         <include condition="$PARAM[squarelabelcondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_SquareLabel_Big</include>
         <include condition="$PARAM[squarelabelcondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_SquareLabel_Big_small</include>
         <include condition="$PARAM[squarecondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Square_Height</include>
         <include condition="$PARAM[squarecondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Square_Big_Height_small</include>
         <include condition="$PARAM[landscapewidepostercondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Poster_Big</include>
         <include condition="$PARAM[landscapewidepostercondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Poster_Big_small</include>
+        <include condition="$PARAM[landscapepanelcondition] + $PARAM[Showcase]">Widget_AuraHub_width_landscapepanel</include>
         <include condition="$PARAM[landscapepanelcondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_LandscapePanel_Height</include>
         <include condition="$PARAM[landscapepanelcondition] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_LandscapePanel_Height_small</include>
         <include condition="$PARAM[landscapenetflixcondition] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Landscapesmall_Big_Height</include>
@@ -370,10 +393,31 @@
           <param name="Showcase" value="$PARAM[Showcase]" />
           <param name="path" value="$PARAM[path]" />
           <param name="path2" value="$PARAM[path2]" />
-    	  <param name="InfoSlide" default="$PARAM[InfoSlide]" />
+    	  <param name="InfoSlide" value="$PARAM[InfoSlide]" />
           <param name="controltype" value="$PARAM[controltype]" />
         </include>
       </control>
+<!--
+          <include content="Netflix_Fixed_Focus">
+            <param name="ids" value="11$PARAM[id]" />
+            <param name="postercondition" value="$PARAM[postercondition]" />
+            <param name="landscapecondition" value="$PARAM[landscapecondition]" />
+            <param name="landscapedetailscondition" value="$PARAM[landscapedetailscondition]" />
+            <param name="landscapewidecondition" value="$PARAM[landscapewidecondition]" />
+            <param name="landscapewidepostercondition" value="$PARAM[landscapewidepostercondition]" />
+            <param name="landscapenetflixcondition" value="$PARAM[landscapenetflixcondition]" />
+            <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]" />
+            <param name="squarecondition" value="$PARAM[squarecondition]" />
+            <param name="posterdetailscondition" value="$PARAM[posterdetailscondition]" />
+            <param name="widgetlivecondition" value="$PARAM[widgetlivecondition]" />
+            <param name="categorycondition" value="$PARAM[categorycondition]" />
+            <param name="squarelabelcondition" value="$PARAM[squarelabelcondition]" />
+            <param name="genrecondition" value="$PARAM[genrecondition]" />
+            <param name="submenucondition" value="$PARAM[submenucondition]" />
+            <param name="visible" value="Control.HasFocus($PARAM[id])" />
+          </include>
+-->
+
     </definition>
   </include>
 
@@ -430,7 +474,7 @@
     <height>570</height>
   </include>
   <include name="Widget_Items_LandscapeWide">
-    <height>695</height>
+    <height>700</height>
   </include>
   <include name="Widget_Items_LandscapeWide_small">
     <height>755</height>
@@ -469,16 +513,6 @@
     <param name="studios" default="false" />
     <param name="text" default="false" />
     <definition>
-<!--
-      <control type="group" id="4$PARAM[id]">
-        <control type="image">
-          <top>-170</top>
-          <width>100%</width>
-          <height>250</height>
-          <texture background="true" colordiffuse="20FFFFFF">white.png</texture>
-        </control>
-      </control>
--->
       <control type="group" id="2$PARAM[id]">
         <top>widget_gap</top>
         <left>-55</left>
@@ -722,7 +756,7 @@
           <animation effect="fade" start="0" end="100" time="500" delay="200">Visible</animation>
           <visible>!Container($PARAM[id]).OnNext + !Container($PARAM[id]).OnScrollNext + !Container($PARAM[id]).OnPrevious + !Container($PARAM[id]).OnScrollPrevious</visible>
           <visible>Control.HasFocus($PARAM[id])</visible>
-          <visible>$EXP[DBTvideos]</visible>
+          <visible>$EXP[DBTvideos] + [!String.Contains(ListItem.FileNameAndPath,plugin://plugin.video.youtube) + !String.Contains(Container.ListItem.FileNameAndPath,plugin://plugin.video.youtube)]</visible>
           <visible>!Control.HasFocus(30222) + Skin.HasSetting(DisableWidgetIMDB) + Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020) | Window.IsVisible(DialogVideoInfo.xml)]</visible>
           <visible>$EXP[DBTvideos]</visible>
@@ -750,7 +784,7 @@
           <animation effect="fade" start="0" end="100" time="500" delay="200">Visible</animation>
           <visible>!Container($PARAM[id]).OnNext + !Container($PARAM[id]).OnScrollNext + !Container($PARAM[id]).OnPrevious + !Container($PARAM[id]).OnScrollPrevious</visible>
           <visible>Control.HasFocus($PARAM[id]) + !Control.HasFocus(30222) + !Skin.HasSetting(DisableWidgetStudio) + Skin.HasSetting(DisableWidgetIMDB)</visible>
-          <visible>$EXP[DBTvideos]</visible>
+          <visible>$EXP[DBTvideos] + [!String.Contains(ListItem.FileNameAndPath,plugin://plugin.video.youtube) + !String.Contains(Container.ListItem.FileNameAndPath,plugin://plugin.video.youtube)]</visible>
           <visible>![Window.IsVisible(2116) | Window.IsActive(2111) | Window.IsActive(2112) | Window.IsActive(2113)| Window.IsActive(2114) | Window.IsActive(2115)| Window.IsActive(2116) | Window.IsActive(2117) | Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <visible>$EXP[DBTvideos]</visible>
           <bottom>10</bottom>
@@ -904,7 +938,7 @@
     <param name="videos" default="false" />
     <param name="path" default="" />
     <param name="path2" default="" />
-    <param name="InfoSlide" default="" />
+    <param name="InfoSlide" default="false" />
     <definition>
       <include content="Widget_Common">
         <param name="top" value="$PARAM[top]" />
@@ -916,7 +950,7 @@
       </include>
       <itemlayout width="widget_poster_width" height="widget_poster_height" condition="$PARAM[postercondition]">
 	<control type="group">
-        <animation  effect="slide" start="0,0" end="984.44,0" time="400" reversible="false" condition="$PARAM[InfoSlide] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide))">Conditional</animation>
+        <animation  effect="slide" start="0,0" end="984.44,0" time="400" reversible="false" condition="$PARAM[InfoSlide] + $PARAM[postercondition] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide))">Conditional</animation>
         <include content="Widget_Items_ItemLayout">
           <param name="poster" value="true" />
           <param name="genres" value="$PARAM[genres]" />
@@ -982,24 +1016,27 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </itemlayout>
-      <itemlayout width="808.536" height="455.17" condition="$PARAM[landscapewidecondition]">
+      <itemlayout width="774.84" height="436.20" condition="$PARAM[landscapewidecondition]">
         <include content="Widget_Items_ItemLayout">
           <param name="landscapewide" value="true" />
           <param name="genres" value="$PARAM[genres]" />
           <param name="studios" value="$PARAM[studios]" />
           <param name="text" value="$PARAM[text]" />
         </include>
+
+        <control type="group">
+	    <left>90</left>
           <control type="label">
             <bottom>-30</bottom>
-            <align>center</align>
+	    <align>center</align>
             <height>40</height>
-            <left>30</left>
             <font>font_small</font>
             <shadowcolor>black</shadowcolor>
             <textcolor>white</textcolor>
             <label>$VAR[video_heading]</label>
             <visible>$PARAM[landscapewidecondition] + !String.StartsWith(ListItem.Label,See More)</visible>
           </control>
+         </control>
       </itemlayout>
       <itemlayout width="widget_poster_width" height="widget_poster_height" condition="$PARAM[landscapewidepostercondition]">
         <include content="Widget_Items_ItemLayout">
@@ -1161,7 +1198,7 @@
           <param name="text" value="$PARAM[text]" />
         </include>
       </focusedlayout>
-      <focusedlayout width="808.536" height="455.17" condition="$PARAM[landscapewidecondition]">
+      <focusedlayout width="774.84" height="436.20" condition="$PARAM[landscapewidecondition]">
         <include content="Widget_Items_FocusedLayout">
           <param name="id" value="$PARAM[id]" />
           <param name="landscapewide" value="true" />
@@ -1169,17 +1206,19 @@
           <param name="studios" value="$PARAM[studios]" />
           <param name="text" value="$PARAM[text]" />
         </include>
+        <control type="group">
+            <left>90</left>
           <control type="label">
 	    <bottom>-30</bottom>
             <align>center</align>
             <height>40</height>
-            <left>30</left>
             <font>font_small</font>
             <shadowcolor>black</shadowcolor>
             <textcolor>white</textcolor>
             <label>$VAR[video_heading]</label>
             <visible>$PARAM[landscapewidecondition] + !String.StartsWith(ListItem.Label,See More)</visible>
           </control>
+         </control>
       </focusedlayout>
       <focusedlayout width="380" height="widget_landscape_height" condition="$PARAM[widgetlivecondition]">
         <include content="Widget_Items_FocusedLayout">

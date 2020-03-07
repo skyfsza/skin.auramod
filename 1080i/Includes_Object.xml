@@ -2353,6 +2353,7 @@
           <font>font_small</font>
           <autoscroll delay="5000" time="1500" repeat="5000">true</autoscroll>
         </control>
+
         <control type="textbox">
           <visible>$EXP[DBTvideos] + Skin.HasSetting(DisableNetflixShowcaseOverlay)</visible>
           <label fallback="19055">$VAR[Label_OverlayPlot]</label>
@@ -5055,7 +5056,7 @@
       <onfocus>Skin.Reset(SpotFocus)</onfocus>
       <onfocus condition="Skin.HasSetting(EnableSpotlight) + $EXP[LiveTVSpotlight]">SetFocus(901)</onfocus>
       <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + !$EXP[noSubMenu]">SetFocus(30222)</onfocus>
-      <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + $EXP[noSubMenu]">SetFocus(330,0)</onfocus>
+      <onfocus condition="!String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + $EXP[noSubMenu]">SetFocus(330)</onfocus>
       <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + Integer.IsGreater(Container(330).NumItems,0)">SetFocus(330,0)</onfocus>
       <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + !Integer.IsGreater(Container(330).NumItems,0)">SetFocus(30222)</onfocus>
       <onfocus condition="String.IsEqual(Container(300).ListItem.Property(widgethubscroll),true) + String.IsEqual(Container(300).ListItem.Property(widgethubscrollselect),TVNetflixHub)">ActivateWindow(3810)</onfocus>
@@ -5312,6 +5313,7 @@
                 <height>100%</height>
                 <width>100%</width>
                 <texture colordiffuse="dimgrey">flags/square-rounded.png</texture>
+                <visible>String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow) + String.IsEmpty(Container($PARAM[id]).ListItem.Property(TotalSeasons))</visible>
               </control>
               <control type="label">
                 <top>28</top>
@@ -6246,6 +6248,7 @@
           <animation effect="fade" start="0" end="100" time="0" delay="900">Visible</animation>
           <visible>!Container($PARAM[id]).OnNext + !Container($PARAM[id]).OnScrollNext + !Container($PARAM[id]).OnPrevious + !Container($PARAM[id]).OnScrollPrevious</visible>
           <visible>Control.HasFocus($PARAM[id])</visible>
+          <visible>$EXP[DBTvideos] + [!String.Contains(ListItem.FileNameAndPath,plugin://plugin.video.youtube) + !String.Contains(Container.ListItem.FileNameAndPath,plugin://plugin.video.youtube)]</visible>
           <visible>Skin.HasSetting(DisableWidgetIMDB) + !Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>![Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <visible>![Window.IsVisible(DialogVideoInfo.xml) + Control.HasFocus(53001)]</visible>
@@ -6272,6 +6275,7 @@
           <animation effect="fade" start="0" end="100" time="0" delay="900">Visible</animation>
           <visible>!Container($PARAM[id]).OnNext + !Container($PARAM[id]).OnScrollNext + !Container($PARAM[id]).OnPrevious + !Container($PARAM[id]).OnScrollPrevious</visible>
           <visible>Control.HasFocus($PARAM[id])</visible>
+          <visible>$EXP[DBTvideos] + [!String.Contains(ListItem.FileNameAndPath,plugin://plugin.video.youtube) + !String.Contains(Container.ListItem.FileNameAndPath,plugin://plugin.video.youtube)]</visible>
           <visible>Skin.HasSetting(DisableWidgetIMDB) + Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>![Window.IsVisible(4010) | Window.IsVisible(4020)]</visible>
           <visible>![Window.IsVisible(DialogVideoInfo.xml) + Control.HasFocus(53001)]</visible>
@@ -6358,6 +6362,7 @@
     <param name="widgetlivecondition" default="false" />
     <param name="categorycondition" default="false" />
     <param name="squarecondition" default="false" />
+    <param name="squarelabelcondition" default="false" />
     <param name="genrecondition" default="false" />
     <param name="submenucondition" default="false" />
     <param name="controltype" default="fixedlist" />
@@ -6379,11 +6384,26 @@
           <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]" />
         </include>
       </control>
+      <control type="group" id="5$PARAM[id]">
+	<include content="top" condition="Window.IsVisible(Home)">
+	   <param name="top" value="-210" />
+	</include>
+        <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
+        <include content="widget_landscapewide_bg">
+          <param name="id" value="$PARAM[id]" />
+          <param name="height" value="516.20" />
+          <param name="landscapewidecondition" value="$PARAM[landscapewidecondition]" />
+          <param name="landscapewidebg" value="$PARAM[landscapewidebg]" />
+        </include>
+      </control>
       <control type="group" id="2$PARAM[id]">
         <visible>$PARAM[visible]</visible>
         <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
         <control type="group">
-          <left>-60</left>
+        <animation effect="slide" end="-50,0" time="0" reversible="false" condition="!Control.HasFocus(300) + $PARAM[landscapewidebg] + $PARAM[landscapewidecondition]">Conditional</animation>
+        <include content="left" condition="![$PARAM[landscapewidecondition] + $PARAM[landscapewidebg]]">
+          <param name="left" value="-60" />
+        </include>
           <include content="Widget_Label_aura">
             <param name="id" value="$PARAM[id]" />
             <param name="label" value="$PARAM[label]" />
@@ -6413,6 +6433,7 @@
           <param name="categorycondition" value="$PARAM[categorycondition]" />
           <param name="submenucondition" value="$PARAM[submenucondition]" />
           <param name="squarecondition" value="$PARAM[squarecondition]" />
+          <param name="squarelabelcondition" value="$PARAM[squarelabelcondition]" />
           <param name="genrecondition" value="$PARAM[genrecondition]" />
         </include>
           <left>-395</left>
@@ -6424,11 +6445,17 @@
       </control>
 
       <control type="$PARAM[controltype]" id="$PARAM[id]">
-        <left>-55</left>
+        <include content="left" condition="![$PARAM[landscapewidecondition] + $PARAM[landscapewidebg]]">
+          <param name="left" value="-55" />
+        </include>
+        <include content="left" condition="[$PARAM[landscapewidecondition] + $PARAM[landscapewidebg]]">
+          <param name="left" value="0" />
+        </include>
         <top>30</top>
         <scrolltime>500</scrolltime>
         <include condition="$PARAM[Showcase] | $PARAM[InfoSlide]">Widget_Movement_Showcase</include>
         <movement>$PARAM[movement]</movement>
+        <animation effect="slide" end="-50,0" delay="500" reversible="false" condition="!Control.HasFocus(300) + $PARAM[landscapewidebg] + $PARAM[landscapewidecondition]">Conditional</animation>
         <include content="showcase_animations">
            <param name="id" value="$PARAM[id]" />
            <param name="Showcase" value="$PARAM[Showcase]" />
@@ -6454,6 +6481,7 @@
           <param name="categorycondition" value="$PARAM[categorycondition]" />
           <param name="submenucondition" value="$PARAM[submenucondition]" />
           <param name="squarecondition" value="$PARAM[squarecondition]" />
+          <param name="squarelabelcondition" value="$PARAM[squarelabelcondition]" />
           <param name="genrecondition" value="$PARAM[genrecondition]" />
         </include>
 	<onback condition="!String.IsEmpty(Window(Home).Property(widgetslide))">ClearProperty(widgetslide,home)</onback>
@@ -6493,7 +6521,7 @@
           <param name="widgetlivecondition" value="$PARAM[widgetlivecondition]" />
           <param name="categorycondition" value="$PARAM[categorycondition]" />
           <param name="submenucondition" value="$PARAM[submenucondition]" />
-          <param name="squarecondition" value="$PARAM[squarecondition]" />
+          <param name="squarecondition" value="$PARAM[squarelabelcondition]" />
           <param name="genrecondition" value="$PARAM[genrecondition]" />
           <param name="search" value="$PARAM[search]" />
           <param name="InfoSlide" value="$PARAM[InfoSlide]" />
@@ -6508,6 +6536,8 @@
           <param name="controltype" value="$PARAM[controltype]" />
           <param name="postercondition" value="$PARAM[postercondition]" />
           <param name="landscapecondition" value="$PARAM[landscapecondition]" />
+          <param name="landscapenetflixcondition" value="$PARAM[landscapenetflixcondition]" />
+          <param name="landscapepanelcondition" value="$PARAM[landscapepanelcondition]" />
         </include>
       </control>
     </definition>
@@ -6528,46 +6558,43 @@
     <param name="widgetlivecondition" default="false" />
     <param name="categorycondition" default="false" />
     <param name="squarecondition" default="false" />
+    <param name="squarelabelcondition" default="false" />
     <param name="genrecondition" default="false" />
     <param name="submenucondition" default="false" />
     <definition>
         <include condition="$PARAM[submenu] + !Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Height</include>
         <include condition="$PARAM[submenu] + Skin.HasSetting(SubmenuLabel)">Widget_Items_Submenu_Big_Height</include>
         <include condition="!Skin.HasSetting(AuraHubSpacingSmall) + !$PARAM[bigpostercondition] + !$PARAM[landscapepanelcondition]">AuraWidget_Items_Default</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height</include>
-        <include condition="!Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition]">Widget_AuraHub_width_landscapepanel</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarelabelcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SquareLabel_Big</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarelabelcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SquareLabel_Big_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarecondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Square_Height</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Square_Big_Height_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidepostercondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidepostercondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapenetflixcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscapesmall_Big_Height</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapenetflixcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscapesmall_Big_Height_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapedetailscondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapedetailscondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[postercondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[postercondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapecondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height</include>
         <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidecondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_LandscapeWide</include>
         <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapeWide_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[genrecondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_genre_Big_Height</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[genrecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_genre_Big_Height_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[submenucondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SubmenuWidget_Big_Height</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[submenucondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SubmenuWidget_Big_Height_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapecondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Landscape_Big_Height</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapecondition] + Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Landscape_Big_Height_Label</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[postercondition] + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(WidgetLabelsBelow)">AuraWidget_Items_Poster_Big</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[postercondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidepostercondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapewidepostercondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapenetflixcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscapesmall_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapenetflixcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscapesmall_Big_Height_small</include>
+        <include condition="!Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition]">Widget_AuraHub_width_landscapepanel</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapepanelcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_LandscapePanel_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapedetailscondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapedetailscondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height_small</include>
+        <include condition="!Skin.HasSetting(AuraHubSpacingSmall) + !$PARAM[bigpostercondition] + !$PARAM[landscapepanelcondition]">AuraWidget_Items_Default</include>
         <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[posterdetailscondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big</include>
         <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[posterdetailscondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Poster_Big_small</include>
         <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[widgetlivecondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Live_Big_Height</include>
         <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[widgetlivecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Live_Big_Height_small</include>
         <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[categorycondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Category_Big_Height</include>
         <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[categorycondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Category_Big_Height_small</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[submenucondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Category_Big_Height</include>
-        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[submenucondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Category_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarelabelcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SquareLabel_Big</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarelabelcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SquareLabel_Big_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarecondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Square_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[squarecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Square_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[genrecondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_genre_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[genrecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_genre_Big_Height_small</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[submenucondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SubmenuWidget_Big_Height</include>
+        <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[submenucondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_SubmenuWidget_Big_Height_small</include>
    </definition>
   </include>
 
@@ -8093,15 +8120,43 @@
     </include>
 
    <include name="Netflix_Fixed_Focus">
-        <param name="id" default="" />
+        <param name="ids" default="" />
         <param name="top" default="" />
-        <param name="bottom" default="" />
-        <param name="left" default="" />
-        <param name="right" default="" />
-        <param name="width" default="" />
-        <param name="height" default="" />
+    	<param name="postercondition" default="false" />
+    	<param name="landscapecondition" default="false" />
+    	<param name="landscapedetailscondition" default="false" />
+    	<param name="landscapewidecondition" default="false" />
+    	<param name="landscapewidepostercondition" default="false" />
+    	<param name="landscapenetflixcondition" default="false" />
+    	<param name="landscapepanelcondition" default="false" />
+    	<param name="squarecondition" default="false" />
+    	<param name="landscapepanel" default="false" />
+    	<param name="posterdetailscondition" default="false" />
+    	<param name="widgetlivecondition" default="false" />
+    	<param name="categorycondition" default="false" />
+    	<param name="squarelabelcondition" default="false" />
+        <param name="genrecondition" default="false" />
+        <param name="submenucondition" default="false" />
         <param name="visible" default="" />
         <definition>
+
+
+             <control type="group" id="$PARAM[ids]">
+		<top>-700</top>
+                <visible>$PARAM[visible] + $PARAM[landscapewidecondition]</visible>
+               <control type="image">
+                <width>774.84</width>
+                <height>436.20</height>
+                <texture colordiffuse="FFFFFFFF" border="20">home_focus.png</texture>
+               </control>
+            </control>
+
+
+
+
+
+
+<!--
              <control type="group" id="$PARAM[id]">
                 <left>$PARAM[left]</left>
                 <bottom>$PARAM[bottom]</bottom>
@@ -8112,6 +8167,7 @@
                 </control>
                 <visible>$PARAM[visible]</visible>
             </control>
+-->
         </definition>
     </include>
 

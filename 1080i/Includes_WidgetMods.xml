@@ -5,9 +5,16 @@
      	 <control type="image">
             <texture background="true" fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png">$VAR[Image_Fanart]</texture>
             <aspectratio scalediffuse="false">scale</aspectratio>
+            <visible>!String.IsEmpty(ListItem.Art(landscape)) | [!String.IsEmpty(ListItem.Art(fanart)) + !String.Contains(ListItem.Art(fanart),plugin.video.themoviedb.helper/fanart.jpg)] | !String.IsEmpty(ListItem.Art(thumb))</visible>
+          </control>
+         <control type="image">
+            <texture background="true" fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png">$INFO[ListItem.Art(poster)]</texture>
+	    <centerleft>50%</centerleft>
+            <aspectratio scalediffuse="false">keep</aspectratio>
+	    <visible>String.IsEmpty(ListItem.Art(landscape)) + [String.IsEmpty(ListItem.Art(fanart)) | String.Contains(ListItem.Art(fanart),plugin.video.themoviedb.helper/fanart.jpg)] + String.IsEmpty(ListItem.Art(thumb))</visible>
           </control>
           <control type="label">
-	    <bottom>60</bottom>
+	    <bottom>40</bottom>
             <left>30</left>
 	    <height>30</height>
             <font>font_medium_bold</font>
@@ -16,14 +23,32 @@
             <label>Watch S$INFO[ListItem.Season]:E$INFO[ListItem.Episode]</label>
             <visible>String.IsEqual(ListItem.DBType,episode)</visible>
           </control>
+          <control type="image">
+            <width>30%</width>
+            <height>30%</height>
+	    <right>10</right>
+	    <bottom>25</bottom>
+            <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
+            <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
+            <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+      </control>
+          <control type="image">
+            <width>30%</width>
+            <height>30%</height>
+            <right>10</right>
+            <bottom>25</bottom>
+            <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
+            <texture background="true" diffuse="diffuse/widgetlandscape.png">$VAR[Widget_ClearLogo]</texture>
+            <visible>!String.IsEqual(ListItem.DBType,episode) + [String.IsEmpty(ListItem.Art(landscape)) | String.Contains(ListItem.Art(landscape),w1280None) | String.Contains(ListItem.Art(landscape),tmdb.org)]</visible>
+      </control>
           <control type="progress">
             <left>30</left>
-            <bottom>40</bottom>
+            <bottom>20</bottom>
             <description>progress bar</description>
             <width>90%</width>
             <height>9</height>
             <align>center</align>
-            <texturebg colordiffuse="white" border="2">colors/color_white.png</texturebg>
+            <texturebg colordiffuse="dimgrey" border="2">colors/color_white.png</texturebg>
             <lefttexture></lefttexture>
             <midtexture colordiffuse="red" border="2">colors/color_white.png</midtexture>
             <righttexture></righttexture>
@@ -33,7 +58,7 @@
           <control type="progress">
             <visible>Integer.IsGreater(ListItem.PlayCount,0)</visible>
             <left>30</left>
-            <bottom>40</bottom>
+            <bottom>20</bottom>
             <description>progress bar</description>
             <width>90%</width>
             <height>9</height>
@@ -686,7 +711,7 @@
         </control>
       </control>
       <control type="group">
-        <height>50</height>
+        <height>40</height>
         <bottom>0</bottom>
         <visible>[!Skin.HasSetting(DisableClearlogo) | [Skin.HasSetting(DisableClearlogo) + [String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))]]] + !Skin.HasSetting(WidgetLabels)</visible>
         <control type="image">
@@ -699,7 +724,7 @@
           <right>20</right>
           <align>center</align>
           <aligny>center</aligny>
-          <font>font_tiny_bold</font>
+          <font>font_widget_plot</font>
           <textcolor>main_fg_70</textcolor>
           <label>$VAR[Label_Widget]</label>
         </control>
@@ -1030,6 +1055,25 @@
   </include>
   <!-- END Poster Details  Widget -->
 
+    <include name="widget_landscapewide_bg">
+    	<param name="id" default="$PARAM[id]" />
+    	<param name="height" default="$PARAM[height]" />
+    	<param name="landscapewidecondition" default="$PARAM[landscapewidecondition]" />
+    	<param name="landscapewidebg" default="$PARAM[landscapewidebg]" />
+	<definition>
+        <animation effect="slide" end="-50,0" time="400" reversible="false" condition="!Control.HasFocus(300) + $PARAM[landscapewidebg] + $PARAM[landscapewidecondition]">Conditional</animation>
+        <visible>$PARAM[landscapewidebg]</visible>
+        <control type="group">
+         <control type="image">
+	   <top>0</top>
+           <width>100%</width>
+           <height>$PARAM[height]</height>
+           <texture background="true" colordiffuse="10FFFFFF">white.png</texture>
+           <visible>Control.IsVisible($PARAM[id]) + $PARAM[landscapewidecondition]</visible>
+         </control>
+        </control>
+        </definition>
+    </include>
 
     <include name="widget_showcase_focused">
     	<param name="id" default="$PARAM[id]" />
@@ -1302,14 +1346,16 @@
     <param name="InfoSlide" default="$PARAM[InfoSlide]" />
     <param name="controltype" default="$PARAM[controltype]" />
     <param name="landscapecondition" default="$PARAM[landscapecondition]" />
+    <param name="landscapenetflixcondition" default="$PARAM[landscapenetflixcondition]" />
+    <param name="landscapepanelcondition" default="$PARAM[landscapepanelcondition]" />
     <param name="postercondition" default="$PARAM[postercondition]" />
     <definition>	
-    <animation type="Conditional" condition="$PARAM[postercondition] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide)" reversible="false">
+    <animation type="Conditional" condition="$PARAM[postercondition] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide))" reversible="false">
       <effect type="fade" start="0" end="100" time="200"  />
       <effect type="zoom" start="30,100" end="100,100" time="400" />
     </animation>
-        <animation  effect="slide" start="0,0" end="602.22,0" time="0" condition="$PARAM[landscapecondition] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide)">Conditional</animation>
-        <animation  effect="zoom" start="0,100" end="100,100" time="400" condition="$PARAM[landscapecondition] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide)">Conditional</animation>
+        <animation  effect="slide" start="0,0" end="602.22,0" time="0" condition="$PARAM[landscapecondition] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide))">Conditional</animation>
+        <animation  effect="zoom" start="0,100" end="100,100" time="400" condition="$PARAM[landscapecondition] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide))">Conditional</animation>
 
           <include content="top" condition="$PARAM[postercondition]">
             <param name="top" value="-387" />

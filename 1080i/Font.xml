@@ -763,6 +763,13 @@
             <size>26</size>
         </font>
         <font>
+            <name>font_widgetlabel_bold</name>
+            <filename>Arial.ttf</filename>
+            <style>bold</style>
+            <aspect>0.8</aspect>
+            <size>20</size>
+        </font>
+        <font>
             <name>font_tiny_bold</name>
             <filename>Arial.ttf</filename>
             <style>bold</style>
