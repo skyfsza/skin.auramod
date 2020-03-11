@@ -104,6 +104,8 @@
       <include>Logo</include>
       <visible>!Window.IsVisible(DialogNotification.xml) + !Window.IsVisible(DialogButtonMenu.xml) + !Window.IsVisible(DialogBusy.xml) + Skin.HasSetting(EnableHomeHeader)</visible>
     </control>
+    <include condition="Skin.HasSetting(EnableSuggestedWidget)">similar_movies_list</include>
+    <include condition="Skin.HasSetting(EnableSuggestedWidget)">similar_tv_list</include>
     <include>fadelabel_spotlight_list_tv</include>
     <include>fadelabel_spotlight_list_movies</include>
     <control type="button" id="4000">
