@@ -1679,11 +1679,12 @@
           <animation effect="slide" end="50,-10" condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Conditional</animation>
           <animation effect="slide" end="20,0" condition="Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
           <visible>!Player.HasVideo + $EXP[DBTvideosImage]</visible>
-          <width>100%</width>
-          <height>100%</height>
+          <width>1400</width>
+          <height>700</height>
+	  <left>500</left>
           <top>0</top>
           <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
-          <imagepath background="true">$VAR[fanart_multi_fadelabel]</imagepath>
+          <imagepath background="true" diffuse="Right Corner.png">$VAR[fanart_multi_fadelabel]</imagepath>
           <timeperimage>2000</timeperimage>
           <fadetime>2000</fadetime>
           <pauseatend>10000</pauseatend>
@@ -1691,6 +1692,7 @@
           <loop>no</loop>
           <include>animation_image_zoom</include>
         </control>
+<!--
     <control type="image">
       <animation effect="fade" start="100" end="0" time="400">Hidden</animation>
       <right>0</right>
@@ -1699,7 +1701,7 @@
       <texture background="true" flipx="true" colordiffuse="ff000000" border="15">overlay/gradient_overlay_info.png</texture>
       <visible>!Player.HasVideo + $EXP[DBTvideosImage]</visible>
     </control>
-
+-->
 
         <control type="image">
           <animation effect="slide" end="50,-10" condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Conditional</animation>
