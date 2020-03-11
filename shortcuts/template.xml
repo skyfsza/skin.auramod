@@ -11,21 +11,6 @@
         <property name="widgetContent">None</property>
         <property name="id" tag="mainmenuid" />
         <controls>
-            <include content="Widget">
-                <param name="id" value="$PYTHON[int(id) - 1]3002" />
-                <param name="target" value="$SKINSHORTCUTS[widgetTarget]" />
-                <param name="sortby" value="$SKINSHORTCUTS[widgetSort]" />
-                <param name="sortorder" value="$SKINSHORTCUTS[widgetDirection]" />
-                <param name="content" value="Container(300).ListItem.Property(widgetPath)" />
-                <param name="widgetContent" value="$SKINSHORTCUTS[widgetContent]" />
-                <param name="widgetAspect" value="$SKINSHORTCUTS[widgetAspect]" />
-                <param name="aspect" value="Container(300).ListItem.Property(widgetAspect)" />
-                <param name="label" value="$SKINSHORTCUTS[widgetName]" />
-                <param name="visible" value="String.IsEqual(Container(300).ListItem.Property(id),$SKINSHORTCUTS[id])" />
-                <param name="genres" value="$PYTHON['true' if widgetContent in 'tvGenres' or widgetContent in 'movieGenres' or widgetContent in 'genres.xml' or widgetContent in 'Genres.xsp' or widgetContent in 'genres.xsp' else 'false']" />
-                <param name="studios" value="$PYTHON['true' if widgetContent in 'studios.xml' or widgetContent in 'Studios.xsp' or widgetContent in 'studios.xsp' else 'false']" />
-                <param name="text" value="$PYTHON['true' if widgetContent in 'years.xml' or widgetContent in 'country.xml' or widgetContent in 'tags.xml' or widgetContent in 'directors.xml' or widgetContent in 'special://videoplaylists/' or widgetContent in 'years.xsp' or widgetContent in 'countries.xsp' or widgetContent in 'tags.xsp' or widgetContent in 'directors.xsp' or widgetContent in 'Years.xsp' or widgetContent in 'Countries.xsp' or widgetContent in 'Tags.xsp' or widgetContent in 'Directors.xsp' else 'false']" />
-            </include>
         </controls>
     </other>
     <submenuOther include="vertical-submenu" container="302" level="1">
@@ -124,7 +109,7 @@
                 <param name="genrecondition" value="$PYTHON['true' if widgetAspect =='Genre' else 'false']" />
                 <param name="submenucondition" value="$PYTHON['true' if widgetAspect == 'Submenu' else 'false']" />
                 <param name="squarecondition" value="$PYTHON['true' if widgetAspect == 'Square' else 'false']" />
-                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetAspect in 'LandscapePanel' else 'fixedlist']" />
+                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' and 'false' in widgetShowcase and 'false' in widgetInfoSlide else 'panel' if widgetAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
                 <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="landscapewidebg" value="$PYTHON['true' if widgetLandscapewidebg in 'true' else 'false']" />
@@ -792,7 +777,7 @@
                 <param name="categorycondition" value="$PYTHON['true' if widgetHubAspect in 'Logo' else 'false']" />
                 <param name="squarelabelcondition" value="$PYTHON['true' if widgetHubAspect in 'SquareLabel' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
-                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetHubAspect in 'LandscapePanel' else 'fixedlist']" />
+                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' and 'false' in widgetShowcase and 'false' in widgetInfoSlide else 'panel' if widgetHubAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
                 <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="landscapewidebg" value="$PYTHON['true' if widgetLandscapewidebg in 'true' else 'false']" />
@@ -1081,7 +1066,7 @@
                 <param name="categorycondition" value="$PYTHON['true' if widgetHubAspect in 'Logo' else 'false']" />
                 <param name="squarelabelcondition" value="$PYTHON['true' if widgetHubAspect in 'SquareLabel' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
-                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetHubAspect in 'LandscapePanel' else 'fixedlist']" />
+                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' and 'false' in widgetShowcase and 'false' in widgetInfoSlide else 'panel' if widgetHubAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
                 <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
@@ -1375,7 +1360,7 @@
                 <param name="categorycondition" value="$PYTHON['true' if widgetHubAspect in 'Logo' else 'false']" />
                 <param name="squarelabelcondition" value="$PYTHON['true' if widgetHubAspect in 'SquareLabel' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
-                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetHubAspect in 'LandscapePanel' else 'fixedlist']" />
+                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' and 'false' in widgetShowcase and 'false' in widgetInfoSlide else 'panel' if widgetHubAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
                 <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
                 <param name="landscapewidebg" value="$PYTHON['true' if widgetLandscapewidebg in 'true' else 'false']" />
@@ -1536,7 +1521,7 @@
                 <param name="categorycondition" value="$PYTHON['true' if widgetHubAspect in 'Logo' else 'false']" />
                 <param name="squarelabelcondition" value="$PYTHON['true' if widgetHubAspect in 'SquareLabel' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
-                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'panel' if widgetHubAspect in 'LandscapePanel' else 'fixedlist']" />
+                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' and 'false' in widgetShowcase and 'false' in widgetInfoSlide else 'panel' if widgetHubAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
                 <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />
@@ -1696,7 +1681,7 @@
                 <param name="categorycondition" value="$PYTHON['true' if widgetHubAspect in 'Logo' else 'false']" />
                 <param name="squarelabelcondition" value="$PYTHON['true' if widgetHubAspect in 'SquareLabel' else 'false']" />
                 <param name="genrecondition" value="$PYTHON['true' if widgetHubAspect in 'Genre' else 'false']" />
-                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' else 'fixedlist']" />
+                <param name="controltype" value="$PYTHON['list' if widgetControl in 'true' and 'false' in widgetShowcase and 'false' in widgetInfoSlide else 'panel' if widgetHubAspect in 'LandscapePanel' else 'fixedlist']" />
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="Showcase" value="$PYTHON['true' if widgetShowcase in 'true' else 'false']" />
                 <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide in 'true' else 'false']" />

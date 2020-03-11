@@ -27,7 +27,7 @@
             <include>Animation_FadeInOut</include>
 	   <control type="group">
 	    <include>Global_Background</include>
-	    <visible>!Skin.HasSetting(DisableNetflixView) + [!Window.IsVisible(MyPVRChannels.xml) + !Window.IsVisible(MyPVRGuide.xml) + !Control.HasFocus(505) + !Control.HasFocus(506) + !Control.HasFocus(5056) + !Control.HasFocus(5055) + ![Control.IsVisible(55) + !Skin.HasSetting(DisableNetflixShowcaseOverlay)] + ![Control.IsVisible(56) + !Skin.HasSetting(DisableNetflixShowcaseOverlay)] + ![Control.IsVisible(509) + !Skin.HasSetting(DisableNetflixShowcaseOverlay)] + !Control.HasFocus(504)]</visible>
+	    <visible>!Skin.HasSetting(DisableNetflixView) + [!Window.IsVisible(MyPVRChannels.xml) + !Window.IsVisible(MyPVRGuide.xml) + !Control.HasFocus(505) + !Control.HasFocus(506) + !Control.HasFocus(5056) + !Control.HasFocus(5055) + ![Control.IsVisible(55) + !Skin.HasSetting(DisableNetflixShowcaseOverlay)] + ![Control.IsVisible(56) + !Skin.HasSetting(DisableNetflixShowcaseOverlay)] + ![Control.IsVisible(509) + !Skin.HasSetting(DisableNetflixShowcaseOverlay)]]</visible>
 	    </control>
             <control type="group">
                 <include>View_Group</include>
@@ -468,6 +468,15 @@
                         <visible>$PARAM[infolabel]</visible>
                         <visible>!$PARAM[textonly]</visible>
                     </control>
+	            <control type="label">
+		       <top>80%</top>
+	               <left>30</left>
+	               <font>font_medium_bold</font>
+	               <shadowcolor>black</shadowcolor>
+	               <textcolor>white</textcolor>
+	               <label>S$INFO[ListItem.Season]:E$INFO[ListItem.Episode]</label>
+	               <visible>String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)</visible>
+	            </control>
                     <control type="label">
                         <left>20</left>
                         <right>20</right>
@@ -552,6 +561,15 @@
                         <visible>$PARAM[infolabel]</visible>
                         <texture colordiffuse="bf000000">common/gradient-actor.png</texture>
                         <visible>!$PARAM[textonly]</visible>
+                    </control>
+                    <control type="label">
+                       <top>80%</top>
+                       <left>30</left>
+                       <font>font_medium_bold</font>
+                       <shadowcolor>black</shadowcolor>
+                       <textcolor>white</textcolor>
+                       <label>S$INFO[ListItem.Season]:E$INFO[ListItem.Episode]</label>
+                       <visible>String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)</visible>
                     </control>
                     <control type="label">
                         <left>20</left>

@@ -130,9 +130,33 @@
               <left>256</left>
               <width>$PARAM[width]</width>
               <animation effect="slide" end="-256" condition="Skin.HasSetting(DisableStarRating)">Conditional</animation>
+	      <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
         <include content="Object_Ratings">
           <param name="directory" value="color" />
           <param name="align" value="right" />
+          <param name="width" value="1400" />
+          <param name="rottentomatoes" value="true" />
+          <param name="imdbvotes" value="true" />
+          <param name="usermeter" value="false" />
+          <param name="imdb" value="true" />
+          <param name="tmdb" value="true" />
+          <param name="tvdb" value="true" />
+          <param name="metacritic" value="true" />
+          <param name="oscars" value="true" />
+          <param name="top250" value="false" />
+          <param name="plot" value="false" />
+          <param name="studio" value="true" />
+        </include>
+            </control>
+            <control type="group">
+              <top>25</top>
+              <left>0</left>
+              <width>$PARAM[width]</width>
+	      <visible>Window.IsVisible(DialogVideoInfo.xml)</visible>
+              <animation effect="slide" end="-256" condition="Skin.HasSetting(DisableStarRating)">Conditional</animation>
+        <include content="Object_Ratings" condition="Window.IsVisible(DialogVideoInfo.xml)">
+          <param name="directory" value="color" />
+          <param name="align" value="left" />
           <param name="width" value="1400" />
           <param name="rottentomatoes" value="true" />
           <param name="imdbvotes" value="true" />
@@ -213,7 +237,6 @@
         <control type="textbox">
           <label fallback="19055">$VAR[Label_Plot]</label>
           <height>$PARAM[plot_height]</height>
-          <aligny>top</aligny>
           <textcolor>main_fg_70</textcolor>
           <font>font_plotbox</font>
         </control>
@@ -1235,7 +1258,7 @@
         <onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[id],Home)</onfocus>
         <onfocus>SetProperty(TMDbHelper.WidgetContainer,$PARAM[id],Home)</onfocus>
         <scrolltime tween="sine" easing="out">0</scrolltime>
-        <autoscroll time="15000">Control.HasFocus(300) | Control.HasFocus(401) | Control.HasFocus(400) | Control.HasFocus(30222) | ControlGroup(505).HasFocus</autoscroll>
+        <autoscroll time="15000">Control.IsVisible($PARAM[id]) + Control.HasFocus(300) | Control.HasFocus(401) | Control.HasFocus(400) | Control.HasFocus(30222) | ControlGroup(505).HasFocus</autoscroll>
         <visible>String.IsEqual(Container(300).ListItem.Property(widgetspotlight),true) + String.IsEqual(Container(300).ListItem.Property(widgetSpotlighttype),$PARAM[type])</visible>
         <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)</visible>
         <defaultcontrol>4000</defaultcontrol>
@@ -1656,12 +1679,11 @@
           <animation effect="slide" end="50,-10" condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Conditional</animation>
           <animation effect="slide" end="20,0" condition="Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
           <visible>!Player.HasVideo + $EXP[DBTvideosImage]</visible>
-          <width>1400</width>
-          <height>700</height>
-          <left>500</left>
+          <width>100%</width>
+          <height>100%</height>
           <top>0</top>
           <aspectratio scalediffuse="true" aligny="top">scale</aspectratio>
-          <imagepath background="true" diffuse="Right Corner.png">$VAR[fanart_multi_fadelabel]</imagepath>
+          <imagepath background="true">$VAR[fanart_multi_fadelabel]</imagepath>
           <timeperimage>2000</timeperimage>
           <fadetime>2000</fadetime>
           <pauseatend>10000</pauseatend>
@@ -1669,6 +1691,16 @@
           <loop>no</loop>
           <include>animation_image_zoom</include>
         </control>
+    <control type="image">
+      <animation effect="fade" start="100" end="0" time="400">Hidden</animation>
+      <right>0</right>
+      <width>100%</width>
+      <height>100%</height>
+      <texture background="true" flipx="true" colordiffuse="ff000000" border="15">overlay/gradient_overlay_info.png</texture>
+      <visible>!Player.HasVideo + $EXP[DBTvideosImage]</visible>
+    </control>
+
+
         <control type="image">
           <animation effect="slide" end="50,-10" condition="Skin.HasSetting(DisableNetflixHomeSidemenu)">Conditional</animation>
           <animation effect="slide" end="20,0" condition="Skin.HasSetting(DisableNetflixHomeSidemenuHide)">Conditional</animation>
@@ -2233,7 +2265,7 @@
           <!-- trailer window -->
           <include content="Netflix_Trailer">
             <param name="top" value="-115" />	
-            <param name="right" value="0" />	
+            <param name="right" value="-40" />	
             <param name="height" value="720" />	
             <param name="width" value="1400" />	
             <param name="visible" value="Player.HasVideo" />	
@@ -2247,7 +2279,7 @@
             <param name="right" value="0" />
             <param name="height" value="650" />
             <param name="width" value="1440" />
-            <param name="visible" value="!Skin.HasSetting(DisableNetflixView) + !Skin.HasSetting(DisableNetflixShowcaseOverlay) + !Player.HasVideo + [Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(509)]" />
+            <param name="visible" value="!Skin.HasSetting(DisableNetflixView) + !Skin.HasSetting(DisableNetflixShowcaseOverlay) + !Player.HasVideo + [Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(509) | Window.IsVisible(DialogVideoInfo.xml)]" />
           </include>
 
         <!-- Add Ratings below Fanart -->
@@ -2579,11 +2611,13 @@
           <texture background="true" diffuse="diffuse/landscape.png">$INFO[ListItem.Property(background)]</texture>
           <visible>!String.IsEmpty(ListItem.Property(background))</visible>
         </control>
+<!--
         <control type="image">
           <bordersize>10</bordersize>
           <texture colordiffuse="69000000" background="true">diffuse/landscape.png</texture>
           <visible>!String.IsEmpty(ListItem.Property(background))</visible>
         </control>
+-->
         <control type="image">
           <bordersize>10</bordersize>
           <texture colordiffuse="79000000" background="true">diffuse/landscape.png</texture>
@@ -2659,11 +2693,13 @@
           <texture background="true" diffuse="diffuse/landscape.png">$INFO[ListItem.Property(background)]</texture>
           <visible>!String.IsEmpty(ListItem.Property(background))</visible>
         </control>
+<!--
         <control type="image">
           <bordersize>10</bordersize>
           <texture colordiffuse="69000000" background="true">diffuse/landscape.png</texture>
           <visible>!String.IsEmpty(ListItem.Property(background))</visible>
         </control>
+-->
         <control type="image">
           <bordersize>10</bordersize>
           <texture colordiffuse="79000000" background="true">diffuse/landscape.png</texture>
@@ -2805,6 +2841,7 @@
     <param name="showfocuslabel" default="true" />
     <param name="visible" default="true" />
     <param name="left" default="$PARAM[pad]" />
+    <param name="circlewidget" default="false" />
     <definition>
       <control type="group">
         <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
@@ -2863,7 +2900,8 @@
           <ondown>$PARAM[ondown]</ondown>
           <include>Animation_FadeInOut</include>
           <animation effect="fade" start="100" end="0" time="0" condition="Container($PARAM[id]).IsUpdating">Conditional</animation>
-          <include content="View_Actor_Layout">
+	  <include condition="$PARAM[circlewidget]">Object_CircleWidget</include>
+          <include content="View_Actor_Layout" condition="!$PARAM[circlewidget]">
             <param name="id" value="$PARAM[id]" />
             <param name="infolabel" value="$PARAM[infolabel]" />
             <param name="label2" value="$PARAM[label2]" />
@@ -2891,6 +2929,80 @@
       </control>
     </definition>
   </include>
+	
+
+  <!-- cr to Titan Bingie mode-->
+  <include name="Object_CircleWidget">
+       <top>40</top>
+       <height>350</height>
+       <preloaditems>2</preloaditems>
+       <orientation>horizontal</orientation>
+       <scrolltime tween="quadratic">400</scrolltime>
+        <itemlayout height="400" width="300">
+                  <control type="group">
+                          <height>250</height>
+                          <width>250</width>
+                          <include content="Circle_CastWidget">
+                                  <param name="colordiffuse" value="white" />
+                                  <param name="autoscroll" value="false" />
+                                  <param name="bordersize_bg" value="1" />
+                          </include>
+                  </control>
+          </itemlayout>
+          <focusedlayout height="400" width="300">
+                  <control type="group">
+                          <height>250</height>
+                          <width>250</width>
+                          <include>Focus_Zoom_Animation</include>
+		          <animation type="Focus" reversible="false">
+			      <effect type="zoom" end="105" time="75" tween="sine" easing="out" center="auto" />
+			      <effect type="zoom" end="95.2380952" time="225" tween="sine" delay="100" easing="out" center="auto" />
+		          </animation>
+                          <control type="group">
+                                  <include content="Circle_CastWidget">
+                                          <param name="colordiffuse" value="white" />
+                                          <param name="autoscroll" value="true" />
+                                          <param name="bordersize_bg" value="4" />
+                                  </include>
+                          </control>
+                  </control>
+          </focusedlayout>
+   </include>
+
+        <include name="Circle_CastWidget">
+            <param name="colordiffuse" default="white" />
+            <param name="autoscroll" default="true" />
+            <param name="bordersize_bg" default="4" />
+	    <definition>
+                <control type="image">
+                        <description>Fallback aspect keep</description>
+                        <bordertexture colordiffuse="$PARAM[colordiffuse]">diffuse/roundmask.png</bordertexture>
+                        <texture background="true" diffuse="diffuse/roundmask.png" fallback="defaultactor.png">$VAR[Image_Poster]</texture>
+			<aspectratio>stretch</aspectratio>
+                        <bordersize>$PARAM[bordersize_bg]</bordersize>
+                </control>
+
+                <control type="group">
+                        <control type="textbox">
+                                <autoscroll delay="2000" time="1500" repeat="1500">$PARAM[autoscroll]</autoscroll>
+                                <top>101%</top>
+                                <left>10</left>
+                                <right>10</right>
+                                <wrapmultiline>true</wrapmultiline>
+                                <height>80</height>
+                                <font>Plot529</font>
+                                <align>center</align>
+                                <aligny>center</aligny>
+                                <textcolor>grey</textcolor>
+                                <selectedcolor>white</selectedcolor>
+                                <label>$INFO[ListItem.Label,[B],[/B]][CR][COLOR=grey]$INFO[ListItem.Label2][/COLOR]</label>
+                        </control>
+                </control>
+	    </definition>
+        </include>
+
+
+
   <include name="Object_VideoInfo_CastList_Content_NextUp">
     <content limit="3" sortby="playcount" sortorder="ascending">videodb://inprogresstvshows/$INFO[ListItem.DBID]/-2/?tvshowid=$INFO[ListItem.DBID]</content>
   </include>
@@ -5353,7 +5465,7 @@
 
   <include name="netflix_infoline">
     <control type="group">
-      <visible>[$EXP[DBTvideos] + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(660) + !String.IsEqual(Container($PARAM[id]).ListItem.Container($PARAM[id]).Label,See More...) + !String.IsEqual(Container($PARAM[id]).ListItem.Container($PARAM[id]).Label,Next)] | [String.Contains(Container($PARAM[id]).ListItem.FolderPath,plugin.video.youtube)]</visible>
+      <visible>[$EXP[DBTvideos] + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(660) + !String.IsEqual(Container($PARAM[id]).ListItem.Container($PARAM[id]).Label,See More...) + !String.IsEqual(Container($PARAM[id]).ListItem.Container($PARAM[id]).Label,Next)] | [String.Contains(Container($PARAM[id]).ListItem.FolderPath,plugin.video.youtube)] | Window.IsVisible(DialogVideoInfo.xml)</visible>
       <height>60</height>
       <control type="grouplist">
         <orientation>horizontal</orientation>

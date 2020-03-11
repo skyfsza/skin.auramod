@@ -196,7 +196,6 @@
         <visible>!String.Contains(ListItem.Path,plugin://plugin.video.youtube)</visible>
       </control>
       <control type="group">
-        <animation effect="slide" end="0,20" time="0" condition="Skin.HasSetting(DisableNetflixSmallWidget)">Conditional</animation>
         <visible>String.IsEqual(ListItem.DBType,episode) + [!String.IsEmpty(ListItem.Art(clearlogo)) | !String.IsEmpty(ListItem.Art(tvshow.clearlogo))] + !Skin.HasSetting(WidgetLabels)</visible>
         <control type="image">
           <left>0</left>
@@ -459,7 +458,6 @@
           <width>50%</width>
           <height>50%</height>
           <aspectratio>keep</aspectratio>
-          <animation effect="slide" start="0" end="0,40" time="0" condition="String.IsEmpty(ListItem.Episode) | Skin.HasSetting(WidgetLabels)">Conditional</animation>
           <texture background="true">$VAR[Widget_ClearLogo]</texture>
           <visible>!Skin.HasSetting(DisableNetflixSmallWidget) + !Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
         </control>
@@ -603,7 +601,6 @@
           <width>50%</width>
           <height>50%</height>
           <aspectratio>keep</aspectratio>
-          <animation effect="slide" start="0" end="0,40" time="0" condition="String.IsEmpty(ListItem.Episode) | Skin.HasSetting(WidgetLabels)">Conditional</animation>
           <texture background="true">$VAR[Widget_ClearLogo]</texture>
           <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
         </control>
@@ -687,14 +684,22 @@
         <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$VAR[Image_Fanart]</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
         <visible>!String.Contains(ListItem.Path,plugin://plugin.video.youtube)</visible>
+        <visible>!String.IsEmpty(ListItem.Art(landscape)) | [!String.IsEmpty(ListItem.Art(fanart)) + !String.Contains(ListItem.Art(fanart),plugin.video.themoviedb.helper/fanart.jpg)] | !String.IsEmpty(ListItem.Art(thumb))</visible>
       </control>
       <control type="image">
         <texture fallback="DefaultFanartFallback.jpg" diffuse="diffuse/widgetlandscape.png" background="true">$INFO[ListItem.Icon]</texture>
         <aspectratio scalediffuse="false">scale</aspectratio>
         <visible>String.Contains(ListItem.Path,plugin://plugin.video.youtube)</visible>
       </control>
+	<control type="image">
+	  <height>99%</height>
+	  <texture background="true">$INFO[ListItem.Art(poster)]</texture>
+	  <aspectratio>keep</aspectratio>
+	  <visible>String.IsEmpty(ListItem.Art(landscape)) + [String.IsEmpty(ListItem.Art(fanart)) | String.Contains(ListItem.Art(fanart),plugin.video.themoviedb.helper/fanart.jpg)] + String.IsEmpty(ListItem.Art(thumb)) + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))</visible>
+	</control>
+
       <control type="group">
-        <visible>[Control.IsVisible(505) | Control.HasFocus(5055)] + String.IsEmpty(Container(5055).ListItem.Art(fanart)) + String.IsEmpty(Container(5055).ListItem.Year) + [String.IsEmpty(Container(5055).ListItem.TvShowTitle) | String.IsEmpty(Container(5055).ListItem.Title)]</visible>
+        <visible>[[Control.IsVisible(505) | Control.HasFocus(5055)] + String.IsEmpty(Container(5055).ListItem.Art(fanart)) + String.IsEmpty(Container(5055).ListItem.Year) + [String.IsEmpty(Container(5055).ListItem.TvShowTitle) | String.IsEmpty(Container(5055).ListItem.Title)]] | [String.IsEmpty(ListItem.Art(landscape)) + [String.IsEmpty(ListItem.Art(fanart)) | String.Contains(ListItem.Art(fanart),plugin.video.themoviedb.helper/fanart.jpg)] + String.IsEmpty(ListItem.Art(thumb)) + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + String.IsEmpty(ListItem.Art(poster)]</visible>
         <control type="image">
           <texture background="true">common/widget_blank.png</texture>
         </control>
@@ -783,7 +788,6 @@
         <aspectratio scalediffuse="false">stretch</aspectratio>
       </control>
       <control type="group">
-        <animation effect="slide" end="0,20" time="0" condition="Skin.HasSetting(DisableNetflixSmallWidget)">Conditional</animation>
         <visible>Skin.HasSetting(WidgetLabels) + String.IsEqual(ListItem.DBType,episode)</visible>
         <control type="image">
           <left>0</left>
@@ -811,7 +815,6 @@
           <width>45%</width>
           <height>45%</height>
           <aspectratio>keep</aspectratio>
-          <animation effect="slide" start="0" end="0,40" time="0" condition="String.IsEmpty(ListItem.Episode) | Skin.HasSetting(WidgetLabels)">Conditional</animation>
           <texture background="true">$VAR[Widget_ClearLogo]</texture>
           <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)] + !String.Contains(ListItem.Art(landscape),fanart.tv) + !String.Contains(ListItem.Art(landscape),fanart.tv) + !String.Contains(ListItem.Art(landscape),userdata)</visible>
         </control>
@@ -824,7 +827,6 @@
           <width>45%</width>
           <height>45%</height>
           <aspectratio>keep</aspectratio>
-          <animation effect="slide" start="0" end="0,40" time="0" condition="String.IsEmpty(ListItem.Episode) | Skin.HasSetting(WidgetLabels)">Conditional</animation>
           <texture background="true">$VAR[Widget_ClearLogo]</texture>
           <visible>!Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
         </control>
@@ -1357,11 +1359,17 @@
         <animation  effect="slide" start="0,0" end="602.22,0" time="0" condition="$PARAM[landscapecondition] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide))">Conditional</animation>
         <animation  effect="zoom" start="0,100" end="100,100" time="400" condition="$PARAM[landscapecondition] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide))">Conditional</animation>
 
-          <include content="top" condition="$PARAM[postercondition]">
+          <include content="top" condition="$PARAM[postercondition] + Skin.HasSetting(AuraHubSpacingSmall)">
             <param name="top" value="-387" />
           </include>
-          <include content="top" condition="$PARAM[landscapecondition]">
+          <include content="top" condition="$PARAM[postercondition] + !Skin.HasSetting(AuraHubSpacingSmall)">
+            <param name="top" value="-435" />
+          </include>
+          <include content="top" condition="$PARAM[landscapecondition] + Skin.HasSetting(AuraHubSpacingSmall)">
             <param name="top" value="-365" />
+          </include>
+          <include content="top" condition="$PARAM[landscapecondition] + !Skin.HasSetting(AuraHubSpacingSmall)">
+            <param name="top" value="-425" />
           </include>
           <include content="left" condition="$PARAM[postercondition]">
             <param name="left" value="5" />
@@ -1377,6 +1385,7 @@
           </include>
         <visible>$PARAM[InfoSlide] + !$PARAM[Showcase] + [$PARAM[postercondition] | $PARAM[landscapecondition]] + Control.HasFocus($PARAM[id]) + !String.IsEmpty(Window(Home).Property(widgetslide))</visible>
 
+        <include condition="!Skin.HasSetting(AuraHubSpacingSmall)">AuraWidget_Items_Default</include>
         <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapenetflixcondition] + Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscapesmall_Big_Height</include>
         <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapenetflixcondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscapesmall_Big_Height_small</include>
         <include condition="Skin.HasSetting(AuraHubSpacingSmall) + $PARAM[landscapecondition] + !Skin.HasSetting(SubmenuLabel)">AuraWidget_Items_Landscape_Big_Height_small</include>
@@ -1387,8 +1396,11 @@
 	  <include content="height" condition="$PARAM[postercondition]">
 	    <param name="height" value="97%" />
 	  </include>
-          <include content="height" condition="$PARAM[landscapecondition]">
+          <include content="height" condition="$PARAM[landscapecondition] + Skin.HasSetting(AuraHubSpacingSmall)">
             <param name="height" value="92%" />
+          </include>
+          <include content="height" condition="$PARAM[landscapecondition] + !Skin.HasSetting(AuraHubSpacingSmall)">
+            <param name="height" value="75%" />
           </include>
 	<top>5</top>
 	<include condition="$PARAM[postercondition]">Widget_Items_LandscapeDetails_Focused</include>

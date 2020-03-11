@@ -952,6 +952,26 @@
                             <onclick>Skin.ToggleSetting(DisableNetflixVideoInfo)</onclick>
                             <onclick condition="Skin.HasSetting(EnableVideoInfoAutoplay)">Skin.ToggleSetting(EnableVideoInfoAutoplay)</onclick>
                         </control>
+                        <control type="radiobutton" id="96311" description="Disable Info Overlay">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label> - Enable Info overlay box</label>
+                            <visible>!Skin.HasSetting(DisableNetflixHome) + Skin.HasSetting(DisableNetflixVideoInfo)</visible>
+                            <enable>!Skin.HasSetting(DisableNetflixHome)</enable>
+                            <selected>!Skin.HasSetting(DisableVideoInfoOverlay)</selected>
+                            <onclick>Skin.ToggleSetting(DisableVideoInfoOverlay)</onclick>
+                        </control>
+                      <control type="radiobutton" id="96312" description="Disable Info Overlay">
+                            <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
+                            <include>Defs_Settings_Button</include>
+                            <label> - Use round style actor thumbs</label>
+                            <visible>!Skin.HasSetting(DisableNetflixHome) + Skin.HasSetting(DisableNetflixVideoInfo)</visible>
+                            <enable>!Skin.HasSetting(DisableNetflixHome)</enable>
+                            <selected>!Skin.HasSetting(DisableVideoInfoRound)</selected>
+                            <onclick>Skin.ToggleSetting(DisableVideoInfoRound)</onclick>
+                        </control>
+
+
                         <control type="button" id="95110" description="Configure VideoInfo">
                             <visible>Integer.IsEqual(Window.Property(CurrentFocus),9005)</visible>
                             <include>Defs_Settings_Button</include>

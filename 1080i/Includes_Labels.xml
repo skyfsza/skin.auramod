@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	
+
+    <variable name="videoinfo_seasoneps">
+      <value condition="String.IsEmpty(Container(9502).ListItem.FolderPath">$VAR[seasons_content_videoinfo]</value>
+      <value condition="!String.IsEmpty(Container(9502).ListItem.FolderPath">$INFO[Container(9502).ListItem.FolderPath]</value>
+    </variable>
+
+    <variable name="studio">
+        <value condition="!String.IsEmpty(ListItem.Studio) + !String.Contains(ListItem.Studio,/)">$INFO[ListItem.Studio,resource://resource.images.studios.white/,.png]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))">$INFO[Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name),resource://resource.images.studios.white/,.png]</value>
+	<value>$INFO[ListItem.Studio,resource://resource.images.studios.white/,.png]</value>
+    </variable>
+
     <variable name="landscapewideprogress">
 	<value condition="String.IsEqual(ListItem.DBType,episode)">Watch S$INFO[ListItem.Season]:E$INFO[ListItem.Episode]</value>
 	<value condition="String.IsEqual(ListItem.DBType,movie)">Continue</value>
@@ -86,7 +97,8 @@
     </variable>
 
     <variable name="nextup_content_videoinfo">
-         <value condition="String.IsEqual(ListItem.DBType,tvshow) + String.IsEmpty(ListItem.DBID)">plugin://plugin.video.themoviedb.helper/?info=trakt_upnext&amp;tmdb_id=$INFO[ListItem.Property(tmdb_id)]&amp;type=tv</value>
+         <value condition="String.IsEqual(ListItem.DBType,tvshow) + String.IsEmpty(ListItem.DBID)">plugin://plugin.video.themoviedb.helper/?info=trakt_upnext&amp;tmdb_id=$INFO[ListItem.Property(tmdb_id)]&amp;type=tv&amp;fanarttv=false</value>
+         <value condition="String.IsEqual(ListItem.DBType,episode) + String.IsEmpty(ListItem.DBID)">plugin://plugin.video.themoviedb.helper/?info=trakt_upnext&amp;tmdb_id=$INFO[ListItem.Property(tvshow.tmdb_id)]&amp;type=tv</value>
     </variable>
 
     <variable name="similar_movie_content">

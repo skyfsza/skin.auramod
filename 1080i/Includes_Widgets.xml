@@ -62,6 +62,7 @@
                 <left>60</left>
                 <animation effect="fade" start="0" end="100" time="1500" delay="50">Visible</animation>
                 <visible>!Container(1505).OnNext + !Container(1505).OnScrollNext</visible>
+		<visible>Control.IsVisible(1505)</visible>
                 <include content="Spotlight_AuraWidget_info" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(EnableTVWidgetSpotlight)">
                   <param name="id" value="1505" />
                 </include>
@@ -80,6 +81,7 @@
                 <left>60</left>
                 <animation effect="fade" start="0" end="100" time="1500" delay="50">Visible</animation>
                 <visible>!Container(1506).OnNext + !Container(1506).OnScrollNext</visible>
+                <visible>Control.IsVisible(1506)</visible>
                 <include content="Spotlight_AuraWidget_info" condition="Skin.HasSetting(EnableSpotlight) + !Skin.HasSetting(EnableWidgetSpotlight)">
                   <param name="id" value="1506" />
                 </include>
@@ -875,7 +877,6 @@
     <param name="top" default="0" />
     <param name="height" default="480" />
     <definition>
-      <animation effect="fade" start="100" end="0" time="200" condition="Control.HasFocus(3022) | Control.HasFocus(30221)">Conditional</animation>
       <include content="Widget_Common_Submenu">
         <param name="top" value="$PARAM[top]" />
         <param name="height" value="$PARAM[height]" />

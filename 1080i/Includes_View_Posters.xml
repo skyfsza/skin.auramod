@@ -1351,7 +1351,7 @@
                 </control>
                 <control type="label">
                   <top>230</top>
-                  <label>$INFO[ListItem.Duration]m  Aired $INFO[ListItem.Premiered(DDD MMM yyyy)]</label>
+                  <label>$INFO[Container(50221).ListItem.Duration,,m]  Aired $INFO[ListItem.Premiered(DDD MMM yyyy)]</label>
                   <height>80</height>
                   <aligny>top</aligny>
                   <textcolor>grey</textcolor>
@@ -1455,7 +1455,7 @@
                 </control>
                 <control type="label">
                   <top>230</top>
-                  <label>$INFO[ListItem.Duration]m  Aired $INFO[ListItem.Premiered(DDD MMM yyyy)]</label>
+                  <label>$INFO[Container(50221).ListItem.Duration,,m]  Aired $INFO[ListItem.Premiered(DDD MMM yyyy)]</label>
                   <height>80</height>
                   <aligny>top</aligny>
                   <textcolor>darkgrey</textcolor>
@@ -2255,10 +2255,18 @@
             <width>350</width>
 	    <left>10</left>
             <control type="image">
+	      <top>5</top>
+              <align>left</align>
+              <aspectratio align="left" aligny="top">stretch</aspectratio>
+              <texture background="true" colordiffuse="FFFFFFFF">home_focus.png</texture>
+              <visible>!Control.HasFocus(504)</visible>
+            </control>
+            <control type="image">
               <align>left</align>
               <aspectratio align="left" aligny="top">stretch</aspectratio>
            <!--   <texture background="true" border="10" colordiffuse="FFFFFFFF">common/selectbox.png</texture> -->
               <texture background="true" colordiffuse="grey">diffuse/landscape.png</texture>
+              <visible>Control.HasFocus(504)</visible>
             </control>
           </control>
           <control type="label">
@@ -2267,6 +2275,15 @@
             <align>left</align>
             <font>font_small_bold</font>
             <textcolor>black</textcolor>
+            <visible>Control.HasFocus(504)</visible>
+          </control>
+          <control type="label">
+            <left>30</left>
+            <label>$INFO[ListItem.Label]</label>
+            <align>left</align>
+            <font>font_small_bold</font>
+            <textcolor>white</textcolor>
+            <visible>!Control.HasFocus(504)</visible>
           </control>
           <control type="label">
             <right>30</right>

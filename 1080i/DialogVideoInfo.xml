@@ -36,7 +36,7 @@
 	</control>
         <control type="group">
         <include>Global_Background</include>
-        <visible>ControlGroup(9000).HasFocus</visible>
+        <visible>ControlGroup(9000).HasFocus | Control.HasFocus(300)</visible>
         </control>
     <include condition="Skin.HasSetting(DisableNetflixVideoInfo)">DialogVideoInfo_Aura</include>
     <include condition="!Skin.HasSetting(DisableNetflixVideoInfo)">DialogVideoInfo_Netflix</include>

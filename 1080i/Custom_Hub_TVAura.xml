@@ -68,6 +68,9 @@
 	<onup>5055</onup>
 	<ondown>5055</ondown>
         <include>skinshortcuts-template-aurahubtv</include>
+	<control type="label" id="331">
+	<height>30</height>
+	</control>
     </control>
 
 	<include content="mainmenu_hub" condition="Skin.HasSetting(DisableMainMenuHubs)">
@@ -78,7 +81,7 @@
 
   <include content="Object_UpDownInfoArrows">
      <param name="id" value="5055" />
-     <param name="top" value="90" />
+     <param name="top" value="60" />
   </include>
 
   </controls>

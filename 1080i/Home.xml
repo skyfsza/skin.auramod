@@ -106,8 +106,6 @@
     </control>
     <include>fadelabel_spotlight_list_tv</include>
     <include>fadelabel_spotlight_list_movies</include>
-    <include condition="Skin.HasSetting(EnableSuggestedWidget)">similar_movies_list</include>
-    <include condition="Skin.HasSetting(EnableSuggestedWidget)">similar_tv_list</include>
     <control type="button" id="4000">
       <visible allowhiddenfocus="true">false</visible>
       <width>1</width>

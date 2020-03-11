@@ -903,8 +903,24 @@
                             <label>$INFO[Container(300).ListItem.Label]</label> 
                             <visible>Control.HasFocus(300)</visible>
                         </control>
+                        <control type="label">
+                            <top>0</top>
+                            <width>auto</width>
+                            <font>font_topbar</font>
+                            <textcolor>main_fg_100</textcolor>
+                            <label>Information</label>
+                            <visible>!Control.HasFocus(300) + Window.IsVisible(DialogVideoInfo.xml)</visible>
+                        </control>
                     </control>
-                
+	        <control type="image">
+		  <top>-40</top>
+	          <height>125.5</height>
+	          <align>left</align>
+            	  <centerleft>50%</centerleft>
+                  <aspectratio align="center" aligny="center">keep</aspectratio>
+	          <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
+	          <visible>!Control.HasFocus(300) + !Control.HasFocus(30222)</visible>
+	        </control>                
                     <!-- Right Info -->
                     <control type="grouplist">
                         <right>view_pad</right>

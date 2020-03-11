@@ -155,7 +155,7 @@
 
             <!-- Texture Overlay -->
             <control type="group">
-		<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+		<visible>![Window.IsVisible(DialogVideoInfo.xml) + !Skin.HasSetting(DisableNetflixVideoInfo)]</visible>
                 <animation effect="fade" condition="Control.HasFocus(9602)" start="100" end="0" delay="200" time="300" reversible="false">Conditional</animation>
                 <animation effect="fade" condition="!Control.HasFocus(9602)" start="0" end="100" delay="0" time="300" reversible="false">Conditional</animation>
                 <control type="image">

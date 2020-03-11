@@ -379,6 +379,8 @@
     <propertySettings toggle="widgetControl" buttonID="9911" title="Widget Control" />
     <propertySettings toggle="widgetShowcase" buttonID="9912" title="Widget Showcase" />
     <propertySettings toggle="widgetLandscapewidebg" buttonID="99105" title="Widget Landscapewide BG" />
+    <propertySettings toggle="widgetspotlight" buttonID="9913" title="Widget Spotlight" />
+    <propertySettings toggle="widgetnetflix" buttonID="99139" title="Widget Netflix" />
     <propertySettings toggle="widgetInfoSlide" buttonID="99131" title="Widget Info Slide" />
     <propertySettings toggle="widgetShowcasehide" buttonID="99121" title="Widget Showcase Hide" />
     <propertySettings toggle="widgetmylistposition" buttonID="99104" title="Widget Control" />
