@@ -650,6 +650,8 @@
             <property name="widgetControl" tag="property" attribute="name|widgetControl" />
             <property name="widgetControl">fixedlist</property>
 
+            <property name="widgetInfoSlide" tag="property" attribute="name|widgetInfoSlide" />
+            <property name="widgetInfoSlide">false</property>
             <property name="widgetLandscapewidebg" tag="property" attribute="name|widgetLandscapewidebg" />
             <property name="widgetLandscapewidebg">false</property>
             <property name="widgetHubAspect" tag="property" attribute="name|widgetHubAspect" />
@@ -953,6 +955,8 @@
             <property name="widgetShowcasehide">false</property>
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
+            <property name="widgetInfoSlide" tag="property" attribute="name|widgetInfoSlide" />
+            <property name="widgetInfoSlide">false</property>
 
             <property name="aspectratio" tag="property" attribute="name|widgetHubAspect" value="SquareLabel">keep</property>
             <property name="aspectratio">scale</property>
@@ -1247,6 +1251,8 @@
             <property name="widgetShowcasehide">false</property>
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
+            <property name="widgetInfoSlide" tag="property" attribute="name|widgetInfoSlide" />
+            <property name="widgetInfoSlide">false</property>
 
             <property name="aspectratio" tag="property" attribute="name|widgetHubAspect" value="SquareLabel">keep</property>
             <property name="aspectratio">scale</property>
@@ -1407,6 +1413,8 @@
             <property name="widgetShowcasehide">false</property>
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
+            <property name="widgetInfoSlide" tag="property" attribute="name|widgetInfoSlide" />
+            <property name="widgetInfoSlide">false</property>
 
             <property name="aspectratio" tag="property" attribute="name|widgetHubAspect" value="SquareLabel">keep</property>
             <property name="aspectratio">scale</property>
@@ -1567,6 +1575,8 @@
             <property name="widgetShowcasehide">false</property>
             <property name="widgetShowcase" tag="property" attribute="name|widgetShowcase" />
             <property name="widgetShowcase">false</property>
+            <property name="widgetInfoSlide" tag="property" attribute="name|widgetInfoSlide" />
+            <property name="widgetInfoSlide">false</property>
 
             <property name="aspectratio" tag="property" attribute="name|widgetHubAspect" value="SquareLabel">keep</property>
             <property name="aspectratio">scale</property>
