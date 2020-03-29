@@ -1261,7 +1261,7 @@
         <param name="target" value="$PARAM[target]" />
         <param name="sortby" value="$PARAM[sortby]" />
         <param name="sortorder" value="$PARAM[sortorder]" />
-        <param name="widgetContent" value="$PARAM[widgetContent]&reload=$INFO[Window(Home).Property(widgetreload)]" />
+        <param name="widgetContent" value="$PARAM[widgetContent]" />
         <param name="content" value="$PARAM[content]" />
         <param name="limit" value="$VAR[Label_WidgetItemLimit]" />
         <param name="id" value="$PARAM[id]" />

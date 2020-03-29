@@ -7663,7 +7663,7 @@
             <thumb>special://skin/extras/icons/movie.png</thumb>
           </item>
           <item>
-            <label>Home Spotlight</label>
+            <label>Home Spotlights</label>
             <onclick>ActivateWindow(1128)</onclick>
             <thumb>settings/home.png</thumb>
           </item>
