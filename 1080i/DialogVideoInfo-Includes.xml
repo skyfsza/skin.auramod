@@ -1326,9 +1326,14 @@
             <radiowidth>25</radiowidth>
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
-            <onclick condition="String.IsEmpty(ListItem.DBID) + !Window.IsVisible(1134) + ![Window.IsVisible(MyVideoNav.xml) + String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)]" >PlayMedia($ESCINFO[ListItem.FileNameAndPath])</onclick>
-            <onclick condition="String.IsEmpty(ListItem.DBID) + [Window.IsVisible(1134) | [Window.IsVisible(MyVideoNav.xml) + String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)]]" >PlayMedia($ESCINFO[ListItem.FileNameAndPath,,&amp;widget=True])</onclick>
-            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + String.IsEmpty(ListItem.DBID) + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !ListItem.IsResumable + !Control.IsVisible(33)</visible>
+            <onclick condition="!String.IsEmpty(ListItem.FileNameAndPath)">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,playmedia=$INFO[ListItem.FileNameAndPath])</onclick>
+            <onclick condition="String.IsEmpty(ListItem.DBID)">close</onclick>
+            <onclick condition="String.IsEmpty(ListItem.FileNameAndPath) + String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.Property(tmdb_id))">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,playmedia=plugin://plugin.video.themoviedb.helper/?info=play&amp;type=movie&amp;tmdb_id=$INFO[ListItem.Property(tmdb_id)])</onclick>
+            <onclick condition="String.IsEmpty(ListItem.FileNameAndPath) + String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(ListItem.Property(tvshow.tmdb_id))">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,playmedia=plugin://plugin.video.themoviedb.helper/?info=play&amp;type=episode&amp;tmdb_id=$INFO[ListItem.Property(tvshow.tmdb_id)]&amp;season=$INFO[ListItem.Season]&amp;episode=$INFO[ListItem.Episode])</onclick>
+            <onclick condition="String.IsEmpty(ListItem.FileNameAndPath) + String.IsEqual(ListItem.DBType,movie) + String.IsEmpty(ListItem.Property(tmdb_id))">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,playmedia=plugin://plugin.video.themoviedb.helper/?info=play&amp;type=movie&amp;query=$INFO[ListItem.Title])</onclick>
+            <onclick condition="String.IsEmpty(ListItem.FileNameAndPath) + String.IsEqual(ListItem.DBType,episode) + String.IsEmpty(ListItem.Property(tvshow.tmdb_id))">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,playmedia=plugin://plugin.video.themoviedb.helper/?info=play&amp;type=episode&amp;query=$INFO[ListItem.TvShowTitle]&amp;season=$INFO[ListItem.Season]&amp;episode=$INFO[ListItem.Episode])</onclick>
+
+            <!--- <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + [String.IsEmpty(ListItem.DBID) | [!String.IsEmpty(ListItem.DBID) + !String.IsEmpty(ListItem.Property(tmdb_id))] + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)]] + !ListItem.IsResumable + !Control.IsVisible(33)</visible> -->
             <label>Play $VAR[videoinfo_play_label]</label>
             <onclick>ClearProperty(BaseWindow,Home)</onclick>
           </control>
