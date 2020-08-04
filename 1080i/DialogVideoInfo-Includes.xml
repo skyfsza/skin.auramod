@@ -1413,7 +1413,7 @@
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
             <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Skin.HasSetting(VideoInfoButton.MoreEps) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.Property(DBTYPE),tvshow) | String.IsEqual(Window(Home).Property(ListItem.DBTYPE,tvshow)) | String.IsEqual(Window(Home).Property(ListItem.Property(DBTYPE)),tvshow)]</visible>
-            <label>More Episodes</label>
+            <label>Episodes</label>
             <onclick>Skin.SetString(AddonContainer,false)</onclick>
             <onclick>close</onclick>
             <onclick condition="Skin.HasSetting(EnableShowInfo) + Window.IsVisible(1138)">ActivateWindow(Home)</onclick>
@@ -1431,7 +1431,7 @@
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
             <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Skin.HasSetting(VideoInfoButton.MoreEps) + !String.IsEmpty(ListItem.Property(tvshow.trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)</visible>
-            <label>More Episodes</label>
+            <label>Episodes</label>
             <onclick>Skin.SetString(AddonContainer,false)</onclick>
             <onclick>close</onclick>
             <onclick condition="Skin.HasSetting(EnableShowInfo) + Window.IsVisible(1138)">ActivateWindow(Home)</onclick>
