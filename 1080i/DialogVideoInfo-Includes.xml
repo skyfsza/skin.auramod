@@ -1431,7 +1431,7 @@
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
             <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Skin.HasSetting(VideoInfoButton.MoreEps) + !String.IsEmpty(ListItem.Property(tvshow.trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)</visible>
-            <label>Episodes</label>
+            <label>More Episodes</label>
             <onclick>Skin.SetString(AddonContainer,false)</onclick>
             <onclick>close</onclick>
             <onclick condition="Skin.HasSetting(EnableShowInfo) + Window.IsVisible(1138)">ActivateWindow(Home)</onclick>
