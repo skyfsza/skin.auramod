@@ -452,12 +452,12 @@
       </control>
       <control type="group">
         <!-- Add Clearlogo to landscape Image -->
-        <control type="image">
-          <bottom>35</bottom>
-          <left>10</left>
-          <width>50%</width>
-          <height>50%</height>
-          <aspectratio>keep</aspectratio>
+          <control type="image">
+          <top>202</top>
+          <left>210</left>
+          <width>37%</width>
+          <height>37%</height>
+          <aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
           <texture background="true">$VAR[Widget_ClearLogo]</texture>
           <visible>!Skin.HasSetting(DisableNetflixSmallWidget) + !Skin.HasSetting(DisableBanners) + Skin.HasSetting(DisableClearlogo) + String.IsEqual(ListItem.DBType,episode)</visible>
         </control>
