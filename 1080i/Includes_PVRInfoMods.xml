@@ -195,7 +195,7 @@
 				<top>944</top>
 				<width>1170</width>
 				<height>12</height>
-				<info>Player.Progress</info>
+				<info>PVR.EpgEventProgress</info>
 				<colordiffuse>88FFFFFF</colordiffuse>
 		                <texturebg colordiffuse="cc515151" border="0">colors/color_white.png</texturebg>
             		        <lefttexture/>
