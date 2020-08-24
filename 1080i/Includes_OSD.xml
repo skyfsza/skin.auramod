@@ -190,8 +190,8 @@
 
     <include name="OSD_VideoPosition">
         <align>center</align>
-        <height>view_pad</height>        
-        <bottom>40</bottom>
+        <height>view_pad</height>
+        <bottom>30</bottom>
     </include>
     <include name="OSD_MusicPosition">
         <left>300</left>
@@ -242,7 +242,7 @@
                         <right>view_pad</right>
                         <height>580</height>
                         <bottom>158</bottom>
-			<visible>!Window.IsVisible(1122)</visible>
+                        <visible>!Window.IsVisible(1122)</visible>
                         <control type="grouplist">
                             <left>0</left>
                             <usecontrolcoords>true</usecontrolcoords>
@@ -255,7 +255,7 @@
                                 <height>281</height>
                                 <usecontrolcoords>true</usecontrolcoords>
                                 <control type="label">
-				    <top>181</top>
+                                    <top>181</top>
                                     <aligny>top</aligny>
                                     <height>100</height>
                                     <width>1430</width>
@@ -265,12 +265,12 @@
                                     <label>$VAR[Label_OSD_Title]</label>
                                 </control>
                               <control type="image">
-				   <bottom>30</bottom>
+                                   <bottom>30</bottom>
                                    <right>0</right>
                                    <width>500</width>
                                    <texture background="true">$VAR[Image_Player_Clearart]</texture>
                                    <aspectratio>keep</aspectratio>
-		                   <visible>Skin.HasSetting(ShowOSDClearArt) + !Control.IsVisible(5004)</visible>
+                           <visible>Skin.HasSetting(ShowOSDClearArt) + !Control.IsVisible(5004)</visible>
                                 </control>
                             </control>
                             <control type="grouplist">
@@ -495,20 +495,51 @@
             <description>Subs</description>
             <width>48</width>
             <height>48</height>
-            <label/>
-            <font/>
+            <label>$VAR[Label_OSD_SubtitlesLanguage]</label>
+            <font>font_osd_lang</font>
+            <focusedcolor>$VAR[ColorHighlight]</focusedcolor>
+            <shadowcolor>Shadow</shadowcolor>
+            <align>right</align>
+            <aligny>top</aligny>
+            <textoffsetx>0</textoffsetx>
             <texturefocus colordiffuse="$VAR[ColorHighlight]">osd/subs.png</texturefocus>
             <texturenofocus colordiffuse="main_fg_70">osd/subs.png</texturenofocus>
+            <onfocus condition="!String.IsEmpty(Window(Home).Property(OSDExtendedInfo)) + Player.Paused">Play</onfocus>
+            <onfocus condition="!String.IsEmpty(Window(Home).Property(OSDExtendedInfo))">ClearProperty(OSDExtendedInfo,Home)</onfocus>
+            <onfocus>ClearProperty(OSD_Menu,Home)</onfocus>
             <onclick condition="Skin.HasSetting(OSDSubtitleSettings)">ActivateWindow(osdsubtitlesettings)</onclick>
             <onclick condition="!Skin.HasSetting(OSDSubtitleSettings) + VideoPlayer.HasSubtitles">NextSubtitle</onclick>
             <onclick condition="!Skin.HasSetting(OSDSubtitleSettings) + !VideoPlayer.HasSubtitles">Close</onclick>
             <onclick condition="!Skin.HasSetting(OSDSubtitleSettings) + !VideoPlayer.HasSubtitles">ActivateWindow(SubtitleSearch)</onclick>
-            <onfocus condition="!String.IsEmpty(Window(Home).Property(OSDExtendedInfo)) + Player.Paused">Play</onfocus>
-            <onfocus condition="!String.IsEmpty(Window(Home).Property(OSDExtendedInfo))">ClearProperty(OSDExtendedInfo,Home)</onfocus>
-            <onfocus>ClearProperty(OSD_Menu,Home)</onfocus>
             <visible>Window.IsVisible(videoosd)</visible>
             <visible>!VideoPlayer.Content(musicvideos)</visible>
         </control>
+        
+        <control type="button" id="10018">
+            <centertop>50%</centertop>
+            <description>Audio</description>
+            <width>48</width>
+            <height>48</height>
+            <label>$INFO[VideoPlayer.AudioLanguage,[UPPERCASE],[/UPPERCASE]]</label>
+            <textcolor>panel_fg_70</textcolor>
+            <focusedcolor>$VAR[ColorHighlight]</focusedcolor>
+            <shadowcolor>Shadow</shadowcolor>
+            <font>font_osd_lang</font>
+            <align>right</align>
+            <aligny>top</aligny>
+            <textoffsetx>0</textoffsetx>
+            <texturefocus colordiffuse="$VAR[ColorHighlight]">osd/audio-settings.png</texturefocus>
+            <texturenofocus colordiffuse="main_fg_70">osd/audio-settings.png</texturenofocus>
+            <onfocus condition="!String.IsEmpty(Window(Home).Property(OSDExtendedInfo)) + Player.Paused">Play</onfocus>
+            <onfocus condition="!String.IsEmpty(Window(Home).Property(OSDExtendedInfo))">ClearProperty(OSDExtendedInfo,Home)</onfocus>
+            <onfocus>ClearProperty(OSD_Menu,Home)</onfocus>
+            <onclick>AudioNextLanguage</onclick>
+            <include>OSD_Button_OnFocus</include>
+            <visible>Window.IsVisible(videoosd)</visible>
+            <visible>!VideoPlayer.Content(musicvideos)</visible>
+            <visible>!String.IsEmpty(VideoPlayer.AudioLanguage)</visible>
+        </control>
+        
         <control type="togglebutton" id="20">
             <usealttexture>Control.HasFocus(20) | Control.HasFocus(21) | Control.HasFocus(22)</usealttexture>
             <centertop>50%</centertop>
