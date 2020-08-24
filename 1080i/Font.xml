@@ -9,6 +9,11 @@
             <size>24</size>
         </font>
         <font>
+            <name>font_osd_lang</name>
+            <filename>RobotoCondensed-Regular.ttf</filename>
+            <size>10</size>
+        </font>
+        <font>
             <name>font_heading_top</name>
             <style>uppercase</style>
             <filename>RobotoCondensed-Light.ttf</filename>
@@ -1237,6 +1242,7 @@
             <linespacing>0.9</linespacing>
             <size>78</size>
         </font>
+
 
     </fontset>
 

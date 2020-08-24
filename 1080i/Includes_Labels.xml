@@ -90,6 +90,10 @@
          <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Consensus))">$INFO[Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Consensus)]</value>
     </variable>
 
+    <variable name="Label_OSD_SubtitlesLanguage">
+        <value condition="VideoPlayer.SubtitlesEnabled">$INFO[VideoPlayer.SubtitlesLanguage,[UPPERCASE],[/UPPERCASE]]</value>
+    </variable>
+
     <variable name="seasons_content_videoinfo">
          <value condition="String.IsEqual(ListItem.DBType,episode) + String.Contains(ListItem.FolderPath,plugin.video.seren)">plugin://plugin.video.seren/?action=showSeasons&amp;actionArgs=%7b%22item_type%22%3a%20%22show%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(tvshow.trakt_id)]%7d</value>
 	 <value condition="String.IsEqual(ListItem.DBType,tvshow) + String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">plugin://plugin.video.themoviedb.helper/?info=seasons&amp;type=tv&amp;tmdb_id=$INFO[ListItem.Property(tmdb_id)]</value>

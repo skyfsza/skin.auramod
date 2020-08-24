@@ -25,11 +25,12 @@
 	        <animation effect="slide" end="0,40" time="0" condition="!Skin.HasSetting(DisableMiniOSDChannels) + VideoPlayer.Content(livetv)">Conditional</animation>	
                 <include condition="!VideoPlayer.Content(musicvideos)">OSD_VideoPosition</include>
                 <include condition="VideoPlayer.Content(musicvideos)">OSD_MusicPosition</include>
-                <itemgap>32</itemgap>
-		<onup condition="Control.IsVisible(5004)">SetFocus(5004)</onup>
+                <itemgap>48</itemgap>
+                <onup condition="Control.IsVisible(5004)">SetFocus(5004)</onup>
                 <onup condition="!Control.IsVisible(5004) + String.IsEmpty(Window(Home).Property(OSDInfo))">SetProperty(OSDInfo,1,Home)</onup>
                 <onup condition="!Control.IsVisible(5004) + !String.IsEmpty(Window(Home).Property(OSDInfo))">ClearProperty(OSDInfo,Home)</onup>
                 <ondown condition="String.IsEmpty(Window(Home).Property(OSDInfo))">Close</ondown>
+				<onup condition="String.IsEmpty(Window(Home).Property(OSDInfo))">Close</onup>
                 <ondown condition="!String.IsEmpty(Window(Home).Property(OSDInfo))">ClearProperty(OSDInfo,Home)</ondown>
                 <orientation>horizontal</orientation>
                 <usecontrolcoords>true</usecontrolcoords>
