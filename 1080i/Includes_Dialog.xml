@@ -111,7 +111,7 @@
         <right>view_pad</right>
         <centertop>50%</centertop>
         <height>80</height>
-        <width>540</width>
+        <width>1300</width>
         <include>Animation_FadeIn_Slide</include>
         <include>Animation_FadeOut</include>
     </include>
