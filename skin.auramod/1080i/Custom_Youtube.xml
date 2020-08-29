@@ -1,0 +1,778 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="1110">
+	<backgroundcolor>ff212121</backgroundcolor>
+	<defaultcontrol always="true">11</defaultcontrol>
+	<onload>SetFocus(11)</onload>
+	<controls>
+		<control type="group">
+<!--
+			<animation type="WindowOpen">
+				<effect type="slide" start="0,1000" end="0" center="auto" tween="Cubic" easing="inout" time="200"/>
+				<effect type="zoom" start="80" end="100" center="auto" tween="Cubic" easing="inout" time="500"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="0,1000" center="auto" delay="500"  tween="Cubic" easing="inout" time="500"/>
+				<effect type="zoom" start="100" end="80" center="auto" delay="500"  tween="Cubic" easing="inout" time="200"/>
+			</animation>
+-->			
+                        <control type="image">
+                                <include>FullscreenDimensions</include>
+                                <texture colordiffuse="$VAR[YoutubeBackground]">special://home/addons/plugin.video.youtube/fanart.jpg</texture>
+                        </control>
+			<control type="button" id="1">
+				<posx>190</posx>
+				<posy>62</posy>
+				<width>1430</width>
+				<height>75</height>
+				<ondown>2</ondown>
+				<onclick>ActivateWindow(10025,&quot;plugin://plugin.video.youtube/kodion/search/input/&quot;,return)</onclick>
+			</control>
+
+			<control type="group">
+				<animation type="Conditional" condition="Control.HasFocus(22)">
+					<effect type="slide" start="0,0" end="0,-450" time="200"/>
+				</animation>
+				<animation type="Conditional" condition="Control.HasFocus(33)">
+					<effect type="slide" start="0,0" end="0,-900" time="200"/>
+				</animation>
+				<animation type="Conditional" condition="Control.HasFocus(44)">
+					<effect type="slide" start="0,0" end="0,-1350" time="200"/>
+				</animation>
+				<animation type="Conditional" condition="Control.HasFocus(55)">
+					<effect type="slide" start="0,0" end="0,-1400" time="200"/>
+				</animation>
+
+			<control type="group">
+			<control type="image">
+				<left>-500</left>
+				<top>-300%</top>
+				<width>200%</width>
+				<height>300%</height>
+				<texture colordiffuse="$VAR[YoutubeBackground]">common/white.png</texture>
+			</control>
+<!--
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture colordiffuse="$VAR[YoutubeBackground]">special://home/addons/plugin.video.youtube/fanart.jpg</texture>
+			</control>
+-->
+			<control type="image">
+				<animation type="WindowOpen" reversible="true">
+					<effect type="fade" start="90" end="100" tween="sine" easing="in" time="450" />
+				</animation>
+				<animation type="WindowClose" reversible="true">
+					<effect type="fade" start="100" end="100" tween="cubic" easing="out" time="50" />
+				</animation>
+				<posx>190</posx>
+				<posy>62</posy>
+				<width>1430</width>
+				<height>75</height>
+				<texture>custom/search.png</texture>
+			</control>
+			<control type="image">
+				<animation type="WindowOpen" reversible="true">
+					<effect type="fade" start="90" end="100" tween="sine" easing="in" time="450" />
+				</animation>
+				<animation type="WindowClose" reversible="true">
+					<effect type="fade" start="100" end="100" tween="cubic" easing="out" time="50" />
+				</animation>
+				<posx>190</posx>
+				<posy>62</posy>
+				<width>1430</width>
+				<height>75</height>
+				<texture>custom/search2.png</texture>
+				<visible>Control.HasFocus(1)</visible>
+			</control>
+
+			<control type="list" id="2">
+				<top>140</top>
+				<posx>190</posx>
+				<width>74%</width>
+				<height>40</height>
+				<onup>1</onup>
+				<ondown>11</ondown>
+				<focusposition>-1</focusposition>
+				<movement>2</movement>
+				<orientation>horizontal</orientation>
+				<viewtype>list</viewtype>
+				<scrolltime tween="sine" easing="inout">240</scrolltime>
+				<itemlayout width="400" height="40">
+					<control type="label">
+						<width>400</width>
+						<height>40</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Tile</font>
+						<textcolor>white</textcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<scroll>false</scroll>
+					</control>
+				</itemlayout>
+				<focusedlayout width="400" height="40">
+					<control type="label">
+						<width>400</width>
+						<height>40</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Tile</font>
+						<textcolor>red</textcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<scroll>true</scroll>
+						<visible>Control.HasFocus(2)</visible>
+					</control>
+					<control type="label">
+						<width>400</width>
+						<height>40</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Tile</font>
+						<textcolor>red</textcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<scroll>true</scroll>
+						<visible>!Control.HasFocus(2)</visible>
+					</control>
+				</focusedlayout>
+				<content target="videos">plugin://plugin.video.youtube/kodion/search/list/</content>
+			</control>
+		</control>
+
+
+
+				<control type="group">
+					<top>200</top>
+				<control type="label">
+					<left>20</left>
+					<width>820</width>
+					<height>25</height>
+					<font>spotifytitle</font>
+					<textcolor>white</textcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textoffsetx>5</textoffsetx>
+					<label>Trending</label>    
+				</control>
+			        <control type="group">
+					<top>-100</top>
+		                        <left>10</left>
+                                        <height>552</height>
+                 	               <include content="Defs_BusySpinner">
+                        	        <param name="label" value="$LOCALIZE[31138]..." />
+                    		       </include>
+                    	                <visible>Container(11).IsUpdating + !Integer.IsGreater(Container(11).NumItems,0)</visible>
+                		</control>
+
+				<control type="fixedlist" id="11">
+					<top>20</top>
+					<left>10</left>
+					<width>100%</width>
+					<height>552</height>
+					<onup>2</onup>
+					<ondown>22</ondown>
+					<focusposition>-1</focusposition>
+					<movement>2</movement>
+					<orientation>horizontal</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout width="560" height="400">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>550</width>
+								<height>310</height>
+								<texture background="true" fallback="color_black.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>white</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>false</scroll>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout width="560" height="400">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>550</width>
+								<height>380</height>
+								<texture colordiffuse="FF000000">common/white.png</texture>
+								<aspectratio>scale</aspectratio>
+								<visible>Control.HasFocus(11)</visible>
+							</control>
+							<control type="image">
+								<width>550</width>
+								<height>380</height>
+								<texture colordiffuse="blue">common/white.png</texture>
+								<aspectratio>scale</aspectratio>
+								<visible>Control.HasFocus(11)</visible>
+							</control>
+							<control type="image">
+								<width>550</width>
+								<height>310</height>
+								<texture background="true" fallback="color_black.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>white</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>true</scroll>
+								<visible>Control.HasFocus(11)</visible>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>white</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>true</scroll>
+								<visible>!Control.HasFocus(11)</visible>
+							</control>
+							<control type="image">
+								<left>-10</left>
+								<top>-10</top>
+								<width>570</width>
+								<height>400</height>
+								<texture colordiffuse="blue" border="40">fo.png</texture>
+								<visible>Control.HasFocus(11)</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="videos">plugin://plugin.video.youtube/special/popular_right_now/</content>
+				</control>
+				</control>
+
+			      <control type="group">
+				<top>650</top>
+                                <height>552</height>
+				<control type="label">
+					<left>20</left>
+					<width>820</width>
+					<height>25</height>
+					<font>spotifytitle</font>
+					<textcolor>white</textcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textoffsetx>5</textoffsetx>
+					<label>Live</label>    
+				</control>
+		                <control type="group">
+                                        <left>10</left>
+					<top>-100</top>
+                                       <include content="Defs_BusySpinner">
+                                        <param name="label" value="$LOCALIZE[31138]..." />
+                                       </include>
+                                        <visible>Container(22).IsUpdating + !Integer.IsGreater(Container(22).NumItems,0)</visible>
+                                </control>
+
+				<control type="fixedlist" id="22">
+					<top>20</top>
+					<left>10</left>
+					<width>100%</width>
+					<height>552</height>
+					<onup>11</onup>
+					<ondown>33</ondown>
+					<focusposition>-1</focusposition>
+					<movement>2</movement>
+					<orientation>horizontal</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout width="560" height="400">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>550</width>
+								<height>310</height>
+								<texture background="true" fallback="color_black.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>white</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>false</scroll>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout width="560" height="400">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>550</width>
+								<height>380</height>
+								<texture colordiffuse="FF000000">common/white.png</texture>
+								<aspectratio>scale</aspectratio>
+								<visible>Control.HasFocus(22)</visible>
+							</control>
+							<control type="image">
+								<width>550</width>
+								<height>380</height>
+								<texture colordiffuse="blue">common/white.png</texture>
+								<aspectratio>scale</aspectratio>
+								<visible>Control.HasFocus(22)</visible>
+							</control>
+							<control type="image">
+								<width>550</width>
+								<height>310</height>
+								<texture background="true" fallback="color_black.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>white</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>true</scroll>
+								<visible>Control.HasFocus(22)</visible>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>white</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>true</scroll>
+								<visible>!Control.HasFocus(22)</visible>
+							</control>
+							<control type="image">
+								<left>-10</left>
+								<top>-10</top>
+								<width>570</width>
+								<height>400</height>
+								<texture colordiffuse="blue" border="40">fo.png</texture>
+								<visible>Control.HasFocus(22)</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="videos">plugin://plugin.video.youtube/special/live/</content>
+				</control>
+				</control>
+
+				<control type="group">
+					<top>1100</top>
+                                	<height>552</height>
+				<control type="label">
+					<left>20</left>
+					<width>820</width>
+					<height>25</height>
+					<font>spotifytitle</font>
+					<textcolor>dimgrey</textcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textoffsetx>5</textoffsetx>
+					<label>Subscriptions</label>    
+				</control>
+
+                                <control type="group">
+                                        <left>10</left>
+					<top>-100</top>
+                                       <include content="Defs_BusySpinner">
+                                        <param name="label" value="$LOCALIZE[31138]..." />
+                                       </include>
+                                        <visible>Container(33).IsUpdating + !Integer.IsGreater(Container(33).NumItems,0)</visible>
+                                </control>
+
+				<control type="fixedlist" id="33">
+					<top>20</top>
+					<left>10</left>
+					<width>100%</width>
+					<height>552</height>
+					<onup>22</onup>
+					<ondown>44</ondown>
+					<focusposition>-1</focusposition>
+					<movement>2</movement>
+					<orientation>horizontal</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout width="330" height="410">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>320</width>
+								<height>320</height>
+								<texture background="true" fallback="color_black.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>300</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>white</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>false</scroll>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout width="330" height="410">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>320</width>
+								<height>380</height>
+								<texture colordiffuse="FF000000">common/white.png</texture>
+								<aspectratio>scale</aspectratio>
+								<visible>Control.HasFocus(33)</visible>
+							</control>
+							<control type="image">
+								<width>320</width>
+								<height>380</height>
+								<texture colordiffuse="blue">common/white.png</texture>
+								<aspectratio>scale</aspectratio>
+								<visible>Control.HasFocus(33)</visible>
+							</control>
+							<control type="image">
+								<width>320</width>
+								<height>320</height>
+								<texture background="true" fallback="color_black.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>280</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>white</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>true</scroll>
+								<visible>Control.HasFocus(33)</visible>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>280</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>white</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>true</scroll>
+								<visible>!Control.HasFocus(33)</visible>
+							</control>
+							<control type="image">
+								<left>-10</left>
+								<top>-10</top>
+								<width>340</width>
+								<height>400</height>
+								<texture colordiffuse="blue" border="40">fo.png</texture>
+								<visible>Control.HasFocus(33)</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="videos">plugin://plugin.video.youtube/subscriptions/list/</content>
+				</control>
+				</control>
+
+                                <control type="group">
+                                        <top>1550</top>
+                                        <height>552</height>
+                                <control type="label">
+                                        <left>20</left>
+                                        <width>820</width>
+                                        <height>25</height>
+                                        <font>spotifytitle</font>
+                                        <textcolor>dimgrey</textcolor>
+                                        <align>left</align>
+                                        <aligny>center</aligny>
+                                        <textoffsetx>5</textoffsetx>
+                                        <label>Recommended</label>
+                                </control>
+                                <control type="group">
+                                        <left>10</left>
+                                        <top>-100</top>
+                                       <include content="Defs_BusySpinner">
+                                        <param name="label" value="$LOCALIZE[31138]..." />
+                                       </include>
+                                        <visible>Container(44).IsUpdating + !Integer.IsGreater(Container(44).NumItems,0)</visible>
+                                </control>
+
+				<control type="fixedlist" id="44">
+					<top>20</top>
+					<left>10</left>
+					<width>100%</width>
+					<height>552</height>
+					<onup>33</onup>
+					<ondown>55</ondown>
+					<focusposition>-1</focusposition>
+					<movement>2</movement>
+					<orientation>horizontal</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout width="560" height="400">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>550</width>
+								<height>310</height>
+								<texture background="true" fallback="color_black.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>white</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>false</scroll>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout width="560" height="400">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>550</width>
+								<height>380</height>
+								<texture colordiffuse="FF000000">common/white.png</texture>
+								<aspectratio>scale</aspectratio>
+								<visible>Control.HasFocus(44)</visible>
+							</control>
+							<control type="image">
+								<width>550</width>
+								<height>380</height>
+								<texture colordiffuse="blue">common/white.png</texture>
+								<aspectratio>scale</aspectratio>
+								<visible>Control.HasFocus(44)</visible>
+							</control>
+							<control type="image">
+								<width>550</width>
+								<height>310</height>
+								<texture background="true" fallback="color_black.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>white</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>true</scroll>
+								<visible>Control.HasFocus(44)</visible>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>white</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>true</scroll>
+								<visible>!Control.HasFocus(44)</visible>
+							</control>
+							<control type="image">
+								<left>-10</left>
+								<top>-10</top>
+								<width>570</width>
+								<height>400</height>
+								<texture colordiffuse="blue" border="40">fo.png</texture>
+								<visible>Control.HasFocus(44)</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="videos">plugin://plugin.video.youtube/special/recommendations/</content>
+				</control>
+				</control>
+
+
+                                <control type="group">
+					<top>2010</top>
+                                        <height>552</height>
+				<control type="label">
+					<left>20</left>
+					<width>820</width>
+					<height>25</height>
+					<font>spotifytitle</font>
+					<textcolor>dimgrey</textcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textoffsetx>5</textoffsetx>
+					<label>History</label>    
+				</control>
+
+                                <control type="group">
+                                        <left>10</left>
+                                        <top>-100</top>
+                                       <include content="Defs_BusySpinner">
+                                        <param name="label" value="$LOCALIZE[31138]..." />
+                                       </include>
+                                        <visible>Container(55).IsUpdating + !Integer.IsGreater(Container(55).NumItems,0)</visible>
+                                </control>
+
+
+				<control type="fixedlist" id="55">
+					<top>20</top>
+					<left>10</left>
+					<width>100%</width>
+					<height>552</height>
+					<onup>44</onup>
+					<ondown>noop</ondown>
+					<focusposition>-1</focusposition>
+					<movement>2</movement>
+					<orientation>horizontal</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout width="560" height="400">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>550</width>
+								<height>310</height>
+								<texture background="true" fallback="color_black.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>white</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>false</scroll>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout width="560" height="400">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>550</width>
+								<height>380</height>
+								<texture colordiffuse="FF000000">common/white.png</texture>
+								<aspectratio>scale</aspectratio>
+								<visible>Control.HasFocus(55)</visible>
+							</control>
+							<control type="image">
+								<width>550</width>
+								<height>380</height>
+								<texture colordiffuse="blue">common/white.png</texture>
+								<aspectratio>scale</aspectratio>
+								<visible>Control.HasFocus(55)</visible>
+							</control>
+							<control type="image">
+								<width>550</width>
+								<height>310</height>
+								<texture background="true" fallback="color_black.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>white</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>true</scroll>
+								<visible>Control.HasFocus(55)</visible>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>white</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>true</scroll>
+								<visible>!Control.HasFocus(55)</visible>
+							</control>
+							<control type="image">
+								<left>-10</left>
+								<top>-10</top>
+								<width>570</width>
+								<height>400</height>
+								<texture colordiffuse="blue" border="40">fo.png</texture>
+								<visible>Control.HasFocus(55)</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="videos">plugin://plugin.video.youtube/special/watch_history_tv/</content>
+				</control>
+			</control>
+			</control>
+
+		</control>
+	</controls>
+</window>
