@@ -33,10 +33,6 @@ jobs:
           git checkout << parameters.commit_branch >>
           python create_repository.py -d ./zips /tmp/skin.auramod.zip
           find ./zips -name "*.zip" | xargs python create_repository.py -d ./zips
-      - unless:
-          condition: << parameters.overwrite >>
-          steps:
-            run: git ls-files -m ./zips/|grep -v ".zip"
       - run: |
           git add ./zips
           git commit -m "Release version ${CIRCLE_TAG-0.0.$CIRCLE_BUILD_NUM}"
