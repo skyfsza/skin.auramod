@@ -30,7 +30,6 @@
                 <onup condition="!Control.IsVisible(5004) + String.IsEmpty(Window(Home).Property(OSDInfo))">SetProperty(OSDInfo,1,Home)</onup>
                 <onup condition="!Control.IsVisible(5004) + !String.IsEmpty(Window(Home).Property(OSDInfo))">ClearProperty(OSDInfo,Home)</onup>
                 <ondown condition="String.IsEmpty(Window(Home).Property(OSDInfo))">Close</ondown>
-				<onup condition="String.IsEmpty(Window(Home).Property(OSDInfo))">Close</onup>
                 <ondown condition="!String.IsEmpty(Window(Home).Property(OSDInfo))">ClearProperty(OSDInfo,Home)</ondown>
                 <orientation>horizontal</orientation>
                 <usecontrolcoords>true</usecontrolcoords>
