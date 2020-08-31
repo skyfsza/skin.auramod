@@ -110,8 +110,8 @@
     <include name="Dialog_Notification_Group">
         <right>view_pad</right>
         <centertop>50%</centertop>
-        <height>80</height>
-        <width>1300</width>
+        <height>200</height>
+        <width>1200</width>
         <include>Animation_FadeIn_Slide</include>
         <include>Animation_FadeOut</include>
     </include>
@@ -128,6 +128,7 @@
         <left>0</left>
         <centertop>33%</centertop>
         <height>30</height>
+        <scroll>true</scroll>
         <aligny>center</aligny>
         <align>right</align>
         <font>font_notification</font>
@@ -139,11 +140,11 @@
         <right>80</right>
         <left>0</left>
         <centerbottom>33%</centerbottom>
-        <height>30</height>
+        <height>100</height>
+        <wrapmultiline>True</wrapmultiline>
         <align>right</align>
         <textcolor>main_fg_70</textcolor>
         <font>font_statusbar</font>                
-        <aligny>center</aligny>
     </include>
 
     <!-- ================ -->
