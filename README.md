@@ -1,4 +1,4 @@
-# AuraMod for Matri
+# AuraMod for Matrix
 # I no longer work on kodi or auramod  . If you notice any bugs in Matrix / kodi 19 with auramod , please submit fix's and i'll accept the PR's 
 
 To install you need to install the following deps from these locations , they are all tested to be matrix compatable . but will need to be downloaded and installed from zip.  Note that besides tmdbhelper , the order matters ! 
