@@ -1,6 +1,6 @@
-# skin.auramod
-# I no longer do much kodi stuff . If you notice any bugs in Matrix / kodi 19 with auramod , please submit fix's and i'll accept the PR's 
-
+# AuraMod for Matrix
+# I no longer work on kodi or auramod  . If you notice any bugs in Matrix / kodi 19 with auramod , please submit fix's and i'll accept the PR's 
+# Please help submit Pr's that fix any issues ! thanks !
 Auramod Skin for Kodi19 / Matrix 
 
 To install you need to install the following deps from these locations , they are all tested to be matrix compatable . but will need to be downloaded and installed from zip (most) 
