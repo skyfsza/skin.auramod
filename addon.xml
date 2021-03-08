@@ -1,9 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <addon id="skin.auramod" version="0.9.54" name="Aura[COLOR cyan]MOD[/COLOR]" provider-name="auramod,jurialmunkey,Cartmandos,marduklev,marcelveldt">
     <requires>
-        <import addon="xbmc.gui" version="5.14.0"/>
-        <import addon="repository.marcelveldt" version="1.0.2"/>
-        <import addon="repository.jurialmunkey" version="1.2"/>
+        <import addon="xbmc.gui" version="5.15.0"/>
         <import addon="script.skin.helper.service" version="1.1.24"/>
         <import addon="script.skin.helper.widgets" version="1.0.0"/>
         <import addon="script.skinshortcuts" version="1.0.20"/>
@@ -17,7 +15,7 @@
         <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i"/>
     </extension>
     <extension point="xbmc.addon.metadata">
-        <summary lang="en">Mod of aura ,  Minimalistic. Customisable. Multiple Widgets.</summary>
+        <summary lang="en">Matrix / Kodi 19 Version of Auramod with some personal mods</summary>
         <description lang="en">Aura is highly customisable skin with multiple widgets and a horizontal home menu. Aura combines the minimalism and rounded edges of Arctic Zephyr with the sleek customisability of Horizon and Titan Bingie. [COLOR cyan]Mods to Aura by skyfsza[/COLOR]</description>
         <platform>all</platform>
         <license>Creative Commons Attribution Non-Commercial Share-Alike 4.0</license>
