@@ -1,4 +1,4 @@
-# for Matrix / Kodi 19 version please see https://github.com/SerpentDrago/skin.auramod/tree/Matrix READ the readme ! 
+# for Matrix / Kodi 19 version please see https://github.com/SerpentDrago/skin.auramod/tree/Matrix 
 
 # Install Instructions for Kodi 18 version 
 
