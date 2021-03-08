@@ -3,7 +3,7 @@
 # Please help submit Pr's that fix any issues ! thanks !
 Auramod Skin for Kodi19 / Matrix 
 
-To install you need to install the following deps from these locations , they are all tested to be matrix compatable . but will need to be downloaded and installed from zip (most) besides tmdbhelper , the order matters ! 
+To install you need to install the following deps from these locations , they are all tested to be matrix compatable . but will need to be downloaded and installed from zip.  Note that besides tmdbhelper , the order matters ! 
 
 1. Install jurialmunkey repo (kodi files source ) > https://jurialmunkey.github.io/
 
