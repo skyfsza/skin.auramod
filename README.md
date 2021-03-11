@@ -23,3 +23,4 @@ First make sure This setting is on Any Repositories !!
 
 8. Install TheMovieDb helper from Jurial's repo
 
+9. install Auramod zip from this exact github (matrix branch ) 
