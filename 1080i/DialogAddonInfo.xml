@@ -2,6 +2,7 @@
 <!-- Foundation -->
 <window id="146">
     <defaultcontrol always="true">300</defaultcontrol>
+    <onload>AlarmClock(defaultcontrol,SetFocus(300),00:00,silent)</onload>
     <controls>
         
         <control type="list" id="300">
