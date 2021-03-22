@@ -447,6 +447,14 @@
         <width>2300</width>
         <include>Animation_FadeIn_Slide</include>
     </include>
+        <include name="Defs_ShadowBack_Fullscreen_volume">
+        <right>-360</right>
+        <top>-85</top>
+        <texture>common/dark-shadow-24.png</texture>
+        <height>100</height>
+        <width>500</width>
+        <include>Animation_FadeIn_Slide</include>
+    </include>
     <include name="Defs_PosterBack">
         <param name="gradientcolordiffuse" default="cfffffff" />
         <definition>
