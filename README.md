@@ -1,5 +1,5 @@
 # AuraMod for Matrix
-# I no longer do much work on kodi or auramod  . If you notice any bugs in Matrix / kodi 19 with auramod , please submit fix's and i'll accept the PR's 
+# I need all the help I  can get , if you like this skin and want to help me fix the Matrix bugs , Please lend a hand ! 
 
 To install you need to install the following deps from these locations , they are all tested to be matrix compatable . but will need to be downloaded and installed from zip.  Note that besides tmdbhelper , the order matters ! 
 
