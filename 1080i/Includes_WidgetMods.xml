@@ -699,7 +699,7 @@
 	</control>
 
       <control type="group">
-        <visible>[[Control.IsVisible(505) | Control.HasFocus(5055)] + String.IsEmpty(Container(5055).ListItem.Art(fanart)) + String.IsEmpty(Container(5055).ListItem.Year) + [String.IsEmpty(Container(5055).ListItem.TvShowTitle) | String.IsEmpty(Container(5055).ListItem.Title)]] | [String.IsEmpty(ListItem.Art(landscape)) + [String.IsEmpty(ListItem.Art(fanart)) | String.Contains(ListItem.Art(fanart),plugin.video.themoviedb.helper/fanart.jpg)] + String.IsEmpty(ListItem.Art(thumb)) + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + String.IsEmpty(ListItem.Art(poster)]</visible>
+        <visible>[[Control.IsVisible(505) | Control.HasFocus(5055)] + String.IsEmpty(Container(5055).ListItem.Art(fanart)) + String.IsEmpty(Container(5055).ListItem.Year) + [String.IsEmpty(Container(5055).ListItem.TvShowTitle) | String.IsEmpty(Container(5055).ListItem.Title)]] | [String.IsEmpty(ListItem.Art(landscape)) + [String.IsEmpty(ListItem.Art(fanart)) | String.Contains(ListItem.Art(fanart),plugin.video.themoviedb.helper/fanart.jpg)] + String.IsEmpty(ListItem.Art(thumb)) + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + String.IsEmpty(ListItem.Art(poster))]</visible>
         <control type="image">
           <texture background="true">common/widget_blank.png</texture>
         </control>
