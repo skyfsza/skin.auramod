@@ -212,11 +212,11 @@
             <include>Defs_Hidden_Button</include>
             <visible>Control.IsEnabled(7)</visible>
         </control>
-        <control type="button" id="8">
+        <control type="button" id="14">
             <description>Play button</description>
             <label>24069</label>
             <include>Defs_Hidden_Button</include>
-            <visible>Control.IsEnabled(8)</visible>
+            <visible>Control.IsEnabled(14)</visible>
         </control>
         <control type="button" id ="9">
             <label>5</label>
