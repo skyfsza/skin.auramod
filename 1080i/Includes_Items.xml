@@ -521,10 +521,10 @@
             </item>
             <!--Update -->
             <item>
-                <label>$INFO[Control.GetLabel(8)]</label>
+                <label>$INFO[Control.GetLabel(14)]</label>
                 <icon>special://skin/extras/icons/update.png</icon>
-                <onclick>SendClick(8)</onclick>
-                <visible>Control.IsEnabled(8)</visible>
+                <onclick>SendClick(14)</onclick>
+                <visible>Control.IsEnabled(14)</visible>
                 <visible>!Skin.HasSetting(global.kioskmode)</visible>
             </item>
             <!-- Dependancies -->
