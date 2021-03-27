@@ -106,7 +106,7 @@
                 <param name="widgetlivecondition" value="$PYTHON['true' if widgetAspect == 'WidgetLive' else 'false']" />
                 <param name="categorycondition" value="$PYTHON['true' if widgetAspect == 'Logo' else 'false']" />
                 <param name="squarelabelcondition" value="$PYTHON['true' if widgetAspect == 'SquareLabel' else 'false']" />
-                <param name="genrecondition" value="$PYTHON['true' if widgetAspect =='Genre' else 'false']" />
+                <param name="genrecondition" value="$PYTHON['true' if widgetAspect == 'Genre' else 'false']" />
                 <param name="submenucondition" value="$PYTHON['true' if widgetAspect == 'Submenu' else 'false']" />
                 <param name="squarecondition" value="$PYTHON['true' if widgetAspect == 'Square' else 'false']" />
                 <param name="controltype" value="$PYTHON['list' if widgetControl == 'true' and widgetShowcase == 'false' and widgetInfoSlide == 'false' else 'panel' if widgetAspect == 'LandscapePanel' else 'fixedlist']" />
