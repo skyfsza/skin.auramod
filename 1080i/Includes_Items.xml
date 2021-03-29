@@ -531,8 +531,7 @@
             <item>
                 <label>$INFO[Control.GetLabel(10)]</label>
                 <icon>special://skin/extras/icons/chart.png</icon>
-                <onclick>SetFocus(10)</onclick>
-                <onclick>Select</onclick>
+                <onclick>SendClick(10)</onclick>
                 <visible>Control.IsEnabled(10)</visible>
             </item>
             <!-- settings -->
