@@ -2,6 +2,7 @@
 <!-- Foundation -->
 <window type="window" id="1113">
     <defaultcontrol always="true">9000</defaultcontrol>
+    <onload>SetFocus(9000)</onload>
     <controls>
         <control type="button" id="9000">
             <left>-100</left>
@@ -14,6 +15,7 @@
             <width>10</width>
             <onfocus condition="!Player.HasMedia">ReplaceWindow($INFO[System.StartupWindow])</onfocus>
             <onfocus condition="Player.HasMedia">AlarmClock(tryagain,SetFocus(9002),00:01,silent)</onfocus>
+            <onback>CancelAlarm(tryagain,silent)</onback>
 	    <onback>ReplaceWindow($INFO[System.StartupWindow])</onback>
 	    <onback>Stop</onback>
         </control>
