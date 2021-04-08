@@ -76,7 +76,7 @@
     <shortcut>
         <label2>Power Menu Shortcut</label2>
         <label>20150</label>
-        <action>AlarmClock(shutdowntimer,XBMC.Shutdown())</action>
+        <action>AlarmClock(shutdowntimer,Shutdown())</action>
         <visible>!System.HasAlarm(shutdowntimer)</visible>
         <visible>System.CanPowerDown | System.CanSuspend | System.CanHibernate</visible>
         <icon>special://skin/extras/icons/power.png</icon>

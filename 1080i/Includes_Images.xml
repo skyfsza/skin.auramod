@@ -181,9 +181,11 @@
         <value condition="!String.IsEmpty(ListItem.Art(landscape)) + String.IsEqual(ListItem.Art(landscape),0)">$INFO[ListItem.Art(fanart)]</value>
         <value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBType,episode)] + Skin.HasSetting(PreferFanartHome) + !String.IsEmpty(ListItem.Art(tvshow.landscape))">$INFO[ListItem.Art(tvshow.landscape)]</value>
         <value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBType,episode)] + Skin.HasSetting(PreferFanartHome) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBType,episode)] + !Skin.HasSetting(PreferFanartHome) + String.IsEqual(ListItem.Art(thumb),ListItem.Art(poster))">$INFO[ListItem.Art(fanart)]</value>
         <value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBType,episode)] + !Skin.HasSetting(PreferFanartHome) + !String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
         <value condition="!Container.Content(episodes) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
         <value condition="!Container.Content(seasons) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="[Container.Content(seasons) | String.IsEqual(ListItem.DBType,season)] + !String.IsEmpty(ListItem.Art(thumb)) + !String.IsEqual(ListItem.Art(thumb),ListItem.Art(poster))">$INFO[ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(thumb)) + !String.IsEqual(ListItem.Art(thumb),ListItem.Art(poster))">$INFO[ListItem.Art(thumb)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(thumb)) + !String.IsEmpty(ListItem.TvShowTitle) + Window.IsVisible(MyPlaylist.xml)">$INFO[ListItem.Art(thumb)]</value>
         <value condition="Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !String.IsEmpty(ListItem.Art(animatedfanart)) + ![Container.Content(videos) | Container.Content(episodes)] + !Window.IsVisible(home)">$INFO[ListItem.Art(animatedfanart)]</value>
