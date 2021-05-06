@@ -24,3 +24,5 @@ First make sure This setting is on Any Repositories !!
 8. Install TheMovieDb helper from Jurial's repo
 
 9. install Auramod zip from this exact github (matrix branch ) 
+
+10. For color cycling and some other features you need to install Colorbox  https://github.com/drinfernoo/script.colorbox/tree/matrix
