@@ -1354,7 +1354,7 @@
             <radiowidth>25</radiowidth>
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
-            <onclick condition="String.IsEmpty(Window(home).Property(TrailerPlaying)) + String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren)">RunPlugin(plugin://plugin.video.seren/?action=buildPlaylistWorkaround&amp;actionArgs=%7B%22item_type%22%3A%20%22show%22%2C%20%22trakt_id%22%3A%20$INFO[ListItem.Property(trakt_id)]%7D)</onclick>
+            <onclick condition="String.IsEmpty(Window(home).Property(TrailerPlaying)) + String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren)">RunPlugin(plugin://plugin.video.seren/?action=forceResumeShow&amp;actionArgs=%7B%22mediatype%22%3A%20%22tvshow%22%2C%20%22trakt_id%22%3A%20$INFO[ListItem.Property(trakt_id)]%7D)</onclick>
 	    <onclick condition="String.StartsWith(ListItem.FolderPath,plugin://plugin.video.themoviedb.helper)">RunPlugin(plugin://plugin.video.themoviedb.helper/?info=play&amp;season=1&amp;type=episode&amp;episode=1&amp;tmdb_id=$INFO[ListItem.Property(tmdb_id)])</onclick>
             <visible>Skin.HasSetting(VideoInfoButton.QuickPlay) + [[!String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren)] | String.StartsWith(ListItem.FolderPath,plugin://plugin.video.themoviedb.helper)] + String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
             <label>Quick Play</label>
