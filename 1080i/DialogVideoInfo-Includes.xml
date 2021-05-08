@@ -1383,6 +1383,7 @@
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
             <onclick>PlayMedia($ESCINFO[ListItem.FileNameAndPath],noresume)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,close_dialog=1190)</onclick>
             <visible>ListItem.IsResumable + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper) + String.IsEmpty(Window(home).Property(TrailerPlaying))</visible>
             <label>Play from Beginning</label>
             <onclick>ClearProperty(BaseWindow,Home)</onclick>
