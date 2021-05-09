@@ -85,7 +85,7 @@
 				<orientation>horizontal</orientation>
 				<!-- <autoscroll time="3000">!Control.HasFocus(11)</autoscroll> -->
 				<scrolltime easing="inout" tween="sine">300</scrolltime>
-				<onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person&amp;query=$INFO[Container(11).ListItem.Label],call_id=1137,prevent_del,delay=0.35)</onclick>
+				<onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person&amp;query=$INFO[Container(11).ListItem.Label],call_auto=1190,prevent_del,delay=0.35)</onclick>
 				<itemlayout height="330" width="231">
 					<control type="group">
 						<left>30</left>

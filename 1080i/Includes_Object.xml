@@ -626,7 +626,7 @@
         <ondown>SetFocus(800)</ondown>
         <orientation>horizontal</orientation>
         <autoscroll repeat="10000" time="5000" delay="5000">Control.HasFocus(30222) | Control.HasFocus(1506) | String.IsEqual(Container(330).CurrentItem,1)</autoscroll>
-        <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person&amp;query=$INFO[Container(7711).ListItem.Label],call_id=1137,prevent_del,delay=0.35)</onclick>
+        <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person&amp;query=$INFO[Container(7711).ListItem.Label],call_auto=1190,prevent_del,delay=0.35)</onclick>
         <itemlayout height="184.8" width="128.8">
           <control type="group">
             <left>30</left>
@@ -5771,28 +5771,28 @@
             <label>$INFO[Window(Home).Property(NextAired.1.Label)]$INFO[Window(Home).Property(NextAired.1.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.1.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.1.NextDay)] at $INFO[Window(Home).Property(NextAired.1.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.1.Art(banner))]</icon>
-            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.1.Label)],call_id=1137,delay=0.35)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.1.Label)],call_auto=1190,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.1.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="2">
             <label>$INFO[Window(Home).Property(NextAired.2.Label)]$INFO[Window(Home).Property(NextAired.2.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.2.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.2.NextDay)] at $INFO[Window(Home).Property(NextAired.2.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.2.Art(banner))]</icon>
-            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.2.Label)],call_id=1137,delay=0.35)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.2.Label)],call_auto=1190,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.2.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="3">
             <label>$INFO[Window(Home).Property(NextAired.3.Label)]$INFO[Window(Home).Property(NextAired.3.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.3.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.3.NextDay)] at $INFO[Window(Home).Property(NextAired.3.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.3.Art(banner))]</icon>
-            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.3.Label)],call_id=1137,delay=0.35)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.3.Label)],call_auto=1190,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.3.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="4">
             <label>$INFO[Window(Home).Property(NextAired.4.Label)]$INFO[Window(Home).Property(NextAired.4.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.4.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.4.NextDay)] at $INFO[Window(Home).Property(NextAired.4.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.4.Art(banner))]</icon>
-            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.4.Label)],call_id=1137,delay=0.35)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.4.Label)],call_auto=1190,delay=0.35)</onclick>
             <onclick>ActivateWindow(Videos,$INFO[Window(Home).Property(NextAired.4.Library)],Return)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.4.NextDate),$PARAM[dayshort])</visible>
           </item>
@@ -5800,77 +5800,77 @@
             <label>$INFO[Window(Home).Property(NextAired.5.Label)]$INFO[Window(Home).Property(NextAired.5.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.5.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.5.NextDay)] at $INFO[Window(Home).Property(NextAired.5.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.5.Art(banner))]</icon>
-            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.5.Label)],call_id=1137,delay=0.35)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.5.Label)],call_auto=1190,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.5.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="6">
             <label>$INFO[Window(Home).Property(NextAired.6.Label)]$INFO[Window(Home).Property(NextAired.6.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.6.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.6.NextDay)] at $INFO[Window(Home).Property(NextAired.6.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.6.Art(banner))]</icon>
-            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.6.Label)],call_id=1137,delay=0.35)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.6.Label)],call_auto=1190,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.6.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="7">
             <label>$INFO[Window(Home).Property(NextAired.7.Label)]$INFO[Window(Home).Property(NextAired.7.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.7.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.7.NextDay)] at $INFO[Window(Home).Property(NextAired.7.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.7.Art(banner))]</icon>
-            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.7.Label)],call_id=1137,delay=0.35)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.7.Label)],call_auto=1190,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.7.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="8">
             <label>$INFO[Window(Home).Property(NextAired.8.Label)]$INFO[Window(Home).Property(NextAired.8.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.8.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.8.NextDay)] at $INFO[Window(Home).Property(NextAired.8.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.8.Art(banner))]</icon>
-            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.8.Label)],call_id=1137,delay=0.35)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.8.Label)],call_auto=1190,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.8.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="9">
             <label>$INFO[Window(Home).Property(NextAired.9.Label)]$INFO[Window(Home).Property(NextAired.9.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.9.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.9.NextDay)] at $INFO[Window(Home).Property(NextAired.9.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.9.Art(banner))]</icon>
-            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.9.Label)],call_id=1137,delay=0.35)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.9.Label)],call_auto=1190,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.9.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="10">
             <label>$INFO[Window(Home).Property(NextAired.10.Label)]$INFO[Window(Home).Property(NextAired.10.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.10.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.10.NextDay)] at $INFO[Window(Home).Property(NextAired.10.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.10.Art(banner))]</icon>
-            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.10.Label)],call_id=1137,delay=0.35)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.10.Label)],call_auto=1190,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.10.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="11">
             <label>$INFO[Window(Home).Property(NextAired.11.Label)]$INFO[Window(Home).Property(NextAired.11.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.11.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.11.NextDay)] at $INFO[Window(Home).Property(NextAired.11.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.11.Art(banner))]</icon>
-            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.11.Label)],call_id=1137,delay=0.35)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.11.Label)],call_auto=1190,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.11.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="12">
             <label>$INFO[Window(Home).Property(NextAired.12.Label)]$INFO[Window(Home).Property(NextAired.12.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.12.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.12.NextDay)] at $INFO[Window(Home).Property(NextAired.12.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.12.Art(banner))]</icon>
-            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.12.Label)],call_id=1137,delay=0.35)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.12.Label)],call_auto=1190,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.12.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="13">
             <label>$INFO[Window(Home).Property(NextAired.13.Label)]$INFO[Window(Home).Property(NextAired.13.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.13.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.13.NextDay)] at $INFO[Window(Home).Property(NextAired.13.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.13.Art(banner))]</icon>
-            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.13.Label)],call_id=1137,delay=0.35)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.13.Label)],call_auto=1190,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.13.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="14">
             <label>$INFO[Window(Home).Property(NextAired.14.Label)]$INFO[Window(Home).Property(NextAired.14.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.14.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.14.NextDay)] at $INFO[Window(Home).Property(NextAired.14.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.14.Art(banner))]</icon>
-            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.14.Label)],call_id=1137,delay=0.35)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.14.Label)],call_auto=1190,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.14.NextDate),$PARAM[dayshort])</visible>
           </item>
           <item id="15">
             <label>$INFO[Window(Home).Property(NextAired.15.Label)]$INFO[Window(Home).Property(NextAired.15.NextSeasonNumber), (S,]$INFO[Window(Home).Property(NextAired.15.NextEpisodeNumber),E,)]</label>
             <label2>$INFO[Window(Home).Property(NextAired.15.NextDay)] at $INFO[Window(Home).Property(NextAired.15.ShortTime)]</label2>
             <icon>$INFO[Window(Home).Property(NextAired.15.Art(banner))]</icon>
-            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.15.Label)],call_id=1137,delay=0.35)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=tv&amp;query=$INFO[Window(Home).Property(NextAired.15.Label)],call_auto=1190,delay=0.35)</onclick>
             <visible>String.Contains(Window(Home).Property(NextAired.15.NextDate),$PARAM[dayshort])</visible>
           </item>
         </content>
@@ -6843,7 +6843,7 @@
     <param name="controltype" default="fixedlist" />
     <param name="search" default="false" />
     <param name="onclick" default="SetFocus(9570)" />
-    <param name="onclick2" default="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath,,&amp;fanarttv=True],call_id=1137,delay=0.35,prevent_del)" />
+    <param name="onclick2" default="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath,,&amp;fanarttv=True],call_auto=1190,delay=0.35,prevent_del)" />
     <param name="onclick3" default="" />
     <param name="onclick3cond" default="" />
     <param name="onclick4" default="" />

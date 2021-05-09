@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="2003">
     <defaultcontrol always="true">9005</defaultcontrol>
-    <onload>SetFocus(9005)</onload>
+    <onload condition="String.IsEqual(ListItem.Property(item.type),person)">SetFocus(9999)</onload>
+    <onload condition="!String.IsEqual(ListItem.Property(item.type),person)">SetFocus(9005)</onload>
     <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo)">Close</onload>
     <onload>ClearProperty(FilePath,home)</onload>
     <onload>ClearProperty(Header_Left_Text)</onload>
     <onload>ClearProperty(Header_Center_Text)</onload>
     <onload>ClearProperty(OSD_Menu,Home)</onload>
 
-    <onunload condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.Path.Current))">RunScript(plugin.video.themoviedb.helper,del_path,call_id=1137)</onunload>
     <onunload>ClearProperty(FilePath,home)</onunload>
     <onunload>ClearProperty(OSD_Menu,Home)</onunload>
     <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo) + [String.IsEqual(ListItem.DBType,movie) | Container.Content(movies)]">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onload>
@@ -38,8 +38,9 @@
         <include>Global_Background</include>
         <visible>ControlGroup(9000).HasFocus | Control.HasFocus(300)</visible>
         </control>
-    <include condition="Skin.HasSetting(DisableNetflixVideoInfo)">DialogVideoInfo_Aura</include>
-    <include condition="!Skin.HasSetting(DisableNetflixVideoInfo)">DialogVideoInfo_Netflix</include>
+    <include condition="Skin.HasSetting(DisableNetflixVideoInfo) + !String.IsEqual(ListItem.Property(item.type),person)">DialogVideoInfo_Aura</include>
+    <include condition="!Skin.HasSetting(DisableNetflixVideoInfo) + !String.IsEqual(ListItem.Property(item.type),person)">DialogVideoInfo_Netflix</include>
+    <include condition="String.IsEqual(ListItem.Property(item.type),person)">DialogPersonInfo</include>
 
     </controls>
 
