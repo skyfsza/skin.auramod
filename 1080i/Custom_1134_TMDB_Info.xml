@@ -111,7 +111,7 @@
                 <onup>9601</onup>
                 <ondown>5001</ondown>
                 <onfocus>SetProperty(Header_Left_Text,Person)</onfocus>
-                <onback condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.Path.Current))">RunScript(plugin.video.themoviedb.helper,del_path,call_id=1137)</onback>
+                <onback condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.Path.Current))">RunScript(plugin.video.themoviedb.helper,del_path,call_auto=1190)</onback>
                 <onback>3111</onback>
                 <itemlayout />
                 <focusedlayout />
@@ -144,7 +144,7 @@
               <param name="infolabel" value="false" />
               <param name="include_onclick" value="true" />
               <param name="onclick" value="SetFocus(300)" />
-              <param name="onclick2" value="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath],call_id=1137,delay=0.35,noop)" />
+              <param name="onclick2" value="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath],call_auto=1190,delay=0.35,noop)" />
               <param name="pad" value="0" />
               <param name="top" value="0" />
             </include>
@@ -158,7 +158,7 @@
               <param name="infolabel" value="false" />
               <param name="include_onclick" value="true" />
               <param name="onclick" value="SetFocus(300)" />
-              <param name="onclick2" value="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath],call_id=1137,delay=0.35,noop)" />
+              <param name="onclick2" value="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath],call_auto=1190,delay=0.35,noop)" />
               <param name="pad" value="0" />
               <param name="top" value="0" />
             </include>
@@ -172,7 +172,7 @@
               <param name="infolabel" value="false" />
               <param name="include_onclick" value="true" />
               <param name="onclick" value="SetFocus(300)" />
-              <param name="onclick2" value="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath],call_id=1137,delay=0.35,noop)" />
+              <param name="onclick2" value="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath],call_auto=1190,delay=0.35,noop)" />
               <param name="pad" value="0" />
               <param name="top" value="0" />
             </include>
@@ -186,7 +186,7 @@
               <param name="infolabel" value="false" />
               <param name="include_onclick" value="true" />
               <param name="onclick" value="SetFocus(300)" />
-              <param name="onclick2" value="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath],call_id=1137,delay=0.35,noop)" />
+              <param name="onclick2" value="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath],call_auto=1190,delay=0.35,noop)" />
               <param name="pad" value="0" />
               <param name="top" value="0" />
             </include>

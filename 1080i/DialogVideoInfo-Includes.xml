@@ -621,7 +621,7 @@
               </include>
               <include content="Object_VideoInfo_InfoSection">
                 <param name="label" value="$LOCALIZE[31289]" />
-                <param name="label2" value="Window(Home).Property(SkinHelper.ListItem.Awards)" />
+                <param name="label2" value="Window(Home).Property(TMDBHelper.ListItem.Awards)" />
               </include>
             </control>
           </control>
@@ -949,7 +949,7 @@
             <width>458</width>
             <label>$LOCALIZE[31178]</label>
             <onclick>SetFocus(9950)</onclick>
-            <onclick>RunScript(plugin.video.themoviedb.helper,add_query=$INFO[Container(50).ListItem.Label],type=person,call_id=1137,prevent_del,delay=0.35)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,add_query=$INFO[Container(50).ListItem.Label],type=person,call_auto=1190,prevent_del,delay=0.35)</onclick>
             <include>Defs_Context_Button</include>
           </control>
         </control>
@@ -1101,7 +1101,7 @@
           <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
         </control>
         <control type="label">
-          <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)] + String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
+          <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)] + String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.ClearLogo))</visible>
           <top>-190</top>
           <label>$VAR[video_heading]</label>
           <textcolor>grey</textcolor>
@@ -1285,7 +1285,7 @@
             <control type="group">
               <width>1200</width>
               <height>30</height>
-              <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards))</visible>
+              <visible>!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Awards))</visible>
               <control type="image">
                 <width>30</width>
                 <height>30</height>
@@ -1297,7 +1297,7 @@
                 <width>700</width>
                 <font>Netflix_Info_main</font>
                 <align>left</align>
-                <label>$INFO[Window(Home).Property(SkinHelper.ListItem.Awards)]</label>
+                <label>$INFO[Window(Home).Property(TMDBHelper.ListItem.Awards)]</label>
                 <textcolor>dimgrey</textcolor>
                 <scroll>false</scroll>
               </control>
@@ -1326,13 +1326,13 @@
             <radiowidth>25</radiowidth>
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
-            <onclick condition="!String.IsEmpty(ListItem.FileNameAndPath)">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,playmedia=$INFO[ListItem.FileNameAndPath])</onclick>
+            <onclick condition="!String.IsEmpty(ListItem.FileNameAndPath)">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,playmedia='$ESCINFO[ListItem.FileNameAndPath]')</onclick>
             <onclick condition="String.IsEmpty(ListItem.DBID)">close</onclick>
             <onclick condition="String.IsEmpty(ListItem.FileNameAndPath) + String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.Property(tmdb_id))">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,playmedia=plugin://plugin.video.themoviedb.helper/?info=play&amp;type=movie&amp;tmdb_id=$INFO[ListItem.Property(tmdb_id)])</onclick>
             <onclick condition="String.IsEmpty(ListItem.FileNameAndPath) + String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(ListItem.Property(tvshow.tmdb_id))">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,playmedia=plugin://plugin.video.themoviedb.helper/?info=play&amp;type=episode&amp;tmdb_id=$INFO[ListItem.Property(tvshow.tmdb_id)]&amp;season=$INFO[ListItem.Season]&amp;episode=$INFO[ListItem.Episode])</onclick>
             <onclick condition="String.IsEmpty(ListItem.FileNameAndPath) + String.IsEqual(ListItem.DBType,movie) + String.IsEmpty(ListItem.Property(tmdb_id))">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,playmedia=plugin://plugin.video.themoviedb.helper/?info=play&amp;type=movie&amp;query=$INFO[ListItem.Title])</onclick>
             <onclick condition="String.IsEmpty(ListItem.FileNameAndPath) + String.IsEqual(ListItem.DBType,episode) + String.IsEmpty(ListItem.Property(tvshow.tmdb_id))">RunScript(plugin.video.themoviedb.helper,close_dialog=1190,playmedia=plugin://plugin.video.themoviedb.helper/?info=play&amp;type=episode&amp;query=$INFO[ListItem.TvShowTitle]&amp;season=$INFO[ListItem.Season]&amp;episode=$INFO[ListItem.Episode])</onclick>
-            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + [String.IsEmpty(ListItem.DBID) | [!String.IsEmpty(ListItem.DBID) + !String.IsEmpty(ListItem.Property(tmdb_id))] + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)]] + !ListItem.IsResumable + !Control.IsVisible(33)</visible>
+            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + [String.IsEmpty(ListItem.DBID) | [!String.IsEmpty(ListItem.DBID) + !String.IsEmpty(ListItem.Property(tmdb_id))] | [!String.IsEmpty(ListItem.DBID) + String.IsEmpty(ListItem.Property(tmdb_id)) + String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)] | [!String.IsEmpty(ListItem.DBID) + String.IsEmpty(ListItem.Property(tmdb_id)) + String.IsEmpty(ListItem.FolderPath)] + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)]] + !ListItem.IsResumable + !Control.IsVisible(33)</visible>
             <label>Play $VAR[videoinfo_play_label]</label>
             <onclick>ClearProperty(BaseWindow,Home)</onclick>
           </control>
@@ -1343,7 +1343,7 @@
             <radiowidth>25</radiowidth>
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
-            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !String.IsEmpty(ListItem.DBID) +  [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
+            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !String.IsEmpty(ListItem.DBID) + !String.IsEmpty(ListItem.FolderPath) +  [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !ListItem.IsResumable + !Control.IsVisible(33) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)</visible>
             <label>Play $VAR[videoinfo_play_label]</label>
             <onclick>ClearProperty(BaseWindow,Home)</onclick>
           </control>
@@ -1354,7 +1354,7 @@
             <radiowidth>25</radiowidth>
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
-            <onclick condition="String.IsEmpty(Window(home).Property(TrailerPlaying)) + String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren)">RunPlugin(plugin://plugin.video.seren/?action=buildPlaylistWorkaround&amp;actionArgs=%7B%22item_type%22%3A%20%22show%22%2C%20%22trakt_id%22%3A%20$INFO[ListItem.Property(trakt_id)]%7D)</onclick>
+            <onclick condition="String.IsEmpty(Window(home).Property(TrailerPlaying)) + String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren)">RunPlugin(plugin://plugin.video.seren/?action=forceResumeShow&amp;actionArgs=%7B%22mediatype%22%3A%20%22tvshow%22%2C%20%22trakt_id%22%3A%20$INFO[ListItem.Property(trakt_id)]%7D)</onclick>
 	    <onclick condition="String.StartsWith(ListItem.FolderPath,plugin://plugin.video.themoviedb.helper)">RunPlugin(plugin://plugin.video.themoviedb.helper/?info=play&amp;season=1&amp;type=episode&amp;episode=1&amp;tmdb_id=$INFO[ListItem.Property(tmdb_id)])</onclick>
             <visible>Skin.HasSetting(VideoInfoButton.QuickPlay) + [[!String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren)] | String.StartsWith(ListItem.FolderPath,plugin://plugin.video.themoviedb.helper)] + String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
             <label>Quick Play</label>
@@ -1383,6 +1383,7 @@
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
             <onclick>PlayMedia($ESCINFO[ListItem.FileNameAndPath],noresume)</onclick>
+            <onclick>RunScript(plugin.video.themoviedb.helper,close_dialog=1190)</onclick>
             <visible>ListItem.IsResumable + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper) + String.IsEmpty(Window(home).Property(TrailerPlaying))</visible>
             <label>Play from Beginning</label>
             <onclick>ClearProperty(BaseWindow,Home)</onclick>
@@ -1420,8 +1421,7 @@
 <!--            <onclick condition="String.IsEmpty(ListItem.DBID) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper) + String.IsEqual(Skin.String(AddonContainer),true)">ActivateWindow(10025,$ESCINFO[Container(5055).ListItem.FileNameAndPath],return)</onclick> -->
             <onclick condition="String.IsEmpty(ListItem.DBID) + String.IsEqual(Skin.String(AddonContainer),false)">ActivateWindow(10025,$ESCINFO[ListItem.FileNameAndPath],return)</onclick>
 <!--            <onclick condition="String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">SetFocus(8999,1)</onclick> -->
-            <onclick condition="!String.IsEmpty(ListItem.DBID) + String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
-            <onclick condition="!String.IsEmpty(ListItem.DBID) + !String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
+            <onclick condition="!String.IsEmpty(ListItem.DBID)">ActivateWindow(Videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</onclick>
           </control>
           <!--More episodes-->
           <control type="radiobutton" id="339">
@@ -1470,11 +1470,11 @@
             <radiowidth>45</radiowidth>
             <radioheight>48</radioheight>
             <radioposx>2</radioposx>
-            <visible>!Skin.HasSetting(VideoInfoButton.Trailer) + !Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)] + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Trailer))]</visible>
+            <visible>!Skin.HasSetting(VideoInfoButton.Trailer) + !Player.HasVideo + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie)] + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Trailer))]</visible>
             <label>Trailer</label>
             <onclick condition="!Player.HasVideo + !String.IsEmpty(ListItem.Trailer) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)]">PlayMedia($INFO[ListItem.Trailer],1)</onclick>
-            <onclick condition="!Player.HasVideo + String.IsEmpty(ListItem.Trailer)">Playmedia($INFO[Window(Home).Property(SkinHelper.ListItem.Trailer)],1)</onclick>
-            <onclick condition="!Player.HasVideo + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Trailer))]">SetProperty(TrailerPlaying,fullscreen,home)</onclick>
+            <onclick condition="!Player.HasVideo + String.IsEmpty(ListItem.Trailer)">Playmedia($INFO[Window(Home).Property(TMDBHelper.ListItem.Trailer)],1)</onclick>
+            <onclick condition="!Player.HasVideo + [!String.IsEmpty(ListItem.Trailer) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Trailer))]">SetProperty(TrailerPlaying,fullscreen,home)</onclick>
           </control>
           <!-- Fullscreen -->
           <control type="radiobutton" id="35">
@@ -1529,7 +1529,7 @@
             <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Skin.HasSetting(VideoInfoButton.Trakt) +  !String.IsEmpty(ListItem.Property(trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode)]</visible>
             <label>Trakt Manager</label>
             <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&amp;actionArgs=%7B%22episode%22%3A%20$INFO[ListItem.Episode]%2C%20%22item_type%22%3A%20%22episode%22%2C%20%22season%22%3A%20$INFO[ListItem.Season]%2C%20%22trakt_id%22%3A%20$INFO[ListItem.Property(tvshow.trakt_id)]%7D)</onclick>
-            <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,tvshow)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&amp;actionArgs=%7b%22item_type%22%3a%20%22show%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(trakt_id)]%7d)</onclick>
+            <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,tvshow)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&amp;actionArgs=%7b%22mediatype%22%3a%20%22tvshow%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(trakt_id)]%7d)</onclick>
             <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,movie)">RunPlugin(plugin://plugin.video.seren/?action=traktManager&amp;actionArgs=%7b%22item_type%22%3a%20%22movie%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(trakt_id)]%7d)</onclick>
           </control>
           <!-- Refresh -->
@@ -1656,7 +1656,7 @@
       </control>
 
 
-		<!------- TOMATO BLOCK -------->
+		<!-- TOMATO BLOCK -->
 		
 		<control type="group">
 			<description>Tomato Block</description>
@@ -1814,7 +1814,7 @@
 				<top>207</top>
 				<height>50</height>
 				<aspectratio align="left">keep</aspectratio>
-				<visible>!Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter), 59) | !Integer.IsGreater(Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter), 59)</visible>
+				<visible>!Integer.IsGreater(Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter), 59)</visible>
 				<texture>flags/color/ratings/rtrotten.png</texture>
 			</control>
 			<control type="image">
@@ -1823,7 +1823,7 @@
 				<top>207</top>
 				<height>50</height>
 				<aspectratio align="left">keep</aspectratio>
-				<visible>[Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter), 59) + !Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesRating), 75)] | [Integer.IsGreater(Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter), 59) + !Integer.IsGreater(Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter), 75)]</visible>
+				<visible>[Integer.IsGreater(Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter), 59) + !Integer.IsGreater(Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter), 75)]</visible>
 				<texture>flags/color/ratings/rtfresh.png</texture>
 			</control>
 			<control type="image">
@@ -1832,8 +1832,8 @@
 				<top>207</top>
 				<height>50</height>
 				<aspectratio align="left">keep</aspectratio>
-				<visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesMeter), 75)</visible>
-				<texture>http://d3biamo577v4eu.cloudfront.net/static/images/icons/cf-lg.png</texture>
+				<visible>Integer.IsGreater(Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter), 75)</visible>
+				<texture>flags/color/ratings/certified.png</texture>
 			</control>
 			
 			<control type="image">
@@ -1842,7 +1842,7 @@
 				<top>290</top>
 				<height>50</height>
 				<aspectratio align="left">keep</aspectratio>
-				<visible>Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesAudienceMeter), 59)</visible>
+				<visible>Integer.IsGreater(Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter), 59)</visible>
 				<texture>flags/color/ratings/popcorn.png</texture>
 			</control>
 			<control type="image">
@@ -1852,7 +1852,7 @@
 				<height>50</height>
 				<width max="55">auto</width>
 				<aspectratio align="left">keep</aspectratio>
-				<visible>!Integer.IsGreater(Window(Home).Property(SkinHelper.ListItem.RottenTomatoesAudienceMeter), 59)</visible>
+				<visible>!Integer.IsGreater(Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter), 59)</visible>
 				<texture>flags/color/ratings/spilt.png</texture>
 			</control>
 			
@@ -1901,7 +1901,7 @@
           <param name="sortby" value="" />
           <param name="sortorder" value="" />
           <param name="onclick" value="SetProperty(BaseWindow,InfoDialog,Home)" />
-          <param name="onclick2" value="RunScript(plugin.video.themoviedb.helper,add_query=$INFO[Container(53001).ListItem.Label],type=person,call_id=1137,prevent_del,delay=0.35)" />
+          <param name="onclick2" value="RunScript(plugin.video.themoviedb.helper,add_query=$INFO[Container(53001).ListItem.Label],type=person,call_auto=1190,prevent_del,delay=0.35)" />
           <param name="content" value="plugin://plugin.video.themoviedb.helper/?info=cast&amp;$VAR[Info_Param_Type]&amp;$VAR[Info_Param_IMDB_or_QUERY]" />
           <param name="widgetContent" value="plugin://plugin.video.themoviedb.helper/?info=cast&amp;$VAR[Info_Param_Type]&amp;$VAR[Info_Param_IMDB_or_QUERY]" />
           <param name="postercondition" value="true" />
@@ -2120,4 +2120,234 @@
       <info>ListItem.PercentPlayed</info>
     </control>
   </include>
+  
+  <include name="DialogPersonInfo">
+    <include>Global_Background</include>
+    
+    <!-- The following overrides the above Global_Background include; group visibility condition for background effects -->
+    <!-- Texture Overlay -->
+    <control type="group">
+<visible>[Window.IsVisible(DialogVideoInfo.xml) + !Skin.HasSetting(DisableNetflixVideoInfo)]</visible>
+        <animation effect="fade" condition="Control.HasFocus(9602)" start="100" end="0" delay="200" time="300" reversible="false">Conditional</animation>
+        <animation effect="fade" condition="!Control.HasFocus(9602)" start="0" end="100" delay="0" time="300" reversible="false">Conditional</animation>
+        <control type="image">
+            <texture colordiffuse="$VAR[Global_FanartDim]">common/white.png</texture>
+<visible>!Skin.HasSetting(DisableTransparency)</visible>
+        </control>
+        <!-- Vignette Overlay -->
+        <control type="image">
+            <texture colordiffuse="$VAR[ColorOverlay]" background="true">common/vignette-white.png</texture>
+            <visible>!Skin.HasSetting(DisableOverlayColor)</visible>
+        </control>
+        <control type="image">
+            <texture background="true">common/vignette-full.png</texture>
+            <visible>!Skin.HasSetting(DisableVignette)</visible>
+        </control>
+    </control>
+    
+    <control type="group">
+      <top>-20</top>
+      <right>-20</right>
+      <include>Logo</include>
+      <visible>[Control.HasFocus(3100) | ControlGroup(4100).HasFocus] + [!Window.IsVisible(DialogNotification.xml) + !Window.IsVisible(DialogButtonMenu.xml) + !Window.IsVisible(DialogBusy.xml) + Skin.HasSetting(EnableHomeHeader)]</visible>
+    </control>
+    <control type="label">
+      <left>60</left>
+      <top>40</top>
+      <label>Actor Info</label>
+      <height>40</height>
+      <width>800</width>
+      <aligny>top</aligny>
+      <textcolor>white</textcolor>
+      <font>font_heading_small</font>
+      <visible>ControlGroup(300).HasFocus | ControlGroup(4100).HasFocus</visible>
+    </control>
+    <control type="list" id="9999">
+         <onfocus condition="!Integer.IsEqual(Container(9999).NumItems,0) + !Container(9999).IsUpdating + !String.IsEmpty(Window(Home).Property(TMDbHelper.Path.Current)) + !String.Contains(Window(Home).Property(TMDbHelper.Path.Current),type=person)">Action(Info)</onfocus>
+         <onfocus condition="!Integer.IsEqual(Container(9999).NumItems,0) + !Container(9999).IsUpdating + !String.IsEmpty(Window(Home).Property(TMDbHelper.Path.Current)) + String.Contains(Window(Home).Property(TMDbHelper.Path.Current),type=person)">SetFocus(3100)</onfocus>
+         <onfocus condition="[Integer.IsEqual(Container(9999).NumItems,0) | Container(9999).IsUpdating] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Path.Current))">AlarmClock(doinfo,SetFocus(9999),00:01,silent)</onfocus>
+         <onfocus condition="String.IsEmpty(Window(Home).Property(TMDbHelper.Path.Current))">Action(Close)</onfocus>
+      <itemlayout />
+      <focusedlayout />
+      <content limit="1" target="videos">$INFO[Window(Home).Property(TMDbHelper.Path.Current)]</content>
+    </control>
+    <control type="group">
+      <visible>[!String.Contains(Window(Home).Property(TMDbHelper.Path.Current),type=person) | Control.HasFocus(9999)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+      <visible>!Window.IsVisible(DialogVideoInfo.xml) + !Player.HasVideo</visible>
+      <include>Dialog_Busy</include>
+    </control>
+    <!-- Person Info -->
+    <control type="group">
+      <visible>String.Contains(Window(Home).Property(TMDbHelper.Path.Current),type=person)</visible>
+      <top>120</top>
+      <left>view_pad</left>
+      <right>view_pad</right>
+      <control type="group">
+       <left>0</left>
+      <include content="Object_UpDownInfoArrows">
+        <param name="id" value="4100" />
+        <param name="top" value="-40" />
+      </include>
+      </control>
+      <visible allowhiddenfocus="true">!$EXP[Exp_HideFurniture]</visible>
+      <include>Animation_FadeInOut</include>
+      <control type="grouplist" id="9000">
+        <top>-15</top>
+        <left>-15</left>
+        <right>-15</right>
+        <height>1080</height>
+        <orientation>vertical</orientation>
+        <itemgap>0</itemgap>
+        <control type="group" id="3000">
+          <visible allowhiddenfocus="true">!ControlGroup(4100).HasFocus</visible>
+          <height>1080</height>
+          <animation effect="fade" start="0" end="100" time="1000">Visible</animation>
+          <control type="group">
+            <top>-5</top>
+            <left>15</left>
+            <right>15</right>
+            <height>1000</height>
+            <!-- Poster -->
+            <include content="Object_BigPoster">
+              <param name="include" value="Animation_Left_Delay" />
+              <param name="defaulticonvisible" value="false" />
+              <param name="icon" value="$INFO[Container(9999).ListItemAbsolute(0).Art(poster)]" />
+              <param name="diffuse" value="diffuse/poster-big.png" />
+            </include>
+            <!-- Info -->
+            <control type="group" id="300">
+              <top>-15</top>
+              <left>650</left>
+              <include>Animation_Right_Delay</include>
+              <control type="grouplist">
+                <orientation>vertical</orientation>
+                <usecontrolcoords>true</usecontrolcoords>
+                <itemgap>0</itemgap>
+                <control type="label">
+                  <top>10</top>
+                  <label>$INFO[Container(9999).ListItemAbsolute(0).Label]</label>
+                  <height>180</height>
+                  <width>800</width>
+                  <aligny>top</aligny>
+                  <textcolor>white</textcolor>
+                  <font>font_heading</font>
+                </control>
+                <include content="Object_Info_Line_Label">
+                  <param name="label" value="[CAPITALIZE]$INFO[Container(9999).ListItemAbsolute(0).Property(Birthday),[COLOR=main_fg_100],[/COLOR]]$INFO[Container(9999).ListItemAbsolute(0).Property(Born), | [COLOR=main_fg_100],[/COLOR]]$INFO[Container(9999).ListItemAbsolute(0).Property(Age), | [COLOR=main_fg_100], $LOCALIZE[31356][/COLOR]]$INFO[Container(9999).ListItemAbsolute(0).Property(Deathday), | [COLOR=main_fg_100]$LOCALIZE[21897] ,[/COLOR]][/CAPITALIZE]" />
+                  <param name="textcolor" value="$VAR[ColorHighlight]" />
+                  <param name="divider" value="false" />
+                </include>
+                <include content="Object_Info_Plot">
+                  <param name="label" value="$INFO[Container(9999).ListItemAbsolute(0).Property(biography)]" />
+                  <param name="maxheight" value="600" />
+                  <param name="height" value="600" />
+                </include>
+              </control>
+              <control type="button" id="3111">
+                <onfocus>SetFocus(3100)</onfocus>
+                <include>Defs_Hidden_Button</include>
+              </control>
+              <control type="list" id="3100">
+                <orientation>horizontal</orientation>
+                <onup>9601</onup>
+                <ondown>5001</ondown>
+                <onfocus>SetProperty(Header_Left_Text,Person)</onfocus>
+                <itemlayout />
+                <focusedlayout />
+                <include>Defs_Hidden_Button</include>
+                <content>$INFO[Window(Home).Property(TMDbHelper.Path.Current)]</content>
+              </control>
+            </control>
+          </control>
+        </control>
+        <control type="group" id="4000">
+          <control type="grouplist" id="4100">
+            <height>920</height>
+            <top>20</top>
+            <scrolltime tween="quadratic">400</scrolltime>
+            <onup>3100</onup>
+            <height>1080</height>
+            <orientation>vertical</orientation>
+            <control type="group" id="7599">
+              <height>0</height>
+            </control>
+            <animation effect="fade" start="100" end="0" condition="Control.HasFocus(3100)">Conditional</animation>
+            <animation effect="fade" start="0" end="100" time="1000">Visible</animation>
+            <include content="Object_VideoInfo_CastList">
+              <param name="onback" value="300" />
+              <param name="onup" value="300" />
+              <param name="id" value="5001" />
+              <param name="ondown" value="5002" />
+              <param name="label" value="$INFO[Container(3100).ListItemAbsolute(1).Label]" />
+              <param name="content" value="$VAR[Info_Cast_List01]" />
+              <param name="infolabel" value="false" />
+              <param name="include_onclick" value="true" />
+              <param name="onclick" value="SetFocus(300)" />
+              <param name="onclick2" value="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath],call_auto=1190,delay=0.35,noop)" />
+              <param name="pad" value="0" />
+              <param name="top" value="0" />
+            </include>
+            <include content="Object_VideoInfo_CastList">
+              <param name="onback" value="300" />
+              <param name="onup" value="5001" />
+              <param name="id" value="5002" />
+              <param name="ondown" value="5003" />
+              <param name="label" value="$INFO[Container(3100).ListItemAbsolute(2).Label]" />
+              <param name="content" value="$VAR[Info_Cast_List02]" />
+              <param name="infolabel" value="false" />
+              <param name="include_onclick" value="true" />
+              <param name="onclick" value="SetFocus(300)" />
+              <param name="onclick2" value="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath],call_auto=1190,delay=0.35,noop)" />
+              <param name="pad" value="0" />
+              <param name="top" value="0" />
+            </include>
+            <include content="Object_VideoInfo_CastList">
+              <param name="onback" value="300" />
+              <param name="onup" value="5002" />
+              <param name="id" value="5003" />
+              <param name="ondown" value="5004" />
+              <param name="label" value="$INFO[Container(3100).ListItemAbsolute(3).Label]" />
+              <param name="content" value="$VAR[Info_Cast_List03]" />
+              <param name="infolabel" value="false" />
+              <param name="include_onclick" value="true" />
+              <param name="onclick" value="SetFocus(300)" />
+              <param name="onclick2" value="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath],call_auto=1190,delay=0.35,noop)" />
+              <param name="pad" value="0" />
+              <param name="top" value="0" />
+            </include>
+            <include content="Object_VideoInfo_CastList">
+              <param name="onback" value="300" />
+              <param name="onup" value="5003" />
+              <param name="id" value="5004" />
+              <param name="ondown" value="5005" />
+              <param name="label" value="$INFO[Container(3100).ListItemAbsolute(4).Label]" />
+              <param name="content" value="$VAR[Info_Cast_List04]" />
+              <param name="infolabel" value="false" />
+              <param name="include_onclick" value="true" />
+              <param name="onclick" value="SetFocus(300)" />
+              <param name="onclick2" value="RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath],call_auto=1190,delay=0.35,noop)" />
+              <param name="pad" value="0" />
+              <param name="top" value="0" />
+            </include>
+            <include content="Object_VideoInfo_CastList">
+              <param name="onback" value="300" />
+              <param name="onup" value="5004" />
+              <param name="id" value="5005" />
+              <param name="ondown" value="5001" />
+              <param name="label" value="$INFO[Container(3100).ListItemAbsolute(5).Label]" />
+              <param name="content" value="$VAR[Info_Cast_List05]" />
+              <param name="infolabel" value="false" />
+              <param name="include_onclick" value="true" />
+              <param name="onclick" value="SetFocus(9506)" />
+              <param name="onclick2" value="" />
+              <param name="pad" value="0" />
+              <param name="top" value="0" />
+            </include>
+          </control>
+        </control>
+      </control>
+    </control>
+        <include>Info_ImageViewer</include>
+        
+    </include>
 </includes>
