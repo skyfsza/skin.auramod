@@ -8,7 +8,6 @@
 <!--    <onload condition="System.HasAddon(script.tv.show.next.aired)">RunScript(script.tv.show.next.aired,backend=True)</onload> -->
   <onunload>ClearProperty(TMDBHelper.WidgetContainer)</onunload>
 
-    <onunload condition="String.IsEqual(Window(Home).Property(BaseWindow),InfoDialog)">AlarmClock(loadinfo,Action(Info),00:00,silent)</onunload>
     <controls>
 
         <!-- Standard Furniture -->
