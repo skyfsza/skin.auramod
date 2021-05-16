@@ -1814,7 +1814,7 @@
 				<top>207</top>
 				<height>50</height>
 				<aspectratio align="left">keep</aspectratio>
-				<visible>!Integer.IsGreater(Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter), 59)</visible>
+				<visible>[Integer.IsGreater(ListItem.Property(rottentomatoes_rating),0) + !Integer.IsGreater(ListItem.Property(rottentomatoes_rating),59) ] | [$EXP[tmdbu] + Integer.IsGreater(Window(home).Property(TMDBHelper.ListItem.RottenTomatoes_Rating),0) + !Integer.IsGreater(Window(home).Property(TMDBHelper.ListItem.RottenTomatoes_Rating),59) ]</visible>
 				<texture>flags/color/ratings/rtrotten.png</texture>
 			</control>
 			<control type="image">
@@ -1823,7 +1823,7 @@
 				<top>207</top>
 				<height>50</height>
 				<aspectratio align="left">keep</aspectratio>
-				<visible>[Integer.IsGreater(Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter), 59) + !Integer.IsGreater(Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter), 75)]</visible>
+				<visible>[Integer.IsGreater(ListItem.Property(rottentomatoes_rating),59) + !Integer.IsGreater(ListItem.Property(rottentomatoes_rating),74)] | [$EXP[tmdbu] + Integer.IsGreater(Window(home).Property(TMDBHelper.ListItem.RottenTomatoes_Rating),59) + !Integer.IsGreater(Window(home).Property(TMDBHelper.ListItem.RottenTomatoes_Rating),74)]</visible>
 				<texture>flags/color/ratings/rtfresh.png</texture>
 			</control>
 			<control type="image">
@@ -1832,7 +1832,7 @@
 				<top>207</top>
 				<height>50</height>
 				<aspectratio align="left">keep</aspectratio>
-				<visible>Integer.IsGreater(Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter), 75)</visible>
+				<visible>Integer.IsGreater(ListItem.Property(rottentomatoes_rating),74) | Integer.IsGreater(Window(home).Property(TMDBHelper.ListItem.RottenTomatoes_Rating),74)</visible>
 				<texture>flags/color/ratings/certified.png</texture>
 			</control>
 			
@@ -1842,7 +1842,7 @@
 				<top>290</top>
 				<height>50</height>
 				<aspectratio align="left">keep</aspectratio>
-				<visible>Integer.IsGreater(Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter), 59)</visible>
+				<visible>[Integer.IsGreater(ListItem.Property(rottentomatoes_usermeter),59) | [$EXP[tmdbu] + Integer.IsGreater(Window(home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter),59)]] + [!String.IsEmpty(ListItem.Property(rottentomatoes_usermeter)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_UserMeter))]</visible>
 				<texture>flags/color/ratings/popcorn.png</texture>
 			</control>
 			<control type="image">
@@ -1852,7 +1852,7 @@
 				<height>50</height>
 				<width max="55">auto</width>
 				<aspectratio align="left">keep</aspectratio>
-				<visible>!Integer.IsGreater(Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter), 59)</visible>
+				<visible>[!String.IsEmpty(ListItem.Property(rottentomatoes_usermeter)) + !Integer.IsGreater(ListItem.Property(rottentomatoes_usermeter),59)] | [$EXP[tmdbu] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_UserMeter)) + !Integer.IsGreater(Window(home).Property(TMDBHelper.ListItem.RottenTomatoes_UserMeter),59)]</visible>
 				<texture>flags/color/ratings/spilt.png</texture>
 			</control>
 			
