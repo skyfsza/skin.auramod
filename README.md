@@ -1,28 +1,15 @@
 # AuraMod for Matrix
-# I need all the help I  can get , if you like this skin and want to help me fix the Matrix bugs , Please lend a hand ! 
 
-To install you need to install the following deps from these locations , they are all tested to be matrix compatable . but will need to be downloaded and installed from zip.  Note that besides tmdbhelper , the order matters ! 
+To install  Please follow ALL instructions in order, You can complete all  instructions from inside kodi 
 
-First make sure This setting is on Any Repositories !!
+ Before starting Make sure *Update Official add-ons from* is set to   **Any Repositories**. I'd also suggest setting *updates* to **Notify, but don't' install updates**. Allowing you to choose when to update
 ![image](https://user-images.githubusercontent.com/21133858/110848870-8ee72280-827c-11eb-87a6-0bf68538522c.png)
 
 
-1. Install jurialmunkey repo (kodi files source ) > https://jurialmunkey.github.io/
-
-2. Install https://github.com/kodi-community-addons/script.module.thetvdb
-
-3. Install https://github.com/kodi-community-addons/script.module.musicbrainz
-
-4. Install https://github.com/kodi-community-addons/script.module.metadatautils
-
-5. Install https://github.com/kodi-community-addons/script.module.cherrypy
-
-6. Install https://github.com/kodi-community-addons/script.skin.helper.service
-
-7. Install https://github.com/kodi-community-addons/script.skin.helper.widgets
-
-8. Install TheMovieDb helper from Jurial's repo
-
-9. install Auramod zip from this exact github (matrix branch ) 
-
-10. For color cycling and some other features you need to install Colorbox  https://github.com/drinfernoo/script.colorbox/tree/matrix
+1. Install **repository.auramod.aio-1.0.zip** from https://serpentdrago.github.io/ You can add it as a kodi file manager source.
+2. Install **Marcelveldt's BETA repository** and *jurialmunkey Alpha Repository*  , you can install them FROM *Auramod Repo AIO* you just installed.  *Install from repository  > Auramod Repo AIO > Add-on Repository*
+    
+3. Install **Skin Helper Service** from *Marcelveldt's BETA repository* by going  *install from repository > Marcelveldt's BETA repository > Context Menus* Wait for it to complete
+4. Install **Skin Helper Service Widgets** from *Marcelveldt's BETA repository* by going  *install from repository > Marcelveldt's BETA repository > Video add-ons* Wait for it to complete
+5. Install  **AuraMOD** from *Auramod Repo AIO* by going *install from repository > Auramod Repo AIO > Look and feel > Skin* Wait for it to complete , switching skins when prompted 
+6. Restart Kodi after going though AuraMod's first time Wizard 
