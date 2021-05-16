@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="2003">
     <defaultcontrol always="true">9005</defaultcontrol>
-    <onload condition="String.IsEqual(ListItem.Property(item.type),person)">SetFocus(9999)</onload>
-    <onload condition="!String.IsEqual(ListItem.Property(item.type),person)">SetFocus(9005)</onload>
+    <onload>SetFocus(9005)</onload>
     <onload condition="Skin.HasSetting(ForceExtendedInfo) + System.HasAddon(script.extendedinfo)">Close</onload>
     <onload>ClearProperty(FilePath,home)</onload>
     <onload>ClearProperty(Header_Left_Text)</onload>
@@ -26,6 +25,7 @@
 	 <visible allowhiddenfocus="true">false</visible>
 	    <onback condition="!String.IsEmpty(Window(home).Property(TrailerPlaying))">ClearProperty(TrailerPlaying,Home)</onback>
 	    <onback condition="!String.IsEmpty(Window(home).Property(TrailerPlaying))">Action(Stop)</onback>
+	    <onfocus condition="String.IsEqual(ListItem.Property(item.type),person)">SetFocus(9999)</onfocus>      
             <onfocus condition="!Skin.HasSetting(UseExtendedInfoDialog)">SetFocus(8000)</onfocus>
 	    <onfocus condition="Control.IsVisible(87)">SetFocus(87)</onfocus>
 	    <onfocus condition="!Control.IsVisible(87) + Control.IsVisible(8)">SetFocus(8)</onfocus>
