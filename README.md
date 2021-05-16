@@ -7,7 +7,7 @@ To install  Please follow ALL instructions in order, You can complete all  instr
 
 
 1. Install **repository.auramod.aio-1.0.zip** from https://serpentdrago.github.io/ You can add it as a kodi file manager source.
-2. Install **Marcelveldt's BETA repository** and *jurialmunkey Alpha Repository*  , you can install them FROM *Auramod Repo AIO* you just installed.  *Install from repository  > Auramod Repo AIO > Add-on Repository*
+2. Install **Marcelveldt's BETA repository** and **jurialmunkey Alpha Repository**  , you can install them FROM *Auramod Repo AIO* you just installed.  *Install from repository  > Auramod Repo AIO > Add-on Repository*
     
 3. Install **Skin Helper Service** from *Marcelveldt's BETA repository* by going  *install from repository > Marcelveldt's BETA repository > Context Menus* Wait for it to complete
 4. Install **Skin Helper Service Widgets** from *Marcelveldt's BETA repository* by going  *install from repository > Marcelveldt's BETA repository > Video add-ons* Wait for it to complete
