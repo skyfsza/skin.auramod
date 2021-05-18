@@ -226,12 +226,12 @@
                                 <top>-15</top>
                                 <include content="Object_StarRating_Music">
                                     <param name="align" value="center" />
-                                    <param name="visible" value="[Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyPlaylist.xml) | Container.Content(musicvideos)] + String.IsEmpty(ListItem.UserRating)" />
+                                    <param name="visible" value="[Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyPlaylist.xml) | Container.Content(musicvideos)] + String.IsEmpty(ListItem.Rating)" />
                                 </include>
                                 <include content="Object_StarRating">
                                     <param name="align" value="center" />
-                                    <param name="visible" value="[Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyPlaylist.xml) | Container.Content(musicvideos)] + !String.IsEmpty(ListItem.UserRating)" />
-                                    <param name="rating_prop" value="ListItem.UserRating" />
+                                    <param name="visible" value="[Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyPlaylist.xml) | Container.Content(musicvideos)] + !String.IsEmpty(ListItem.Rating)" />
+                                    <param name="rating_prop" value="ListItem.Rating" />
                                 </include>
                             </control>
                         </control>

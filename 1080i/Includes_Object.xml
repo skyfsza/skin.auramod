@@ -225,12 +225,12 @@
             <left>-16</left>
             <include content="Object_StarRating_Music">
               <param name="align" value="left" />
-              <param name="visible" value="String.IsEmpty(ListItem.UserRating)" />
+              <param name="visible" value="String.IsEmpty(ListItem.Rating)" />
             </include>
             <include content="Object_StarRating">
               <param name="align" value="left" />
-              <param name="visible" value="!String.IsEmpty(ListItem.UserRating)" />
-              <param name="rating_prop" value="ListItem.UserRating" />
+              <param name="visible" value="!String.IsEmpty(ListItem.Rating)" />
+              <param name="rating_prop" value="ListItem.Rating" />
             </include>
           </control>
         </control>
@@ -2464,12 +2464,12 @@
             <left>-16</left>
             <include content="Object_StarRating_Music">
               <param name="align" value="left" />
-              <param name="visible" value="String.IsEmpty(ListItem.UserRating)" />
+              <param name="visible" value="String.IsEmpty(ListItem.Rating)" />
             </include>
             <include content="Object_StarRating">
               <param name="align" value="left" />
-              <param name="visible" value="!String.IsEmpty(ListItem.UserRating)" />
-              <param name="rating_prop" value="ListItem.UserRating" />
+              <param name="visible" value="!String.IsEmpty(ListItem.Rating)" />
+              <param name="rating_prop" value="ListItem.Rating" />
             </include>
           </control>
         </control>
