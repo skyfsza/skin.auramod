@@ -2118,7 +2118,7 @@
                 <control type="group">
                   <width>100</width>
                   <height>30</height>
-                  <visible>!String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow) + !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Duration))</visible>
+                  <visible>!String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow) + [!String.IsEmpty(ListItem.Duration) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Duration))]</visible>
               <control type="image">
                 <bottom>-18</bottom>
                 <animation effect="fade" time="0" end="75" condition="true">Conditional</animation>
@@ -5534,7 +5534,7 @@
             <control type="group">
               <width>95</width>
               <height>30</height>
-              <visible>[!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Duration)) + !String.IsEqual(ListItem.DBType,tvshow) + !String.IsEqual(ListItem.DBType,season)] | String.Contains(ListItem.FolderPath,plugin.video.youtube)</visible>
+              <visible>[[!String.IsEmpty(ListItem.Duration) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Duration))] + !String.IsEqual(ListItem.DBType,tvshow) + !String.IsEqual(ListItem.DBType,season)] | String.Contains(ListItem.FolderPath,plugin.video.youtube)</visible>
               <control type="image">
                 <bottom>-18</bottom>
                 <animation effect="fade" time="0" end="75" condition="true">Conditional</animation>
