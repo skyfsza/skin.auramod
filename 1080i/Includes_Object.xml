@@ -4214,6 +4214,47 @@
           <visible>Control.IsVisible(1505) + String.IsEmpty(ListItem.Studio) + String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name)) + !String.IsEmpty(Container(1505).ListItem.Studio) + !String.Contains(Container(1505).ListItem.Studio,/)</visible>
           <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
+        <control type="image">
+          <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(ListItem.Studio)">Conditional</animation>
+          <top>13</top>
+          <aligny>bottom</aligny>
+          <texture colordiffuse="main_fg_100">$INFO[ListItem.Studio,resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
+          <aspectratio>stretch</aspectratio>
+          <height>44</height>
+          <width>64</width>
+          <visible>$PARAM[studio]</visible>
+          <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
+	  <visible>String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,tvshow)</visible>
+          <visible>!String.IsEmpty(ListItem.Studio) + !String.Contains(ListItem.Studio,/)</visible>
+          <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.IsVisible(1505)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+        </control>
+        <control type="image">
+          <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(ListItem.Studio) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))">Conditional</animation>
+          <top>13</top>
+          <aligny>bottom</aligny>
+          <texture colordiffuse="main_fg_100">$INFO[Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name),resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
+          <aspectratio>stretch</aspectratio>
+          <height>44</height>
+          <width>64</width>
+          <visible>$PARAM[studio]</visible>
+          <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
+	  <visible>String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,tvshow)</visible>
+          <visible>!Control.IsVisible(1505) +  [String.IsEmpty(ListItem.Studio) | String.Contains(ListItem.Studio,/)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))</visible>
+          <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+        </control>
+        <control type="image">
+          <animation effect="slide" end="0,-10" time="0" condition="Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Studio)">Conditional</animation>
+          <top>13</top>
+          <aligny>bottom</aligny>
+          <texture colordiffuse="main_fg_100">$INFO[Container(1505).ListItem.Studio,resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
+          <aspectratio>stretch</aspectratio>
+          <height>44</height>
+          <width>64</width>
+          <visible>$PARAM[studio]</visible>
+          <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
+          <visible>Control.IsVisible(1506) + String.IsEmpty(ListItem.Studio) + String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name)) + !String.IsEmpty(Container(1506).ListItem.Studio) + !String.Contains(Container(1506).ListItem.Studio,/)</visible>
+          <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+        </control>
       </control>
     </definition>
   </include>
