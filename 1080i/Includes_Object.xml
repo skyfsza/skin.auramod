@@ -4173,6 +4173,34 @@
           <label>$INFO[ListItem.Plot]</label>
           <scroll>true</scroll>
         </control>
+        <control type="image">
+          <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name))">Conditional</animation>
+          <top>13</top>
+          <aligny>bottom</aligny>
+          <texture colordiffuse="main_fg_100">$INFO[Window(Home).Property(TMDbHelper.ListItem.Network.1.Name),resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
+          <aspectratio>stretch</aspectratio>
+          <height>44</height>
+          <width>64</width>
+          <visible>$PARAM[studio]</visible>
+          <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
+          <visible>!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>
+          <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.IsVisible(1506)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name))</visible>
+          <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+        </control>
+        <control type="image">
+          <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))">Conditional</animation>
+          <top>13</top>
+          <aligny>bottom</aligny>
+          <texture colordiffuse="main_fg_100">$INFO[Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name),resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
+          <aspectratio>stretch</aspectratio>
+          <height>44</height>
+          <width>64</width>
+          <visible>$PARAM[studio]</visible>
+          <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
+          <visible>String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>
+          <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.IsVisible(1505)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))</visible>
+          <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+        </control>
       </control>
     </definition>
   </include>
