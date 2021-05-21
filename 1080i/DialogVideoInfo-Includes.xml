@@ -1082,6 +1082,15 @@
       <width>150</width>
       <visible>!String.IsEqual(ListItem.DBType,movie)</visible>
     </control>
+    <control type="image" id="7878">
+      <right>20</right>
+      <bottom>50</bottom>
+      <texture background="true">$INFO[Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name),resource://resource.images.studios.coloured/,.png]</texture>
+      <aspectratio>stretch</aspectratio>
+      <height>108</height>
+      <width>150</width>
+      <visible>String.IsEqual(ListItem.DBType,movie)</visible>
+    </control>
     <!-- Clearlogo and Fallback Title -->
     <control type="group">
       <left>20</left>
