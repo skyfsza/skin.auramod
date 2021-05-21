@@ -1467,15 +1467,15 @@
 
         <value condition="String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.Property(TotalSeasons))">[I]Watch Season $INFO[ListItem.Property(TotalSeasons)] Now[/I]</value>
 
-        <value condition="String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.Studio)">[I]$INFO[ListItem.Year,Premiered  , ] $VAR[studios_var][/I]</value>
+        <value condition="String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name))">[I]$INFO[ListItem.Year,Premiered  , ] $VAR[studios_var][/I]</value>
 
         <value condition="String.IsEqual(ListItem.DBType,tvshow)">[I]$INFO[ListItem.Year,Premiered  , ] $INFO[Window(Home).Property(TMDBHelper.ListItem.Studio),on , ][/I]</value>
 
     </variable>
 
     <variable name="studios_var">
-        <value condition="!String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">$INFO[ListItem.Studio,on , ]</value>
-        <value condition="String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">$INFO[ListItem.Property(Studio.1.Name),on , ]</value>
+        <value condition="!String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">$INFO[Window(Home).Property(TMDbHelper.ListItem.Network.1.Name),on , ]</value>
+        <value condition="String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper)">$INFO[ListItem.Property(Network.1.Name),on , ]</value>
     </variable>
 
     <variable name="Label_Netflix_Tagline_1505">
