@@ -146,6 +146,7 @@
           <param name="top250" value="false" />
           <param name="plot" value="false" />
           <param name="studio" value="true" />
+          <param name="studioid" value="90646" />
         </include>
             </control>
             <control type="group">
@@ -169,6 +170,7 @@
           <param name="top250" value="false" />
           <param name="plot" value="false" />
           <param name="studio" value="true" />
+          <param name="studioid" value="90647" />
         </include>
             </control>
           </control>
@@ -1762,6 +1764,7 @@
           <param name="top250" value="false" />
           <param name="plot" value="false" />
           <param name="studio" value="true" />
+          <param name="studioid" value="90648" />
         </include>
       </control>
       <control type="group">
@@ -2006,6 +2009,7 @@
             <param name="top250" value="true" />
             <param name="plot" value="false" />
             <param name="studio" value="true" />
+            <param name="studioid" value="90649" />
           </include>
         </control>
         <control type="grouplist">
@@ -2303,6 +2307,7 @@
             <param name="top250" value="true" />
             <param name="plot" value="false" />
             <param name="studio" value="true" />
+            <param name="studioid" value="90650" />
           </include>
         </control>
       </control>
@@ -3776,6 +3781,7 @@
               <param name="top250" value="false" />
               <param name="plot" value="false" />
               <param name="studio" value="true" />
+              <param name="studioid" value="90651" />
             </include>
           </control>
         </control>
@@ -3796,6 +3802,7 @@
     <param name="oscars" default="true" />
     <param name="top250" default="false" />
     <param name="studio" default="false" />
+    <param name="studioid" default="90645" />
     <definition>
       <include content="Object_Ratings_Content" condition="!Skin.HasSetting(MonochromeFlags)">
         <param name="directory" value="$PARAM[directory]" />
@@ -3812,6 +3819,7 @@
         <param name="oscars" value="$PARAM[oscars]" />
         <param name="top250" value="$PARAM[top250]" />
         <param name="studio" value="$PARAM[studio]" />
+        <param name="studioid" value="$PARAM[studioid]" />
       </include>
       <include content="Object_Ratings_Content" condition="Skin.HasSetting(MonochromeFlags)">
         <param name="directory" value="monochrome" />
@@ -3829,6 +3837,7 @@
         <param name="top250" value="$PARAM[top250]" />
         <param name="studio" value="$PARAM[studio]" />
         <param name="studiodirectory" value="white" />
+        <param name="studioid" value="$PARAM[studioid]" />
       </include>
     </definition>
   </include>
@@ -3850,6 +3859,7 @@
     <param name="trakt" default="true" />
     <param name="star" default="true" />
     <param name="studiodirectory" default="coloured" />
+    <param name="studioid" default="90645" />
     <definition>
       <control type="grouplist">
         <width>$PARAM[width]</width>
@@ -4173,7 +4183,7 @@
           <label>$INFO[ListItem.Plot]</label>
           <scroll>true</scroll>
         </control>
-        <control type="image" id="90645">
+        <control type="image" id="1$PARAM[studioid]">
           <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name))">Conditional</animation>
           <top>13</top>
           <aligny>bottom</aligny>
@@ -4184,10 +4194,10 @@
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>
-          <visible>![Control.HasFocus(300) | Control.HasFocus(30222)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name)) + !String.IsEmpty(Control.GetLabel(90645))</visible>
+          <visible>![Control.HasFocus(300) | Control.HasFocus(30222)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name)) + !String.IsEmpty(Control.GetLabel(1$PARAM[studioid]))</visible>
           <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
-        <control type="image" id="90646">
+        <control type="image" id="2$PARAM[studioid]">
           <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))">Conditional</animation>
           <top>13</top>
           <aligny>bottom</aligny>
@@ -4198,7 +4208,7 @@
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>
-          <visible>![Control.HasFocus(300) | Control.HasFocus(30222)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name)) + !String.IsEmpty(Control.GetLabel(90646))</visible>
+          <visible>![Control.HasFocus(300) | Control.HasFocus(30222)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name)) + !String.IsEmpty(Control.GetLabel(2$PARAM[studioid]))</visible>
           <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
       </control>
@@ -4767,6 +4777,7 @@
                 <param name="top250" value="true" />
                 <param name="plot" value="false" />
                 <param name="studio" value="false" />
+                <param name="studioid" value="90652" />
               </include>
             </control>
           </control>
@@ -6200,6 +6211,7 @@
             <param name="top250" value="false" />
             <param name="plot" value="true" />
             <param name="studio" value="false" />
+            <param name="studioid" value="90653" />
           </include>
         </control>
         <control type="label">
@@ -6387,6 +6399,7 @@
             <param name="top250" value="true" />
             <param name="plot" value="true" />
             <param name="studio" value="false" />
+            <param name="studioid" value="90654" />
           </include>
         </control>
         <control type="grouplist">
@@ -6414,6 +6427,7 @@
             <param name="top250" value="true" />
             <param name="plot" value="true" />
             <param name="studio" value="true" />
+            <param name="studioid" value="90655" />
           </include>
         </control>
         <!-- Add Plot when no ratings -->
