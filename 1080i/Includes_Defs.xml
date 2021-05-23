@@ -444,7 +444,7 @@
         <top>-85</top>
         <texture>common/dark-shadow-24.png</texture>
         <height>300</height>
-        <width>1000</width>
+        <width>1250</width>
         <include>Animation_FadeIn_Slide</include>
     </include>
         <include name="Defs_ShadowBack_Fullscreen_volume">
