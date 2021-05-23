@@ -146,6 +146,7 @@
           <param name="top250" value="false" />
           <param name="plot" value="false" />
           <param name="studio" value="true" />
+          <param name="studioid" value="90646" />
         </include>
             </control>
             <control type="group">
@@ -169,6 +170,7 @@
           <param name="top250" value="false" />
           <param name="plot" value="false" />
           <param name="studio" value="true" />
+          <param name="studioid" value="90647" />
         </include>
             </control>
           </control>
@@ -225,12 +227,12 @@
             <left>-16</left>
             <include content="Object_StarRating_Music">
               <param name="align" value="left" />
-              <param name="visible" value="String.IsEmpty(ListItem.UserRating)" />
+              <param name="visible" value="String.IsEmpty(ListItem.Rating)" />
             </include>
             <include content="Object_StarRating">
               <param name="align" value="left" />
-              <param name="visible" value="!String.IsEmpty(ListItem.UserRating)" />
-              <param name="rating_prop" value="ListItem.UserRating" />
+              <param name="visible" value="!String.IsEmpty(ListItem.Rating)" />
+              <param name="rating_prop" value="ListItem.Rating" />
             </include>
           </control>
         </control>
@@ -1762,6 +1764,7 @@
           <param name="top250" value="false" />
           <param name="plot" value="false" />
           <param name="studio" value="true" />
+          <param name="studioid" value="90648" />
         </include>
       </control>
       <control type="group">
@@ -2006,6 +2009,7 @@
             <param name="top250" value="true" />
             <param name="plot" value="false" />
             <param name="studio" value="true" />
+            <param name="studioid" value="90649" />
           </include>
         </control>
         <control type="grouplist">
@@ -2118,7 +2122,7 @@
                 <control type="group">
                   <width>100</width>
                   <height>30</height>
-                  <visible>!String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow) + !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Duration))</visible>
+                  <visible>!String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow) + [!String.IsEmpty(ListItem.Duration) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Duration))]</visible>
               <control type="image">
                 <bottom>-18</bottom>
                 <animation effect="fade" time="0" end="75" condition="true">Conditional</animation>
@@ -2303,6 +2307,7 @@
             <param name="top250" value="true" />
             <param name="plot" value="false" />
             <param name="studio" value="true" />
+            <param name="studioid" value="90650" />
           </include>
         </control>
       </control>
@@ -2464,12 +2469,12 @@
             <left>-16</left>
             <include content="Object_StarRating_Music">
               <param name="align" value="left" />
-              <param name="visible" value="String.IsEmpty(ListItem.UserRating)" />
+              <param name="visible" value="String.IsEmpty(ListItem.Rating)" />
             </include>
             <include content="Object_StarRating">
               <param name="align" value="left" />
-              <param name="visible" value="!String.IsEmpty(ListItem.UserRating)" />
-              <param name="rating_prop" value="ListItem.UserRating" />
+              <param name="visible" value="!String.IsEmpty(ListItem.Rating)" />
+              <param name="rating_prop" value="ListItem.Rating" />
             </include>
           </control>
         </control>
@@ -3776,6 +3781,7 @@
               <param name="top250" value="false" />
               <param name="plot" value="false" />
               <param name="studio" value="true" />
+              <param name="studioid" value="90651" />
             </include>
           </control>
         </control>
@@ -3796,6 +3802,7 @@
     <param name="oscars" default="true" />
     <param name="top250" default="false" />
     <param name="studio" default="false" />
+    <param name="studioid" default="90645" />
     <definition>
       <include content="Object_Ratings_Content" condition="!Skin.HasSetting(MonochromeFlags)">
         <param name="directory" value="$PARAM[directory]" />
@@ -3812,6 +3819,7 @@
         <param name="oscars" value="$PARAM[oscars]" />
         <param name="top250" value="$PARAM[top250]" />
         <param name="studio" value="$PARAM[studio]" />
+        <param name="studioid" value="$PARAM[studioid]" />
       </include>
       <include content="Object_Ratings_Content" condition="Skin.HasSetting(MonochromeFlags)">
         <param name="directory" value="monochrome" />
@@ -3829,6 +3837,7 @@
         <param name="top250" value="$PARAM[top250]" />
         <param name="studio" value="$PARAM[studio]" />
         <param name="studiodirectory" value="white" />
+        <param name="studioid" value="$PARAM[studioid]" />
       </include>
     </definition>
   </include>
@@ -3850,6 +3859,7 @@
     <param name="trakt" default="true" />
     <param name="star" default="true" />
     <param name="studiodirectory" default="coloured" />
+    <param name="studioid" default="90645" />
     <definition>
       <control type="grouplist">
         <width>$PARAM[width]</width>
@@ -4173,47 +4183,57 @@
           <label>$INFO[ListItem.Plot]</label>
           <scroll>true</scroll>
         </control>
-        <control type="image">
-          <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(ListItem.Studio)">Conditional</animation>
-          <top>13</top>
+        <control type="image" id="1$PARAM[studioid]">
+          <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name))">Conditional</animation>
+          <top>-12</top>
           <aligny>bottom</aligny>
-          <texture colordiffuse="main_fg_100">$INFO[ListItem.Studio,resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
-          <aspectratio>stretch</aspectratio>
-          <height>44</height>
-          <width>64</width>
+          <texture colordiffuse="main_fg_100">$INFO[Window(Home).Property(TMDbHelper.ListItem.Network.1.Name),resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
+          <aspectratio>keep</aspectratio>
+          <height>100</height>
+          <width>100</width>
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
-	  <visible>!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>
-          <visible>!String.IsEmpty(ListItem.Studio) + !String.Contains(ListItem.Studio,/)</visible>
-          <visible>![Control.HasFocus(300) | Control.HasFocus(30222) | Control.IsVisible(1506)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+          <visible>!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>
+          <visible>![Control.HasFocus(300) | Control.HasFocus(30222)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name)) + !String.IsEmpty(Control.GetLabel(1$PARAM[studioid]))</visible>
+          <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
-        <control type="image">
-          <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(ListItem.Studio) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))">Conditional</animation>
-          <top>13</top>
+        <control type="image" id="2$PARAM[studioid]">
+          <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))">Conditional</animation>
+          <top>-12</top>
           <aligny>bottom</aligny>
           <texture colordiffuse="main_fg_100">$INFO[Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name),resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
-          <aspectratio>stretch</aspectratio>
-          <height>44</height>
-          <width>64</width>
+          <aspectratio>keep</aspectratio>
+          <height>100</height>
+          <width>100</width>
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
-	  <visible>!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>
-          <visible>!Control.IsVisible(1506) +  [String.IsEmpty(ListItem.Studio) | String.Contains(ListItem.Studio,/)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))</visible>
+          <visible>String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>
+          <visible>![Control.HasFocus(300) | Control.HasFocus(30222)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name)) + !String.IsEmpty(Control.GetLabel(2$PARAM[studioid]))</visible>
           <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
-        <control type="image">
-          <animation effect="slide" end="0,-10" time="0" condition="Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Studio)">Conditional</animation>
-          <top>13</top>
-          <aligny>bottom</aligny>
-          <texture colordiffuse="main_fg_100">$INFO[Container(1505).ListItem.Studio,resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
-          <aspectratio>stretch</aspectratio>
-          <height>44</height>
-          <width>64</width>
-          <visible>$PARAM[studio]</visible>
-          <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
-          <visible>Control.IsVisible(1505) + String.IsEmpty(ListItem.Studio) + String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name)) + !String.IsEmpty(Container(1505).ListItem.Studio) + !String.Contains(Container(1505).ListItem.Studio,/)</visible>
-          <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
-        </control>
+      </control>
+    </definition>
+  </include>
+  <include name="Object_Studio_Logo">
+    <param name="studiodirectory" default="coloured" />
+    <definition>
+      <control type="image" id="7878">
+        <right>20</right>
+        <bottom>50</bottom>
+        <texture background="true">$INFO[Window(Home).Property(TMDbHelper.ListItem.Network.1.Name),resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
+        <aspectratio>stretch</aspectratio>
+        <height>108</height>
+        <width>150</width>
+        <visible>!String.IsEqual(ListItem.DBType,movie)</visible>
+      </control>
+      <control type="image" id="7878">
+        <right>20</right>
+        <bottom>50</bottom>
+        <texture background="true">$INFO[Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name),resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
+        <aspectratio>stretch</aspectratio>
+        <height>108</height>
+        <width>150</width>
+        <visible>String.IsEqual(ListItem.DBType,movie)</visible>
       </control>
     </definition>
   </include>
@@ -4757,6 +4777,7 @@
                 <param name="top250" value="true" />
                 <param name="plot" value="false" />
                 <param name="studio" value="false" />
+                <param name="studioid" value="90652" />
               </include>
             </control>
           </control>
@@ -5534,7 +5555,7 @@
             <control type="group">
               <width>95</width>
               <height>30</height>
-              <visible>[!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Duration)) + !String.IsEqual(ListItem.DBType,tvshow) + !String.IsEqual(ListItem.DBType,season)] | String.Contains(ListItem.FolderPath,plugin.video.youtube)</visible>
+              <visible>[[!String.IsEmpty(ListItem.Duration) | !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Duration))] + !String.IsEqual(ListItem.DBType,tvshow) + !String.IsEqual(ListItem.DBType,season)] | String.Contains(ListItem.FolderPath,plugin.video.youtube)</visible>
               <control type="image">
                 <bottom>-18</bottom>
                 <animation effect="fade" time="0" end="75" condition="true">Conditional</animation>
@@ -6190,6 +6211,7 @@
             <param name="top250" value="false" />
             <param name="plot" value="true" />
             <param name="studio" value="false" />
+            <param name="studioid" value="90653" />
           </include>
         </control>
         <control type="label">
@@ -6377,6 +6399,7 @@
             <param name="top250" value="true" />
             <param name="plot" value="true" />
             <param name="studio" value="false" />
+            <param name="studioid" value="90654" />
           </include>
         </control>
         <control type="grouplist">
@@ -6404,6 +6427,7 @@
             <param name="top250" value="true" />
             <param name="plot" value="true" />
             <param name="studio" value="true" />
+            <param name="studioid" value="90655" />
           </include>
         </control>
         <!-- Add Plot when no ratings -->

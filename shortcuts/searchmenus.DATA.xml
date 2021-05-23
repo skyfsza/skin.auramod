@@ -23,10 +23,34 @@
   </shortcut>
   <shortcut>
     <defaultID />
-    <label>Seren TV Shows</label>
+    <label>Seren Shows</label>
     <label2>Custom item</label2>
     <icon>DefaultShortcut.png</icon>
     <action>ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsSearchResults&amp;actionArgs=",return)</action>
+  </shortcut>
+  <shortcut>
+    <label>Fen Movies</label>
+    <label2>Custom item</label2>
+    <icon>DefaultShortcut.png</icon>
+    <action>plugin://plugin.video.fen/?mode=build_movie_list&amp;action=tmdb_movies_search&amp;query=</action>
+  </shortcut>
+  <shortcut>
+    <label>Fen Shows</label>
+    <label2>Custom item</label2>
+    <icon>DefaultShortcut.png</icon>
+    <action>plugin://plugin.video.fen/?mode=build_tvshow_list&amp;action=tmdb_tv_search&amp;query=</action>
+  </shortcut>
+  <shortcut>
+    <label>Venom Movies</label>
+    <label2>Custom item</label2>
+    <icon>DefaultShortcut.png</icon>
+    <action>plugin://plugin.video.venom/','12','?action=movieSearchterm&amp;name=</action>
+  </shortcut>
+  <shortcut>
+    <label>Venom Shows</label>
+    <label2>Custom item</label2>
+    <icon>DefaultShortcut.png</icon>
+    <action>plugin://plugin.video.venom/?action=tvSearchterm&amp;name=</action>
   </shortcut>
   <shortcut>
     <defaultID />
@@ -120,9 +144,9 @@
     <action>DefaultSearch-Youtube</action>
   </shortcut>
   <shortcut>
-    <label>WonderfulSubs</label>
+    <label>Kaito</label>
     <label2>$LOCALIZE[571]</label2>
     <icon>DefaultShortcut.png</icon>
-    <action>DefaultSearch-WonderfulSubs</action>
+    <action>DefaultSearch-Kaito</action>
   </shortcut>
 </shortcuts>

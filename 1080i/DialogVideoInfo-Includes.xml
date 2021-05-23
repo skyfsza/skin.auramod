@@ -1073,14 +1073,12 @@
         <height>100%</height>
       </control>
     </control>
-    <control type="image" id="7878">
-      <right>20</right>
-      <bottom>50</bottom>
-      <texture background="true">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
-      <aspectratio>stretch</aspectratio>
-      <height>108</height>
-      <width>150</width>
-    </control>
+    <include content="Object_Studio_Logo" condition="!Skin.HasSetting(MonochromeFlags)">
+      <param name="studiodirectory" value="coloured" />
+    </include>
+    <include content="Object_Studio_Logo" condition="Skin.HasSetting(MonochromeFlags)">
+      <param name="studiodirectory" value="white" />
+    </include>
     <!-- Clearlogo and Fallback Title -->
     <control type="group">
       <left>20</left>

@@ -180,8 +180,8 @@
             <property name="path" tag="property" attribute="name|list" value="DefaultSearch-TMDBMovies">plugin://plugin.video.themoviedb.helper?info=search&amp;history=true&amp;type=movie&amp;query=</property>
             <property name="path" tag="property" attribute="name|list" value="DefaultSearch-TMDBShows">plugin://plugin.video.themoviedb.helper?info=search&amp;history=true&amp;type=tv&amp;query=</property>
             <property name="path" tag="property" attribute="name|list" value="DefaultSearch-TMDBPeople">plugin://plugin.video.themoviedb.helper?info=search&amp;type=person&amp;query=</property>
-            <property name="path" tag="property" attribute="name|list" value="DefaultSearch-WonderfulSubs">plugin://plugin.video.wonderfulsubs/search/</property>
-            <property name="path2" tag="property" attribute="name|list" value="DefaultSearch-WonderfulSubs">/1</property>
+            <property name="path" tag="property" attribute="name|list" value="DefaultSearch-Kaito">plugin://plugin.video.kaito/search/</property>
+            <property name="path2" tag="property" attribute="name|list" value="DefaultSearch-Kaito">/1</property>
 
 
             <property name="label" tag="label" />
@@ -785,7 +785,7 @@
                 <param name="landscapewidebg" value="$PYTHON['true' if widgetLandscapewidebg == 'true' else 'false']" />
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
-                <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
+                <param name="visible" value="Container(505).HasFocus($PYTHON[int(id)])" />
             </include>
             </controls>
         </items>
@@ -914,7 +914,7 @@
                 <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide == 'true' else 'false']" />
                 <param name="landscapewidebg" value="$PYTHON['true' if widgetLandscapewidebg == 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
-                <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
+                <param name="visible" value="Container(505).HasFocus($PYTHON[int(id)])" />
             </include>
             </controls>
         </items>
@@ -1076,7 +1076,7 @@
                 <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide == 'true' else 'false']" />
                 <param name="landscapewidebg" value="$PYTHON['true' if widgetLandscapewidebg == 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
-                <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
+                <param name="visible" value="Container(505).HasFocus($PYTHON[int(id)])" />
             </include>
             </controls>
         </items>
@@ -1208,7 +1208,7 @@
                 <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide == 'true' else 'false']" />
                 <param name="landscapewidebg" value="$PYTHON['true' if widgetLandscapewidebg == 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
-                <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
+                <param name="visible" value="Container(505).HasFocus($PYTHON[int(id)])" />
             </include>
             </controls>
         </items>
@@ -1372,7 +1372,7 @@
                 <param name="landscapewidebg" value="$PYTHON['true' if widgetLandscapewidebg == 'true' else 'false']" />
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
-                <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
+                <param name="visible" value="Container(505).HasFocus($PYTHON[int(id)])" />
             </include>
             </controls>
         </items>
@@ -1535,7 +1535,7 @@
                 <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide == 'true' else 'false']" />
                 <param name="landscapewidebg" value="$PYTHON['true' if widgetLandscapewidebg == 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
-                <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
+                <param name="visible" value="Container(505).HasFocus($PYTHON[int(id)])" />
             </include>
             </controls>
         </items>
@@ -1697,7 +1697,7 @@
                 <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide == 'true' else 'false']" />
                 <param name="landscapewidebg" value="$PYTHON['true' if widgetLandscapewidebg == 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
-                <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
+                <param name="visible" value="Container(505).HasFocus($PYTHON[int(id)])" />
             </include>
             </controls>
         </items>
@@ -1825,7 +1825,7 @@
                 <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide == 'true' else 'false']" />
                 <param name="landscapewidebg" value="$PYTHON['true' if widgetLandscapewidebg == 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
-                <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
+                <param name="visible" value="Container(505).HasFocus($PYTHON[int(id)])" />
             </include>
             </controls>
         </items>
@@ -1953,7 +1953,7 @@
                 <param name="Showcasehide" value="$PYTHON['true' if widgetShowcasehide == 'true' else 'false']" />
                 <param name="landscapewidebg" value="$PYTHON['true' if widgetLandscapewidebg == 'true' else 'false']" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
-                <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
+                <param name="visible" value="Container(505).HasFocus($PYTHON[int(id)])" />
             </include>
             </controls>
         </items>
@@ -2310,7 +2310,7 @@
                 <param name="controltype" value="$PYTHON['list' if widgetControl == 'true' else 'fixedlist']" />
                 <param name="movement" value="$SKINSHORTCUTS[widgetMovement]" />
                 <param name="label" value="$SKINSHORTCUTS[label]" />
-                <param name="visible" value="String.IsEqual(Container(505).ListItem.Label,$SKINSHORTCUTS[label])" />
+                <param name="visible" value="Container(505).HasFocus($PYTHON[int(id)])" />
             </include>
             </controls>
         </items>
