@@ -11,6 +11,7 @@
         <import addon="resource.images.studios.white" version="0.0.10"/>
         <import addon="resource.images.studios.coloured" version="0.0.18"/>
         <import addon="resource.images.moviegenreicons.transparent" version="0.0.6"/>
+        <import addon="script.colorbox" version"2.0.8"/>
     </requires>
     <extension point="xbmc.gui.skin" defaultthemename="Textures.xbt" debugging="false" effectslowdown="1">
         <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i"/>
