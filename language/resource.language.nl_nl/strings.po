@@ -1,13 +1,14 @@
 # Kodi Media Center language file
-# Addon Name: Horizon
-# Addon id: skin.horizon
+# Addon Name: Auramod Matrix 
+# Addon id: skin.auramod
 # Addon Provider: jurialmunkey
+# Translators: Wil83
 msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
+"Language: Nederlands"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: /1080i/Includes_Global.xml
