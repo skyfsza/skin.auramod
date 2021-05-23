@@ -4185,12 +4185,12 @@
         </control>
         <control type="image" id="1$PARAM[studioid]">
           <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name))">Conditional</animation>
-          <top>13</top>
+          <top>-12</top>
           <aligny>bottom</aligny>
           <texture colordiffuse="main_fg_100">$INFO[Window(Home).Property(TMDbHelper.ListItem.Network.1.Name),resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
-          <aspectratio>stretch</aspectratio>
-          <height>44</height>
-          <width>64</width>
+          <aspectratio>keep</aspectratio>
+          <height>100</height>
+          <width>100</width>
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>
@@ -4199,12 +4199,12 @@
         </control>
         <control type="image" id="2$PARAM[studioid]">
           <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))">Conditional</animation>
-          <top>13</top>
+          <top>-12</top>
           <aligny>bottom</aligny>
           <texture colordiffuse="main_fg_100">$INFO[Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name),resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
-          <aspectratio>stretch</aspectratio>
-          <height>44</height>
-          <width>64</width>
+          <aspectratio>keep</aspectratio>
+          <height>100</height>
+          <width>100</width>
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>
