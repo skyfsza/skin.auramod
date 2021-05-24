@@ -3803,6 +3803,9 @@
     <param name="top250" default="false" />
     <param name="studio" default="false" />
     <param name="studioid" default="90645" />
+    <param name="studiotop" default="-12" />
+    <param name="studioheight" default="100" />
+    <param name="studiowidth" default="100" />
     <definition>
       <include content="Object_Ratings_Content" condition="!Skin.HasSetting(MonochromeFlags)">
         <param name="directory" value="$PARAM[directory]" />
@@ -3820,6 +3823,9 @@
         <param name="top250" value="$PARAM[top250]" />
         <param name="studio" value="$PARAM[studio]" />
         <param name="studioid" value="$PARAM[studioid]" />
+        <param name="studiotop" value="$PARAM[studiotop]" />
+        <param name="studioheight" value="$PARAM[studioheight]" />
+        <param name="studiowidth" value="$PARAM[studiowidth]" />
       </include>
       <include content="Object_Ratings_Content" condition="Skin.HasSetting(MonochromeFlags)">
         <param name="directory" value="monochrome" />
@@ -3838,6 +3844,9 @@
         <param name="studio" value="$PARAM[studio]" />
         <param name="studiodirectory" value="white" />
         <param name="studioid" value="$PARAM[studioid]" />
+        <param name="studiotop" value="$PARAM[studiotop]" />
+        <param name="studioheight" value="$PARAM[studioheight]" />
+        <param name="studiowidth" value="$PARAM[studiowidth]" />
       </include>
     </definition>
   </include>
@@ -3860,6 +3869,9 @@
     <param name="star" default="true" />
     <param name="studiodirectory" default="coloured" />
     <param name="studioid" default="90645" />
+    <param name="studiotop" default="-12" />
+    <param name="studioheight" default="100" />
+    <param name="studiowidth" default="100" />
     <definition>
       <control type="grouplist">
         <width>$PARAM[width]</width>
@@ -4185,12 +4197,12 @@
         </control>
         <control type="image" id="1$PARAM[studioid]">
           <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name))">Conditional</animation>
-          <top>-12</top>
+          <top>$PARAM[studiotop]</top>
           <aligny>bottom</aligny>
           <texture colordiffuse="main_fg_100">$INFO[Window(Home).Property(TMDbHelper.ListItem.Network.1.Name),resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
           <aspectratio>keep</aspectratio>
-          <height>100</height>
-          <width>100</width>
+          <height>$PARAM[studioheight]</height>
+          <width>$PARAM[studiowidth]</width>
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>
@@ -4199,12 +4211,12 @@
         </control>
         <control type="image" id="2$PARAM[studioid]">
           <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))">Conditional</animation>
-          <top>-12</top>
+          <top>$PARAM[studiotop]</top>
           <aligny>bottom</aligny>
           <texture colordiffuse="main_fg_100">$INFO[Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name),resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
           <aspectratio>keep</aspectratio>
-          <height>100</height>
-          <width>100</width>
+          <height>$PARAM[studioheight]</height>
+          <width>$PARAM[studiowidth]</width>
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>

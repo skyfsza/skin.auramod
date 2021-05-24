@@ -778,6 +778,10 @@
             <param name="top250" value="true" />
             <param name="plot" value="true" />
             <param name="studio" value="true" />
+            <param name="studioid" value="3$PARAM[id]" />
+            <param name="studiotop" value="-2" />
+            <param name="studioheight" value="70" />
+            <param name="studiowidth" value="70" />
           </include>
         </control>
         <control type="grouplist">
@@ -805,6 +809,10 @@
             <param name="top250" value="true" />
             <param name="plot" value="true" />
             <param name="studio" value="false" />
+            <param name="studioid" value="4$PARAM[id]" />
+            <param name="studiotop" value="-2" />
+            <param name="studioheight" value="70" />
+            <param name="studiowidth" value="70" />
           </include>
         </control>
         <!-- Add Plot when no ratings -->
