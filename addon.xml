@@ -56,8 +56,8 @@
             -Fix RT icons in "More Info" section of "Cast & More"
             -Improve custom Actor Window handling
             -Fix missing ) in next aired and imdb_rating
-            -Fix "Cast & More" navigation initial info entry point
-            -Fix "Cast & More" actor navigation in MyVideoNav.xml
+            -Fix "Cast and More" navigation initial info entry point
+            -Fix "Cast and More" actor navigation in MyVideoNav.xml
             v1.0.5
             -Massive overhal to use TMDBHelper for ratings and artwork instead of SkinHelper
             -Massive overhal to navigation in Netflix info "cast & more"
