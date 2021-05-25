@@ -2810,7 +2810,7 @@
     </itemlayout>
     <focusedlayout width="182" height="130" condition="!Skin.HasSetting(SubmenuLabel)">
       <include content="Widget_Hub_FocusedLayout">
-        <param name="id" value="$PARAM[id]" />
+        <param name="id" value="30222" />
       </include>
     </focusedlayout>
     <itemlayout width="284.44" height="160" condition="Skin.HasSetting(SubmenuLabel)">
