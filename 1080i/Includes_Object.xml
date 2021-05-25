@@ -4097,7 +4097,7 @@
           <height>64</height>
           <texture colordiffuse="$PARAM[colordiffuse]">flags/star10.png</texture>
           <visible>$PARAM[star]</visible>
-          <visible>!String.IsEmpty(ListItem.Rating) | [Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)]</visible>
+          <visible>!String.IsEmpty(ListItem.Rating) | [Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating) + ControlGroup(505).HasFocus] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating) + ControlGroup(506).HasFocus]</visible>
           <visible>!Skin.HasSetting(Ratings.Star) + Skin.HasSetting(MonochromeFlags)</visible>
         </control>
         <control type="image">
@@ -4107,7 +4107,7 @@
           <height>64</height>
           <texture colordiffuse="red">flags/star10.png</texture>
           <visible>$PARAM[star]</visible>
-          <visible>!String.IsEmpty(ListItem.Rating) | [Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)]</visible>
+          <visible>!String.IsEmpty(ListItem.Rating) | [Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating) + ControlGroup(505).HasFocus] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating) + ControlGroup(506).HasFocus]</visible>
           <visible>!Skin.HasSetting(Ratings.Star) + !Skin.HasSetting(MonochromeFlags)</visible>
         </control>
         <control type="label">
@@ -4119,7 +4119,7 @@
           <font>font_tiny</font>
           <label>$VAR[star_ratings]</label>
           <visible>$PARAM[star]</visible>
-          <visible>!String.IsEmpty(ListItem.Rating) | [Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)]</visible>
+          <visible>!String.IsEmpty(ListItem.Rating) | [Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating) + ControlGroup(505).HasFocus] | [Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating) + ControlGroup(506).HasFocus]</visible>
           <visible>!Skin.HasSetting(Ratings.Star)</visible>
         </control>
         <control type="image">
