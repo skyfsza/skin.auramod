@@ -53,14 +53,14 @@
             -Fix star ratings for seasons in library views
             -Fix episode duration visibility 
             v1.0.6
-            -Fix RT icons in "More Info" section of "Cast & More"
+            -Fix RT icons in "More Info" section of "Cast and More"
             -Improve custom Actor Window handling
             -Fix missing ) in next aired and imdb_rating
             -Fix "Cast and More" navigation initial info entry point
             -Fix "Cast and More" actor navigation in MyVideoNav.xml
             v1.0.5
             -Massive overhal to use TMDBHelper for ratings and artwork instead of SkinHelper
-            -Massive overhal to navigation in Netflix info "cast & more"
+            -Massive overhal to navigation in Netflix info "cast and more"
             -Massive overhal to Netflix info (fixed play , episodes , and other buttons)
             v1.0.4
             -Fix startup video hang bug
