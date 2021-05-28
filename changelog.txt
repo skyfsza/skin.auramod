@@ -1,3 +1,5 @@
+v1.0.13
+-Fix studio logos for Aura Home
 v1.0.12
 -Fix studio logo duplicate ID
 v1.0.11
