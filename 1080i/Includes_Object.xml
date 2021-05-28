@@ -12,6 +12,8 @@
     <param name="genre" default="true" />
     <param name="top250" default="true" />
     <param name="titleright" default="0" />
+    <param name="studioid_flags" default="90703" />
+    <param name="studioid_ratings" default="90704" />
     <definition>
       <control type="grouplist">
         <top>-10</top>
@@ -95,6 +97,8 @@
         </control>
 
         <control type="group">
+          <param name="studioid_flags" value="$PARAM[studioid_flags]" />
+          <param name="studioid_ratings" value="$PARAM[studioid_ratings]" />
           <height>80</height>
           <left>0</left>
           <right>0</right>
@@ -105,6 +109,7 @@
               <param name="directory" value="color" />
               <param name="align" value="left" />
               <param name="ratings" value="true" />
+              <param name="studioid" value="$PARAM[studioid_flags]" />
             </include>
           </control>
           <control type="group">
@@ -146,7 +151,7 @@
           <param name="top250" value="false" />
           <param name="plot" value="false" />
           <param name="studio" value="true" />
-          <param name="studioid" value="90646" />
+          <param name="studioid" value="1$PARAM[studioid_ratings]" />
         </include>
             </control>
             <control type="group">
@@ -170,7 +175,7 @@
           <param name="top250" value="false" />
           <param name="plot" value="false" />
           <param name="studio" value="true" />
-          <param name="studioid" value="90647" />
+          <param name="studioid" value="2$PARAM[studioid_ratings]" />
         </include>
             </control>
           </control>
@@ -1764,7 +1769,7 @@
           <param name="top250" value="false" />
           <param name="plot" value="false" />
           <param name="studio" value="true" />
-          <param name="studioid" value="90648" />
+          <param name="studioid" value="90675" />
         </include>
       </control>
       <control type="group">
@@ -2009,7 +2014,7 @@
             <param name="top250" value="true" />
             <param name="plot" value="false" />
             <param name="studio" value="true" />
-            <param name="studioid" value="90649" />
+            <param name="studioid" value="90676" />
           </include>
         </control>
         <control type="grouplist">
@@ -2263,6 +2268,7 @@
     <param name="genre" default="true" />
     <param name="top250" default="true" />
     <param name="titleright" default="0" />
+    <param name="studioid" default="90705" />
     <definition>
       <control type="group">
           <!-- trailer window -->
@@ -2275,6 +2281,7 @@
           </include>
       </control>
       <control type="group">
+        <param name="studioid" value="$PARAM[studioid]" />
           <!-- Add Netflix view Fanart with corner diffuse -->
           <include content="Netflix_Fanart">
             <param name="top" value="-45" />
@@ -2307,7 +2314,7 @@
             <param name="top250" value="true" />
             <param name="plot" value="false" />
             <param name="studio" value="true" />
-            <param name="studioid" value="90650" />
+            <param name="studioid" value="$PARAM[studioid]" />
           </include>
         </control>
       </control>
@@ -3386,6 +3393,7 @@
         <param name="oscars" value="$PARAM[oscars]" />
         <param name="top250" value="$PARAM[top250]" />
         <param name="plot" value="false" />
+        <param name="studioid" value="90678" />
       </include>
     </control>
   </include>
@@ -3573,6 +3581,7 @@
     <param name="colordiffuse" default="panel_fg_100" />
     <param name="ratings" default="false" />
     <param name="fps" default="false" />
+    <param name="studioid" default="90706" />
     <definition>
       <include content="Object_Flags_Content" condition="Skin.HasSetting(MonochromeFlags)">
         <param name="container" value="$PARAM[container]" />
@@ -3582,6 +3591,7 @@
         <param name="colordiffuse" value="main_fg_100" />
         <param name="ratings" value="$PARAM[ratings]" />
         <param name="fps" value="$PARAM[fps]" />
+        <param name="studioid" value="$PARAM[studioid]" />
       </include>
       <include content="Object_Flags_Content" condition="!Skin.HasSetting(MonochromeFlags)">
         <param name="container" value="$PARAM[container]" />
@@ -3591,6 +3601,7 @@
         <param name="colordiffuse" value="panel_fg_100" />
         <param name="ratings" value="$PARAM[ratings]" />
         <param name="fps" value="$PARAM[fps]" />
+        <param name="studioid" value="$PARAM[studioid]" />
       </include>
     </definition>
   </include>
@@ -3602,6 +3613,7 @@
     <param name="colordiffuse" default="panel_fg_100" />
     <param name="ratings" default="false" />
     <param name="fps" default="false" />
+    <param name="studioid" default="90707" />
     <definition>
       <control type="grouplist">
         <visible>!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)</visible>
@@ -3781,7 +3793,7 @@
               <param name="top250" value="false" />
               <param name="plot" value="false" />
               <param name="studio" value="true" />
-              <param name="studioid" value="90651" />
+              <param name="studioid" value="$PARAM[studioid]" />
             </include>
           </control>
         </control>
@@ -3802,7 +3814,7 @@
     <param name="oscars" default="true" />
     <param name="top250" default="false" />
     <param name="studio" default="false" />
-    <param name="studioid" default="90645" />
+    <param name="studioid" default="90708" />
     <param name="studiotop" default="-12" />
     <param name="studioheight" default="100" />
     <param name="studiowidth" default="100" />
@@ -3842,8 +3854,8 @@
         <param name="oscars" value="$PARAM[oscars]" />
         <param name="top250" value="$PARAM[top250]" />
         <param name="studio" value="$PARAM[studio]" />
-        <param name="studiodirectory" value="white" />
         <param name="studioid" value="$PARAM[studioid]" />
+        <param name="studiodirectory" value="white" />
         <param name="studiotop" value="$PARAM[studiotop]" />
         <param name="studioheight" value="$PARAM[studioheight]" />
         <param name="studiowidth" value="$PARAM[studiowidth]" />
@@ -3865,10 +3877,10 @@
     <param name="top250" default="true" />
     <param name="plot" default="false" />
     <param name="studio" default="false" />
+    <param name="studioid" default="90709" />
     <param name="trakt" default="true" />
     <param name="star" default="true" />
     <param name="studiodirectory" default="coloured" />
-    <param name="studioid" default="90645" />
     <param name="studiotop" default="-12" />
     <param name="studioheight" default="100" />
     <param name="studiowidth" default="100" />
@@ -4205,11 +4217,25 @@
           <width>$PARAM[studiowidth]</width>
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
-          <visible>!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>
+          <visible>String.IsEqual(ListItem.DBType,tvshow) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>
           <visible>![Control.HasFocus(300) | Control.HasFocus(30222)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name)) + !String.IsEmpty(Control.GetLabel(1$PARAM[studioid]))</visible>
           <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
         <control type="image" id="2$PARAM[studioid]">
+          <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name))">Conditional</animation>
+          <top>$PARAM[studiotop]</top>
+          <aligny>bottom</aligny>
+          <texture colordiffuse="main_fg_100">$INFO[Window(Home).Property(TMDbHelper.ListItem.Network.1.Name),resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
+          <aspectratio>keep</aspectratio>
+          <height>$PARAM[studioheight]</height>
+          <width>$PARAM[studiowidth]</width>
+          <visible>$PARAM[studio]</visible>
+          <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
+          <visible>String.IsEqual(ListItem.DBType,episode) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>
+          <visible>![Control.HasFocus(300) | Control.HasFocus(30222)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name)) + !String.IsEmpty(Control.GetLabel(2$PARAM[studioid]))</visible>
+          <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+        </control>
+        <control type="image" id="3$PARAM[studioid]">
           <animation effect="slide" end="0,-10" time="0" condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))">Conditional</animation>
           <top>$PARAM[studiotop]</top>
           <aligny>bottom</aligny>
@@ -4220,7 +4246,7 @@
           <visible>$PARAM[studio]</visible>
           <visible>Skin.HasSetting(DisableWidgetStudio)</visible>
           <visible>String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(Container(5055).ListItem.DBType,movie)</visible>
-          <visible>![Control.HasFocus(300) | Control.HasFocus(30222)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name)) + !String.IsEmpty(Control.GetLabel(2$PARAM[studioid]))</visible>
+          <visible>![Control.HasFocus(300) | Control.HasFocus(30222)] + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name)) + !String.IsEmpty(Control.GetLabel(3$PARAM[studioid]))</visible>
           <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
         </control>
       </control>
@@ -4789,7 +4815,7 @@
                 <param name="top250" value="true" />
                 <param name="plot" value="false" />
                 <param name="studio" value="false" />
-                <param name="studioid" value="90652" />
+                <param name="studioid" value="90680" />
               </include>
             </control>
           </control>
@@ -6223,7 +6249,7 @@
             <param name="top250" value="false" />
             <param name="plot" value="true" />
             <param name="studio" value="false" />
-            <param name="studioid" value="90653" />
+            <param name="studioid" value="90681" />
           </include>
         </control>
         <control type="label">
@@ -6411,7 +6437,7 @@
             <param name="top250" value="true" />
             <param name="plot" value="true" />
             <param name="studio" value="false" />
-            <param name="studioid" value="90654" />
+            <param name="studioid" value="90682" />
           </include>
         </control>
         <control type="grouplist">
@@ -6439,7 +6465,7 @@
             <param name="top250" value="true" />
             <param name="plot" value="true" />
             <param name="studio" value="true" />
-            <param name="studioid" value="90655" />
+            <param name="studioid" value="90683" />
           </include>
         </control>
         <!-- Add Plot when no ratings -->
@@ -8507,6 +8533,8 @@
                         <param name="discart" value="true" />
                         <param name="hdsd_flag" value="true" />
                         <param name="plot_height" value="170" />
+                        <param name="studioid_flags" value="90649" />
+                        <param name="studioid_ratings" value="90691" />
                     </include>
                 </control>
             </control>

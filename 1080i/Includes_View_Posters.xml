@@ -119,6 +119,8 @@
                     <param name="plot_height" value="210" />
                     <param name="imdbvotes" value="false" />
                     <param name="top250" value="false" />
+                    <param name="studioid_flags" value="90651" />
+                    <param name="studioid_ratings" value="90693" />
                 </include>
                 </control>
             </control>
@@ -310,6 +312,8 @@
           <param name="discart" value="true" />
           <param name="hdsd_flag" value="true" />
           <param name="plot_height" value="170" />
+          <param name="studioid_flags" value="90652" />
+          <param name="studioid_ratings" value="90694" />
         </include>
         <include content="Object_Info_Netflix" condition="!Skin.HasSetting(DisableNetflixView)">
           <param name="id" value="55" />
@@ -317,6 +321,7 @@
           <param name="discart" value="true" />
           <param name="hdsd_flag" value="true" />
           <param name="plot_height" value="170" />
+          <param name="studioid" value="90661" />
         </include>
       </control>
     </control>
@@ -360,6 +365,8 @@
           <param name="discart" value="true" />
           <param name="hdsd_flag" value="true" />
           <param name="plot_height" value="170" />
+          <param name="studioid_flags" value="90653" />
+          <param name="studioid_ratings" value="90695" />
         </include>
         <include content="Object_Info_Netflix" condition="!Skin.HasSetting(DisableNetflixView)">
           <param name="id" value="509" />
@@ -367,6 +374,7 @@
           <param name="discart" value="true" />
           <param name="hdsd_flag" value="true" />
           <param name="plot_height" value="170" />
+          <param name="studioid" value="90662" />
         </include>
       </control>
     </control>
@@ -411,6 +419,8 @@
           <param name="discart" value="true" />
           <param name="hdsd_flag" value="true" />
           <param name="plot_height" value="170" />
+          <param name="studioid_flags" value="90654" />
+          <param name="studioid_ratings" value="90696" />
         </include>
         <include content="Object_Info_Netflix" condition="!Skin.HasSetting(DisableNetflixView)">
           <param name="id" value="56" />
@@ -418,6 +428,7 @@
           <param name="discart" value="true" />
           <param name="hdsd_flag" value="true" />
           <param name="plot_height" value="170" />
+          <param name="studioid" value="90663" />
         </include>
       </control>
     </control>
@@ -481,6 +492,8 @@
           <param name="discart" value="true" />
           <param name="hdsd_flag" value="true" />
           <param name="plot_height" value="170" />
+          <param name="studioid_flags" value="90655" />
+          <param name="studioid_ratings" value="90697" />
         </include>
       </control>
     </control>
@@ -526,6 +539,8 @@
               <param name="discart" value="true" />
               <param name="hdsd_flag" value="true" />
               <param name="plot_height" value="0" />
+              <param name="studioid_flags" value="90656" />
+              <param name="studioid_ratings" value="90698" />
             </include>
           </control>
           <control type="group">
@@ -538,6 +553,7 @@
               <param name="container" value="" />
               <param name="directory" value="color" />
               <param name="align" value="left" />
+              <param name="studioid" value="90670" />
             </include>
           </control>
           <control type="label">
@@ -644,6 +660,8 @@
               <param name="width" value="1068" />
               <param name="discart" value="false" />
               <param name="hdsd_flag" value="true" />
+              <param name="studioid_flags" value="90657" />
+              <param name="studioid_ratings" value="90699" />
             </include>
           </control>
         </control>
