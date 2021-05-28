@@ -1,3 +1,8 @@
+v1.0.12
+-Fix studio logo duplicate ID
+v1.0.11
+-Repo Release
+-Reworked addon.xml
 v1.0.10
 -Fix star rating visibility on "See More" widget items
 v1.0.9
