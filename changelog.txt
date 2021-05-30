@@ -1,3 +1,6 @@
+v1.0.14
+-Fix actor thumbnails on multi-widget spotlights
+-Fix studio logos for multi-widget spotlights
 v1.0.13
 -Fix studio logos for Aura Home
 v1.0.12
