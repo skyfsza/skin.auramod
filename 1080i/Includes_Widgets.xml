@@ -105,9 +105,8 @@
               <include condition="Skin.HasSetting(EnableSpotlight)">Spotlight_TVNextAired_AuraWidget</include>
               <include condition="Skin.HasSetting(EnableSpotlight)">Widget_LiveTV</include>
             </control>
-              <!-- Look into why movies and shows cast is not working on multi spotlights at another time 
               <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight)">Spotlight_MultiWidget_Movies_cast</include>
-              <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableTVMultiWidgetSpotlight)">Spotlight_MultiWidget_TVShows_cast</include>-->
+              <include condition="Skin.HasSetting(EnableSpotlight) + Skin.HasSetting(EnableTVMultiWidgetSpotlight)">Spotlight_MultiWidget_TVShows_cast</include>
             <!-- Home Widget -->
             <include>Widgets_Grouplist</include>
             <include>WidgetHubScroll</include>

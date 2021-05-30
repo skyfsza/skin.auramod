@@ -606,9 +606,15 @@
             </control>
           </control>
         </focusedlayout>
-        <content limit="6" target="video">plugin://plugin.video.themoviedb.helper/?info=cast&amp;$VAR[Info_Param_Type_1505]&amp;$VAR[Info_Param_IMDB_or_QUERY_1505]</content>
+        <content limit="6" target="video">$VAR[Cast_Widget_Content_1505]</content>
       </control>
     </control>
+    <include content="Object_Studio_Logo_Multi_Widget" condition="!Skin.HasSetting(MonochromeFlags)">
+      <param name="studiodirectory" value="coloured" />
+    </include>
+    <include content="Object_Studio_Logo_Multi_Widget" condition="Skin.HasSetting(MonochromeFlags)">
+      <param name="studiodirectory" value="white" />
+    </include>
   </include>
   <include name="Spotlight_MultiWidget_Movies_cast">
     <control type="group">
@@ -712,9 +718,15 @@
             </control>
           </control>
         </focusedlayout>
-        <content limit="6" target="video">plugin://plugin.video.themoviedb.helper/?info=cast&amp;$VAR[Info_Param_Type_1506]&amp;$VAR[Info_Param_IMDB_or_QUERY_1506]</content>
+        <content limit="6" target="video">$VAR[Cast_Widget_Content_1506]</content>
       </control>
     </control>
+    <include content="Object_Studio_Logo_Multi_Widget" condition="!Skin.HasSetting(MonochromeFlags)">
+      <param name="studiodirectory" value="coloured" />
+    </include>
+    <include content="Object_Studio_Logo_Multi_Widget" condition="Skin.HasSetting(MonochromeFlags)">
+      <param name="studiodirectory" value="white" />
+    </include>
   </include>
   <include name="Spotlight_MultiWidget">
     <param name="id" default="" />
@@ -832,16 +844,6 @@
                     <aligny>top</aligny>
                     <texture background="true">$VAR[Image_Poster]</texture>
                   </control>
-                </control>
-                <control type="image">
-                  <animation effect="slide" start="0,0" end="800,0" time="0" condition="Integer.IsGreater(Container(7712).NumItems,0) + Control.IsVisible(1505)">Conditional</animation>
-                  <top>420</top>
-                  <left>450</left>
-                  <texture colordiffuse="main_fg_100">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
-                  <height>109</height>
-                  <width>161</width>
-                  <aspectratio aligny="center" align="center">keep</aspectratio>
-                  <animation effect="fade" time="1000">Visible</animation>
                 </control>
                 <control type="group">
                   <height min="100" max="595">auto</height>
@@ -4272,6 +4274,31 @@
         <height>108</height>
         <width>150</width>
         <visible>String.IsEqual(ListItem.DBType,movie)</visible>
+      </control>
+    </definition>
+  </include>
+  <include name="Object_Studio_Logo_Multi_Widget">
+    <param name="studiodirectory" default="coloured" />
+    <definition>
+      <control type="image">
+        <top>-230</top>
+        <left>1280</left>
+        <texture colordiffuse="main_fg_100">$INFO[Window(Home).Property(TMDbHelper.ListItem.Network.1.Name),resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
+        <height>109</height>
+        <width>161</width>
+        <aspectratio aligny="center" align="center">keep</aspectratio>
+        <animation effect="fade" time="1000">Visible</animation>
+        <visible>Control.IsVisible(1505) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name))</visible>
+      </control>
+      <control type="image">
+        <top>-230</top>
+        <left>1280</left>
+        <texture colordiffuse="main_fg_100">$INFO[Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name),resource://resource.images.studios.$PARAM[studiodirectory]/,.png]</texture>
+        <height>109</height>
+        <width>161</width>
+        <aspectratio aligny="center" align="center">keep</aspectratio>
+        <animation effect="fade" time="1000">Visible</animation>
+        <visible>Control.IsVisible(1506) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))</visible>
       </control>
     </definition>
   </include>
