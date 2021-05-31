@@ -1,3 +1,9 @@
+v1.0.15
+-Improve Netflix Episode List view
+-Add clearlogo
+-Adjust progress bar position and size
+-Round corners for progress bar
+-Adjust season and episode label position
 v1.0.14
 -Fix actor thumbnails on multi-widget spotlights
 -Fix studio logos for multi-widget spotlights
