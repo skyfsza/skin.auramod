@@ -2016,7 +2016,7 @@
             <param name="top250" value="true" />
             <param name="plot" value="false" />
             <param name="studio" value="true" />
-            <param name="studioid" value="90676" />
+            <param name="studioid" value="1$PARAM[id]" />
           </include>
         </control>
         <control type="grouplist">
