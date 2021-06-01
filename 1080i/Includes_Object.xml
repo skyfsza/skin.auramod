@@ -4288,7 +4288,7 @@
         <width>161</width>
         <aspectratio aligny="center" align="center">keep</aspectratio>
         <animation effect="fade" time="1000">Visible</animation>
-        <visible>Control.IsVisible(1505) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name))</visible>
+        <visible>Skin.HasSetting(EnableTVMultiWidgetSpotlight) + Control.IsVisible(1505) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name))</visible>
       </control>
       <control type="image">
         <top>-230</top>
@@ -4298,7 +4298,7 @@
         <width>161</width>
         <aspectratio aligny="center" align="center">keep</aspectratio>
         <animation effect="fade" time="1000">Visible</animation>
-        <visible>Control.IsVisible(1506) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))</visible>
+        <visible>Skin.HasSetting(EnableMultiWidgetSpotlight) + Control.IsVisible(1506) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))</visible>
       </control>
     </definition>
   </include>
