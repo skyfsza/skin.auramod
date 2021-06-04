@@ -481,9 +481,6 @@
 
 
 
-    <include name="netflix_largewidgets_top"><top>40</top></include>
-    <include name="netflix_largewidgets_height"><height>40</height></include>
-    <include name="netflix_smallwidgets_top"><top>-40</top></include>
 
     <include name="Widget">
         <param name="submenu" default="false" />
@@ -514,7 +511,7 @@
             <control type="group" id="2$PARAM[id]">
                 <visible>$PARAM[visible]</visible>
                 <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,0) | Container($PARAM[id]).IsUpdating</visible>
-                <include condition="!Skin.HasSetting(DisableNetflixSmallWidget)">netflix_largewidgets_height</include>
+                <include condition="!Skin.HasSetting(DisableNetflixSmallWidget) + !Window.IsVisible(Home)">netflix_largewidgets_height_hub</include>
                 <include condition="Skin.HasSetting(DisableNetflixSmallWidget)">netflix_smallwidgets_top</include>
 		<animation effect="slide" end="0,-40" time="0" condition="!Window.IsVisible(Home) + !Window.IsVisible(3810) + !Window.IsVisible(3820)">Conditional</animation>
 		<animation effect="slide" end="0,-40" time="0" condition="Window.IsVisible(DialogVideoInfo.xml)">Conditional</animation>
@@ -604,11 +601,6 @@
 		    </control>
 		</definition>
 	    </include>
-	    <include name="Widget_Items_Submenu_Height"><height>140</height></include>
-	    <include name="Widget_Items_Submenu_Big_Height"><height>widget_submenu_big_spacer</height></include>
-	    <include name="Widget_Items_menu_Big_Height"><height>420</height></include>
-	    <include name="Widget_Items_menu_Small_Height"><height>210</height></include>
-	    <include name="Widget_Items_menu_Small_Height_poster"><height>270</height></include>
 
 	    <include name="Widget_Label">
 		<definition>
