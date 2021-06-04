@@ -1,3 +1,7 @@
+v1.0.19
+-Fix widget positioning being off-set after upwards scrolling
+v1.0.18
+-Repo release
 v1.0.17
 -Fix multi-widget spotlight studio logo visibility on widget spotlights
 -Add "Kod" an Italian addon for movies and tv series to default search items
