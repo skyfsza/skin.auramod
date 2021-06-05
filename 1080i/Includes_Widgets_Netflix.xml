@@ -602,6 +602,13 @@
 		</definition>
 	    </include>
 
+      <include name="Widget_Items_Submenu_Height">
+        <height>140</height>
+      </include>
+      <include name="Widget_Items_Submenu_Big_Height">
+        <height>widget_submenu_big_spacer</height>
+      </include>
+
 	    <include name="Widget_Label">
 		<definition>
 		    <control type="grouplist">

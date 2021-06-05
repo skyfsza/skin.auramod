@@ -22,12 +22,6 @@
   <include name="netflix_smallwidgets_top">
     <top>-40</top>
   </include>
-  <include name="Widget_Items_Submenu_Height">
-    <height>140</height>
-  </include>
-  <include name="Widget_Items_Submenu_Big_Height">
-    <height>widget_submenu_big_spacer</height>
-  </include>
   <include name="Widget_Items_menu_Big_Height">
     <height>420</height>
   </include>
