@@ -1,3 +1,5 @@
+v1.0.20
+-Fix small category widget position for Aura Home
 v1.0.19
 -Fix widget positioning being off-set after upwards scrolling
 v1.0.18
