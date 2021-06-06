@@ -1452,6 +1452,7 @@
             <radioposx>2</radioposx>
             <label>Cast &amp; More</label>
             <onclick>SetFocus(8999,0)</onclick>
+            <onclick>Skin.SetBool(TMDbHelper.ForceWidgetContainer)</onclick>
             <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Skin.HasSetting(VideoInfo.Disable) + !Skin.HasSetting(VideoInfoButton.CastMore)</visible>
           </control>
           <control type="radiobutton" id="381">
@@ -1580,6 +1581,7 @@
         <ondown>8999</ondown>
         <onright>9000</onright>
         <onback>9570</onback>
+        <onback>Skin.Reset(TMDbHelper.ForceWidgetContainer)</onback>
         <visible allowhiddenfocus="true">Control.HasFocus(8999) | ControlGroup(9000).HasFocus</visible>
         <orientation>vertical</orientation>
         <top>280</top>

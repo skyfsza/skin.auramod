@@ -37,12 +37,27 @@
 	<value condition="!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Metacritic_Rating))">$INFO[Window(Home).Property(TMDBHelper.ListItem.Metacritic_Rating), ,% ]</value>
     </variable>
 
+    <variable name="metacritic_rating_container">
+        <value condition="!String.IsEmpty(Container.ListItem.Property(Metacritic_Rating))">$INFO[Container.ListItem.Property(Metacritic_Rating), ,% ]</value>
+	<value condition="!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.Metacritic_Rating))">$INFO[Window(Home).Property(TMDBHelper.ListItem.Metacritic_Rating), ,% ]</value>
+    </variable>
+
     <variable name="rating_rtmeter">
 	 <value condition="!String.IsEmpty(ListItem.Property(rottentomatoes_rating))">$INFO[ListItem.Property(rottentomatoes_rating), ,% ]</value>
 	 <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Rating))">$INFO[Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Rating), ,% ]</value>
     </variable>
+
+    <variable name="rating_rtmeter_container">
+	 <value condition="!String.IsEmpty(Container.ListItem.Property(rottentomatoes_rating))">$INFO[Container.ListItem.Property(rottentomatoes_rating), ,% ]</value>
+	 <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Rating))">$INFO[Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Rating), ,% ]</value>
+    </variable>
     <variable name="rating_tmdb">
          <value condition="!String.IsEmpty(ListItem.Property(tmdb_rating))">$INFO[ListItem.Property(tmdb_rating), , ]</value>
+         <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.TMDb_Rating))">$INFO[Window(Home).Property(TMDbHelper.ListItem.TMDb_Rating), , ]</value>
+    </variable>
+
+    <variable name="rating_tmdb_container">
+         <value condition="!String.IsEmpty(Container.ListItem.Property(tmdb_rating))">$INFO[Container.ListItem.Property(tmdb_rating), , ]</value>
          <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.TMDb_Rating))">$INFO[Window(Home).Property(TMDbHelper.ListItem.TMDb_Rating), , ]</value>
     </variable>
 
@@ -53,6 +68,11 @@
 
     <variable name="rating_usermeter">
          <value condition="!String.IsEmpty(ListItem.Property(rottentomatoes_usermeter))">$INFO[ListItem.Property(rottentomatoes_usermeter), ,% ]</value>
+         <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_UserMeter))">$INFO[Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_UserMeter), ,% ]</value>
+    </variable>
+
+    <variable name="rating_usermeter_container">
+         <value condition="!String.IsEmpty(Container.ListItem.Property(rottentomatoes_usermeter))">$INFO[Container.ListItem.Property(rottentomatoes_usermeter), ,% ]</value>
          <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_UserMeter))">$INFO[Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_UserMeter), ,% ]</value>
     </variable>
 
@@ -908,6 +928,12 @@
 
     <variable name="star_ratings">
        <value condition="!String.IsEmpty(ListItem.Rating)">$INFO[ListItem.Rating,, ]</value>
+       <value condition="Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)">$INFO[Container(1505).ListItem.Rating,, ]</value>
+       <value condition="Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)">$INFO[Container(1506).ListItem.Rating,, ]</value>
+    </variable>
+
+    <variable name="star_ratings_container">
+       <value condition="!String.IsEmpty(Container.ListItem.Rating)">$INFO[Container.ListItem.Rating,, ]</value>
        <value condition="Control.IsVisible(1505) + !String.IsEmpty(Container(1505).ListItem.Rating)">$INFO[Container(1505).ListItem.Rating,, ]</value>
        <value condition="Control.IsVisible(1506) + !String.IsEmpty(Container(1506).ListItem.Rating)">$INFO[Container(1506).ListItem.Rating,, ]</value>
     </variable>
