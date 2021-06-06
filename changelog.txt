@@ -1,3 +1,7 @@
+v1.0.22
+-Remove Netflix Info "Cast & More" Ratings
+-Revert: Fix Netflix Info "Cast & More" Ratings
+-Re-commit: Adjust Widget_TMDB position
 v1.0.21
 -Fix Netflix Info "Cast & More" Ratings
 -Add separate Ratings include for container lookups
