@@ -1945,6 +1945,8 @@
           <param name="id" value="53001" />
           <param name="onleft" value="8999" />
           <param name="onup" value="8999" />
+          <param name="onfocus" value="" />
+          <param name="onunfocus" value="" />
           <param name="target" value="videos" />
           <param name="sortby" value="" />
           <param name="sortorder" value="" />

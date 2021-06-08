@@ -7418,6 +7418,8 @@
     <param name="onback" default="9570" />
     <param name="onup" default="" />
     <param name="ondown" default="" />
+    <param name="onfocus" default="Skin.SetBool(TMDbHelper.ForceWidgetContainer)" />
+    <param name="onunfocus" default="Skin.Reset(TMDbHelper.ForceWidgetContainer)" />
     <param name="top" default="" />
     <param name="orientation" default="horizontal" />
     <definition>
@@ -7450,8 +7452,8 @@
 	<top>$PARAM[top]</top>
         <ondown>$PARAM[ondown]</ondown>
         <onback>$PARAM[onback]</onback>
-        <onfocus>Skin.SetBool(TMDbHelper.ForceWidgetContainer)</onfocus>
-        <onunfocus>Skin.Reset(TMDbHelper.ForceWidgetContainer)</onunfocus>
+        <onfocus>$PARAM[onfocus]</onfocus>
+        <onunfocus>$PARAM[onunfocus]</onunfocus>
         <onback>Skin.Reset(TMDbHelper.ForceWidgetContainer)</onback>
         <animation effect="fade" start="100" end="0" condition="Window.IsVisible(DialogVideoInfo.xml) + Container($PARAM[id]).IsUpdating">Conditional</animation>
         <movement>1</movement>
