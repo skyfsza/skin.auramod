@@ -1,3 +1,5 @@
+v1.0.26
+-Fix Netflix Info "Cast & More" clearlogo fallback text for episode info
 v1.0.25
 -Fix Netflix Info "Cast & More" clearlogo visibility on focus cast
 -Fix Netflix Info "Cast & More" clearlogo texture inconsistencies
