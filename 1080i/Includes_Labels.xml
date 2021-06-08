@@ -910,6 +910,13 @@
 	<value>$INFO[ListItem.Label]</value>
     </variable>
 
+    <variable name="video_heading_container">
+        <value condition="String.Contains(Container.ListItem.FolderPath,pvr:)">$INFO[Container.ListItem.Title]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.TvShowTitle)">$INFO[Container.ListItem.TvShowTitle]</value>
+	<value condition="!Control.HasFocus(8999) + !Control.HasFocus(53001)">$INFO[Container.ListItem.Label]</value>
+  <value>$INFO[ListItem.Label]</value>
+    </variable>
+
     <variable name="video_heading_1505">
         <value condition="!String.IsEmpty(Container(1505).ListItem.TvShowTitle)">$INFO[Container(1505).ListItem.TvShowTitle]</value>
         <value>$INFO[Container(1505).ListItem.Label]</value>
