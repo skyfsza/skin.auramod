@@ -1,3 +1,5 @@
+v1.0.24
+-Add Netflix Info "Cast & More" dynamic container clearlogo
 v1.0.23
 -Re-add Netflix Info "Cast & More" Ratings
 -Add separate Ratings include for container lookups
