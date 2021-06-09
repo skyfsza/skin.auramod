@@ -1,3 +1,5 @@
+v1.0.31
+-Fix cast list "Staring" spelling mistake
 v1.0.30
 -Improve Skin Helper Service Widgets similar title
 -Match font with widget label
