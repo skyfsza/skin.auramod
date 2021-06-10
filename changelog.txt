@@ -1,3 +1,7 @@
+v1.0.32
+-Fix Netflix Info "Cast & More" clearlogo fallback text inconsistency
+-Fix Netflix Info "Cast & More" clearlogo fallback text ghosting
+-Fix Netflix Info "Cast & More" clearlogo inconsistency
 v1.0.31
 -Fix cast list "Staring" spelling mistake
 v1.0.30
