@@ -1142,7 +1142,7 @@
           <aligny>center</aligny>
           <wrapmultiline>true</wrapmultiline>
           <scroll>true</scroll>
-          <visible>Control.IsVisible(8999)</visible>
+          <visible>[Skin.HasSetting(TMDbHelper.ForceWidgetContainer) | String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.ClearLogo))] + Control.IsVisible(8999)</visible>
         </control>
         <!-- Netflix Info line -->
         <control type="group">
