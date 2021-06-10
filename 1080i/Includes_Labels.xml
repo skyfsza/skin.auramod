@@ -911,11 +911,11 @@
     </variable>
 
     <variable name="video_heading_container">
-        <value condition="[Control.HasFocus(8999) | Control.HasFocus(53012) | Control.HasFocus(53001)] + !String.IsEmpty(ListItem.TvShowTitle) + String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.TvShowTitle]</value>
+        <value condition="$EXP[clearlogo_container_updating] + !String.IsEmpty(ListItem.TvShowTitle)">$INFO[ListItem.TvShowTitle]</value>
+        <value condition="$EXP[clearlogo_container_updating] + !String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(ListItem.Label)">$INFO[ListItem.Label]</value>
         <value condition="String.Contains(Container.ListItem.FolderPath,pvr:)">$INFO[Container.ListItem.Title]</value>
         <value condition="!String.IsEmpty(Container.ListItem.TvShowTitle)">$INFO[Container.ListItem.TvShowTitle]</value>
-	<value condition="!Control.HasFocus(8999) + !Control.HasFocus(53001)">$INFO[Container.ListItem.Label]</value>
-  <value condition="!String.IsEqual(ListItem.DBType,episode) | !Control.HasFocus(8999) + !Control.HasFocus(53001)">$INFO[ListItem.Label]</value>
+	      <value condition="!String.IsEmpty(Container.ListItem.Label)">$INFO[Container.ListItem.Label]</value>
     </variable>
 
     <variable name="video_heading_1505">

@@ -1104,7 +1104,7 @@
           <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
           <visible>!Control.IsVisible(8999)</visible>
         </control>
-        <control type="image">
+        <control type="image" id="55442">
           <left>0</left>
           <right>$PARAM[titleright]</right>
           <height>218</height>
@@ -1130,7 +1130,7 @@
           <visible>!Control.IsVisible(8999)</visible>
         </control>
         <control type="label">
-          <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)] + String.IsEmpty(Container.ListItem.Art(tvshow.clearlogo)) + String.IsEmpty(Container.ListItem.Art(clearlogo)) + String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.ClearLogo))</visible>
+          <visible>[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | !String.IsEmpty(ListItem.ChannelName)] + String.IsEmpty(Control.GetLabel(55442))</visible>
           <top>-190</top>
           <label>$VAR[video_heading_container]</label>
           <textcolor>grey</textcolor>
@@ -1142,7 +1142,7 @@
           <aligny>center</aligny>
           <wrapmultiline>true</wrapmultiline>
           <scroll>true</scroll>
-          <visible>[Skin.HasSetting(TMDbHelper.ForceWidgetContainer) | String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.ClearLogo))] + Control.IsVisible(8999)</visible>
+          <visible>Control.IsVisible(8999)</visible>
         </control>
         <!-- Netflix Info line -->
         <control type="group">
