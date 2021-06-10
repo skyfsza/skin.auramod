@@ -319,8 +319,8 @@
     </variable>
 
     <variable name="NetflixInfo_ClearLogo_Container">
-        <value condition="[Control.HasFocus(8999) | Control.HasFocus(53001)] + !String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
-        <value condition="[Control.HasFocus(8999) | Control.HasFocus(53001)] + !String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
+        <value condition="$EXP[clearlogo_container_updating] + !String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
+        <value condition="$EXP[clearlogo_container_updating] + !String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(tvshow.clearlogo))">$INFO[Container.ListItem.Art(tvshow.clearlogo)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(clearlogo))">$INFO[Container.ListItem.Art(clearlogo)]</value>
         <value condition="String.IsEmpty(Container.ListItem.Art(clearlogo)) + !String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.ClearLogo))">$INFO[Window(Home).Property(TMDBHelper.ListItem.ClearLogo)]</value>
