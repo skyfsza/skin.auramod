@@ -1,3 +1,5 @@
+v1.0.33
+-Fix script.artistslideshow update notice for MusicVisualisation.xml
 v1.0.32
 -Fix Netflix Info "Cast & More" clearlogo fallback text inconsistency
 -Fix Netflix Info "Cast & More" clearlogo fallback text ghosting
