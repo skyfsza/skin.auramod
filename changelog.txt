@@ -1,3 +1,5 @@
+v1.0.34
+-Add Netflix Info "More Episodes" button for TMDBHelper episodes
 v1.0.33
 -Fix script.artistslideshow update notice for MusicVisualisation.xml
 v1.0.32
