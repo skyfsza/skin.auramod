@@ -1,3 +1,5 @@
+v1.0.35
+-Fix Netflix Home Info "jumping" when clearlogo missing for adjacent item
 v1.0.34
 -Add Netflix Info "More Episodes" button for TMDBHelper episodes
 v1.0.33
