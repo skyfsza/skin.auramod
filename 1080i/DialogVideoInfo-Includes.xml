@@ -1463,12 +1463,13 @@
             <radiowidth>25</radiowidth>
             <radioheight>28</radioheight>
             <radioposx>13</radioposx>
-            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Skin.HasSetting(VideoInfoButton.MoreEps) + !String.IsEmpty(ListItem.Property(tvshow.trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)</visible>
+            <visible>String.IsEmpty(Window(home).Property(TrailerPlaying)) + !Skin.HasSetting(VideoInfoButton.MoreEps) + [!String.IsEmpty(ListItem.Property(tvshow.trakt_id)) + String.Contains(ListItem.Path,plugin.video.seren) | String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper) + !String.IsEmpty(ListItem.Property(TMDb_ID))] + String.IsEqual(ListItem.DBType,episode)</visible>
             <label>More Episodes</label>
             <onclick>Skin.SetString(AddonContainer,false)</onclick>
             <onclick>close</onclick>
             <onclick condition="Skin.HasSetting(EnableShowInfo) + Window.IsVisible(1138)">ActivateWindow(Home)</onclick>
             <onclick condition="String.Contains(ListItem.Path,plugin.video.seren) + String.IsEqual(ListItem.DBType,episode)">ActivateWindow(10025,plugin://plugin.video.seren/?action=showSeasons&amp;actionArgs=%7b%22item_type%22%3a%20%22show%22%2c%20%22trakt_id%22%3a%20$INFO[ListItem.Property(tvshow.trakt_id)]%7d,return)</onclick>
+            <onclick condition="String.Contains(ListItem.FolderPath,plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,episode)">ActivateWindow(10025,plugin://plugin.video.themoviedb.helper/?info=seasons&amp;tmdb_id=$INFO[ListItem.Property(TMDb_ID)]&amp;tmdb_type=tv,return)</onclick>
           </control>
           <control type="radiobutton" id="38">
             <include name="netflix_button" content="netflix_button">
