@@ -1832,7 +1832,7 @@
             <width>563</width>
             <aligny>top</aligny>
             <texture background="true">$VAR[NetflixHome_ClearLogo]</texture>
-            <animation effect="fade" start="0" end="100" time="500">Visible</animation>
+            <animation effect="fade" start="0" end="100" time="500" condition="!String.IsEmpty(Control.GetLabel(55446))">Conditional</animation>
             <visible>[Window.IsVisible(Home) + [!Control.HasFocus(660) + !Control.HasFocus(300) + !Control.HasFocus(302) + !Control.HasFocus(30222) + !Control.HasFocus(3001)]] | !Window.IsVisible(Home)</visible>
             <visible>!String.IsEmpty(Control.GetLabel(55446))</visible>
           </control>
