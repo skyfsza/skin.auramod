@@ -259,6 +259,10 @@
         <height>40</height>
         <visible>!$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableCatlabel) + [!$EXP[TVSpotlight] | !$EXP[MovieSpotlight]]</visible>
       </control>
+      <control type="group" id="358" description="Spacer">
+        <height>80</height>
+        <visible>Skin.HasSetting(EnableHomeHeader) + !Skin.HasSetting(DisableMenuHor) + ![$EXP[TVSpotlight] | $EXP[MovieSpotlight]]</visible>
+      </control>
       <include content="WidgetSubmenu" condition="!Skin.HasSetting(HideSubmenuWidget)">
         <param name="id" value="30222" />
         <param name="submenu" value="true" />
