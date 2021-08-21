@@ -1,3 +1,5 @@
+v1.1.2
+-Fix Aura Home spacing when weather header is enabled
 v1.1.1
 -Fix Aura Home horizontal menu layout
 -Fix spotlight info and normal widget positions
