@@ -1,3 +1,6 @@
+v1.1.3
+-Fix episode thumbnail spoilers
+-Fix Kaito search path
 v1.1.2
 -Fix Aura Home spacing when weather header is enabled
 v1.1.1
