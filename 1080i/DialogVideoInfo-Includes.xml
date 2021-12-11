@@ -1078,12 +1078,15 @@
         <height>100%</height>
       </control>
     </control>
-    <include content="Object_Studio_Logo" condition="!Skin.HasSetting(MonochromeFlags)">
-      <param name="studiodirectory" value="coloured" />
-    </include>
-    <include content="Object_Studio_Logo" condition="Skin.HasSetting(MonochromeFlags)">
-      <param name="studiodirectory" value="white" />
-    </include>
+    <control type="group">
+      <animation effect="fade" start="100" end="0" delay="200" time="2000" pulse="false" condition="Skin.HasSetting(VideoInfo.HideTrailer) + Player.HasVideo + !String.IsEmpty(Window(Home).Property(TrailerPlaying))">Conditional</animation>
+      <include content="Object_Studio_Logo" condition="!Skin.HasSetting(MonochromeFlags)">
+        <param name="studiodirectory" value="coloured" />
+      </include>
+      <include content="Object_Studio_Logo" condition="Skin.HasSetting(MonochromeFlags)">
+        <param name="studiodirectory" value="white" />
+      </include>
+    </control>
     <!-- Clearlogo and Fallback Title -->
     <control type="group">
       <left>20</left>
