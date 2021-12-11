@@ -180,8 +180,7 @@
             <property name="path" tag="property" attribute="name|list" value="DefaultSearch-TMDBMovies">plugin://plugin.video.themoviedb.helper?info=search&amp;history=true&amp;type=movie&amp;query=</property>
             <property name="path" tag="property" attribute="name|list" value="DefaultSearch-TMDBShows">plugin://plugin.video.themoviedb.helper?info=search&amp;history=true&amp;type=tv&amp;query=</property>
             <property name="path" tag="property" attribute="name|list" value="DefaultSearch-TMDBPeople">plugin://plugin.video.themoviedb.helper?info=search&amp;type=person&amp;query=</property>
-            <property name="path" tag="property" attribute="name|list" value="DefaultSearch-Kaito">plugin://plugin.video.kaito/search/</property>
-            <property name="path2" tag="property" attribute="name|list" value="DefaultSearch-Kaito">/1</property>
+            <property name="path" tag="property" attribute="name|list" value="DefaultSearch-Kaito">plugin://plugin.video.kaito/?action=search_results&amp;action_args=</property>
 
 
             <property name="label" tag="label" />
