@@ -224,16 +224,20 @@
         <visible>$EXP[noSubMenu] + [[!Skin.HasSetting(DisableMenuHor) + !$EXP[LiveTVSpotlight]] | Skin.HasSetting(DisableMenuHor)]</visible>
       </control>
       <control type="group" id="339" description="Spacer">
-        <height>30</height>
+        <height>-25</height>
         <visible>$EXP[noSubMenu] + Skin.HasSetting(DisableAuraModeGap) + !Skin.HasSetting(DisableMenuHor) + [$EXP[LiveTVSpotlight] | $EXP[TVSpotlight] | $EXP[MovieSpotlight]]</visible>
+      </control>
+      <control type="group" id="335" description="Spacer">
+        <height>50</height>
+        <visible>$EXP[noSubMenu] + Skin.HasSetting(DisableAuraModeGap) + !Skin.HasSetting(DisableMenuHor) + [!$EXP[LiveTVSpotlight] | !$EXP[TVSpotlight] + Control.IsVisible(1505) | !$EXP[MovieSpotlight] + Control.IsVisible(1506)]</visible>
       </control>
       <control type="group" id="340" description="Spacer">
         <height>50</height>
-        <visible>$EXP[noSubMenu] + Skin.HasSetting(DisableAuraModeGap) + !Skin.HasSetting(DisableMenuHor) + !$EXP[LiveTVSpotlight] + !$EXP[TVSpotlight] + !$EXP[MovieSpotlight]</visible>
+        <visible>!Skin.HasSetting(HideSubmenuWidget) + $EXP[noSubMenu] + Skin.HasSetting(DisableAuraModeGap) + !Skin.HasSetting(DisableMenuHor) + !$EXP[LiveTVSpotlight] + !$EXP[TVSpotlight] + !$EXP[MovieSpotlight]</visible>
       </control>
       <control type="group" id="341" description="Spacer">
         <height>70</height>
-        <visible>!Skin.HasSetting(DisableAuraModeGap) + !Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(EnableSpotlight)</visible>
+        <visible>!Skin.HasSetting(HideSubmenuWidget) + !Skin.HasSetting(DisableAuraModeGap) + !Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(EnableSpotlight)</visible>
       </control>
       <control type="group" id="342" description="Spacer">
         <height>855</height>
@@ -241,27 +245,27 @@
       </control>
       <control type="group" id="343" description="Spacer">
         <height>20</height>
-        <visible>$EXP[noSubMenu] + !Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(DisableMenuHor)</visible>
+        <visible>!Skin.HasSetting(HideSubmenuWidget) + $EXP[noSubMenu] + !Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(DisableMenuHor)</visible>
       </control>
       <control type="group" id="344" description="Spacer">
         <height>30</height>
-        <visible>$EXP[noSubMenu] + !Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(DisableMenuHor)</visible>
+        <visible>!Skin.HasSetting(HideSubmenuWidget) + $EXP[noSubMenu] + !Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(DisableMenuHor)</visible>
       </control>
       <control type="group" id="345" description="Spacer">
         <height>-40</height>
-        <visible>Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] + Skin.HasSetting(EnableTVFullSpotlight) | $EXP[MovieSpotlight] + Skin.HasSetting(EnableFullSpotlight)]</visible>
+        <visible>!Skin.HasSetting(HideSubmenuWidget) + Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] + Skin.HasSetting(EnableTVFullSpotlight) | $EXP[MovieSpotlight] + Skin.HasSetting(EnableFullSpotlight)]</visible>
       </control>
       <control type="group" id="346" description="Spacer">
         <height>-60</height>
-        <visible>!$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] + Skin.HasSetting(EnableTVFullSpotlight) | $EXP[MovieSpotlight] + Skin.HasSetting(EnableFullSpotlight)]</visible>
+        <visible>!Skin.HasSetting(HideSubmenuWidget) + !$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] + Skin.HasSetting(EnableTVFullSpotlight) | $EXP[MovieSpotlight] + Skin.HasSetting(EnableFullSpotlight)]</visible>
       </control>
       <control type="group" id="357" description="Spacer">
         <height>40</height>
-        <visible>!$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableCatlabel) + [!$EXP[TVSpotlight] | !$EXP[MovieSpotlight]]</visible>
+        <visible>!Skin.HasSetting(HideSubmenuWidget) + !$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(DisableCatlabel) + [!$EXP[TVSpotlight] | !$EXP[MovieSpotlight]]</visible>
       </control>
       <control type="group" id="358" description="Spacer">
         <height>80</height>
-        <visible>Skin.HasSetting(EnableHomeHeader) + !Skin.HasSetting(DisableMenuHor) + ![$EXP[TVSpotlight] | $EXP[MovieSpotlight]]</visible>
+        <visible>!Skin.HasSetting(HideSubmenuWidget) + Skin.HasSetting(EnableHomeHeader) + !Skin.HasSetting(DisableMenuHor) + ![$EXP[TVSpotlight] | $EXP[MovieSpotlight]]</visible>
       </control>
       <include content="WidgetSubmenu" condition="!Skin.HasSetting(HideSubmenuWidget)">
         <param name="id" value="30222" />
@@ -270,60 +274,53 @@
         <param name="label" value="$VAR[catlabel]" />
         <param name="visible" value="String.IsEqual(Container(300).ListItem.Property(hasSubmenu),true)" />
       </include>
-      <include content="WidgetSubmenu" condition="Skin.HasSetting(HideSubmenuWidget)">
-        <param name="id" value="30222" />
-        <param name="submenu" value="true" />
-        <param name="aspect" value="$LOCALIZE[31263]" />
-        <param name="label" value="$VAR[catlabel]" />
-        <param name="visible" value="false" />
-      </include>
       <include>skinshortcuts-template-vertical-submenu</include>
       <control type="group" id="336">
         <height>-200</height>
       </control>
       <control type="group" id="347" description="Spacer">
         <height>20</height>
-        <visible>$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] + Skin.HasSetting(EnableTVFullSpotlight) | $EXP[MovieSpotlight] + Skin.HasSetting(EnableFullSpotlight)]</visible>
+        <visible>!Skin.HasSetting(HideSubmenuWidget) + $EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] + Skin.HasSetting(EnableTVFullSpotlight) | $EXP[MovieSpotlight] + Skin.HasSetting(EnableFullSpotlight)]</visible>
       </control>
       <control type="group" id="348" description="Spacer">
         <height>40</height>
-        <visible>!$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] + !Skin.HasSetting(EnableTVFullSpotlight) + !Skin.HasSetting(EnableTVWidgetSpotlight) + !Skin.HasSetting(EnableTVMultiWidgetSpotlight) | $EXP[MovieSpotlight] + !Skin.HasSetting(EnableFullSpotlight) + !Skin.HasSetting(EnableWidgetSpotlight) + !Skin.HasSetting(EnableMultiWidgetSpotlight)]</visible>
+        <visible>!Skin.HasSetting(HideSubmenuWidget) + !$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] + !Skin.HasSetting(EnableTVFullSpotlight) + !Skin.HasSetting(EnableTVWidgetSpotlight) + !Skin.HasSetting(EnableTVMultiWidgetSpotlight) | $EXP[MovieSpotlight] + !Skin.HasSetting(EnableFullSpotlight) + !Skin.HasSetting(EnableWidgetSpotlight) + !Skin.HasSetting(EnableMultiWidgetSpotlight)]</visible>
       </control>
       <control type="group" id="349" description="Spacer">
         <height>90</height>
-        <visible>$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] + !Skin.HasSetting(EnableTVFullSpotlight) + !Skin.HasSetting(EnableTVWidgetSpotlight) + !Skin.HasSetting(EnableTVMultiWidgetSpotlight) | $EXP[MovieSpotlight] + !Skin.HasSetting(EnableFullSpotlight) + !Skin.HasSetting(EnableWidgetSpotlight) + !Skin.HasSetting(EnableMultiWidgetSpotlight)]</visible>
+        <visible>!Skin.HasSetting(HideSubmenuWidget) + $EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] + !Skin.HasSetting(EnableTVFullSpotlight) + !Skin.HasSetting(EnableTVWidgetSpotlight) + !Skin.HasSetting(EnableTVMultiWidgetSpotlight) | $EXP[MovieSpotlight] + !Skin.HasSetting(EnableFullSpotlight) + !Skin.HasSetting(EnableWidgetSpotlight) + !Skin.HasSetting(EnableMultiWidgetSpotlight)]</visible>
       </control>
       <control type="group" id="350" description="Spacer">
         <height>40</height>
-        <visible>!$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] + !Skin.HasSetting(EnableTVFullSpotlight) + Skin.HasSetting(EnableTVWidgetSpotlight) + Skin.HasSetting(EnableTVMultiWidgetSpotlight) | $EXP[MovieSpotlight] + !Skin.HasSetting(EnableFullSpotlight) + Skin.HasSetting(EnableWidgetSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight)]</visible>
+        <visible>!Skin.HasSetting(HideSubmenuWidget) + !$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] + !Skin.HasSetting(EnableTVFullSpotlight) + Skin.HasSetting(EnableTVWidgetSpotlight) + Skin.HasSetting(EnableTVMultiWidgetSpotlight) | $EXP[MovieSpotlight] + !Skin.HasSetting(EnableFullSpotlight) + Skin.HasSetting(EnableWidgetSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight)]</visible>
       </control>
       <control type="group" id="351" description="Spacer">
         <height>90</height>
-        <visible>$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] + !Skin.HasSetting(EnableTVFullSpotlight) + Skin.HasSetting(EnableTVWidgetSpotlight) + Skin.HasSetting(EnableTVMultiWidgetSpotlight) | $EXP[MovieSpotlight] + !Skin.HasSetting(EnableFullSpotlight) + Skin.HasSetting(EnableWidgetSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight)]</visible>
+        <visible>!Skin.HasSetting(HideSubmenuWidget) + $EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + [$EXP[TVSpotlight] + !Skin.HasSetting(EnableTVFullSpotlight) + Skin.HasSetting(EnableTVWidgetSpotlight) + Skin.HasSetting(EnableTVMultiWidgetSpotlight) | $EXP[MovieSpotlight] + !Skin.HasSetting(EnableFullSpotlight) + Skin.HasSetting(EnableWidgetSpotlight) + Skin.HasSetting(EnableMultiWidgetSpotlight)]</visible>
       </control>
       <control type="group" id="352" description="Spacer">
         <height>40</height>
-        <visible>!$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(LargeSubmenuLabel) + [!$EXP[TVSpotlight] | !$EXP[MovieSpotlight]]</visible>
+        <visible>!Skin.HasSetting(HideSubmenuWidget) + !$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(LargeSubmenuLabel) + [!$EXP[TVSpotlight] | !$EXP[MovieSpotlight]]</visible>
       </control>
       <control type="group" id="353" description="Spacer">
         <height>90</height>
-        <visible>$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(LargeSubmenuLabel) + [!$EXP[TVSpotlight] | !$EXP[MovieSpotlight]]</visible>
+        <visible>!Skin.HasSetting(HideSubmenuWidget) + $EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(LargeSubmenuLabel) + [!$EXP[TVSpotlight] | !$EXP[MovieSpotlight]]</visible>
       </control>
       <control type="group" id="354" description="Spacer">
         <height>40</height>
-        <visible>!$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(LargeSubmenuLabel) + [!$EXP[TVSpotlight] | !$EXP[MovieSpotlight]]</visible>
+        <visible>!Skin.HasSetting(HideSubmenuWidget) + !$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(LargeSubmenuLabel) + [!$EXP[TVSpotlight] | !$EXP[MovieSpotlight]]</visible>
       </control>
       <control type="group" id="355" description="Spacer">
         <height>90</height>
-        <visible>$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(LargeSubmenuLabel) + [!$EXP[TVSpotlight] | !$EXP[MovieSpotlight]]</visible>
+        <visible>!Skin.HasSetting(HideSubmenuWidget) + $EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + Skin.HasSetting(SubmenuLabel) + Skin.HasSetting(LargeSubmenuLabel) + [!$EXP[TVSpotlight] | !$EXP[MovieSpotlight]]</visible>
       </control>
       <control type="group" id="356" description="Spacer">
         <height>-5</height>
-        <visible>!$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(LargeSubmenuLabel) + [!$EXP[TVSpotlight] | !$EXP[MovieSpotlight]]</visible>
+        <visible>!Skin.HasSetting(HideSubmenuWidget) + !$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(LargeSubmenuLabel) + [!$EXP[TVSpotlight] | !$EXP[MovieSpotlight]]</visible>
       </control>
       <control type="group" id="357" description="Spacer">
         <height>45</height>
-        <visible>$EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(LargeSubmenuLabel) + [!$EXP[TVSpotlight] | !$EXP[MovieSpotlight]]</visible>
+        <visible>!Skin.HasSetting(HideSubmenuWidget) + $EXP[noSubMenu] + Skin.HasSetting(DisableMenuHor) + !Skin.HasSetting(SubmenuLabel) + !Skin.HasSetting(LargeSubmenuLabel) + [!$EXP[TVSpotlight] | !$EXP[MovieSpotlight]]</visible>
       </control>
     </control>
   </include>

@@ -780,7 +780,8 @@
         <scrolltime>500</scrolltime>
         <onup>300</onup>
         <ondown condition="!Skin.HasSetting(DisableNetflixCatWidget) + !$EXP[noSubMenu]">30222</ondown>
-        <ondown condition="Skin.HasSetting(DisableNetflixCatWidget) | $EXP[noSubMenu]">30222</ondown>
+        <ondown condition="!Skin.HasSetting(HideSubmenuWidget) + [Skin.HasSetting(DisableNetflixCatWidget) | $EXP[noSubMenu]]">30222</ondown>
+        <ondown condition="Skin.HasSetting(HideSubmenuWidget) + [Skin.HasSetting(DisableNetflixCatWidget) | $EXP[noSubMenu]]">330</ondown>
         <movement>1</movement>
         <include content="Widget_Common">
           <param name="top" value="$PARAM[top]" />
@@ -976,8 +977,9 @@
         <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)</visible>
         <defaultcontrol>4000</defaultcontrol>
         <orientation>horizontal</orientation>
-        <ondown condition="!Skin.HasSetting(DisableNetflixCatWidget)">30222</ondown>
-        <ondown condition="Skin.HasSetting(DisableNetflixCatWidget)">330</ondown>
+        <ondown condition="!Skin.HasSetting(DisableNetflixCatWidget) + !$EXP[noSubMenu]">30222</ondown>
+        <ondown condition="!Skin.HasSetting(HideSubmenuWidget) + [Skin.HasSetting(DisableNetflixCatWidget) | $EXP[noSubMenu]]">30222</ondown>
+        <ondown condition="Skin.HasSetting(HideSubmenuWidget) + [Skin.HasSetting(DisableNetflixCatWidget) | $EXP[noSubMenu]]">330</ondown>
         <onleft>300</onleft>
         <onup condition="">505</onup>
         <onfocus condition="!String.IsEmpty(Window(Home).Property(ShowSpotlightInfo))">Action(Info)</onfocus>
@@ -1024,8 +1026,9 @@
       <onup condition="!Skin.HasSetting(DisableSpotlightAutoplay) + Player.HasVideo + !String.IsEmpty(Window(home).Property(trailer_trailerwillplaying))">ClearProperty(trailer_trailerwillplaying)</onup>
       <onup condition="!Skin.HasSetting(DisableSpotlightAutoplay) + System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onup>
       <onup condition="Skin.HasSetting(DisableMenuHor)">300</onup>
-      <ondown condition="!Skin.HasSetting(DisableNetflixCatWidget)">30222</ondown>
-      <ondown condition="Skin.HasSetting(DisableNetflixCatWidget)">330</ondown>
+      <ondown condition="!Skin.HasSetting(DisableNetflixCatWidget) + !$EXP[noSubMenu]">30222</ondown>
+      <ondown condition="!Skin.HasSetting(HideSubmenuWidget) + [Skin.HasSetting(DisableNetflixCatWidget) | $EXP[noSubMenu]]">30222</ondown>
+      <ondown condition="Skin.HasSetting(HideSubmenuWidget) + [Skin.HasSetting(DisableNetflixCatWidget) | $EXP[noSubMenu]]">330</ondown>
       <onright>Control.Move(1505,1)</onright>
       <onleft>300</onleft>
       <width>600</width>
@@ -1089,8 +1092,9 @@
         <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)</visible>
         <defaultcontrol>4000</defaultcontrol>
         <orientation>horizontal</orientation>
-        <ondown condition="!Skin.HasSetting(DisableNetflixCatWidget)">30222</ondown>
-        <ondown condition="Skin.HasSetting(DisableNetflixCatWidget)">330</ondown>
+        <ondown condition="!Skin.HasSetting(DisableNetflixCatWidget) + !$EXP[noSubMenu]">30222</ondown>
+        <ondown condition="!Skin.HasSetting(HideSubmenuWidget) + [Skin.HasSetting(DisableNetflixCatWidget) | $EXP[noSubMenu]]">30222</ondown>
+        <ondown condition="Skin.HasSetting(HideSubmenuWidget) + [Skin.HasSetting(DisableNetflixCatWidget) | $EXP[noSubMenu]]">330</ondown>
         <onleft>300</onleft>
         <onup>505</onup>
         <onfocus condition="!String.IsEmpty(Window(Home).Property(ShowSpotlightInfo))">Action(Info)</onfocus>
@@ -1278,8 +1282,9 @@
         <visible>!String.IsEqual(Container(300).ListItem.Property(widget),Weather) + !String.IsEqual(Container(300).ListItem.Property(widget),Settings) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Settings Widget) + !String.IsEqual(Container(300).ListItem.Property(widgetType),Weather Widget)</visible>
         <defaultcontrol>4000</defaultcontrol>
         <orientation>horizontal</orientation>
-        <ondown condition="!Skin.HasSetting(DisableNetflixCatWidget)">30222</ondown>
-        <ondown condition="Skin.HasSetting(DisableNetflixCatWidget)">330</ondown>
+        <ondown condition="!Skin.HasSetting(DisableNetflixCatWidget) + !$EXP[noSubMenu]">30222</ondown>
+        <ondown condition="!Skin.HasSetting(HideSubmenuWidget) + [Skin.HasSetting(DisableNetflixCatWidget) | $EXP[noSubMenu]]">30222</ondown>
+        <ondown condition="Skin.HasSetting(HideSubmenuWidget) + [Skin.HasSetting(DisableNetflixCatWidget) | $EXP[noSubMenu]]">330</ondown>
         <onup>300</onup>
 	<onback>300</onback>
         <onleft>300</onleft>
@@ -1361,8 +1366,9 @@
       <onup condition="!Skin.HasSetting(DisableSpotlightAutoplay) + Player.HasVideo + !String.IsEmpty(Window(home).Property(trailer_trailerwillplaying))">ClearProperty(trailer_trailerwillplaying)</onup>
       <onup condition="!Skin.HasSetting(DisableSpotlightAutoplay) + System.HasAlarm(trailer_delay)">CancelAlarm(trailer_delay,true)</onup>
       <onup condition="Skin.HasSetting(DisableMenuHor)">300</onup>
-      <ondown condition="!Skin.HasSetting(DisableNetflixCatWidget)">30222</ondown>
-      <ondown condition="Skin.HasSetting(DisableNetflixCatWidget)">330</ondown>
+      <ondown condition="!Skin.HasSetting(DisableNetflixCatWidget) + !$EXP[noSubMenu]">30222</ondown>
+      <ondown condition="!Skin.HasSetting(HideSubmenuWidget) + [Skin.HasSetting(DisableNetflixCatWidget) | $EXP[noSubMenu]]">30222</ondown>
+      <ondown condition="Skin.HasSetting(HideSubmenuWidget) + [Skin.HasSetting(DisableNetflixCatWidget) | $EXP[noSubMenu]]">330</ondown>
       <onright>Control.Move(1506,1)</onright>
       <onleft>300</onleft>
       <width>600</width>
