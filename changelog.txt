@@ -1,3 +1,8 @@
+v1.1.5
+-Fix Aura Home category widget spacing
+-Remove widget gap when category widget is disabled
+-Fix spotlight navigation down when category widget is disabled
+-Remove invisible category widget for workaround of grouplist usecontrolcoords
 v1.1.4
 -Fix studio logo visibility while trailer is playing
 v1.1.3
